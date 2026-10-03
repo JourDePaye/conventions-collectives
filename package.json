@@ -38,5 +38,9 @@
     "yaml": "^2.9.1",
     "publicodes": "1.10.3",
     "modele-social": "11.1.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

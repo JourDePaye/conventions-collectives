@@ -154,6 +154,47 @@ npm pack --dry-run
 
 Ces commandes vérifient respectivement les types TypeScript, la construction du package et la liste des fichiers inclus dans son archive. La CI GitHub exécute les tests et ces vérifications à chaque push et pull request.
 
+## Publier sur npm
+
+Le workflow [Publish to npm](.github/workflows/publish.yml) construit et publie `@jourdepaye/conventions-collectives` sur le registre npm public. Il exécute les tests, vérifie les types et le verrou des versions, puis construit une archive et vérifie le chargement de toutes ses règles avant de la publier. La publication inclut une attestation de provenance.
+
+### Configurer l’authentification
+
+Le compte utilisé doit avoir le droit de publier dans le scope npm `@jourdepaye`.
+
+Pour la première publication, si le package n’existe pas encore, ajoutez un token npm granulaire dans le secret GitHub **`NPM_TOKEN`** du dépôt (Settings → Secrets and variables → Actions). Le token doit autoriser la création et la publication du package dans ce scope, avec l’option permettant de contourner la 2FA pour la CI.
+
+Une fois le package créé, configurez son **Trusted Publisher** dans les paramètres du package sur npmjs.com :
+
+- Fournisseur : **GitHub Actions**.
+- Organisation GitHub : **`JourDePaye`**.
+- Dépôt : **`conventions-collectives`**.
+- Nom du workflow : **`publish.yml`** (sans le chemin `.github/workflows/`).
+- Environnement : laissez ce champ vide ; le workflow n’utilise pas d’environnement GitHub.
+
+Cette configuration permet les publications suivantes par OIDC, sans token npm stocké. Après vérification d’une publication OIDC réussie, vous pouvez supprimer le secret `NPM_TOKEN` et révoquer le token de démarrage. Voir la [documentation npm du trusted publishing](https://docs.npmjs.com/trusted-publishers/).
+
+### Déclencher une publication
+
+Depuis la branche `main`, avec un répertoire de travail propre, mettez à jour la version du package et son lockfile, puis poussez le commit et le tag correspondant :
+
+```sh
+npm version patch
+git push origin main
+git push origin --tags
+```
+
+`npm version patch` crée le commit de version et un tag `vX.Y.Z`. Vous pouvez utiliser `minor` ou `major` selon la nature du changement. Pour publier la version initiale `0.1.0`, déjà renseignée dans le package :
+
+```sh
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+Un tag déclenche la publication seulement si son nom correspond exactement à la version de `package.json`. Les versions stables sont publiées sous le dist-tag npm `latest` ; les préversions, comme `0.2.0-beta.1`, sous `next`. Une version npm déjà publiée ne peut pas être publiée à nouveau : incrémentez la version pour une nouvelle distribution.
+
+Vous pouvez aussi ouvrir **Actions → Publish to npm → Run workflow** sur `main` ou sur un tag `v…`. L’option **`dry_run`**, activée par défaut, vérifie le processus sans publier et sans identifiants npm. Désactivez-la pour effectuer une publication réelle de la version choisie.
+
 ## Contribuer
 
 Les contributions sont les bienvenues, qu’il s’agisse d’une nouvelle convention, d’une nouvelle grille, de dispositions encore absentes ou d’une amélioration des tests et de la documentation. Vous pouvez ouvrir une issue pour discuter d’un sujet ou proposer directement une pull request.
