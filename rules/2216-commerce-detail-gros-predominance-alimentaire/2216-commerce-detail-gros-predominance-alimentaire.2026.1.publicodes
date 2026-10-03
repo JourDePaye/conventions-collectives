@@ -1,0 +1,83 @@
+# Convention collective nationale du commerce de détail et de gros à prédominance
+# alimentaire du 12 juillet 2001 (IDCC 2216, brochure 3305).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2026-08-01
+sources:
+  - Avenant n° 99 du 17 avril 2026 relatif aux salaires minima conventionnels (avis
+    d'extension JORF du 2 juin 2026, NOR TRST2614266V), étendu par arrêté du 6 juillet 2026
+    (JORF du 10 juillet 2026), applicable le 1er août 2026.
+  - Grille SMMG complète chez convention.fr, concordante avec les montants partiels de
+    Juritravail, Salerya et fiche-paie.net et avec taux horaire × 159,25 h (151,67 h +
+    7,58 h de pauses). Texte de l'avenant non consulté directement, à confirmer sur
+    Légifrance.
+---
+salarié . convention collective . commerce alimentaire:
+  titre: Commerce de détail et de gros à prédominance alimentaire (IDCC 2216)
+  valeur: convention collective = 'commerce alimentaire'
+
+salarié . convention collective . commerce alimentaire . niveau:
+  titre: Niveau de classification
+  description: |
+    Niveaux 1 à 4 : « A » pendant la période d'accueil dans le niveau, « B » ensuite
+    (1A, 1B, 2A, 2B, 3A, 3B, 4A, 4B). Niveaux 5 et 6 : agents de maîtrise. Niveaux 7 et
+    8 : cadres.
+  applicable si: convention collective = 'commerce alimentaire'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commerce alimentaire . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti (SMMG)
+  description: |
+    SMMG du niveau pour 35 heures de travail effectif par semaine, rémunération des pauses
+    comprise (5 % du temps de travail effectif), proratisé pour un temps partiel. Vaut
+    0 €/mois si le niveau n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'commerce alimentaire'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerce alimentaire . salaire minimum conventionnel . grille:
+  titre: SMMG à temps plein
+  unité: €/mois
+  variations:
+    - si: niveau = '1A'
+      alors: 1914.19 €/mois
+    - si: niveau = '1B'
+      alors: 1915.78 €/mois
+    - si: niveau = '2A'
+      alors: 1917.37 €/mois
+    - si: niveau = '2B'
+      alors: 1931.70 €/mois
+    - si: niveau = '3A'
+      alors: 1933.30 €/mois
+    - si: niveau = '3B'
+      alors: 1950.81 €/mois
+    - si: niveau = '4A'
+      alors: 1954.00 €/mois
+    - si: niveau = '4B'
+      alors: 2054.33 €/mois
+    - si: niveau = '5'
+      alors: 2167.03 €/mois
+    - si: niveau = '6'
+      alors: 2290.67 €/mois
+    - si: niveau = '7'
+      alors: 2973.57 €/mois
+    - si: niveau = '8'
+      alors: 3996.47 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerce alimentaire . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'commerce alimentaire'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un niveau inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois

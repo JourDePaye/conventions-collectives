@@ -1,0 +1,88 @@
+# Convention collective nationale des hôtels, cafés, restaurants du 30 avril 1997
+# (HCR, IDCC 1979).
+#
+# Version 2024.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# modele-social définit déjà « salarié . convention collective . HCR » (avantage en nature
+# repas, majoration des heures supplémentaires, prévoyance) : cette version y ajoute la
+# grille des salaires minima.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2024-12-01
+sources:
+  - Avenant n° 33 du 19 juin 2024 relatif aux salaires (article 2, minima horaires bruts),
+    étendu par arrêté du 5 novembre 2024 (JORF du 9 novembre 2024, NOR TEMT2427392A),
+    applicable le 1er jour du mois suivant la publication, soit le 1er décembre 2024.
+  - Un avenant n° 36 du 4 juin 2026 revalorise la grille mais n'est pas encore étendu
+    (à intégrer dans une nouvelle version après son arrêté d'extension).
+---
+salarié . convention collective . HCR . niveau:
+  titre: Niveau et échelon de classification HCR
+  description: |
+    Au format « <niveau>.<échelon> » : de I.1 à V.3. Niveaux I à III : employés, niveau
+    IV : agents de maîtrise, niveau V : cadres.
+  applicable si: convention collective = 'HCR'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . HCR . taux horaire minimum:
+  titre: Taux horaire minimum conventionnel HCR
+  description: |
+    Minimum horaire brut applicable en métropole et dans les DROM. Vaut 0 €/heure si le
+    niveau n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'HCR'
+  unité: €/heure
+  variations:
+    - si: niveau = 'I.1'
+      alors: 12.00 €/heure
+    - si: niveau = 'I.2'
+      alors: 12.08 €/heure
+    - si: niveau = 'I.3'
+      alors: 12.18 €/heure
+    - si: niveau = 'II.1'
+      alors: 12.28 €/heure
+    - si: niveau = 'II.2'
+      alors: 12.55 €/heure
+    - si: niveau = 'II.3'
+      alors: 13.17 €/heure
+    - si: niveau = 'III.1'
+      alors: 13.32 €/heure
+    - si: niveau = 'III.2'
+      alors: 13.54 €/heure
+    - si: niveau = 'III.3'
+      alors: 14.00 €/heure
+    - si: niveau = 'IV.1'
+      alors: 14.40 €/heure
+    - si: niveau = 'IV.2'
+      alors: 14.77 €/heure
+    - si: niveau = 'IV.3'
+      alors: 15.40 €/heure
+    - si: niveau = 'V.1'
+      alors: 18.43 €/heure
+    - si: niveau = 'V.2'
+      alors: 21.78 €/heure
+    - si: niveau = 'V.3'
+      alors: 28.12 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . HCR . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel HCR
+  description: |
+    Taux horaire minimum appliqué aux heures du contrat hors heures supplémentaires
+    (151,67 h pour un temps plein), comme le SMIC.
+  applicable si: convention collective = 'HCR'
+  unité: €/mois
+  produit:
+    - taux horaire minimum
+    - contrat . temps de travail
+
+salarié . convention collective . HCR . niveau hors grille:
+  titre: Niveau absent de la grille HCR
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'HCR'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/heure pour un niveau inconnu.
+  valeur: taux horaire minimum = 0 €/heure

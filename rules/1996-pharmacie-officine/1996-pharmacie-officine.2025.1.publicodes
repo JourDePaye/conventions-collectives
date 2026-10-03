@@ -1,0 +1,106 @@
+# Convention collective nationale de la pharmacie d'officine du 3 décembre 1997
+# (IDCC 1996, brochure 3052).
+#
+# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version. Une revalorisation annuelle ne change en
+# principe que la valeur du point et le salaire garanti au coefficient 100.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version. Elle tombe en cours de mois : la paie retient
+# la version en vigueur le premier jour de la période, donc cette version s'applique à
+# partir des paies de juin 2025.
+validFrom: 2025-05-24
+sources:
+  - Accord collectif national du 10 mars 2025 relatif aux salaires (article 1er, valeur du
+    point 5,215 €/heure ; article 2, 1 802 € au coefficient 100 ; article 3, grille),
+    applicable à la publication au Journal officiel de son arrêté d'extension, soit le
+    24 mai 2025 (circulaire FSPF).
+  - Classification des emplois (annexe I) issue de l'avenant du 28 avril 2025, applicable
+    le 1er novembre 2025 ; les cadres peuvent être placés sur des coefficients
+    intermédiaires, d'où un coefficient accepté de 100 à 800.
+---
+salarié . convention collective . pharmacie:
+  titre: Pharmacie d'officine (IDCC 1996)
+  valeur: convention collective = 'pharmacie'
+
+salarié . convention collective . pharmacie . coefficient:
+  titre: Coefficient de classification pharmacie d'officine
+  description: |
+    Par exemple : 100 (agent de nettoyage), 135 (employé en pharmacie, 1er échelon), 250
+    (préparateur, 1er échelon), 330 (préparateur 9e échelon, assimilé cadre), 470
+    (pharmacien adjoint, 1er échelon), 800 (pharmacien adjoint, position III).
+  applicable si: convention collective = 'pharmacie'
+  par défaut: 0
+
+salarié . convention collective . pharmacie . valeur du point:
+  titre: Valeur du point conventionnel de salaire
+  applicable si: convention collective = 'pharmacie'
+  valeur: 5.215 €/heure
+
+salarié . convention collective . pharmacie . salaire garanti au coefficient 100:
+  titre: Salaire mensuel garanti au coefficient 100
+  description: Pour la durée légale de 35 heures hebdomadaires, primes exclues.
+  applicable si: convention collective = 'pharmacie'
+  valeur: 1802 €/mois
+
+salarié . convention collective . pharmacie . salaire minimum conventionnel:
+  titre: Salaire minimum hiérarchique pharmacie d'officine
+  description: |
+    Salaire minimum du coefficient pour 35 heures hebdomadaires, proratisé pour un temps
+    partiel. Vaut 0 €/mois pour un coefficient hors grille (voir « coefficient hors
+    grille »).
+  applicable si: convention collective = 'pharmacie'
+  unité: €/mois
+  produit:
+    - temps plein
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . pharmacie . salaire minimum conventionnel . temps plein:
+  titre: Salaire minimum à temps plein
+  unité: €/mois
+  variations:
+    - si: coefficient hors grille
+      alors: 0 €/mois
+    - si: coefficient >= 240
+      alors: selon le point
+    - sinon: courbe de raccordement
+
+salarié . convention collective . pharmacie . salaire minimum conventionnel . temps plein . selon le point:
+  titre: Salaire selon la valeur du point
+  description: Coefficient / 100 × valeur du point × 151,67 heures, arrondi au centime.
+  unité: €/mois
+  arrondi: 2 décimales
+  produit:
+    - coefficient / 100
+    - valeur du point
+    - 151.67 heure/mois
+
+salarié . convention collective . pharmacie . salaire minimum conventionnel . temps plein . courbe de raccordement:
+  titre: Courbe de raccordement (coefficients 100 à 240 exclu)
+  description: |
+    Progression linéaire entre le salaire garanti au coefficient 100 et le salaire du
+    coefficient 240 selon la valeur du point (arrondi au centime), arrondie au centime.
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: >-
+    salaire garanti au coefficient 100
+    + (coefficient - 100) / 140 * (au coefficient 240 - salaire garanti au coefficient 100)
+
+salarié . convention collective . pharmacie . salaire minimum conventionnel . temps plein . courbe de raccordement . au coefficient 240:
+  unité: €/mois
+  arrondi: 2 décimales
+  produit:
+    - 240 / 100
+    - valeur du point
+    - 151.67 heure/mois
+
+salarié . convention collective . pharmacie . coefficient hors grille:
+  titre: Coefficient absent de la grille pharmacie d'officine
+  description: La grille couvre les coefficients 100 à 800.
+  applicable si: convention collective = 'pharmacie'
+  une de ces conditions:
+    - coefficient < 100
+    - coefficient > 800

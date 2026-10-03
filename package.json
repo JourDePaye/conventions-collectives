@@ -1,0 +1,42 @@
+{
+  "name": "@jourdepaye/conventions-collectives",
+  "version": "0.1.0",
+  "description": "Versioned French collective agreement publicodes rules for modele-social",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JourDePaye/conventions-collectives.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "rules"
+  ],
+  "scripts": {
+    "compile-rules": "node scripts/compile-collective-agreements.ts",
+    "build": "npm run compile-rules && tsc -p tsconfig.build.json",
+    "typecheck": "npm run compile-rules && tsc --noEmit",
+    "test": "npm run compile-rules && node --test \"test/**/*.test.ts\"",
+    "prepare": "npm run build",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "publicodes": "^1.10.3",
+    "modele-social": "11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "typescript": "^5",
+    "yaml": "^2.9.1",
+    "publicodes": "1.10.3",
+    "modele-social": "11.1.0"
+  }
+}

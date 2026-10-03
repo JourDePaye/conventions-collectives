@@ -1,0 +1,95 @@
+# Convention collective nationale des bureaux d'études techniques, des cabinets
+# d'ingénieurs-conseils et des sociétés de conseils (Syntec, IDCC 1486).
+#
+# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version, par exemple syntec.2025.2.publicodes.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2025-01-01
+sources:
+  - Accord du 26 juin 2024 sur les salaires minimaux, étendu par arrêté du 8 novembre 2024
+    (JORF du 27 novembre 2024), applicable au 1er janvier 2025.
+  - Grille 2025 concordante chez PayFit et CGT Atos. Une revalorisation au 1er janvier
+    2026 est annoncée mais non confirmée (à valider sur Légifrance).
+---
+salarié . convention collective . syntec:
+  titre: Bureaux d'études techniques (Syntec, IDCC 1486)
+  valeur: convention collective = 'syntec'
+
+salarié . convention collective . syntec . coefficient:
+  titre: Coefficient de classification Syntec
+  description: |
+    ETAM : 240 (1.1), 250 (1.2), 275 (2.1), 310 (2.2), 355 (2.3), 400 (3.1), 450 (3.2),
+    500 (3.3). Ingénieurs et cadres : 95 (1.1), 100 (1.2), 105 (2.1, moins de 26 ans),
+    115 (2.1, 26 ans et plus), 130 (2.2), 150 (2.3), 170 (3.1), 210 (3.2), 270 (3.3).
+  applicable si: convention collective = 'syntec'
+  par défaut: 0
+
+salarié . convention collective . syntec . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel Syntec
+  description: |
+    Salaire mensuel brut minimum pour un temps plein, selon la catégorie (ETAM ou
+    ingénieurs et cadres) et le coefficient. Vaut 0 €/mois si le coefficient n'existe
+    pas dans la grille de la catégorie (voir « coefficient hors grille »).
+  applicable si: convention collective = 'syntec'
+  unité: €/mois
+  variations:
+    - si: contrat . statut cadre
+      alors: grille ingénieurs et cadres
+    - sinon: grille ETAM
+
+salarié . convention collective . syntec . salaire minimum conventionnel . grille ETAM:
+  unité: €/mois
+  variations:
+    - si: coefficient = 240
+      alors: 1815 €/mois
+    - si: coefficient = 250
+      alors: 1845 €/mois
+    - si: coefficient = 275
+      alors: 1875 €/mois
+    - si: coefficient = 310
+      alors: 1905 €/mois
+    - si: coefficient = 355
+      alors: 2045 €/mois
+    - si: coefficient = 400
+      alors: 2185 €/mois
+    - si: coefficient = 450
+      alors: 2340 €/mois
+    - si: coefficient = 500
+      alors: 2490 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . syntec . salaire minimum conventionnel . grille ingénieurs et cadres:
+  unité: €/mois
+  variations:
+    - si: coefficient = 95
+      alors: 2135 €/mois
+    - si: coefficient = 100
+      alors: 2240 €/mois
+    - si: coefficient = 105
+      alors: 2315 €/mois
+    - si: coefficient = 115
+      alors: 2530 €/mois
+    - si: coefficient = 130
+      alors: 2850 €/mois
+    - si: coefficient = 150
+      alors: 3275 €/mois
+    - si: coefficient = 170
+      alors: 3650 €/mois
+    - si: coefficient = 210
+      alors: 4495 €/mois
+    - si: coefficient = 270
+      alors: 5755 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . syntec . coefficient hors grille:
+  titre: Coefficient absent de la grille Syntec
+  description: Le coefficient n'existe pas dans la grille de la catégorie du salarié.
+  applicable si: convention collective = 'syntec'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : les grilles valent donc 0 €/mois pour un coefficient inconnu.
+  valeur: salaire minimum conventionnel = 0 €/mois
