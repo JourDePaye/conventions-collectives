@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Cinq conventions sont actuellement représentées, avec sept versions de modèles. Leur couverture porte sur les salaires minima et la classification nécessaire à leur calcul ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
+Six conventions sont actuellement représentées, avec huit versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
@@ -17,6 +17,7 @@ Cinq conventions sont actuellement représentées, avec sept versions de modèle
 | Pharmacie d’officine | 1996 | `2025.1` : 24 mai 2025 ; `2026.1` : 17 avril 2026 | Minima selon le coefficient, la valeur du point et le salaire garanti au coefficient 100 ; proratisation selon la quotité de travail |
 | Commerce de détail et de gros à prédominance alimentaire | 2216 | `2025.1` : 1er août 2025 ; `2026.1` : 1er août 2026 | Salaire minimum mensuel garanti par niveau, pauses rémunérées comprises ; proratisation selon la quotité de travail |
 | Aide, accompagnement, soins et services à domicile | 2941 | `2026.1` : 1er juin 2026 (extension publiée le 23 juillet 2026) | Grilles intervention et support, base avec plancher SMIC, ECR diplôme et ancienneté ; tutorat, apprentissage et astreintes |
+| Particuliers employeurs et emploi à domicile | 3239 | `2026.1` : 1er juin 2026 | Minima des 12 niveaux et certifications, socle assistant maternel par enfant, mensualisation, présence responsable de jour, heures additionnelles et prestations en nature |
 
 Les références des accords et de leurs arrêtés d’extension figurent dans les métadonnées de chaque fichier source.
 
@@ -36,6 +37,8 @@ rules/
     2216-commerce-detail-gros-predominance-alimentaire.2026.1.publicodes
   2941-aide-soins-domicile/
     2941-aide-soins-domicile.2026.1.publicodes
+  3239-particuliers-employeurs-emploi-domicile/
+    3239-particuliers-employeurs-emploi-domicile.2026.1.publicodes
   versions.lock.json
 scripts/
   compile-collective-agreements.ts
@@ -46,6 +49,7 @@ test/
   compile-collective-agreements.test.ts
   models.test.ts
   aide-soins-domicile.test.ts
+  particuliers-employeurs.test.ts
 ```
 
 Les répertoires suivent le format `<idcc>-<nom-français-de-la-convention>` et les fichiers le format `<idcc>-<nom>.année.révision.publicodes`. Les noms de chemins utilisent des minuscules et des tirets, sans accents.
@@ -110,6 +114,35 @@ Paramètres complémentaires sous `salarié . convention collective . aide et so
 
 Les ECR de tutorat, apprentissage et astreinte sont exposés séparément, avec leur somme dans `compléments ponctuels calculés`. L’application doit les ajouter à la rémunération pour les mois concernés ; ils ne sont pas incorporés au minimum récurrent pour éviter un ajout en double. Les majorations de travail de nuit, dimanche et jours fériés, les repos compensateurs, les heures supplémentaires, les frais de déplacement, les absences et les autres dispositions de la convention restent à modéliser. Les évolutions non étendues de l’avenant 74/2026 sont exclues de ce modèle général.
 
+## Modèle particuliers employeurs et emploi à domicile — IDCC 3239
+
+L’identifiant officiel de cette convention est **3239**, et non 3230 (presse d’information spécialisée). Le modèle `3239-particuliers-employeurs-emploi-domicile`, valeur Publicodes `particuliers employeurs et emploi à domicile`, utilise les avenants n° 10 du 5 février 2026 aux [annexe 6, salariés à domicile](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054254158) et [annexe 5, assistants maternels](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054254151), étendus par l’arrêté du 4 mai 2026 publié au JORF du 8 mai, avec effet au 1er juin 2026. Cette version ne fournit pas les grilles antérieures. L’avenant salarial n° 11 du 22 mai 2026, repéré au [BOCC 2026/29](https://www.legifrance.gouv.fr/liste/bocc?idcc_suggest=3239&page=1&pageSize=100&sortValue=BOCC_SORT_DESC&tab_selection=all), n’est pas incorporé : aucune extension n’a été identifiée lors de la recherche du 4 octobre 2026.
+
+Toutes les entrées suivantes sont sous `salarié . convention collective . particuliers employeurs et emploi à domicile`. Le modèle couvre la rémunération des adultes et propose deux valeurs de `socle` :
+
+- `salarié du particulier employeur` (défaut) : `niveau` de `I` à `XII`, déterminé par l’application selon l’emploi repère et les missions de l’annexe 7. `certification professionnelle` vaut `oui` uniquement pour une certification de branche éligible et liée à l’emploi. Les taux certifiés des niveaux I à VI sont ceux publiés (4 % pour I à IV, 5 % pour V et VI), déjà arrondis ; aucun supplément n’est prévu aux niveaux VII à XII. Le taux minimum retient ensuite le maximum avec `SMIC . horaire`.
+- `assistant maternel` : calcul **par contrat et par enfant**, sans utiliser `niveau`. Le minimum est 4,20 €/heure, ou 4,37 €/heure avec le titre AM-AP (`certification professionnelle = oui`). Le plancher légal est 0,281 × `SMIC . horaire`, conformément à l’[article D423-9 du CASF](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000018261010). Les indemnités d’entretien, repas et déplacement sont exclues du contrôle de ce minimum.
+
+La date doit être fournie au moteur pour le SMIC. Un socle ou niveau inconnu active `niveau hors grille`, et donne un taux nul, même si le SMIC est renseigné : l’application doit traiter l’anomalie.
+
+Le `mode de rémunération` vaut `mensualisé` par défaut. `heures de base par semaine` représente les heures ordinaires effectives, hors heures supplémentaires ou majorées. Son défaut est 40 heures pour le salarié à domicile et 45 heures pour l’assistant maternel :
+
+- Salarié à domicile : les `heures de présence responsable par semaine` éligibles à l’article 137.1 sont comptées séparément et converties aux deux tiers. En cas d’interventions récurrentes, l’application doit les requalifier en heures effectives. Le total équivalent de 40 heures donne **174 heures/mois**, conformément à l’[article 146.1](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043942389) ; les autres durées utilisent 52 semaines/12 mois. Par exemple, 20 heures/semaine au niveau I donnent 1 092,87 €/mois, et 40 heures donnent 2 194,14 €/mois.
+- Assistant maternel : les `semaines programmées` valent 52 par défaut, ou de 1 à 46 pour une année incomplète. Les heures mensuelles sont les heures hebdomadaires × semaines/12. Les congés payés d’année incomplète restent à ajouter séparément selon leurs règles propres. Aucune présence responsable aux deux tiers ne s’applique à ce socle.
+
+En mode `réel`, pour un salarié à durée irrégulière ou un accueil occasionnel, renseignez `heures de base réelles du mois` en `heure/mois` (défaut zéro). Ce compteur contient les heures ordinaires effectivement rémunérables, avec la présence responsable déjà convertie lorsqu’elle est éligible. Il exclut les heures additionnelles déclarées dans les compteurs ci-dessous.
+
+`heures rémunérées de base` et `salaire minimum conventionnel` sont indépendants de la durée générique du contrat et de sa quotité dans `modele-social`. **Aucune seconde proratisation** ne doit leur être appliquée. `paramètres invalides` signale notamment un mode inconnu, des compteurs négatifs, une base hebdomadaire supérieure au seuil de 40/45 heures ou un nombre de semaines non admis ; les montants calculés sont alors nuls. Une durée contractuelle supérieure au seuil doit être décomposée en base et heures additionnelles, y compris pour les heures supplémentaires régulières mensualisées.
+
+`rémunération des heures additionnelles` est exposée séparément du minimum : elle comprend **la rémunération de base des heures et leur majoration**, au `taux horaire contractuel` (défaut : minimum), avec protection contre un taux inférieur au minimum. Les compteurs sont en `heure/mois`, sans prorata supplémentaire :
+
+- Salarié à domicile : `heures supplémentaires à 25 pour cent` pour les heures 41 à 48 de chaque semaine ; `heures supplémentaires à 50 pour cent` pour les heures 49 et 50. L’application établit ces compteurs semaine par semaine, contrôle les durées maximales et exclut les heures compensées en repos.
+- Assistant maternel : `heures complémentaires` au-delà de l’horaire prévu jusqu’à 45 heures incluses ; `heures majorées` au-delà de 45 heures. `taux de majoration des heures complémentaires` vaut 0 % sauf accord écrit ; `taux de majoration des heures majorées` vaut 10 % et ne peut produire une majoration inférieure à ce plancher. L’application renseigne les taux contractuels plus favorables.
+
+Pour le salarié à domicile, `prestation en nature repas` expose 4,70 € par repas et `prestation en nature logement` 71 €/mois (montant minimal, éventuellement supérieur au contrat). Ces valeurs servent aux déductions **du net**, pas à la diminution du minimum brut ni à l’évaluation sociale automatique des avantages en nature.
+
+Les congés payés et leur régularisation, absences, jours fériés, repos compensateurs, présence de nuit, garde malade de nuit, garde partagée entre employeurs, frais, indemnités d’entretien, majoration liée aux difficultés particulières de l’enfant, prévoyance, ruptures et règles spécifiques aux jeunes travailleurs restent à modéliser. Le package fournit les règles conventionnelles ci-dessus ; JourDePaye conserve leur mapping, la sélection de version, la validation des plannings et l’intégration au bulletin.
+
 ## Utiliser le package
 
 Le package n’est pas encore publié sur le registre npm. Il peut être installé depuis le dépôt public ; pour une installation reproductible, remplacez `<commit>` par le hash complet du commit choisi :
@@ -148,11 +181,19 @@ npm test
 
 `npm ci` installe les dépendances verrouillées et construit le package. `npm test` compile d’abord les sources, puis exécute tous les fichiers `test/**/*.test.ts` avec le moteur de tests intégré à Node.js. Une erreur de compilation ou un test en échec fait échouer la commande.
 
-Trois ensembles de tests sont présents :
+Quatre ensembles de tests sont présents :
 
 - `test/compile-collective-agreements.test.ts` teste le compilateur avec des fichiers temporaires : nommage, métadonnées, dates, ajout d’une version, modification ou suppression d’une version verrouillée.
-- `test/models.test.ts` vérifie les versions exportées et leurs empreintes, la présence des références juridiques, les espaces de noms, l’absence de collisions avec `modele-social` et des calculs de minima pour chacune des sept versions.
+- `test/models.test.ts` vérifie les versions exportées et leurs empreintes, la présence des références juridiques, les espaces de noms, l’absence de collisions avec `modele-social` et des calculs de minima pour chacune des huit versions.
 - `test/aide-soins-domicile.test.ts` couvre les 36 positions des deux filières IDCC 2941, les paliers d’ancienneté, les diplômes, le plancher SMIC, le reclassement, le temps partiel et les ECR ponctuels. Les coefficients et montants attendus sont fixés à partir des textes, indépendamment du YAML.
+- `test/particuliers-employeurs.test.ts` couvre les 12 niveaux IDCC 3239 avec et sans certification, les taux et montants mensuels publiés, les deux socles, les planchers légaux, le temps partiel, la présence responsable, l’année incomplète, le mode réel, les heures additionnelles, les prestations en nature, les entrées invalides et l’inapplicabilité hors convention. Les valeurs attendues sont indépendantes du YAML.
+
+Pour exécuter uniquement les tests IDCC 3239 :
+
+```sh
+npm run compile-rules
+node --test test/particuliers-employeurs.test.ts
+```
 
 Pour exécuter uniquement les tests IDCC 2941 :
 

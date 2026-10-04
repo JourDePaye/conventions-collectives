@@ -1,0 +1,326 @@
+# IDCC 3239 — Particuliers employeurs et emploi à domicile.
+# Adult salary minima and selected remuneration rules; see README for coverage.
+validFrom: 2026-06-01
+sources:
+  - >-
+    Avenant n° 10 du 5 février 2026, annexe 6, articles 1 à 3 : minima des niveaux
+    I à XII, certification et prestations en nature. Étendu par arrêté du 4 mai 2026,
+    JORF du 8 mai 2026 ; effet au 1er juin 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054254158
+  - >-
+    Avenant n° 10 du 5 février 2026, annexe 5, articles 1 et 2 : minimum par enfant
+    et par heure des assistants maternels et titre AM-AP. Même extension et date d'effet.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054254151
+  - >-
+    Arrêté du 4 mai 2026 portant extension des avenants n° 10 aux annexes 5 et 6,
+    JORF du 8 mai 2026.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054048662
+  - >-
+    Convention du 15 mars 2021 : articles 96.2, 107 à 110 (assistants maternels),
+    133.1, 144.1, 146 à 148 (salariés à domicile). Annexe 7 : classification à
+    déterminer par l'application. Les règles des jeunes travailleurs sont exclues.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000043941642
+  - >-
+    Article D423-9 du code de l'action sociale et des familles : minimum légal
+    des assistants maternels égal à 0,281 SMIC horaire par enfant.
+    https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000018261010
+---
+salarié . convention collective . particuliers employeurs et emploi à domicile:
+  titre: Particuliers employeurs et emploi à domicile (IDCC 3239)
+  valeur: convention collective = 'particuliers employeurs et emploi à domicile'
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . socle:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Salarié du particulier employeur ou assistant maternel ; calcul par contrat et par enfant pour ce dernier."
+  par défaut: "'salarié du particulier employeur'"
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . niveau:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Niveau I à XII de l'annexe 7, à déterminer selon les missions de l'emploi repère."
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . certification professionnelle:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Certification de branche en lien avec l'emploi repère (niveaux I à VI), ou titre AM-AP pour l'assistant maternel."
+  par défaut: non
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . taux horaire de la grille:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  unité: €/heure
+  variations:
+    - si: socle = 'assistant maternel'
+      alors:
+        variations:
+          - si: certification professionnelle
+            alors: 4.37 €/heure
+          - sinon: 4.20 €/heure
+    - si: socle = 'salarié du particulier employeur'
+      alors:
+        variations:
+          - si: niveau = 'I'
+            alors:
+              variations:
+                - si: certification professionnelle
+                  alors: 13.11 €/heure
+                - sinon: 12.61 €/heure
+          - si: niveau = 'II'
+            alors:
+              variations:
+                - si: certification professionnelle
+                  alors: 13.25 €/heure
+                - sinon: 12.74 €/heure
+          - si: niveau = 'III'
+            alors:
+              variations:
+                - si: certification professionnelle
+                  alors: 13.41 €/heure
+                - sinon: 12.89 €/heure
+          - si: niveau = 'IV'
+            alors:
+              variations:
+                - si: certification professionnelle
+                  alors: 13.60 €/heure
+                - sinon: 13.08 €/heure
+          - si: niveau = 'V'
+            alors:
+              variations:
+                - si: certification professionnelle
+                  alors: 13.94 €/heure
+                - sinon: 13.28 €/heure
+          - si: niveau = 'VI'
+            alors:
+              variations:
+                - si: certification professionnelle
+                  alors: 14.49 €/heure
+                - sinon: 13.80 €/heure
+          - si: niveau = 'VII'
+            alors: 14.11 €/heure
+          - si: niveau = 'VIII'
+            alors: 14.52 €/heure
+          - si: niveau = 'IX'
+            alors: 15.29 €/heure
+          - si: niveau = 'X'
+            alors: 16.12 €/heure
+          - si: niveau = 'XI'
+            alors: 17.06 €/heure
+          - si: niveau = 'XII'
+            alors: 18.07 €/heure
+          - sinon: 0 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . niveau hors grille:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  valeur: taux horaire de la grille = 0 €/heure
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . plancher légal horaire:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  unité: €/heure
+  variations:
+    - si: socle = 'assistant maternel'
+      alors: SMIC . horaire * 0.281
+    - sinon: SMIC . horaire
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . taux horaire minimum:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Minimum conventionnel avec plancher légal ; les montants certifiés sont ceux de la grille publiée, déjà arrondis."
+  unité: €/heure
+  variations:
+    - si: niveau hors grille
+      alors: 0 €/heure
+    - sinon:
+        le maximum de:
+          - taux horaire de la grille
+          - plancher légal horaire
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . durée hebdomadaire conventionnelle:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  unité: heure/semaine
+  variations:
+    - si: socle = 'assistant maternel'
+      alors: 45 heure/semaine
+    - si: socle = 'salarié du particulier employeur'
+      alors: 40 heure/semaine
+    - sinon: 0 heure/semaine
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . mode de rémunération:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Mensualisé pour une durée régulière ; réel pour une durée irrégulière ou un accueil occasionnel."
+  par défaut: "'mensualisé'"
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . heures de base par semaine:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Heures effectives ordinaires hors heures supplémentaires ou majorées, hors présence responsable. Les heures au-delà du seuil sont fournies séparément."
+  unité: heure/semaine
+  par défaut: durée hebdomadaire conventionnelle
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . heures de présence responsable par semaine:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Présence responsable de jour éligible à l'article 137.1, sans interventions récurrentes ; compteur distinct des heures effectives."
+  unité: heure/semaine
+  par défaut: 0 heure/semaine
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . heures équivalentes par semaine:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  unité: heure/semaine
+  variations:
+    - si: socle = 'salarié du particulier employeur'
+      alors: heures de base par semaine + heures de présence responsable par semaine * 2 / 3
+    - sinon: heures de base par semaine
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . semaines programmées:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Assistant maternel mensualisé uniquement ; 52 ou de 1 à 46 semaines, hors congés payés en année incomplète."
+  par défaut: 52
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . heures de base réelles du mois:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Mode réel uniquement. Heures ordinaires du mois ; présence responsable déjà convertie aux deux tiers. Hors heures supplémentaires ou majorées."
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . paramètres invalides:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  une de ces conditions:
+    - niveau hors grille
+    - toutes ces conditions:
+        - socle = 'salarié du particulier employeur'
+        - une de ces conditions:
+            - heures supplémentaires à 25 pour cent < 0 heure/mois
+            - heures supplémentaires à 50 pour cent < 0 heure/mois
+    - toutes ces conditions:
+        - socle = 'assistant maternel'
+        - une de ces conditions:
+            - heures complémentaires < 0 heure/mois
+            - heures majorées < 0 heure/mois
+    - toutes ces conditions:
+        - mode de rémunération != 'mensualisé'
+        - mode de rémunération != 'réel'
+    - toutes ces conditions:
+        - mode de rémunération = 'réel'
+        - heures de base réelles du mois < 0 heure/mois
+    - toutes ces conditions:
+        - mode de rémunération = 'mensualisé'
+        - une de ces conditions:
+            - heures de base par semaine < 0 heure/semaine
+            - heures de présence responsable par semaine < 0 heure/semaine
+            - heures équivalentes par semaine > durée hebdomadaire conventionnelle
+            - toutes ces conditions:
+                - socle = 'assistant maternel'
+                - une de ces conditions:
+                    - heures de présence responsable par semaine != 0 heure/semaine
+                    - semaines programmées < 1
+                    - semaines programmées > 52
+                    - toutes ces conditions:
+                        - semaines programmées > 46
+                        - semaines programmées < 52
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . heures rémunérées de base:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Article 146.1 : 174 heures pour 40 heures hebdomadaires ; sinon 52/12. Assistant maternel : semaines programmées/12."
+  unité: heure/mois
+  variations:
+    - si: paramètres invalides
+      alors: 0 heure/mois
+    - si: mode de rémunération = 'réel'
+      alors: heures de base réelles du mois
+    - si: socle = 'assistant maternel'
+      alors: heures équivalentes par semaine * semaines programmées * 1 semaine / 12 mois
+    - si: heures équivalentes par semaine = 40 heure/semaine
+      alors: 174 heure/mois
+    - sinon: heures équivalentes par semaine * 52 semaine / 12 mois
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . salaire minimum conventionnel:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Minimum brut de base, par enfant pour l'assistant maternel ; hors heures supplémentaires, congés payés d'année incomplète, frais et prestations en nature. Aucun prorata modele-social supplémentaire."
+  unité: €/mois
+  valeur: taux horaire minimum * heures rémunérées de base
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . taux horaire contractuel:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Salaire horaire brut réellement convenu, utilisé pour rémunérer les heures additionnelles."
+  unité: €/heure
+  par défaut: taux horaire minimum
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . taux horaire de calcul:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  unité: €/heure
+  variations:
+    - si: paramètres invalides
+      alors: 0 €/heure
+    - sinon:
+        le maximum de:
+          - taux horaire contractuel
+          - taux horaire minimum
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . heures supplémentaires à 25 pour cent:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Salarié à domicile : heures payées de la 41e à la 48e heure hebdomadaire. Compteur mensuel constitué semaine par semaine, hors repos compensateur."
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . heures supplémentaires à 50 pour cent:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Salarié à domicile : heures payées de la 49e à la 50e heure hebdomadaire. Compteur mensuel distinct, hors repos compensateur."
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . heures complémentaires:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Assistant maternel : heures additionnelles jusqu'à 45 heures hebdomadaires incluses, absentes des heures de base."
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . heures majorées:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Assistant maternel : heures payées au-delà de 45 heures hebdomadaires, absentes des heures de base."
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . taux de majoration des heures complémentaires:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Assistant maternel ; taux prévu par accord écrit, aucune majoration obligatoire."
+  unité: '%'
+  par défaut: 0%
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . taux de majoration des heures majorées:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Assistant maternel ; taux contractuel, avec plancher conventionnel de 10%."
+  unité: '%'
+  par défaut: 10%
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . rémunération des heures additionnelles:
+  applicable si: convention collective = 'particuliers employeurs et emploi à domicile'
+  description: "Rémunération complète des heures payées, base et majoration incluses, exposée séparément du minimum de base. L'application contrôle les seuils hebdomadaires et la durée maximale."
+  unité: €/mois
+  variations:
+    - si: paramètres invalides
+      alors: 0 €/mois
+    - si: socle = 'salarié du particulier employeur'
+      alors: taux horaire de calcul * (heures supplémentaires à 25 pour cent * 1.25 + heures supplémentaires à 50 pour cent * 1.50)
+    - sinon:
+        valeur: taux horaire de calcul * (heures complémentaires * (1 + majoration complémentaire) + heures majorées * (1 + majoration applicable))
+        avec:
+          majoration complémentaire:
+            le maximum de:
+              - 0%
+              - taux de majoration des heures complémentaires
+          majoration applicable:
+            le maximum de:
+              - 10%
+              - taux de majoration des heures majorées
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . prestation en nature repas:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'particuliers employeurs et emploi à domicile'
+      - socle = 'salarié du particulier employeur'
+  description: "Montant conventionnel par repas, à déduire du net ; ne remplace pas l'évaluation sociale des avantages en nature."
+  valeur: 4.70 €
+
+salarié . convention collective . particuliers employeurs et emploi à domicile . prestation en nature logement:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'particuliers employeurs et emploi à domicile'
+      - socle = 'salarié du particulier employeur'
+  description: "Montant conventionnel mensuel minimal, éventuellement supérieur par contrat, à déduire du net. Aucune déduction du minimum brut."
+  valeur: 71 €/mois
