@@ -1,0 +1,300 @@
+# IDCC 2941 — Branche de l'aide, de l'accompagnement, des soins et des services à domicile.
+# Salary grid and common remuneration supplements; see README for coverage.
+validFrom: 2026-06-01
+sources:
+  - >-
+    Avenant 75/2026 du 24 mars 2026, article 1 (coefficients des deux filières)
+    et article 3.4 (effet au 1er juin 2026 après agrément publié le 29 mai 2026,
+    sous réserve d'extension pour les non-adhérents).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054880770/
+  - >-
+    Arrêté du 15 juillet 2026, JORF du 23 juillet 2026, extension de l'avenant 75/2026.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054458135
+  - >-
+    Titre III, article 12 : point à 5,77 euros, base temps plein de 35 heures,
+    plancher SMIC et indemnité différentielle de reclassement.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000047789002
+  - >-
+    Titre III, article 19, dispositions étendues : ECR diplôme, ancienneté,
+    tutorat, apprentissage et astreintes. Les modifications non étendues de
+    l'avenant 74/2026 ne sont pas appliquées par ce modèle général de branche.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000047519049
+  - >-
+    Avenant 70/2025 du 9 juillet 2025 : aide-soignant classé en TAM degré 1
+    de la filière intervention ; étendu par arrêté du 26 mars 2026, JORF du 4 avril 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054040668/
+---
+salarié . convention collective . aide et soins à domicile:
+  titre: Aide, accompagnement, soins et services à domicile (IDCC 2941)
+  valeur: convention collective = 'aide et soins à domicile'
+
+salarié . convention collective . aide et soins à domicile . filière:
+  applicable si: convention collective = 'aide et soins à domicile'
+  titre: Filière de classification
+  description: Intervention ou support ; les deux filières ont les mêmes coefficients.
+  par défaut: "'intervention'"
+
+salarié . convention collective . aide et soins à domicile . niveau:
+  applicable si: convention collective = 'aide et soins à domicile'
+  titre: Catégorie, degré et échelon
+  description: |
+    Format employé.1.1, TAM.1.1 ou cadre.1.1 : degrés 1 à 2 et échelons 1 à 3.
+    La classification doit être déterminée selon les missions et les conditions de
+    passage conventionnelles. L'aide-soignant relève de TAM degré 1 (avenant 70/2025).
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . aide et soins à domicile . valeur du point:
+  applicable si: convention collective = 'aide et soins à domicile'
+  valeur: 5.77 €/mois
+
+salarié . convention collective . aide et soins à domicile . coefficient:
+  applicable si: convention collective = 'aide et soins à domicile'
+  variations:
+    - si: niveau = 'employé.1.1'
+      alors: 319
+    - si: niveau = 'employé.1.2'
+      alors: 326
+    - si: niveau = 'employé.1.3'
+      alors: 342
+    - si: niveau = 'employé.2.1'
+      alors: 355
+    - si: niveau = 'employé.2.2'
+      alors: 370
+    - si: niveau = 'employé.2.3'
+      alors: 394
+    - si: niveau = 'TAM.1.1'
+      alors: 374
+    - si: niveau = 'TAM.1.2'
+      alors: 390
+    - si: niveau = 'TAM.1.3'
+      alors: 415
+    - si: niveau = 'TAM.2.1'
+      alors: 447
+    - si: niveau = 'TAM.2.2'
+      alors: 467
+    - si: niveau = 'TAM.2.3'
+      alors: 496
+    - si: niveau = 'cadre.1.1'
+      alors: 496
+    - si: niveau = 'cadre.1.2'
+      alors: 518
+    - si: niveau = 'cadre.1.3'
+      alors: 551
+    - si: niveau = 'cadre.2.1'
+      alors: 594
+    - si: niveau = 'cadre.2.2'
+      alors: 621
+    - si: niveau = 'cadre.2.3'
+      alors: 660
+    - sinon: 0
+
+salarié . convention collective . aide et soins à domicile . niveau hors grille:
+  applicable si: convention collective = 'aide et soins à domicile'
+  une de ces conditions:
+    - coefficient = 0
+    - toutes ces conditions:
+        - filière != 'intervention'
+        - filière != 'support'
+
+salarié . convention collective . aide et soins à domicile . indemnité différentielle de reclassement:
+  applicable si: convention collective = 'aide et soins à domicile'
+  titre: Indemnité différentielle de reclassement à temps plein
+  description: Montant individuel conservé lors du reclassement, avant proratisation.
+  unité: €/mois
+  par défaut: 0 €/mois
+
+salarié . convention collective . aide et soins à domicile . salaire de base à temps plein:
+  applicable si: convention collective = 'aide et soins à domicile'
+  unité: €/mois
+  variations:
+    - si: niveau hors grille
+      alors: 0 €/mois
+    - sinon:
+        le maximum de:
+          - coefficient * valeur du point + indemnité différentielle de reclassement
+          - SMIC
+
+salarié . convention collective . aide et soins à domicile . salaire de base:
+  applicable si: convention collective = 'aide et soins à domicile'
+  unité: €/mois
+  valeur: salaire de base à temps plein * contrat . temps de travail . quotité
+
+salarié . convention collective . aide et soins à domicile . niveau de diplôme:
+  applicable si: convention collective = 'aide et soins à domicile'
+  titre: Niveau du diplôme reconnu en lien avec les missions
+  description: |
+    0 sans diplôme éligible ; niveaux 3 à 8 du cadre national des certifications.
+    Renseigner le niveau retenu par la branche : un seul ECR, sans addition des diplômes.
+  par défaut: 0
+
+salarié . convention collective . aide et soins à domicile . points diplôme:
+  applicable si: convention collective = 'aide et soins à domicile'
+  variations:
+    - si: niveau de diplôme = 3
+      alors: 11
+    - si: niveau de diplôme = 4
+      alors: 12
+    - si: niveau de diplôme = 5
+      alors: 14
+    - si: niveau de diplôme = 6
+      alors: 15
+    - si:
+        une de ces conditions:
+          - niveau de diplôme = 7
+          - niveau de diplôme = 8
+      alors: 17
+    - sinon: 0
+
+salarié . convention collective . aide et soins à domicile . ECR diplôme:
+  applicable si: convention collective = 'aide et soins à domicile'
+  unité: €/mois
+  valeur: points diplôme * valeur du point * contrat . temps de travail . quotité
+
+salarié . convention collective . aide et soins à domicile . ancienneté dans la branche:
+  applicable si: convention collective = 'aide et soins à domicile'
+  unité: an
+  description: |
+    Ancienneté reprise dans la branche, et non uniquement chez l'employeur actuel.
+    Renseigner les années avec une fraction pour les jours écoulés depuis l'anniversaire.
+    À l'anniversaire exact le nouveau palier n'est pas ouvert : il l'est le lendemain.
+  par défaut: 0 an
+
+salarié . convention collective . aide et soins à domicile . taux d'ancienneté:
+  applicable si: convention collective = 'aide et soins à domicile'
+  variations:
+    - si: ancienneté dans la branche > 30 an
+      alors: 20%
+    - si: ancienneté dans la branche > 25 an
+      alors: 16%
+    - si: ancienneté dans la branche > 20 an
+      alors: 12%
+    - si: ancienneté dans la branche > 15 an
+      alors: 8%
+    - si: ancienneté dans la branche > 10 an
+      alors: 4%
+    - si: ancienneté dans la branche > 5 an
+      alors: 2%
+    - sinon: 0%
+
+salarié . convention collective . aide et soins à domicile . ECR ancienneté:
+  applicable si: convention collective = 'aide et soins à domicile'
+  description: La base inclut le différentiel SMIC, mais pas les autres ECR.
+  unité: €/mois
+  valeur: salaire de base * taux d'ancienneté
+
+salarié . convention collective . aide et soins à domicile . autres ECR pérennes en points:
+  applicable si: convention collective = 'aide et soins à domicile'
+  description: |
+    Points attribués après détermination externe des ECR spécifiques aux cadres
+    (responsabilité, associations, complexité, cadre supérieur, nombre de places).
+    Ne pas inclure le diplôme, l'ancienneté ni les ECR ponctuels calculés ici.
+  par défaut: 0
+
+salarié . convention collective . aide et soins à domicile . autres ECR pérennes:
+  applicable si: convention collective = 'aide et soins à domicile'
+  unité: €/mois
+  valeur: autres ECR pérennes en points * valeur du point * contrat . temps de travail . quotité
+
+salarié . convention collective . aide et soins à domicile . salaire minimum conventionnel:
+  applicable si: convention collective = 'aide et soins à domicile'
+  titre: Minimum mensuel avec les ECR pérennes
+  description: |
+    Base au moins égale au SMIC, diplôme, ancienneté et autres points attribués,
+    proratisés une seule fois. Hors heures supplémentaires, absences et ECR ponctuels.
+    Vaut zéro si le niveau ou la filière est inconnu : vérifier niveau hors grille.
+  unité: €/mois
+  variations:
+    - si: niveau hors grille
+      alors: 0 €/mois
+    - sinon:
+        somme:
+          - salaire de base
+          - ECR diplôme
+          - ECR ancienneté
+          - autres ECR pérennes
+
+salarié . convention collective . aide et soins à domicile . personnes tutorées:
+  applicable si: convention collective = 'aide et soins à domicile'
+  description: Salariés ou stagiaires accompagnés dans le mois au titre de la mission de tutorat.
+  par défaut: 0
+
+salarié . convention collective . aide et soins à domicile . apprentis accompagnés:
+  applicable si: convention collective = 'aide et soins à domicile'
+  description: Apprentis accompagnés dans le mois en qualité de maître d'apprentissage.
+  par défaut: 0
+
+salarié . convention collective . aide et soins à domicile . ECR tutorat:
+  applicable si: convention collective = 'aide et soins à domicile'
+  description: Forfait mensuel sans proratisation du temps partiel ; au plus deux personnes.
+  unité: €/mois
+  variations:
+    - si: personnes tutorées >= 2
+      alors: 9 * valeur du point
+    - si: personnes tutorées = 1
+      alors: 7 * valeur du point
+    - sinon: 0 €/mois
+
+salarié . convention collective . aide et soins à domicile . ECR apprentissage:
+  applicable si: convention collective = 'aide et soins à domicile'
+  description: Forfait mensuel sans proratisation du temps partiel ; au plus deux apprentis.
+  unité: €/mois
+  variations:
+    - si: apprentis accompagnés >= 2
+      alors: 13 * valeur du point
+    - si: apprentis accompagnés = 1
+      alors: 11 * valeur du point
+    - sinon: 0 €/mois
+
+salarié . convention collective . aide et soins à domicile . heures astreinte ordinaire:
+  applicable si: convention collective = 'aide et soins à domicile'
+  unité: heure/mois
+  description: |
+    Heures d'astreinte du mois, hors intervention. Les heures majorées correspondent
+    aux dimanches, jours fériés ou nuits ; les quatre compteurs sont disjoints.
+  par défaut: 0 heure/mois
+
+salarié . convention collective . aide et soins à domicile . heures astreinte majorée:
+  applicable si: convention collective = 'aide et soins à domicile'
+  unité: heure/mois
+  description: |
+    Heures d'astreinte du mois, hors intervention. Les heures majorées correspondent
+    aux dimanches, jours fériés ou nuits ; les quatre compteurs sont disjoints.
+  par défaut: 0 heure/mois
+
+salarié . convention collective . aide et soins à domicile . heures astreinte fractionnée ordinaire:
+  applicable si: convention collective = 'aide et soins à domicile'
+  unité: heure/mois
+  description: |
+    Heures d'astreinte du mois, hors intervention. Les heures majorées correspondent
+    aux dimanches, jours fériés ou nuits ; les quatre compteurs sont disjoints.
+  par défaut: 0 heure/mois
+
+salarié . convention collective . aide et soins à domicile . heures astreinte fractionnée majorée:
+  applicable si: convention collective = 'aide et soins à domicile'
+  unité: heure/mois
+  description: |
+    Heures d'astreinte du mois, hors intervention. Les heures majorées correspondent
+    aux dimanches, jours fériés ou nuits ; les quatre compteurs sont disjoints.
+  par défaut: 0 heure/mois
+
+salarié . convention collective . aide et soins à domicile . ECR astreinte:
+  applicable si: convention collective = 'aide et soins à domicile'
+  description: Proratisation selon les seules heures d'astreinte ; aucun prorata du contrat.
+  unité: €/mois
+  valeur: points astreinte * valeur du point
+  avec:
+    points astreinte:
+      unité: ''
+      somme:
+        - heures astreinte ordinaire / 24 heure/mois * 8
+        - heures astreinte majorée / 24 heure/mois * 10
+        - heures astreinte fractionnée ordinaire / 24 heure/mois * 10
+        - heures astreinte fractionnée majorée / 24 heure/mois * 12
+
+salarié . convention collective . aide et soins à domicile . compléments ponctuels calculés:
+  applicable si: convention collective = 'aide et soins à domicile'
+  unité: €/mois
+  somme:
+    - ECR tutorat
+    - ECR apprentissage
+    - ECR astreinte

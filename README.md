@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Quatre conventions sont actuellement représentées, avec six versions de modèles. Leur couverture porte sur les salaires minima et la classification nécessaire à leur calcul ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
+Cinq conventions sont actuellement représentées, avec sept versions de modèles. Leur couverture porte sur les salaires minima et la classification nécessaire à leur calcul ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
@@ -16,6 +16,7 @@ Quatre conventions sont actuellement représentées, avec six versions de modèl
 | Hôtels, cafés, restaurants (HCR) | 1979 | `2024.1` : 1er décembre 2024 | Minima horaires par niveau et échelon, conversion en minimum mensuel selon la durée du contrat ; détection des niveaux hors grille |
 | Pharmacie d’officine | 1996 | `2025.1` : 24 mai 2025 ; `2026.1` : 17 avril 2026 | Minima selon le coefficient, la valeur du point et le salaire garanti au coefficient 100 ; proratisation selon la quotité de travail |
 | Commerce de détail et de gros à prédominance alimentaire | 2216 | `2025.1` : 1er août 2025 ; `2026.1` : 1er août 2026 | Salaire minimum mensuel garanti par niveau, pauses rémunérées comprises ; proratisation selon la quotité de travail |
+| Aide, accompagnement, soins et services à domicile | 2941 | `2026.1` : 1er juin 2026 (extension publiée le 23 juillet 2026) | Grilles intervention et support, base avec plancher SMIC, ECR diplôme et ancienneté ; tutorat, apprentissage et astreintes |
 
 Les références des accords et de leurs arrêtés d’extension figurent dans les métadonnées de chaque fichier source.
 
@@ -33,6 +34,8 @@ rules/
   2216-commerce-detail-gros-predominance-alimentaire/
     2216-commerce-detail-gros-predominance-alimentaire.2025.1.publicodes
     2216-commerce-detail-gros-predominance-alimentaire.2026.1.publicodes
+  2941-aide-soins-domicile/
+    2941-aide-soins-domicile.2026.1.publicodes
   versions.lock.json
 scripts/
   compile-collective-agreements.ts
@@ -42,6 +45,7 @@ src/
 test/
   compile-collective-agreements.test.ts
   models.test.ts
+  aide-soins-domicile.test.ts
 ```
 
 Les répertoires suivent le format `<idcc>-<nom-français-de-la-convention>` et les fichiers le format `<idcc>-<nom>.année.révision.publicodes`. Les noms de chemins utilisent des minuscules et des tirets, sans accents.
@@ -88,6 +92,24 @@ L’application qui l’utilise choisit la version applicable à la date souhait
 
 Dans JourDePaye, `payroll-core` conserve le catalogue métier, la sélection de la version au premier jour de la période, la correspondance avec les données du salarié et le calcul de paie. Ces choix de période ne sont pas imposés par ce package.
 
+## Modèle aide et soins à domicile — IDCC 2941
+
+Le modèle `2941-aide-soins-domicile`, valeur Publicodes `aide et soins à domicile`, reprend les coefficients de l’[avenant 75/2026](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054880770/), avec effet au 1er juin 2026 après l’agrément publié le 29 mai. Pour les employeurs non adhérents, cette date est prévue sous réserve de l’extension, publiée le 23 juillet 2026. Cette version ne fournit pas les grilles antérieures à juin 2026.
+
+Les deux filières, `intervention` et `support`, comprennent chacune les catégories `employé`, `TAM` et `cadre`, deux degrés et trois échelons. Renseignez `niveau` au format `employé.2.1`, `TAM.1.1` ou `cadre.2.3`. La filière vaut `intervention` par défaut. La classification et les passages d’échelon doivent être déterminés par l’application selon les missions, les diplômes et les critères conventionnels ; ils ne sont pas déduits automatiquement de l’ancienneté. L’aide-soignant relève de TAM degré 1 depuis l’[avenant 70/2025](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054040668/). Un niveau inconnu donne un minimum nul et active `niveau hors grille` : l’application doit traiter cette anomalie.
+
+La règle `salaire minimum conventionnel` additionne la base, l’ECR diplôme, l’ECR ancienneté et les autres ECR pérennes attribués. La base à temps plein est le coefficient multiplié par 5,77 €, augmenté d’une éventuelle `indemnité différentielle de reclassement` individuelle, avec un plancher égal au `SMIC` de `modele-social`. La date du calcul doit donc être fournie au moteur. Les montants suivent la `salarié . contrat . temps de travail . quotité`, sans double proratisation.
+
+Paramètres complémentaires sous `salarié . convention collective . aide et soins à domicile` :
+
+- `niveau de diplôme` : 0 sans diplôme éligible, sinon niveau 3 à 8 d’un diplôme reconnu en lien avec les missions. Un seul niveau est retenu, sans cumul automatique de diplômes.
+- `ancienneté dans la branche` : années avec une fraction pour les jours depuis l’anniversaire, en tenant compte de l’ancienneté reprise. Un palier s’ouvre le lendemain de l’anniversaire de 5, 10, 15, 20, 25 ou 30 ans. Son assiette comprend le différentiel SMIC, et exclut les autres ECR.
+- `autres ECR pérennes en points` : les ECR spécifiques aux cadres doivent être déterminés par l’application à partir de l’article III.19.3, puis fournis ici. Le modèle ne décide pas de leur attribution.
+- `personnes tutorées` et `apprentis accompagnés` : effectifs accompagnés pendant le mois au titre des missions conventionnelles. Les forfaits correspondants restent entiers à temps partiel.
+- `heures astreinte ordinaire`, `heures astreinte majorée`, `heures astreinte fractionnée ordinaire`, `heures astreinte fractionnée majorée` : quatre compteurs disjoints en `heure/mois`. Les périodes majorées concernent les dimanches, jours fériés ou nuits ; les temps d’intervention sont exclus. Les indemnités sont calculées sur les heures réellement déclarées, sans prorata supplémentaire du contrat.
+
+Les ECR de tutorat, apprentissage et astreinte sont exposés séparément, avec leur somme dans `compléments ponctuels calculés`. L’application doit les ajouter à la rémunération pour les mois concernés ; ils ne sont pas incorporés au minimum récurrent pour éviter un ajout en double. Les majorations de travail de nuit, dimanche et jours fériés, les repos compensateurs, les heures supplémentaires, les frais de déplacement, les absences et les autres dispositions de la convention restent à modéliser. Les évolutions non étendues de l’avenant 74/2026 sont exclues de ce modèle général.
+
 ## Utiliser le package
 
 Le package n’est pas encore publié sur le registre npm. Il peut être installé depuis le dépôt public ; pour une installation reproductible, remplacez `<commit>` par le hash complet du commit choisi :
@@ -126,10 +148,18 @@ npm test
 
 `npm ci` installe les dépendances verrouillées et construit le package. `npm test` compile d’abord les sources, puis exécute tous les fichiers `test/**/*.test.ts` avec le moteur de tests intégré à Node.js. Une erreur de compilation ou un test en échec fait échouer la commande.
 
-Deux ensembles de tests sont présents :
+Trois ensembles de tests sont présents :
 
 - `test/compile-collective-agreements.test.ts` teste le compilateur avec des fichiers temporaires : nommage, métadonnées, dates, ajout d’une version, modification ou suppression d’une version verrouillée.
-- `test/models.test.ts` vérifie les versions exportées et leurs empreintes, la présence des références juridiques, les espaces de noms, l’absence de collisions avec `modele-social` et des calculs de minima pour chacune des six versions.
+- `test/models.test.ts` vérifie les versions exportées et leurs empreintes, la présence des références juridiques, les espaces de noms, l’absence de collisions avec `modele-social` et des calculs de minima pour chacune des sept versions.
+- `test/aide-soins-domicile.test.ts` couvre les 36 positions des deux filières IDCC 2941, les paliers d’ancienneté, les diplômes, le plancher SMIC, le reclassement, le temps partiel et les ECR ponctuels. Les coefficients et montants attendus sont fixés à partir des textes, indépendamment du YAML.
+
+Pour exécuter uniquement les tests IDCC 2941 :
+
+```sh
+npm run compile-rules
+node --test test/aide-soins-domicile.test.ts
+```
 
 Pour exécuter uniquement les tests des modèles :
 
