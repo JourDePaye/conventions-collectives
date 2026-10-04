@@ -12,12 +12,12 @@ Six conventions sont actuellement représentées, avec huit versions de modèles
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
-| Bureaux d’études techniques, cabinets d’ingénieurs-conseils et sociétés de conseils (Syntec) | 1486 | `2025.1` : 1er janvier 2025 | Minima mensuels des ETAM et des ingénieurs et cadres selon leur coefficient ; détection des coefficients hors grille |
-| Hôtels, cafés, restaurants (HCR) | 1979 | `2024.1` : 1er décembre 2024 | Minima horaires par niveau et échelon, conversion en minimum mensuel selon la durée du contrat ; détection des niveaux hors grille |
-| Pharmacie d’officine | 1996 | `2025.1` : 24 mai 2025 ; `2026.1` : 17 avril 2026 | Minima selon le coefficient, la valeur du point et le salaire garanti au coefficient 100 ; proratisation selon la quotité de travail |
-| Commerce de détail et de gros à prédominance alimentaire | 2216 | `2025.1` : 1er août 2025 ; `2026.1` : 1er août 2026 | Salaire minimum mensuel garanti par niveau, pauses rémunérées comprises ; proratisation selon la quotité de travail |
-| Aide, accompagnement, soins et services à domicile | 2941 | `2026.1` : 1er juin 2026 (extension publiée le 23 juillet 2026) | Grilles intervention et support, base avec plancher SMIC, ECR diplôme et ancienneté ; tutorat, apprentissage et astreintes |
-| Particuliers employeurs et emploi à domicile | 3239 | `2026.1` : 1er juin 2026 | Minima des 12 niveaux et certifications, socle assistant maternel par enfant, mensualisation, présence responsable de jour, heures additionnelles et prestations en nature |
+| [Bureaux d’études techniques, cabinets d’ingénieurs-conseils et sociétés de conseils (Syntec)](rules/1486-syntec/README.md) | 1486 | `2025.1` : 1er janvier 2025 | Minima mensuels des ETAM et des ingénieurs et cadres selon leur coefficient ; détection des coefficients hors grille |
+| [Hôtels, cafés, restaurants (HCR)](rules/1979-hotels-cafes-restaurants/README.md) | 1979 | `2024.1` : 1er décembre 2024 | Minima horaires par niveau et échelon, conversion en minimum mensuel selon la durée du contrat ; détection des niveaux hors grille |
+| [Pharmacie d’officine](rules/1996-pharmacie-officine/README.md) | 1996 | `2025.1` : 24 mai 2025 ; `2026.1` : 17 avril 2026 | Minima selon le coefficient, la valeur du point et le salaire garanti au coefficient 100 ; proratisation selon la quotité de travail |
+| [Commerce de détail et de gros à prédominance alimentaire](rules/2216-commerce-detail-gros-predominance-alimentaire/README.md) | 2216 | `2025.1` : 1er août 2025 ; `2026.1` : 1er août 2026 | Salaire minimum mensuel garanti par niveau, pauses rémunérées comprises ; proratisation selon la quotité de travail |
+| [Aide, accompagnement, soins et services à domicile](rules/2941-aide-soins-domicile/README.md) | 2941 | `2026.1` : 1er juin 2026 (extension publiée le 23 juillet 2026) | Grilles intervention et support, base avec plancher SMIC, ECR diplôme et ancienneté ; tutorat, apprentissage et astreintes |
+| [Particuliers employeurs et emploi à domicile](rules/3239-particuliers-employeurs-emploi-domicile/README.md) | 3239 | `2026.1` : 1er juin 2026 | Minima des 12 niveaux et certifications, socle assistant maternel par enfant, mensualisation, présence responsable de jour, heures additionnelles et prestations en nature |
 
 Les références des accords et de leurs arrêtés d’extension figurent dans les métadonnées de chaque fichier source.
 
@@ -26,18 +26,24 @@ Les références des accords et de leurs arrêtés d’extension figurent dans l
 ```text
 rules/
   1486-syntec/
+    README.md
     1486-syntec.2025.1.publicodes
   1979-hotels-cafes-restaurants/
+    README.md
     1979-hotels-cafes-restaurants.2024.1.publicodes
   1996-pharmacie-officine/
+    README.md
     1996-pharmacie-officine.2025.1.publicodes
     1996-pharmacie-officine.2026.1.publicodes
   2216-commerce-detail-gros-predominance-alimentaire/
+    README.md
     2216-commerce-detail-gros-predominance-alimentaire.2025.1.publicodes
     2216-commerce-detail-gros-predominance-alimentaire.2026.1.publicodes
   2941-aide-soins-domicile/
+    README.md
     2941-aide-soins-domicile.2026.1.publicodes
   3239-particuliers-employeurs-emploi-domicile/
+    README.md
     3239-particuliers-employeurs-emploi-domicile.2026.1.publicodes
   versions.lock.json
 scripts/
@@ -95,53 +101,6 @@ Ces modèles complètent `modele-social`. Le package ne crée pas de moteur Publ
 L’application qui l’utilise choisit la version applicable à la date souhaitée, ajoute si nécessaire la convention aux choix de `salarié . convention collective`, puis fusionne ses règles avec celles de `modele-social`. Elle doit refuser les définitions de règles en double. Pour modifier une règle de base, les modèles utilisent les mécanismes publicodes `remplace` ou `rend non applicable`.
 
 Dans JourDePaye, `payroll-core` conserve le catalogue métier, la sélection de la version au premier jour de la période, la correspondance avec les données du salarié et le calcul de paie. Ces choix de période ne sont pas imposés par ce package.
-
-## Modèle aide et soins à domicile — IDCC 2941
-
-Le modèle `2941-aide-soins-domicile`, valeur Publicodes `aide et soins à domicile`, reprend les coefficients de l’[avenant 75/2026](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054880770/), avec effet au 1er juin 2026 après l’agrément publié le 29 mai. Pour les employeurs non adhérents, cette date est prévue sous réserve de l’extension, publiée le 23 juillet 2026. Cette version ne fournit pas les grilles antérieures à juin 2026.
-
-Les deux filières, `intervention` et `support`, comprennent chacune les catégories `employé`, `TAM` et `cadre`, deux degrés et trois échelons. Renseignez `niveau` au format `employé.2.1`, `TAM.1.1` ou `cadre.2.3`. La filière vaut `intervention` par défaut. La classification et les passages d’échelon doivent être déterminés par l’application selon les missions, les diplômes et les critères conventionnels ; ils ne sont pas déduits automatiquement de l’ancienneté. L’aide-soignant relève de TAM degré 1 depuis l’[avenant 70/2025](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054040668/). Un niveau inconnu donne un minimum nul et active `niveau hors grille` : l’application doit traiter cette anomalie.
-
-La règle `salaire minimum conventionnel` additionne la base, l’ECR diplôme, l’ECR ancienneté et les autres ECR pérennes attribués. La base à temps plein est le coefficient multiplié par 5,77 €, augmenté d’une éventuelle `indemnité différentielle de reclassement` individuelle, avec un plancher égal au `SMIC` de `modele-social`. La date du calcul doit donc être fournie au moteur. Les montants suivent la `salarié . contrat . temps de travail . quotité`, sans double proratisation.
-
-Paramètres complémentaires sous `salarié . convention collective . aide et soins à domicile` :
-
-- `niveau de diplôme` : 0 sans diplôme éligible, sinon niveau 3 à 8 d’un diplôme reconnu en lien avec les missions. Un seul niveau est retenu, sans cumul automatique de diplômes.
-- `ancienneté dans la branche` : années avec une fraction pour les jours depuis l’anniversaire, en tenant compte de l’ancienneté reprise. Un palier s’ouvre le lendemain de l’anniversaire de 5, 10, 15, 20, 25 ou 30 ans. Son assiette comprend le différentiel SMIC, et exclut les autres ECR.
-- `autres ECR pérennes en points` : les ECR spécifiques aux cadres doivent être déterminés par l’application à partir de l’article III.19.3, puis fournis ici. Le modèle ne décide pas de leur attribution.
-- `personnes tutorées` et `apprentis accompagnés` : effectifs accompagnés pendant le mois au titre des missions conventionnelles. Les forfaits correspondants restent entiers à temps partiel.
-- `heures astreinte ordinaire`, `heures astreinte majorée`, `heures astreinte fractionnée ordinaire`, `heures astreinte fractionnée majorée` : quatre compteurs disjoints en `heure/mois`. Les périodes majorées concernent les dimanches, jours fériés ou nuits ; les temps d’intervention sont exclus. Les indemnités sont calculées sur les heures réellement déclarées, sans prorata supplémentaire du contrat.
-
-Les ECR de tutorat, apprentissage et astreinte sont exposés séparément, avec leur somme dans `compléments ponctuels calculés`. L’application doit les ajouter à la rémunération pour les mois concernés ; ils ne sont pas incorporés au minimum récurrent pour éviter un ajout en double. Les majorations de travail de nuit, dimanche et jours fériés, les repos compensateurs, les heures supplémentaires, les frais de déplacement, les absences et les autres dispositions de la convention restent à modéliser. Les évolutions non étendues de l’avenant 74/2026 sont exclues de ce modèle général.
-
-## Modèle particuliers employeurs et emploi à domicile — IDCC 3239
-
-L’identifiant officiel de cette convention est **3239**, et non 3230 (presse d’information spécialisée). Le modèle `3239-particuliers-employeurs-emploi-domicile`, valeur Publicodes `particuliers employeurs et emploi à domicile`, utilise les avenants n° 10 du 5 février 2026 aux [annexe 6, salariés à domicile](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054254158) et [annexe 5, assistants maternels](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054254151), étendus par l’arrêté du 4 mai 2026 publié au JORF du 8 mai, avec effet au 1er juin 2026. Cette version ne fournit pas les grilles antérieures. L’avenant salarial n° 11 du 22 mai 2026, repéré au [BOCC 2026/29](https://www.legifrance.gouv.fr/liste/bocc?idcc_suggest=3239&page=1&pageSize=100&sortValue=BOCC_SORT_DESC&tab_selection=all), n’est pas incorporé : aucune extension n’a été identifiée lors de la recherche du 4 octobre 2026.
-
-Toutes les entrées suivantes sont sous `salarié . convention collective . particuliers employeurs et emploi à domicile`. Le modèle couvre la rémunération des adultes et propose deux valeurs de `socle` :
-
-- `salarié du particulier employeur` (défaut) : `niveau` de `I` à `XII`, déterminé par l’application selon l’emploi repère et les missions de l’annexe 7. `certification professionnelle` vaut `oui` uniquement pour une certification de branche éligible et liée à l’emploi. Les taux certifiés des niveaux I à VI sont ceux publiés (4 % pour I à IV, 5 % pour V et VI), déjà arrondis ; aucun supplément n’est prévu aux niveaux VII à XII. Le taux minimum retient ensuite le maximum avec `SMIC . horaire`.
-- `assistant maternel` : calcul **par contrat et par enfant**, sans utiliser `niveau`. Le minimum est 4,20 €/heure, ou 4,37 €/heure avec le titre AM-AP (`certification professionnelle = oui`). Le plancher légal est 0,281 × `SMIC . horaire`, conformément à l’[article D423-9 du CASF](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000018261010). Les indemnités d’entretien, repas et déplacement sont exclues du contrôle de ce minimum.
-
-La date doit être fournie au moteur pour le SMIC. Un socle ou niveau inconnu active `niveau hors grille`, et donne un taux nul, même si le SMIC est renseigné : l’application doit traiter l’anomalie.
-
-Le `mode de rémunération` vaut `mensualisé` par défaut. `heures de base par semaine` représente les heures ordinaires effectives, hors heures supplémentaires ou majorées. Son défaut est 40 heures pour le salarié à domicile et 45 heures pour l’assistant maternel :
-
-- Salarié à domicile : les `heures de présence responsable par semaine` éligibles à l’article 137.1 sont comptées séparément et converties aux deux tiers. En cas d’interventions récurrentes, l’application doit les requalifier en heures effectives. Le total équivalent de 40 heures donne **174 heures/mois**, conformément à l’[article 146.1](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043942389) ; les autres durées utilisent 52 semaines/12 mois. Par exemple, 20 heures/semaine au niveau I donnent 1 092,87 €/mois, et 40 heures donnent 2 194,14 €/mois.
-- Assistant maternel : les `semaines programmées` valent 52 par défaut, ou de 1 à 46 pour une année incomplète. Les heures mensuelles sont les heures hebdomadaires × semaines/12. Les congés payés d’année incomplète restent à ajouter séparément selon leurs règles propres. Aucune présence responsable aux deux tiers ne s’applique à ce socle.
-
-En mode `réel`, pour un salarié à durée irrégulière ou un accueil occasionnel, renseignez `heures de base réelles du mois` en `heure/mois` (défaut zéro). Ce compteur contient les heures ordinaires effectivement rémunérables, avec la présence responsable déjà convertie lorsqu’elle est éligible. Il exclut les heures additionnelles déclarées dans les compteurs ci-dessous.
-
-`heures rémunérées de base` et `salaire minimum conventionnel` sont indépendants de la durée générique du contrat et de sa quotité dans `modele-social`. **Aucune seconde proratisation** ne doit leur être appliquée. `paramètres invalides` signale notamment un mode inconnu, des compteurs négatifs, une base hebdomadaire supérieure au seuil de 40/45 heures ou un nombre de semaines non admis ; les montants calculés sont alors nuls. Une durée contractuelle supérieure au seuil doit être décomposée en base et heures additionnelles, y compris pour les heures supplémentaires régulières mensualisées.
-
-`rémunération des heures additionnelles` est exposée séparément du minimum : elle comprend **la rémunération de base des heures et leur majoration**, au `taux horaire contractuel` (défaut : minimum), avec protection contre un taux inférieur au minimum. Les compteurs sont en `heure/mois`, sans prorata supplémentaire :
-
-- Salarié à domicile : `heures supplémentaires à 25 pour cent` pour les heures 41 à 48 de chaque semaine ; `heures supplémentaires à 50 pour cent` pour les heures 49 et 50. L’application établit ces compteurs semaine par semaine, contrôle les durées maximales et exclut les heures compensées en repos.
-- Assistant maternel : `heures complémentaires` au-delà de l’horaire prévu jusqu’à 45 heures incluses ; `heures majorées` au-delà de 45 heures. `taux de majoration des heures complémentaires` vaut 0 % sauf accord écrit ; `taux de majoration des heures majorées` vaut 10 % et ne peut produire une majoration inférieure à ce plancher. L’application renseigne les taux contractuels plus favorables.
-
-Pour le salarié à domicile, `prestation en nature repas` expose 4,70 € par repas et `prestation en nature logement` 71 €/mois (montant minimal, éventuellement supérieur au contrat). Ces valeurs servent aux déductions **du net**, pas à la diminution du minimum brut ni à l’évaluation sociale automatique des avantages en nature.
-
-Les congés payés et leur régularisation, absences, jours fériés, repos compensateurs, présence de nuit, garde malade de nuit, garde partagée entre employeurs, frais, indemnités d’entretien, majoration liée aux difficultés particulières de l’enfant, prévoyance, ruptures et règles spécifiques aux jeunes travailleurs restent à modéliser. Le package fournit les règles conventionnelles ci-dessus ; JourDePaye conserve leur mapping, la sélection de version, la validation des plannings et l’intégration au bulletin.
 
 ## Utiliser le package
 
