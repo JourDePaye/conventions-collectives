@@ -1,0 +1,111 @@
+# Convention collective nationale de l'industrie laitière du 20 mai 1955
+# (IDCC 0112, brochure 3124).
+#
+# Version 2026.1, merged with modele-social by @jourdepaye/payroll-core.
+# A released version is immutable (see versions.lock.json): every amendment or correction
+# must use a new version.
+
+validFrom: 2026-02-01
+sources:
+  - Avenant n° 57 du 22 janvier 2026 à l'annexe I de la convention collective nationale de
+    l'industrie laitière, article 1er (salaires minima mensuels par niveau et échelon à
+    compter du 1er février 2026), étendu par arrêté du 4 mai 2026 (JORF du 10 mai 2026,
+    BOCC 2026-12). Texte consolidé consulté sur Légifrance, KALITEXT000054261949.
+---
+salarié . convention collective . industrie laitière:
+  titre: Industrie laitière (IDCC 0112)
+  valeur: convention collective = 'industrie laitière'
+
+salarié . convention collective . industrie laitière . niveau:
+  titre: Niveau et échelon de classification
+  description: |
+    Saisir le niveau et l'échelon au format « niveau.échelon ». La grille comprend les
+    ouvriers et employés 1.1 à 5.3, les techniciens et agents de maîtrise 6.1 à 8.3, et les
+    cadres 9.1, 9.2, 10, 11 et 12.
+  applicable si: convention collective = 'industrie laitière'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . industrie laitière . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: |
+    Salaire minimum mensuel du niveau et de l'échelon pour un travail à temps complet,
+    proratisé pour un temps partiel. Vaut 0 €/mois lorsque la classification n'est pas dans
+    la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'industrie laitière'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . industrie laitière . salaire minimum conventionnel . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Montants de l'annexe I modifiée par l'avenant n° 57 du 22 janvier 2026.
+  unité: €/mois
+  variations:
+    # Ouvriers et employés
+    - si: niveau = '1.1'
+      alors: 1833.26 €/mois
+    - si: niveau = '1.2'
+      alors: 1843.58 €/mois
+    - si: niveau = '2.1'
+      alors: 1853.90 €/mois
+    - si: niveau = '2.2'
+      alors: 1864.23 €/mois
+    - si: niveau = '2.3'
+      alors: 1874.55 €/mois
+    - si: niveau = '3.1'
+      alors: 1874.55 €/mois
+    - si: niveau = '3.2'
+      alors: 1884.87 €/mois
+    - si: niveau = '3.3'
+      alors: 1895.19 €/mois
+    - si: niveau = '4.1'
+      alors: 1895.19 €/mois
+    - si: niveau = '4.2'
+      alors: 1905.52 €/mois
+    - si: niveau = '4.3'
+      alors: 1916.87 €/mois
+    - si: niveau = '5.1'
+      alors: 1916.87 €/mois
+    - si: niveau = '5.2'
+      alors: 1930.29 €/mois
+    - si: niveau = '5.3'
+      alors: 1943.71 €/mois
+    # Techniciens et agents de maîtrise
+    - si: niveau = '6.1'
+      alors: 1943.71 €/mois
+    - si: niveau = '6.2'
+      alors: 2036.61 €/mois
+    - si: niveau = '6.3'
+      alors: 2129.60 €/mois
+    - si: niveau = '7.1'
+      alors: 2129.60 €/mois
+    - si: niveau = '7.2'
+      alors: 2235.92 €/mois
+    - si: niveau = '7.3'
+      alors: 2342.25 €/mois
+    - si: niveau = '8.1'
+      alors: 2342.25 €/mois
+    - si: niveau = '8.2'
+      alors: 2461.32 €/mois
+    - si: niveau = '8.3'
+      alors: 2628.25 €/mois
+    # Cadres
+    - si: niveau = '9.1'
+      alors: 2628.25 €/mois
+    - si: niveau = '9.2'
+      alors: 2925.95 €/mois
+    - si: niveau = '10'
+      alors: 3574.50 €/mois
+    - si: niveau = '11'
+      alors: 4309.18 €/mois
+    - si: niveau = '12'
+      alors: 4931.15 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industrie laitière . niveau hors grille:
+  titre: Niveau et échelon absents de la grille
+  description: Le niveau ou l'échelon n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'industrie laitière'
+  # `est non applicable` does not test the absence of a value and depends on evaluation order.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
