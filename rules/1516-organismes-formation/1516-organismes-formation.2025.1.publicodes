@@ -1,0 +1,162 @@
+# Convention collective nationale des organismes de formation du 10 juin 1988 (IDCC 1516,
+# brochure 3249).
+#
+# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2025-01-01
+sources:
+  - Avenant du 18 novembre 2024 relatif aux salaires minima conventionnels annuels bruts de
+    l'année 2025 (article 2, grille de 31 paliers par fourchette de coefficient, base durée du
+    travail annuelle à temps complet), étendu par arrêté du 25 février 2025 (JORF n° 0066 du
+    18 mars 2025, texte n° 43, NOR TSST2505903A). Texte de l'avenant consulté directement.
+    Ses montants valent pour l'année 2025 et la version s'applique donc à partir du 1er janvier
+    2025.
+  - Aucun avenant ne fixe de grille pour l'année 2026 et la grille 2025 est reconduite sans
+    revalorisation, selon Salerya, Travail-industrie et Légisocial. Cette version reste donc la
+    dernière en vigueur jusqu'au 31 décembre 2026 (à confirmer sur Légifrance).
+  - Avenant du 4 février 2026 relatif à la réécriture de l'article 21 (article 4, dispositions
+    transitoires pendant quatre ans, le minimum mensuel d'un palier est égal à un douzième du
+    minimum annuel), étendu par arrêté du 20 mai 2026 (JORF n° 0131 du 6 juin 2026, texte
+    n° 73, NOR TRST2612715A). Texte de l'avenant consulté directement.
+---
+salarié . convention collective . organismes de formation:
+  titre: Organismes de formation (IDCC 1516)
+  valeur: convention collective = 'organismes de formation'
+
+salarié . convention collective . organismes de formation . coefficient:
+  titre: Coefficient de classification
+  description: |
+    Coefficient de l'emploi dans la classification de la branche, de 100 à 600 et plus. Il
+    détermine l'un des 31 paliers de la grille des salaires minima conventionnels.
+  applicable si: convention collective = 'organismes de formation'
+  par défaut: 0
+
+salarié . convention collective . organismes de formation . salaire minimum conventionnel:
+  titre: Minimum mensuel garanti
+  description: |
+    Un douzième du minimum annuel brut du palier du coefficient, pour un salarié à temps
+    complet de 35 heures (dispositions transitoires de l'avenant du 4 février 2026), proratisé
+    pour un temps partiel. Vaut 0 €/mois si le coefficient n'existe pas dans la grille (voir
+    « coefficient hors grille »). Les éléments de rémunération pris en compte pour apprécier
+    le respect du minimum (treizième mois, primes, avantages en nature) ne sont pas modélisés :
+    cette comparaison reste à la charge de l'application.
+  applicable si: convention collective = 'organismes de formation'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . organismes de formation . salaire minimum conventionnel . grille:
+  titre: Minimum annuel à temps plein
+  description: |
+    Salaire minimum conventionnel annuel brut 2025 du palier, base durée annuelle du travail
+    à temps complet.
+  unité: €/an
+  variations:
+    - si: coefficient < 100
+      alors: 0 €/an
+    # Palier 1, coefficients 100 à 109
+    - si: coefficient <= 109
+      alors: 22090.38 €/an
+    # Palier 2, coefficients 110 à 119
+    - si: coefficient <= 119
+      alors: 22144.23 €/an
+    # Palier 3, coefficients 120 à 132
+    - si: coefficient <= 132
+      alors: 22249.43 €/an
+    # Palier 4, coefficients 133 à 144
+    - si: coefficient <= 144
+      alors: 22277.49 €/an
+    # Palier 5, coefficients 145 à 157
+    - si: coefficient <= 157
+      alors: 22356.12 €/an
+    # Palier 6, coefficients 158 à 170
+    - si: coefficient <= 170
+      alors: 22405.82 €/an
+    # Palier 7, coefficients 171 à 185
+    - si: coefficient <= 185
+      alors: 22561.42 €/an
+    # Palier 8, coefficients 186 à 199
+    - si: coefficient <= 199
+      alors: 23927.99 €/an
+    # Palier 9, coefficients 200 à 206
+    - si: coefficient <= 206
+      alors: 24703.10 €/an
+    # Palier 10, coefficients 207 à 213
+    - si: coefficient <= 213
+      alors: 25603.23 €/an
+    # Palier 11, coefficients 214 à 219
+    - si: coefficient <= 219
+      alors: 26443.55 €/an
+    # Palier 12, coefficients 220 à 226
+    - si: coefficient <= 226
+      alors: 27163.83 €/an
+    # Palier 13, coefficients 227 à 233
+    - si: coefficient <= 233
+      alors: 28004.14 €/an
+    # Palier 14, coefficients 234 à 239
+    - si: coefficient <= 239
+      alors: 28844.47 €/an
+    # Palier 15, coefficients 240 à 245
+    - si: coefficient <= 245
+      alors: 29564.74 €/an
+    # Palier 16, coefficients 246 à 251
+    - si: coefficient <= 251
+      alors: 30285.00 €/an
+    # Palier 17, coefficients 252 à 257
+    - si: coefficient <= 257
+      alors: 31005.28 €/an
+    # Palier 18, coefficients 258 à 263
+    - si: coefficient <= 263
+      alors: 31725.55 €/an
+    # Palier 19, coefficients 264 à 269
+    - si: coefficient <= 269
+      alors: 32445.82 €/an
+    # Palier 20, coefficients 270 à 277
+    - si: coefficient <= 277
+      alors: 33166.09 €/an
+    # Palier 21, coefficients 278 à 285
+    - si: coefficient <= 285
+      alors: 34126.45 €/an
+    # Palier 22, coefficients 286 à 293
+    - si: coefficient <= 293
+      alors: 34917.32 €/an
+    # Palier 23, coefficients 294 à 301
+    - si: coefficient <= 301
+      alors: 35611.83 €/an
+    # Palier 24, coefficients 302 à 309
+    - si: coefficient <= 309
+      alors: 36560.59 €/an
+    # Palier 25, coefficients 310 à 349
+    - si: coefficient <= 349
+      alors: 37094.03 €/an
+    # Palier 26, coefficients 350 à 399
+    - si: coefficient <= 399
+      alors: 41173.35 €/an
+    # Palier 27, coefficients 400 à 449
+    - si: coefficient <= 449
+      alors: 46727.08 €/an
+    # Palier 28, coefficients 450 à 499
+    - si: coefficient <= 499
+      alors: 52024.52 €/an
+    # Palier 29, coefficients 500 à 549
+    - si: coefficient <= 549
+      alors: 57551.01 €/an
+    # Palier 30, coefficients 550 à 599
+    - si: coefficient <= 599
+      alors: 63077.51 €/an
+    - sinon: 68604.01 €/an
+
+salarié . convention collective . organismes de formation . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient est inférieur à 100, première borne de la grille des salaires minima.
+  applicable si: convention collective = 'organismes de formation'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/an pour un coefficient inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/an
