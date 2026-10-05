@@ -1,0 +1,115 @@
+# Convention collective nationale de la restauration rapide du 18 mars 1988 (IDCC 1501,
+# brochure 3245), étendue à la restauration livrée par l'avenant n° 29.
+#
+# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2025-06-01
+sources:
+  - Avenant n° 72 du 5 juin 2025 relatif aux minima conventionnels (article 2, nouvel article 44
+    « Salaires minima par niveau », avec les taux horaires minima bruts des niveaux I à IV et la
+    rémunération minimale annuelle brute du niveau V), applicable le 1er juin 2025, premier jour
+    du mois de la signature faite avant le 15 (article 5), pour les adhérents des organisations
+    patronales signataires, étendu par arrêté du 31 juillet 2025 (JORF n° 0182 du 7 août 2025,
+    texte n° 162, NOR TSST2520699A). Texte de l'avenant consulté directement (exemplaire publié
+    par le SNARR sur snarr.fr).
+  - Aucun avenant plus récent ne révise ces minima, renégociés chaque année selon l'article 44,
+    d'après Légifrance (liste des textes), Légisocial et les éditions Tissot. Cette version reste
+    donc en vigueur en 2026 (à confirmer sur Légifrance).
+---
+salarié . convention collective . restauration rapide:
+  titre: Restauration rapide (IDCC 1501)
+  valeur: convention collective = 'restauration rapide'
+
+salarié . convention collective . restauration rapide . niveau:
+  titre: Niveau et échelon de classification
+  description: |
+    Au format « <niveau>.<échelon> » : I.A et I.B, II.A et II.B, III.A à III.C, IV.A à IV.D,
+    puis V.A à V.C. Les niveaux I à III concernent les employés, le niveau IV les agents de
+    maîtrise et le niveau V les cadres.
+  applicable si: convention collective = 'restauration rapide'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . restauration rapide . taux horaire minimum:
+  titre: Taux horaire minimum brut des niveaux I à IV
+  description: |
+    Taux horaire minimum garanti de l'échelon. Vaut 0 €/heure pour le niveau V, dont le
+    minimum est annuel (voir « rémunération minimale annuelle »), et pour un niveau absent
+    de la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'restauration rapide'
+  unité: €/heure
+  variations:
+    - si: niveau = 'I.A'
+      alors: 11.88 €/heure
+    - si: niveau = 'I.B'
+      alors: 11.90 €/heure
+    - si: niveau = 'II.A'
+      alors: 12.22 €/heure
+    - si: niveau = 'II.B'
+      alors: 12.45 €/heure
+    - si: niveau = 'III.A'
+      alors: 12.82 €/heure
+    - si: niveau = 'III.B'
+      alors: 12.93 €/heure
+    - si: niveau = 'III.C'
+      alors: 13.98 €/heure
+    - si: niveau = 'IV.A'
+      alors: 15.01 €/heure
+    - si: niveau = 'IV.B'
+      alors: 15.43 €/heure
+    - si: niveau = 'IV.C'
+      alors: 16.05 €/heure
+    - si: niveau = 'IV.D'
+      alors: 17.34 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . restauration rapide . rémunération minimale annuelle:
+  titre: Rémunération minimale annuelle brute du niveau V
+  description: |
+    Rémunération minimale annuelle brute des cadres, tous éléments de salaire confondus, à
+    temps complet. Vaut 0 €/an pour les niveaux I à IV, dont le minimum est horaire, et pour
+    un niveau absent de la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'restauration rapide'
+  unité: €/an
+  variations:
+    - si: niveau = 'V.A'
+      alors: 44645.78 €/an
+    - si: niveau = 'V.B'
+      alors: 46032.71 €/an
+    - si: niveau = 'V.C'
+      alors: 72408.11 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . restauration rapide . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel mensuel
+  description: |
+    Pour les niveaux I à IV, le taux horaire minimum appliqué aux heures du contrat hors
+    heures supplémentaires (151,67 heures pour un temps plein), comme le SMIC. Pour le
+    niveau V, un douzième de la rémunération minimale annuelle, proratisé pour un temps
+    partiel. Le minimum annuel s'apprécie sur l'ensemble des éléments de salaire : la règle
+    n'en donne que l'équivalent mensuel. Vaut 0 €/mois pour un niveau absent de la grille.
+  applicable si: convention collective = 'restauration rapide'
+  unité: €/mois
+  somme:
+    - produit:
+        - taux horaire minimum
+        - contrat . temps de travail
+    - produit:
+        - rémunération minimale annuelle
+        - contrat . temps de travail . quotité
+
+salarié . convention collective . restauration rapide . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau ou l'échelon n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'restauration rapide'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : les deux grilles valent 0 pour un niveau inconnu.
+  valeur:
+    toutes ces conditions:
+      - taux horaire minimum = 0 €/heure
+      - rémunération minimale annuelle = 0 €/an
