@@ -1,0 +1,132 @@
+# Convention collective nationale des services de l'automobile du 15 janvier 1981
+# (IDCC 1090, brochure 3034) : commerce et réparation de l'automobile, du cycle et du
+# motocycle, activités connexes, contrôle technique automobile et formation des conducteurs
+# (écoles de conduite).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2026-05-01
+sources:
+  - Avenant n° 110 du 22 janvier 2026 relatif aux salaires minima (article 1er, minima
+    garantis pour 35 heures des ouvriers et employés, de la maîtrise et des cadres), étendu
+    par arrêté du 2 avril 2026 (JORF n° 0090 du 16 avril 2026, texte n° 77, NOR
+    TRST2609049A), applicable le 1er mai 2026, premier jour du mois suivant la publication
+    de l'arrêté d'extension (article 7 de l'avenant).
+  - Texte de l'avenant consulté directement (exemplaire signé publié par la CFDT-FGMM sur
+    cfdt-fgmm.fr). Grille concordante avec celle publiée par PayFit pour 2026.
+---
+salarié . convention collective . services automobile:
+  titre: Services de l'automobile (IDCC 1090)
+  valeur: convention collective = 'services automobile'
+
+salarié . convention collective . services automobile . niveau:
+  titre: Échelon ou niveau de classification
+  description: |
+    Ouvriers et employés : échelons 1 à 12. Maîtrise : échelons 17 à 25. Cadres : niveau et
+    degré au format « <niveau>.<degré> », de I.A à IV.C (niveaux I à IV, degrés A à C), et V
+    sans degré. Les échelons 13 à 16 n'existent pas dans la grille.
+  applicable si: convention collective = 'services automobile'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . services automobile . salaire minimum conventionnel:
+  titre: Minimum mensuel garanti
+  description: |
+    Minimum garanti de l'échelon ou du niveau pour 35 heures par semaine, proratisé pour un
+    temps partiel. Vaut 0 €/mois si l'échelon ou le niveau n'existe pas dans la grille (voir
+    « niveau hors grille »).
+  applicable si: convention collective = 'services automobile'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . services automobile . salaire minimum conventionnel . grille:
+  titre: Minimum garanti à temps plein
+  unité: €/mois
+  variations:
+    # Ouvriers et employés
+    - si: niveau = '1'
+      alors: 1853 €/mois
+    - si: niveau = '2'
+      alors: 1870 €/mois
+    - si: niveau = '3'
+      alors: 1888 €/mois
+    - si: niveau = '4'
+      alors: 1912 €/mois
+    - si: niveau = '5'
+      alors: 1929 €/mois
+    - si: niveau = '6'
+      alors: 1965 €/mois
+    - si: niveau = '7'
+      alors: 1999 €/mois
+    - si: niveau = '8'
+      alors: 2045 €/mois
+    - si: niveau = '9'
+      alors: 2106 €/mois
+    - si: niveau = '10'
+      alors: 2153 €/mois
+    - si: niveau = '11'
+      alors: 2205 €/mois
+    - si: niveau = '12'
+      alors: 2259 €/mois
+    # Maîtrise
+    - si: niveau = '17'
+      alors: 2241 €/mois
+    - si: niveau = '18'
+      alors: 2249 €/mois
+    - si: niveau = '19'
+      alors: 2255 €/mois
+    - si: niveau = '20'
+      alors: 2259 €/mois
+    - si: niveau = '21'
+      alors: 2324 €/mois
+    - si: niveau = '22'
+      alors: 2400 €/mois
+    - si: niveau = '23'
+      alors: 2541 €/mois
+    - si: niveau = '24'
+      alors: 2685 €/mois
+    - si: niveau = '25'
+      alors: 2831 €/mois
+    # Cadres
+    - si: niveau = 'I.A'
+      alors: 2541 €/mois
+    - si: niveau = 'I.B'
+      alors: 2685 €/mois
+    - si: niveau = 'I.C'
+      alors: 2831 €/mois
+    - si: niveau = 'II.A'
+      alors: 2978 €/mois
+    - si: niveau = 'II.B'
+      alors: 3267 €/mois
+    - si: niveau = 'II.C'
+      alors: 3560 €/mois
+    - si: niveau = 'III.A'
+      alors: 3852 €/mois
+    - si: niveau = 'III.B'
+      alors: 4144 €/mois
+    - si: niveau = 'III.C'
+      alors: 4438 €/mois
+    - si: niveau = 'IV.A'
+      alors: 4731 €/mois
+    - si: niveau = 'IV.B'
+      alors: 5022 €/mois
+    - si: niveau = 'IV.C'
+      alors: 5316 €/mois
+    - si: niveau = 'V'
+      alors: 5904 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . services automobile . niveau hors grille:
+  titre: Échelon ou niveau absent de la grille
+  description: L'échelon ou le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'services automobile'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un échelon ou un niveau inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
