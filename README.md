@@ -2,7 +2,7 @@
 
 L’objectif de ce projet est de mettre à disposition **l’ensemble des conventions collectives françaises en langage [publicodes](https://publi.codes)**, sous une forme lisible, versionnée et réutilisable dans des outils de calcul.
 
-Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package `@jourdepaye/conventions-collectives`, utilisé notamment par JourDePaye pour compléter les règles de `modele-social`.
+Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package `conventions-collectives`, utilisé notamment par JourDePaye pour compléter les règles de `modele-social`.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
@@ -149,7 +149,7 @@ L’installation depuis Git construit le package grâce au script `prepare`. Ell
 Exemple de chargement d’une version précise :
 
 ```ts
-import { COMPILED_VERSIONS } from "@jourdepaye/conventions-collectives";
+import { COMPILED_VERSIONS } from "conventions-collectives";
 
 const version = COMPILED_VERSIONS["1486-syntec"]?.find(
   (candidate) => candidate.version === "2025.1",
@@ -269,7 +269,7 @@ Ces commandes vérifient respectivement les types TypeScript, la construction du
 
 ## Publier sur npm
 
-Le workflow [Publish to npm](.github/workflows/publish.yml) construit et publie `@jourdepaye/conventions-collectives` sur le registre npm public. Il exécute les tests, vérifie les types et le verrou des versions, puis construit une archive et vérifie le chargement de toutes ses règles avant de la publier. La publication inclut une attestation de provenance.
+Le workflow [Publish to npm](.github/workflows/publish.yml) construit et publie `conventions-collectives` sur le registre npm public. Il exécute les tests, vérifie les types et le verrou des versions, puis construit une archive et vérifie le chargement de toutes ses règles avant de la publier. La publication inclut une attestation de provenance.
 
 ### Configurer l’authentification
 

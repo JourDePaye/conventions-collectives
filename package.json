@@ -1,5 +1,5 @@
 {
-  "name": "@jourdepaye/conventions-collectives",
+  "name": "conventions-collectives",
   "version": "0.1.0",
   "description": "Versioned French collective agreement publicodes rules for modele-social",
   "type": "module",

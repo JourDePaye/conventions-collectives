@@ -46,7 +46,7 @@ jobs:
           import assert from "node:assert/strict";
           import { appendFileSync, readFileSync } from "node:fs";
           const pkg = JSON.parse(readFileSync("package.json", "utf8"));
-          assert.equal(pkg.name, "@jourdepaye/conventions-collectives");
+          assert.equal(pkg.name, "conventions-collectives");
           assert.equal(pkg.private, undefined);
           assert.match(pkg.version, /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/);
           if (process.env.GITHUB_REF_TYPE === "tag") {
@@ -81,7 +81,7 @@ jobs:
           PACKAGE_VERSION: ${{ steps.package.outputs.version }}
         run: |
           mkdir -p "$RUNNER_TEMP/package-smoke"
-          tar -xzf "./jourdepaye-conventions-collectives-${PACKAGE_VERSION}.tgz" -C "$RUNNER_TEMP/package-smoke"
+          tar -xzf "./conventions-collectives-${PACKAGE_VERSION}.tgz" -C "$RUNNER_TEMP/package-smoke"
           node --input-type=module <<'JS'
           import assert from "node:assert/strict";
           import { join } from "node:path";
@@ -104,7 +104,7 @@ jobs:
         env:
           PACKAGE_VERSION: ${{ steps.package.outputs.version }}
           DIST_TAG: ${{ steps.package.outputs.dist_tag }}
-        run: npm publish "./jourdepaye-conventions-collectives-${PACKAGE_VERSION}.tgz" --access public --tag "$DIST_TAG" --dry-run
+        run: npm publish "./conventions-collectives-${PACKAGE_VERSION}.tgz" --access public --tag "$DIST_TAG" --dry-run
 
       - name: Publish public package to npm
         if: github.event_name != 'workflow_dispatch' || !inputs.dry_run
@@ -113,4 +113,4 @@ jobs:
           DIST_TAG: ${{ steps.package.outputs.dist_tag }}
           # Optional bootstrap token; subsequent publications can use npm OIDC.
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish "./jourdepaye-conventions-collectives-${PACKAGE_VERSION}.tgz" --access public --tag "$DIST_TAG" --provenance
+        run: npm publish "./conventions-collectives-${PACKAGE_VERSION}.tgz" --access public --tag "$DIST_TAG" --provenance
