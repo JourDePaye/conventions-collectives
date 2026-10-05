@@ -1,0 +1,88 @@
+# IDCC 1261 — Acteurs du lien social et familial (Alisfa).
+# New classification and remuneration system, applicable from 1 January 2024.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Avenant n° 01 du 2 octobre 2023 à l'avenant n° 10-22 du 6 décembre 2022,
+    articles 4 et 5 : nouveau système de classification et de rémunération,
+    salaire socle et valeur du point 2026. Étendu par arrêté du 11 décembre 2023,
+    JORF du 16 décembre 2023 ; entrée en vigueur le 1er janvier 2024.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000048558670/
+  - >-
+    Avenant n° 10-22 du 6 décembre 2022 : huit critères classants, salaire
+    additionnel correspondant aux points de pesée, et définition du salaire minimum
+    hiérarchique de branche.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000048557731/
+---
+salarié . convention collective . acteurs du lien social et familial:
+  titre: Acteurs du lien social et familial (centres sociaux, IDCC 1261)
+  valeur: convention collective = 'acteurs du lien social et familial'
+
+salarié . convention collective . acteurs du lien social et familial . points de pesée:
+  applicable si: convention collective = 'acteurs du lien social et familial'
+  titre: Points de pesée du poste
+  description: |
+    Somme des points obtenus pour le positionnement du poste sur les huit critères
+    classants de la branche. Les points du premier niveau sont compris dans le salaire
+    socle ; ne renseigner ici que les points additionnels. La pesée est déterminée par
+    l'employeur pour l'emploi repère et les missions effectivement exercées.
+  par défaut: 0
+
+salarié . convention collective . acteurs du lien social et familial . points d'expérience professionnelle:
+  applicable si: convention collective = 'acteurs du lien social et familial'
+  titre: Points d'ancienneté et de compétences acquis
+  description: |
+    Total des points déjà acquis au titre de l'ancienneté dans la branche et de
+    l'acquisition de compétences dans l'emploi repère. La détermination des dates
+    anniversaires, reprises et proratisations reste à la charge de l'application.
+  par défaut: 0
+
+salarié . convention collective . acteurs du lien social et familial . paramètres invalides:
+  applicable si: convention collective = 'acteurs du lien social et familial'
+  une de ces conditions:
+    - points de pesée < 0
+    - points d'expérience professionnelle < 0
+
+salarié . convention collective . acteurs du lien social et familial . salaire socle annuel:
+  applicable si: convention collective = 'acteurs du lien social et familial'
+  description: Salaire socle annuel 2026 pour un équivalent temps plein.
+  unité: €/an
+  valeur: 23000 €/an
+
+salarié . convention collective . acteurs du lien social et familial . valeur du point:
+  applicable si: convention collective = 'acteurs du lien social et familial'
+  description: Valeur annuelle 2026 de chaque point de pesée ou d'expérience professionnelle.
+  unité: €/an
+  valeur: 55 €/an
+
+salarié . convention collective . acteurs du lien social et familial . salaire additionnel annuel:
+  applicable si: convention collective = 'acteurs du lien social et familial'
+  unité: €/an
+  valeur: points de pesée * valeur du point
+
+salarié . convention collective . acteurs du lien social et familial . expérience professionnelle annuelle:
+  applicable si: convention collective = 'acteurs du lien social et familial'
+  unité: €/an
+  valeur: points d'expérience professionnelle * valeur du point
+
+salarié . convention collective . acteurs du lien social et familial . salaire minimum hiérarchique annuel:
+  applicable si: convention collective = 'acteurs du lien social et familial'
+  unité: €/an
+  variations:
+    - si: paramètres invalides
+      alors: 0 €/an
+    - sinon:
+        somme:
+          - salaire socle annuel
+          - salaire additionnel annuel
+          - expérience professionnelle annuelle
+
+salarié . convention collective . acteurs du lien social et familial . salaire minimum conventionnel:
+  applicable si: convention collective = 'acteurs du lien social et familial'
+  titre: Salaire minimum hiérarchique mensuel
+  description: |
+    Salaire minimum hiérarchique annuel payé par douzième et proratisé une seule fois
+    par la quotité du contrat. Il inclut le socle, les points de pesée et les points
+    déjà acquis au titre de l'expérience professionnelle.
+  unité: €/mois
+  valeur: salaire minimum hiérarchique annuel * contrat . temps de travail . quotité
