@@ -8,10 +8,11 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Douze conventions sont actuellement représentées, avec quinze versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
+Treize conventions sont actuellement représentées, avec seize versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
+| [Boulangerie-pâtisserie (entreprises artisanales)](rules/0843-boulangerie-patisserie-artisanale/README.md) | 843 | `2026.1` : 1er février 2026 | Taux horaires minima de 10 coefficients selon trois zones (national, Île-de-France, Bouches-du-Rhône), appliqués aux heures du contrat, et minima annuels des cadres 1 et 2 convertis en minima mensuels ; détection des niveaux hors grille |
 | [Services de l’automobile (commerce, réparation, contrôle technique, écoles de conduite)](rules/1090-services-automobile/README.md) | 1090 | `2026.1` : 1er mai 2026 | Grille de 34 positions pour les ouvriers et employés (échelons 1 à 12), la maîtrise (échelons 17 à 25) et les cadres (niveaux I à V), proratisée selon la quotité de travail ; détection des échelons et niveaux hors grille |
 | [Acteurs du lien social et familial (centres sociaux)](rules/1261-acteurs-lien-social-familial/README.md) | 1261 | `2026.1` : 1er janvier 2026 | Salaire socle annuel, points de pesée et points d'expérience professionnelle, convertis en minimum hiérarchique mensuel |
 | [Entreprises de prévention et de sécurité](rules/1351-prevention-securite/README.md) | 1351 | `2026.1` : 1er juillet 2026 | Grille de 25 positions pour trois catégories, prime d’ancienneté, majorations nuit et dimanche, paniers, indemnités et minimum de six heures par période |
@@ -31,6 +32,9 @@ Les références des accords et de leurs arrêtés d’extension figurent dans l
 
 ```text
 rules/
+  0843-boulangerie-patisserie-artisanale/
+    README.md
+    0843-boulangerie-patisserie-artisanale.2026.1.publicodes
   1090-services-automobile/
     README.md
     1090-services-automobile.2026.1.publicodes
@@ -170,18 +174,26 @@ npm test
 
 `npm ci` installe les dépendances verrouillées et construit le package. `npm test` compile d’abord les sources, puis exécute tous les fichiers `test/**/*.test.ts` avec le moteur de tests intégré à Node.js. Une erreur de compilation ou un test en échec fait échouer la commande.
 
-Dix ensembles de tests sont présents :
+Onze ensembles de tests sont présents :
 
 - `test/compile-collective-agreements.test.ts` teste le compilateur avec des fichiers temporaires : nommage, métadonnées, dates, ajout d’une version, modification ou suppression d’une version verrouillée.
-- `test/models.test.ts` vérifie les versions exportées et leurs empreintes, la présence des références juridiques, les espaces de noms, l’absence de collisions avec `modele-social` et des calculs de minima pour chacune des quinze versions.
+- `test/models.test.ts` vérifie les versions exportées et leurs empreintes, la présence des références juridiques, les espaces de noms, l’absence de collisions avec `modele-social` et des calculs de minima pour chacune des seize versions.
 - `test/acteurs-lien-social-familial.test.ts` couvre le socle 2026, les points de pesée, les points d'expérience professionnelle, le temps partiel, les valeurs invalides et l'inapplicabilité hors convention.
 - `test/aide-soins-domicile.test.ts` couvre les 36 positions des deux filières IDCC 2941, les paliers d’ancienneté, les diplômes, le plancher SMIC, le reclassement, le temps partiel et les ECR ponctuels. Les coefficients et montants attendus sont fixés à partir des textes, indépendamment du YAML.
 - `test/particuliers-employeurs.test.ts` couvre les 12 niveaux IDCC 3239 avec et sans certification, les taux et montants mensuels publiés, les deux socles, les planchers légaux, le temps partiel, la présence responsable, l’année incomplète, le mode réel, les heures additionnelles, les prestations en nature, les entrées invalides et l’inapplicabilité hors convention. Les valeurs attendues sont indépendantes du YAML.
 - `test/services-automobile.test.ts` couvre les 34 positions IDCC 1090 (échelons 1 à 12 et 17 à 25, niveaux et degrés des cadres), la quotité, les échelons et niveaux hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 110, indépendamment du YAML.
+- `test/boulangerie-patisserie-artisanale.test.ts` couvre les 10 coefficients IDCC 843 dans les trois zones, les cadres 1 et 2, la quotité, les formules de l’avenant national, les niveaux hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux des trois textes, indépendamment du YAML.
 - `test/commerce-detail-alimentaire-non-specialise.test.ts` couvre les 11 niveaux IDCC 1505, la quotité, les minima annuels des cadres au forfait jours (seuil de 36 mois dans le niveau), les niveaux hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’accord du 10 février 2026, indépendamment du YAML.
 - `test/restauration-rapide.test.ts` couvre les 14 positions IDCC 1501 (taux horaires des niveaux I à IV, minima annuels du niveau V), l’application du taux horaire aux heures du contrat, le temps partiel, les niveaux et échelons hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 72, indépendamment du YAML.
 - `test/organismes-formation.test.ts` couvre les 31 paliers IDCC 1516 des grilles 2025 et 2027 (bornes de chaque fourchette de coefficient), la conversion en minimum mensuel, la quotité, les coefficients hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux des avenants, indépendamment du YAML.
 - `test/prevention-securite.test.ts` couvre les 25 positions IDCC 1351, les coefficients présents dans plusieurs catégories, la quotité, les paliers d’ancienneté, les majorations nuit et dimanche, le repos, les indemnités et le complément de rémunération des périodes de travail.
+
+Pour exécuter uniquement les tests IDCC 843 :
+
+```sh
+npm run compile-rules
+node --test test/boulangerie-patisserie-artisanale.test.ts
+```
 
 Pour exécuter uniquement les tests IDCC 1505 :
 

@@ -1,0 +1,199 @@
+# Convention collective nationale de la boulangerie-pâtisserie (entreprises artisanales)
+# du 19 mars 1976 (IDCC 843, brochure 3117).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version : le premier jour du mois qui voit s'appliquer les
+# trois grilles (accord Île-de-France au 1er février 2026).
+validFrom: 2026-02-01
+sources:
+  - Avenant n° 139 du 14 janvier 2026 (article 1, valeurs du point et de la constante, et
+    article 2, salaires horaires minima des personnels de fabrication, de vente et de services
+    pour les coefficients 155 à 240 ; article 3, rémunérations annuelles des cadres 1 et 2 pour
+    218 jours de travail), applicable le 1er janvier 2026 (article 4), étendu par arrêté du
+    10 avril 2026 (JORF n° 0091 du 17 avril 2026, texte n° 84, NOR TRST2608824A). Texte de
+    l'avenant consulté directement (brochure 3117).
+  - Accord Île-de-France n° 61 du 22 janvier 2026 (articles 1 et 2, salaires horaires minima
+    des trois catégories pour les coefficients 155 à 240 ; article 3, rémunérations annuelles
+    des cadres 1 et 2 pour 218 jours de travail), applicable le 1er février 2026 (article 4),
+    étendu par arrêté du 8 avril 2026 (JORF n° 0091 du 17 avril 2026, texte n° 80, JORFTEXT
+    000053907805). Texte de l'accord consulté directement.
+  - Avenant n° 20 du 21 janvier 2026 aux accords départementaux du 20 juin 2012 des
+    Bouches-du-Rhône (article 3, salaires horaires minima des trois catégories à compter du
+    1er janvier 2026), qui prend effet dès son extension (article 4), étendu par arrêté du
+    2 avril 2026 (JORF n° 0091 du 17 avril 2026, texte n° 60, JORFTEXT 000053907594). Texte de
+    l'avenant consulté directement.
+---
+salarié . convention collective . boulangerie-pâtisserie artisanale:
+  titre: Boulangerie-pâtisserie artisanale (IDCC 843)
+  valeur: convention collective = 'boulangerie-pâtisserie artisanale'
+
+salarié . convention collective . boulangerie-pâtisserie artisanale . niveau:
+  titre: Coefficient ou statut cadre
+  description: |
+    Coefficient hiérarchique des personnels de fabrication, de vente et de services (155, 160,
+    165, 170, 175, 180, 185, 190, 195 ou 240), ou C1 et C2 pour les cadres 1 et 2 au forfait
+    annuel en jours.
+  applicable si: convention collective = 'boulangerie-pâtisserie artisanale'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . boulangerie-pâtisserie artisanale . zone:
+  titre: Zone géographique des minima
+  description: |
+    Territoire dont la grille s'applique : « Île-de-France » (accord n° 61), « Bouches-du-Rhône »
+    (avenant n° 20) ou « national » (avenant n° 139) partout ailleurs.
+  applicable si: convention collective = 'boulangerie-pâtisserie artisanale'
+  par défaut: "'national'"
+
+salarié . convention collective . boulangerie-pâtisserie artisanale . taux horaire minimum . national:
+  titre: Taux horaire minimum national
+  description: Salaire horaire minimum de l'avenant n° 139 (point multiplié par le coefficient, plus constante), arrondi au centime comme dans l'article 2 de l'avenant.
+  unité: €/heure
+  variations:
+    - si: niveau = '155'
+      alors: 12.41 €/heure
+    - si: niveau = '160'
+      alors: 12.53 €/heure
+    - si: niveau = '165'
+      alors: 12.66 €/heure
+    - si: niveau = '170'
+      alors: 12.78 €/heure
+    - si: niveau = '175'
+      alors: 12.91 €/heure
+    - si: niveau = '180'
+      alors: 13.03 €/heure
+    - si: niveau = '185'
+      alors: 13.31 €/heure
+    - si: niveau = '190'
+      alors: 13.43 €/heure
+    - si: niveau = '195'
+      alors: 13.54 €/heure
+    - si: niveau = '240'
+      alors: 14.59 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . boulangerie-pâtisserie artisanale . taux horaire minimum . Île-de-France:
+  titre: Taux horaire minimum de l'Île-de-France
+  description: Salaire horaire minimum de l'article 2 de l'accord Île-de-France n° 61.
+  unité: €/heure
+  variations:
+    - si: niveau = '155'
+      alors: 12.57 €/heure
+    - si: niveau = '160'
+      alors: 12.86 €/heure
+    - si: niveau = '165'
+      alors: 13.14 €/heure
+    - si: niveau = '170'
+      alors: 13.43 €/heure
+    - si: niveau = '175'
+      alors: 13.71 €/heure
+    - si: niveau = '180'
+      alors: 14.00 €/heure
+    - si: niveau = '185'
+      alors: 14.28 €/heure
+    - si: niveau = '190'
+      alors: 14.57 €/heure
+    - si: niveau = '195'
+      alors: 14.85 €/heure
+    - si: niveau = '240'
+      alors: 17.42 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . boulangerie-pâtisserie artisanale . taux horaire minimum . Bouches-du-Rhône:
+  titre: Taux horaire minimum des Bouches-du-Rhône
+  description: Salaire horaire minimum de l'article 3 de l'avenant n° 20 des Bouches-du-Rhône.
+  unité: €/heure
+  variations:
+    - si: niveau = '155'
+      alors: 12.57 €/heure
+    - si: niveau = '160'
+      alors: 12.68 €/heure
+    - si: niveau = '165'
+      alors: 12.80 €/heure
+    - si: niveau = '170'
+      alors: 12.95 €/heure
+    - si: niveau = '175'
+      alors: 13.05 €/heure
+    - si: niveau = '180'
+      alors: 13.15 €/heure
+    - si: niveau = '185'
+      alors: 13.76 €/heure
+    - si: niveau = '190'
+      alors: 13.97 €/heure
+    - si: niveau = '195'
+      alors: 14.10 €/heure
+    - si: niveau = '240'
+      alors: 15.13 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . boulangerie-pâtisserie artisanale . taux horaire minimum:
+  titre: Taux horaire minimum brut
+  description: |
+    Taux horaire minimum du coefficient dans la zone. Vaut 0 €/heure pour les cadres, dont le
+    minimum est annuel (voir « rémunération minimale annuelle »), et pour un coefficient absent
+    de la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'boulangerie-pâtisserie artisanale'
+  unité: €/heure
+  variations:
+    - si: zone = 'Île-de-France'
+      alors: taux horaire minimum . Île-de-France
+    - si: zone = 'Bouches-du-Rhône'
+      alors: taux horaire minimum . Bouches-du-Rhône
+    - sinon: taux horaire minimum . national
+
+salarié . convention collective . boulangerie-pâtisserie artisanale . rémunération minimale annuelle:
+  titre: Rémunération minimale annuelle brute des cadres
+  description: |
+    Rémunération annuelle brute des cadres 1 et 2 pour une convention de forfait de 218 jours
+    de travail. Elle vaut 0 €/an pour les autres niveaux et pour un coefficient absent de la
+    grille (voir « niveau hors grille »). Les Bouches-du-Rhône n'ont pas de montant propre :
+    ceux de l'avenant national s'y appliquent.
+  applicable si: convention collective = 'boulangerie-pâtisserie artisanale'
+  unité: €/an
+  variations:
+    - si: niveau = 'C1'
+      alors:
+        variations:
+          - si: zone = 'Île-de-France'
+            alors: 39955 €/an
+          - sinon: 39871 €/an
+    - si: niveau = 'C2'
+      alors:
+        variations:
+          - si: zone = 'Île-de-France'
+            alors: 57328 €/an
+          - sinon: 57206 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . boulangerie-pâtisserie artisanale . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel mensuel
+  description: |
+    Pour les coefficients 155 à 240, le taux horaire minimum appliqué aux heures du contrat
+    hors heures supplémentaires (151,67 heures pour un temps plein), comme le SMIC. Pour les
+    cadres, un douzième de la rémunération minimale annuelle, proratisé pour un temps partiel.
+    Vaut 0 €/mois pour un coefficient absent de la grille.
+  applicable si: convention collective = 'boulangerie-pâtisserie artisanale'
+  unité: €/mois
+  somme:
+    - produit:
+        - taux horaire minimum
+        - contrat . temps de travail
+    - produit:
+        - rémunération minimale annuelle
+        - contrat . temps de travail . quotité
+
+salarié . convention collective . boulangerie-pâtisserie artisanale . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le coefficient ou le statut cadre n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'boulangerie-pâtisserie artisanale'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : les deux grilles valent 0 pour un niveau inconnu.
+  valeur:
+    toutes ces conditions:
+      - taux horaire minimum = 0 €/heure
+      - rémunération minimale annuelle = 0 €/an
