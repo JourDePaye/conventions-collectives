@@ -1,0 +1,118 @@
+# Convention collective nationale du commerce de détail alimentaire non spécialisé
+# (IDCC 1505, brochure 3244), anciennement commerce de détail de fruits et légumes, épicerie
+# et produits laitiers.
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2026-08-01
+sources:
+  - Accord du 10 février 2026 relatif à la grille des minima salariaux (article 1, salaires
+    horaires et mensuels des niveaux E1 à E7, AM1, AM2, C1 et C2, et article 2, salaires
+    annuels minima des cadres pour 217 jours de travail par an), applicable le premier jour du
+    mois qui suit la publication de l'arrêté d'extension (article 6), soit le 1er août 2026,
+    étendu par arrêté du 6 juillet 2026 (JORF n° 0160 du 10 juillet 2026, texte n° 118, NOR
+    TRST2616917A) sous réserve de l'application des dispositions légales relatives au SMIC.
+    Texte de l'accord consulté directement (exemplaire publié par juristique.org). Il se
+    substitue à l'accord du 12 février 2025.
+---
+salarié . convention collective . commerce de détail alimentaire non spécialisé:
+  titre: Commerce de détail alimentaire non spécialisé (IDCC 1505)
+  valeur: convention collective = 'commerce de détail alimentaire non spécialisé'
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . niveau:
+  titre: Niveau de classification
+  description: |
+    E1 à E7 pour les employés, AM1 et AM2 pour les agents de maîtrise, C1 et C2 pour les
+    cadres.
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum du niveau pour 35 heures par semaine (151,67 heures par mois),
+    proratisé pour un temps partiel. Vaut 0 €/mois si le niveau n'existe pas dans la grille
+    (voir « niveau hors grille »). Pour les cadres au forfait jours, le minimum annuel est
+    donné par « salaire minimum annuel forfait jours ».
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Colonne « salaire mensuel » de l'article 1 de l'accord. Elle diffère d'au plus 0,11 € du
+    taux horaire de l'accord multiplié par 151,67 heures : le salaire mensuel est retenu.
+  unité: €/mois
+  variations:
+    - si: niveau = 'E1'
+      alors: 1851.55 €/mois
+    - si: niveau = 'E2'
+      alors: 1862.45 €/mois
+    - si: niveau = 'E3'
+      alors: 1864.44 €/mois
+    - si: niveau = 'E4'
+      alors: 1903.28 €/mois
+    - si: niveau = 'E5'
+      alors: 1916.48 €/mois
+    - si: niveau = 'E6'
+      alors: 1962.37 €/mois
+    - si: niveau = 'E7'
+      alors: 1977.26 €/mois
+    - si: niveau = 'AM1'
+      alors: 2459.37 €/mois
+    - si: niveau = 'AM2'
+      alors: 2501.27 €/mois
+    - si: niveau = 'C1'
+      alors: 3058.90 €/mois
+    - si: niveau = 'C2'
+      alors: 3388.60 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un niveau inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . mois dans le niveau:
+  titre: Ancienneté dans le niveau, en mois
+  description: |
+    Nombre de mois passés dans le niveau, pour le minimum annuel des cadres au forfait jours.
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . salaire minimum annuel forfait jours:
+  titre: Salaire minimum annuel garanti des cadres au forfait jours
+  description: |
+    Salaire annuel minimum garanti des niveaux C1 et C2 pour 217 jours de travail par an,
+    journée de solidarité incluse (article 2 de l'accord). Le montant des 36 premiers mois en
+    forfait jours dans le niveau s'applique jusqu'à 36 mois, celui d'après 36 mois dans le
+    niveau au-delà. Vaut 0 €/an pour les autres niveaux.
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  unité: €/an
+  variations:
+    - si: niveau = 'C1'
+      alors:
+        variations:
+          - si: mois dans le niveau > 36 mois
+            alors: 39320 €/an
+          - sinon: 38176 €/an
+    - si: niveau = 'C2'
+      alors:
+        variations:
+          - si: mois dans le niveau > 36 mois
+            alors: 43348 €/an
+          - sinon: 42085 €/an
+    - sinon: 0 €/an
