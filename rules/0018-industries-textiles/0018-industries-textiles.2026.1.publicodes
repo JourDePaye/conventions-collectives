@@ -1,0 +1,104 @@
+# Convention collective nationale de l'industrie textile du 1er février 1951 (IDCC 18,
+# brochure 3106).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de l'accord du 17 juin 2026, rétroactif au 1er juin 2026. Pour les
+# employeurs non adhérents à la fédération signataire, l'extension ne rend l'accord applicable
+# qu'à compter de la publication de l'arrêté d'extension (4 septembre 2026) : cette réserve
+# n'est pas modélisée.
+validFrom: 2026-06-01
+sources:
+  - Accord national du 17 juin 2026 relatif aux salaires minima (grille des 21 positions des
+    niveaux 1 à 6 en échelons et des positions I à IV, montants mensuels bruts, revalorisation
+    moyenne de 3,76 %), applicable à compter du 1er juin 2026, étendu par arrêté du 24 août
+    2026 (JORF n° 0206 du 4 septembre 2026, texte n° 45, NOR TRST2621209A). Montants recoupés
+    sur deux pages de synthèse concordantes (juristique.org et salaire-minimum.com), qui
+    indiquent une base de 152,25 heures par mois ; le texte de l'accord n'a pas pu être lu.
+---
+salarié . convention collective . industries textiles:
+  titre: Industries textiles (IDCC 18)
+  valeur: convention collective = 'industries textiles'
+
+salarié . convention collective . industries textiles . niveau:
+  titre: Niveau et échelon de classification
+  description: |
+    Niveau 1 (1), niveaux 2 à 6 avec leur échelon de 1 à 3 (2.1 à 6.3), position I avec son
+    échelon de 1 ou 2 (I.1, I.2), positions II, III et IV (II, III, IV).
+  applicable si: convention collective = 'industries textiles'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . industries textiles . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum du niveau pour 35 heures par semaine, proratisé pour un temps
+    partiel. Vaut 0 €/mois si le niveau n'existe pas dans la grille (voir « niveau hors
+    grille »).
+  applicable si: convention collective = 'industries textiles'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . industries textiles . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'accord du 17 juin 2026, de 1 898 € (niveau 1) à 5 029 € (position IV).
+  unité: €/mois
+  variations:
+    - si: niveau = '1'
+      alors: 1898 €/mois
+    - si: niveau = '2.1'
+      alors: 1901 €/mois
+    - si: niveau = '2.2'
+      alors: 1906 €/mois
+    - si: niveau = '2.3'
+      alors: 1915 €/mois
+    - si: niveau = '3.1'
+      alors: 1916 €/mois
+    - si: niveau = '3.2'
+      alors: 1920 €/mois
+    - si: niveau = '3.3'
+      alors: 1931 €/mois
+    - si: niveau = '4.1'
+      alors: 1933 €/mois
+    - si: niveau = '4.2'
+      alors: 1996 €/mois
+    - si: niveau = '4.3'
+      alors: 2080 €/mois
+    - si: niveau = '5.1'
+      alors: 2087 €/mois
+    - si: niveau = '5.2'
+      alors: 2143 €/mois
+    - si: niveau = '5.3'
+      alors: 2293 €/mois
+    - si: niveau = '6.1'
+      alors: 2304 €/mois
+    - si: niveau = '6.2'
+      alors: 2420 €/mois
+    - si: niveau = '6.3'
+      alors: 2615 €/mois
+    - si: niveau = 'I.1'
+      alors: 2620 €/mois
+    - si: niveau = 'I.2'
+      alors: 2923 €/mois
+    - si: niveau = 'II'
+      alors: 3527 €/mois
+    - si: niveau = 'III'
+      alors: 4280 €/mois
+    - si: niveau = 'IV'
+      alors: 5029 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industries textiles . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'industries textiles'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un niveau inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
