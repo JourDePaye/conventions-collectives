@@ -1,0 +1,80 @@
+# Convention collective nationale des maisons à succursales de vente au détail d'habillement
+# du 30 juin 1972 (IDCC 675, brochure 3065).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de l'accord (article 4). Pour les employeurs non adhérents à la
+# fédération signataire, l'arrêté d'extension ne rend l'article 4 applicable qu'à compter du
+# lendemain de sa publication (11 juillet 2026) : cette réserve n'est pas modélisée.
+validFrom: 2026-05-01
+sources:
+  - Accord du 16 avril 2026 relatif aux salaires mensuels minima garantis (grille applicable en
+    France métropolitaine pour 151,67 heures, employés de la catégorie 1 à 4, agents de maîtrise
+    des catégories 1 et 2, cadres des catégories 1 à 3), applicable à compter du 1er mai 2026,
+    étendu par arrêté du 6 juillet 2026 (JORF n° 0160 du 10 juillet 2026, texte n° 117, NOR
+    TRST2616915A) sous réserve de l'application des dispositions réglementaires relatives au
+    SMIC. Montants recoupés sur deux pages de synthèse concordantes (juristique.org et
+    convention.fr) ; le texte de l'accord lui-même n'a pas été consulté.
+---
+salarié . convention collective . succursales habillement:
+  titre: Maisons à succursales de vente au détail d'habillement (IDCC 675)
+  valeur: convention collective = 'succursales habillement'
+
+salarié . convention collective . succursales habillement . niveau:
+  titre: Catégorie de classification
+  description: |
+    E1 à E4 pour les employés, AM1 et AM2 pour les agents de maîtrise, C1 à C3 pour les
+    cadres.
+  applicable si: convention collective = 'succursales habillement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . succursales habillement . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum de la catégorie pour 151,67 heures, proratisé pour un temps
+    partiel. Vaut 0 €/mois si la catégorie n'existe pas dans la grille (voir « niveau hors
+    grille »).
+  applicable si: convention collective = 'succursales habillement'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . succursales habillement . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'accord du 16 avril 2026, de 1 824 € (employé 1) à 3 044 € (cadre 3).
+  unité: €/mois
+  variations:
+    - si: niveau = 'E1'
+      alors: 1824 €/mois
+    - si: niveau = 'E2'
+      alors: 1837 €/mois
+    - si: niveau = 'E3'
+      alors: 1851 €/mois
+    - si: niveau = 'E4'
+      alors: 1900 €/mois
+    - si: niveau = 'AM1'
+      alors: 1981 €/mois
+    - si: niveau = 'AM2'
+      alors: 2058 €/mois
+    - si: niveau = 'C1'
+      alors: 2348 €/mois
+    - si: niveau = 'C2'
+      alors: 2581 €/mois
+    - si: niveau = 'C3'
+      alors: 3044 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . succursales habillement . niveau hors grille:
+  titre: Catégorie absente de la grille
+  description: La catégorie n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'succursales habillement'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour une catégorie inconnue.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
