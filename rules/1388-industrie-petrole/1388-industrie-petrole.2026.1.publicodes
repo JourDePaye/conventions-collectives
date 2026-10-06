@@ -1,0 +1,72 @@
+# Convention collective nationale de l'industrie du pétrole du 3 septembre 1985 (IDCC 1388,
+# brochure 3001).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de l'accord du 27 novembre 2025.
+validFrom: 2026-01-01
+sources:
+  - Accord du 27 novembre 2025 relatif aux salaires minima (revalorisation de 1 % au
+    1er janvier 2026 ; valeur minimale du point de 9,9749 € par mois, majoration conventionnelle
+    de 0,2517 € par point d'écart entre le coefficient 880 et le coefficient du salarié, et
+    surmajoration de 3,1855 € par point d'écart entre le coefficient 215 et le coefficient du
+    salarié pour les coefficients inférieurs à 215), applicable à compter du 1er janvier 2026,
+    étendu par arrêté du 27 janvier 2026 (JORF n° 0030 du 5 février 2026). Paramètres recoupés
+    sur plusieurs pages de synthèse concordantes (juristique.org, salaire-minimum.com,
+    convention.fr) et avec les montants mensuels publiés pour les coefficients 150, 200, 215,
+    310, 400, 550 et 880 ; le texte de l'accord n'a pas été consulté, ni le numéro de texte et
+    le NOR de l'arrêté.
+---
+salarié . convention collective . industrie pétrole:
+  titre: Industrie du pétrole (IDCC 1388)
+  valeur: convention collective = 'industrie pétrole'
+
+salarié . convention collective . industrie pétrole . coefficient:
+  titre: Coefficient hiérarchique
+  description: |
+    Coefficient de la classification, de 130 à 880.
+  applicable si: convention collective = 'industrie pétrole'
+  par défaut: 0
+
+salarié . convention collective . industrie pétrole . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire minimum hiérarchique mensuel du coefficient, proratisé pour un temps partiel. Vaut
+    0 €/mois pour un coefficient hors de la plage de 130 à 880 (voir « coefficient hors
+    grille »).
+  applicable si: convention collective = 'industrie pétrole'
+  unité: €/mois
+  produit:
+    - minimum hiérarchique
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . industrie pétrole . salaire minimum conventionnel . minimum hiérarchique:
+  titre: Salaire minimum hiérarchique à temps plein
+  description: |
+    Coefficient multiplié par la valeur minimale du point (9,9749 €), plus la majoration
+    conventionnelle (0,2517 € par point d'écart avec le coefficient 880), plus, pour les
+    coefficients inférieurs à 215, la surmajoration (3,1855 € par point d'écart avec 215).
+    Arrondi au centime.
+  unité: €/mois
+  arrondi: 2 décimales
+  variations:
+    - si: coefficient hors grille
+      alors: 0 €/mois
+    - sinon:
+        somme:
+          - coefficient * 9.9749 €/mois
+          - (880 - coefficient) * 0.2517 €/mois
+          - (215 - coefficient) * 3.1855 €/mois * (coefficient < 215)
+
+salarié . convention collective . industrie pétrole . coefficient hors grille:
+  titre: Coefficient hors de la plage de la classification
+  description: Le coefficient est inférieur à 130 ou supérieur à 880, ou non renseigné.
+  applicable si: convention collective = 'industrie pétrole'
+  une de ces conditions:
+    - coefficient < 130
+    - coefficient > 880
