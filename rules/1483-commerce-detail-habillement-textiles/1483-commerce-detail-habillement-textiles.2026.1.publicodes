@@ -1,0 +1,334 @@
+# Convention collective nationale du commerce de détail de l'habillement et des articles
+# textiles du 25 novembre 1987 (IDCC 1483, brochure 3241).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version : le premier jour du mois civil qui suit la
+# publication de l'arrêté d'extension (19 mars 2026).
+validFrom: 2026-04-01
+sources:
+  - Avenant n° 29 du 16 décembre 2025 relatif aux rémunérations minima garanties (article 1,
+    barème de l'annexe II pour les employés des catégories 1 à 8, les agents de maîtrise A1, A2
+    et B et les cadres C et D, et rémunérations minima du personnel d'encadrement B, C et D selon
+    l'ancienneté ; article 2, primes d'ancienneté des employés et des agents de maîtrise A1 et
+    A2), applicable à compter du premier jour du mois civil suivant la publication de l'arrêté
+    d'extension, étendu par arrêté du 9 mars 2026 (JORF n° 0067 du 19 mars 2026, texte n° 95,
+    NOR TRST2606578A), soit à compter du 1er avril 2026. Texte de l'avenant consulté directement
+    (exemplaire publié par juristique.org). Les montants s'entendent pour 151,67 heures par
+    mois.
+---
+salarié . convention collective . commerce de détail habillement:
+  titre: Commerce de détail de l'habillement et des articles textiles (IDCC 1483)
+  valeur: convention collective = 'commerce de détail habillement'
+
+salarié . convention collective . commerce de détail habillement . niveau:
+  titre: Catégorie de classification
+  description: |
+    1 à 8 pour les employés, A1, A2 et B pour les agents de maîtrise, C et D pour les cadres.
+  applicable si: convention collective = 'commerce de détail habillement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commerce de détail habillement . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire minimum hiérarchique de la catégorie pour 151,67 heures par mois, proratisé pour un
+    temps partiel : pour les employés et les agents de maîtrise A1 et A2, le barème augmenté de la
+    prime d'ancienneté ; pour les agents de maîtrise B et les cadres C et D, le barème, ou le
+    minimum selon l'ancienneté à partir de 3 ans. L'ancienneté est celle de modele-social, en
+    années révolues depuis la date d'embauche. Vaut 0 €/mois pour une catégorie absente de la
+    grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'commerce de détail habillement'
+  unité: €/mois
+  produit:
+    - temps plein
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerce de détail habillement . salaire minimum conventionnel . temps plein:
+  titre: Salaire minimum mensuel à temps plein
+  description: |
+    Le minimum selon l'ancienneté des catégories B, C et D lorsqu'il s'applique, sinon le barème
+    augmenté de la prime d'ancienneté.
+  unité: €/mois
+  variations:
+    - si: minimum d'encadrement selon l'ancienneté > 0 €/mois
+      alors: minimum d'encadrement selon l'ancienneté
+    - sinon: barème + prime d'ancienneté
+
+salarié . convention collective . commerce de détail habillement . barème:
+  titre: Barème des rémunérations minima
+  description: |
+    Article 1 de l'avenant n° 29, pour 151,67 heures par mois. Vaut 0 €/mois pour une catégorie
+    absente de la grille.
+  applicable si: convention collective = 'commerce de détail habillement'
+  unité: €/mois
+  variations:
+    - si: niveau = '1'
+      alors: 1828.00 €/mois
+    - si: niveau = '2'
+      alors: 1833.00 €/mois
+    - si: niveau = '3'
+      alors: 1843.00 €/mois
+    - si: niveau = '4'
+      alors: 1857.00 €/mois
+    - si: niveau = '5'
+      alors: 1878.00 €/mois
+    - si: niveau = '6'
+      alors: 1915.00 €/mois
+    - si: niveau = '7'
+      alors: 1974.00 €/mois
+    - si: niveau = '8'
+      alors: 2043.00 €/mois
+    - si: niveau = 'A1'
+      alors: 2158.00 €/mois
+    - si: niveau = 'A2'
+      alors: 2262.00 €/mois
+    - si: niveau = 'B'
+      alors: 2579.00 €/mois
+    - si: niveau = 'C'
+      alors: 4005.00 €/mois
+    - si: niveau = 'D'
+      alors: 4164.00 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerce de détail habillement . prime d'ancienneté:
+  titre: Prime d'ancienneté
+  description: |
+    Article 2 de l'avenant n° 29 : prime mensuelle des employés (catégories 1 à 8) et des agents
+    de maîtrise A1 et A2, par palier de 3 ans d'ancienneté de 3 à 18 ans, pour 151,67 heures par
+    mois. Vaut 0 €/mois avant 3 ans et pour les catégories B, C et D.
+  applicable si: convention collective = 'commerce de détail habillement'
+  unité: €/mois
+  variations:
+    - si: niveau = '1'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 109.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 94.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 79.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 64.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 49.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 34.00 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = '2'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 109.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 94.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 79.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 64.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 49.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 34.00 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = '3'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 110.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 95.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 80.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 65.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 50.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 35.00 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = '4'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 110.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 95.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 80.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 65.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 50.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 35.00 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = '5'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 111.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 96.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 81.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 66.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 51.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 36.00 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = '6'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 111.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 96.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 81.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 66.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 51.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 36.00 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = '7'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 112.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 97.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 82.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 67.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 52.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 37.00 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = '8'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 112.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 97.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 82.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 67.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 52.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 37.00 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = 'A1'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 115.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 100.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 85.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 70.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 55.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 40.00 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = 'A2'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 115.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 100.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 85.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 70.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 55.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 40.00 €/mois
+          - sinon: 0 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerce de détail habillement . minimum d'encadrement selon l'ancienneté:
+  titre: Minimum des agents de maîtrise B et des cadres selon l'ancienneté
+  description: |
+    Rémunération minima du personnel d'encadrement des catégories B, C et D à partir de 3 ans
+    d'ancienneté (article 1, II), pour 151,67 heures par mois. Vaut 0 €/mois avant 3 ans et pour
+    les autres catégories.
+  applicable si: convention collective = 'commerce de détail habillement'
+  unité: €/mois
+  variations:
+    - si: niveau = 'B'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 2704.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2689.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2674.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2659.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2644.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2629.00 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = 'C'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 4130.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 4115.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 4100.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 4085.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 4070.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 4055.00 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = 'D'
+      alors:
+        variations:
+          - si: ancienneté >= 18 an
+            alors: 4289.00 €/mois
+          - si: ancienneté >= 15 an
+            alors: 4274.00 €/mois
+          - si: ancienneté >= 12 an
+            alors: 4259.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 4244.00 €/mois
+          - si: ancienneté >= 6 an
+            alors: 4229.00 €/mois
+          - si: ancienneté >= 3 an
+            alors: 4214.00 €/mois
+          - sinon: 0 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerce de détail habillement . niveau hors grille:
+  titre: Catégorie absente de la grille
+  description: La catégorie n'existe pas dans le barème des rémunérations minima.
+  applicable si: convention collective = 'commerce de détail habillement'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : le barème vaut donc 0 €/mois pour une catégorie inconnue.
+  valeur: barème = 0 €/mois
