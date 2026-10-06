@@ -1,0 +1,113 @@
+# Convention collective nationale des commerces et services de l'audiovisuel, de
+# l'électronique et de l'équipement ménager du 26 novembre 1992 (IDCC 1686, brochure 3076).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2026-05-01
+sources:
+  - Avenant n° 63 du 12 février 2026 relatif aux rémunérations conventionnelles (NOR
+    ASET2650361M, article 2, minima conventionnels des ouvriers, employés et agents de maîtrise
+    des niveaux I à IV, échelons 1 à 3, pour 151,67 heures par mois, et rémunérations annuelles
+    des quatre positions des cadres), applicable au 1er mai 2026 aux entreprises adhérant à une
+    organisation d'employeurs signataire (FEDELEC, CNEF) et, pour les autres entreprises, le
+    premier jour du mois qui suit la publication de l'arrêté d'extension (article 3), étendu
+    par arrêté du 5 mai 2026 (JORF n° 0109 du 10 mai 2026, texte n° 83, NOR TRST2610665A),
+    soit le 1er juin 2026 pour ces entreprises. Texte de l'avenant consulté sur Légifrance
+    (convention collective, textes salaires).
+---
+salarié . convention collective . audiovisuel électronique équipement ménager:
+  titre: Commerces et services de l'audiovisuel, de l'électronique et de l'équipement ménager (IDCC 1686)
+  valeur: convention collective = 'audiovisuel électronique équipement ménager'
+
+salarié . convention collective . audiovisuel électronique équipement ménager . niveau:
+  titre: Niveau, échelon ou position de cadre
+  description: |
+    Pour les ouvriers, employés et agents de maîtrise, « <niveau>.<échelon> » avec un niveau de
+    I à IV en chiffres romains et un échelon de 1 à 3, de I.1 à IV.3. Pour les cadres, C1 à C4
+    pour les positions I à IV.
+  applicable si: convention collective = 'audiovisuel électronique équipement ménager'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . audiovisuel électronique équipement ménager . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Pour les ouvriers, employés et agents de maîtrise, le minimum mensuel de l'échelon pour
+    151,67 heures. Pour les cadres, un douzième de la rémunération annuelle de la position. Dans
+    les deux cas, le montant est proratisé pour un temps partiel. Vaut 0 €/mois pour une
+    classification absente de la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'audiovisuel électronique équipement ménager'
+  unité: €/mois
+  produit:
+    - somme:
+        - grille mensuelle
+        - rémunération minimale annuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . audiovisuel électronique équipement ménager . grille mensuelle:
+  titre: Minimum mensuel des ouvriers, employés et agents de maîtrise
+  description: |
+    Article 2 de l'avenant n° 63, à temps plein. Vaut 0 €/mois pour les cadres et pour une
+    classification absente de la grille.
+  applicable si: convention collective = 'audiovisuel électronique équipement ménager'
+  unité: €/mois
+  variations:
+    - si: niveau = 'I.1'
+      alors: 1827.03 €/mois
+    - si: niveau = 'I.2'
+      alors: 1831.21 €/mois
+    - si: niveau = 'I.3'
+      alors: 1843.11 €/mois
+    - si: niveau = 'II.1'
+      alors: 1883.31 €/mois
+    - si: niveau = 'II.2'
+      alors: 1928.72 €/mois
+    - si: niveau = 'II.3'
+      alors: 1974.07 €/mois
+    - si: niveau = 'III.1'
+      alors: 2015.67 €/mois
+    - si: niveau = 'III.2'
+      alors: 2060.98 €/mois
+    - si: niveau = 'III.3'
+      alors: 2106.23 €/mois
+    - si: niveau = 'IV.1'
+      alors: 2171.24 €/mois
+    - si: niveau = 'IV.2'
+      alors: 2419.31 €/mois
+    - si: niveau = 'IV.3'
+      alors: 2665.45 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . audiovisuel électronique équipement ménager . rémunération minimale annuelle:
+  titre: Rémunération annuelle des cadres
+  description: |
+    Article 2 de l'avenant n° 63, à temps plein, par position de cadre. Vaut 0 €/an pour les
+    autres niveaux et pour une classification absente de la grille.
+  applicable si: convention collective = 'audiovisuel électronique équipement ménager'
+  unité: €/an
+  variations:
+    - si: niveau = 'C1'
+      alors: 32187.06 €/an
+    - si: niveau = 'C2'
+      alors: 39208.62 €/an
+    - si: niveau = 'C3'
+      alors: 46617.85 €/an
+    - si: niveau = 'C4'
+      alors: 54007.49 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . audiovisuel électronique équipement ménager . niveau hors grille:
+  titre: Classification absente de la grille
+  description: Le niveau, l'échelon ou la position n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'audiovisuel électronique équipement ménager'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : les deux grilles valent 0 pour une classification inconnue.
+  valeur:
+    toutes ces conditions:
+      - grille mensuelle = 0 €/mois
+      - rémunération minimale annuelle = 0 €/an
