@@ -7,6 +7,7 @@ import modeleSocial from "modele-social";
 import { COMPILED_VERSIONS } from "../src/index.ts";
 
 const models = [
+  { name: "0016-transports-routiers", value: "transports routiers", classification: "niveau", input: "'V-O-110'", minimums: { "2026.1": 1884.8 } },
   { name: "0018-industries-textiles", value: "industries textiles", classification: "niveau", input: "'4.2'", minimums: { "2026.1": 1996 } },
   { name: "0044-industries-chimiques", value: "industries chimiques", classification: "coefficient", input: 250, minimums: { "2026.1": 2244.51 } },
   { name: "0112-industrie-laitiere", value: "industrie laitière", classification: "niveau", input: "'7.2'", minimums: { "2026.1": 2235.92 } },

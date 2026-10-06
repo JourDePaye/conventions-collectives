@@ -1,0 +1,1685 @@
+# Convention collective nationale des transports routiers et activités auxiliaires du
+# transport du 21 décembre 1950 (IDCC 16, brochure 3085), y compris les prestations logistiques.
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date à laquelle les quatre grilles sont en vigueur : la plus tardive est celle du
+# déménagement, applicable au 1er juin 2026.
+validFrom: 2026-06-01
+sources:
+  - Transport routier de marchandises. Accord du 11 octobre 2023 relatif à la revalorisation des
+    rémunérations conventionnelles (taux horaires des ouvriers, employés et techniciens et
+    agents de maîtrise, minima mensuels des ingénieurs et cadres), applicable à compter du
+    1er décembre 2023, étendu par arrêté du 19 décembre 2023 (JORF n° 0296 du 22 décembre
+    2023, texte n° 60, NOR MTRT2333106A). Aucun accord de salaires postérieur n'a été trouvé.
+  - Transport routier de voyageurs. Avenants du 27 novembre 2025 n° 120 (ouvriers), n° 102
+    (employés), n° 100 (techniciens et agents de maîtrise) et n° 93 (ingénieurs et cadres),
+    minima mensuels pour 151,67 heures, applicables à compter du 1er janvier 2026. Leur arrêté
+    d'extension n'a pas été trouvé et semblait en attente en octobre 2026.
+  - Prestations logistiques. Avenant n° 17 du 12 mars 2026 relatif aux salaires minima (taux
+    horaires et minima mensuels des cadres), applicable à compter du 1er avril 2026, étendu par
+    arrêté du 9 juillet 2026 (JORF n° 0163 du 14 juillet 2026), dont le numéro de texte et le
+    NOR n'ont pas été lus.
+  - Transports de déménagement. Avenant n° 24 du 21 janvier 2026 à l'accord du 1er février 2003
+    (taux horaires et minima mensuels des cadres), applicable à compter du 1er juin 2026, étendu
+    par arrêté du 6 mai 2026 (JORF n° 0114 du 16 mai 2026, texte n° 71, NOR TRST2610632A).
+    Montants lus sur des pages de synthèse et sur les PDF des avenants hébergés par des sites
+    d'information ; aucun texte officiel n'a été lu directement.
+---
+salarié . convention collective . transports routiers:
+  titre: Transports routiers et activités auxiliaires du transport (IDCC 16)
+  valeur: convention collective = 'transports routiers'
+
+salarié . convention collective . transports routiers . niveau:
+  titre: Sous-secteur, catégorie et coefficient
+  description: |
+    Code de la forme SOUS-SECTEUR-CATÉGORIE-COEFFICIENT, avec le sous-secteur M (marchandises),
+    V (voyageurs), L (logistique) ou D (déménagement), la catégorie O (ouvriers), E (employés),
+    T (techniciens et agents de maîtrise) ou C (ingénieurs et cadres), et le coefficient sans
+    sa lettre finale (par exemple M-O-128, V-C-106.5, L-T-157.5, D-O-1A ou D-O-1A-DC1).
+  applicable si: convention collective = 'transports routiers'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . transports routiers . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Minimum mensuel de la classification pour 151,67 heures, selon l'ancienneté, proratisé pour
+    un temps partiel. Les taux horaires sont multipliés par 151,67 heures et arrondis au
+    centime. Vaut 0 €/mois si la classification n'existe pas dans la grille (voir « niveau hors
+    grille »).
+  applicable si: convention collective = 'transports routiers'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . transports routiers . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grilles des quatre sous-secteurs, avec leurs paliers d'ancienneté, au 1er juin 2026.
+  unité: €/mois
+  variations:
+    - si: niveau = 'M-O-110'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 1980.39 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1943.71 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1907.04 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1870.09 €/mois
+          - sinon: 1833.69 €/mois
+    - si: niveau = 'M-O-115'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 1980.39 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1943.71 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1907.04 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1870.09 €/mois
+          - sinon: 1833.69 €/mois
+    - si: niveau = 'M-O-118'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 1980.39 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1943.71 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1907.04 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1870.09 €/mois
+          - sinon: 1833.69 €/mois
+    - si: niveau = 'M-O-120'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 1980.39 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1943.71 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1907.04 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1870.09 €/mois
+          - sinon: 1833.69 €/mois
+    - si: niveau = 'M-O-128'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 1985.30 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1948.53 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1911.77 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1875.01 €/mois
+          - sinon: 1838.24 €/mois
+    - si: niveau = 'M-O-138'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 1988.58 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1951.75 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1914.92 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1878.10 €/mois
+          - sinon: 1841.27 €/mois
+    - si: niveau = 'M-O-150'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2036.08 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1998.37 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1960.67 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1922.96 €/mois
+          - sinon: 1885.26 €/mois
+    - si: niveau = 'M-E-105'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2108.74 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2053.73 €/mois
+          - si: ancienneté >= 9 an
+            alors: 1998.72 €/mois
+          - si: ancienneté >= 6 an
+            alors: 1943.71 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1888.70 €/mois
+          - sinon: 1833.69 €/mois
+    - si: niveau = 'M-E-110'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2108.74 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2053.73 €/mois
+          - si: ancienneté >= 9 an
+            alors: 1998.72 €/mois
+          - si: ancienneté >= 6 an
+            alors: 1943.71 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1888.70 €/mois
+          - sinon: 1833.69 €/mois
+    - si: niveau = 'M-E-115'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2108.74 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2053.73 €/mois
+          - si: ancienneté >= 9 an
+            alors: 1998.72 €/mois
+          - si: ancienneté >= 6 an
+            alors: 1943.71 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1888.70 €/mois
+          - sinon: 1833.69 €/mois
+    - si: niveau = 'M-E-120'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2108.74 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2053.73 €/mois
+          - si: ancienneté >= 9 an
+            alors: 1998.72 €/mois
+          - si: ancienneté >= 6 an
+            alors: 1943.71 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1888.70 €/mois
+          - sinon: 1833.69 €/mois
+    - si: niveau = 'M-E-125'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2110.49 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2055.43 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2000.38 €/mois
+          - si: ancienneté >= 6 an
+            alors: 1945.32 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1890.26 €/mois
+          - sinon: 1835.21 €/mois
+    - si: niveau = 'M-E-132.5'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2113.98 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2058.83 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2003.68 €/mois
+          - si: ancienneté >= 6 an
+            alors: 1948.53 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1893.39 €/mois
+          - sinon: 1838.24 €/mois
+    - si: niveau = 'M-E-140'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2119.21 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2063.93 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2008.64 €/mois
+          - si: ancienneté >= 6 an
+            alors: 1953.36 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1898.07 €/mois
+          - sinon: 1842.79 €/mois
+    - si: niveau = 'M-E-148.5'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2168.05 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2111.49 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2054.93 €/mois
+          - si: ancienneté >= 6 an
+            alors: 1998.37 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1941.82 €/mois
+          - sinon: 1885.26 €/mois
+    - si: niveau = 'M-T-150'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2197.70 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2140.37 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2083.04 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2026.31 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1968.37 €/mois
+          - sinon: 1911.04 €/mois
+    - si: niveau = 'M-T-157.5'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2220.37 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2162.45 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2104.53 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2046.60 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1988.68 €/mois
+          - sinon: 1930.76 €/mois
+    - si: niveau = 'M-T-165'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2326.77 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2266.07 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2205.37 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2144.67 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2083.98 €/mois
+          - sinon: 2023.28 €/mois
+    - si: niveau = 'M-T-175'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2471.54 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2407.06 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2342.59 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2278.11 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2213.64 €/mois
+          - sinon: 2149.16 €/mois
+    - si: niveau = 'M-T-185'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2605.84 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2537.86 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2469.89 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2401.91 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2333.93 €/mois
+          - sinon: 2265.95 €/mois
+    - si: niveau = 'M-T-200'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2820.38 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2746.80 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2673.23 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2599.65 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2526.08 €/mois
+          - sinon: 2452.50 €/mois
+    - si: niveau = 'M-T-215'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 3029.68 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2950.65 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2871.61 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2792.58 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2713.54 €/mois
+          - sinon: 2634.51 €/mois
+    - si: niveau = 'M-T-225'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 3176.20 €/mois
+          - si: ancienneté >= 12 an
+            alors: 3093.34 €/mois
+          - si: ancienneté >= 9 an
+            alors: 3010.48 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2927.63 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2844.77 €/mois
+          - sinon: 2761.91 €/mois
+    - si: niveau = 'M-C-100'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 3015.06 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2883.98 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2752.88 €/mois
+          - sinon: 2621.80 €/mois
+    - si: niveau = 'M-C-106.5'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 3210.75 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3071.15 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2931.55 €/mois
+          - sinon: 2791.96 €/mois
+    - si: niveau = 'M-C-113'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 3406.47 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3258.37 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3110.26 €/mois
+          - sinon: 2962.15 €/mois
+    - si: niveau = 'M-C-119'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 3587.03 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3431.07 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3275.11 €/mois
+          - sinon: 3119.15 €/mois
+    - si: niveau = 'M-C-132'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 3978.42 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3805.44 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3632.47 €/mois
+          - sinon: 3459.50 €/mois
+    - si: niveau = 'M-C-145'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 4369.83 €/mois
+          - si: ancienneté >= 10 an
+            alors: 4179.84 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3989.85 €/mois
+          - sinon: 3799.85 €/mois
+    - si: niveau = 'V-O-110'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2261.76 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2205.22 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2148.67 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2073.28 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2035.58 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1997.89 €/mois
+          - si: ancienneté >= 1 an
+            alors: 1922.50 €/mois
+          - sinon: 1884.80 €/mois
+    - si: niveau = 'V-O-115'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2261.76 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2205.22 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2148.67 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2073.28 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2035.58 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1997.89 €/mois
+          - si: ancienneté >= 1 an
+            alors: 1922.50 €/mois
+          - sinon: 1884.80 €/mois
+    - si: niveau = 'V-O-120'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2261.76 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2205.22 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2148.67 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2073.28 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2035.58 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1997.89 €/mois
+          - si: ancienneté >= 1 an
+            alors: 1922.50 €/mois
+          - sinon: 1884.80 €/mois
+    - si: niveau = 'V-O-123'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2261.76 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2205.22 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2148.67 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2073.28 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2035.58 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1997.89 €/mois
+          - si: ancienneté >= 1 an
+            alors: 1922.50 €/mois
+          - sinon: 1884.80 €/mois
+    - si: niveau = 'V-O-128'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2261.76 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2205.22 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2148.67 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2073.28 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2035.58 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1997.89 €/mois
+          - si: ancienneté >= 1 an
+            alors: 1922.50 €/mois
+          - sinon: 1884.80 €/mois
+    - si: niveau = 'V-O-131'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2296.14 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2238.74 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2181.33 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2104.80 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2066.53 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2028.26 €/mois
+          - si: ancienneté >= 1 an
+            alors: 1951.72 €/mois
+          - sinon: 1913.45 €/mois
+    - si: niveau = 'V-O-136'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2315.83 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2257.94 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2200.04 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2122.85 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2084.25 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2045.65 €/mois
+          - si: ancienneté >= 1 an
+            alors: 1968.46 €/mois
+          - sinon: 1929.86 €/mois
+    - si: niveau = 'V-O-137'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2323.22 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2265.14 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2207.06 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2129.62 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2090.90 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2052.18 €/mois
+          - si: ancienneté >= 1 an
+            alors: 1974.74 €/mois
+          - sinon: 1936.02 €/mois
+    - si: niveau = 'V-O-138'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2387.83 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2328.14 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2268.44 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2188.85 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2149.05 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2109.25 €/mois
+          - si: ancienneté >= 1 an
+            alors: 2029.66 €/mois
+          - sinon: 1989.86 €/mois
+    - si: niveau = 'V-O-140'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2405.29 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2345.16 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2285.03 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2204.85 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2164.76 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2124.67 €/mois
+          - si: ancienneté >= 1 an
+            alors: 2044.50 €/mois
+          - sinon: 2004.41 €/mois
+    - si: niveau = 'V-O-142'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2429.35 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2368.62 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2307.88 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2226.91 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2186.42 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2145.93 €/mois
+          - si: ancienneté >= 1 an
+            alors: 2064.95 €/mois
+          - sinon: 2024.46 €/mois
+    - si: niveau = 'V-O-145'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2455.06 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2393.68 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2332.30 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2250.47 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2209.55 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2168.63 €/mois
+          - si: ancienneté >= 1 an
+            alors: 2086.80 €/mois
+          - sinon: 2045.88 €/mois
+    - si: niveau = 'V-O-150'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2514.70 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2451.83 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2388.96 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2305.14 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2263.23 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2221.31 €/mois
+          - si: ancienneté >= 1 an
+            alors: 2137.49 €/mois
+          - sinon: 2095.58 €/mois
+    - si: niveau = 'V-O-155'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2640.72 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2574.70 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2508.68 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2420.66 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2376.65 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2332.64 €/mois
+          - si: ancienneté >= 1 an
+            alors: 2244.61 €/mois
+          - sinon: 2200.60 €/mois
+    - si: niveau = 'V-E-105'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2304.58 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2275.77 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2246.96 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2208.55 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2150.94 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2093.32 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2035.71 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1978.09 €/mois
+          - sinon: 1920.48 €/mois
+    - si: niveau = 'V-E-110'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2304.58 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2275.77 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2246.96 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2208.55 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2150.94 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2093.32 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2035.71 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1978.09 €/mois
+          - sinon: 1920.48 €/mois
+    - si: niveau = 'V-E-115'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2305.22 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2276.41 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2247.59 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2209.17 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2151.54 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2093.91 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2036.28 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1978.65 €/mois
+          - sinon: 1921.02 €/mois
+    - si: niveau = 'V-E-120'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2305.55 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2276.73 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2247.91 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2209.48 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2151.84 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2094.21 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2036.57 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1978.93 €/mois
+          - sinon: 1921.29 €/mois
+    - si: niveau = 'V-E-125'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2305.79 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2276.97 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2248.14 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2209.71 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2152.07 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2094.42 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2036.78 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1979.13 €/mois
+          - sinon: 1921.49 €/mois
+    - si: niveau = 'V-E-132.5'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2327.88 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2298.78 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2269.68 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2230.89 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2172.69 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2114.49 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2056.29 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1998.10 €/mois
+          - sinon: 1939.90 €/mois
+    - si: niveau = 'V-E-140'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2348.86 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2319.50 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2290.13 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2250.99 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2192.27 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2133.54 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2074.82 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2016.10 €/mois
+          - sinon: 1957.38 €/mois
+    - si: niveau = 'V-E-148.5'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2492.05 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2460.90 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2429.75 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2388.22 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2325.92 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2263.61 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2201.31 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2139.01 €/mois
+          - sinon: 2076.71 €/mois
+    - si: niveau = 'V-T-150'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2517.80 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2486.33 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2454.86 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2412.90 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2349.95 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2287.01 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2224.06 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2161.12 €/mois
+          - sinon: 2098.17 €/mois
+    - si: niveau = 'V-T-157.5'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2643.05 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2610.01 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2576.97 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2532.92 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2466.84 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2400.77 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2334.69 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2268.62 €/mois
+          - sinon: 2202.54 €/mois
+    - si: niveau = 'V-T-165'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2769.85 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2735.23 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2700.61 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2654.44 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2585.20 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2515.95 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2446.70 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2377.46 €/mois
+          - sinon: 2308.21 €/mois
+    - si: niveau = 'V-T-175'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 2938.80 €/mois
+          - si: ancienneté >= 25 an
+            alors: 2902.07 €/mois
+          - si: ancienneté >= 20 an
+            alors: 2865.33 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2816.35 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2742.88 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2669.41 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2595.94 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2522.47 €/mois
+          - sinon: 2449.00 €/mois
+    - si: niveau = 'V-T-185'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 3104.08 €/mois
+          - si: ancienneté >= 25 an
+            alors: 3065.28 €/mois
+          - si: ancienneté >= 20 an
+            alors: 3026.47 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2974.74 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2897.14 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2819.54 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2741.93 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2664.33 €/mois
+          - sinon: 2586.73 €/mois
+    - si: niveau = 'V-T-200'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 3355.55 €/mois
+          - si: ancienneté >= 25 an
+            alors: 3313.60 €/mois
+          - si: ancienneté >= 20 an
+            alors: 3271.66 €/mois
+          - si: ancienneté >= 15 an
+            alors: 3215.73 €/mois
+          - si: ancienneté >= 12 an
+            alors: 3131.84 €/mois
+          - si: ancienneté >= 9 an
+            alors: 3047.96 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2964.07 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2880.18 €/mois
+          - sinon: 2796.29 €/mois
+    - si: niveau = 'V-T-215'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 3607.01 €/mois
+          - si: ancienneté >= 25 an
+            alors: 3561.92 €/mois
+          - si: ancienneté >= 20 an
+            alors: 3516.83 €/mois
+          - si: ancienneté >= 15 an
+            alors: 3456.72 €/mois
+          - si: ancienneté >= 12 an
+            alors: 3366.54 €/mois
+          - si: ancienneté >= 9 an
+            alors: 3276.37 €/mois
+          - si: ancienneté >= 6 an
+            alors: 3186.19 €/mois
+          - si: ancienneté >= 3 an
+            alors: 3096.02 €/mois
+          - sinon: 3005.84 €/mois
+    - si: niveau = 'V-T-225'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 3775.91 €/mois
+          - si: ancienneté >= 25 an
+            alors: 3728.71 €/mois
+          - si: ancienneté >= 20 an
+            alors: 3681.51 €/mois
+          - si: ancienneté >= 15 an
+            alors: 3618.58 €/mois
+          - si: ancienneté >= 12 an
+            alors: 3524.18 €/mois
+          - si: ancienneté >= 9 an
+            alors: 3429.78 €/mois
+          - si: ancienneté >= 6 an
+            alors: 3335.39 €/mois
+          - si: ancienneté >= 3 an
+            alors: 3240.99 €/mois
+          - sinon: 3146.59 €/mois
+    - si: niveau = 'V-C-100'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 3499.61 €/mois
+          - si: ancienneté >= 25 an
+            alors: 3455.87 €/mois
+          - si: ancienneté >= 20 an
+            alors: 3412.12 €/mois
+          - si: ancienneté >= 15 an
+            alors: 3353.80 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3207.98 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3062.16 €/mois
+          - sinon: 2916.35 €/mois
+    - si: niveau = 'V-C-106.5'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 3727.13 €/mois
+          - si: ancienneté >= 25 an
+            alors: 3680.54 €/mois
+          - si: ancienneté >= 20 an
+            alors: 3633.95 €/mois
+          - si: ancienneté >= 15 an
+            alors: 3571.83 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3416.53 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3261.24 €/mois
+          - sinon: 3105.94 €/mois
+    - si: niveau = 'V-C-113'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 3954.55 €/mois
+          - si: ancienneté >= 25 an
+            alors: 3905.12 €/mois
+          - si: ancienneté >= 20 an
+            alors: 3855.69 €/mois
+          - si: ancienneté >= 15 an
+            alors: 3789.78 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3625.00 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3460.23 €/mois
+          - sinon: 3295.46 €/mois
+    - si: niveau = 'V-C-119'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 4164.46 €/mois
+          - si: ancienneté >= 25 an
+            alors: 4112.41 €/mois
+          - si: ancienneté >= 20 an
+            alors: 4060.35 €/mois
+          - si: ancienneté >= 15 an
+            alors: 3990.94 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3817.42 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3643.91 €/mois
+          - sinon: 3470.39 €/mois
+    - si: niveau = 'V-C-132'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 4619.44 €/mois
+          - si: ancienneté >= 25 an
+            alors: 4561.70 €/mois
+          - si: ancienneté >= 20 an
+            alors: 4503.95 €/mois
+          - si: ancienneté >= 15 an
+            alors: 4426.96 €/mois
+          - si: ancienneté >= 10 an
+            alors: 4234.49 €/mois
+          - si: ancienneté >= 5 an
+            alors: 4042.01 €/mois
+          - sinon: 3849.53 €/mois
+    - si: niveau = 'V-C-145'
+      alors:
+        variations:
+          - si: ancienneté >= 30 an
+            alors: 5074.39 €/mois
+          - si: ancienneté >= 25 an
+            alors: 5010.96 €/mois
+          - si: ancienneté >= 20 an
+            alors: 4947.53 €/mois
+          - si: ancienneté >= 15 an
+            alors: 4862.96 €/mois
+          - si: ancienneté >= 10 an
+            alors: 4651.52 €/mois
+          - si: ancienneté >= 5 an
+            alors: 4440.09 €/mois
+          - sinon: 4228.66 €/mois
+    - si: niveau = 'L-O-110'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 1993.91 €/mois
+          - si: ancienneté >= 15 an
+            alors: 1978.75 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1942.10 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1905.46 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1868.82 €/mois
+          - si: ancienneté >= 0.5 an
+            alors: 1832.17 €/mois
+          - sinon: 1824.59 €/mois
+    - si: niveau = 'L-O-115'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 2008.66 €/mois
+          - si: ancienneté >= 15 an
+            alors: 1993.49 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1956.57 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1919.66 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1882.74 €/mois
+          - si: ancienneté >= 0.5 an
+            alors: 1845.82 €/mois
+          - sinon: 1824.59 €/mois
+    - si: niveau = 'L-O-120'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 2020.12 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2004.96 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1967.83 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1930.70 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1893.57 €/mois
+          - si: ancienneté >= 0.5 an
+            alors: 1856.44 €/mois
+          - sinon: 1826.11 €/mois
+    - si: niveau = 'L-O-125'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 2029.95 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2014.78 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1977.47 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1940.16 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1902.85 €/mois
+          - si: ancienneté >= 0.5 an
+            alors: 1865.54 €/mois
+          - sinon: 1830.66 €/mois
+    - si: niveau = 'L-O-138'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 2043.06 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2027.89 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1990.34 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1952.78 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1915.23 €/mois
+          - si: ancienneté >= 0.5 an
+            alors: 1877.67 €/mois
+          - sinon: 1835.21 €/mois
+    - si: niveau = 'L-E-110'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 2160.54 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2145.37 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2089.41 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2033.44 €/mois
+          - si: ancienneté >= 6 an
+            alors: 1977.47 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1921.51 €/mois
+          - si: ancienneté >= 0.5 an
+            alors: 1865.54 €/mois
+          - sinon: 1835.21 €/mois
+    - si: niveau = 'L-E-120'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 2174.49 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2159.33 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2103.00 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2046.67 €/mois
+          - si: ancienneté >= 6 an
+            alors: 1990.34 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1934.00 €/mois
+          - si: ancienneté >= 0.5 an
+            alors: 1877.67 €/mois
+          - sinon: 1842.79 €/mois
+    - si: niveau = 'L-T-150'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 2401.24 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2386.07 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2323.83 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2261.58 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2199.34 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2137.09 €/mois
+          - sinon: 2074.85 €/mois
+    - si: niveau = 'L-T-157.5'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 2418.68 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2403.51 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2340.81 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2278.11 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2215.41 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2152.71 €/mois
+          - sinon: 2090.01 €/mois
+    - si: niveau = 'L-T-165'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 2507.64 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2492.47 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2427.45 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2362.43 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2297.41 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2232.39 €/mois
+          - sinon: 2167.36 €/mois
+    - si: niveau = 'L-T-200'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 2968.11 €/mois
+          - si: ancienneté >= 15 an
+            alors: 2952.94 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2875.91 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2798.87 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2721.84 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2644.81 €/mois
+          - sinon: 2567.77 €/mois
+    - si: niveau = 'L-C-100'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 3545.67 €/mois
+          - si: ancienneté >= 15 an
+            alors: 3532.17 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3378.60 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3225.02 €/mois
+          - sinon: 3071.45 €/mois
+    - si: niveau = 'L-C-106.5'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 3776.14 €/mois
+          - si: ancienneté >= 15 an
+            alors: 3762.64 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3599.05 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3435.45 €/mois
+          - sinon: 3271.86 €/mois
+    - si: niveau = 'L-C-113'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 4004.90 €/mois
+          - si: ancienneté >= 15 an
+            alors: 3991.40 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3817.86 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3644.32 €/mois
+          - sinon: 3470.78 €/mois
+    - si: niveau = 'L-C-119'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 4187.57 €/mois
+          - si: ancienneté >= 15 an
+            alors: 4174.07 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3992.59 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3811.11 €/mois
+          - sinon: 3629.63 €/mois
+    - si: niveau = 'L-C-132'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 4677.85 €/mois
+          - si: ancienneté >= 15 an
+            alors: 4664.35 €/mois
+          - si: ancienneté >= 10 an
+            alors: 4461.55 €/mois
+          - si: ancienneté >= 5 an
+            alors: 4258.75 €/mois
+          - sinon: 4055.95 €/mois
+    - si: niveau = 'D-O-1A'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 1970.19 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1933.79 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1897.39 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1860.99 €/mois
+          - sinon: 1824.59 €/mois
+    - si: niveau = 'D-O-1B'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2000.53 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1962.61 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1926.21 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1888.29 €/mois
+          - sinon: 1851.89 €/mois
+    - si: niveau = 'D-O-1C'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2076.36 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2038.44 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2000.53 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1961.09 €/mois
+          - sinon: 1923.18 €/mois
+    - si: niveau = 'D-O-1D'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2226.52 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2185.56 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2143.10 €/mois
+          - si: ancienneté >= 2 an
+            alors: 2102.15 €/mois
+          - sinon: 2061.20 €/mois
+    - si: niveau = 'D-O-1A-DC0'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 1989.91 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1953.51 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1917.11 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1879.19 €/mois
+          - sinon: 1842.79 €/mois
+    - si: niveau = 'D-O-1B-DC0'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2020.24 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1982.33 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1944.41 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1908.01 €/mois
+          - sinon: 1870.09 €/mois
+    - si: niveau = 'D-O-1C-DC0'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2097.60 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2059.68 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2020.24 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1982.33 €/mois
+          - sinon: 1942.89 €/mois
+    - si: niveau = 'D-O-1D-DC0'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2249.27 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2206.80 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2165.85 €/mois
+          - si: ancienneté >= 2 an
+            alors: 2123.38 €/mois
+          - sinon: 2082.43 €/mois
+    - si: niveau = 'D-O-1A-DC1'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2009.63 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1973.23 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1935.31 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1898.91 €/mois
+          - sinon: 1860.99 €/mois
+    - si: niveau = 'D-O-1B-DC1'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2039.96 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2002.04 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1964.13 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1926.21 €/mois
+          - sinon: 1888.29 €/mois
+    - si: niveau = 'D-O-1C-DC1'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2117.31 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2079.40 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2039.96 €/mois
+          - si: ancienneté >= 2 an
+            alors: 2000.53 €/mois
+          - sinon: 1961.09 €/mois
+    - si: niveau = 'D-O-1D-DC1'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2270.50 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2228.03 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2185.56 €/mois
+          - si: ancienneté >= 2 an
+            alors: 2144.61 €/mois
+          - sinon: 2102.15 €/mois
+    - si: niveau = 'D-O-1A-DC2'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2029.34 €/mois
+          - si: ancienneté >= 10 an
+            alors: 1991.43 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1955.03 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1917.11 €/mois
+          - sinon: 1879.19 €/mois
+    - si: niveau = 'D-O-1B-DC2'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2061.20 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2021.76 €/mois
+          - si: ancienneté >= 5 an
+            alors: 1983.84 €/mois
+          - si: ancienneté >= 2 an
+            alors: 1945.93 €/mois
+          - sinon: 1908.01 €/mois
+    - si: niveau = 'D-O-1C-DC2'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2138.55 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2099.11 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2059.68 €/mois
+          - si: ancienneté >= 2 an
+            alors: 2020.24 €/mois
+          - sinon: 1980.81 €/mois
+    - si: niveau = 'D-O-1D-DC2'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2293.25 €/mois
+          - si: ancienneté >= 10 an
+            alors: 2250.78 €/mois
+          - si: ancienneté >= 5 an
+            alors: 2208.32 €/mois
+          - si: ancienneté >= 2 an
+            alors: 2165.85 €/mois
+          - sinon: 2123.38 €/mois
+    - si: niveau = 'D-E-2A'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2097.60 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2042.99 €/mois
+          - si: ancienneté >= 9 an
+            alors: 1988.39 €/mois
+          - si: ancienneté >= 6 an
+            alors: 1933.79 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1879.19 €/mois
+          - sinon: 1824.59 €/mois
+    - si: niveau = 'D-E-2B'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2112.76 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2056.65 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2002.04 €/mois
+          - si: ancienneté >= 6 an
+            alors: 1947.44 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1891.32 €/mois
+          - sinon: 1836.72 €/mois
+    - si: niveau = 'D-E-2C'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2170.40 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2112.76 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2056.65 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2000.53 €/mois
+          - si: ancienneté >= 3 an
+            alors: 1942.89 €/mois
+          - sinon: 1886.77 €/mois
+    - si: niveau = 'D-E-2D'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2241.68 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2182.53 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2124.90 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2065.75 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2008.11 €/mois
+          - sinon: 1948.96 €/mois
+    - si: niveau = 'D-T-3A'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2344.82 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2282.63 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2221.97 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2161.30 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2099.11 €/mois
+          - sinon: 2038.44 €/mois
+    - si: niveau = 'D-T-3B'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2475.25 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2410.04 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2346.33 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2281.12 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2217.42 €/mois
+          - sinon: 2152.20 €/mois
+    - si: niveau = 'D-T-3C'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 2830.16 €/mois
+          - si: ancienneté >= 12 an
+            alors: 2757.36 €/mois
+          - si: ancienneté >= 9 an
+            alors: 2683.04 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2608.72 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2535.92 €/mois
+          - sinon: 2461.60 €/mois
+    - si: niveau = 'D-T-3D'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 3189.62 €/mois
+          - si: ancienneté >= 12 an
+            alors: 3106.20 €/mois
+          - si: ancienneté >= 9 an
+            alors: 3024.30 €/mois
+          - si: ancienneté >= 6 an
+            alors: 2940.88 €/mois
+          - si: ancienneté >= 3 an
+            alors: 2857.46 €/mois
+          - sinon: 2774.04 €/mois
+    - si: niveau = 'D-C-4A'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 3586.15 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3430.23 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3274.31 €/mois
+          - sinon: 3118.39 €/mois
+    - si: niveau = 'D-C-4B'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 4007.01 €/mois
+          - si: ancienneté >= 10 an
+            alors: 3832.79 €/mois
+          - si: ancienneté >= 5 an
+            alors: 3658.57 €/mois
+          - sinon: 3484.36 €/mois
+    - si: niveau = 'D-C-4C'
+      alors:
+        variations:
+          - si: ancienneté >= 15 an
+            alors: 4882.52 €/mois
+          - si: ancienneté >= 10 an
+            alors: 4670.24 €/mois
+          - si: ancienneté >= 5 an
+            alors: 4457.95 €/mois
+          - sinon: 4245.67 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . transports routiers . niveau hors grille:
+  titre: Classification absente de la grille
+  description: La classification n'existe pas dans les grilles des salaires minima.
+  applicable si: convention collective = 'transports routiers'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour une classification inconnue.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
