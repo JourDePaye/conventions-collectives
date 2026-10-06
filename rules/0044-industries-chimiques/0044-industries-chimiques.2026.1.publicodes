@@ -1,0 +1,110 @@
+# Convention collective nationale des industries chimiques et connexes du 30 décembre 1952
+# (IDCC 44, brochure 3108).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application du barème de l'accord du 3 décembre 2025.
+validFrom: 2026-01-01
+sources:
+  - Accord du 3 décembre 2025 relatif aux salaires minima de branche applicables à compter du
+    1er janvier 2026 (paramètres de calcul, salaire de référence de 1 848,69 € et valeur de
+    référence de 8,84 €, revalorisés de 1,2 %, et barème des salaires minima mensuels des
+    23 coefficients de 130 à 880 pour 35 heures par semaine, soit 151,67 heures par mois),
+    étendu par arrêté du 16 février 2026 (JORF du 24 février 2026). Montants recoupés sur deux
+    pages de synthèse concordantes (juristique.org et lofficieldesmetiers.fr) et avec la
+    formule (salaire de référence plus 8,84 € par point au-dessus de 100) multiplié par le
+    coefficient de calcul ; le texte de l'accord n'a pas été consulté, ni le numéro de texte et
+    le NOR de l'arrêté.
+---
+salarié . convention collective . industries chimiques:
+  titre: Industries chimiques (IDCC 44)
+  valeur: convention collective = 'industries chimiques'
+
+salarié . convention collective . industries chimiques . coefficient:
+  titre: Coefficient hiérarchique
+  description: |
+    Coefficient de la classification : 130, 140, 150, 160, 175, 190, 205, 225, 235, 250, 275,
+    300, 325, 350, 360, 400, 460, 480, 510, 550, 660, 770 ou 880.
+  applicable si: convention collective = 'industries chimiques'
+  par défaut: 0
+
+salarié . convention collective . industries chimiques . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum de branche du coefficient pour 35 heures par semaine
+    (151,67 heures par mois), proratisé pour un temps partiel. Vaut 0 €/mois pour un
+    coefficient absent de la grille (voir « coefficient hors grille »).
+  applicable si: convention collective = 'industries chimiques'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . industries chimiques . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Barème de l'accord du 3 décembre 2025, de 1 877,13 € (coefficient 130) à 7 764,57 €
+    (coefficient 880). Chaque montant est le salaire de référence plus la valeur de référence
+    par point au-dessus de 100, multiplié par le coefficient de calcul du coefficient.
+  unité: €/mois
+  variations:
+    - si: coefficient = 130
+      alors: 1877.13 €/mois
+    - si: coefficient = 140
+      alors: 1898.37 €/mois
+    - si: coefficient = 150
+      alors: 1924.18 €/mois
+    - si: coefficient = 160
+      alors: 1941.34 €/mois
+    - si: coefficient = 175
+      alors: 1984.24 €/mois
+    - si: coefficient = 190
+      alors: 2020.24 €/mois
+    - si: coefficient = 205
+      alors: 2049.34 €/mois
+    - si: coefficient = 225
+      alors: 2061.68 €/mois
+    - si: coefficient = 235
+      alors: 2132.51 €/mois
+    - si: coefficient = 250
+      alors: 2244.51 €/mois
+    - si: coefficient = 275
+      alors: 2438.11 €/mois
+    - si: coefficient = 300
+      alors: 2658.27 €/mois
+    - si: coefficient = 325
+      alors: 2878.27 €/mois
+    - si: coefficient = 350
+      alors: 3096.78 €/mois
+    - si: coefficient = 360
+      alors: 3184.97 €/mois
+    - si: coefficient = 400
+      alors: 3537.54 €/mois
+    - si: coefficient = 460
+      alors: 4065.12 €/mois
+    - si: coefficient = 480
+      alors: 4244.43 €/mois
+    - si: coefficient = 510
+      alors: 4504.35 €/mois
+    - si: coefficient = 550
+      alors: 4859.46 €/mois
+    - si: coefficient = 660
+      alors: 5826.82 €/mois
+    - si: coefficient = 770
+      alors: 6800.05 €/mois
+    - si: coefficient = 880
+      alors: 7764.57 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industries chimiques . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'industries chimiques'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un coefficient inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois

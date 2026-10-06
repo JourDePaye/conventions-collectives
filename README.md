@@ -8,10 +8,11 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Vingt-quatre conventions sont actuellement représentées, avec vingt-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
+Vingt-cinq conventions sont actuellement représentées, avec vingt-huit versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
+| [Industries chimiques](rules/0044-industries-chimiques/README.md) | 44 | `2026.1` : 1er janvier 2026 | Barème de 23 coefficients (de 130 à 880), proratisé selon la quotité de travail ; détection des coefficients hors grille |
 | [Industrie laitière](rules/0112-industrie-laitiere/README.md) | 0112 | `2026.1` : 1er février 2026 | Grille mensuelle de 28 positions (ouvriers et employés, techniciens et agents de maîtrise, cadres), proratisée selon la quotité de travail ; détection des classifications hors grille |
 | [Commerces de gros](rules/0573-commerces-de-gros/README.md) | 573 | `2026.1` : 1er mars 2026 | Grille de 28 positions (niveaux I à VI en minima mensuels, niveaux VII à X en minima annuels convertis en minima mensuels), proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Maisons à succursales de vente au détail d’habillement](rules/0675-succursales-habillement/README.md) | 675 | `2026.1` : 1er mai 2026 | Grille mensuelle de 9 catégories (employés, agents de maîtrise, cadres), proratisée selon la quotité de travail ; détection des catégories hors grille |
@@ -123,7 +124,7 @@ npm test
 
 `npm ci` installe les dépendances verrouillées et construit le package. `npm test` compile d’abord les sources, puis exécute tous les fichiers `test/**/*.test.ts` avec le moteur de tests intégré à Node.js. Une erreur de compilation ou un test en échec fait échouer la commande.
 
-Vingt-deux ensembles de tests sont présents :
+Vingt-trois ensembles de tests sont présents :
 
 - `test/compile-collective-agreements.test.ts` teste le compilateur avec des fichiers temporaires : nommage, métadonnées, dates, ajout d’une version, modification ou suppression d’une version verrouillée.
 - `test/models.test.ts` vérifie les versions exportées et leurs empreintes, la présence des références juridiques, les espaces de noms, l’absence de collisions avec `modele-social` et des calculs de minima pour chacune des vingt-trois versions.
@@ -135,6 +136,7 @@ Vingt-deux ensembles de tests sont présents :
 - `test/industrie-laitiere.test.ts` couvre les 28 positions IDCC 0112, la quotité, les classifications hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 57, indépendamment du YAML.
 - `test/commerces-services-audiovisuel.test.ts` couvre les 16 positions IDCC 1686 (12 minima mensuels et 4 rémunérations annuelles de cadres), la quotité, les classifications hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 63, indépendamment du YAML.
 - `test/commerce-detail-non-alimentaire.test.ts` couvre les 9 niveaux IDCC 1517, la quotité, les niveaux hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 15, indépendamment du YAML.
+- `test/industries-chimiques.test.ts` couvre les 23 coefficients IDCC 44, leur cohérence avec la formule de l’accord, la quotité, les coefficients hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’accord du 3 décembre 2025, indépendamment du YAML.
 - `test/metallurgie.test.ts` couvre les 18 classes IDCC 3248, la conversion du minimum annuel en minimum mensuel, la quotité, les classes hors barème et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant du 20 février 2026, indépendamment du YAML.
 - `test/grands-magasins.test.ts` couvre les 12 positions IDCC 2156 (minima mensuels et annuels), la quotité, les niveaux hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant du 17 avril 2024, indépendamment du YAML.
 - `test/bureau-numerique.test.ts` couvre les 12 niveaux IDCC 1539, le passage du niveau A1 au minimum A2 après un an d’ancienneté, la quotité, les niveaux hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’accord du 2 avril 2025, indépendamment du YAML.
@@ -188,6 +190,13 @@ Pour exécuter uniquement les tests IDCC 3248 :
 ```sh
 npm run compile-rules
 node --test test/metallurgie.test.ts
+```
+
+Pour exécuter uniquement les tests IDCC 44 :
+
+```sh
+npm run compile-rules
+node --test test/industries-chimiques.test.ts
 ```
 
 Pour exécuter uniquement les tests IDCC 1517 :
