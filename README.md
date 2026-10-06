@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Vingt-deux conventions sont actuellement représentées, avec vingt-cinq versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
+Vingt-trois conventions sont actuellement représentées, avec vingt-six versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
@@ -32,6 +32,7 @@ Vingt-deux conventions sont actuellement représentées, avec vingt-cinq version
 | [Hôtels, cafés, restaurants (HCR)](rules/1979-hotels-cafes-restaurants/README.md) | 1979 | `2024.1` : 1er décembre 2024 | Minima horaires par niveau et échelon, conversion en minimum mensuel selon la durée du contrat ; détection des niveaux hors grille |
 | [Pharmacie d’officine](rules/1996-pharmacie-officine/README.md) | 1996 | `2025.1` : 24 mai 2025 ; `2026.1` : 17 avril 2026 | Minima selon le coefficient, la valeur du point et le salaire garanti au coefficient 100 ; proratisation selon la quotité de travail |
 | [Commerce de détail et de gros à prédominance alimentaire](rules/2216-commerce-detail-gros-predominance-alimentaire/README.md) | 2216 | `2025.1` : 1er août 2025 ; `2026.1` : 1er août 2026 | Salaire minimum mensuel garanti par niveau, pauses rémunérées comprises ; proratisation selon la quotité de travail |
+| [Grands magasins et magasins populaires](rules/2156-grands-magasins/README.md) | 2156 | `2024.1` : 1er juin 2024 | Grille mensuelle de 12 positions (employés en 8 échelons, agent de maîtrise, cadres) proratisée selon la quotité de travail, et rémunérations minimales annuelles ; détection des niveaux hors grille |
 | [Aide, accompagnement, soins et services à domicile](rules/2941-aide-soins-domicile/README.md) | 2941 | `2026.1` : 1er juin 2026 (extension publiée le 23 juillet 2026) | Grilles intervention et support, base avec plancher SMIC, ECR diplôme et ancienneté ; tutorat, apprentissage et astreintes |
 | [Particuliers employeurs et emploi à domicile](rules/3239-particuliers-employeurs-emploi-domicile/README.md) | 3239 | `2026.1` : 1er juin 2026 | Minima des 12 niveaux et certifications, socle assistant maternel par enfant, mensualisation, présence responsable de jour, heures additionnelles et prestations en nature |
 
@@ -121,7 +122,7 @@ npm test
 
 `npm ci` installe les dépendances verrouillées et construit le package. `npm test` compile d’abord les sources, puis exécute tous les fichiers `test/**/*.test.ts` avec le moteur de tests intégré à Node.js. Une erreur de compilation ou un test en échec fait échouer la commande.
 
-Vingt ensembles de tests sont présents :
+Vingt et un ensembles de tests sont présents :
 
 - `test/compile-collective-agreements.test.ts` teste le compilateur avec des fichiers temporaires : nommage, métadonnées, dates, ajout d’une version, modification ou suppression d’une version verrouillée.
 - `test/models.test.ts` vérifie les versions exportées et leurs empreintes, la présence des références juridiques, les espaces de noms, l’absence de collisions avec `modele-social` et des calculs de minima pour chacune des vingt-trois versions.
@@ -133,6 +134,7 @@ Vingt ensembles de tests sont présents :
 - `test/industrie-laitiere.test.ts` couvre les 28 positions IDCC 0112, la quotité, les classifications hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 57, indépendamment du YAML.
 - `test/commerces-services-audiovisuel.test.ts` couvre les 16 positions IDCC 1686 (12 minima mensuels et 4 rémunérations annuelles de cadres), la quotité, les classifications hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 63, indépendamment du YAML.
 - `test/commerce-detail-non-alimentaire.test.ts` couvre les 9 niveaux IDCC 1517, la quotité, les niveaux hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 15, indépendamment du YAML.
+- `test/grands-magasins.test.ts` couvre les 12 positions IDCC 2156 (minima mensuels et annuels), la quotité, les niveaux hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant du 17 avril 2024, indépendamment du YAML.
 - `test/bureau-numerique.test.ts` couvre les 12 niveaux IDCC 1539, le passage du niveau A1 au minimum A2 après un an d’ancienneté, la quotité, les niveaux hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’accord du 2 avril 2025, indépendamment du YAML.
 - `test/succursales-habillement.test.ts` couvre les 9 catégories IDCC 675, la quotité, les catégories hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’accord du 16 avril 2026, indépendamment du YAML.
 - `test/commerce-detail-habillement-textiles.test.ts` couvre les 13 catégories IDCC 1483, les 60 paliers de prime d’ancienneté des employés et des agents de maîtrise A1 et A2, les 18 minima des catégories B, C et D selon l’ancienneté, la quotité, le calcul de l’ancienneté depuis la date d’embauche, les catégories hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 29, indépendamment du YAML.
@@ -170,6 +172,13 @@ Pour exécuter uniquement les tests IDCC 1539 :
 ```sh
 npm run compile-rules
 node --test test/bureau-numerique.test.ts
+```
+
+Pour exécuter uniquement les tests IDCC 2156 :
+
+```sh
+npm run compile-rules
+node --test test/grands-magasins.test.ts
 ```
 
 Pour exécuter uniquement les tests IDCC 1517 :

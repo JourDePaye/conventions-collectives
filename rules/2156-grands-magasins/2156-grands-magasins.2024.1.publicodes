@@ -1,0 +1,124 @@
+# Convention collective nationale des grands magasins et des magasins populaires du
+# 30 juin 2000 (IDCC 2156, brochure 3082).
+#
+# Version 2024.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de l'avenant du 17 avril 2024 (article 7, premier jour du mois civil qui
+# suit son dépôt).
+validFrom: 2024-06-01
+sources:
+  - Avenant du 17 avril 2024 relatif aux rémunérations minimales garanties (article 2,
+    rémunérations minimales mensuelles et annuelles des niveaux I à VIII, pour 151,67 heures
+    par mois ; sont exclus du calcul les remboursements de frais, primes de transport, heures
+    supplémentaires, intéressement et participation et primes d'ancienneté ; temps partiel
+    proratisé selon l'horaire contractuel), applicable à compter du 1er juin 2024, étendu par
+    arrêté du 28 juin 2024 (JORF du 6 juillet 2024, BOCC 2024-21). Texte de l'avenant consulté
+    sur Légifrance (KALITEXT000049870233) ; le numéro de texte et le NOR de l'arrêté n'ont pas
+    été vérifiés. Aucun avenant plus récent n'a été trouvé.
+---
+salarié . convention collective . grands magasins:
+  titre: Grands magasins et magasins populaires (IDCC 2156)
+  valeur: convention collective = 'grands magasins'
+
+salarié . convention collective . grands magasins . niveau:
+  titre: Niveau de classification
+  description: |
+    I.1, I.2, II.1, II.2, III.1, III.2, IV.1 et IV.2 (niveau et échelon) pour les employés, V
+    pour les agents de maîtrise, VI, VII et VIII pour les cadres.
+  applicable si: convention collective = 'grands magasins'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . grands magasins . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Rémunération minimale mensuelle garantie du niveau pour 151,67 heures, proratisée pour un
+    temps partiel. Vaut 0 €/mois si le niveau n'existe pas dans la grille (voir « niveau hors
+    grille »). La rémunération minimale annuelle est donnée par « rémunération minimale
+    annuelle ».
+  applicable si: convention collective = 'grands magasins'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . grands magasins . salaire minimum conventionnel . grille:
+  titre: Rémunération minimale mensuelle à temps plein
+  description: |
+    Colonne mensuelle de l'article 2 de l'avenant, de 1 766,92 € (I.1) à 4 217 € (VIII).
+  unité: €/mois
+  variations:
+    - si: niveau = 'I.1'
+      alors: 1766.92 €/mois
+    - si: niveau = 'I.2'
+      alors: 1768.00 €/mois
+    - si: niveau = 'II.1'
+      alors: 1773.00 €/mois
+    - si: niveau = 'II.2'
+      alors: 1785.00 €/mois
+    - si: niveau = 'III.1'
+      alors: 1797.00 €/mois
+    - si: niveau = 'III.2'
+      alors: 1803.00 €/mois
+    - si: niveau = 'IV.1'
+      alors: 1834.00 €/mois
+    - si: niveau = 'IV.2'
+      alors: 1895.00 €/mois
+    - si: niveau = 'V'
+      alors: 2054.00 €/mois
+    - si: niveau = 'VI'
+      alors: 2469.00 €/mois
+    - si: niveau = 'VII'
+      alors: 3203.00 €/mois
+    - si: niveau = 'VIII'
+      alors: 4217.00 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . grands magasins . rémunération minimale annuelle:
+  titre: Rémunération minimale annuelle garantie à temps plein
+  description: |
+    Colonne annuelle de l'article 2 de l'avenant, de 22 087 € (I.1) à 55 840 € (VIII), pour une
+    année complète à temps plein, non proratisée. Elle est supérieure à douze fois le minimum
+    mensuel : elle s'apprécie sur l'année, hors remboursements de frais, primes de transport,
+    heures supplémentaires, intéressement, participation et primes d'ancienneté. Vaut 0 €/an si
+    le niveau n'existe pas dans la grille.
+  applicable si: convention collective = 'grands magasins'
+  unité: €/an
+  variations:
+    - si: niveau = 'I.1'
+      alors: 22087 €/an
+    - si: niveau = 'I.2'
+      alors: 22096 €/an
+    - si: niveau = 'II.1'
+      alors: 22157 €/an
+    - si: niveau = 'II.2'
+      alors: 22310 €/an
+    - si: niveau = 'III.1'
+      alors: 22463 €/an
+    - si: niveau = 'III.2'
+      alors: 22539 €/an
+    - si: niveau = 'IV.1'
+      alors: 22921 €/an
+    - si: niveau = 'IV.2'
+      alors: 23685 €/an
+    - si: niveau = 'V'
+      alors: 26699 €/an
+    - si: niveau = 'VI'
+      alors: 32694 €/an
+    - si: niveau = 'VII'
+      alors: 42406 €/an
+    - si: niveau = 'VIII'
+      alors: 55840 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . grands magasins . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des rémunérations minimales.
+  applicable si: convention collective = 'grands magasins'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un niveau inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
