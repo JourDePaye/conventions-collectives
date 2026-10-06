@@ -1,0 +1,162 @@
+# Convention collective nationale des industries charcutières : industrie de la salaison,
+# charcuterie en gros et conserves de viandes du 29 mars 1972 (IDCC 1586, brochure 3125).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2026-02-01
+sources:
+  - Accord du 16 janvier 2026 relatif aux salaires minimaux conventionnels à compter du
+    1er février 2026 (article 1, salaires minima mensuels garantis des 49 coefficients de 125 à
+    700 pour 35 heures par semaine, soit 151,67 heures par mois), applicable à compter du
+    1er février 2026 aux entreprises adhérant à l'organisation d'employeurs signataire, dès le
+    lendemain de son dépôt (article 8), étendu par arrêté du 14 avril 2026 (JORF n° 0091 du
+    17 avril 2026, texte n° 88, NOR TRST2609134A), dont l'extension prend effet à la date de
+    publication. Il annule et remplace l'accord du 19 décembre 2024 (préambule).
+    Texte de l'accord consulté directement (exemplaire publié par juristique.org), dont les
+    montants sont arrondis au dixième d'euro.
+---
+salarié . convention collective . industries charcutières:
+  titre: Industries charcutières (IDCC 1586)
+  valeur: convention collective = 'industries charcutières'
+
+salarié . convention collective . industries charcutières . coefficient:
+  titre: Coefficient hiérarchique
+  description: |
+    Coefficient de 125 à 345 par pas de 5 (niveaux I à VII : ouvriers et employés, puis
+    techniciens et agents de maîtrise), 350 (niveau VIII), 400 (niveau IX), 600 ou 700
+    (niveau X), ces quatre derniers pour les cadres.
+  applicable si: convention collective = 'industries charcutières'
+  par défaut: 0
+
+salarié . convention collective . industries charcutières . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum garanti du coefficient pour 35 heures par semaine (151,67 heures
+    par mois), proratisé pour un temps partiel. Vaut 0 €/mois pour un coefficient absent de
+    la grille (voir « coefficient hors grille »).
+  applicable si: convention collective = 'industries charcutières'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . industries charcutières . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Article 1 de l'accord du 16 janvier 2026, de 1 835,60 € (coefficient 125) à 5 763,40 €
+    (coefficient 700). Les montants sont ceux du texte, au dixième d'euro.
+  unité: €/mois
+  variations:
+    - si: coefficient = 125
+      alors: 1835.60 €/mois
+    - si: coefficient = 130
+      alors: 1840.90 €/mois
+    - si: coefficient = 135
+      alors: 1846.30 €/mois
+    - si: coefficient = 140
+      alors: 1852.60 €/mois
+    - si: coefficient = 145
+      alors: 1857.90 €/mois
+    - si: coefficient = 150
+      alors: 1863.30 €/mois
+    - si: coefficient = 155
+      alors: 1868.60 €/mois
+    - si: coefficient = 160
+      alors: 1880.30 €/mois
+    - si: coefficient = 165
+      alors: 1901.50 €/mois
+    - si: coefficient = 170
+      alors: 1912.10 €/mois
+    - si: coefficient = 175
+      alors: 1945.80 €/mois
+    - si: coefficient = 180
+      alors: 1978.50 €/mois
+    - si: coefficient = 185
+      alors: 2012.20 €/mois
+    - si: coefficient = 190
+      alors: 2043.70 €/mois
+    - si: coefficient = 195
+      alors: 2078.50 €/mois
+    - si: coefficient = 200
+      alors: 2130.20 €/mois
+    - si: coefficient = 205
+      alors: 2151.30 €/mois
+    - si: coefficient = 210
+      alors: 2173.50 €/mois
+    - si: coefficient = 215
+      alors: 2197.70 €/mois
+    - si: coefficient = 220
+      alors: 2228.20 €/mois
+    - si: coefficient = 225
+      alors: 2265.10 €/mois
+    - si: coefficient = 230
+      alors: 2301.90 €/mois
+    - si: coefficient = 235
+      alors: 2338.90 €/mois
+    - si: coefficient = 240
+      alors: 2376.80 €/mois
+    - si: coefficient = 245
+      alors: 2412.60 €/mois
+    - si: coefficient = 250
+      alors: 2448.40 €/mois
+    - si: coefficient = 255
+      alors: 2486.40 €/mois
+    - si: coefficient = 260
+      alors: 2525.40 €/mois
+    - si: coefficient = 265
+      alors: 2562.30 €/mois
+    - si: coefficient = 270
+      alors: 2601.30 €/mois
+    - si: coefficient = 275
+      alors: 2639.20 €/mois
+    - si: coefficient = 280
+      alors: 2677.20 €/mois
+    - si: coefficient = 285
+      alors: 2713.10 €/mois
+    - si: coefficient = 290
+      alors: 2753.10 €/mois
+    - si: coefficient = 295
+      alors: 2790.00 €/mois
+    - si: coefficient = 300
+      alors: 2827.80 €/mois
+    - si: coefficient = 305
+      alors: 2864.80 €/mois
+    - si: coefficient = 310
+      alors: 2902.70 €/mois
+    - si: coefficient = 315
+      alors: 2941.80 €/mois
+    - si: coefficient = 320
+      alors: 2979.60 €/mois
+    - si: coefficient = 325
+      alors: 3017.60 €/mois
+    - si: coefficient = 330
+      alors: 3052.40 €/mois
+    - si: coefficient = 335
+      alors: 3092.40 €/mois
+    - si: coefficient = 340
+      alors: 3129.30 €/mois
+    - si: coefficient = 345
+      alors: 3168.30 €/mois
+    - si: coefficient = 350
+      alors: 3319.70 €/mois
+    - si: coefficient = 400
+      alors: 3580.10 €/mois
+    - si: coefficient = 600
+      alors: 5014.70 €/mois
+    - si: coefficient = 700
+      alors: 5763.40 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industries charcutières . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'industries charcutières'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un coefficient inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
