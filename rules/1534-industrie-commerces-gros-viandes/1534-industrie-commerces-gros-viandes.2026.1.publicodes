@@ -1,0 +1,123 @@
+# Convention collective nationale des entreprises de l'industrie et des commerces en gros
+# des viandes du 20 février 1969 (IDCC 1534, brochure 3179).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2026-02-01
+sources:
+  - Avenant n° 100 du 12 février 2026 relatif à la revalorisation des salaires minima au
+    1er février 2026 et de la prime à l'obtention d'un CQP (article 2, grille du salaire de
+    base mensuel minimum des niveaux I à X, échelons 1 à 3), applicable à compter du
+    1er février 2026 aux entreprises adhérant à une organisation d'employeurs signataire et au
+    plus tard à compter de son extension (article 7), étendu par arrêté du 20 mai 2026 (JORF
+    n° 0131 du 6 juin 2026, texte n° 88, NOR TRST2612791A), dont l'extension prend effet à la
+    date de publication. Texte de l'avenant consulté directement (exemplaire publié par
+    juristique.org, qui ne reproduit pas les articles 3 et 4).
+---
+salarié . convention collective . industrie et commerces en gros des viandes:
+  titre: Industrie et commerces en gros des viandes (IDCC 1534)
+  valeur: convention collective = 'industrie et commerces en gros des viandes'
+
+salarié . convention collective . industrie et commerces en gros des viandes . niveau:
+  titre: Niveau et échelon de classification
+  description: |
+    Au format « <niveau>.<échelon> », avec un niveau en chiffres romains et un échelon de 1 à 3 :
+    I.1 à IV.3 pour les ouvriers et employés, V.1 à VII.3 pour les techniciens et agents de
+    maîtrise (TAM), VIII.1 à X.3 pour les cadres.
+  applicable si: convention collective = 'industrie et commerces en gros des viandes'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . industrie et commerces en gros des viandes . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire de base mensuel minimum du niveau et de l'échelon pour 35 heures par semaine
+    (151,67 heures par mois), proratisé pour un temps partiel. Vaut 0 €/mois si la
+    classification n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'industrie et commerces en gros des viandes'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . industrie et commerces en gros des viandes . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'article 2 de l'avenant n° 100, de 1 835 € (niveau I, échelon 1) à 6 361 € (niveau X,
+    échelon 3).
+  unité: €/mois
+  variations:
+    - si: niveau = 'I.1'
+      alors: 1835.00 €/mois
+    - si: niveau = 'I.2'
+      alors: 1849.00 €/mois
+    - si: niveau = 'I.3'
+      alors: 1859.00 €/mois
+    - si: niveau = 'II.1'
+      alors: 1880.00 €/mois
+    - si: niveau = 'II.2'
+      alors: 1895.00 €/mois
+    - si: niveau = 'II.3'
+      alors: 1911.00 €/mois
+    - si: niveau = 'III.1'
+      alors: 1937.00 €/mois
+    - si: niveau = 'III.2'
+      alors: 1957.00 €/mois
+    - si: niveau = 'III.3'
+      alors: 1978.00 €/mois
+    - si: niveau = 'IV.1'
+      alors: 2019.00 €/mois
+    - si: niveau = 'IV.2'
+      alors: 2050.00 €/mois
+    - si: niveau = 'IV.3'
+      alors: 2081.00 €/mois
+    - si: niveau = 'V.1'
+      alors: 2132.00 €/mois
+    - si: niveau = 'V.2'
+      alors: 2164.00 €/mois
+    - si: niveau = 'V.3'
+      alors: 2194.00 €/mois
+    - si: niveau = 'VI.1'
+      alors: 2318.00 €/mois
+    - si: niveau = 'VI.2'
+      alors: 2411.00 €/mois
+    - si: niveau = 'VI.3'
+      alors: 2504.00 €/mois
+    - si: niveau = 'VII.1'
+      alors: 2664.00 €/mois
+    - si: niveau = 'VII.2'
+      alors: 2766.00 €/mois
+    - si: niveau = 'VII.3'
+      alors: 2869.00 €/mois
+    - si: niveau = 'VIII.1'
+      alors: 3245.00 €/mois
+    - si: niveau = 'VIII.2'
+      alors: 3564.00 €/mois
+    - si: niveau = 'VIII.3'
+      alors: 3739.00 €/mois
+    - si: niveau = 'IX.1'
+      alors: 4353.00 €/mois
+    - si: niveau = 'IX.2'
+      alors: 4677.00 €/mois
+    - si: niveau = 'IX.3'
+      alors: 5048.00 €/mois
+    - si: niveau = 'X.1'
+      alors: 5460.00 €/mois
+    - si: niveau = 'X.2'
+      alors: 5888.00 €/mois
+    - si: niveau = 'X.3'
+      alors: 6361.00 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industrie et commerces en gros des viandes . niveau hors grille:
+  titre: Classification absente de la grille
+  description: Le niveau ou l'échelon n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'industrie et commerces en gros des viandes'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour une classification inconnue.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
