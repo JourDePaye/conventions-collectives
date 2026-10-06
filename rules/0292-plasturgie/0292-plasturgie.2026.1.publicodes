@@ -1,0 +1,93 @@
+# Convention collective nationale de la plasturgie du 1er juillet 1960 (IDCC 292, brochure
+# 3066).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de l'accord du 19 février 2026. Pour les employeurs non adhérents à la
+# fédération signataire, l'extension ne rend l'accord applicable qu'à compter de la publication
+# de l'arrêté d'extension (3 octobre 2026) : cette réserve n'est pas modélisée.
+validFrom: 2026-03-01
+sources:
+  - Accord du 19 février 2026 relatif aux salaires (article 3-1, salaires minima mensuels des
+    15 coefficients de 700 à 940 pour 35 heures par semaine, soit 151,67 heures par mois),
+    applicable à compter du 1er mars 2026, étendu par arrêté du 23 septembre 2026 (JORF
+    n° 0231 du 3 octobre 2026, texte n° 83, NOR TRST2612629A), l'article 3-1 étant étendu sous
+    réserve de l'application des dispositions réglementaires relatives au SMIC. Montants
+    recoupés sur deux pages de synthèse concordantes (juristique.org et travail-industrie.com) ;
+    le texte de l'accord n'a pas pu être lu (les PDF consultés n'étaient pas exploitables).
+---
+salarié . convention collective . plasturgie:
+  titre: Plasturgie (IDCC 292)
+  valeur: convention collective = 'plasturgie'
+
+salarié . convention collective . plasturgie . coefficient:
+  titre: Coefficient hiérarchique
+  description: |
+    Coefficient de 700 à 940 : 700, 710, 720, 730, 740, 750, 800, 810, 820, 830, 900, 910, 920,
+    930 ou 940.
+  applicable si: convention collective = 'plasturgie'
+  par défaut: 0
+
+salarié . convention collective . plasturgie . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum du coefficient pour 35 heures par semaine (151,67 heures par
+    mois), proratisé pour un temps partiel. Vaut 0 €/mois pour un coefficient absent de la
+    grille (voir « coefficient hors grille »).
+  applicable si: convention collective = 'plasturgie'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . plasturgie . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'accord du 19 février 2026, de 1 835 € (coefficient 700) à 6 543 € (coefficient
+    940).
+  unité: €/mois
+  variations:
+    - si: coefficient = 700
+      alors: 1835.00 €/mois
+    - si: coefficient = 710
+      alors: 1848.00 €/mois
+    - si: coefficient = 720
+      alors: 1868.00 €/mois
+    - si: coefficient = 730
+      alors: 1921.00 €/mois
+    - si: coefficient = 740
+      alors: 2004.00 €/mois
+    - si: coefficient = 750
+      alors: 2126.00 €/mois
+    - si: coefficient = 800
+      alors: 2266.00 €/mois
+    - si: coefficient = 810
+      alors: 2424.00 €/mois
+    - si: coefficient = 820
+      alors: 2652.00 €/mois
+    - si: coefficient = 830
+      alors: 2841.00 €/mois
+    - si: coefficient = 900
+      alors: 3366.00 €/mois
+    - si: coefficient = 910
+      alors: 3525.00 €/mois
+    - si: coefficient = 920
+      alors: 4047.00 €/mois
+    - si: coefficient = 930
+      alors: 5253.00 €/mois
+    - si: coefficient = 940
+      alors: 6543.00 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . plasturgie . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'plasturgie'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un coefficient inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
