@@ -1,0 +1,89 @@
+# Convention collective nationale des entreprises du bureau et du numérique - Commerces et
+# services (IDCC 1539, brochure 3269), anciennement commerce de détail de papeterie, fournitures
+# de bureau, de bureautique et informatique et de librairie (convention du 15 décembre 1988).
+#
+# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de la grille de l'accord du 2 avril 2025.
+validFrom: 2025-09-01
+sources:
+  - Accord du 2 avril 2025 relatif à la grille des salaires minima (niveaux A1 à C4, coefficients
+    140 à 500, pour 151,67 heures par mois), applicable à compter du 1er septembre 2025, étendu
+    par arrêté du 31 juillet 2025 (JORF du 7 août 2025), qui prévoit qu'après un an d'ancienneté
+    un salarié classé au niveau A1 perçoit le minimum du niveau A2. Montants recoupés sur
+    plusieurs pages de synthèse concordantes (juristique.org, convention.fr) ; le texte de
+    l'accord et de l'arrêté n'a pas été consulté, et le numéro de texte et le NOR de l'arrêté
+    n'ont pas été vérifiés.
+---
+salarié . convention collective . bureau et numérique:
+  titre: Entreprises du bureau et du numérique (IDCC 1539)
+  valeur: convention collective = 'bureau et numérique'
+
+salarié . convention collective . bureau et numérique . niveau:
+  titre: Niveau de classification
+  description: |
+    Niveau de A1 à A5, B1 à B3 ou C1 à C4 (coefficients 140 à 500).
+  applicable si: convention collective = 'bureau et numérique'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . bureau et numérique . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum du niveau pour 151,67 heures, proratisé pour un temps partiel. Un
+    salarié du niveau A1 qui a au moins un an d'ancienneté perçoit le minimum du niveau A2.
+    L'ancienneté est celle de modele-social, calculée depuis la date d'embauche. Vaut 0 €/mois
+    si le niveau n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'bureau et numérique'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . bureau et numérique . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'accord du 2 avril 2025, de 1 835 € (A1) à 4 720 € (C4).
+  unité: €/mois
+  variations:
+    - si: niveau = 'A1'
+      alors:
+        variations:
+          - si: ancienneté >= 1 an
+            alors: 1855 €/mois
+          - sinon: 1835 €/mois
+    - si: niveau = 'A2'
+      alors: 1855 €/mois
+    - si: niveau = 'A3'
+      alors: 1875 €/mois
+    - si: niveau = 'A4'
+      alors: 1905 €/mois
+    - si: niveau = 'A5'
+      alors: 1970 €/mois
+    - si: niveau = 'B1'
+      alors: 2075 €/mois
+    - si: niveau = 'B2'
+      alors: 2185 €/mois
+    - si: niveau = 'B3'
+      alors: 2385 €/mois
+    - si: niveau = 'C1'
+      alors: 2530 €/mois
+    - si: niveau = 'C2'
+      alors: 3280 €/mois
+    - si: niveau = 'C3'
+      alors: 4020 €/mois
+    - si: niveau = 'C4'
+      alors: 4720 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . bureau et numérique . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'bureau et numérique'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un niveau inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
