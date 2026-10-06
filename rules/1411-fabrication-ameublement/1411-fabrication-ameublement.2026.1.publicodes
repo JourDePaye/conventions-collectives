@@ -1,0 +1,136 @@
+# Convention collective nationale de la fabrication de l'ameublement du 14 janvier 1986
+# (IDCC 1411, brochure 3155).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de l'accord du 28 mai 2026. Pour les employeurs non adhérents aux
+# organisations signataires, l'extension ne rend l'accord applicable qu'à compter de la
+# publication de l'arrêté d'extension (4 septembre 2026) : cette réserve n'est pas modélisée.
+validFrom: 2026-07-01
+sources:
+  - Accord du 28 mai 2026 relatif aux salaires minima professionnels catégoriels (grille des
+    36 échelons des agents de production, agents fonctionnels, agents d'encadrement et cadres,
+    pour 35 heures par semaine, soit 151,67 heures par mois), applicable à compter du
+    1er juillet 2026, étendu par arrêté du 24 août 2026 (JORF n° 0206 du 4 septembre 2026,
+    texte n° 42, NOR TRST2621200A). Montants recoupés sur deux pages de synthèse concordantes
+    (juristique.org et convention.fr) ; le texte de l'accord n'a pas été consulté. Les échelons
+    AP11, AF1 et AE1 y figurent à 1 867,02 €, soit le montant du SMIC en vigueur depuis juin
+    2026, sans que l'on sache si le texte de l'accord donne ce montant ou un montant inférieur.
+---
+salarié . convention collective . fabrication ameublement:
+  titre: Fabrication de l'ameublement (IDCC 1411)
+  valeur: convention collective = 'fabrication ameublement'
+
+salarié . convention collective . fabrication ameublement . niveau:
+  titre: Échelon de classification
+  description: |
+    Échelon sans espace : AP11, AP21, AP22, AP31, AP32, AP41, AP42, AP43, AP51, AP52 (agents de
+    production), AF1, AF3, AF5, AF7, AF9, AF11, AF12, AF14, AF15, AF16 (agents fonctionnels),
+    AE1 à AE7 (agents d'encadrement), C11, C12, C13, C21, C22, C23, C31, C32, C33 (cadres).
+  applicable si: convention collective = 'fabrication ameublement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . fabrication ameublement . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum professionnel catégoriel de l'échelon pour 151,67 heures,
+    proratisé pour un temps partiel. Vaut 0 €/mois si l'échelon n'existe pas dans la grille
+    (voir « niveau hors grille »).
+  applicable si: convention collective = 'fabrication ameublement'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . fabrication ameublement . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'accord du 28 mai 2026, de 1 867,02 € (AP11, AF1, AE1) à 4 956 € (C33).
+  unité: €/mois
+  variations:
+    - si: niveau = 'AP11'
+      alors: 1867.02 €/mois
+    - si: niveau = 'AP21'
+      alors: 1869.00 €/mois
+    - si: niveau = 'AP22'
+      alors: 1872.00 €/mois
+    - si: niveau = 'AP31'
+      alors: 1874.00 €/mois
+    - si: niveau = 'AP32'
+      alors: 1882.00 €/mois
+    - si: niveau = 'AP41'
+      alors: 1899.00 €/mois
+    - si: niveau = 'AP42'
+      alors: 1919.00 €/mois
+    - si: niveau = 'AP43'
+      alors: 1972.00 €/mois
+    - si: niveau = 'AP51'
+      alors: 2039.00 €/mois
+    - si: niveau = 'AP52'
+      alors: 2117.00 €/mois
+    - si: niveau = 'AF1'
+      alors: 1867.02 €/mois
+    - si: niveau = 'AF3'
+      alors: 1871.00 €/mois
+    - si: niveau = 'AF5'
+      alors: 1876.00 €/mois
+    - si: niveau = 'AF7'
+      alors: 1879.00 €/mois
+    - si: niveau = 'AF9'
+      alors: 1899.00 €/mois
+    - si: niveau = 'AF11'
+      alors: 1929.00 €/mois
+    - si: niveau = 'AF12'
+      alors: 1945.00 €/mois
+    - si: niveau = 'AF14'
+      alors: 2045.00 €/mois
+    - si: niveau = 'AF15'
+      alors: 2081.00 €/mois
+    - si: niveau = 'AF16'
+      alors: 2149.00 €/mois
+    - si: niveau = 'AE1'
+      alors: 1867.02 €/mois
+    - si: niveau = 'AE2'
+      alors: 1877.00 €/mois
+    - si: niveau = 'AE3'
+      alors: 1927.00 €/mois
+    - si: niveau = 'AE4'
+      alors: 1957.00 €/mois
+    - si: niveau = 'AE5'
+      alors: 2065.00 €/mois
+    - si: niveau = 'AE6'
+      alors: 2202.00 €/mois
+    - si: niveau = 'AE7'
+      alors: 2640.00 €/mois
+    - si: niveau = 'C11'
+      alors: 2489.00 €/mois
+    - si: niveau = 'C12'
+      alors: 2723.00 €/mois
+    - si: niveau = 'C13'
+      alors: 2870.00 €/mois
+    - si: niveau = 'C21'
+      alors: 3298.00 €/mois
+    - si: niveau = 'C22'
+      alors: 3516.00 €/mois
+    - si: niveau = 'C23'
+      alors: 3806.00 €/mois
+    - si: niveau = 'C31'
+      alors: 4236.00 €/mois
+    - si: niveau = 'C32'
+      alors: 4516.00 €/mois
+    - si: niveau = 'C33'
+      alors: 4956.00 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . fabrication ameublement . niveau hors grille:
+  titre: Échelon absent de la grille
+  description: L'échelon n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'fabrication ameublement'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un échelon inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
