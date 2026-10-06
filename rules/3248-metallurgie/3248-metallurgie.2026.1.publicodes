@@ -1,0 +1,102 @@
+# Convention collective nationale de la métallurgie du 7 février 2022 (IDCC 3248).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application du barème 2026, rétroactif au 1er janvier 2026 selon l'avenant. Pour les
+# employeurs non adhérents à la fédération signataire, l'extension ne rend le barème applicable
+# qu'à compter de la publication de l'arrêté d'extension (juin 2026) : cette réserve n'est pas
+# modélisée.
+validFrom: 2026-01-01
+sources:
+  - Avenant du 20 février 2026 portant barème unique des salaires minima hiérarchiques à
+    partir de l'année 2026 (salaires minima hiérarchiques annuels des 18 classes d'emplois
+    A1 à I18, pour 35 heures par semaine), applicable à compter du 1er janvier 2026, avis
+    d'extension publié au JORF du 15 mars 2026 (NOR TRST2607042V), étendu par arrêté du
+    20 mai 2026 publié au JORF des 5 ou 6 juin 2026 selon les pages consultées. Montants
+    recoupés sur deux pages de synthèse concordantes (UIMM Côte d'Azur et Corse, Éditions
+    Tissot) ; le texte de l'avenant n'a pas été consulté, ni le numéro de texte et le NOR de
+    l'arrêté d'extension.
+---
+salarié . convention collective . métallurgie:
+  titre: Métallurgie (IDCC 3248)
+  valeur: convention collective = 'métallurgie'
+
+salarié . convention collective . métallurgie . niveau:
+  titre: Classe d'emplois
+  description: |
+    Classe d'emplois de A1 à I18 : la lettre est le groupe (A à I) et le nombre la classe (1 à
+    18), soit A1, A2, B3, B4, C5, C6, D7, D8, E9, E10, F11, F12, G13, G14, H15, H16, I17, I18.
+  applicable si: convention collective = 'métallurgie'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . métallurgie . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Douzième du salaire minimum hiérarchique annuel de la classe pour 35 heures par semaine,
+    proratisé pour un temps partiel. Le minimum annuel s'apprécie sur l'année, primes comprises :
+    la règle n'en donne que l'équivalent mensuel. Vaut 0 €/mois si la classe n'existe pas dans
+    le barème (voir « niveau hors grille »).
+  applicable si: convention collective = 'métallurgie'
+  unité: €/mois
+  produit:
+    - salaire minimum hiérarchique annuel
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . métallurgie . salaire minimum hiérarchique annuel:
+  titre: Salaire minimum hiérarchique annuel à temps plein
+  description: |
+    Barème de l'avenant du 20 février 2026, de 21 980 € (A1) à 68 450 € (I18), pour 35 heures
+    par semaine. Vaut 0 €/an si la classe n'existe pas dans le barème.
+  applicable si: convention collective = 'métallurgie'
+  unité: €/an
+  variations:
+    - si: niveau = 'A1'
+      alors: 21980 €/an
+    - si: niveau = 'A2'
+      alors: 22100 €/an
+    - si: niveau = 'B3'
+      alors: 22710 €/an
+    - si: niveau = 'B4'
+      alors: 23620 €/an
+    - si: niveau = 'C5'
+      alors: 24510 €/an
+    - si: niveau = 'C6'
+      alors: 25780 €/an
+    - si: niveau = 'D7'
+      alors: 26680 €/an
+    - si: niveau = 'D8'
+      alors: 28700 €/an
+    - si: niveau = 'E9'
+      alors: 30760 €/an
+    - si: niveau = 'E10'
+      alors: 33970 €/an
+    - si: niveau = 'F11'
+      alors: 35200 €/an
+    - si: niveau = 'F12'
+      alors: 37000 €/an
+    - si: niveau = 'G13'
+      alors: 40350 €/an
+    - si: niveau = 'G14'
+      alors: 44250 €/an
+    - si: niveau = 'H15'
+      alors: 47380 €/an
+    - si: niveau = 'H16'
+      alors: 52370 €/an
+    - si: niveau = 'I17'
+      alors: 59720 €/an
+    - si: niveau = 'I18'
+      alors: 68450 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . métallurgie . niveau hors grille:
+  titre: Classe absente du barème
+  description: La classe n'existe pas dans le barème des salaires minima hiérarchiques.
+  applicable si: convention collective = 'métallurgie'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : le barème vaut donc 0 €/an pour une classe inconnue.
+  valeur: salaire minimum hiérarchique annuel = 0 €/an
