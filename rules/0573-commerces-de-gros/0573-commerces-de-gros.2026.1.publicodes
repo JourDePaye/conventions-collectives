@@ -1,0 +1,135 @@
+# Convention collective nationale des commerces de gros du 23 juin 1970 (IDCC 573,
+# brochure 3044).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2026-03-01
+sources:
+  - Accord du 17 mars 2026 relatif aux salaires (article 1, minima conventionnels au 1er mars
+    2026 des niveaux I à X, les niveaux I à VI étant appréciés mensuellement pour 151,67 heures et les niveaux
+    VII à X appréciés au 31 décembre sur le total des salaires bruts de l'année), publié au BOCC
+    2026-17 (NOR ASET2650448M), étendu par arrêté du 11 juin 2026 (JORF n° 0149 du 27 juin 2026,
+    texte n° 68, NOR TRST2615567A), sous réserve des dispositions réglementaires fixant le SMIC,
+    dont l'extension prend effet à la date de publication. Texte de l'accord consulté
+    directement (exemplaire publié au BOCC par juristique.org).
+---
+salarié . convention collective . commerces de gros:
+  titre: Commerces de gros (IDCC 573)
+  valeur: convention collective = 'commerces de gros'
+
+salarié . convention collective . commerces de gros . niveau:
+  titre: Niveau et échelon de classification
+  description: |
+    Au format « <niveau>.<échelon> », avec un niveau en chiffres romains : I.1 à VI.3 (minima
+    mensuels), puis VII.1 à VII.3, VIII.1 à VIII.3, IX.1, IX.2, X.1 et X.2 (minima annuels).
+  applicable si: convention collective = 'commerces de gros'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commerces de gros . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Pour les niveaux I à VI, le minimum mensuel de l'échelon pour 35 heures par semaine
+    (151,67 heures par mois). Pour les niveaux VII à X, un douzième du minimum annuel. Dans les
+    deux cas, le montant est proratisé pour un temps partiel. Le minimum annuel s'apprécie au
+    31 décembre sur le total des salaires bruts de l'année : la règle n'en donne que
+    l'équivalent mensuel. Vaut 0 €/mois pour une classification absente de la grille.
+  applicable si: convention collective = 'commerces de gros'
+  unité: €/mois
+  produit:
+    - somme:
+        - grille mensuelle
+        - rémunération minimale annuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerces de gros . grille mensuelle:
+  titre: Minimum mensuel des niveaux I à VI
+  description: |
+    Minima au 1er mars 2026 de l'article 1, à temps plein. Vaut 0 €/mois pour les niveaux VII à
+    X et pour une classification absente de la grille.
+  applicable si: convention collective = 'commerces de gros'
+  unité: €/mois
+  variations:
+    - si: niveau = 'I.1'
+      alors: 1839.81 €/mois
+    - si: niveau = 'I.2'
+      alors: 1850.85 €/mois
+    - si: niveau = 'I.3'
+      alors: 1861.96 €/mois
+    - si: niveau = 'II.1'
+      alors: 1873.13 €/mois
+    - si: niveau = 'II.2'
+      alors: 1884.37 €/mois
+    - si: niveau = 'II.3'
+      alors: 1895.67 €/mois
+    - si: niveau = 'III.1'
+      alors: 1907.05 €/mois
+    - si: niveau = 'III.2'
+      alors: 1918.49 €/mois
+    - si: niveau = 'III.3'
+      alors: 1930.00 €/mois
+    - si: niveau = 'IV.1'
+      alors: 1941.58 €/mois
+    - si: niveau = 'IV.2'
+      alors: 1953.23 €/mois
+    - si: niveau = 'IV.3'
+      alors: 1964.95 €/mois
+    - si: niveau = 'V.1'
+      alors: 1973.03 €/mois
+    - si: niveau = 'V.2'
+      alors: 2047.02 €/mois
+    - si: niveau = 'V.3'
+      alors: 2123.78 €/mois
+    - si: niveau = 'VI.1'
+      alors: 2203.43 €/mois
+    - si: niveau = 'VI.2'
+      alors: 2286.05 €/mois
+    - si: niveau = 'VI.3'
+      alors: 2371.78 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerces de gros . rémunération minimale annuelle:
+  titre: Minimum annuel des niveaux VII à X
+  description: |
+    Minima annuels au 1er mars 2026 de l'article 1, à temps plein. Vaut 0 €/an pour les
+    niveaux I à VI et pour une classification absente de la grille.
+  applicable si: convention collective = 'commerces de gros'
+  unité: €/an
+  variations:
+    - si: niveau = 'VII.1'
+      alors: 30338.30 €/an
+    - si: niveau = 'VII.2'
+      alors: 31855.22 €/an
+    - si: niveau = 'VII.3'
+      alors: 33447.98 €/an
+    - si: niveau = 'VIII.1'
+      alors: 38709.35 €/an
+    - si: niveau = 'VIII.2'
+      alors: 42580.28 €/an
+    - si: niveau = 'VIII.3'
+      alors: 46838.31 €/an
+    - si: niveau = 'IX.1'
+      alors: 51522.14 €/an
+    - si: niveau = 'IX.2'
+      alors: 56674.36 €/an
+    - si: niveau = 'X.1'
+      alors: 65175.51 €/an
+    - si: niveau = 'X.2'
+      alors: 78210.61 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . commerces de gros . niveau hors grille:
+  titre: Classification absente de la grille
+  description: Le niveau ou l'échelon n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'commerces de gros'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : les deux grilles valent 0 pour une classification inconnue.
+  valeur:
+    toutes ces conditions:
+      - grille mensuelle = 0 €/mois
+      - rémunération minimale annuelle = 0 €/an
