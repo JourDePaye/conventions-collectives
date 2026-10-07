@@ -1,0 +1,120 @@
+# Convention collective nationale de la coiffure et des professions connexes du 10 juillet 2006
+# (IDCC 2596, brochure 3159).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de l'avenant n° 51.
+validFrom: 2026-03-01
+sources:
+  - Avenant n° 51 du 3 décembre 2025 relatif aux salaires minima (grilles mensuelles pour
+    151,67 heures des filières technique de la coiffure, esthétique-cosmétique, non technique et
+    administrative), applicable à compter du 1er mars 2026, étendu par arrêté du 17 février 2026
+    (JORF n° 0047 du 24 février 2026 selon une page de synthèse), dont le numéro de texte et le
+    NOR n'ont pas été lus. Montants recoupés sur trois pages de synthèse concordantes
+    (payfit.com, fiche-paie.net et convention.fr) ; le texte de l'avenant n'a pas pu être lu.
+---
+salarié . convention collective . coiffure:
+  titre: Coiffure et professions connexes (IDCC 2596)
+  valeur: convention collective = 'coiffure'
+
+salarié . convention collective . coiffure . niveau:
+  titre: Filière, niveau et échelon ou coefficient
+  description: |
+    Filière technique de la coiffure T1.1 à T3.3 (niveau et échelon, avec le suffixe R pour les
+    animateurs de réseau : T3.2R et T3.3R), filière esthétique-cosmétique EC105 à EC165, filière
+    non technique NT100 à NT130, filière administrative A230 à A330, et A330P pour un
+    coefficient supérieur à 330.
+  applicable si: convention collective = 'coiffure'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . coiffure . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Minimum mensuel de la classification pour 151,67 heures, proratisé pour un temps partiel.
+    Vaut 0 €/mois si la classification n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'coiffure'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . coiffure . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grilles de l'avenant n° 51, de 1 843 € à 3 367 €.
+  unité: €/mois
+  variations:
+    - si: niveau = 'T1.1'
+      alors: 1843.00 €/mois
+    - si: niveau = 'T1.2'
+      alors: 1843.00 €/mois
+    - si: niveau = 'T1.3'
+      alors: 1845.00 €/mois
+    - si: niveau = 'T2.1'
+      alors: 1869.00 €/mois
+    - si: niveau = 'T2.2'
+      alors: 1944.00 €/mois
+    - si: niveau = 'T2.3'
+      alors: 2055.00 €/mois
+    - si: niveau = 'T3.1'
+      alors: 2183.00 €/mois
+    - si: niveau = 'T3.2'
+      alors: 2623.00 €/mois
+    - si: niveau = 'T3.2R'
+      alors: 3122.00 €/mois
+    - si: niveau = 'T3.3'
+      alors: 3271.00 €/mois
+    - si: niveau = 'T3.3R'
+      alors: 3367.00 €/mois
+    - si: niveau = 'EC105'
+      alors: 1843.00 €/mois
+    - si: niveau = 'EC115'
+      alors: 1843.00 €/mois
+    - si: niveau = 'EC125'
+      alors: 1845.00 €/mois
+    - si: niveau = 'EC135'
+      alors: 1855.00 €/mois
+    - si: niveau = 'EC145'
+      alors: 1871.00 €/mois
+    - si: niveau = 'EC155'
+      alors: 1944.00 €/mois
+    - si: niveau = 'EC165'
+      alors: 2055.00 €/mois
+    - si: niveau = 'NT100'
+      alors: 1843.00 €/mois
+    - si: niveau = 'NT110'
+      alors: 1843.00 €/mois
+    - si: niveau = 'NT120'
+      alors: 1845.00 €/mois
+    - si: niveau = 'NT130'
+      alors: 1855.00 €/mois
+    - si: niveau = 'A230'
+      alors: 1919.00 €/mois
+    - si: niveau = 'A240'
+      alors: 1919.00 €/mois
+    - si: niveau = 'A250'
+      alors: 1952.00 €/mois
+    - si: niveau = 'A285'
+      alors: 2220.00 €/mois
+    - si: niveau = 'A295'
+      alors: 2251.00 €/mois
+    - si: niveau = 'A305'
+      alors: 2363.00 €/mois
+    - si: niveau = 'A330'
+      alors: 2477.00 €/mois
+    - si: niveau = 'A330P'
+      alors: 2806.00 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . coiffure . niveau hors grille:
+  titre: Classification absente de la grille
+  description: La classification n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'coiffure'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour une classification inconnue.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
