@@ -1,0 +1,68 @@
+# Convention collective nationale de travail des établissements et services pour personnes
+# inadaptées et handicapées du 15 mars 1966 (CCN 66, IDCC 413, brochure 3116).
+#
+# Version 2022.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de la valeur du point de 3,93 € de la recommandation patronale.
+validFrom: 2022-07-01
+sources:
+  - Avenant n° 361 du 9 juin 2021 portant la valeur du point à 3,82 € à compter du
+    1er février 2021 (valeur applicable aux employeurs non adhérents à Nexem). Le texte de
+    l'avenant n'a pas pu être lu (PDF inexploitable) ; sa date et sa valeur viennent de pages de
+    synthèse concordantes, qui le disent agréé sans que l'arrêté d'agrément ait été vérifié.
+  - Recommandation patronale de Nexem portant la valeur du point à 3,93 € à compter du
+    1er juillet 2022, applicable aux seuls employeurs adhérents à Nexem (pages de synthèse
+    concordantes, agrément de décembre 2022 non vérifié). Aucune revalorisation du point n'a
+    été trouvée pour 2026.
+---
+salarié . convention collective . personnes handicapées et inadaptées:
+  titre: Établissements et services pour personnes handicapées et inadaptées (CCN 66, IDCC 413)
+  valeur: convention collective = 'personnes handicapées et inadaptées'
+
+salarié . convention collective . personnes handicapées et inadaptées . coefficient:
+  titre: Coefficient de l'emploi
+  description: |
+    Coefficient hiérarchique de l'emploi occupé, qui intègre l'ancienneté selon les paliers de
+    la convention. La liste des coefficients n'est pas contrôlée.
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  par défaut: 0
+
+salarié . convention collective . personnes handicapées et inadaptées . adhérent à Nexem:
+  titre: Employeur adhérent à Nexem
+  description: |
+    Les employeurs adhérents à Nexem appliquent la valeur du point de la recommandation
+    patronale (3,93 €), les autres celle de l'avenant n° 361 (3,82 €).
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  par défaut: non
+
+salarié . convention collective . personnes handicapées et inadaptées . valeur du point:
+  titre: Valeur du point
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  unité: €/mois
+  variations:
+    - si: adhérent à Nexem
+      alors: 3.93 €/mois
+    - sinon: 3.82 €/mois
+
+salarié . convention collective . personnes handicapées et inadaptées . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire indiciaire, soit le coefficient multiplié par la valeur du point, proratisé pour un
+    temps partiel. L'indemnité de sujétion spéciale de 9,21 % n'est pas incluse. Vaut 0 €/mois
+    sans coefficient (voir « coefficient hors grille »).
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  unité: €/mois
+  produit:
+    - coefficient * valeur du point
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . personnes handicapées et inadaptées . coefficient hors grille:
+  titre: Coefficient non renseigné
+  description: Le coefficient est absent ou nul.
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  valeur: coefficient < 1
