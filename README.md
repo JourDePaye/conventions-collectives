@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Trente-trois conventions sont actuellement représentées, avec trente-six versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
+Trente-quatre conventions sont actuellement représentées, avec trente-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
@@ -23,6 +23,7 @@ Trente-trois conventions sont actuellement représentées, avec trente-six versi
 | [Maisons à succursales de vente au détail d’habillement](rules/0675-succursales-habillement/README.md) | 675 | `2026.1` : 1er mai 2026 | Grille mensuelle de 9 catégories (employés, agents de maîtrise, cadres), proratisée selon la quotité de travail ; détection des catégories hors grille |
 | [Boulangerie-pâtisserie (entreprises artisanales)](rules/0843-boulangerie-patisserie-artisanale/README.md) | 843 | `2026.1` : 1er février 2026 | Taux horaires minima de 10 coefficients selon trois zones (national, Île-de-France, Bouches-du-Rhône), appliqués aux heures du contrat, et minima annuels des cadres 1 et 2 convertis en minima mensuels ; détection des niveaux hors grille |
 | [Services de l’automobile (commerce, réparation, contrôle technique, écoles de conduite)](rules/1090-services-automobile/README.md) | 1090 | `2026.1` : 1er mai 2026 | Grille de 34 positions pour les ouvriers et employés (échelons 1 à 12), la maîtrise (échelons 17 à 25) et les cadres (niveaux I à V), proratisée selon la quotité de travail ; détection des échelons et niveaux hors grille |
+| [Cabinets médicaux](rules/1147-cabinets-medicaux/README.md) | 1147 | `2024.1` : 1er janvier 2024 | Grille mensuelle de 13 positions (de 4 à 16), proratisée selon la quotité de travail ; détection des positions hors grille |
 | [Acteurs du lien social et familial (centres sociaux)](rules/1261-acteurs-lien-social-familial/README.md) | 1261 | `2026.1` : 1er janvier 2026 | Salaire socle annuel, points de pesée et points d'expérience professionnelle, convertis en minimum hiérarchique mensuel |
 | [Entreprises de prévention et de sécurité](rules/1351-prevention-securite/README.md) | 1351 | `2026.1` : 1er juillet 2026 | Grille de 25 positions pour trois catégories, prime d’ancienneté, majorations nuit et dimanche, paniers, indemnités et minimum de six heures par période |
 | [Industrie du pétrole](rules/1388-industrie-petrole/README.md) | 1388 | `2026.1` : 1er janvier 2026 | Minimum hiérarchique calculé par formule (valeur du point, majoration conventionnelle et surmajoration) pour les coefficients de 130 à 880, proratisé selon la quotité de travail ; détection des coefficients hors plage |
@@ -132,7 +133,7 @@ npm test
 
 `npm ci` installe les dépendances verrouillées et construit le package. `npm test` compile d’abord les sources, puis exécute tous les fichiers `test/**/*.test.ts` avec le moteur de tests intégré à Node.js. Une erreur de compilation ou un test en échec fait échouer la commande.
 
-Trente et un ensembles de tests sont présents :
+Trente-deux ensembles de tests sont présents :
 
 - `test/compile-collective-agreements.test.ts` teste le compilateur avec des fichiers temporaires : nommage, métadonnées, dates, ajout d’une version, modification ou suppression d’une version verrouillée.
 - `test/models.test.ts` vérifie les versions exportées et leurs empreintes, la présence des références juridiques, les espaces de noms, l’absence de collisions avec `modele-social` et des calculs de minima pour chacune des vingt-trois versions.
@@ -144,6 +145,7 @@ Trente et un ensembles de tests sont présents :
 - `test/industrie-laitiere.test.ts` couvre les 28 positions IDCC 0112, la quotité, les classifications hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 57, indépendamment du YAML.
 - `test/commerces-services-audiovisuel.test.ts` couvre les 16 positions IDCC 1686 (12 minima mensuels et 4 rémunérations annuelles de cadres), la quotité, les classifications hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 63, indépendamment du YAML.
 - `test/commerce-detail-non-alimentaire.test.ts` couvre les 9 niveaux IDCC 1517, la quotité, les niveaux hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 15, indépendamment du YAML.
+- `test/cabinets-medicaux.test.ts` couvre les 13 positions IDCC 1147, la quotité, les positions hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 90, indépendamment du YAML.
 - `test/hospitalisation-privee.test.ts` couvre la formule IDCC 2264 (coefficient multiplié par la valeur du point à partir de 243), la quotité, les coefficients absents ou inférieurs à 176 et l’inapplicabilité hors convention. Les montants attendus sont calculés à la main à partir de la valeur du point citée, indépendamment du YAML.
 - `test/etablissements-prives-non-lucratifs.test.ts` couvre la formule IDCC 29 (coefficient multiplié par la valeur du point), la quotité, le coefficient absent et l’inapplicabilité hors convention. Les montants attendus sont calculés à la main à partir de la valeur du point citée, indépendamment du YAML.
 - `test/personnes-handicapees.test.ts` couvre la formule IDCC 413 (coefficient multiplié par la valeur du point, avec et sans adhésion à Nexem), la quotité, le coefficient absent et l’inapplicabilité hors convention. Les montants attendus sont calculés à la main à partir des valeurs du point citées, indépendamment du YAML.
@@ -269,6 +271,13 @@ Pour exécuter uniquement les tests IDCC 2264 :
 ```sh
 npm run compile-rules
 node --test test/hospitalisation-privee.test.ts
+```
+
+Pour exécuter uniquement les tests IDCC 1147 :
+
+```sh
+npm run compile-rules
+node --test test/cabinets-medicaux.test.ts
 ```
 
 Pour exécuter uniquement les tests IDCC 1517 :

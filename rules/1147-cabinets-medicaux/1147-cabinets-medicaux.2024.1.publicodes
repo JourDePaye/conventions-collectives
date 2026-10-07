@@ -1,0 +1,85 @@
+# Convention collective nationale du personnel des cabinets médicaux du 14 octobre 1981
+# (IDCC 1147, brochure 3168).
+#
+# Version 2024.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de la grille de l'avenant n° 90.
+validFrom: 2024-01-01
+sources:
+  - Avenant n° 90 du 14 décembre 2023 relatif aux salaires et aux jours de congés
+    supplémentaires (grille des salaires minima mensuels des positions 4 à 16 pour
+    151,67 heures, revalorisée de 2 %), applicable à compter du 1er janvier 2024, étendu par
+    arrêté du 17 mai 2024 (JORF n° 0126 du 1er juin 2024, texte n° 57, NOR TSST2406494A), dont
+    les effets courent à compter de sa publication pour les employeurs non adhérents. Montants
+    recoupés sur deux pages de synthèse concordantes (convention.fr et payfit.com) ; le texte
+    de l'avenant, dont le PDF était inexploitable, n'a pas pu être lu. Aucun avenant de
+    salaires postérieur n'a été trouvé.
+---
+salarié . convention collective . cabinets médicaux:
+  titre: Personnel des cabinets médicaux (IDCC 1147)
+  valeur: convention collective = 'cabinets médicaux'
+
+salarié . convention collective . cabinets médicaux . niveau:
+  titre: Position de classification
+  description: |
+    Position de 4 à 16.
+  applicable si: convention collective = 'cabinets médicaux'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . cabinets médicaux . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum de la position pour 151,67 heures, proratisé pour un temps partiel.
+    Vaut 0 €/mois si la position n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'cabinets médicaux'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . cabinets médicaux . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'avenant n° 90, de 1 782,14 € (position 4) à 4 530,83 € (position 16).
+  unité: €/mois
+  variations:
+    - si: niveau = '4'
+      alors: 1782.14 €/mois
+    - si: niveau = '5'
+      alors: 1815.79 €/mois
+    - si: niveau = '6'
+      alors: 1889.38 €/mois
+    - si: niveau = '7'
+      alors: 1966.21 €/mois
+    - si: niveau = '8'
+      alors: 2050.62 €/mois
+    - si: niveau = '9'
+      alors: 2159.91 €/mois
+    - si: niveau = '10'
+      alors: 2275.69 €/mois
+    - si: niveau = '11'
+      alors: 2397.97 €/mois
+    - si: niveau = '12'
+      alors: 2535.40 €/mois
+    - si: niveau = '13'
+      alors: 2685.81 €/mois
+    - si: niveau = '14'
+      alors: 3232.29 €/mois
+    - si: niveau = '15'
+      alors: 3848.01 €/mois
+    - si: niveau = '16'
+      alors: 4530.83 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . cabinets médicaux . niveau hors grille:
+  titre: Position absente de la grille
+  description: La position n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'cabinets médicaux'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour une position inconnue.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
