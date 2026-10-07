@@ -1,0 +1,82 @@
+# Convention collective nationale des cabinets dentaires du 17 janvier 1992 (IDCC 1619,
+# brochure 3255).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de l'accord du 12 février 2026 pour les employeurs adhérents. Pour les
+# autres, l'extension ne le rend applicable qu'au lendemain de la publication de l'arrêté
+# d'extension (24 juillet 2026) : cette réserve n'est pas modélisée.
+validFrom: 2026-01-01
+sources:
+  - Accord du 12 février 2026 relatif aux salaires minima conventionnels (taux horaires minima
+    des emplois qualifiés revalorisés de 1,5 %, pour 35 heures par semaine soit 151,67 heures
+    par mois), applicable à compter du 1er janvier 2026, étendu par arrêté du 15 juillet 2026
+    (JORF n° 0170 du 23 juillet 2026), dont le numéro de texte et le NOR n'ont pas été lus.
+    Taux recoupés sur trois pages de synthèse concordantes (juristique.org, cftc-santesociaux.fr
+    et payfit.com) ; le texte de l'accord n'a pas pu être lu. Les taux du personnel d'entretien
+    et de réception (12,02 €) sont ceux de ces pages, et correspondent au SMIC horaire de
+    janvier 2026.
+---
+salarié . convention collective . cabinets dentaires:
+  titre: Cabinets dentaires (IDCC 1619)
+  valeur: convention collective = 'cabinets dentaires'
+
+salarié . convention collective . cabinets dentaires . niveau:
+  titre: Emploi
+  description: |
+    Emploi de la grille : entretien, reception, secretaire-technique, aide-dentaire,
+    assistant-dentaire, prothesiste-1, prothesiste-2, prothesiste-3 ou prothesiste-4.
+  applicable si: convention collective = 'cabinets dentaires'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . cabinets dentaires . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Taux horaire minimum de l'emploi multiplié par 151,67 heures et arrondi au centime,
+    proratisé pour un temps partiel. Vaut 0 €/mois si l'emploi n'existe pas dans la grille
+    (voir « niveau hors grille »).
+  applicable si: convention collective = 'cabinets dentaires'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . cabinets dentaires . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Taux horaires minima de l'accord du 12 février 2026 multipliés par 151,67 heures, de
+    12,02 €/h (entretien et réception) à 22 €/h (prothésiste de niveau 4).
+  unité: €/mois
+  variations:
+    - si: niveau = 'entretien'
+      alors: 1823.07 €/mois
+    - si: niveau = 'reception'
+      alors: 1823.07 €/mois
+    - si: niveau = 'secretaire-technique'
+      alors: 2090.01 €/mois
+    - si: niveau = 'aide-dentaire'
+      alors: 1904.98 €/mois
+    - si: niveau = 'assistant-dentaire'
+      alors: 2112.76 €/mois
+    - si: niveau = 'prothesiste-1'
+      alors: 1962.61 €/mois
+    - si: niveau = 'prothesiste-2'
+      alors: 2478.29 €/mois
+    - si: niveau = 'prothesiste-3'
+      alors: 3065.25 €/mois
+    - si: niveau = 'prothesiste-4'
+      alors: 3336.74 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . cabinets dentaires . niveau hors grille:
+  titre: Emploi absent de la grille
+  description: L'emploi n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'cabinets dentaires'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un emploi inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
