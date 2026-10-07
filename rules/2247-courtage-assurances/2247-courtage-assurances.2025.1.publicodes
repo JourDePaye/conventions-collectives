@@ -1,0 +1,73 @@
+# Convention collective nationale des entreprises de courtage d'assurances et/ou de
+# réassurances du 18 janvier 2002 (IDCC 2247, brochure 3110).
+#
+# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de la grille de l'avenant du 19 juin 2025.
+validFrom: 2025-07-01
+sources:
+  - Avenant du 19 juin 2025 relatif aux salaires (article 1, salaires minima annuels des
+    classes A à H, revalorisés de 1,5 %), applicable du 1er juillet 2025 au 30 juin 2026, étendu
+    par arrêté du 2 septembre 2025 (JORF du 4 septembre 2025), dont le numéro de texte et le
+    NOR n'ont pas été lus. Texte de l'avenant consulté sur Légifrance, dont les montants sont
+    recoupés sur trois pages de synthèse concordantes. Aucun avenant postérieur n'a été trouvé.
+---
+salarié . convention collective . courtage assurances:
+  titre: Courtage d'assurances et de réassurances (IDCC 2247)
+  valeur: convention collective = 'courtage assurances'
+
+salarié . convention collective . courtage assurances . niveau:
+  titre: Classe de classification
+  description: |
+    Classe de A à H.
+  applicable si: convention collective = 'courtage assurances'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . courtage assurances . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Treizième du salaire annuel minimum de la classe, proratisé pour un temps partiel et arrondi
+    au centime. Le texte ne précise pas le nombre de mensualités, et le treizième est le montant
+    le plus bas. Vaut 0 €/mois si la classe n'existe pas dans la grille (voir « niveau hors
+    grille »).
+  applicable si: convention collective = 'courtage assurances'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille annuelle / 13 * contrat . temps de travail . quotité
+
+salarié . convention collective . courtage assurances . salaire minimum conventionnel . grille annuelle:
+  titre: Salaire annuel minimum à temps plein, en euros
+  description: |
+    Minima annuels de l'avenant du 19 juin 2025, de 23 076 € (classe A) à 55 221 € (classe H).
+    Nombre sans unité, en euros par an.
+  variations:
+    - si: niveau = 'A'
+      alors: 23076
+    - si: niveau = 'B'
+      alors: 24268
+    - si: niveau = 'C'
+      alors: 25784
+    - si: niveau = 'D'
+      alors: 28704
+    - si: niveau = 'E'
+      alors: 32700
+    - si: niveau = 'F'
+      alors: 38803
+    - si: niveau = 'G'
+      alors: 45050
+    - si: niveau = 'H'
+      alors: 55221
+    - sinon: 0
+
+salarié . convention collective . courtage assurances . niveau hors grille:
+  titre: Classe absente de la grille
+  description: La classe n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'courtage assurances'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 pour une classe inconnue.
+  valeur: salaire minimum conventionnel . grille annuelle = 0
