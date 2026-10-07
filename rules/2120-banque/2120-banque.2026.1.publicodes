@@ -1,0 +1,192 @@
+# Convention collective nationale de la banque du 10 janvier 2000 (IDCC 2120, brochure 3161).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de l'accord du 16 avril 2026.
+validFrom: 2026-04-01
+sources:
+  - Accord du 16 avril 2026 relatif aux salaires minima annuels de branche, hors ancienneté et
+    selon l'ancienneté de 5, 10, 15 et 20 ans, des niveaux A à K (revalorisation de 1,1 %,
+    avec une augmentation minimale de 450 € par case), applicable à compter du 1er avril 2026.
+    Selon des pages de synthèse, il a été étendu par arrêté du 11 juin 2026 publié au JORF du
+    27 juin 2026, dont le numéro de texte et le NOR n'ont pas été lus. Le salaire annuel est
+    versé en 13 mensualités égales. Les minima hors ancienneté sont recoupés sur trois pages
+    de synthèse concordantes (juristique.org, salerya.fr, tripalio) ; le tableau selon
+    l'ancienneté ne vient que d'une page de synthèse (convention.fr). Le texte de l'accord n'a
+    pas pu être lu.
+---
+salarié . convention collective . banque:
+  titre: Banque (IDCC 2120)
+  valeur: convention collective = 'banque'
+
+salarié . convention collective . banque . niveau:
+  titre: Niveau de classification
+  description: |
+    Niveau de A à G pour les techniciens des métiers de la banque, de H à K pour les cadres.
+  applicable si: convention collective = 'banque'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . banque . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Treizième du salaire annuel minimum du niveau selon l'ancienneté, le salaire annuel étant
+    versé en 13 mensualités égales, proratisé pour un temps partiel et arrondi au centime.
+    Vaut 0 €/mois si le niveau n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'banque'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille annuelle / 13 * contrat . temps de travail . quotité
+
+salarié . convention collective . banque . salaire minimum conventionnel . grille annuelle:
+  titre: Salaire annuel minimum à temps plein, en euros
+  description: |
+    Minima annuels de l'accord du 16 avril 2026, hors ancienneté et à partir de 5, 10, 15 et
+    20 ans d'ancienneté, de 23 387 € (niveaux A à D) à 62 323 € (niveau K à 20 ans). Nombre
+    sans unité, en euros par an.
+  variations:
+    - si: niveau = 'A'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 23387
+          - si: ancienneté >= 15 an
+            alors: 23387
+          - si: ancienneté >= 10 an
+            alors: 23387
+          - si: ancienneté >= 5 an
+            alors: 23387
+          - sinon: 23387
+    - si: niveau = 'B'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 23649
+          - si: ancienneté >= 15 an
+            alors: 23387
+          - si: ancienneté >= 10 an
+            alors: 23387
+          - si: ancienneté >= 5 an
+            alors: 23387
+          - sinon: 23387
+    - si: niveau = 'C'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 24100
+          - si: ancienneté >= 15 an
+            alors: 23456
+          - si: ancienneté >= 10 an
+            alors: 23387
+          - si: ancienneté >= 5 an
+            alors: 23387
+          - sinon: 23387
+    - si: niveau = 'D'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 25788
+          - si: ancienneté >= 15 an
+            alors: 25090
+          - si: ancienneté >= 10 an
+            alors: 24424
+          - si: ancienneté >= 5 an
+            alors: 23768
+          - sinon: 23387
+    - si: niveau = 'E'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 26928
+          - si: ancienneté >= 15 an
+            alors: 26196
+          - si: ancienneté >= 10 an
+            alors: 25487
+          - si: ancienneté >= 5 an
+            alors: 24800
+          - sinon: 24240
+    - si: niveau = 'F'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 29216
+          - si: ancienneté >= 15 an
+            alors: 28401
+          - si: ancienneté >= 10 an
+            alors: 27626
+          - si: ancienneté >= 5 an
+            alors: 26874
+          - sinon: 26272
+    - si: niveau = 'G'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 32270
+          - si: ancienneté >= 15 an
+            alors: 31364
+          - si: ancienneté >= 10 an
+            alors: 30478
+          - si: ancienneté >= 5 an
+            alors: 29624
+          - sinon: 28929
+    - si: niveau = 'H'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 35541
+          - si: ancienneté >= 15 an
+            alors: 34518
+          - si: ancienneté >= 10 an
+            alors: 33532
+          - si: ancienneté >= 5 an
+            alors: 32560
+          - sinon: 31801
+    - si: niveau = 'I'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 43352
+          - si: ancienneté >= 15 an
+            alors: 42088
+          - si: ancienneté >= 10 an
+            alors: 40868
+          - si: ancienneté >= 5 an
+            alors: 39690
+          - sinon: 38734
+    - si: niveau = 'J'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 52378
+          - si: ancienneté >= 15 an
+            alors: 50852
+          - si: ancienneté >= 10 an
+            alors: 49363
+          - si: ancienneté >= 5 an
+            alors: 47923
+          - sinon: 46764
+    - si: niveau = 'K'
+      alors:
+        variations:
+          - si: ancienneté >= 20 an
+            alors: 62323
+          - si: ancienneté >= 15 an
+            alors: 60508
+          - si: ancienneté >= 10 an
+            alors: 58739
+          - si: ancienneté >= 5 an
+            alors: 57038
+          - sinon: 55641
+    - sinon: 0
+
+salarié . convention collective . banque . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'banque'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 pour un niveau inconnu.
+  valeur: salaire minimum conventionnel . grille annuelle = 0
