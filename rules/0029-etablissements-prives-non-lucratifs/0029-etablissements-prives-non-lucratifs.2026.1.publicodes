@@ -1,0 +1,55 @@
+# Convention collective nationale de travail des établissements privés d'hospitalisation, de
+# soins, de cure et de garde à but non lucratif du 31 octobre 1951 (CCN 51, IDCC 29, brochure
+# 3116 bis selon les éditions, FEHAP).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de la valeur du point de l'avenant n° 2025-04.
+validFrom: 2026-01-01
+sources:
+  - Avenant salarial n° 2025-04 signé en décembre 2025 portant la valeur du point à 4,568 €
+    (revalorisation de 2 %) à compter du 1er janvier 2026, la valeur précédente étant de
+    4,477 € depuis le 1er juillet 2025. Le texte de l'avenant, qui est soumis à agrément
+    ministériel, n'a pas pu être lu, la valeur et la date viennent de trois pages de synthèse
+    concordantes, et l'arrêté d'agrément n'a pas été vérifié.
+---
+salarié . convention collective . établissements privés non lucratifs:
+  titre: Établissements privés à but non lucratif (CCN 51, IDCC 29)
+  valeur: convention collective = 'établissements privés non lucratifs'
+
+salarié . convention collective . établissements privés non lucratifs . coefficient:
+  titre: Coefficient de l'emploi
+  description: |
+    Coefficient hiérarchique de l'emploi occupé. La liste des coefficients n'est pas contrôlée.
+  applicable si: convention collective = 'établissements privés non lucratifs'
+  par défaut: 0
+
+salarié . convention collective . établissements privés non lucratifs . valeur du point:
+  titre: Valeur du point
+  description: Valeur du point de l'avenant n° 2025-04, applicable au 1er janvier 2026.
+  applicable si: convention collective = 'établissements privés non lucratifs'
+  unité: €/mois
+  valeur: 4.568 €/mois
+
+salarié . convention collective . établissements privés non lucratifs . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire de base, soit le coefficient multiplié par la valeur du point, proratisé pour un
+    temps partiel. Les primes (ancienneté, prime décentralisée, compléments Ségur) ne sont pas
+    incluses. Vaut 0 €/mois sans coefficient (voir « coefficient hors grille »).
+  applicable si: convention collective = 'établissements privés non lucratifs'
+  unité: €/mois
+  produit:
+    - coefficient * valeur du point
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . établissements privés non lucratifs . coefficient hors grille:
+  titre: Coefficient non renseigné
+  description: Le coefficient est absent ou nul.
+  applicable si: convention collective = 'établissements privés non lucratifs'
+  valeur: coefficient < 1

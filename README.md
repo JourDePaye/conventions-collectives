@@ -8,12 +8,13 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Trente et une conventions sont actuellement représentées, avec trente-quatre versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
+Trente-deux conventions sont actuellement représentées, avec trente-cinq versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées.
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
 | [Transports routiers et activités auxiliaires du transport](rules/0016-transports-routiers/README.md) | 16 | `2026.1` : 1er juin 2026 | Grilles de 108 classifications des quatre sous-secteurs (marchandises, voyageurs, logistique, déménagement) avec paliers d’ancienneté, proratisées selon la quotité de travail ; détection des classifications hors grille |
 | [Industries textiles](rules/0018-industries-textiles/README.md) | 18 | `2026.1` : 1er juin 2026 | Grille mensuelle de 21 positions (niveaux 1 à 6 en échelons et positions I à IV), proratisée selon la quotité de travail ; détection des niveaux hors grille |
+| [Établissements privés à but non lucratif (CCN 51)](rules/0029-etablissements-prives-non-lucratifs/README.md) | 29 | `2026.1` : 1er janvier 2026 | Salaire de base (coefficient multiplié par la valeur du point de 4,568 €), proratisé selon la quotité de travail ; détection du coefficient absent |
 | [Industries chimiques](rules/0044-industries-chimiques/README.md) | 44 | `2026.1` : 1er janvier 2026 | Barème de 23 coefficients (de 130 à 880), proratisé selon la quotité de travail ; détection des coefficients hors grille |
 | [Industrie laitière](rules/0112-industrie-laitiere/README.md) | 0112 | `2026.1` : 1er février 2026 | Grille mensuelle de 28 positions (ouvriers et employés, techniciens et agents de maîtrise, cadres), proratisée selon la quotité de travail ; détection des classifications hors grille |
 | [Plasturgie](rules/0292-plasturgie/README.md) | 292 | `2026.1` : 1er mars 2026 | Grille mensuelle de 15 coefficients (de 700 à 940), proratisée selon la quotité de travail ; détection des coefficients hors grille |
@@ -130,7 +131,7 @@ npm test
 
 `npm ci` installe les dépendances verrouillées et construit le package. `npm test` compile d’abord les sources, puis exécute tous les fichiers `test/**/*.test.ts` avec le moteur de tests intégré à Node.js. Une erreur de compilation ou un test en échec fait échouer la commande.
 
-Vingt-neuf ensembles de tests sont présents :
+Trente ensembles de tests sont présents :
 
 - `test/compile-collective-agreements.test.ts` teste le compilateur avec des fichiers temporaires : nommage, métadonnées, dates, ajout d’une version, modification ou suppression d’une version verrouillée.
 - `test/models.test.ts` vérifie les versions exportées et leurs empreintes, la présence des références juridiques, les espaces de noms, l’absence de collisions avec `modele-social` et des calculs de minima pour chacune des vingt-trois versions.
@@ -142,6 +143,7 @@ Vingt-neuf ensembles de tests sont présents :
 - `test/industrie-laitiere.test.ts` couvre les 28 positions IDCC 0112, la quotité, les classifications hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 57, indépendamment du YAML.
 - `test/commerces-services-audiovisuel.test.ts` couvre les 16 positions IDCC 1686 (12 minima mensuels et 4 rémunérations annuelles de cadres), la quotité, les classifications hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 63, indépendamment du YAML.
 - `test/commerce-detail-non-alimentaire.test.ts` couvre les 9 niveaux IDCC 1517, la quotité, les niveaux hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 15, indépendamment du YAML.
+- `test/etablissements-prives-non-lucratifs.test.ts` couvre la formule IDCC 29 (coefficient multiplié par la valeur du point), la quotité, le coefficient absent et l’inapplicabilité hors convention. Les montants attendus sont calculés à la main à partir de la valeur du point citée, indépendamment du YAML.
 - `test/personnes-handicapees.test.ts` couvre la formule IDCC 413 (coefficient multiplié par la valeur du point, avec et sans adhésion à Nexem), la quotité, le coefficient absent et l’inapplicabilité hors convention. Les montants attendus sont calculés à la main à partir des valeurs du point citées, indépendamment du YAML.
 - `test/transports-routiers.test.ts` couvre les classifications IDCC 16 des quatre sous-secteurs (chaque palier d’ancienneté et son seuil), la quotité, les classifications hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux des textes cités, indépendamment du YAML.
 - `test/industrie-petrole.test.ts` couvre la formule IDCC 1388 (sept montants publiés, surmajoration sous le coefficient 215), la quotité, les coefficients hors plage et l’inapplicabilité hors convention. Les montants attendus sont ceux publiés pour l’accord du 27 novembre 2025, indépendamment du YAML.
@@ -251,6 +253,13 @@ Pour exécuter uniquement les tests IDCC 413 :
 ```sh
 npm run compile-rules
 node --test test/personnes-handicapees.test.ts
+```
+
+Pour exécuter uniquement les tests IDCC 29 :
+
+```sh
+npm run compile-rules
+node --test test/etablissements-prives-non-lucratifs.test.ts
 ```
 
 Pour exécuter uniquement les tests IDCC 1517 :
