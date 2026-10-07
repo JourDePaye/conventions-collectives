@@ -1,0 +1,73 @@
+# Convention collective nationale des sociétés d'assurances du 27 mai 1992 (IDCC 1672,
+# brochure 3265).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application du protocole d'accord du 10 juin 2026, rétroactif au 1er janvier 2026.
+validFrom: 2026-01-01
+sources:
+  - Protocole d'accord du 10 juin 2026 relatif aux rémunérations minimales annuelles (RMA) du
+    personnel administratif, classes 1 à 7 (annexe II de la convention), signé par France
+    Assureurs et la CFDT, la CFE-CGC, la CFTC et l'UNSA, applicable à compter du
+    1er janvier 2026 (revalorisations différenciées, de 0,4 % pour la classe 7 à 1,5 % pour la
+    classe 1). Montants recoupés sur trois pages de synthèse concordantes (fiche-paie.net,
+    convention.fr et une troisième page) et avec les revalorisations annoncées par rapport à
+    la grille précédente (21 900 € et 60 450 € pour les classes 1 et 7). Le texte du protocole
+    n'a pas pu être lu et son arrêté d'extension n'a pas été trouvé.
+---
+salarié . convention collective . sociétés assurances:
+  titre: Sociétés d'assurances (IDCC 1672)
+  valeur: convention collective = 'sociétés assurances'
+
+salarié . convention collective . sociétés assurances . niveau:
+  titre: Classe de classification
+  description: |
+    Classe de 1 à 4 pour le personnel non cadre, de 5 à 7 pour les cadres.
+  applicable si: convention collective = 'sociétés assurances'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . sociétés assurances . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Treizième de la rémunération minimale annuelle de la classe, le treizième mois étant versé
+    en fin d'année, proratisé pour un temps partiel et arrondi au centime. Vaut 0 €/mois si la
+    classe n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'sociétés assurances'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille annuelle / 13 * contrat . temps de travail . quotité
+
+salarié . convention collective . sociétés assurances . salaire minimum conventionnel . grille annuelle:
+  titre: Rémunération minimale annuelle à temps plein, en euros
+  description: |
+    RMA du protocole du 10 juin 2026, de 22 230 € (classe 1) à 60 690 € (classe 7). Nombre sans
+    unité, en euros par an.
+  variations:
+    - si: niveau = '1'
+      alors: 22230
+    - si: niveau = '2'
+      alors: 23640
+    - si: niveau = '3'
+      alors: 25070
+    - si: niveau = '4'
+      alors: 29720
+    - si: niveau = '5'
+      alors: 35140
+    - si: niveau = '6'
+      alors: 44670
+    - si: niveau = '7'
+      alors: 60690
+    - sinon: 0
+
+salarié . convention collective . sociétés assurances . niveau hors grille:
+  titre: Classe absente de la grille
+  description: La classe n'existe pas dans la grille des rémunérations minimales.
+  applicable si: convention collective = 'sociétés assurances'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 pour une classe inconnue.
+  valeur: salaire minimum conventionnel . grille annuelle = 0
