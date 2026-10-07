@@ -2,6 +2,8 @@
   "name": "conventions-collectives",
   "version": "2026.1.0",
   "description": "Versioned French collective agreement publicodes rules for modele-social",
+  "license": "MIT",
+  "author": "JourDePaye",
   "type": "module",
   "engines": {
     "node": ">=24"
