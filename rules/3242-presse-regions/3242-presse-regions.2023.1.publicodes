@@ -1,0 +1,93 @@
+# Convention collective nationale de la presse quotidienne et hebdomadaire en régions du
+# 9 août 2021 (IDCC 3242).
+#
+# Version 2023.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de l'accord du 30 juin 2023 pour les entreprises adhérentes. Pour les
+# autres, l'extension ne le rend applicable qu'au 1er novembre 2025 : cette réserve n'est pas
+# modélisée.
+validFrom: 2023-07-01
+sources:
+  - Accord du 30 juin 2023 relatif aux salaires minima des ouvriers, employés et cadres de la
+    presse quotidienne régionale (minimum mensuel des ouvriers, des 6 échelons des employés et
+    des 8 sous-groupes des cadres), applicable à compter du 1er juillet 2023, étendu par arrêté
+    du 22 septembre 2025 (JORF du 4 octobre 2025), dont le numéro de texte et le NOR n'ont pas
+    été lus. Tableaux lus sur Légifrance, par l'intermédiaire d'un résumé de page. La famille de
+    presse (quotidienne régionale) est celle indiquée par des pages de synthèse, un résumé de la
+    page Légifrance citant par ailleurs l'organisation d'employeurs de la presse hebdomadaire.
+    Les barèmes de la presse hebdomadaire régionale et départementale ne sont pas repris.
+---
+salarié . convention collective . presse en régions:
+  titre: Presse quotidienne et hebdomadaire en régions (IDCC 3242)
+  valeur: convention collective = 'presse en régions'
+
+salarié . convention collective . presse en régions . niveau:
+  titre: Catégorie, échelon ou groupe
+  description: |
+    O pour les ouvriers, E1 à E6 pour les échelons des employés, C1.1, C1.2, C2.1, C2.2, C3.1,
+    C3.2, C4.1 et C4.2 pour les sous-groupes des cadres (groupes I à IV).
+  applicable si: convention collective = 'presse en régions'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . presse en régions . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Minimum mensuel de la position, proratisé pour un temps partiel. Vaut 0 €/mois si la
+    position n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'presse en régions'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . presse en régions . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'accord du 30 juin 2023, de 1 782,18 € (ouvriers et employés des échelons 1 et 2)
+    à 3 640,40 € (cadres, groupe IV, coefficient 195).
+  unité: €/mois
+  variations:
+    - si: niveau = 'O'
+      alors: 1782.18 €/mois
+    - si: niveau = 'E1'
+      alors: 1782.18 €/mois
+    - si: niveau = 'E2'
+      alors: 1782.18 €/mois
+    - si: niveau = 'E3'
+      alors: 1796.48 €/mois
+    - si: niveau = 'E4'
+      alors: 1821.60 €/mois
+    - si: niveau = 'E5'
+      alors: 1878.55 €/mois
+    - si: niveau = 'E6'
+      alors: 2003.20 €/mois
+    - si: niveau = 'C1.1'
+      alors: 1866.87 €/mois
+    - si: niveau = 'C1.2'
+      alors: 2053.56 €/mois
+    - si: niveau = 'C2.1'
+      alors: 2240.24 €/mois
+    - si: niveau = 'C2.2'
+      alors: 2520.28 €/mois
+    - si: niveau = 'C3.1'
+      alors: 2800.30 €/mois
+    - si: niveau = 'C3.2'
+      alors: 3080.33 €/mois
+    - si: niveau = 'C4.1'
+      alors: 3360.36 €/mois
+    - si: niveau = 'C4.2'
+      alors: 3640.40 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . presse en régions . niveau hors grille:
+  titre: Position absente de la grille
+  description: La position n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'presse en régions'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour une position inconnue.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
