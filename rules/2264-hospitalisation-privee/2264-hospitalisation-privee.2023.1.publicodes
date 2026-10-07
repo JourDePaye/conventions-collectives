@@ -1,0 +1,66 @@
+# Convention collective nationale de l'hospitalisation privée du 18 avril 2002 (IDCC 2264,
+# brochure 3307, FHP).
+#
+# Version 2023.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de la valeur du point de l'avenant du 22 février 2023.
+validFrom: 2023-01-01
+sources:
+  - Avenant du 22 février 2023 à l'annexe du 10 décembre 2002 relatif aux salaires au
+    1er janvier 2023, qui fixe la valeur du point à 7,26 €, le salaire minimum des coefficients
+    à partir de 243 étant le coefficient multiplié par la valeur du point. Aucune
+    revalorisation du point n'a été trouvée depuis. Le texte de l'avenant, son agrément ou son
+    extension n'ont pas pu être lus ni vérifiés, la valeur et la date viennent de pages de
+    synthèse concordantes (fiche-paie.net, convention.fr).
+---
+salarié . convention collective . hospitalisation privée:
+  titre: Hospitalisation privée (IDCC 2264)
+  valeur: convention collective = 'hospitalisation privée'
+
+salarié . convention collective . hospitalisation privée . coefficient:
+  titre: Coefficient de l'emploi
+  description: |
+    Coefficient hiérarchique de l'emploi occupé, à partir de 176. La liste des coefficients
+    n'est pas contrôlée au-delà de ce seuil.
+  applicable si: convention collective = 'hospitalisation privée'
+  par défaut: 0
+
+salarié . convention collective . hospitalisation privée . valeur du point:
+  titre: Valeur du point
+  description: Valeur du point de l'avenant du 22 février 2023, applicable au 1er janvier 2023.
+  applicable si: convention collective = 'hospitalisation privée'
+  unité: €/mois
+  valeur: 7.26 €/mois
+
+salarié . convention collective . hospitalisation privée . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire de base des coefficients à partir de 243, soit le coefficient multiplié par la
+    valeur du point, proratisé pour un temps partiel. Pour les coefficients de 176 à 242, la
+    convention fixe des montants (de 1 729,36 € à 1 761,36 € selon les pages consultées) qui
+    sont inférieurs au SMIC et ne sont pas repris : le minimum vaut alors 0 €/mois et le SMIC
+    s'applique. Vaut aussi 0 €/mois sans coefficient (voir « coefficient hors grille »).
+  applicable si: convention collective = 'hospitalisation privée'
+  unité: €/mois
+  produit:
+    - salaire indiciaire
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . hospitalisation privée . salaire minimum conventionnel . salaire indiciaire:
+  titre: Salaire indiciaire à temps plein
+  unité: €/mois
+  variations:
+    - si: coefficient < 243
+      alors: 0 €/mois
+    - sinon: coefficient * valeur du point
+
+salarié . convention collective . hospitalisation privée . coefficient hors grille:
+  titre: Coefficient absent ou inférieur à 176
+  description: Le coefficient est absent, nul ou inférieur au plus bas coefficient de la grille.
+  applicable si: convention collective = 'hospitalisation privée'
+  valeur: coefficient < 176
