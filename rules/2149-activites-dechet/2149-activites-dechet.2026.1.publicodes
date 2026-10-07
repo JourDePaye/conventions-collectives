@@ -1,0 +1,81 @@
+# Convention collective nationale des activités du déchet du 11 mai 2000 (IDCC 2149,
+# brochure 3156).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de la valeur du point de 18,90 €.
+validFrom: 2026-01-01
+sources:
+  - Valeur du point de 18,90 € au 1er janvier 2026 (revalorisation de 1,23 %), appliquée aux
+    coefficients 100 à 170 de la classification (niveaux I à V), pour 151,67 heures par mois.
+    Valeur et grille recoupées sur deux pages de synthèse concordantes (juristique.org et
+    salaire-minimum.com). Un document de la fédération patronale FNADE sur la valeur du point et
+    les indemnités au 1er janvier 2026 existe, mais son PDF n'a pas pu être lu. Le texte de
+    l'accord ou de la recommandation qui fixe cette valeur, sa date, sa nature (accord paritaire
+    ou recommandation patronale) et son éventuelle extension n'ont pas pu être lus ni vérifiés.
+---
+salarié . convention collective . activités du déchet:
+  titre: Activités du déchet (IDCC 2149)
+  valeur: convention collective = 'activités du déchet'
+
+salarié . convention collective . activités du déchet . coefficient:
+  titre: Coefficient hiérarchique
+  description: |
+    Coefficient de la classification : 100 (niveau I), 104, 107, 110 (niveau II), 114, 118, 125,
+    132 (niveau III), 150, 167 (niveau IV) ou 170 (niveau V).
+  applicable si: convention collective = 'activités du déchet'
+  par défaut: 0
+
+salarié . convention collective . activités du déchet . coefficient valide:
+  titre: Coefficient de la grille
+  applicable si: convention collective = 'activités du déchet'
+  une de ces conditions:
+    - coefficient = 100
+    - coefficient = 104
+    - coefficient = 107
+    - coefficient = 110
+    - coefficient = 114
+    - coefficient = 118
+    - coefficient = 125
+    - coefficient = 132
+    - coefficient = 150
+    - coefficient = 167
+    - coefficient = 170
+
+salarié . convention collective . activités du déchet . valeur du point:
+  titre: Valeur du point
+  description: Valeur du point au 1er janvier 2026.
+  applicable si: convention collective = 'activités du déchet'
+  unité: €/mois
+  valeur: 18.90 €/mois
+
+salarié . convention collective . activités du déchet . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Coefficient multiplié par la valeur du point, pour 151,67 heures par mois, proratisé pour
+    un temps partiel. Vaut 0 €/mois pour un coefficient absent de la grille (voir « coefficient
+    hors grille »).
+  applicable si: convention collective = 'activités du déchet'
+  unité: €/mois
+  produit:
+    - salaire indiciaire
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . activités du déchet . salaire minimum conventionnel . salaire indiciaire:
+  titre: Salaire indiciaire à temps plein
+  unité: €/mois
+  variations:
+    - si: coefficient valide
+      alors: coefficient * valeur du point
+    - sinon: 0 €/mois
+
+salarié . convention collective . activités du déchet . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'est pas l'un des onze coefficients de la grille.
+  applicable si: convention collective = 'activités du déchet'
+  valeur: coefficient valide = non
