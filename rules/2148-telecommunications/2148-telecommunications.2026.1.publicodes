@@ -1,0 +1,280 @@
+validFrom: '2026-01-23'
+sources:
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054092240
+  - https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053907751
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005678091
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054454316
+  - https://echanges.dila.gouv.fr/OPENDATA/KALI/
+---
+salarié . convention collective . télécommunications:
+  titre: Télécommunications (IDCC 2148)
+  valeur: convention collective = 'télécommunications'
+salarié . convention collective . télécommunications . niveau:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: "'non renseigné'"
+  description: Groupe et seuil validés selon la classification, par exemple A.1bis. Aucun classement automatique par intitulé d'emploi.
+salarié . convention collective . télécommunications . date de calcul:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: 01/01/1900
+salarié . convention collective . télécommunications . adhésion HumApp validée:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: non
+salarié . convention collective . télécommunications . grille annuelle:
+  applicable si: convention collective = 'télécommunications'
+  unité: €/an
+  variations:
+    - si: niveau = 'A.1'
+      alors: 22757 €/an
+    - si: niveau = 'A.1bis'
+      alors: 23723 €/an
+    - si: niveau = 'A.2'
+      alors: 24894 €/an
+    - si: niveau = 'A.3'
+      alors: 26170 €/an
+    - si: niveau = 'B.1'
+      alors: 23871 €/an
+    - si: niveau = 'B.1bis'
+      alors: 24657 €/an
+    - si: niveau = 'B.2'
+      alors: 25683 €/an
+    - si: niveau = 'B.3'
+      alors: 27294 €/an
+    - si: niveau = 'C.1'
+      alors: 25185 €/an
+    - si: niveau = 'C.1bis'
+      alors: 26099 €/an
+    - si: niveau = 'C.2'
+      alors: 28470 €/an
+    - si: niveau = 'C.3'
+      alors: 29616 €/an
+    - si: niveau = 'D.1'
+      alors: 28747 €/an
+    - si: niveau = 'D.1bis'
+      alors: 29927 €/an
+    - si: niveau = 'D.2'
+      alors: 32594 €/an
+    - si: niveau = 'D.3'
+      alors: 34427 €/an
+    - si: niveau = 'E.1'
+      alors: 36235 €/an
+    - si: niveau = 'E.1bis'
+      alors: 41114 €/an
+    - si: niveau = 'E.2'
+      alors: 46894 €/an
+    - si: niveau = 'E.3'
+      alors: 49898 €/an
+    - si: niveau = 'F.1'
+      alors: 48616 €/an
+    - si: niveau = 'F.2'
+      alors: 58172 €/an
+    - si: niveau = 'G.1'
+      alors: 69450 €/an
+    - si: niveau = 'G.2'
+      alors: 84250 €/an
+    - sinon: 0 €/an
+salarié . convention collective . télécommunications . niveau hors grille:
+  applicable si: convention collective = 'télécommunications'
+  valeur: grille annuelle = 0 €/an
+salarié . convention collective . télécommunications . date d'ouverture:
+  applicable si: convention collective = 'télécommunications'
+  variations:
+    - si: adhésion HumApp validée
+      alors: 23/01/2026
+    - sinon: 18/04/2026
+salarié . convention collective . télécommunications . période hors couverture:
+  applicable si: convention collective = 'télécommunications'
+  une de ces conditions:
+    - date de calcul < date d'ouverture
+    - date de calcul > 31/12/2026
+salarié . convention collective . télécommunications . calcul bloqué:
+  applicable si: convention collective = 'télécommunications'
+  une de ces conditions:
+    - niveau hors grille
+    - période hors couverture
+    - contrat . apprentissage
+    - contrat . professionnalisation
+    - contrat . stage
+salarié . convention collective . télécommunications . minimum annuel:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'télécommunications'
+      - calcul bloqué = non
+  unité: €/an
+  valeur: grille annuelle
+salarié . convention collective . télécommunications . fraction annuelle validée:
+  applicable si: convention collective = 'télécommunications'
+  question: Quelle fraction annuelle de travail effectif, temps partiel compris, a été validée ?
+  unité: '%'
+  plancher: 0%
+  plafond: 100%
+salarié . convention collective . télécommunications . salaire minimum annuel conventionnel:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'télécommunications'
+      - calcul bloqué = non
+  unité: €/an
+  valeur: minimum annuel * fraction annuelle validée
+salarié . convention collective . télécommunications . assiette annuelle validée:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: non
+salarié . convention collective . télécommunications . rémunération annuelle retenue:
+  applicable si: convention collective = 'télécommunications'
+  question: Quelle rémunération récurrente, variable comprise et exclusions retirées, a été validée ?
+  unité: €/an
+  plancher: 0 €/an
+salarié . convention collective . télécommunications . régularisation annuelle:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'télécommunications'
+      - calcul bloqué = non
+      - assiette annuelle validée
+  unité: €/an
+  valeur: salaire minimum annuel conventionnel - rémunération annuelle retenue
+  plancher: 0 €/an
+salarié . convention collective . télécommunications . part variable:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: non
+salarié . convention collective . télécommunications . moitié de référence atteinte:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: non
+salarié . convention collective . télécommunications . assiette intermédiaire validée:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: non
+salarié . convention collective . télécommunications . nombre de mensualités:
+  applicable si: convention collective = 'télécommunications'
+  question: Combien de mensualités sont prévues par l'entreprise dans l'année ?
+  plancher: 1
+salarié . convention collective . télécommunications . quotité intermédiaire validée:
+  applicable si: convention collective = 'télécommunications'
+  question: Quelle quotité contractuelle est validée à la moitié de la référence ?
+  unité: '%'
+  plancher: 0%
+  plafond: 100%
+salarié . convention collective . télécommunications . rémunération intermédiaire retenue:
+  applicable si: convention collective = 'télécommunications'
+  question: Quelle rémunération brute de comparaison est validée à la moitié de la référence ?
+  unité: €
+  plancher: 0 €
+salarié . convention collective . télécommunications . minimum intermédiaire:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'télécommunications'
+      - calcul bloqué = non
+      - part variable
+      - moitié de référence atteinte
+      - assiette intermédiaire validée
+  unité: €
+  valeur: minimum annuel * 1 an / nombre de mensualités * 6 * quotité intermédiaire validée
+  description: Contrôle à six mois de la référence de douze mois. Changements de classement et quotité nécessitent une segmentation validée en amont.
+salarié . convention collective . télécommunications . régularisation intermédiaire:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'télécommunications'
+      - calcul bloqué = non
+      - part variable
+      - moitié de référence atteinte
+      - assiette intermédiaire validée
+  unité: €
+  valeur: minimum intermédiaire - rémunération intermédiaire retenue
+  plancher: 0 €
+salarié . convention collective . télécommunications . assiette mensuelle hors variable validée:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: non
+salarié . convention collective . télécommunications . rémunération mensuelle hors variable:
+  applicable si: convention collective = 'télécommunications'
+  question: Quelle rémunération mensuelle hors part variable est validée pour le contrôle SMIC ?
+  unité: €/mois
+  plancher: 0 €/mois
+salarié . convention collective . télécommunications . régularisation mensuelle SMIC:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'télécommunications'
+      - calcul bloqué = non
+      - assiette mensuelle hors variable validée
+  unité: €/mois
+  valeur: contrat . temps de travail . SMIC - rémunération mensuelle hors variable
+  plancher: 0 €/mois
+salarié . convention collective . télécommunications . régime de nuit:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: "'non renseigné'"
+salarié . convention collective . télécommunications . éligibilité nuit validée:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: non
+salarié . convention collective . télécommunications . compensation occasionnelle en repos:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: non
+salarié . convention collective . télécommunications . contrepartie entreprise plus favorable:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: non
+salarié . convention collective . télécommunications . heures de nuit validées:
+  applicable si: convention collective = 'télécommunications'
+  question: Combien d'heures réellement effectuées dans la plage correspondant au régime validé ?
+  unité: heure
+  plancher: 0 heure
+salarié . convention collective . télécommunications . salaire horaire de base:
+  applicable si: convention collective = 'télécommunications'
+  question: Quel salaire horaire brut de base a été validé ?
+  unité: €/heure
+  plancher: 0 €/heure
+salarié . convention collective . télécommunications . taux de nuit:
+  applicable si: convention collective = 'télécommunications'
+  variations:
+    - si: régime de nuit = 'régulière'
+      alors: 15%
+    - si: régime de nuit = 'occasionnelle'
+      alors: 50%
+    - si: régime de nuit = 'occasionnelle dimanche ou férié'
+      alors: 110%
+    - sinon: 0%
+salarié . convention collective . télécommunications . majoration de nuit:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'télécommunications'
+      - calcul bloqué = non
+      - éligibilité nuit validée
+      - taux de nuit > 0%
+      - contrepartie entreprise plus favorable = non
+      - une de ces conditions:
+          - régime de nuit = 'régulière'
+          - compensation occasionnelle en repos = non
+  unité: €
+  valeur: heures de nuit validées * salaire horaire de base * taux de nuit
+  description: Supplément distinct non ajouté automatiquement à la paie. Régimes exclusifs, pas de cumul 15/50/110, ni ajout automatique d'une majoration dimanche ou férié.
+salarié . convention collective . télécommunications . statut travailleur de nuit validé:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: non
+salarié . convention collective . télécommunications . travail de nuit toute l'année:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: non
+salarié . convention collective . télécommunications . forfait jours nuit:
+  applicable si: convention collective = 'télécommunications'
+  par défaut: non
+salarié . convention collective . télécommunications . semaines de nuit moins de neuf heures:
+  applicable si: convention collective = 'télécommunications'
+  question: Combien de semaines éligibles ont donné lieu à du travail de nuit inférieur à neuf heures ?
+  plancher: 0
+  plafond: 53
+salarié . convention collective . télécommunications . semaines de nuit neuf heures ou plus:
+  applicable si: convention collective = 'télécommunications'
+  question: Combien de semaines éligibles comportent au moins neuf heures de nuit ?
+  plancher: 0
+  plafond: 53
+salarié . convention collective . télécommunications . durée d'une nuit validée:
+  applicable si: convention collective = 'télécommunications'
+  question: Quelle durée de nuit a été validée pour le forfait annuel de repos ?
+  unité: heure
+  plancher: 0 heure
+salarié . convention collective . télécommunications . repos de nuit:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'télécommunications'
+      - calcul bloqué = non
+      - statut travailleur de nuit validé
+      - contrepartie entreprise plus favorable = non
+      - forfait jours nuit = non
+  unité: minute
+  variations:
+    - si: travail de nuit toute l'année
+      alors: durée d'une nuit validée * 3 * 60 minute / 1 heure
+    - sinon: semaines de nuit moins de neuf heures * 20 minute + semaines de nuit neuf heures ou plus * 30 minute
+  description: Repos et majoration de nuit régulière sont des droits distincts. Le forfait de trois nuits remplace le décompte hebdomadaire. Aucune conversion du repos en argent.

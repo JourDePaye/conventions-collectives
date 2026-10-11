@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Quarante-neuf conventions sont actuellement représentées, avec cinquante-deux versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cinquante conventions sont actuellement représentées, avec cinquante-trois versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -19,6 +19,7 @@ Quarante-neuf conventions sont actuellement représentées, avec cinquante-deux 
 | [Bureaux d’études techniques, cabinets d’ingénieurs-conseils et sociétés de conseils (Syntec)](rules/1486-syntec/README.md) | 1486 | `2025.1` : 1er janvier 2025 | Minima mensuels des ETAM et des ingénieurs et cadres selon leur coefficient ; détection des coefficients hors grille |
 | [Organismes de formation](rules/1516-organismes-formation/README.md) | 1516 | `2025.1` : 1er janvier 2025 ; `2027.1` : 1er janvier 2027 | Grille de 31 paliers par fourchette de coefficient, minima annuels bruts convertis en minima mensuels et proratisés selon la quotité de travail ; détection des coefficients hors grille |
 | [Entreprises du bureau et du numérique (commerce de détail de papeterie, fournitures de bureau, bureautique, informatique et librairie)](rules/1539-bureau-numerique/README.md) | 1539 | `2025.1` : 1er septembre 2025 | Grille mensuelle de 12 niveaux (A1 à C4), minimum du niveau A2 pour le niveau A1 après un an d’ancienneté, proratisée selon la quotité de travail ; détection des niveaux hors grille |
+| [Télécommunications](rules/2148-telecommunications/README.md) | 2148 | `2026.1` : 23 janvier 2026 (signataires) ; 18 avril 2026 (champ étendu) | 24 minima annuels des groupes A à G ; comparaison annuelle validée, contrôle intermédiaire si variable, contrôle SMIC mensuel distinct ; majorations et repos de nuit conditionnels |
 | [Activités du déchet](rules/2149-activites-dechet/README.md) | 2149 | `2026.1` : 1er janvier 2026 | Coefficient multiplié par la valeur du point de 18,90 € pour les 11 coefficients de 100 à 170, proratisé selon la quotité de travail ; détection des coefficients hors grille |
 | [Coiffure et professions connexes](rules/2596-coiffure/README.md) | 2596 | `2026.1` : 1er mars 2026 | Grilles de 30 classifications des filières technique, esthétique-cosmétique, non technique et administrative, proratisées selon la quotité de travail ; détection des classifications hors grille |
 | [Entreprises de propreté et services associés](rules/3043-entreprises-proprete/README.md) | 3043 | `2026.1` : 1er avril 2026 | Grille de 39 classifications, prime d'expérience, majorations de nuit, dimanche et jours fériés, repos compensateur de nuit et formule d'indemnité de transport ; proratisation selon la quotité de travail |
