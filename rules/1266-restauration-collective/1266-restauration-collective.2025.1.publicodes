@@ -1,0 +1,402 @@
+validFrom: '2025-07-01'
+sources:
+- https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051694275
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000018649438
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000025276482
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000025276480
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051694284
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051694282
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051694283
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051694286
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051694287
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051694285
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051694295
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000033555311
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000026606520
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000050141957
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000050135924
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005767282
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000052288887
+- https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054454102
+- https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051725351
+- https://echanges.dila.gouv.fr/OPENDATA/KALI/
+- https://echanges.dila.gouv.fr/OPENDATA/KALI/Freemium_kali_global_20250713-140000.tar.gz
+- https://code.travail.gouv.fr/contribution/1266-quel-est-le-salaire-minimum
+- https://code.travail.gouv.fr/contribution/1266-quand-le-salarie-a-t-il-droit-a-une-prime-danciennete-quel-est-son-montant
+- https://code.travail.gouv.fr/contribution/1266-quelles-sont-les-primes-prevues-par-la-convention-collective
+---
+salarié . convention collective . restauration collective . niveau:
+  applicable si: convention collective = 'restauration collective'
+  par défaut: '''non renseigné'''
+salarié . convention collective . restauration collective . minimum mensuel:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  unité: €/mois
+  variations:
+  - si: niveau = 'I'
+    alors: 1803.32 €/mois
+  - si: niveau = 'II'
+    alors: 1812.42 €/mois
+  - si: niveau = 'III'
+    alors: 1835.17 €/mois
+  - si: niveau = 'IV'
+    alors: 1865.5 €/mois
+  - si: niveau = 'V'
+    alors: 1965.6 €/mois
+  - si: niveau = 'VI'
+    alors: 2041.43 €/mois
+  - si: niveau = 'VII'
+    alors: 2168.83 €/mois
+  - si: niveau = 'VIII'
+    alors: 2278.03 €/mois
+  - si: niveau = 'IX'
+    alors: 2928.68 €/mois
+  - sinon: 0 €/mois
+salarié . convention collective . restauration collective . salaire minimum conventionnel:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  unité: €/mois
+  valeur: minimum mensuel * contrat . temps de travail . quotité
+salarié . convention collective . restauration collective:
+  titre: Restauration collective
+  valeur: convention collective = 'restauration collective'
+salarié . convention collective . restauration collective . ancienneté entreprise:
+  applicable si: convention collective = 'restauration collective'
+  unité: an
+  par défaut: 0 an
+salarié . convention collective . restauration collective . statut employé:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  une de ces conditions:
+  - niveau = 'I'
+  - niveau = 'II'
+  - niveau = 'III'
+  - niveau = 'IV'
+  - niveau = 'V'
+salarié . convention collective . restauration collective . taux d'ancienneté:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  variations:
+  - si: statut employé = non
+    alors: 0%
+  - si: ancienneté entreprise >= 20 an
+    alors: 4%
+  - si: ancienneté entreprise >= 15 an
+    alors: 3%
+  - si: ancienneté entreprise >= 10 an
+    alors: 2%
+  - si: ancienneté entreprise >= 5 an
+    alors: 1%
+  - sinon: 0%
+salarié . convention collective . restauration collective . prime d'ancienneté:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  unité: €/mois
+  valeur: salaire minimum conventionnel * taux d'ancienneté
+salarié . convention collective . restauration collective . un an continu révolu:
+  applicable si: convention collective = 'restauration collective'
+  par défaut: non
+salarié . convention collective . restauration collective . minimum annuel:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  unité: €/an
+  variations:
+  - si: niveau = 'I'
+    alors: 23443.16 €/an
+  - si: niveau = 'II'
+    alors: 23561.46 €/an
+  - si: niveau = 'III'
+    alors: 23857.21 €/an
+  - si: niveau = 'IV'
+    alors: 24251.5 €/an
+  - si: niveau = 'V'
+    alors: 25552.8 €/an
+  - si: niveau = 'VI'
+    alors: 26538.59 €/an
+  - si: niveau = 'VII'
+    alors: 28194.79 €/an
+  - si: niveau = 'VIII'
+    alors: 29614.39 €/an
+  - si: niveau = 'IX'
+    alors: 38072.84 €/an
+  - sinon: 0 €/an
+salarié . convention collective . restauration collective . salaire minimum annuel conventionnel:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - un an continu révolu
+    - niveau hors grille = non
+    - version applicable
+  unité: €/an
+  valeur: minimum annuel * contrat . temps de travail . quotité
+salarié . convention collective . restauration collective . établissement activité continue 7 jours sur 7:
+  applicable si: convention collective = 'restauration collective'
+  par défaut: non
+salarié . convention collective . restauration collective . astreint aux roulements et repos conventionnels:
+  applicable si: convention collective = 'restauration collective'
+  par défaut: non
+salarié . convention collective . restauration collective . amené à travailler le dimanche:
+  applicable si: convention collective = 'restauration collective'
+  par défaut: non
+salarié . convention collective . restauration collective . mois complet ouvrant droit:
+  applicable si: convention collective = 'restauration collective'
+  par défaut: non
+salarié . convention collective . restauration collective . fraction horaire entreprise ouvrant droit:
+  applicable si: convention collective = 'restauration collective'
+  par défaut: contrat . temps de travail . quotité
+  plafond: 100%
+  plancher: 0%
+salarié . convention collective . restauration collective . fraction primes activité continue:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  variations:
+  - si:
+      toutes ces conditions:
+      - contrat . temps de travail . temps partiel
+      - mois complet ouvrant droit
+    alors:
+      valeur: fraction horaire entreprise ouvrant droit
+      plancher: 50%
+  - sinon: fraction horaire entreprise ouvrant droit
+salarié . convention collective . restauration collective . prime mensuelle déjà versée de même objet que la PAC:
+  applicable si: convention collective = 'restauration collective'
+  unité: €/mois
+  par défaut: 0 €/mois
+  plancher: 0 €/mois
+salarié . convention collective . restauration collective . prime d'activité continue:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  unité: €/mois
+  variations:
+  - si:
+      toutes ces conditions:
+      - établissement activité continue 7 jours sur 7
+      - astreint aux roulements et repos conventionnels
+      - amené à travailler le dimanche
+    alors:
+      valeur: 53 €/mois * fraction primes activité continue - prime mensuelle déjà versée de même objet que la PAC
+      plancher: 0 €/mois
+  - sinon: 0 €/mois
+salarié . convention collective . restauration collective . restauration ou hôtellerie pour convives dépendants:
+  applicable si: convention collective = 'restauration collective'
+  par défaut: non
+salarié . convention collective . restauration collective . astreint au service minimum:
+  applicable si: convention collective = 'restauration collective'
+  par défaut: non
+salarié . convention collective . restauration collective . prime mensuelle déjà versée de même objet que la PSM:
+  applicable si: convention collective = 'restauration collective'
+  unité: €/mois
+  par défaut: 0 €/mois
+  plancher: 0 €/mois
+salarié . convention collective . restauration collective . prime de service minimum:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  unité: €/mois
+  variations:
+  - si:
+      toutes ces conditions:
+      - établissement activité continue 7 jours sur 7
+      - restauration ou hôtellerie pour convives dépendants
+      - astreint au service minimum
+    alors:
+      valeur: 22.5 €/mois * fraction primes activité continue - prime mensuelle déjà versée de même objet que la
+        PSM
+      plancher: 0 €/mois
+  - sinon: 0 €/mois
+salarié . convention collective . restauration collective . salaire annuel de base éligible au treizième mois:
+  applicable si: convention collective = 'restauration collective'
+  unité: €/an
+  plancher: 0 €/an
+  question: Quel salaire de base de l’année civile est éligible au 13e mois, après exclusion de la première année
+    continue et proratisation du temps effectif ?
+salarié . convention collective . restauration collective . treizième mois ou prime assimilée déjà versé:
+  applicable si: convention collective = 'restauration collective'
+  unité: €/an
+  par défaut: 0 €/an
+  plancher: 0 €/an
+salarié . convention collective . restauration collective . treizième mois annuel:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  unité: €/an
+  variations:
+  - si: un an continu révolu
+    alors:
+      valeur: salaire annuel de base éligible au treizième mois / 12 - treizième mois ou prime assimilée déjà versé
+      plancher: 0 €/an
+  - sinon: 0 €/an
+salarié . convention collective . restauration collective . contrat intermittent scolaire:
+  applicable si: convention collective = 'restauration collective'
+  par défaut: non
+salarié . convention collective . restauration collective . inscrit à l'effectif au versement:
+  applicable si: convention collective = 'restauration collective'
+  par défaut: non
+salarié . convention collective . restauration collective . salaire annuel de base intermittent:
+  applicable si: convention collective = 'restauration collective'
+  unité: €/an
+  question: Quel salaire annuel de base a été perçu au titre du contrat intermittent scolaire ?
+  plancher: 0 €/an
+salarié . convention collective . restauration collective . durée annuelle de travail intermittent:
+  applicable si: convention collective = 'restauration collective'
+  unité: heure
+  question: Quelle est la durée annuelle de travail du contrat intermittent scolaire ?
+  plancher: 0 heure
+salarié . convention collective . restauration collective . prime annuelle d'intermittence:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  unité: €/an
+  variations:
+  - si:
+      toutes ces conditions:
+      - contrat intermittent scolaire
+      - inscrit à l'effectif au versement
+      - ancienneté entreprise >= 0.5 an
+    alors:
+      valeur: salaire annuel de base intermittent * taux intermittence
+  - sinon: 0 €/an
+salarié . convention collective . restauration collective . taux intermittence:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  variations:
+  - si: durée annuelle de travail intermittent < 1000 heure
+    alors: 3.5%
+  - sinon: 2%
+salarié . convention collective . restauration collective . coupures éligibles de plus de deux heures:
+  applicable si: convention collective = 'restauration collective'
+  unité: coupure/mois
+  par défaut: 0 coupure/mois
+  plancher: 0 coupure/mois
+salarié . convention collective . restauration collective . minimum garanti par coupure:
+  applicable si: convention collective = 'restauration collective'
+  unité: €/coupure
+  question: Quel est le minimum garanti légal en vigueur, exprimé par coupure ?
+salarié . convention collective . restauration collective . indemnité mensuelle déjà versée de même objet que la coupure:
+  applicable si: convention collective = 'restauration collective'
+  unité: €/mois
+  par défaut: 0 €/mois
+  plancher: 0 €/mois
+salarié . convention collective . restauration collective . indemnité mensuelle de coupure:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  unité: €/mois
+  variations:
+  - si: coupures éligibles de plus de deux heures > 0 coupure/mois
+    alors:
+      valeur: 57% * minimum garanti par coupure * coupures éligibles de plus de deux heures - indemnité mensuelle
+        déjà versée de même objet que la coupure
+      plancher: 0 €/mois
+  - sinon: 0 €/mois
+salarié . convention collective . restauration collective . journées de détachement éligibles:
+  applicable si: convention collective = 'restauration collective'
+  unité: jour/mois
+  par défaut: 0 jour/mois
+  plancher: 0 jour/mois
+salarié . convention collective . restauration collective . prime journalière de détachement entreprise:
+  applicable si: convention collective = 'restauration collective'
+  unité: €/jour
+  par défaut: 4 €/jour
+  plancher: 4 €/jour
+salarié . convention collective . restauration collective . prime mensuelle de détachement:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  unité: €/mois
+  valeur: journées de détachement éligibles * prime journalière de détachement entreprise
+salarié . convention collective . restauration collective . masse salariale entreprise exercice précédent:
+  applicable si: convention collective = 'restauration collective'
+  unité: €/an
+  question: Quelle est la masse salariale de l'entreprise sur l'exercice N−1 ?
+  plancher: 0 €/an
+salarié . convention collective . restauration collective . contribution annuelle entreprise paritarisme:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  unité: €/an
+  valeur: masse salariale entreprise exercice précédent * 0.016%
+salarié . convention collective . restauration collective . minimum horaire:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  unité: €/heure
+  variations:
+  - si: niveau = 'I'
+    alors: 11.89 €/heure
+  - si: niveau = 'II'
+    alors: 11.95 €/heure
+  - si: niveau = 'III'
+    alors: 12.1 €/heure
+  - si: niveau = 'IV'
+    alors: 12.3 €/heure
+  - si: niveau = 'V'
+    alors: 12.96 €/heure
+  - si: niveau = 'VI'
+    alors: 13.46 €/heure
+  - si: niveau = 'VII'
+    alors: 14.3 €/heure
+  - si: niveau = 'VIII'
+    alors: 15.02 €/heure
+  - si: niveau = 'IX'
+    alors: 19.31 €/heure
+  - sinon: 0 €/heure
+salarié . convention collective . restauration collective . taux horaire minimum applicable:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - niveau hors grille = non
+    - version applicable
+  unité: €/heure
+  valeur: minimum horaire
+  plancher: SMIC . horaire
+salarié . convention collective . restauration collective . salaire minimum légal et conventionnel:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - niveau hors grille = non
+    - version applicable
+  unité: €/mois
+  valeur: salaire minimum conventionnel
+  plancher: SMIC * contrat . temps de travail . quotité
+salarié . convention collective . restauration collective . niveau hors grille:
+  applicable si:
+    toutes ces conditions:
+    - convention collective = 'restauration collective'
+    - version applicable
+  valeur: minimum mensuel = 0 €/mois
+salarié . convention collective . restauration collective . hors champ conventionnel:
+  applicable si: convention collective = 'restauration collective'
+  par défaut: non
+  description: Indiquer oui hors métropole ou pour les activités de fourniture aux transports ferroviaires, maritimes
+    et aériens exclues de la CCN.
+salarié . convention collective . restauration collective . version applicable:
+  applicable si: convention collective = 'restauration collective'
+  toutes ces conditions:
+  - date >= 01/07/2025
+  - hors champ conventionnel = non
