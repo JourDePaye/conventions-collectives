@@ -8,9 +8,9 @@ const id = "3090-spectacle-vivant-prive";
 const ns = "salarié . convention collective . spectacle vivant privé";
 
 async function makeEngine() {
-  const version = COMPILED_VERSIONS[id]?.find((candidate) => candidate.version === "2024.1");
+  const version = COMPILED_VERSIONS[id]?.find((candidate) => candidate.version === "2025.1");
   assert.ok(version, "IDCC 3090 must be exported");
-  assert.equal(version.validFrom, "2024-02-01");
+  assert.equal(version.validFrom, "2025-09-01");
   const extension = await version.loadRules();
   const rules: Record<string, Rule> = { ...modeleSocial };
   const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
@@ -32,13 +32,13 @@ async function makeEngine() {
 const get = (engine: Engine, rule: string) => engine.evaluate(`${ns} . ${rule}`);
 
 const administrativeCases = [
-  ["cadres groupe 1", "1", 3535.75],
-  ["cadres groupe 2", "1", 2799.68],
-  ["cadres groupe 3", "1", 2455.77],
-  ["agents de maîtrise", "1", 2074.21],
-  ["employés qualifiés groupe 1", "1", 1884.21],
-  ["employés qualifiés groupe 2", "1", 1783.72],
-  ["employés", "1", 1777.9],
+  ["cadres groupe 1", "1", 3578.18],
+  ["cadres groupe 2", "5", 3300.81],
+  ["cadres groupe 3", "1", 2485.24],
+  ["agents de maîtrise", "3", 2256.89],
+  ["employés qualifiés groupe 1", "4", 2059.12],
+  ["employés qualifiés groupe 2", "2", 1834.57],
+  ["employés", "5", 1822.9],
 ] as const;
 
 describe("IDCC 3090 — spectacle vivant privé", () => {
@@ -66,7 +66,7 @@ describe("IDCC 3090 — spectacle vivant privé", () => {
       "salarié . contrat . temps de travail . quotité": "100%",
       [`${ns} . catégorie technique`]: "'cadres groupe 2'",
     });
-    assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, 2625.88);
+    assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, 2812.29);
     engine.setSituation({
       salarié: "oui",
       dirigeant: "non",
@@ -74,7 +74,7 @@ describe("IDCC 3090 — spectacle vivant privé", () => {
       "salarié . contrat . temps de travail . quotité": "50%",
       [`${ns} . catégorie technique`]: "'employés qualifiés groupe 1'",
     });
-    assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, 942.11);
+    assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, 953.41);
   });
 
   it("returns no minimum for an unknown classification", async () => {
