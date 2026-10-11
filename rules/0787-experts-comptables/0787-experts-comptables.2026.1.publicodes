@@ -1,0 +1,85 @@
+validFrom: '2026-03-01'
+sources:
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054497751
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005678091
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005678101
+  - https://echanges.dila.gouv.fr/OPENDATA/KALI/
+---
+salarié . convention collective . experts-comptables:
+  titre: Cabinets d'experts-comptables et de commissaires aux comptes (IDCC 787)
+  valeur: convention collective = 'experts-comptables'
+
+salarié . convention collective . experts-comptables . coefficient:
+  titre: Coefficient ou indice de classification
+  description: |
+    Coefficient ou indice attribué selon la classification conventionnelle. Saisir la valeur
+    réellement attribuée par l'employeur ; le modèle ne déduit pas la classification de l'intitulé
+    du poste. L'indice 40 des experts-comptables inscrits à l'Ordre est traité séparément.
+  applicable si: convention collective = 'experts-comptables'
+  par défaut: 0
+  plancher: 0
+
+salarié . convention collective . experts-comptables . indice 40 ordre validé:
+  titre: Indice 40 applicable et validé
+  description: À activer seulement après validation de l'inscription à l'Ordre et de l'application de l'indice 40.
+  applicable si: convention collective = 'experts-comptables'
+  par défaut: non
+
+salarié . convention collective . experts-comptables . valeur du point:
+  applicable si: convention collective = 'experts-comptables'
+  unité: €/point
+  valeur: 131.54 €/point
+
+salarié . convention collective . experts-comptables . valeur du point au-delà de 164:
+  applicable si: convention collective = 'experts-comptables'
+  unité: €/point
+  valeur: 79.85 €/point
+
+salarié . convention collective . experts-comptables . minimum annuel:
+  titre: Salaire minimum conventionnel annuel
+  description: |
+    Minimum annuel brut à temps plein selon la grille étendue applicable à compter du 1er mars 2026.
+    Les 164 premiers points sont valorisés à 131,54 € et les points au-delà de 164 à 79,85 €.
+    L'indice 40 des experts-comptables inscrits à l'Ordre relève d'un minimum annuel distinct de 47 801 €.
+    Une valeur nulle ou une situation non validée reste sans calcul.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'experts-comptables'
+      - coefficient > 0
+      - une de ces conditions:
+        - coefficient != 40
+        - indice 40 ordre validé
+  unité: €/an
+  variations:
+    - si: coefficient = 40
+      alors: 47801 €/an
+    - si: coefficient <= 164
+      alors: coefficient * valeur du point
+    - sinon: 164 * valeur du point + (coefficient - 164) * valeur du point au-delà de 164
+
+salarié . convention collective . experts-comptables . minimum annuel indice 40:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'experts-comptables'
+      - coefficient = 40
+      - indice 40 ordre validé
+  unité: €/an
+  valeur: 47801 €/an
+
+salarié . convention collective . experts-comptables . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel mensuel équivalent
+  description: Équivalent mensuel du minimum annuel, proratisé selon la quotité de travail ; le contrôle conventionnel demeure annuel.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'experts-comptables'
+      - minimum annuel > 0 €/an
+  unité: €/mois
+  valeur: minimum annuel * contrat . temps de travail . quotité
+
+salarié . convention collective . experts-comptables . salaire minimum conventionnel indice 40:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'experts-comptables'
+      - minimum annuel indice 40 > 0 €/an
+  unité: €/mois
+  valeur: minimum annuel indice 40 * contrat . temps de travail . quotité

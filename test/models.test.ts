@@ -55,6 +55,7 @@ const models = [
   { name: "1534-industrie-commerces-gros-viandes", value: "industrie et commerces en gros des viandes", classification: "niveau", input: "'IV.2'", minimums: { "2026.1": 2050 } },
   { name: "1539-bureau-numerique", value: "bureau et numérique", classification: "niveau", input: "'A3'", minimums: { "2025.1": 1875 } },
   { name: "1586-industries-charcutieres", value: "industries charcutières", classification: "coefficient", input: 200, minimums: { "2026.1": 2130.2 } },
+  { name: "0787-experts-comptables", value: "experts-comptables", classification: "coefficient", input: 180, minimums: { "2026.1": 22850.16 }, minimumRule: "minimum annuel", situation: { "salarié . convention collective . experts-comptables . indice 40 ordre validé": "non" } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
