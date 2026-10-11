@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Quarante-trois conventions sont actuellement représentées, avec quarante-six versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Quarante-quatre conventions sont actuellement représentées, avec quarante-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -23,6 +23,7 @@ Quarante-trois conventions sont actuellement représentées, avec quarante-six v
 | [Coiffure et professions connexes](rules/2596-coiffure/README.md) | 2596 | `2026.1` : 1er mars 2026 | Grilles de 30 classifications des filières technique, esthétique-cosmétique, non technique et administrative, proratisées selon la quotité de travail ; détection des classifications hors grille |
 | [Entreprises de propreté et services associés](rules/3043-entreprises-proprete/README.md) | 3043 | `2026.1` : 1er avril 2026 | Grille de 39 classifications, prime d'expérience, majorations de nuit, dimanche et jours fériés, repos compensateur de nuit et formule d'indemnité de transport ; proratisation selon la quotité de travail |
 | [Entreprises de services à la personne](rules/3127-services-personne/README.md) | 3127 | `2024.1` : 20 juin 2024 | Grille de 10 emplois-repères, prime d'ancienneté, majorations de nuit, dimanche et jours fériés, garde de plus de trois enfants et indemnité kilométrique ; proratisation selon la quotité de travail |
+| [Prestataires de services dans le domaine du secteur tertiaire](rules/2098-prestataires-tertiaire/README.md) | 2098 | `2026.1` : 1er août 2026 | Grille mensuelle de 24 coefficients de 120 à 500, proratisée selon la quotité de travail ; repos compensateur de nuit paramétrable et détection des coefficients hors grille |
 
 ### HÔTELLERIE, RESTAURATION & ALIMENTATION
 

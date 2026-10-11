@@ -1,0 +1,119 @@
+# Convention collective nationale du personnel des prestataires de services dans le domaine du secteur tertiaire
+# (IDCC 2098).
+validFrom: 2026-08-01
+sources:
+  - >-
+    Accord du 11 septembre 2025 relatif aux salaires minimaux au 1er janvier 2026, étendu par
+    arrêté du 24 juillet 2026 publié au JORF du 31 juillet 2026 ; applicable le 1er août 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054936719
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054570646
+  - >-
+    Accord national du 24 novembre 1998 relatif à la classification des emplois, article 6.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000024922383
+  - >-
+    Accord du 5 juillet 2007 relatif au travail de nuit.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005680405
+---
+salarié . convention collective . prestataires tertiaires:
+  titre: Prestataires de services dans le domaine du secteur tertiaire (IDCC 2098)
+  valeur: convention collective = 'prestataires tertiaires'
+
+salarié . convention collective . prestataires tertiaires . coefficient:
+  titre: Coefficient de classification
+  description: >-
+    Coefficient conventionnel inscrit au contrat ou déterminé par la classification de l'emploi.
+    Les libellés A1 à B4 et C1 à C4 ne sont pas convertis automatiquement en coefficient :
+    l'application appelante doit fournir le coefficient applicable.
+  applicable si: convention collective = 'prestataires tertiaires'
+  par défaut: 0
+
+salarié . convention collective . prestataires tertiaires . minimum mensuel de la grille:
+  titre: Minimum mensuel à temps plein
+  applicable si: convention collective = 'prestataires tertiaires'
+  unité: €/mois
+  variations:
+    - si: coefficient = 120
+      alors: 1823.03 €/mois
+    - si: coefficient = 130
+      alors: 1826.21 €/mois
+    - si: coefficient = 140
+      alors: 1832.44 €/mois
+    - si: coefficient = 150
+      alors: 1840.56 €/mois
+    - si: coefficient = 160
+      alors: 1844.00 €/mois
+    - si: coefficient = 170
+      alors: 1848.00 €/mois
+    - si: coefficient = 180
+      alors: 1872.00 €/mois
+    - si: coefficient = 190
+      alors: 1906.00 €/mois
+    - si: coefficient = 200
+      alors: 1942.00 €/mois
+    - si: coefficient = 210
+      alors: 1993.00 €/mois
+    - si: coefficient = 220
+      alors: 2055.00 €/mois
+    - si: coefficient = 230
+      alors: 2184.00 €/mois
+    - si: coefficient = 240
+      alors: 2301.00 €/mois
+    - si: coefficient = 250
+      alors: 2404.00 €/mois
+    - si: coefficient = 260
+      alors: 2536.00 €/mois
+    - si: coefficient = 270
+      alors: 2705.00 €/mois
+    - si: coefficient = 280
+      alors: 2960.00 €/mois
+    - si: coefficient = 290
+      alors: 3201.00 €/mois
+    - si: coefficient = 300
+      alors: 3455.00 €/mois
+    - si: coefficient = 320
+      alors: 3748.00 €/mois
+    - si: coefficient = 350
+      alors: 4107.00 €/mois
+    - si: coefficient = 400
+      alors: 4758.00 €/mois
+    - si: coefficient = 450
+      alors: 5463.00 €/mois
+    - si: coefficient = 500
+      alors: 6157.00 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . prestataires tertiaires . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: >-
+    Salaire mensuel contractuel minimal pour la durée de travail applicable, proratisé une seule fois
+    par la quotité. Les majorations d'heures supplémentaires, de nuit, dimanche ou jour férié, et
+    les primes annuelles ou exceptionnelles ne doivent pas servir à atteindre ce minimum.
+  applicable si: convention collective = 'prestataires tertiaires'
+  unité: €/mois
+  produit:
+    - minimum mensuel de la grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . prestataires tertiaires . coefficient hors grille:
+  applicable si: convention collective = 'prestataires tertiaires'
+  valeur: minimum mensuel de la grille = 0 €/mois
+
+salarié . convention collective . prestataires tertiaires . heures de nuit:
+  description: Heures réellement effectuées entre 21 h et 6 h au cours du mois.
+  applicable si: convention collective = 'prestataires tertiaires'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . prestataires tertiaires . taux de repos compensateur de nuit:
+  description: >-
+    Taux de repos compensateur défini par l'accord de nuit applicable : 2 %, ou 5 % pour le
+    salarié répondant à la condition annuelle prévue par l'accord. Aucun taux de majoration
+    salariale de nuit générale n'est déduit de cette règle.
+  applicable si: convention collective = 'prestataires tertiaires'
+  unité: '%'
+  par défaut: 0%
+
+salarié . convention collective . prestataires tertiaires . repos compensateur de nuit:
+  applicable si: convention collective = 'prestataires tertiaires'
+  unité: heure/mois
+  valeur: heures de nuit * taux de repos compensateur de nuit
