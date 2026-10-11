@@ -57,6 +57,7 @@ const models = [
   { name: "1586-industries-charcutieres", value: "industries charcutières", classification: "coefficient", input: 200, minimums: { "2026.1": 2130.2 } },
   { name: "0787-experts-comptables", value: "experts-comptables", classification: "coefficient", input: 180, minimums: { "2026.1": 22850.16 }, minimumRule: "minimum annuel", situation: { "salarié . convention collective . experts-comptables . indice 40 ordre validé": "non" } },
   { name: "0086-publicite", value: "publicité", classification: "niveau", input: "'4'", minimums: { "2025.1": 1957 }, situation: { "salarié . convention collective . publicité . catégorie": "'employés'" } },
+  { name: "1431-optique-lunetterie-detail", value: "optique-lunetterie de détail", classification: "coefficient", input: "'K'", minimums: { "2024.1": 3700 }, situation: { "salarié . convention collective . optique-lunetterie de détail . classification": "'nouvelle'" } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
