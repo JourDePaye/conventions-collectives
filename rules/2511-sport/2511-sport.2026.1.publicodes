@@ -1,0 +1,213 @@
+validFrom: 2026-01-01
+sources:
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051927561
+  - https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051832714
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000047394518
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000017577826
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000050332501
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000050828767
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051947639
+  - https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052001622
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000039432383
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053401858
+  - https://code.travail.gouv.fr/contribution/2511-quand-le-salarie-a-t-il-droit-a-une-prime-danciennete-quel-est-son-montant
+  - https://www.urssaf.fr/accueil/employeur/cotisations/base-forfaitaire-franchise-cotis/association-sportive.html
+---
+salarié . convention collective . sport . groupe:
+  applicable si: convention collective = 'sport'
+  par défaut: "'non renseigné'"
+salarié . convention collective . sport . minimum mensuel:
+  applicable si: convention collective = 'sport'
+  unité: €/mois
+  variations:
+    - si: groupe = '1'
+      alors: 1848.42 €/mois
+    - si: groupe = '2'
+      alors: 1885.14 €/mois
+    - si: groupe = '3'
+      alors: 1997.87 €/mois
+    - si: groupe = '4'
+      alors: 2099.37 €/mois
+    - si: groupe = '5'
+      alors: 2333.99 €/mois
+    - si: groupe = '6'
+      alors: 2865.97 €/mois
+    - sinon: 0 €/mois
+salarié . convention collective . sport . salaire minimum conventionnel:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'sport'
+      - salarié relevant du chapitre XII = non
+      - groupe != '7'
+      - groupe != '8'
+  unité: €/mois
+  valeur: minimum mensuel * contrat . temps de travail . quotité * multiplicateur temps partiel
+salarié . convention collective . sport . périodes de 24 mois d'ancienneté:
+  applicable si: convention collective = 'sport'
+  par défaut: 0
+salarié . convention collective . sport . ancienneté groupe 1 au moins 3 ans:
+  applicable si: convention collective = 'sport'
+  par défaut: non
+salarié . convention collective . sport . taux supplémentaire groupe 1:
+  applicable si: convention collective = 'sport'
+  variations:
+    - si:
+        toutes ces conditions:
+          - groupe = '1'
+          - ancienneté groupe 1 au moins 3 ans
+      alors: 5%
+    - sinon: 0%
+salarié . convention collective . sport . prime d'ancienneté:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'sport'
+      - salarié relevant du chapitre XII = non
+  unité: €/mois
+  valeur: taux d'ancienneté * 1997.87 €/mois * contrat . temps de travail . quotité
+
+salarié . convention collective . sport . salaire minimum annuel conventionnel:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'sport'
+      - salarié relevant du chapitre XII = non
+      - une de ces conditions:
+          - groupe = '7'
+          - groupe = '8'
+  unité: €/an
+  produit:
+    - variations:
+        - si: groupe = '7'
+          alors: 40597.94 €/an
+        - sinon: 46833.81 €/an
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . sport . multiplicateur temps partiel:
+  applicable si: convention collective = 'sport'
+  variations:
+    - si:
+        toutes ces conditions:
+          - contrat . temps de travail . temps partiel
+          - contrat . temps de travail . temps partiel . heures par semaine <= 10 heure/semaine
+      alors: 1.05
+    - si:
+        toutes ces conditions:
+          - contrat . temps de travail . temps partiel
+          - contrat . temps de travail . temps partiel . heures par semaine < 24 heure/semaine
+      alors: 1.02
+    - sinon: 1
+salarié . convention collective . sport . taux d'ancienneté:
+  applicable si: convention collective = 'sport'
+  variations:
+    - si:
+        une de ces conditions:
+          - groupe = '7'
+          - groupe = '8'
+          - groupe hors grille
+      alors: 0
+    - sinon:
+        valeur: périodes de 24 mois d'ancienneté * 0.01 + taux supplémentaire groupe 1 / 100%
+        plafond: 0.15
+        plancher: 0
+
+# Replace inherited Sport helper endpoints, preserving their core remplace links.
+salarié . convention collective . sport . prévoyance 2025:
+  applicable si: convention collective = 'sport'
+  valeur: oui
+salarié . convention collective . sport . prévoyance 2025 . part:
+  variations:
+    - si:
+        une de ces conditions:
+          - contrat . statut cadre
+          - salarié relevant du chapitre XII
+      alors: 0 €/mois
+    - sinon:
+        produit:
+          - valeur: cotisations . assiette
+            plafond: 4 * temps de travail . plafond sécurité sociale
+          - 0.485%
+# Exact-key exception: inherited inline avec replacements copy the old formula.
+salarié . convention collective . sport . cotisations . prévoyance:
+  applicable si: convention collective = 'sport'
+  somme:
+    - employeur
+    - salarié
+  avec:
+    employeur:
+      remplace: salarié . cotisations . prévoyances . conventionnelle . employeur
+      valeur: salarié . convention collective . sport . prévoyance 2025 . part
+    salarié:
+      remplace: salarié . cotisations . prévoyances . conventionnelle . salarié
+      valeur: salarié . convention collective . sport . prévoyance 2025 . part
+salarié . convention collective . sport . santé 2025:
+  applicable si: convention collective = 'sport'
+  valeur: oui
+salarié . convention collective . sport . santé 2025 . taux:
+  remplace: salarié . convention collective . sport . cotisations . régime frais de santé . taux
+  valeur: montant contractuel / plafond sécurité sociale * 100%
+salarié . convention collective . sport . santé 2025 . montant contractuel:
+  description: Montant total du contrat frais de santé. Saisir zéro uniquement en cas de dispense validée. Les tarifs conventionnels sont indicatifs.
+  par défaut: plafond sécurité sociale * taux conventionnel
+  plancher: 0 €/mois
+salarié . convention collective . sport . santé 2025 . taux conventionnel:
+  variations:
+    - si: régimes spécifiques . alsace moselle
+      alors: 0.61%
+    - sinon: 0.96%
+salarié . convention collective . sport . santé 2025 . salarié:
+  remplace: salarié . cotisations . prévoyances . santé . salarié
+  valeur: cotisations . prévoyances . santé . montant * (1 - cotisations . prévoyances . santé . taux employeur / 100%)
+
+# No automatic special-scheme eligibility follows from IDCC membership.
+salarié . convention collective . sport . neutralisation héritage:
+  applicable si: convention collective = 'sport'
+  valeur: oui
+  rend non applicable:
+    - salarié . convention collective . sport . cotisations . formation professionnelle . plan de formation
+    - salarié . convention collective . sport . cotisations . formation professionnelle . professionnalisation
+    - salarié . convention collective . sport . cotisations . formation professionnelle . CIF CDI
+    - salarié . convention collective . sport . cotisations . formation professionnelle . CIF CDD
+salarié . convention collective . sport . franchise non activée:
+  applicable si: convention collective = 'sport'
+  remplace: salarié . convention collective . sport . cotisations . franchise
+  valeur: 0 €/mois
+
+# Exact-key exceptions: remove inherited structural replacement declarations.
+salarié . convention collective . sport . exonération cotisation AT:
+  applicable si: convention collective = 'sport'
+  valeur: non
+salarié . convention collective . sport . cotisations . assiette forfaitaire:
+  applicable si: non
+  valeur: 0 €/mois
+salarié . convention collective . sport . cotisations . formation professionnelle:
+  applicable si: convention collective = 'sport'
+  remplace: salarié . cotisations . formation professionnelle
+  somme:
+    - salarié . cotisations . formation professionnelle
+    - supplément conventionnel validé
+salarié . convention collective . sport . cotisations . formation professionnelle . supplément conventionnel validé:
+  description: Montant supplémentaire à fournir après validation de la contribution de branche applicable. Le calcul de cette contribution n'est pas couvert.
+  par défaut: 0 €/mois
+  plancher: 0 €/mois
+
+salarié . convention collective . sport . salarié relevant du chapitre XII:
+  applicable si: convention collective = 'sport'
+  description: Sportif ou entraîneur professionnel relevant du chapitre XII. Les minima et protections propres à ce chapitre ne sont pas couverts.
+  par défaut: non
+salarié . convention collective . sport . groupe hors grille:
+  applicable si: convention collective = 'sport'
+  toutes ces conditions:
+    - groupe != '1'
+    - groupe != '2'
+    - groupe != '3'
+    - groupe != '4'
+    - groupe != '5'
+    - groupe != '6'
+    - groupe != '7'
+    - groupe != '8'
+
+salarié . convention collective . sport . allocation mensuelle paritarisme validée:
+  applicable si: convention collective = 'sport'
+  description: Allocation validée par le consommateur d'une cotisation annuelle de branche. Aucun calcul annuel par entreprise n'est effectué ici.
+  remplace: salarié . convention collective . sport . cotisations . financement du paritarisme
+  par défaut: 0 €/mois
+  plancher: 0 €/mois

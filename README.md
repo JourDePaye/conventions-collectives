@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Quarante-quatre conventions sont actuellement représentées, avec quarante-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Quarante-sept conventions sont actuellement représentées, avec cinquante versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -91,6 +91,7 @@ Quarante-quatre conventions sont actuellement représentées, avec quarante-sept
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
+| [Sport](rules/2511-sport/README.md) | 2511 | `2026.1` : 1er janvier 2026 | Groupes 1 à 6 mensuels et 7 à 8 annuels sans conversion mensuelle ; majorations temps partiel, prime d’ancienneté ; prévoyance et santé actualisées sur les endpoints standard ; héritage formation/AT/forfait/franchise neutralisé, allocations annuelles de branche à valider séparément |
 | [Particuliers employeurs et emploi à domicile](rules/3239-particuliers-employeurs-emploi-domicile/README.md) | 3239 | `2026.1` : 1er juin 2026 | Minima des 12 niveaux et certifications, socle assistant maternel par enfant, mensualisation, présence responsable de jour, heures additionnelles et prestations en nature |
 | [Presse quotidienne et hebdomadaire en régions](rules/3242-presse-regions/README.md) | 3242 | `2023.1` : 1er juillet 2023 | Grille mensuelle de 15 positions (ouvriers, 6 échelons d’employés, 8 sous-groupes de cadres) de l’accord du 30 juin 2023 (presse quotidienne régionale), proratisée selon la quotité de travail ; détection des positions hors grille |
 
@@ -138,7 +139,7 @@ La version du package, par exemple `0.1.0`, est distincte des versions des conve
 
 Ces modèles complètent `modele-social`. Le package ne crée pas de moteur Publicodes et ne calcule pas, à lui seul, un bulletin de paie.
 
-L’application qui l’utilise choisit la version applicable à la date souhaitée, ajoute si nécessaire la convention aux choix de `salarié . convention collective`, puis fusionne ses règles avec celles de `modele-social`. Elle doit refuser les définitions de règles en double. Pour modifier une règle de base, les modèles utilisent les mécanismes publicodes `remplace` ou `rend non applicable`.
+L’application qui l’utilise choisit la version applicable à la date souhaitée, ajoute si nécessaire la convention aux choix de `salarié . convention collective`, puis fusionne ses règles avec celles de `modele-social`. Elle doit refuser les définitions de règles en double, sauf les quatre exceptions structurelles Sport `2026.1` détaillées dans [son README](rules/2511-sport/README.md) et autorisées par clé/version exactes dans les tests. Pour modifier une règle de base, les modèles utilisent les mécanismes publicodes `remplace` ou `rend non applicable`.
 
 Dans JourDePaye, `payroll-core` conserve le catalogue métier, la sélection de la version au premier jour de la période, la correspondance avec les données du salarié et le calcul de paie. Ces choix de période ne sont pas imposés par ce package.
 
@@ -180,10 +181,10 @@ npm test
 
 `npm ci` installe les dépendances verrouillées et construit le package. `npm test` compile d’abord les sources, puis exécute tous les fichiers `test/**/*.test.ts` avec le moteur de tests intégré à Node.js. Une erreur de compilation ou un test en échec fait échouer la commande.
 
-Trente-neuf ensembles de tests sont présents :
+Les ensembles de tests comprennent notamment :
 
 - `test/compile-collective-agreements.test.ts` teste le compilateur avec des fichiers temporaires : nommage, métadonnées, dates, ajout d’une version, modification ou suppression d’une version verrouillée.
-- `test/models.test.ts` vérifie les versions exportées et leurs empreintes, la présence des références juridiques, les espaces de noms, l’absence de collisions avec `modele-social` et des calculs de minima pour chacune des vingt-trois versions.
+- `test/models.test.ts` vérifie les versions exportées et leurs empreintes, la présence des références juridiques, les espaces de noms, l’absence de collisions avec `modele-social` et des calculs de minima pour chaque modèle du catalogue de tests.
 - `test/acteurs-lien-social-familial.test.ts` couvre le socle 2026, les points de pesée, les points d'expérience professionnelle, le temps partiel, les valeurs invalides et l'inapplicabilité hors convention.
 - `test/aide-soins-domicile.test.ts` couvre les 36 positions des deux filières IDCC 2941, les paliers d’ancienneté, les diplômes, le plancher SMIC, le reclassement, le temps partiel et les ECR ponctuels. Les coefficients et montants attendus sont fixés à partir des textes, indépendamment du YAML.
 - `test/particuliers-employeurs.test.ts` couvre les 12 niveaux IDCC 3239 avec et sans certification, les taux et montants mensuels publiés, les deux socles, les planchers légaux, le temps partiel, la présence responsable, l’année incomplète, le mode réel, les heures additionnelles, les prestations en nature, les entrées invalides et l’inapplicabilité hors convention. Les valeurs attendues sont indépendantes du YAML.
@@ -220,6 +221,7 @@ Trente-neuf ensembles de tests sont présents :
 - `test/commerce-detail-alimentaire-non-specialise.test.ts` couvre les 11 niveaux IDCC 1505, la quotité, les minima annuels des cadres au forfait jours (seuil de 36 mois dans le niveau), les niveaux hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’accord du 10 février 2026, indépendamment du YAML.
 - `test/restauration-rapide.test.ts` couvre les 14 positions IDCC 1501 (taux horaires des niveaux I à IV, minima annuels du niveau V), l’application du taux horaire aux heures du contrat, le temps partiel, les niveaux et échelons hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux de l’avenant n° 72, indépendamment du YAML.
 - `test/organismes-formation.test.ts` couvre les 31 paliers IDCC 1516 des grilles 2025 et 2027 (bornes de chaque fourchette de coefficient), la conversion en minimum mensuel, la quotité, les coefficients hors grille et l’inapplicabilité hors convention. Les montants attendus sont ceux des avenants, indépendamment du YAML.
+- `test/sport.test.ts` couvre la grille des huit groupes (périodicité mensuelle/annuelle conservée), les frontières du temps partiel, l’ancienneté plafonnée, la protection sociale sur les endpoints standard, les allocations explicites de branche, les neutralisations des régimes spécifiques et l’isolation hors Sport.
 - `test/prevention-securite.test.ts` couvre les 25 positions IDCC 1351, les coefficients présents dans plusieurs catégories, la quotité, les paliers d’ancienneté, les majorations nuit et dimanche, le repos, les indemnités et le complément de rémunération des périodes de travail.
 
 Pour exécuter uniquement les tests IDCC 843 :

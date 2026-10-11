@@ -22,6 +22,7 @@ const models = [
   { name: "3239-particuliers-employeurs-emploi-domicile", value: "particuliers employeurs et emploi à domicile", classification: "niveau", input: "'I'", minimums: { "2026.1": 2194.14 } },
   { name: "2247-courtage-assurances", value: "courtage assurances", classification: "niveau", input: "'D'", minimums: { "2025.1": 2208 } },
   { name: "2264-hospitalisation-privee", value: "hospitalisation privée", classification: "coefficient", input: 300, minimums: { "2023.1": 2178 } },
+  { name: "2511-sport", value: "sport", classification: "groupe", input: "'3'", minimums: { "2026.1": 1997.87 } },
   { name: "2596-coiffure", value: "coiffure", classification: "niveau", input: "'T2.1'", minimums: { "2026.1": 1869 } },
   { name: "2941-aide-soins-domicile", value: "aide et soins à domicile", classification: "niveau", input: "'TAM.1.1'", minimums: { "2026.1": 2157.98 } },
   { name: "3043-entreprises-proprete", value: "propreté", classification: "niveau", input: "'ASP-A'", minimums: { "2026.1": 1898.91 } },
@@ -83,7 +84,15 @@ describe("compiled collective agreement models", () => {
         const namespace = `salarié . convention collective . ${model.value}`;
         for (const name of Object.keys(extension)) {
           assert.ok(name === namespace || name.startsWith(`${namespace} . `), name);
-          assert.ok(!(name in rules), `Duplicate modele-social rule: ${name}`);
+          const sportStructuralOverrides = new Set([
+            `${namespace} . cotisations . prévoyance`,
+            `${namespace} . cotisations . formation professionnelle`,
+            `${namespace} . cotisations . assiette forfaitaire`,
+            `${namespace} . exonération cotisation AT`,
+          ]);
+          // Only Sport 2026.1 may remove obsolete structural declarations.
+          const allowed = model.name === "2511-sport" && versionNumber === "2026.1" && sportStructuralOverrides.has(name);
+          assert.ok(!(name in rules) || allowed, `Duplicate modele-social rule: ${name}`);
         }
         const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
         rules["salarié . convention collective"] = {
