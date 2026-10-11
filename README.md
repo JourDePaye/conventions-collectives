@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Quarante et une conventions sont actuellement représentées, avec quarante-quatre versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Quarante-deux conventions sont actuellement représentées, avec quarante-cinq versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -21,6 +21,7 @@ Quarante et une conventions sont actuellement représentées, avec quarante-quat
 | [Entreprises du bureau et du numérique (commerce de détail de papeterie, fournitures de bureau, bureautique, informatique et librairie)](rules/1539-bureau-numerique/README.md) | 1539 | `2025.1` : 1er septembre 2025 | Grille mensuelle de 12 niveaux (A1 à C4), minimum du niveau A2 pour le niveau A1 après un an d’ancienneté, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Activités du déchet](rules/2149-activites-dechet/README.md) | 2149 | `2026.1` : 1er janvier 2026 | Coefficient multiplié par la valeur du point de 18,90 € pour les 11 coefficients de 100 à 170, proratisé selon la quotité de travail ; détection des coefficients hors grille |
 | [Coiffure et professions connexes](rules/2596-coiffure/README.md) | 2596 | `2026.1` : 1er mars 2026 | Grilles de 30 classifications des filières technique, esthétique-cosmétique, non technique et administrative, proratisées selon la quotité de travail ; détection des classifications hors grille |
+| [Entreprises de propreté et services associés](rules/3043-entreprises-proprete/README.md) | 3043 | `2026.1` : 1er avril 2026 | Grille de 39 classifications, prime d'expérience, majorations de nuit, dimanche et jours fériés, repos compensateur de nuit et formule d'indemnité de transport ; proratisation selon la quotité de travail |
 
 ### HÔTELLERIE, RESTAURATION & ALIMENTATION
 

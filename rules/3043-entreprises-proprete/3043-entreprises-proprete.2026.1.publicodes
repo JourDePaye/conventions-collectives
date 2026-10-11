@@ -1,0 +1,319 @@
+# Convention collective nationale des entreprises de propreté et services associés du 26 juillet 2011
+# (IDCC 3043).
+#
+# Version 2026.1 : grille de rémunération minimale hiérarchique applicable le 1er avril 2026,
+# avec la prime d'expérience et les majorations de nuit, dimanche et jours fériés en vigueur.
+validFrom: 2026-04-01
+sources:
+  - >-
+    Convention collective nationale des entreprises de propreté et services associés du 26 juillet
+    2011 (IDCC 3043), étendue par arrêté du 23 juillet 2012, JORF du 28 juillet 2012.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000027172335
+  - >-
+    Avenant n° 27 du 18 décembre 2025 à l'accord du 25 juin 2002 relatif aux classifications et
+    salaires, article 3 : rémunérations minimales hiérarchiques, applicable le 1er avril 2026.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000053748401
+  - >-
+    Avenant n° 21 du 5 mars 2025 relatif à la prime d'expérience, étendu par arrêté du 29 avril
+    2025, JORF du 3 mai 2025, applicable le 1er juin 2025.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051694378
+  - >-
+    Avenant n° 23 du 18 décembre 2025 relatif au travail du dimanche et des jours fériés, étendu
+    par arrêté du 5 juin 2026, JORF du 10 juin 2026, applicable le 1er juillet 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053748405
+  - >-
+    Avenant n° 25 du 1er avril 2026 rectifiant le régime des jours fériés.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054454320
+  - >-
+    Accord du 25 juin 2002 relatif au travail de nuit et accord relatif à l'indemnité de transport.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000027172340
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005665494
+---
+salarié . convention collective . propreté:
+  titre: Entreprises de propreté et services associés (IDCC 3043)
+  valeur: convention collective = 'propreté'
+
+salarié . convention collective . propreté . niveau:
+  titre: Classification
+  description: >-
+    Classification prévue par l'accord du 25 juin 2002 : agents de service ASP, ASC et ASCS,
+    agents qualifiés AQS, agents très qualifiés ATQS, chefs d'équipe CE, maîtrise MP,
+    employés administratifs EA, maîtrise administrative MA et cadres CA. Les niveaux AS, AQS
+    et ATQS comportent les colonnes A et B.
+  applicable si: convention collective = 'propreté'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . propreté . taux horaire de la grille:
+  applicable si: convention collective = 'propreté'
+  unité: €/heure
+  variations:
+    - si: niveau = 'MP5'
+      alors: 21.90 €/heure
+    - si: niveau = 'MP4'
+      alors: 20.25 €/heure
+    - si: niveau = 'MP3'
+      alors: 18.18 €/heure
+    - si: niveau = 'MP2'
+      alors: 16.39 €/heure
+    - si: niveau = 'MP1'
+      alors: 15.52 €/heure
+    - si: niveau = 'CE3'
+      alors: 15.44 €/heure
+    - si: niveau = 'CE2'
+      alors: 15.27 €/heure
+    - si: niveau = 'CE1'
+      alors: 14.43 €/heure
+    - si: niveau = 'ATQS3-A'
+      alors: 14.95 €/heure
+    - si: niveau = 'ATQS3-B'
+      alors: 15.27 €/heure
+    - si: niveau = 'ATQS2-A'
+      alors: 13.91 €/heure
+    - si: niveau = 'ATQS2-B'
+      alors: 14.16 €/heure
+    - si: niveau = 'ATQS1-A'
+      alors: 13.17 €/heure
+    - si: niveau = 'ATQS1-B'
+      alors: 13.39 €/heure
+    - si: niveau = 'AQS3-A'
+      alors: 12.92 €/heure
+    - si: niveau = 'AQS3-B'
+      alors: 13.16 €/heure
+    - si: niveau = 'AQS2-A'
+      alors: 12.81 €/heure
+    - si: niveau = 'AQS2-B'
+      alors: 13.05 €/heure
+    - si: niveau = 'AQS1-A'
+      alors: 12.70 €/heure
+    - si: niveau = 'AQS1-B'
+      alors: 12.91 €/heure
+    - si: niveau = 'ASCS-A'
+      alors: 12.64 €/heure
+    - si: niveau = 'ASCS-B'
+      alors: 12.86 €/heure
+    - si: niveau = 'ASC-A'
+      alors: 12.57 €/heure
+    - si: niveau = 'ASC-B'
+      alors: 12.79 €/heure
+    - si: niveau = 'ASP-A'
+      alors: 12.52 €/heure
+    - si: niveau = 'ASP-B'
+      alors: 12.71 €/heure
+    - si: niveau = 'MA3'
+      alors: 21.68 €/heure
+    - si: niveau = 'MA2'
+      alors: 20.56 €/heure
+    - si: niveau = 'MA1'
+      alors: 18.11 €/heure
+    - si: niveau = 'EA4'
+      alors: 16.29 €/heure
+    - si: niveau = 'EA3'
+      alors: 14.89 €/heure
+    - si: niveau = 'EA2'
+      alors: 13.54 €/heure
+    - si: niveau = 'EA1'
+      alors: 12.63 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . propreté . minimum mensuel cadre de la grille:
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  variations:
+    - si: niveau = 'CA1'
+      alors: 3279.71 €/mois
+    - si: niveau = 'CA2'
+      alors: 3868.89 €/mois
+    - si: niveau = 'CA3'
+      alors: 4323.69 €/mois
+    - si: niveau = 'CA4'
+      alors: 4998.10 €/mois
+    - si: niveau = 'CA5'
+      alors: 5304.54 €/mois
+    - si: niveau = 'CA6'
+      alors: 5795.71 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . propreté . salaire minimum conventionnel . grille:
+  titre: Rémunération minimale hiérarchique à temps plein
+  description: >-
+    Rémunération minimale hiérarchique de la classification. Les catégories rémunérées à l'heure
+    sont converties sur 151,67 heures par mois ; les cadres ont un minimum mensuel publié.
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  variations:
+    - si: minimum mensuel cadre de la grille > 0 €/mois
+      alors: minimum mensuel cadre de la grille
+    - sinon: taux horaire de la grille * 151.67 heure/mois
+
+salarié . convention collective . propreté . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: >-
+    Rémunération minimale hiérarchique à temps plein, proratisée une seule fois par la quotité
+    de travail. Elle exclut notamment la prime d'expérience, les majorations et les remboursements
+    de frais.
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . propreté . taux horaire minimum conventionnel:
+  applicable si: convention collective = 'propreté'
+  unité: €/heure
+  variations:
+    - si: taux horaire de la grille > 0 €/heure
+      alors: taux horaire de la grille
+    - sinon: minimum mensuel cadre de la grille / 151.67 heure/mois
+
+salarié . convention collective . propreté . niveau hors grille:
+  titre: Classification absente de la grille
+  applicable si: convention collective = 'propreté'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . propreté . expérience professionnelle reconnue:
+  titre: Expérience professionnelle reconnue
+  description: >-
+    Expérience reconnue dans la branche, justifiée le cas échéant. Elle peut être conservée lors
+    d'un changement d'employeur si l'interruption entre deux contrats de la profession n'excède pas
+    douze mois.
+  applicable si: convention collective = 'propreté'
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . propreté . taux de la prime d'expérience:
+  applicable si: convention collective = 'propreté'
+  unité: '%'
+  variations:
+    - si: expérience professionnelle reconnue >= 25 an
+      alors: 7%
+    - si: expérience professionnelle reconnue >= 20 an
+      alors: 6%
+    - si: expérience professionnelle reconnue >= 15 an
+      alors: 5%
+    - si: expérience professionnelle reconnue >= 10 an
+      alors: 4%
+    - si: expérience professionnelle reconnue >= 7 an
+      alors: 3%
+    - si: expérience professionnelle reconnue >= 4 an
+      alors: 2%
+    - sinon: 0%
+
+salarié . convention collective . propreté . prime d'expérience:
+  description: >-
+    Prime distincte de la rémunération minimale hiérarchique, inscrite séparément sur le bulletin.
+    Son assiette est la rémunération minimale hiérarchique du salarié et elle est proratisée pour
+    le temps partiel.
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  valeur: salaire minimum conventionnel * taux de la prime d'expérience
+
+salarié . convention collective . propreté . taux horaire contractuel:
+  description: >-
+    Taux horaire de base du salarié, à utiliser pour les majorations de travail effectif. À défaut,
+    le taux horaire minimum conventionnel est retenu.
+  applicable si: convention collective = 'propreté'
+  unité: €/heure
+  par défaut: taux horaire minimum conventionnel
+
+salarié . convention collective . propreté . heures de nuit régulières:
+  description: Heures entre 21 h et 5 h, ou entre 21 h et 6 h pour un salarié de nuit, effectuées selon l'horaire normal.
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . heures de nuit exceptionnelles:
+  description: Heures de nuit qui ne figurent ni au planning ni au contrat de travail.
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . salarié de nuit:
+  description: >-
+    Oui lorsque le salarié accomplit habituellement au moins trois heures de nuit deux fois par
+    semaine ou 270 heures de nuit sur douze mois glissants.
+  applicable si: convention collective = 'propreté'
+  par défaut: non
+
+salarié . convention collective . propreté . majoration de nuit:
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  valeur: taux horaire contractuel * (heures de nuit régulières * 20% + heures de nuit exceptionnelles)
+
+salarié . convention collective . propreté . repos compensateur de nuit:
+  description: Repos compensateur mensuel de 2 % des heures entre 21 h et 6 h pour les salariés de nuit.
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  variations:
+    - si: salarié de nuit
+      alors: (heures de nuit régulières + heures de nuit exceptionnelles) * 2%
+    - sinon: 0 heure/mois
+
+salarié . convention collective . propreté . heures du dimanche prévues:
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . heures du dimanche exceptionnelles:
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . majoration du dimanche:
+  description: Travail le dimanche majoré de 25 % lorsqu'il est prévu et de 100 % lorsqu'il est exceptionnel.
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  valeur: taux horaire contractuel * (heures du dimanche prévues * 25% + heures du dimanche exceptionnelles)
+
+salarié . convention collective . propreté . heures fériées prévues:
+  description: Heures de travail un jour férié prévu au planning, hors 1er janvier, 1er mai, 14 juillet et 25 décembre.
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . heures fériées exceptionnelles:
+  description: Heures de travail un jour férié non prévu au planning ni au contrat, hors les quatre jours fériés à majoration spécifique.
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . heures des quatre jours fériés majorés:
+  description: Heures travaillées les 1er janvier, 1er mai, 14 juillet ou 25 décembre.
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . majoration des jours fériés:
+  description: >-
+    Travail un jour férié majoré de 50 % lorsqu'il est prévu, de 100 % lorsqu'il est exceptionnel,
+    et de 100 % les 1er janvier, 1er mai, 14 juillet et 25 décembre.
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  valeur: taux horaire contractuel * (heures fériées prévues * 50% + heures fériées exceptionnelles + heures des quatre jours fériés majorés)
+
+salarié . convention collective . propreté . heures mensuelles ouvrant droit au transport:
+  description: >-
+    Heures mensuelles travaillées ouvrant droit à l'indemnité conventionnelle de transport. Cette
+    indemnité ne se cumule pas avec un avantage de même objet ; l'éligibilité doit être vérifiée
+    par l'application (non-cadre, transport collectif ou véhicule personnel en l'absence de
+    transport collectif).
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . minimum garanti en vigueur:
+  description: Montant légal mensuellement applicable du minimum garanti, fourni par l'application.
+  applicable si: convention collective = 'propreté'
+  unité: €
+  par défaut: 0 €
+
+salarié . convention collective . propreté . indemnité de transport conventionnelle:
+  description: >-
+    Sept fois le minimum garanti au-delà de 104 heures mensuelles ; sinon un montant proratisé
+    aux heures ouvrant droit au transport. Ne pas calculer ce montant si un avantage de même objet
+    est déjà dû.
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  variations:
+    - si: heures mensuelles ouvrant droit au transport > 104 heure/mois
+      alors: minimum garanti en vigueur * 7
+    - sinon: minimum garanti en vigueur * 7 * heures mensuelles ouvrant droit au transport / 151.67 heure/mois
