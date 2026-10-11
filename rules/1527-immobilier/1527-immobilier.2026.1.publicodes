@@ -1,0 +1,51 @@
+validFrom: 2026-06-01
+sources:
+  - >-
+    Avenant n° 111 du 24 juin 2026 relatif aux salaires, étendu par arrêté publié au JORF le
+    19 septembre 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054951900
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054860891
+  - >-
+    Article 36 : prime d'ancienneté.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000049954870
+---
+salarié . convention collective . immobilier:
+  titre: Immobilier (IDCC 1527)
+  valeur: convention collective = 'immobilier'
+salarié . convention collective . immobilier . niveau:
+  applicable si: convention collective = 'immobilier'
+  par défaut: "'non renseigné'"
+salarié . convention collective . immobilier . minimum mensuel:
+  applicable si: convention collective = 'immobilier'
+  unité: €/mois
+  variations:
+    - si: niveau = 'E1'
+      alors: 1867.08 €/mois
+    - si: niveau = 'E2'
+      alors: 1879.08 €/mois
+    - si: niveau = 'E3'
+      alors: 1929.23 €/mois
+    - si: niveau = 'AM1'
+      alors: 1966.85 €/mois
+    - si: niveau = 'AM2'
+      alors: 2031.92 €/mois
+    - si: niveau = 'C1'
+      alors: 2179.46 €/mois
+    - si: niveau = 'C2'
+      alors: 2840.92 €/mois
+    - si: niveau = 'C3'
+      alors: 3401.62 €/mois
+    - si: niveau = 'C4'
+      alors: 3830.77 €/mois
+    - sinon: 0 €/mois
+salarié . convention collective . immobilier . salaire minimum conventionnel:
+  applicable si: convention collective = 'immobilier'
+  unité: €/mois
+  valeur: minimum mensuel
+salarié . convention collective . immobilier . années complètes d'ancienneté:
+  applicable si: convention collective = 'immobilier'
+  par défaut: 0
+salarié . convention collective . immobilier . prime d'ancienneté:
+  applicable si: convention collective = 'immobilier'
+  unité: €/mois
+  valeur: (années complètes d'ancienneté / 3) * 32 €/mois
