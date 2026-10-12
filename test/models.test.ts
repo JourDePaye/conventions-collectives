@@ -16,7 +16,7 @@ const models = [
   { name: "0044-industries-chimiques", value: "industries chimiques", classification: "coefficient", input: 250, minimums: { "2026.1": 2244.51 } },
   { name: "0112-industrie-laitiere", value: "industrie laitière", classification: "niveau", input: "'7.2'", minimums: { "2026.1": 2235.92 } },
   { name: "0675-succursales-habillement", value: "succursales habillement", classification: "niveau", input: "'E4'", minimums: { "2026.1": 1900 } },
-  { name: "0733-detaillants-chaussures", value: "détaillants chaussures", classification: "niveau", input: "'III-A'", minimums: { "2026.1": 1940 } },
+  { name: "0733-detaillants-chaussures", value: "détaillants chaussures", classification: "niveau", input: 3, minimums: { "2026.1": 1869 } },
   { name: "0843-boulangerie-patisserie-artisanale", value: "boulangerie-pâtisserie artisanale", classification: "niveau", input: "'170'", minimums: { "2026.1": 1938.3 } },
   { name: "1147-cabinets-medicaux", value: "cabinets médicaux", classification: "niveau", input: "'8'", minimums: { "2024.1": 2050.62 } },
   { name: "1266-restauration-collective", value: "restauration collective", classification: "niveau", input: "'III'", minimums: { "2025.1": 1835.17 } },
