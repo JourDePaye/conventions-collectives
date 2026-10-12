@@ -8,7 +8,7 @@ const id = "0086-publicite";
 const ns = "salarié . convention collective . publicité";
 
 async function makeEngine() {
-  const version = COMPILED_VERSIONS[id]?.find((candidate) => candidate.version === "2025.1");
+  const version = COMPILED_VERSIONS[id]?.find((candidate) => candidate.version === "2025.3");
   assert.ok(version, "IDCC 86 must be exported");
   assert.equal(version.validFrom, "2025-06-19");
   const extension = await version.loadRules();
@@ -76,5 +76,20 @@ describe("IDCC 86 — entreprises de publicité", () => {
     const engine = await makeEngine();
     engine.setSituation({ "salarié . convention collective": "'télécommunications'" });
     assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, null);
+  });
+
+  it("adds the 0.30% branch training contribution to the statutory contribution", async () => {
+    const engine = await makeEngine();
+    engine.setSituation({
+      salarié: "oui",
+      dirigeant: "non",
+      "salarié . convention collective": "'publicité'",
+      [`${ns} . catégorie`]: "'employés'",
+      [`${ns} . niveau`]: "'4'",
+      "salarié . cotisations . assiette": "3000 €/mois",
+      "entreprise . salariés . effectif": 10,
+    });
+    assert.ok(Math.abs((get(engine, "cotisations . formation professionnelle").nodeValue as number) - 25.5) < 1e-9);
+    assert.equal(get(engine, "cotisations . formation professionnelle . contribution conventionnelle").nodeValue, 9);
   });
 });
