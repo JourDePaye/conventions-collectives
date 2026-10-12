@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Soixante-douze conventions sont actuellement représentées, avec soixante-quinze versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Soixante-treize conventions sont actuellement représentées, avec soixante-seize versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -85,6 +85,7 @@ Soixante-douze conventions sont actuellement représentées, avec soixante-quinz
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
 | [Transports routiers et activités auxiliaires du transport](rules/0016-transports-routiers/README.md) | 16 | `2026.1` : 1er juin 2026 | Grilles de 108 classifications des quatre sous-secteurs (marchandises, voyageurs, logistique, déménagement) avec paliers d’ancienneté, proratisées selon la quotité de travail ; détection des classifications hors grille |
+| [Industrie de la fabrication des ciments](rules/3233-industrie-fabrication-ciments/README.md) | 3233 | `2026.1` : 9 juillet 2026 (champ étendu) | Grilles mensuelles des ouvriers et ETAM et des ingénieurs et cadres selon le coefficient ; proratisation selon la quotité de travail ; détection des coefficients hors grille |
 
 ### SANTÉ & ACTION SOCIALE
 
