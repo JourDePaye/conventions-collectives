@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Quatre-vingt-treize conventions sont actuellement représentées, avec quatre-vingt-seize versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Quatre-vingt-quatorze conventions sont actuellement représentées, avec quatre-vingt-dix-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -62,6 +62,7 @@ Quatre-vingt-treize conventions sont actuellement représentées, avec quatre-vi
 | [Commerce de détail non alimentaire](rules/1517-commerce-detail-non-alimentaire/README.md) | 1517 | `2026.1` : 1er juin 2026 | Grille mensuelle de 9 niveaux, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Commerces de détail de papeterie, fournitures de bureau, bureautique, informatique et librairie](rules/1513-papeterie-librairie/README.md) | 1513 | `2026.1` : 1er août 2026 | Grille mensuelle de 10 coefficients, proratisée selon la quotité de travail ; détection des coefficients hors grille |
 | [Distributeurs conseils hors domicile](rules/1536-distributeurs-conseils-hors-domicile/README.md) | 1536 | `2026.1` : 1er mars 2026 | Grille mensuelle de 24 positions (niveaux I à VI, échelons 1 à 4), proratisée selon la quotité de travail ; détection des classifications hors grille |
+| [Sucreries, sucreries-distilleries et raffineries de sucre](rules/2728-sucreries/README.md) | 2728 | `2026.1` : 1er avril 2026 (accord étendu le 27 juin 2026) | Grille de 17 salaires minima annuels des classes/groupes 1A à 7B, 8, 9 et 10, conservée en €/an ; détection des classes hors grille |
 | [Commerces et services de l’audiovisuel, de l’électronique et de l’équipement ménager](rules/1686-commerces-services-audiovisuel/README.md) | 1686 | `2026.1` : 1er mai 2026 | Grille de 16 positions (minima mensuels des niveaux I à IV en 3 échelons, rémunérations annuelles des 4 positions de cadres converties en minima mensuels), proratisée selon la quotité de travail ; détection des classifications hors grille |
 | [Grands magasins et magasins populaires](rules/2156-grands-magasins/README.md) | 2156 | `2024.1` : 1er juin 2024 | Grille mensuelle de 12 positions (employés en 8 échelons, agent de maîtrise, cadres) proratisée selon la quotité de travail, et rémunérations minimales annuelles ; détection des niveaux hors grille |
 
