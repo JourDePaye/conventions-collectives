@@ -77,6 +77,7 @@ const models = [
   { name: "1505-commerce-detail-alimentaire-non-specialise", value: "commerce de détail alimentaire non spécialisé", classification: "niveau", input: "'E4'", minimums: { "2026.1": 1903.28 } },
   { name: "1534-industrie-commerces-gros-viandes", value: "industrie et commerces en gros des viandes", classification: "niveau", input: "'IV.2'", minimums: { "2026.1": 2050 } },
   { name: "1930-transformation-grains", value: "métiers de la transformation des grains", classification: "niveau", input: "'VI.1'", minimums: { "2026.1": 2608.23 } },
+  { name: "1938-industries-transformation-volailles", value: "industries de la transformation des volailles", classification: "coefficient", input: 400, minimums: { "2025.1": 3268.01 } },
   { name: "1539-bureau-numerique", value: "bureau et numérique", classification: "niveau", input: "'A3'", minimums: { "2025.1": 1875 } },
   { name: "1555-produits-pharmaceutiques", value: "produits pharmaceutiques", classification: "niveau", input: "'II.1'", minimums: { "2026.1": 2121.77 }, situation: { "salarié . convention collective . produits pharmaceutiques . date de calcul": "11/10/2026", "salarié . convention collective . produits pharmaceutiques . champ juridique": "'tous employeurs après extension'" } },
   { name: "1586-industries-charcutieres", value: "industries charcutières", classification: "coefficient", input: 200, minimums: { "2026.1": 2130.2 } },

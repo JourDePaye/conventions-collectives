@@ -1,0 +1,108 @@
+# Convention collective nationale des industries de la transformation des volailles du 10 juillet 1996 (IDCC 1938).
+# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+#
+# Accord du 6 février 2025 relatif aux salaires minima mensuels au 1er février 2025,
+# étendu par arrêté du 9 avril 2025 publié au Journal officiel du 26 avril 2025.
+validFrom: 2025-02-01
+sources:
+  - Accord du 6 février 2025 relatif aux salaires minima mensuels au 1er février 2025,
+    applicable au 1er février 2025, étendu par arrêté du 9 avril 2025 publié au Journal officiel
+    du 26 avril 2025 (JORF n° 0099, texte n° 97).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051537817
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051521357
+---
+salarié . convention collective . industries de la transformation des volailles:
+  titre: Industries de la transformation des volailles (IDCC 1938)
+  valeur: convention collective = 'industries de la transformation des volailles'
+
+salarié . convention collective . industries de la transformation des volailles . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient de la grille nationale des salaires minima mensuels.
+  applicable si: convention collective = 'industries de la transformation des volailles'
+  par défaut: 0
+
+salarié . convention collective . industries de la transformation des volailles . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'industries de la transformation des volailles'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . industries de la transformation des volailles . grille mensuelle:
+  titre: Grille mensuelle des minima
+  applicable si: convention collective = 'industries de la transformation des volailles'
+  unité: €/mois
+  variations:
+    - si: coefficient = 120
+      alors: 1802 €/mois
+    - si: coefficient = 125
+      alors: 1811.52 €/mois
+    - si: coefficient = 130
+      alors: 1819.68 €/mois
+    - si: coefficient = 135
+      alors: 1827.84 €/mois
+    - si: coefficient = 140
+      alors: 1836 €/mois
+    - si: coefficient = 145
+      alors: 1845.17 €/mois
+    - si: coefficient = 150
+      alors: 1851.90 €/mois
+    - si: coefficient = 155
+      alors: 1858.64 €/mois
+    - si: coefficient = 160
+      alors: 1865.38 €/mois
+    - si: coefficient = 165
+      alors: 1872.11 €/mois
+    - si: coefficient = 170
+      alors: 1878.85 €/mois
+    - si: coefficient = 175
+      alors: 1885.58 €/mois
+    - si: coefficient = 180
+      alors: 1892.32 €/mois
+    - si: coefficient = 185
+      alors: 1899.06 €/mois
+    - si: coefficient = 190
+      alors: 1919.95 €/mois
+    - si: coefficient = 195
+      alors: 1957.13 €/mois
+    - si: coefficient = 200
+      alors: 1975.60 €/mois
+    - si: coefficient = 215
+      alors: 2033.06 €/mois
+    - si: coefficient = 230
+      alors: 2134.09 €/mois
+    - si: coefficient = 245
+      alors: 2232.83 €/mois
+    - si: coefficient = 260
+      alors: 2341.07 €/mois
+    - si: coefficient = 280
+      alors: 2458.16 €/mois
+    - si: coefficient = 300
+      alors: 2586.92 €/mois
+    - si: coefficient = 320
+      alors: 2734.41 €/mois
+    - si: coefficient = 340
+      alors: 2874.88 €/mois
+    - si: coefficient = 350
+      alors: 2882.84 €/mois
+    - si: coefficient = 375
+      alors: 3081.24 €/mois
+    - si: coefficient = 400
+      alors: 3268.01 €/mois
+    - si: coefficient = 450
+      alors: 3618.15 €/mois
+    - si: coefficient = 500
+      alors: 3968.26 €/mois
+    - si: coefficient = 600
+      alors: 4656.91 €/mois
+    - si: coefficient = 700
+      alors: 5345.51 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industries de la transformation des volailles . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  applicable si: convention collective = 'industries de la transformation des volailles'
+  valeur: grille mensuelle = 0 €/mois
