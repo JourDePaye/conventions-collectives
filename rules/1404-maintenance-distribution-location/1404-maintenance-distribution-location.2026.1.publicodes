@@ -1,0 +1,94 @@
+# Convention collective nationale des entreprises de maintenance, de distribution et de location de matériels agricoles, de travaux publics, de bâtiment, de manutention, de motoculture de plaisance et activités connexes du 23 avril 2012
+# (IDCC 1404, brochure 3131).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+validFrom: 2026-03-01
+sources:
+  - Avenant n° 16 du 18 février 2026 relatif aux salaires minima conventionnels (grille des
+    22 niveaux A10 à C60, pour 35 heures par semaine, soit 151,67 heures par mois), applicable
+    au 1er mars 2026, texte KALI KALITEXT000054177276 et article KALIARTI000054177280, publié
+    au BOCC 2026-14.
+  - Arrêté du 18 mai 2026 portant extension de l'avenant n° 16, publié au Journal officiel
+    du 29 mai 2026, texte n° 46, NOR TRST2612649A (JORFTEXT000054149369).
+---
+salarié . convention collective . maintenance distribution location:
+  titre: Maintenance, distribution et location de matériels (IDCC 1404)
+  valeur: convention collective = 'maintenance distribution location'
+
+salarié . convention collective . maintenance distribution location . niveau:
+  titre: Niveau de classification
+  description: |
+    Niveau de classification au format « A10 » à « C60 ».
+  applicable si: convention collective = 'maintenance distribution location'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . maintenance distribution location . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire minimum mensuel conventionnel pour 151,67 heures, proratisé pour un temps partiel.
+    Vaut 0 €/mois si le niveau n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'maintenance distribution location'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . maintenance distribution location . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: Grille de l'avenant n° 16 du 18 février 2026, applicable au 1er mars 2026.
+  applicable si: convention collective = 'maintenance distribution location'
+  unité: €/mois
+  variations:
+    - si: niveau = 'A10'
+      alors: 1851.43 €/mois
+    - si: niveau = 'A20'
+      alors: 1879.19 €/mois
+    - si: niveau = 'A30'
+      alors: 1907.42 €/mois
+    - si: niveau = 'A40'
+      alors: 1936.01 €/mois
+    - si: niveau = 'A50'
+      alors: 1965.04 €/mois
+    - si: niveau = 'A60'
+      alors: 2020.06 €/mois
+    - si: niveau = 'A70'
+      alors: 2076.62 €/mois
+    - si: niveau = 'A80'
+      alors: 2134.76 €/mois
+    - si: niveau = 'B10'
+      alors: 2198.81 €/mois
+    - si: niveau = 'B20'
+      alors: 2297.75 €/mois
+    - si: niveau = 'B30'
+      alors: 2401.16 €/mois
+    - si: niveau = 'B40'
+      alors: 2509.20 €/mois
+    - si: niveau = 'B50'
+      alors: 2622.12 €/mois
+    - si: niveau = 'B60'
+      alors: 2740.11 €/mois
+    - si: niveau = 'B70'
+      alors: 2863.42 €/mois
+    - si: niveau = 'B80'
+      alors: 2992.28 €/mois
+    - si: niveau = 'C10'
+      alors: 3141.90 €/mois
+    - si: niveau = 'C20'
+      alors: 3456.10 €/mois
+    - si: niveau = 'C30'
+      alors: 3974.52 €/mois
+    - si: niveau = 'C40'
+      alors: 4570.68 €/mois
+    - si: niveau = 'C50'
+      alors: 5256.27 €/mois
+    - si: niveau = 'C60'
+      alors: 6044.71 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . maintenance distribution location . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'maintenance distribution location'
+  valeur: grille = 0 €/mois

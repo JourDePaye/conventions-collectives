@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Soixante-sept conventions sont actuellement représentées, avec soixante-dix versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Soixante-huit conventions sont actuellement représentées, avec soixante et onze versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -62,6 +62,7 @@ Soixante-sept conventions sont actuellement représentées, avec soixante-dix ve
 | [Produits pharmaceutiques](rules/1555-produits-pharmaceutiques/README.md) | 1555 | `2026.1` : 1er mars 2026 (signataires) ; 8 mai 2026 (champ étendu) | 13 rémunérations minimales mensuelles garanties des niveaux I.1 à II.7, 10 rémunérations annuelles garanties des niveaux III.1 à III.10, bornes de date et de champ juridique, proratisation mensuelle sans conversion annuelle |
 | [Industrie du pétrole](rules/1388-industrie-petrole/README.md) | 1388 | `2026.1` : 1er janvier 2026 | Minimum hiérarchique calculé par formule (valeur du point, majoration conventionnelle et surmajoration) pour les coefficients de 130 à 880, proratisé selon la quotité de travail ; détection des coefficients hors plage |
 | [Fabrication de l’ameublement](rules/1411-fabrication-ameublement/README.md) | 1411 | `2026.1` : 1er juillet 2026 | Grille mensuelle de 36 échelons (agents de production, fonctionnels, d’encadrement et cadres), proratisée selon la quotité de travail ; détection des échelons hors grille |
+| [Maintenance, distribution et location de matériels](rules/1404-maintenance-distribution-location/README.md) | 1404 | `2026.1` : 1er mars 2026 (avenant étendu le 29 mai 2026) | Grille mensuelle de 22 niveaux A10 à C60, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Métallurgie](rules/3248-metallurgie/README.md) | 3248 | `2026.1` : 1er janvier 2026 | Barème national annuel des 18 classes d’emplois (A1 à I18), converti en minimum mensuel et proratisé selon la quotité de travail ; détection des classes hors barème |
 
 ### BÂTIMENT & TRAVAUX PUBLICS

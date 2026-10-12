@@ -36,6 +36,7 @@ const models = [
   { name: "2098-prestataires-tertiaire", value: "prestataires tertiaires", classification: "coefficient", input: 120, minimums: { "2026.1": 1823.03 } },
   { name: "1388-industrie-petrole", value: "industrie pétrole", classification: "coefficient", input: 200, minimums: { "2026.1": 2213.92 } },
   { name: "1411-fabrication-ameublement", value: "fabrication ameublement", classification: "niveau", input: "'AP52'", minimums: { "2026.1": 2117 } },
+  { name: "1404-maintenance-distribution-location", value: "maintenance distribution location", classification: "niveau", input: "'B40'", minimums: { "2026.1": 2509.2 } },
   { name: "1483-commerce-detail-habillement-textiles", value: "commerce de détail habillement", classification: "niveau", input: "'3'", minimums: { "2026.1": 1843 } },
   { name: "1517-commerce-detail-non-alimentaire", value: "commerce de détail non alimentaire", classification: "niveau", input: "'5'", minimums: { "2026.1": 1967 } },
   { name: "1619-cabinets-dentaires", value: "cabinets dentaires", classification: "niveau", input: "'assistant-dentaire'", minimums: { "2026.1": 2112.76 } },
