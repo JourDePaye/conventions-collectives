@@ -1,0 +1,81 @@
+validFrom: 2026-04-01
+sources:
+  - Avenant n° 100 du 3 mars 2026 relatif aux salaires minima conventionnels de la convention collective nationale des industries de jeux, jouets, articles de fêtes et ornements de Noël, articles de puériculture et voitures d'enfants, modèles réduits et industries connexes (IDCC 1607), barème mensuel pour 151,67 heures, applicable à compter du 1er avril 2026 aux entreprises adhérant à une organisation d'employeurs signataire.
+  - Arrêté du 20 mai 2026 portant extension de l'avenant n° 100, publié au Journal officiel, NOR TRST2612716A ; le champ étendu est couvert à compter du premier jour du mois suivant la publication.
+  - Textes consultés sur Légifrance, convention collective IDCC 1607.
+---
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme:
+  titre: Industries de jeux, jouets, articles de fêtes et ornements de Noël, articles de puériculture, voitures d'enfants et modèles réduits (IDCC 1607)
+  valeur: convention collective = 'jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme'
+
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient figurant dans la grille de l'avenant n° 100.
+  applicable si: convention collective = 'jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme'
+  par défaut: 0
+
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel de la colonne 0 à 3 ans pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme . salaire minimum conventionnel . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Colonne 0 à 3 ans de la grille de l'article 2 de l'avenant n° 100, pour 151,67 heures mensuelles.
+  unité: €/mois
+  variations:
+    - si: coefficient = 115
+      alors: 1841 €/mois
+    - si: coefficient = 118
+      alors: 1852 €/mois
+    - si: coefficient = 123
+      alors: 1863 €/mois
+    - si: coefficient = 130
+      alors: 1911 €/mois
+    - si: coefficient = 138
+      alors: 1921 €/mois
+    - si: coefficient = 143
+      alors: 1929 €/mois
+    - si: coefficient = 155
+      alors: 1942 €/mois
+    - si: coefficient = 170
+      alors: 1986 €/mois
+    - si: coefficient = 180
+      alors: 2045 €/mois
+    - si: coefficient = 190
+      alors: 2092 €/mois
+    - si: coefficient = 200
+      alors: 2154 €/mois
+    - si: coefficient = 212
+      alors: 2240 €/mois
+    - si: coefficient = 220
+      alors: 2285 €/mois
+    - si: coefficient = 255
+      alors: 2532 €/mois
+    - si: coefficient = 290
+      alors: 2783 €/mois
+    - si: coefficient = 310
+      alors: 2923 €/mois
+    - si: coefficient = 330
+      alors: 3054 €/mois
+    - si: coefficient = 370
+      alors: 3564 €/mois
+    - si: coefficient = 440
+      alors: 3633 €/mois
+    - si: coefficient = 480
+      alors: 3899 €/mois
+    - si: coefficient = 520
+      alors: 4170 €/mois
+    - si: coefficient = 560
+      alors: 4441 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la colonne modélisée des salaires minima.
+  applicable si: convention collective = 'jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
