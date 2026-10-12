@@ -1,6 +1,6 @@
 # Restauration rapide — IDCC 1501
 
-Le fichier [2025.1](1501-restauration-rapide.2025.1.publicodes) entre en vigueur le 1er juin 2025. Il est fondé sur l’avenant n° 72 du 5 juin 2025 relatif aux minima conventionnels, étendu par arrêté du 31 juillet 2025 (JORF n° 0182 du 7 août 2025, NOR TSST2520699A), cités dans ses métadonnées. La valeur Publicodes est `restauration rapide` ; les règles sont sous `salarié . convention collective . restauration rapide`.
+Le fichier [2025.1](1501-restauration-rapide.2025.1.publicodes) entre en vigueur le 1er juin 2025. Le fichier [2026.1](1501-restauration-rapide.2026.1.publicodes) ajoute le régime de prévoyance à compter du 4 juin 2026, après publication de son arrêté d’extension ; il est fondé sur l’avenant n° 10 du 5 décembre 2025. Les textes sont cités dans les métadonnées. La valeur Publicodes est `restauration rapide` ; les règles sont sous `salarié . convention collective . restauration rapide`.
 
 La convention collective nationale de la restauration rapide du 18 mars 1988 (brochure 3245) couvre la restauration rapide, élargie à la restauration livrée par l’avenant n° 29.
 
@@ -25,6 +25,7 @@ Les échelons `I.A`, `I.B` et `II.A` (de 11,88 € à 12,22 € de l’heure) so
 ## Limites
 
 - Le minimum du niveau V est annuel et s’apprécie sur tous les éléments de salaire (primes, treizième mois, parts variables). Le modèle n’en donne que l’équivalent mensuel, un douzième : l’avenant ne définit pas de conversion mensuelle, c’est donc une approximation.
-- Les primes, majorations, la prévoyance et les autres éléments de la convention ne sont pas modélisés.
+- Le régime de prévoyance 2026.1 calcule 0,50 % du salaire brut sur T1 et T2 plafonnées à 4 PMSS, réparti à parts égales entre employeur et salarié pour les non-cadres ; les dispositions cadres restent celles du modèle social standard.
+- Les primes, majorations, la santé, la formation et les autres éléments de la convention ne sont pas modélisés.
 - Les grilles antérieures à l’avenant n° 72, notamment celle de l’avenant n° 67 du 30 avril 2024, ne sont pas modélisées : la première version couvre les périodes à partir du 1er juin 2025.
 - L’avenant s’applique de plein droit aux adhérents des organisations patronales signataires, et à tous les employeurs du champ depuis son extension (publication de l’arrêté du 7 août 2025).
