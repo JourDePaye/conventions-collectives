@@ -8,12 +8,13 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Soixante-quatorze conventions sont actuellement représentées, avec soixante-dix-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Soixante-quinze conventions sont actuellement représentées, avec soixante-dix-huit versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
+| [Salariés permanents des entreprises de travail temporaire](rules/1413-travail-temporaire/README.md) | 1413 | `2026.1` : 1er février 2026 | Minima mensuels des niveaux A à M, minimum majoré du niveau F en forfait jours, proratisation selon la quotité de travail ; détection des niveaux hors grille |
 | [Services de l’automobile (commerce, réparation, contrôle technique, écoles de conduite)](rules/1090-services-automobile/README.md) | 1090 | `2026.1` : 1er mai 2026 | Grille de 34 positions pour les ouvriers et employés (échelons 1 à 12), la maîtrise (échelons 17 à 25) et les cadres (niveaux I à V), proratisée selon la quotité de travail ; détection des échelons et niveaux hors grille |
 | [Entreprises de prévention et de sécurité](rules/1351-prevention-securite/README.md) | 1351 | `2026.1` : 1er juillet 2026 | Grille de 25 positions pour trois catégories, prime d’ancienneté, majorations nuit et dimanche, paniers, indemnités et minimum de six heures par période |
 | [Bureaux d’études techniques, cabinets d’ingénieurs-conseils et sociétés de conseils (Syntec)](rules/1486-syntec/README.md) | 1486 | `2025.1` : 1er janvier 2025 | Minima mensuels des ETAM et des ingénieurs et cadres selon leur coefficient ; détection des coefficients hors grille |

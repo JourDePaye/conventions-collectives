@@ -1,0 +1,85 @@
+# Convention collective nationale des salariés permanents des entreprises de travail temporaire (IDCC 1413, brochure 3212).
+# Version 2026.1, minima mensuels de l’accord du 20 février 2026.
+validFrom: 2026-02-01
+sources:
+  - >-
+    Accord du 20 février 2026 relatif aux salaires minima conventionnels des salariés permanents
+    des entreprises de travail temporaire : montants mensuels des niveaux A à M et minimum majoré
+    du niveau F en forfait jours, applicables aux périodes d’emploi courant à compter du 1er février 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635905
+  - >-
+    Arrêté du 4 mai 2026 portant extension de l’accord du 20 février 2026, publié au Journal
+    officiel du 10 mai 2026 : extension à tous les employeurs et salariés compris dans le champ
+    propre de l’accord. https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054051082
+---
+salarié . convention collective . travail temporaire:
+  titre: Salariés permanents des entreprises de travail temporaire (IDCC 1413)
+  valeur: convention collective = 'travail temporaire'
+
+salarié . convention collective . travail temporaire . niveau:
+  titre: Niveau de classification
+  description: Niveau de classification de A à M prévu par l’accord du 19 juillet 2024.
+  applicable si: convention collective = 'travail temporaire'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . travail temporaire . forfait jours:
+  titre: Forfait en jours sur l’année
+  description: Active le minimum majoré applicable au niveau F lorsqu’une convention de forfait en jours est conclue.
+  applicable si: convention collective = 'travail temporaire'
+  par défaut: non
+
+salarié . convention collective . travail temporaire . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps complet sur la base de la durée mensuelle légale du travail, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'travail temporaire'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . travail temporaire . grille mensuelle:
+  titre: Grille mensuelle à temps complet
+  description: Minima conventionnels applicables à compter du 1er février 2026. Le niveau F en forfait jours bénéficie du minimum majoré de 2 517 €.
+  applicable si: convention collective = 'travail temporaire'
+  unité: €/mois
+  variations:
+    - si: niveau = 'A'
+      alors: 1836 €/mois
+    - si: niveau = 'B'
+      alors: 1859 €/mois
+    - si: niveau = 'C'
+      alors: 1896 €/mois
+    - si: niveau = 'D'
+      alors: 1967 €/mois
+    - si: niveau = 'E'
+      alors: 2013 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'F'
+          - forfait jours
+      alors: 2517 €/mois
+    - si: niveau = 'F'
+      alors: 2288 €/mois
+    - si: niveau = 'G'
+      alors: 2547 €/mois
+    - si: niveau = 'H'
+      alors: 2948 €/mois
+    - si: niveau = 'I'
+      alors: 3358 €/mois
+    - si: niveau = 'J'
+      alors: 3759 €/mois
+    - si: niveau = 'K'
+      alors: 4418 €/mois
+    - si: niveau = 'L'
+      alors: 5077 €/mois
+    - si: niveau = 'M'
+      alors: 5666 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . travail temporaire . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n’est pas compris entre A et M.
+  applicable si: convention collective = 'travail temporaire'
+  valeur:
+    toutes ces conditions:
+      - grille mensuelle = 0 €/mois

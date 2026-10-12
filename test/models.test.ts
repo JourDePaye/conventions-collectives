@@ -58,6 +58,7 @@ const models = [
   { name: "0292-plasturgie", value: "plasturgie", classification: "coefficient", input: 800, minimums: { "2026.1": 2266 } },
   { name: "0413-personnes-handicapees", value: "personnes handicapées et inadaptées", classification: "coefficient", input: 434, minimums: { "2022.1": 1657.88 } },
   { name: "0573-commerces-de-gros", value: "commerces de gros", classification: "niveau", input: "'IV.2'", minimums: { "2026.1": 1953.23 } },
+  { name: "1413-travail-temporaire", value: "travail temporaire", classification: "niveau", input: "'H'", minimums: { "2026.1": 2948 } },
   { name: "1090-services-automobile", value: "services automobile", classification: "niveau", input: "'7'", minimums: { "2026.1": 1999 } },
   { name: "1516-organismes-formation", value: "organismes de formation", classification: "coefficient", input: 240, minimums: { "2025.1": 2463.73, "2027.1": 2513 } },
   { name: "1501-restauration-rapide", value: "restauration rapide", classification: "niveau", input: "'III.B'", minimums: { "2025.1": 1961.05 } },
