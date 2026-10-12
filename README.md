@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Quatre-vingt-cinq conventions sont actuellement représentées, avec quatre-vingt-huit versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Quatre-vingt-six conventions sont actuellement représentées, avec quatre-vingt-neuf versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -76,6 +76,7 @@ Quatre-vingt-cinq conventions sont actuellement représentées, avec quatre-ving
 | [Expédition et exportation de fruits et légumes](rules/1405-expedition-exportation-fruits-legumes/README.md) | 1405 | `2026.1` : 1er avril 2026 (avenant étendu le 19 mai 2026) | Grille mensuelle des niveaux I à IX pour le secteur fruits et légumes, proratisée selon la quotité de travail ; le secteur des produits prêts à l'emploi n'est pas modélisé |
 | [Métallurgie](rules/3248-metallurgie/README.md) | 3248 | `2026.1` : 1er janvier 2026 | Barème national annuel des 18 classes d’emplois (A1 à I18), converti en minimum mensuel et proratisé selon la quotité de travail ; détection des classes hors barème |
 | [Production et transformation des papiers et cartons](rules/3238-production-transformation-papiers-cartons/README.md) | 3238 | `2026.1` : 1er janvier 2026 | Grille mensuelle OETAM de 15 coefficients, proratisée selon la quotité de travail ; détection des coefficients hors grille |
+| [Industrie de la chaussure](rules/1580-industrie-chaussure/README.md) | 1580 | `2026.1` : 1er janvier 2026 (accord étendu) | Grilles mensuelles des niveaux 1 à 3 et annuelles des niveaux 4 à 6 et positions cadres P1 à P4, converties en minimum mensuel et proratisées selon la quotité de travail ; détection des classifications hors grille |
 | [Professions regroupées du cristal, du verre et du vitrail](rules/1821-cristal-verre-vitrail/README.md) | 1821 | `2026.1` : 1er janvier 2026 (accord étendu) | Grille mensuelle de 26 coefficients, proratisée selon la quotité de travail ; industrie du vitrail de l’annexe B exclue |
 
 ### BÂTIMENT & TRAVAUX PUBLICS

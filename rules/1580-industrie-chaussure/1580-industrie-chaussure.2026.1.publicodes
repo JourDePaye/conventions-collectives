@@ -1,0 +1,97 @@
+validFrom: 2026-01-01
+sources:
+  - "Accord du 26 mars 2026 relatif aux salaires minima, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054454194"
+  - "Arrêté du 11 juin 2026 portant extension de l'accord, publié au Journal officiel le 27 juin 2026, JORFTEXT000054322358 : https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054322358"
+---
+salarié . convention collective . industrie chaussure:
+  titre: Industrie de la chaussure (IDCC 1580)
+  valeur: convention collective = 'industrie chaussure'
+
+salarié . convention collective . industrie chaussure . classification:
+  titre: Classification conventionnelle
+  description: |
+    Pour les ouvriers et employés, utiliser niveau.échelon (1.1 à 3.2). Pour les TAM,
+    utiliser 4.1 à 6.2. Pour les cadres, utiliser P1.1, P1.2 ou P2 à P4.
+  applicable si: convention collective = 'industrie chaussure'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . industrie chaussure . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: |
+    Minimum mensuel garanti à temps complet pour les classifications mensuelles. Pour les
+    classifications annuelles, le douzième du minimum annuel. Le montant est proratisé selon
+    la quotité de travail.
+  applicable si: convention collective = 'industrie chaussure'
+  unité: €/mois
+  produit:
+    - somme:
+        - grille mensuelle
+        - rémunération minimale annuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . industrie chaussure . grille mensuelle:
+  titre: Minimum mensuel des niveaux 1 à 3
+  description: Minimum mensuel à temps complet de l'accord du 26 mars 2026.
+  applicable si: convention collective = 'industrie chaussure'
+  unité: €/mois
+  variations:
+    - si: classification = '1.1'
+      alors: 1823.03 €/mois
+    - si: classification = '1.2'
+      alors: 1836 €/mois
+    - si: classification = '1.3'
+      alors: 1846 €/mois
+    - si: classification = '2.1'
+      alors: 1864 €/mois
+    - si: classification = '2.2'
+      alors: 1886 €/mois
+    - si: classification = '2.3'
+      alors: 1894 €/mois
+    - si: classification = '3.1'
+      alors: 1910 €/mois
+    - si: classification = '3.2'
+      alors: 1930 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industrie chaussure . rémunération minimale annuelle:
+  titre: Minimum annuel des TAM et cadres
+  description: Minimum annuel à temps complet de l'accord du 26 mars 2026, sans conversion dans cette règle.
+  applicable si: convention collective = 'industrie chaussure'
+  unité: €/an
+  variations:
+    - si: classification = '4.1'
+      alors: 23177 €/an
+    - si: classification = '4.2'
+      alors: 23814 €/an
+    - si: classification = '4.3'
+      alors: 25793 €/an
+    - si: classification = '5.1'
+      alors: 26043 €/an
+    - si: classification = '5.2'
+      alors: 27909 €/an
+    - si: classification = '5.3'
+      alors: 30056 €/an
+    - si: classification = '6.1'
+      alors: 30348 €/an
+    - si: classification = '6.2'
+      alors: 34386 €/an
+    - si: classification = 'P1.1'
+      alors: 32138 €/an
+    - si: classification = 'P1.2'
+      alors: 34520 €/an
+    - si: classification = 'P2'
+      alors: 39797 €/an
+    - si: classification = 'P3'
+      alors: 46192 €/an
+    - si: classification = 'P4'
+      alors: 54721 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . industrie chaussure . classification hors grille:
+  titre: Classification absente de la grille
+  description: La classification n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'industrie chaussure'
+  valeur:
+    toutes ces conditions:
+      - grille mensuelle = 0 €/mois
+      - rémunération minimale annuelle = 0 €/an
