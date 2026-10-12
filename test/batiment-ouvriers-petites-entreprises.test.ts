@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "1596-batiment-ouvriers-petites-entreprises";
 const value = "bâtiment ouvriers petites entreprises";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -45,7 +45,7 @@ function amount(rule: string) {
   return Math.round((result as number) * 100) / 100;
 }
 
-describe("IDCC 1596 — 2026.1 building workers in companies with up to 10 employees", () => {
+describe("IDCC 1596 — 2026.2 building workers in companies with up to 10 employees", () => {
   it("uses the Centre-Val de Loire regional grid from 1 May 2026", () => {
     assert.equal(version.validFrom, "2026-05-01");
     for (const [coefficient, expected] of Object.entries({
@@ -77,13 +77,19 @@ describe("IDCC 1596 — 2026.1 building workers in companies with up to 10 emplo
     assert.equal(valueOf("salaire minimum conventionnel"), null);
   });
 
-  it("uses the 2026 Centre CIBTP leave rate and bad-weather rates", () => {
+  it("uses the 2026 Centre CIBTP leave rate from 1 January and bad-weather rates", () => {
     situation({
       [`${namespace} . caisse de rattachement`]: "'centre'",
       [`${namespace} . chômage intempéries . secteur`]: "'gros œuvre'",
     });
     assert.equal(amount("congés intempéries"), 621);
     assert.equal(amount("chômage intempéries"), 20.4);
+    situation({
+      date: "01/01/2026",
+      [`${namespace} . chômage intempéries . secteur`]: "'second œuvre'",
+    });
+    assert.equal(amount("congés intempéries"), 621);
+    assert.equal(amount("chômage intempéries"), 3.9);
     situation({
       [`${namespace} . caisse de rattachement`]: "'centre'",
       [`${namespace} . chômage intempéries . secteur`]: "'second œuvre'",
