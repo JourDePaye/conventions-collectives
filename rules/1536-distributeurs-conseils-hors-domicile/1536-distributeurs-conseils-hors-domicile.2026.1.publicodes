@@ -1,0 +1,96 @@
+# Convention collective nationale des distributeurs conseils hors domicile (IDCC 1536, brochure 3086).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Sources officielles : avenant n° 2026/1 du 3 mars 2026 relatif aux salaires minima
+# conventionnels, étendu par arrêté du 20 mai 2026 publié au JORF du 29 mai 2026.
+# L'avenant prévoit une application au 1er mars 2026 ; la présente version retient cette
+# date d'effet pour le champ étendu après publication de l'arrêté.
+---
+validFrom: 2026-03-01
+sources:
+  - "Avenant n° 2026/1 du 3 mars 2026 relatif aux salaires minima conventionnels de la convention collective nationale des distributeurs conseils hors domicile (IDCC 1536), grille mensuelle des niveaux I à VI et échelons 1 à 4 pour 151,67 heures."
+  - "Arrêté du 20 mai 2026 portant extension de l'avenant n° 2026/1, publié au Journal officiel du 29 mai 2026 ; extension du champ de la convention."
+  - "Textes officiels consultés sur Légifrance : convention collective nationale IDCC 1536, avenant salarial 2026/1 et arrêté d'extension."
+---
+salarié . convention collective . distributeurs conseils hors domicile:
+  titre: Distributeurs conseils hors domicile (IDCC 1536)
+  valeur: convention collective = 'distributeurs conseils hors domicile'
+
+salarié . convention collective . distributeurs conseils hors domicile . classification:
+  titre: Classification
+  description: Niveau et échelon de la grille de l'avenant n° 2026/1, sous la forme `I.1` à `VI.4`.
+  applicable si: convention collective = 'distributeurs conseils hors domicile'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . distributeurs conseils hors domicile . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'distributeurs conseils hors domicile'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . distributeurs conseils hors domicile . salaire minimum conventionnel . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Grille de l'avenant n° 2026/1, pour 151,67 heures mensuelles.
+  unité: €/mois
+  variations:
+    - si: classification = 'I.1'
+      alors: 1844 €/mois
+    - si: classification = 'I.2'
+      alors: 1856 €/mois
+    - si: classification = 'I.3'
+      alors: 1875 €/mois
+    - si: classification = 'I.4'
+      alors: 1891 €/mois
+    - si: classification = 'II.1'
+      alors: 1908 €/mois
+    - si: classification = 'II.2'
+      alors: 1929 €/mois
+    - si: classification = 'II.3'
+      alors: 1962 €/mois
+    - si: classification = 'II.4'
+      alors: 1982 €/mois
+    - si: classification = 'III.1'
+      alors: 2002 €/mois
+    - si: classification = 'III.2'
+      alors: 2024 €/mois
+    - si: classification = 'III.3'
+      alors: 2054 €/mois
+    - si: classification = 'III.4'
+      alors: 2079 €/mois
+    - si: classification = 'IV.1'
+      alors: 2106 €/mois
+    - si: classification = 'IV.2'
+      alors: 2161 €/mois
+    - si: classification = 'IV.3'
+      alors: 2267 €/mois
+    - si: classification = 'IV.4'
+      alors: 2376 €/mois
+    - si: classification = 'V.1'
+      alors: 2531 €/mois
+    - si: classification = 'V.2'
+      alors: 2820 €/mois
+    - si: classification = 'V.3'
+      alors: 3037 €/mois
+    - si: classification = 'V.4'
+      alors: 3257 €/mois
+    - si: classification = 'VI.1'
+      alors: 3572 €/mois
+    - si: classification = 'VI.2'
+      alors: 3825 €/mois
+    - si: classification = 'VI.3'
+      alors: 4304 €/mois
+    - si: classification = 'VI.4'
+      alors: 4632 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . distributeurs conseils hors domicile . classification hors grille:
+  titre: Classification absente de la grille
+  description: La classification ne correspond pas à une combinaison niveau-échelon de la grille modélisée.
+  applicable si: convention collective = 'distributeurs conseils hors domicile'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
