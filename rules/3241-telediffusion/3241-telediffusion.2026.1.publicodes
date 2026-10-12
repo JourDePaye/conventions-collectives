@@ -1,0 +1,70 @@
+# Convention collective nationale de la télédiffusion du 2 juillet 2021 (IDCC 3241).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+# Le périmètre de cette version est limité aux minima journaliers des contrats à durée déterminée d'usage (CDDU), liste 1.
+---
+validFrom: 2026-06-01
+sources:
+  - >-
+    Accord du 11 mai 2026 relatif aux salaires minima des contrats à durée déterminée d'usage (CDDU),
+    applicable à compter du 1er juin 2026.
+  - >-
+    Convention collective nationale de la télédiffusion du 2 juillet 2021, IDCC 3241, et texte salarial
+    publié dans la base officielle Légifrance sous KALITEXT000054880861 / KALITEXT000054880840.
+  - >-
+    Barème officiel des minima journaliers bruts (8 heures), liste 1 : niveaux 1 à 7-2 ; le niveau 8
+    est de gré à gré.
+---
+salarié . convention collective . télédiffusion:
+  titre: Télédiffusion (IDCC 3241)
+  valeur: convention collective = 'télédiffusion'
+
+salarié . convention collective . télédiffusion . niveau:
+  titre: Niveau CDDU
+  description: Niveau de la liste 1 du barème des minima journaliers CDDU applicable au 1er juin 2026.
+  applicable si: convention collective = 'télédiffusion'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . télédiffusion . salaire minimum journalier:
+  titre: Salaire minimum journalier CDDU
+  description: Minimum brut pour une journée de 8 heures selon la liste 1 du barème salarial.
+  applicable si: convention collective = 'télédiffusion'
+  unité: €/jour
+  valeur: grille
+
+salarié . convention collective . télédiffusion . grille:
+  titre: Grille des minima journaliers CDDU, liste 1
+  unité: €/jour
+  variations:
+    - si: niveau = '1'
+      alors: 119.83 €/jour
+    - si: niveau = '2'
+      alors: 138.68 €/jour
+    - si: niveau = '3'
+      alors: 151.30 €/jour
+    - si: niveau = '4-1'
+      alors: 162.32 €/jour
+    - si: niveau = '4-2'
+      alors: 168.30 €/jour
+    - si: niveau = '5-1'
+      alors: 180.16 €/jour
+    - si: niveau = '5-2'
+      alors: 193.05 €/jour
+    - si: niveau = '5-3'
+      alors: 198 €/jour
+    - si: niveau = '6-1'
+      alors: 205.01 €/jour
+    - si: niveau = '6-2'
+      alors: 212.83 €/jour
+    - si: niveau = '7-1'
+      alors: 223.65 €/jour
+    - si: niveau = '7-2'
+      alors: 284.38 €/jour
+    - sinon: 0 €/jour
+
+salarié . convention collective . télédiffusion . niveau hors grille:
+  titre: Niveau absent de la grille CDDU
+  description: Le niveau 8 est de gré à gré et n'est pas modélisé par ce barème automatique.
+  applicable si: convention collective = 'télédiffusion'
+  valeur: niveau = '8'

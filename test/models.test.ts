@@ -26,6 +26,7 @@ const models = [
   { name: "3242-presse-regions", value: "presse en régions", classification: "niveau", input: "'E5'", minimums: { "2023.1": 1878.55 } },
   { name: "3248-metallurgie", value: "métallurgie", classification: "niveau", input: "'C5'", minimums: { "2026.1": 2042.5 } },
   { name: "3239-particuliers-employeurs-emploi-domicile", value: "particuliers employeurs et emploi à domicile", classification: "niveau", input: "'I'", minimums: { "2026.1": 2194.14 } },
+  { name: "3241-telediffusion", value: "télédiffusion", classification: "niveau", input: "'5-1'", minimums: { "2026.1": 180.16 }, minimumRule: "salaire minimum journalier" },
   { name: "2247-courtage-assurances", value: "courtage assurances", classification: "niveau", input: "'D'", minimums: { "2025.1": 2208 } },
   { name: "2335-agences-generales-assurances", value: "agences générales assurances", classification: "classe", input: "'1'", minimums: { "2026.1": 23194 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . agences générales assurances . date de calcul": "11/10/2026", "salarié . convention collective . agences générales assurances . champ juridique": "'tous employeurs après extension'" } },
   { name: "1747-boulangerie-industrielle", value: "boulangerie industrielle 1747", classification: "niveau", input: "'L3'", minimums: { "2025.1": 4578.52 } },
