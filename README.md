@@ -123,7 +123,7 @@ Cent conventions sont actuellement représentées, avec cent quatre versions de 
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
-| [Sociétés d’assurances](rules/1672-societes-assurances/README.md) | 1672 | `2026.1` : 1er janvier 2026 | Rémunérations minimales annuelles des 7 classes, converties en minimum mensuel sur 13 mensualités et proratisées selon la quotité de travail ; détection des classes hors grille |
+| [Sociétés d’assurances](rules/1672-societes-assurances/README.md) | 1672 | `2026.3` : 1er janvier 2026 | Rémunérations minimales annuelles des 7 classes, avec endpoint annuel proratisé et équivalent mensuel indicatif sur 12 mois ; détection des classes hors grille |
 | [Banque](rules/2120-banque/README.md) | 2120 | `2026.1` : 1er avril 2026 | Salaires annuels minima des 11 niveaux (A à K) selon l’ancienneté (0, 5, 10, 15 et 20 ans), convertis en minimum mensuel sur 13 mensualités et proratisés selon la quotité de travail ; détection des niveaux hors grille |
 | [Édition](rules/2121-edition/README.md) | 2121 | `2026.1` : 1er juillet 2026 (avenant étendu) | Grille mensuelle de 16 catégories employés, agents de maîtrise/techniciens et cadres, proratisée selon la quotité de travail ; détection des catégories hors grille |
 | [Import-export](rules/0043-import-export/README.md) | 43 | `2026.1` : 1er mars 2026 (accord étendu le 13 mai 2026) | Grille mensuelle de 20 coefficients (E1 à E8, M9 à M12 et C13 à C20), proratisée selon la quotité de travail ; détection des coefficients hors grille |

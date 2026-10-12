@@ -53,7 +53,7 @@ const models = [
   { name: "1517-commerce-detail-non-alimentaire", value: "commerce de détail non alimentaire", classification: "niveau", input: "'5'", minimums: { "2026.1": 1967 } },
   { name: "1619-cabinets-dentaires", value: "cabinets dentaires", classification: "niveau", input: "'assistant-dentaire'", minimums: { "2026.1": 2112.76 } },
   { name: "0993-prothesistes-dentaires", value: "prothésistes dentaires", classification: "niveau", input: "'PHQ1'", minimums: { "2026.1": 2293 } },
-  { name: "1672-societes-assurances", value: "sociétés assurances", classification: "niveau", input: "'3'", minimums: { "2026.1": 1928.46 } },
+  { name: "1672-societes-assurances", value: "sociétés assurances", classification: "niveau", input: "'3'", minimums: { "2026.3": 2089.17 } },
   { name: "1686-commerces-services-audiovisuel", value: "audiovisuel électronique équipement ménager", classification: "niveau", input: "'III.2'", minimums: { "2026.1": 2060.98 } },
   { name: "1702-travaux-publics-ouvriers", value: "travaux publics ouvriers", classification: "coefficient", input: 100, minimums: { "2026.1": 23863 }, minimumRule: "minimum annuel", situation: { "salarié . convention collective . travaux publics ouvriers . catégorie": "'ouvrier'", "salarié . convention collective . travaux publics ouvriers . région": "'Bretagne'", "salarié . convention collective . travaux publics ouvriers . date de calcul": "11/10/2026" } },
   { name: "1486-syntec", value: "syntec", classification: "coefficient", input: 355, minimums: { "2025.1": 2045, "2026.1": 2045 } },
