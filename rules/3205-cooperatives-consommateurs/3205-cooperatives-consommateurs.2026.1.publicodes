@@ -1,0 +1,69 @@
+# Convention collective nationale des coopératives de consommateurs du 6 avril 1967 (IDCC 3205).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+
+validFrom: 2026-05-01
+sources:
+  - >-
+    Avenant n° 932 du 27 janvier 2026 relatif aux salaires minima conventionnels, texte publié
+    sur Légifrance sous l'identifiant KALITEXT000054303994 ; entrée en vigueur conventionnelle
+    au 1er mai 2026.
+  - >-
+    Arrêté d'extension du 23 avril 2026, publié au Journal officiel du 30 avril 2026, rendant
+    l'avenant applicable à l'ensemble des employeurs et salariés du champ.
+  - >-
+    Grille des minima mensuels à temps plein : niveaux 1 à 12, de 1 823,07 € à 3 360,78 €.
+---
+salarié . convention collective . coopératives de consommateurs:
+  titre: Coopératives de consommateurs (IDCC 3205)
+  valeur: convention collective = 'coopératives de consommateurs'
+
+salarié . convention collective . coopératives de consommateurs . niveau:
+  titre: Niveau de classification
+  description: Niveau 1 à 12 de la grille des salaires minima conventionnels.
+  applicable si: convention collective = 'coopératives de consommateurs'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . coopératives de consommateurs . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'coopératives de consommateurs'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . coopératives de consommateurs . salaire minimum conventionnel . grille:
+  titre: Grille mensuelle à temps plein
+  unité: €/mois
+  variations:
+    - si: niveau = '1'
+      alors: 1823.07 €/mois
+    - si: niveau = '2'
+      alors: 1840.70 €/mois
+    - si: niveau = '3'
+      alors: 1862.28 €/mois
+    - si: niveau = '4'
+      alors: 1883.78 €/mois
+    - si: niveau = '5'
+      alors: 1907.54 €/mois
+    - si: niveau = '6'
+      alors: 1943.77 €/mois
+    - si: niveau = '7'
+      alors: 2008.22 €/mois
+    - si: niveau = '8'
+      alors: 2134.86 €/mois
+    - si: niveau = '9'
+      alors: 2335.64 €/mois
+    - si: niveau = '10'
+      alors: 2611.78 €/mois
+    - si: niveau = '11'
+      alors: 2972.05 €/mois
+    - si: niveau = '12'
+      alors: 3360.78 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . coopératives de consommateurs . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'coopératives de consommateurs'
+  valeur: grille = 0 €/mois
