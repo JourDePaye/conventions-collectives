@@ -24,6 +24,7 @@ const models = [
   { name: "3239-particuliers-employeurs-emploi-domicile", value: "particuliers employeurs et emploi à domicile", classification: "niveau", input: "'I'", minimums: { "2026.1": 2194.14 } },
   { name: "2247-courtage-assurances", value: "courtage assurances", classification: "niveau", input: "'D'", minimums: { "2025.1": 2208 } },
   { name: "2335-agences-generales-assurances", value: "agences générales assurances", classification: "classe", input: "'1'", minimums: { "2026.1": 23194 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . agences générales assurances . date de calcul": "11/10/2026", "salarié . convention collective . agences générales assurances . champ juridique": "'tous employeurs après extension'" } },
+  { name: "3255-boulangerie-industrielle", value: "boulangerie industrielle", classification: "niveau", input: "'E3'", minimums: { "2025.1": 2074.18 } },
   { name: "2264-hospitalisation-privee", value: "hospitalisation privée", classification: "coefficient", input: 300, minimums: { "2023.1": 2178 } },
   { name: "2511-sport", value: "sport", classification: "groupe", input: "'3'", minimums: { "2026.1": 1997.87 } },
   { name: "1512-promotion-immobiliere", value: "promotion immobilière", classification: "coefficient", input: 100, minimums: { "2026.1": 1885 } },
