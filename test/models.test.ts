@@ -31,6 +31,7 @@ const models = [
   { name: "2264-hospitalisation-privee", value: "hospitalisation privée", classification: "coefficient", input: 300, minimums: { "2023.1": 2178 } },
   { name: "2511-sport", value: "sport", classification: "groupe", input: "'3'", minimums: { "2026.1": 1997.87 } },
   { name: "1512-promotion-immobiliere", value: "promotion immobilière", classification: "coefficient", input: 100, minimums: { "2026.1": 1885 } },
+  { name: "1513-papeterie-librairie", value: "papeterie fournitures bureau bureautique informatique librairie", classification: "coefficient", input: "'6'", minimums: { "2026.1": 1830 } },
   { name: "2596-coiffure", value: "coiffure", classification: "niveau", input: "'T2.1'", minimums: { "2026.1": 1869 } },
   { name: "2941-aide-soins-domicile", value: "aide et soins à domicile", classification: "niveau", input: "'TAM.1.1'", minimums: { "2026.1": 2157.98 } },
   { name: "3043-entreprises-proprete", value: "propreté", classification: "niveau", input: "'ASP-A'", minimums: { "2026.1": 1898.91 } },
