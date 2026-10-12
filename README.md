@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Quatre-vingt-seize conventions sont actuellement représentées, avec quatre-vingt-dix-neuf versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Quatre-vingt-dix-sept conventions sont actuellement représentées, avec cent une versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -114,6 +114,7 @@ Quatre-vingt-seize conventions sont actuellement représentées, avec quatre-vin
 | [Cabinets médicaux](rules/1147-cabinets-medicaux/README.md) | 1147 | `2024.1` : 1er janvier 2024 | Grille mensuelle de 13 positions (de 4 à 16), proratisée selon la quotité de travail ; détection des positions hors grille |
 | [Acteurs du lien social et familial (centres sociaux)](rules/1261-acteurs-lien-social-familial/README.md) | 1261 | `2026.1` : 1er janvier 2026 | Salaire socle annuel, points de pesée et points d'expérience professionnelle, convertis en minimum hiérarchique mensuel |
 | [Cabinets dentaires](rules/1619-cabinets-dentaires/README.md) | 1619 | `2026.1` : 1er janvier 2026 | Taux horaires minima de 9 emplois (entretien, réception, secrétaire, aide et assistant dentaires, prothésistes de niveau 1 à 4) convertis en minima mensuels, proratisés selon la quotité de travail ; détection des emplois hors grille |
+| [Prothésistes dentaires et personnels des laboratoires de prothèse dentaire](rules/0993-prothesistes-dentaires/README.md) | 993 | `2026.1` : 1er octobre 2026 (accord étendu) | Grille mensuelle de 12 emplois et qualifications, proratisée selon la quotité de travail ; détection des qualifications hors grille ; audit explicite des rubriques de paie sans correction conventionnelle |
 | [Pharmacie d’officine](rules/1996-pharmacie-officine/README.md) | 1996 | `2025.1` : 24 mai 2025 ; `2026.1` : 17 avril 2026 | Minima selon le coefficient, la valeur du point et le salaire garanti au coefficient 100 ; proratisation selon la quotité de travail |
 | [Hospitalisation privée (cliniques privées à but lucratif)](rules/2264-hospitalisation-privee/README.md) | 2264 | `2023.1` : 1er janvier 2023 | Salaire de base (coefficient multiplié par la valeur du point de 7,26 €, à partir du coefficient 243), proratisé selon la quotité de travail ; détection du coefficient absent ou inférieur à 176 |
 | [Aide, accompagnement, soins et services à domicile](rules/2941-aide-soins-domicile/README.md) | 2941 | `2026.1` : 1er juin 2026 (extension publiée le 23 juillet 2026) | Grilles intervention et support, base avec plancher SMIC, ECR diplôme et ancienneté ; tutorat, apprentissage et astreintes |

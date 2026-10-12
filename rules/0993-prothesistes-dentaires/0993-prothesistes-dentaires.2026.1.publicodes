@@ -1,0 +1,78 @@
+# Convention collective nationale des prothésistes dentaires et des personnels des laboratoires de prothèse dentaire du 18 décembre 1978 (IDCC 993, brochure 3254).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+#
+validFrom: 2026-10-01
+sources:
+  - >-
+    Accord du 15 juin 2026 relatif aux salaires minima et aux primes de qualification, applicable
+    le premier jour du mois suivant la publication de son arrêté d'extension.
+  - >-
+    Arrêté du 24 août 2026 portant extension de l'accord, publié au JORF n° 0206 du 4 septembre
+    2026 : l'application générale commence le 1er octobre 2026.
+  - >-
+    Barème mensuel de l'accord : personnel de service 1 892 €, secrétaire administratif/aide-comptable
+    1 896 €, comptable 2 002 €, employé en prothèse dentaire 1 895 €, auxiliaire 1 903 €, TQ1 1 935 €,
+    TQ2 2 118 €, TQ3 2 246 €, PHQ1 2 293 €, PHQ2 2 522 €, responsable de secteur 2 755 € et chef de
+    laboratoire 3 300 €.
+  - >-
+    L'accord et son extension ont été contrôlés dans les publications officielles Légifrance/JORF;
+    les règles de salaire reproduisent uniquement le barème salarial, sans extrapolation aux autres
+    rubriques de paie.
+---
+salarié . convention collective . prothésistes dentaires:
+  titre: Prothésistes dentaires et personnels des laboratoires de prothèse dentaire (IDCC 993)
+  valeur: convention collective = 'prothésistes dentaires'
+
+salarié . convention collective . prothésistes dentaires . niveau:
+  titre: Emploi ou qualification
+  description: |
+    Code de l'emploi ou de la qualification de la grille des salaires minima du 1er octobre 2026.
+  applicable si: convention collective = 'prothésistes dentaires'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . prothésistes dentaires . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Minimum mensuel brut de la grille, proratisé selon la quotité de travail. Vaut 0 €/mois
+    si la qualification n'est pas dans la grille.
+  applicable si: convention collective = 'prothésistes dentaires'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . prothésistes dentaires . salaire minimum conventionnel . grille:
+  titre: Grille mensuelle à temps plein
+  unité: €/mois
+  variations:
+    - si: niveau = 'personnel-service'
+      alors: 1892 €/mois
+    - si: niveau = 'secretaire-aide-comptable'
+      alors: 1896 €/mois
+    - si: niveau = 'comptable'
+      alors: 2002 €/mois
+    - si: niveau = 'employe-prothese'
+      alors: 1895 €/mois
+    - si: niveau = 'auxiliaire-prothese'
+      alors: 1903 €/mois
+    - si: niveau = 'TQ1'
+      alors: 1935 €/mois
+    - si: niveau = 'TQ2'
+      alors: 2118 €/mois
+    - si: niveau = 'TQ3'
+      alors: 2246 €/mois
+    - si: niveau = 'PHQ1'
+      alors: 2293 €/mois
+    - si: niveau = 'PHQ2'
+      alors: 2522 €/mois
+    - si: niveau = 'responsable-secteur'
+      alors: 2755 €/mois
+    - si: niveau = 'chef-laboratoire'
+      alors: 3300 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . prothésistes dentaires . niveau hors grille:
+  titre: Emploi ou qualification absent de la grille
+  description: L'emploi ou la qualification n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'prothésistes dentaires'
+  valeur: grille = 0 €/mois
