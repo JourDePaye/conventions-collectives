@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Soixante-treize conventions sont actuellement représentées, avec soixante-seize versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Soixante-quatorze conventions sont actuellement représentées, avec soixante-dix-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -67,6 +67,7 @@ Soixante-treize conventions sont actuellement représentées, avec soixante-seiz
 | [Fabrication de l’ameublement](rules/1411-fabrication-ameublement/README.md) | 1411 | `2026.1` : 1er juillet 2026 | Grille mensuelle de 36 échelons (agents de production, fonctionnels, d’encadrement et cadres), proratisée selon la quotité de travail ; détection des échelons hors grille |
 | [Maintenance, distribution et location de matériels](rules/1404-maintenance-distribution-location/README.md) | 1404 | `2026.1` : 1er mars 2026 (avenant étendu le 29 mai 2026) | Grille mensuelle de 22 niveaux A10 à C60, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Métallurgie](rules/3248-metallurgie/README.md) | 3248 | `2026.1` : 1er janvier 2026 | Barème national annuel des 18 classes d’emplois (A1 à I18), converti en minimum mensuel et proratisé selon la quotité de travail ; détection des classes hors barème |
+| [Production et transformation des papiers et cartons](rules/3238-production-transformation-papiers-cartons/README.md) | 3238 | `2026.1` : 1er janvier 2026 | Grille mensuelle OETAM de 15 coefficients, proratisée selon la quotité de travail ; détection des coefficients hors grille |
 
 ### BÂTIMENT & TRAVAUX PUBLICS
 
