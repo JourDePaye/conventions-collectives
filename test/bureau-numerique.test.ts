@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "1539-bureau-numerique";
 const value = "bureau et numérique";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2025.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2025.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
