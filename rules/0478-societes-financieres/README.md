@@ -3,10 +3,10 @@
 ## Modèle 2026.1
 
 - **Texte salarial :** accord du 7 mai 2026 relatif aux salaires minima conventionnels.
-- **Date d'effet modélisée :** 1er juillet 2026, date prévue par l'accord.
+- **Date d'effet modélisée :** 1er juin 2026, date prévue par l'accord.
 - **Champ juridique :** l'accord est modélisé pour les employeurs signataires ou adhérents ; aucun arrêté d'extension officiel n'a été trouvé dans la recherche arrêtée au 12 octobre 2026.
-- **Grille :** minima mensuels pour 151,67 heures, colonne 0 à 3 ans, pour les coefficients 140 à 1000.
-- **Proratisation :** le minimum mensuel conventionnel est multiplié par la quotité de travail.
+- **Grille :** minima annuels pour la colonne 0 à 3 ans, pour 22 coefficients de 230 à 1000.
+- **Proratisation :** le minimum annuel conventionnel est multiplié par la quotité de travail ; aucune conversion mensuelle n'est inventée.
 
 ### Sources officielles
 

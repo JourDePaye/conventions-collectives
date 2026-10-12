@@ -32,34 +32,34 @@ const engineFor = async (coefficient: number, overrides: Record<string, string> 
 };
 
 describe("IDCC 478 — sociétés financières", () => {
-  it("evaluates the sourced monthly minimum for a coefficient", async () => {
-    const engine = await engineFor(200);
-    assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 2154);
+  it("evaluates the sourced annual minimum for a coefficient", async () => {
+    const engine = await engineFor(230);
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue, 22381);
   });
 
-  it("proratizes the monthly minimum", async () => {
-    const engine = await engineFor(200, {
+  it("proratizes the annual minimum", async () => {
+    const engine = await engineFor(230, {
       "salarié . contrat . temps de travail . quotité": "50%",
     });
-    assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 1077);
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue, 11190.5);
   });
 
   it("blocks the model outside the signatory or adherent scope", async () => {
     const engine = await engineFor(200, {
       [`${namespace} . champ juridique`]: "'autre employeur'",
     });
-    assert.ok(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue == null);
+    assert.ok(engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue == null);
   });
 
   it("blocks the model before the agreement effective date", async () => {
     const engine = await engineFor(200, {
       [`${namespace} . date de calcul`]: "30/06/2026",
     });
-    assert.ok(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue == null);
+    assert.ok(engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue == null);
   });
 
   it("reports a coefficient outside the sourced grid", async () => {
     const engine = await engineFor(201);
-    assert.ok(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue == null);
+    assert.ok(engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue == null);
   });
 });
