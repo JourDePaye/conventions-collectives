@@ -573,22 +573,14 @@ Cette configuration permet les publications suivantes par OIDC, sans token npm s
 
 ### Déclencher une publication
 
-Depuis la branche `main`, avec un répertoire de travail propre, mettez à jour la version du package et son lockfile, puis poussez le commit et le tag correspondant :
+Depuis la branche `main`, poussez un tag `vMAJOR.MINOR.PATCH` : le numéro de version du tag fait foi. Le workflow l’écrit lui-même dans `package.json` et `package-lock.json` (`npm version --no-git-tag-version`) avant de tester, construire et publier ; il n’est pas nécessaire de modifier ces fichiers avant le tag.
 
 ```sh
-npm version patch
-git push origin main
-git push origin --tags
+git tag v2026.2.0
+git push origin v2026.2.0
 ```
 
-`npm version patch` crée le commit de version et un tag `vX.Y.Z`. Vous pouvez utiliser `minor` ou `major` selon la nature du changement. Pour publier la version initiale `0.1.0`, déjà renseignée dans le package :
-
-```sh
-git tag v0.1.0
-git push origin v0.1.0
-```
-
-Un tag déclenche la publication seulement si son nom correspond exactement à la version de `package.json`. Les versions stables sont publiées sous le dist-tag npm `latest` ; les préversions, comme `0.2.0-beta.1`, sous `next`. Une version npm déjà publiée ne peut pas être publiée à nouveau : incrémentez la version pour une nouvelle distribution.
+Le workflow ne commite rien : la version `1.0.0` du `package.json` du dépôt est un espace réservé, et la version réellement publiée est toujours celle du tag. Un tag qui n’est pas une version valide (`vX.Y.Z` ou `vX.Y.Z-préversion`) fait échouer le workflow. Les versions stables sont publiées sous le dist-tag npm `latest` ; les préversions, comme `0.2.0-beta.1`, sous `next`. Une version npm déjà publiée ne peut pas être publiée à nouveau : incrémentez la version pour une nouvelle distribution.
 
 Vous pouvez aussi ouvrir **Actions → Publish to npm → Run workflow** sur `main` ou sur un tag `v…`. L’option **`dry_run`**, activée par défaut, vérifie le processus sans publier et sans identifiants npm. Désactivez-la pour effectuer une publication réelle de la version choisie.
 
