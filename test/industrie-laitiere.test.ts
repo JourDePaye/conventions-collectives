@@ -8,15 +8,18 @@ const agreement = "0112-industrie-laitiere";
 const value = "industrie laitière";
 const namespace = `salarié . convention collective . ${value}`;
 const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const payrollVersion = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
+assert.ok(payrollVersion);
 const extension = await version.loadRules();
+const payrollExtension = await payrollVersion.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
 const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
 rules["salarié . convention collective"] = {
   ...choice,
   "une possibilité": [...choice["une possibilité"], value],
 } as Rule;
-Object.assign(rules, extension);
+Object.assign(rules, extension, payrollExtension);
 const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
 
 /** Monthly minimum salaries for full-time work, annex I of avenant n° 57 of 22 January 2026. */
@@ -33,16 +36,29 @@ const GRID: Record<string, number> = {
   "10": 3574.50, "11": 4309.18, "12": 4931.15,
 };
 
-function setSituation(level: string | undefined, quota = "100%") {
+function setSituation(level: string | undefined, quota = "100%", forfait = "non") {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     ...(level === undefined ? {} : { [`${namespace} . niveau`]: `'${level}'` }),
     "salarié . contrat . temps de travail . quotité": quota,
+    [`${namespace} . forfait annuel`]: forfait,
   });
 }
 
 function minimum() {
   const result = engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue;
+  assert.equal(typeof result, "number");
+  return Math.round((result as number) * 100) / 100;
+}
+
+function annualMinimum() {
+  const result = engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue;
+  assert.equal(typeof result, "number");
+  return Math.round((result as number) * 100) / 100;
+}
+
+function annualMinimumAtForfait() {
+  const result = engine.evaluate(`${namespace} . salaire minimum annuel conventionnel au forfait`).nodeValue;
   assert.equal(typeof result, "number");
   return Math.round((result as number) * 100) / 100;
 }
@@ -73,6 +89,22 @@ describe("IDCC 0112 — 2026.1 minimum salaries", () => {
     assert.equal(minimum(), 1117.96);
     setSituation("9.1", "80%");
     assert.equal(minimum(), 2102.6);
+  });
+
+  it("exposes the 2026 annual minimums without converting them to monthly amounts", () => {
+    setSituation("7.2");
+    assert.equal(annualMinimum(), 29861.78);
+    setSituation("12");
+    assert.equal(annualMinimum(), 68526.56);
+  });
+
+  it("requires the explicit annual-forfait input for the dedicated annual grid", () => {
+    setSituation("7.2");
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum annuel conventionnel au forfait`).nodeValue, null);
+    setSituation("7.2", "100%", "oui");
+    assert.equal(annualMinimumAtForfait(), 32815.43);
+    setSituation("9.2", "100%", "oui");
+    assert.equal(annualMinimumAtForfait(), 41932.79);
   });
 
   it("rejects levels outside the grid", () => {

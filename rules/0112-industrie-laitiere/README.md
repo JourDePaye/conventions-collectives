@@ -1,6 +1,6 @@
 # Industrie laitière — IDCC 0112
 
-Le fichier [2026.1](0112-industrie-laitiere.2026.1.publicodes) est applicable à partir du 1er février 2026. Il transcrit l'avenant n° 57 du 22 janvier 2026, étendu par arrêté du 4 mai 2026 (JORF du 10 mai 2026), dont les références figurent dans ses métadonnées. La valeur Publicodes est `industrie laitière` ; les règles sont sous `salarié . convention collective . industrie laitière`.
+Le fichier [2026.1](0112-industrie-laitiere.2026.1.publicodes) est applicable à partir du 1er février 2026 et couvre les salaires minima mensuels. Le fichier [2026.2](0112-industrie-laitiere.2026.2.publicodes) ajoute les rémunérations annuelles minimales et les minima de l'encadrement au forfait annuel, applicables au 1er janvier 2026, sans convertir les montants annuels en mensualités. Les textes sont étendus par arrêté du 4 mai 2026 (JORF du 10 mai 2026) ; les références figurent dans les métadonnées. La valeur Publicodes est `industrie laitière` ; les règles sont sous `salarié . convention collective . industrie laitière`.
 
 La convention collective nationale de l'industrie laitière du 20 mai 1955 (brochure 3124) couvre les entreprises relevant de l'IDCC 0112.
 
@@ -15,4 +15,6 @@ Les niveaux les plus bas sont inférieurs au SMIC mensuel applicable : l'applica
 
 ## Limites
 
-Cette version couvre les seuls salaires minima mensuels. Les rémunérations annuelles minimales, primes d'ancienneté, primes et autres dispositions de la convention ne sont pas encore calculées.
+La version 2026.2 couvre les salaires minima mensuels, les rémunérations annuelles minimales et les minima annuels spécifiques de l'encadrement au forfait annuel. Le forfait est une entrée explicite et n'est pas déduit du seul statut cadre. Les primes d'ancienneté, primes et autres dispositions de la convention ne sont pas encore calculées.
+
+Le régime de prévoyance étendu au 1er juillet 2025 et l'accord de formation étendu en 2026 ont été vérifiés. Ils nécessitent des données de catégorie, de contrat, d'assiette ou de contribution qui ne peuvent pas être appliquées génériquement par ce modèle ; aucun taux, plafond, exonération, AT/MP ou forfait de cotisation n'est donc redéfini.
