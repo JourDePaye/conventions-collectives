@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "1978-fleuristes-animaux";
 const value = "fleuristes animaux";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -26,11 +26,12 @@ const GRID: Record<string, number> = {
   "VII.1": 3701.61, "VII.2": 3910.74, "VII.3": 4078.05,
 };
 
-function setSituation(level: string | undefined, quota = "100%") {
+function setSituation(level: string | undefined, quota = "100%", seniority = "0 an") {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     ...(level === undefined ? {} : { [`${namespace} . niveau`]: `'${level}'` }),
     "salarié . contrat . temps de travail . quotité": quota,
+    "salarié . ancienneté": seniority,
   });
 }
 function minimum() {
@@ -44,6 +45,7 @@ describe("IDCC 1978 — 2026.1 minimum salaries", () => {
     assert.equal(version.validFrom, "2026-08-01");
     assert.ok(version.sources.some((source) => source.includes("Accord du 10 mars 2026")));
     assert.ok(version.sources.some((source) => source.includes("Arrêté du 17 juillet 2026")));
+    assert.ok(version.sources.some((source) => source.includes("JORFTEXT000054451384")));
   });
   for (const [level, expected] of Object.entries(GRID)) {
     it(`gives ${expected} € a month for ${level}`, () => {
@@ -62,6 +64,18 @@ describe("IDCC 1978 — 2026.1 minimum salaries", () => {
       assert.equal(engine.evaluate(`${namespace} . niveau hors grille`).nodeValue, true, level);
       assert.equal(minimum(), 0, level);
     }
+  });
+  it("calculates the seniority premium from 3 to 15 years", () => {
+    setSituation("V.2");
+    for (const [years, rate, expected] of [[0, 0, 0], [3, 3, 68.23], [6, 6, 136.46], [9, 9, 204.69], [12, 12, 272.92], [15, 15, 341.15]] as const) {
+      setSituation("V.2", "100%", `${years} an`);
+      assert.equal(engine.evaluate(`${namespace} . taux de prime d'ancienneté`).nodeValue, rate, `${years} years`);
+      assert.equal(engine.evaluate(`${namespace} . prime d'ancienneté`).nodeValue, expected, `${years} years`);
+    }
+  });
+  it("prorates the seniority premium for part-time work", () => {
+    setSituation("V.2", "50%", "6 an");
+    assert.equal(engine.evaluate(`${namespace} . prime d'ancienneté`).nodeValue, 68.23);
   });
   it("leaves the extension inapplicable for another agreement", () => {
     setSituation("I.1");

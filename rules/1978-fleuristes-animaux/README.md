@@ -1,14 +1,15 @@
 # Fleuristes, vente et services des animaux familiers — IDCC 1978
 
-Modèle `1978-fleuristes-animaux`, version `2026.1`, espace de noms
+Modèle `1978-fleuristes-animaux`, versions `2026.1` et `2026.2`, espace de noms
 `salarié . convention collective . fleuristes animaux`.
 
 ## Périmètre
 
-Cette version couvre les minima mensuels des niveaux I à VII et échelons 1 à 3,
+La version `2026.1` couvre les minima mensuels des niveaux I à VII et échelons 1 à 3,
 pour 151,67 heures mensuelles, à compter du **1er août 2026**. L'accord du
 10 mars 2026 est applicable à cette date après son extension par arrêté du
-17 juillet 2026 publié au Journal officiel le 22 juillet 2026.
+17 juillet 2026 publié au Journal officiel le 22 juillet 2026. La version
+`2026.2` ajoute la prime d'ancienneté prévue à l'article 9.2 de la convention.
 
 ## Grille mensuelle 2026
 
@@ -27,11 +28,16 @@ quotité de travail. Une classification absente de la grille est signalée par
 `niveau hors grille` et donne un minimum nul afin que l'application appelante
 puisse bloquer le calcul.
 
+La version `2026.2` calcule la prime d'ancienneté sur le salaire minimum de
+l'emploi, à 3 %, 6 %, 9 %, 12 % ou 15 % après 3, 6, 9, 12 ou 15 ans de présence
+effective, avec proratisation selon la quotité de travail.
+
 ## Sources officielles
 
-- [Légifrance — accord du 10 mars 2026 relatif aux salaires minima](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053180432)
-- [Légifrance — article 1 et grille salariale](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000053180432)
-- [Légifrance — arrêté d'extension du 17 juillet 2026](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052996707)
+- [Légifrance — accord du 10 mars 2026 relatif aux salaires minima](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054554019)
+- [Légifrance — article 1 et grille salariale](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054554022)
+- [Légifrance — arrêté d'extension du 17 juillet 2026](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054451384)
+- [Légifrance — article 9.2 et prime d'ancienneté](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043234395)
 
 ## Limites
 
