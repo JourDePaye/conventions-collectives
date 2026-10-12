@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Soixante-dix conventions sont actuellement représentées, avec soixante-treize versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Soixante et onze conventions sont actuellement représentées, avec soixante-quatorze versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -36,6 +36,7 @@ Soixante-dix conventions sont actuellement représentées, avec soixante-treize 
 | [Restauration rapide](rules/1501-restauration-rapide/README.md) | 1501 | `2025.1` : 1er juin 2025 | 11 taux horaires minima des niveaux I à IV, appliqués aux heures du contrat, et 3 minima annuels du niveau V (cadres) convertis en minima mensuels ; détection des niveaux et échelons hors grille |
 | [Commerce de détail alimentaire non spécialisé](rules/1505-commerce-detail-alimentaire-non-specialise/README.md) | 1505 | `2026.1` : 1er août 2026 | Grille mensuelle de 11 niveaux (employés, agents de maîtrise, cadres), proratisée selon la quotité de travail ; minima annuels des cadres au forfait jours selon l’ancienneté dans le niveau ; détection des niveaux hors grille |
 | [Industrie et commerces en gros des viandes](rules/1534-industrie-commerces-gros-viandes/README.md) | 1534 | `2026.1` : 1er février 2026 | Grille mensuelle de 30 positions (10 niveaux de 3 échelons : ouvriers et employés, TAM, cadres), proratisée selon la quotité de travail ; détection des niveaux hors grille |
+| [Métiers de la transformation des grains](rules/1930-transformation-grains/README.md) | 1930 | `2026.1` : 1er février 2026 | Rémunérations mensuelles minimum de 10 positions (niveaux I à V, VI.1, VI.2, VII à IX), proratisées selon la quotité de travail ; détection des classifications hors grille |
 | [Industries charcutières (salaison, charcuterie en gros, conserves de viandes)](rules/1586-industries-charcutieres/README.md) | 1586 | `2026.1` : 1er février 2026 | Grille mensuelle de 49 coefficients (de 125 à 700, ouvriers et employés, techniciens et agents de maîtrise, cadres), proratisée selon la quotité de travail ; détection des coefficients hors grille |
 | [Fleuristes, vente et services des animaux familiers](rules/1978-fleuristes-animaux/README.md) | 1978 | `2026.1` : 1er août 2026 | Grille mensuelle de 21 positions (niveaux I à VII, échelons 1 à 3), proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Hôtels, cafés, restaurants (HCR)](rules/1979-hotels-cafes-restaurants/README.md) | 1979 | `2024.1` : 1er décembre 2024 | Minima horaires par niveau et échelon, conversion en minimum mensuel selon la durée du contrat ; détection des niveaux hors grille |
