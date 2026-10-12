@@ -1,0 +1,76 @@
+validFrom: 2026-04-01
+sources:
+  - "Avenant n° 33 du 4 mars 2026 relatif aux salaires minima conventionnels de la convention collective nationale des entreprises d'expédition et d'exportation de fruits et légumes (IDCC 1405), grille applicable au 1er avril 2026."
+  - "Arrêté du 19 mai 2026 portant extension des avenants n° 33 et n° 14, publié au Journal officiel du 27 mai 2026 ; extension applicable à compter du 1er avril 2026 selon les stipulations des avenants."
+  - "Textes consultés sur Légifrance, convention collective IDCC 1405 : https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635142."
+---
+salarié . convention collective . expédition exportation fruits légumes:
+  titre: Entreprises d'expédition et d'exportation de fruits et légumes (IDCC 1405)
+  valeur: convention collective = 'expédition exportation fruits légumes'
+
+salarié . convention collective . expédition exportation fruits légumes . secteur:
+  titre: Secteur d'activité
+  description: Secteur couvert par la grille de l'avenant n° 33 applicable en 2026. La grille des produits prêts à l'emploi n'est pas modélisée dans cette version.
+  applicable si: convention collective = 'expédition exportation fruits légumes'
+  par défaut: "'fruits et légumes'"
+
+salarié . convention collective . expédition exportation fruits légumes . niveau:
+  titre: Niveau de classification
+  description: Niveau de la grille salariale applicable au secteur sélectionné.
+  applicable si: convention collective = 'expédition exportation fruits légumes'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . expédition exportation fruits légumes . échelon:
+  titre: Échelon de classification
+  description: Échelon non utilisé par la grille modélisée de l'avenant n° 33.
+  applicable si: convention collective = 'expédition exportation fruits légumes'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . expédition exportation fruits légumes . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'expédition exportation fruits légumes'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . expédition exportation fruits légumes . salaire minimum conventionnel . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Grille de l'avenant n° 33, applicable au 1er avril 2026.
+  unité: €/mois
+  variations:
+    - si: secteur = 'fruits et légumes'
+      alors: grille . fruits et légumes
+    - sinon: 0 €/mois
+
+salarié . convention collective . expédition exportation fruits légumes . salaire minimum conventionnel . grille . fruits et légumes:
+  variations:
+    - si: niveau = 'I'
+      alors: 1823.03 €/mois
+    - si: niveau = 'I bis'
+      alors: 1847.55 €/mois
+    - si: niveau = 'II'
+      alors: 1862.82 €/mois
+    - si: niveau = 'III'
+      alors: 1876.24 €/mois
+    - si: niveau = 'IV'
+      alors: 1943.32 €/mois
+    - si: niveau = 'V'
+      alors: 1964.92 €/mois
+    - si: niveau = 'VI'
+      alors: 2218.88 €/mois
+    - si: niveau = 'VII'
+      alors: 2394.32 €/mois
+    - si: niveau = 'VIII'
+      alors: 3449.23 €/mois
+    - si: niveau = 'IX'
+      alors: 4076.54 €/mois
+    - sinon: 0 €/mois
+
+
+salarié . convention collective . expédition exportation fruits légumes . niveau hors grille:
+  titre: Classification absente de la grille
+  description: Le niveau, l'échelon ou le secteur ne correspond pas aux grilles modélisées.
+  applicable si: convention collective = 'expédition exportation fruits légumes'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
