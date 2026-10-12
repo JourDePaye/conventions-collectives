@@ -1,0 +1,68 @@
+# Convention collective nationale du commerce de détail de l'horlogerie-bijouterie du 17 décembre 1987
+# (IDCC 1487, brochure 3240).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+validFrom: 2026-01-01
+sources:
+  - Avenant n° 33 du 21 novembre 2025 relatif aux salaires minima conventionnels, grille des
+    minima mensuels pour 151,67 heures, applicable au 1er janvier 2026, texte KALI
+    KALITEXT000054033785 et article KALIARTI000054033788.
+  - Arrêté du 17 février 2026 portant extension de l'avenant n° 33, publié au Journal officiel
+    du 24 février 2026.
+---
+salarié . convention collective . commerce de détail horlogerie bijouterie:
+  titre: Commerce de détail de l'horlogerie-bijouterie (IDCC 1487)
+  valeur: convention collective = 'commerce de détail horlogerie bijouterie'
+
+salarié . convention collective . commerce de détail horlogerie bijouterie . niveau:
+  titre: Niveau de classification
+  description: Niveau de A à J de la grille des salaires minima.
+  applicable si: convention collective = 'commerce de détail horlogerie bijouterie'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commerce de détail horlogerie bijouterie . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire minimum mensuel conventionnel du niveau pour 151,67 heures, proratisé pour un temps
+    partiel. Vaut 0 €/mois si le niveau n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'commerce de détail horlogerie bijouterie'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerce de détail horlogerie bijouterie . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: Grille de l'avenant n° 33 du 21 novembre 2025, applicable au 1er janvier 2026.
+  applicable si: convention collective = 'commerce de détail horlogerie bijouterie'
+  unité: €/mois
+  variations:
+    - si: niveau = 'A'
+      alors: 1830 €/mois
+    - si: niveau = 'B'
+      alors: 1850 €/mois
+    - si: niveau = 'C'
+      alors: 1910 €/mois
+    - si: niveau = 'D'
+      alors: 1983 €/mois
+    - si: niveau = 'E'
+      alors: 2080 €/mois
+    - si: niveau = 'F'
+      alors: 2210 €/mois
+    - si: niveau = 'G'
+      alors: 2786 €/mois
+    - si: niveau = 'H'
+      alors: 3866 €/mois
+    - si: niveau = 'I'
+      alors: 4070 €/mois
+    - si: niveau = 'J'
+      alors: 4467 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerce de détail horlogerie bijouterie . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'commerce de détail horlogerie bijouterie'
+  valeur: grille = 0 €/mois
