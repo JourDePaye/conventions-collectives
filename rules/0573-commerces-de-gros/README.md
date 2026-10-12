@@ -1,6 +1,6 @@
 # Commerces de gros — IDCC 573
 
-Le fichier [2026.1](0573-commerces-de-gros.2026.1.publicodes) entre en vigueur le 1er mars 2026. Il est fondé sur l’accord du 17 mars 2026 relatif aux salaires (BOCC 2026-17, NOR ASET2650448M), étendu par arrêté du 11 juin 2026 (JORF n° 0149 du 27 juin 2026, texte n° 68, NOR TRST2615567A), cités dans ses métadonnées. La valeur Publicodes est `commerces de gros` ; les règles sont sous `salarié . convention collective . commerces de gros`.
+Le fichier [2026.1](0573-commerces-de-gros.2026.1.publicodes) entre en vigueur le 1er mars 2026. Le fichier [2026.2](0573-commerces-de-gros.2026.2.publicodes) entre en vigueur le 1er juillet 2026 et ajoute les cotisations de prévoyance conventionnelle : 0,62 % jusqu'à quatre plafonds de sécurité sociale pour les non-cadres, répartis à 60 % employeur et 40 % salarié, et 1,50 % employeur sur la tranche A pour les cadres. Les garanties, dispenses et désignations d'organisme restent contractuelles.
 
 La convention collective nationale des commerces de gros du 23 juin 1970 (brochure 3044) couvre les entreprises relevant de l’IDCC 573.
 

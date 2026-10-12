@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "0573-commerces-de-gros";
 const value = "commerces de gros";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -37,11 +37,13 @@ const ANNUAL: Record<string, number> = {
   "X.1": 65175.51, "X.2": 78210.61,
 };
 
-function setSituation(level: string | undefined, quota = "100%") {
+function setSituation(level: string | undefined, quota = "100%", salary = "0 €/mois", cadre = "non") {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     ...(level === undefined ? {} : { [`${namespace} . niveau`]: `'${level}'` }),
     "salarié . contrat . temps de travail . quotité": quota,
+    "salarié . contrat . salaire brut": salary,
+    "salarié . contrat . statut cadre": cadre,
   });
 }
 
@@ -54,11 +56,11 @@ function minimum() {
 const outOfGrid = () => engine.evaluate(`${namespace} . niveau hors grille`).nodeValue;
 
 describe("IDCC 573 — 2026.1 minimum salaries", () => {
-  it("is in force from 1 March 2026 and cites the accord and its extension order", () => {
-    assert.equal(version.validFrom, "2026-03-01");
+  it("is in force from 1 July 2026 and cites the accord, extension order, and prévoyance source", () => {
+    assert.equal(version.validFrom, "2026-07-01");
     assert.ok(version.sources.some((source) => source.includes("Accord du 17 mars 2026")));
     assert.ok(version.sources.some((source) => source.includes("arrêté du 11 juin 2026")));
-    assert.ok(version.sources.some((source) => source.includes("TRST2615567A")));
+    assert.ok(version.sources.some((source) => source.includes("prévoyance")));
   });
 
   it("has 28 positions: 18 monthly and 10 annual", () => {
@@ -103,10 +105,29 @@ describe("IDCC 573 — 2026.1 minimum salaries", () => {
     assert.equal(minimum(), 0);
   });
 
+  it("models the extended non-cadre prévoyance rate on four PASS", () => {
+    setSituation("IV.2", "100%", "10000 €/mois", "non");
+    assert.ok(Math.abs((engine.evaluate(`${namespace} . prévoyance . employeur`).nodeValue as number) - 10000 * 0.00372) < 1e-9);
+    assert.ok(Math.abs((engine.evaluate(`${namespace} . prévoyance . salarié`).nodeValue as number) - 10000 * 0.00248) < 1e-9);
+    setSituation("IV.2", "100%", "100000 €/mois", "non");
+    const pass = engine.evaluate("plafond sécurité sociale").nodeValue as number;
+    assert.ok(Math.abs((engine.evaluate(`${namespace} . prévoyance . employeur`).nodeValue as number) - 4 * pass * 0.00372) < 1e-9);
+  });
+
+  it("replaces the inherited cadre prévoyance with 1.50% on tranche A", () => {
+    setSituation("VII.1", "100%", "10000 €/mois", "oui");
+    const pass = engine.evaluate("plafond sécurité sociale").nodeValue as number;
+    assert.equal(engine.evaluate(`${namespace} . prévoyance cadre`).nodeValue, pass * 0.015);
+  });
+
   it("leaves the extension inapplicable for another agreement", () => {
     setSituation("IV.2");
     engine.setSituation({ "salarié . convention collective": "'droit commun'" });
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, null);
     assert.equal(engine.evaluate(`${namespace} . niveau hors grille`).nodeValue, null);
+  });
+
+  it("does not collide with modele-social", () => {
+    assert.equal(Object.keys(extension).some((name) => name in modeleSocial), false);
   });
 });

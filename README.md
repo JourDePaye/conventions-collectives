@@ -54,7 +54,7 @@ Cent conventions sont actuellement représentées, avec cent quatre versions de 
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
-| [Commerces de gros](rules/0573-commerces-de-gros/README.md) | 573 | `2026.1` : 1er mars 2026 | Grille de 28 positions (niveaux I à VI en minima mensuels, niveaux VII à X en minima annuels convertis en minima mensuels), proratisée selon la quotité de travail ; détection des niveaux hors grille |
+| [Commerces de gros](rules/0573-commerces-de-gros/README.md) | 573 | `2026.1` : 1er mars 2026 ; `2026.2` : 1er juillet 2026 | Grille de 28 positions (niveaux I à VI en minima mensuels, niveaux VII à X en minima annuels convertis en minima mensuels), proratisée selon la quotité de travail ; prévoyance non-cadres 0,62 % jusqu'à 4 plafonds (60/40 employeur-salarié) et cadres 1,50 % tranche A ; détection des niveaux hors grille |
 | [Maisons à succursales de vente au détail d’habillement](rules/0675-succursales-habillement/README.md) | 675 | `2026.1` : 1er mai 2026 | Grille mensuelle de 9 catégories (employés, agents de maîtrise, cadres), proratisée selon la quotité de travail ; détection des catégories hors grille |
 | [Détaillants en chaussures](rules/0733-detaillants-chaussures/README.md) | 733 | `2026.1` : 1er juillet 2026 (avenant étendu) | Grille mensuelle de 9 catégories (employés, agents de maîtrise et cadres), proratisée selon la quotité de travail ; détection des catégories hors grille |
 | [Jardineries et graineteries](rules/1760-jardineries-graineteries/README.md) | 1760 | `2026.1` : 1er juillet 2026 (accord étendu) | Grille mensuelle de 18 combinaisons de niveaux 1 à 8 et d'échelons, proratisée selon la quotité de travail ; détection des classifications hors grille |
