@@ -1,0 +1,155 @@
+validFrom: '2024-01-01'
+sources:
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000049150748
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000049150752
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000049150753
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000032437525?facetteEtat=VIGUEUR_ETEN
+  - https://www.probtp.com/files/live/sites/probtp/files/media/pdf/PRO/declarations/notice-entreprise-assiette-taux.pdf
+---
+salarié . convention collective . travaux publics cadres:
+  titre: Travaux publics — cadres (IDCC 3212)
+  valeur: convention collective = 'travaux publics cadres'
+  description: >-
+    Convention collective nationale des cadres des travaux publics. Cette
+    version reproduit exclusivement l'accord étendu du 14 novembre 2023 pour
+    les minima annuels 2024 ; elle ne relabellise pas ce barème comme 2025 ou
+    2026.
+salarié . convention collective . travaux publics cadres . position:
+  question: Quelle est la position du cadre ?
+  une possibilité:
+    - "'A1'"
+    - "'A2'"
+    - "'B'"
+    - "'B1'"
+    - "'B2'"
+    - "'B3'"
+    - "'B4'"
+    - "'C1'"
+    - "'C2'"
+  par défaut: "'A1'"
+salarié . convention collective . travaux publics cadres . forfait jours:
+  question: Le cadre bénéficie-t-il d'une convention de forfait en jours sur l'année ?
+  par défaut: non
+salarié . convention collective . travaux publics cadres . date de calcul:
+  question: À quelle date le minimum annuel doit-il être vérifié ?
+  par défaut: 01/01/2024
+salarié . convention collective . travaux publics cadres . grille annuelle:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'travaux publics cadres'
+      - date de calcul >= 01/01/2024
+      - date de calcul <= 31/12/2024
+  unité: €/an
+  variations:
+    - si: position = 'A1'
+      alors: 33257 €/an
+    - si: position = 'A2'
+      alors: 36066 €/an
+    - si: position = 'B'
+      alors: 37627 €/an
+    - si: position = 'B1'
+      alors: 40566 €/an
+    - si: position = 'B2'
+      alors: 43269 €/an
+    - si: position = 'B3'
+      alors: 44368 €/an
+    - si: position = 'B4'
+      alors: 47430 €/an
+    - si: position = 'C1'
+      alors: 49414 €/an
+    - si: position = 'C2'
+      alors: 57592 €/an
+    - sinon: 0 €/an
+salarié . convention collective . travaux publics cadres . grille forfait jours:
+  applicable si: grille annuelle
+  unité: €/an
+  variations:
+    - si: position = 'A1'
+      alors: 38245 €/an
+    - si: position = 'A2'
+      alors: 41476 €/an
+    - si: position = 'B'
+      alors: 43271 €/an
+    - si: position = 'B1'
+      alors: 46651 €/an
+    - si: position = 'B2'
+      alors: 49759 €/an
+    - si: position = 'B3'
+      alors: 51023 €/an
+    - si: position = 'B4'
+      alors: 54544 €/an
+    - si: position = 'C1'
+      alors: 56826 €/an
+    - si: position = 'C2'
+      alors: 66230 €/an
+    - sinon: 0 €/an
+salarié . convention collective . travaux publics cadres . position hors grille:
+  applicable si: convention collective = 'travaux publics cadres'
+  toutes ces conditions:
+    - position != 'A1'
+    - position != 'A2'
+    - position != 'B'
+    - position != 'B1'
+    - position != 'B2'
+    - position != 'B3'
+    - position != 'B4'
+    - position != 'C1'
+    - position != 'C2'
+salarié . convention collective . travaux publics cadres . période hors couverture:
+  applicable si: convention collective = 'travaux publics cadres'
+  une de ces conditions:
+    - date de calcul < 01/01/2024
+    - date de calcul > 31/12/2024
+salarié . convention collective . travaux publics cadres . calcul bloqué:
+  applicable si: convention collective = 'travaux publics cadres'
+  une de ces conditions:
+    - position hors grille
+    - période hors couverture
+salarié . convention collective . travaux publics cadres . salaire minimum annuel conventionnel:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'travaux publics cadres'
+      - calcul bloqué = non
+  unité: €/an
+  valeur:
+    variations:
+      - si: forfait jours = oui
+        alors: grille forfait jours
+      - sinon: grille annuelle
+salarié . convention collective . travaux publics cadres . prévoyance cadre:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'travaux publics cadres'
+      - contrat . statut cadre = oui
+  rend non applicable: cotisations . prévoyances . employeur . cadres
+  somme:
+    - employeur
+    - salarié
+  avec:
+    employeur:
+      barème:
+        assiette: contrat . salaire brut
+        multiplicateur: plafond sécurité sociale
+        tranches:
+          - taux: 1.50%
+            plafond: 1
+          - taux: 50% * 2.40%
+            plafond: 4
+      remplace: cotisations . prévoyances . employeur . cadres
+    salarié:
+      barème:
+        assiette: contrat . salaire brut
+        multiplicateur: plafond sécurité sociale
+        tranches:
+          - taux: 0%
+            plafond: 1
+          - taux: 50% * 2.40%
+            plafond: 4
+      remplace: cotisations . prévoyances . employeur . cadres
+  description: >-
+    Régime national de prévoyance des cadres du BTP : la tranche A employeur
+    de 1,50 % remplace la prévoyance cadre de droit commun. La tranche C,
+    optionnelle, n'est pas calculée.
+salarié . convention collective . travaux publics cadres . tranche C incluse:
+  applicable si: convention collective = 'travaux publics cadres'
+  par défaut: non

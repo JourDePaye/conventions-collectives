@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Cinquante-deux conventions sont actuellement représentées, avec cinquante-cinq versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cinquante-trois conventions sont actuellement représentées, avec cinquante-six versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -71,6 +71,7 @@ Cinquante-deux conventions sont actuellement représentées, avec cinquante-cinq
 | [Bâtiment — ETAM](rules/2609-batiment-etam/README.md) | 2609 | `2026.1` : 1er avril 2026 | Grille mensuelle explicitement limitée à la Corse (8 niveaux A à H), bornes de date, région et catégorie ; cotisations CIBTP, chômage intempéries plafonné au PMSS et OPPBTP isolés dans le namespace ; aucune correction RNPC cadre ni extrapolation nationale |
 | [Travaux publics — ouvriers](rules/1702-travaux-publics-ouvriers/README.md) | 1702 | `2026.1` : 24 février 2026, ouvertures régionales jusqu'au 4 septembre 2026 | Sept coefficients, dix barèmes annuels régionaux (63 cellules automatiques, 7 Pays de la Loire sous confirmation), sans conversion mensuelle ; dates/champ bloquants, prorata et comparaison annuelle validés, prime de vacances et congés d’ancienneté ; régions manquantes et cotisations TP hors couverture |
 | [Travaux publics — ETAM](rules/2614-travaux-publics-etam/README.md) | 2614 | `2026.1` : 17 avril 2026 | Grille annuelle Île-de-France des niveaux A à H, minimums forfait-jours F à H, bornes de région/date/catégorie ; CIBTP, chômage intempéries et OPPBTP isolés dans le namespace ; aucune correction RNPC cadre ni extrapolation nationale |
+| [Travaux publics — cadres](rules/3212-travaux-publics-cadres/README.md) | 3212 | `2024.1` : 1er janvier 2024 | Neuf minima annuels A1 à C2, grilles annuelles et forfait-jours distinctes ; correction RNPC cadre BTP isolée ; pas de conversion mensuelle ni de taux CIBTP/intempéries/OPPBTP inventés |
 
 ### TRANSPORT & LOGISTIQUE
 
