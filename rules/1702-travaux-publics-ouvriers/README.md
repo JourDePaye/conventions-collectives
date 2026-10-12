@@ -1,7 +1,12 @@
 # Travaux publics — ouvriers (IDCC 1702)
 
-Modèle `1702-travaux-publics-ouvriers`, version `2026.1`, espace de noms
+Modèle `1702-travaux-publics-ouvriers`, versions `2026.1` et `2026.3`, espace de noms
 `salarié . convention collective . travaux publics ouvriers`.
+
+La version `2026.3` ajoute le régime national de prévoyance des ouvriers : part employeur
+minimale de 1,72 % sur le salaire brut plafonné à trois plafonds de la sécurité sociale,
+à la charge exclusive de l'entreprise. La part appelée au salarié, les dispenses, garanties
+et compléments contractuels ne sont pas déduits automatiquement.
 
 ## Périmètre et dates
 
@@ -70,14 +75,14 @@ Ces droits nationaux sont contrôlés par catégorie ouvrière, statut non cadre
 ## Limites et isolation
 
 - ETAM et cadres, stages, apprentissage/professionnalisation, primes de spécialités, indemnités de petits/grands déplacements, frais, paniers et trajets ne sont pas modélisés. En particulier, aucun montant universel d'IPD n'est inventé.
-- Le modèle n'active pas la convention partagée `BTP` de `modele-social` : aucune collision de clé ni reprise de ses taux de caisse, intempéries, prévoyance ou OPPBTP. Les cotisations TP de branche et de caisse doivent être traitées séparément avec des taux et assiettes vérifiés. Préserver les endpoints de droit commun **n'est pas** une validation des cotisations particulières TP.
-- Pas de remplacement des heures supplémentaires légales par un seuil historique de 39 heures. Les endpoints standards de SMIC, majoration d'heures supplémentaires, formation, prévoyance et coût total restent inchangés. Le consommateur conserve les contrôles légaux et gère les accords d'entreprise applicables.
+- Le modèle n'active pas la convention partagée `BTP` de `modele-social` : aucune collision de clé ni reprise de ses taux de caisse, intempéries ou OPPBTP. La prévoyance ouvriers est toutefois redéfinie dans la version `2026.3` : 1,72 % employeur, plafonné à trois plafonds de la sécurité sociale, conformément au régime national TP. Les cotisations de caisse et intempéries nécessitent toujours une caisse de rattachement et des taux vérifiés ; elles ne sont pas calculées ici. Préserver les endpoints de droit commun **n'est pas** une validation des cotisations particulières TP.
+- Pas de remplacement des heures supplémentaires légales par un seuil historique de 39 heures. Les endpoints standards de SMIC, majoration d'heures supplémentaires et formation restent inchangés ; la prévoyance employeur est l'exception explicitement redéfinie ci-dessus. Le consommateur conserve les contrôles légaux et gère les accords d'entreprise applicables.
 - L'application anticipée aux signataires, les grilles antérieures aux dates d'ouverture et les grilles postérieures à 2026 ne sont pas fournies.
 - La publication de ce modèle dans le package ne réalise pas son intégration dans JourDePaye. Catalogue applicatif, sélection de version, champs annuels/caisse et lignes du bulletin nécessitent un travail séparé.
 
 ## Provenance et vérification
 
-Relevé du 11 octobre 2026 : la récupération HTML directe Légifrance a répondu 403. Les articles et métadonnées ont été lus dans le corpus XML officiel DILA KALI, à partir du stock du 13 juillet 2025 puis de 256 archives incrémentales disponibles jusqu'à `KALI_20261009-214339.tar.gz` inclus.[14][15] Les montants viennent des articles 1, les dates d'extension de `LIBELLE_EXTENSION`, non de `DATE_DEBUT`. Cette revue ne prétend pas couvrir des publications postérieures à la dernière archive inspectée.
+Relevé du 11 octobre 2026 : la récupération HTML directe Légifrance a répondu 403. Les articles et métadonnées ont été lus dans le corpus XML officiel DILA KALI, à partir du stock du 13 juillet 2025 puis de 256 archives incrémentales disponibles jusqu'à `KALI_20261009-214339.tar.gz` inclus.[16][17] Les montants viennent des articles 1, les dates d'extension de `LIBELLE_EXTENSION`, non de `DATE_DEBUT`. Cette revue ne prétend pas couvrir des publications postérieures à la dernière archive inspectée.
 
 Les tests utilisent le moteur réel fusionné avec `modele-social` : 70 cellules régionales, frontières d'extension, refus des régions/classes/dates inconnues, garde Pays de la Loire, proratisation annuelle et bases manquantes, régularisation, prime/non-cumul, congés d'ancienneté, SMIC mensuel, endpoints standard et isolation. `test/models.test.ts` vérifie aussi l'export et le verrou des empreintes historiques. Les différentes fonctionnalités ont été ajoutées par cycles RED → GREEN avant la validation globale.
 
@@ -96,5 +101,7 @@ Les tests utilisent le moteur réel fusionné avec `modele-social` : 70 cellules
 [11] https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005801786
 [12] https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005801805
 [13] https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005801803
-[14] https://echanges.dila.gouv.fr/OPENDATA/KALI
-[15] https://echanges.dila.gouv.fr/OPENDATA/KALI/Freemium_kali_global_20250713-140000.tar.gz
+[14] Avenant n° 59 du 20 mars 2018 à l'accord du 31 juillet 1968 relatif à la prévoyance (KALIARTI000045304355), Légifrance
+[15] Avenant n° 40 du 17 décembre 2025 instituant BTP-Prévoyance au titre du RNPO (KALIARTI000054254792), Légifrance
+[16] https://echanges.dila.gouv.fr/OPENDATA/KALI
+[17] https://echanges.dila.gouv.fr/OPENDATA/KALI/Freemium_kali_global_20250713-140000.tar.gz

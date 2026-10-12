@@ -1,0 +1,421 @@
+validFrom: '2026-01-01'
+sources:
+  - >-
+    Avenant n° 59 du 20 mars 2018 à l'accord du 31 juillet 1968 relatif à la prévoyance
+    (Travaux publics), article 5, en vigueur étendu : assiette des cotisations de sécurité
+    sociale limitée à 3 plafonds de la sécurité sociale et cotisation minimale à la charge
+    exclusive de l'entreprise de 1,72 % (KALIARTI000045304355).
+  - >-
+    Avenant n° 40 du 17 décembre 2025 à l'accord collectif du 1er octobre 2001 instituant
+    BTP-Prévoyance au titre du RNPO, en vigueur depuis le 1er janvier 2026 : taux appelé de
+    2,59 %, dont 1,72 % à la charge de l'employeur (KALIARTI000054254792).
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054033905
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054092149
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053748293
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054040344
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053973328
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053914180
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054161979
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054033890
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054040329
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054886381
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005801786
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005801805
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005801803
+  - https://echanges.dila.gouv.fr/OPENDATA/KALI/
+  - https://echanges.dila.gouv.fr/OPENDATA/KALI/Freemium_kali_global_20250713-140000.tar.gz
+---
+salarié . convention collective . travaux publics ouvriers:
+  titre: Travaux publics — ouvriers (IDCC 1702)
+  valeur: convention collective = 'travaux publics ouvriers'
+salarié . convention collective . travaux publics ouvriers . catégorie:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  par défaut: "'non renseignée'"
+salarié . convention collective . travaux publics ouvriers . région:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  par défaut: "'non renseignée'"
+salarié . convention collective . travaux publics ouvriers . coefficient:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  par défaut: 0
+salarié . convention collective . travaux publics ouvriers . date de calcul:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  par défaut: 01/01/1900
+salarié . convention collective . travaux publics ouvriers . grille annuelle:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'travaux publics ouvriers'
+      - calcul bloqué = non
+  unité: €/an
+  variations:
+    - si: région = 'Bretagne'
+      alors:
+        variations:
+          - si: coefficient = 100
+            alors: 23863 €/an
+          - si: coefficient = 110
+            alors: 24133 €/an
+          - si: coefficient = 125
+            alors: 24621 €/an
+          - si: coefficient = 140
+            alors: 27126 €/an
+          - si: coefficient = 150
+            alors: 29020 €/an
+          - si: coefficient = 165
+            alors: 31711 €/an
+          - si: coefficient = 180
+            alors: 34529 €/an
+          - sinon: 0 €/an
+    - si: région = 'Nouvelle-Aquitaine'
+      alors:
+        variations:
+          - si: coefficient = 100
+            alors: 23242 €/an
+          - si: coefficient = 110
+            alors: 23751 €/an
+          - si: coefficient = 125
+            alors: 24210 €/an
+          - si: coefficient = 140
+            alors: 26969 €/an
+          - si: coefficient = 150
+            alors: 28883 €/an
+          - si: coefficient = 165
+            alors: 31214 €/an
+          - si: coefficient = 180
+            alors: 34040 €/an
+          - sinon: 0 €/an
+    - si: région = 'Bourgogne-Franche-Comté'
+      alors:
+        variations:
+          - si: coefficient = 100
+            alors: 23287 €/an
+          - si: coefficient = 110
+            alors: 23785 €/an
+          - si: coefficient = 125
+            alors: 24764 €/an
+          - si: coefficient = 140
+            alors: 27420 €/an
+          - si: coefficient = 150
+            alors: 29345 €/an
+          - si: coefficient = 165
+            alors: 31733 €/an
+          - si: coefficient = 180
+            alors: 34182 €/an
+          - sinon: 0 €/an
+    - si: région = 'Centre-Val de Loire'
+      alors:
+        variations:
+          - si: coefficient = 100
+            alors: 22893 €/an
+          - si: coefficient = 110
+            alors: 23337 €/an
+          - si: coefficient = 125
+            alors: 23931 €/an
+          - si: coefficient = 140
+            alors: 26783 €/an
+          - si: coefficient = 150
+            alors: 28683 €/an
+          - si: coefficient = 165
+            alors: 29490 €/an
+          - si: coefficient = 180
+            alors: 32166 €/an
+          - sinon: 0 €/an
+    - si: région = 'Grand Est'
+      alors:
+        variations:
+          - si: coefficient = 100
+            alors: 23294 €/an
+          - si: coefficient = 110
+            alors: 23597 €/an
+          - si: coefficient = 125
+            alors: 24339 €/an
+          - si: coefficient = 140
+            alors: 26978 €/an
+          - si: coefficient = 150
+            alors: 28399 €/an
+          - si: coefficient = 165
+            alors: 31054 €/an
+          - si: coefficient = 180
+            alors: 33525 €/an
+          - sinon: 0 €/an
+    - si: région = 'Hauts-de-France'
+      alors:
+        variations:
+          - si: coefficient = 100
+            alors: 23305 €/an
+          - si: coefficient = 110
+            alors: 23607 €/an
+          - si: coefficient = 125
+            alors: 24287 €/an
+          - si: coefficient = 140
+            alors: 27148 €/an
+          - si: coefficient = 150
+            alors: 29005 €/an
+          - si: coefficient = 165
+            alors: 31697 €/an
+          - si: coefficient = 180
+            alors: 34577 €/an
+          - sinon: 0 €/an
+    - si: région = 'Île-de-France'
+      alors:
+        variations:
+          - si: coefficient = 100
+            alors: 23709 €/an
+          - si: coefficient = 110
+            alors: 23930 €/an
+          - si: coefficient = 125
+            alors: 24826 €/an
+          - si: coefficient = 140
+            alors: 27474 €/an
+          - si: coefficient = 150
+            alors: 28954 €/an
+          - si: coefficient = 165
+            alors: 31886 €/an
+          - si: coefficient = 180
+            alors: 34569 €/an
+          - sinon: 0 €/an
+    - si: région = 'Normandie'
+      alors:
+        variations:
+          - si: coefficient = 100
+            alors: 23462 €/an
+          - si: coefficient = 110
+            alors: 23552 €/an
+          - si: coefficient = 125
+            alors: 24691 €/an
+          - si: coefficient = 140
+            alors: 27202 €/an
+          - si: coefficient = 150
+            alors: 29145 €/an
+          - si: coefficient = 165
+            alors: 31746 €/an
+          - si: coefficient = 180
+            alors: 34634 €/an
+          - sinon: 0 €/an
+    - si: région = 'Occitanie'
+      alors:
+        variations:
+          - si: coefficient = 100
+            alors: 23160 €/an
+          - si: coefficient = 110
+            alors: 23518 €/an
+          - si: coefficient = 125
+            alors: 24606 €/an
+          - si: coefficient = 140
+            alors: 27301 €/an
+          - si: coefficient = 150
+            alors: 29105 €/an
+          - si: coefficient = 165
+            alors: 31550 €/an
+          - si: coefficient = 180
+            alors: 33928 €/an
+          - sinon: 0 €/an
+    - si: région = 'Pays de la Loire'
+      alors:
+        variations:
+          - si: coefficient = 100
+            alors: 23537 €/an
+          - si: coefficient = 110
+            alors: 23733 €/an
+          - si: coefficient = 125
+            alors: 24749 €/an
+          - si: coefficient = 140
+            alors: 27334 €/an
+          - si: coefficient = 150
+            alors: 29301 €/an
+          - si: coefficient = 165
+            alors: 31743 €/an
+          - si: coefficient = 180
+            alors: 34619 €/an
+          - sinon: 0 €/an
+    - sinon: 0 €/an
+salarié . convention collective . travaux publics ouvriers . région hors grille:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  toutes ces conditions:
+    - région != 'Bretagne'
+    - région != 'Nouvelle-Aquitaine'
+    - région != 'Bourgogne-Franche-Comté'
+    - région != 'Centre-Val de Loire'
+    - région != 'Grand Est'
+    - région != 'Hauts-de-France'
+    - région != 'Île-de-France'
+    - région != 'Normandie'
+    - région != 'Occitanie'
+    - région != 'Pays de la Loire'
+salarié . convention collective . travaux publics ouvriers . coefficient hors grille:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  toutes ces conditions:
+    - coefficient != 100
+    - coefficient != 110
+    - coefficient != 125
+    - coefficient != 140
+    - coefficient != 150
+    - coefficient != 165
+    - coefficient != 180
+salarié . convention collective . travaux publics ouvriers . année Pays de la Loire confirmée:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  par défaut: non
+salarié . convention collective . travaux publics ouvriers . incohérence année grille:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  valeur: région = 'Pays de la Loire'
+salarié . convention collective . travaux publics ouvriers . date extension atteinte:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  variations:
+    - si: région = 'Bretagne'
+      alors: date de calcul >= 24/02/2026
+    - si: région = 'Nouvelle-Aquitaine'
+      alors: date de calcul >= 17/04/2026
+    - si: région = 'Bourgogne-Franche-Comté'
+      alors: date de calcul >= 05/03/2026
+    - si: région = 'Centre-Val de Loire'
+      alors: date de calcul >= 20/03/2026
+    - si: région = 'Grand Est'
+      alors: date de calcul >= 20/03/2026
+    - si: région = 'Hauts-de-France'
+      alors: date de calcul >= 20/03/2026
+    - si: région = 'Île-de-France'
+      alors: date de calcul >= 17/04/2026
+    - si: région = 'Normandie'
+      alors: date de calcul >= 24/02/2026
+    - si: région = 'Occitanie'
+      alors: date de calcul >= 20/03/2026
+    - si: région = 'Pays de la Loire'
+      alors: date de calcul >= 04/09/2026
+    - sinon: non
+salarié . convention collective . travaux publics ouvriers . période hors couverture:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  une de ces conditions:
+    - date extension atteinte = non
+    - date de calcul > 31/12/2026
+salarié . convention collective . travaux publics ouvriers . calcul bloqué:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  une de ces conditions:
+    - région hors grille
+    - coefficient hors grille
+    - catégorie != 'ouvrier'
+    - contrat . statut cadre
+    - contrat . apprentissage
+    - contrat . professionnalisation
+    - contrat . stage
+    - période hors couverture
+    - toutes ces conditions:
+        - incohérence année grille
+        - année Pays de la Loire confirmée = non
+salarié . convention collective . travaux publics ouvriers . minimum annuel:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'travaux publics ouvriers'
+      - calcul bloqué = non
+  unité: €/an
+  valeur: grille annuelle
+salarié . convention collective . travaux publics ouvriers . fraction annuelle validée:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  question: Quelle fraction annuelle, temps partiel et périodes neutralisées compris, a été validée ?
+  unité: '%'
+  plancher: 0%
+  plafond: 100%
+  description: Fraction annuelle incluant temps partiel, présence, changements de classement et neutralisation des périodes maintenues par un tiers, à valider selon l’article 4.1.
+salarié . convention collective . travaux publics ouvriers . salaire minimum annuel conventionnel:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'travaux publics ouvriers'
+      - calcul bloqué = non
+  unité: €/an
+  valeur: minimum annuel * fraction annuelle validée
+salarié . convention collective . travaux publics ouvriers . assiette annuelle validée:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  par défaut: non
+salarié . convention collective . travaux publics ouvriers . rémunération annuelle retenue:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  question: Quelle rémunération annuelle de comparaison a été validée au titre de l’article 4.1 ?
+  unité: €/an
+  plancher: 0 €/an
+  description: Assiette brute annuelle de l’article 4.1, congés et prime de vacances compris, frais, heures supplémentaires et autres éléments exclus retirés.
+salarié . convention collective . travaux publics ouvriers . régularisation annuelle:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'travaux publics ouvriers'
+      - calcul bloqué = non
+      - assiette annuelle validée
+  unité: €/an
+  valeur: salaire minimum annuel conventionnel - rémunération annuelle retenue
+  plancher: 0 €/an
+salarié . convention collective . travaux publics ouvriers . champ national ouvrier:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - contrat . statut cadre = non
+    - contrat . apprentissage = non
+    - contrat . professionnalisation = non
+    - contrat . stage = non
+    - date de calcul >= 01/01/2026
+    - date de calcul <= 31/12/2026
+salarié . convention collective . travaux publics ouvriers . droit à prime validé par caisse:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  par défaut: non
+  description: Éligibilité validée, exceptions maladie et service national comprises, sans automatiser le seuil horaire. Non renseigné ne signifie pas absence de droit.
+salarié . convention collective . travaux publics ouvriers . indemnité de congé des 24 jours:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  question: Quelle indemnité de congé des seuls 24 jours ouvrables ouvre droit à la prime ?
+  unité: €
+  plancher: 0 €
+salarié . convention collective . travaux publics ouvriers . prime de même objet déjà versée:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  unité: €
+  par défaut: 0 €
+  plancher: 0 €
+salarié . convention collective . travaux publics ouvriers . prime de vacances:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'travaux publics ouvriers'
+      - champ national ouvrier
+      - droit à prime validé par caisse
+  unité: €
+  valeur: indemnité de congé des 24 jours * 30% - prime de même objet déjà versée
+  plancher: 0 €
+  description: Montant de contrôle versé avec l’indemnité de congé, non mensualisé et non automatiquement ajouté à la paie.
+salarié . convention collective . travaux publics ouvriers . services dans la même entreprise à fin de référence:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  question: Combien d’années de services continus ou non dans la même entreprise assujettie sont validées à la fin de référence ?
+  unité: an
+  plancher: 0 an
+salarié . convention collective . travaux publics ouvriers . congés supplémentaires d'ancienneté:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'travaux publics ouvriers'
+      - champ national ouvrier
+  unité: jour
+  variations:
+    - si: services dans la même entreprise à fin de référence >= 30 an
+      alors: 6 jour
+    - si: services dans la même entreprise à fin de référence >= 25 an
+      alors: 4 jour
+    - si: services dans la même entreprise à fin de référence >= 20 an
+      alors: 2 jour
+    - sinon: 0 jour
+
+salarié . convention collective . travaux publics ouvriers . prévoyance:
+  applicable si: convention collective = 'travaux publics ouvriers'
+  titre: Prévoyance conventionnelle des ouvriers
+
+salarié . convention collective . travaux publics ouvriers . prévoyance . employeur:
+  titre: Prévoyance conventionnelle — part employeur
+  description: >-
+    Cotisation minimale du régime national de prévoyance des ouvriers des travaux publics,
+    à la charge exclusive de l'employeur : 1,72 % du salaire brut plafonné à trois plafonds
+    de la sécurité sociale. La part appelée au salarié, les garanties, dispenses et éventuels
+    compléments contractuels restent gérés par le régime et les entrées de paie.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'travaux publics ouvriers'
+      - catégorie = 'ouvrier'
+      - contrat . statut cadre = non
+      - contrat . apprentissage = non
+      - contrat . professionnalisation = non
+      - contrat . stage = non
+  barème:
+    assiette: contrat . salaire brut
+    multiplicateur: plafond sécurité sociale
+    tranches:
+      - taux: 1.72%
+        plafond: 3
+  remplace: cotisations . prévoyances . conventionnelle . employeur

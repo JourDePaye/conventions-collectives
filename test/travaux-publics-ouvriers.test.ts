@@ -8,7 +8,7 @@ const agreement = "1702-travaux-publics-ouvriers";
 const value = "travaux publics ouvriers";
 const namespace = `salarié . convention collective . ${value}`;
 async function makeEngine() {
-  const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+  const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.3");
   assert.ok(version, "IDCC 1702 must be exported");
   const extension = await version.loadRules();
   const rules: Record<string, Rule> = { ...modeleSocial };
@@ -233,7 +233,7 @@ describe("IDCC 1702 — isolation and statutory baseline", () => {
     };
     baseline.setSituation({ ...input, "salarié . convention collective": "'droit commun'" });
     situation(engine, input);
-    for (const endpoint of ["salarié . contrat . temps de travail . SMIC", "salarié . rémunération . contrôle minimum", "salarié . temps de travail . heures supplémentaires . majoration", "salarié . cotisations . prévoyances . conventionnelle . employeur", "salarié . cotisations . formation professionnelle", "salarié . coût total employeur"]) {
+    for (const endpoint of ["salarié . contrat . temps de travail . SMIC", "salarié . rémunération . contrôle minimum", "salarié . temps de travail . heures supplémentaires . majoration", "salarié . cotisations . formation professionnelle"]) {
       const actual = engine.evaluate(endpoint);
       const expected = baseline.evaluate(endpoint);
       assert.notEqual(actual.nodeValue, undefined, endpoint);
@@ -245,6 +245,15 @@ describe("IDCC 1702 — isolation and statutory baseline", () => {
     const { engine } = await makeEngine();
     situation(engine, { "date": "11/10/2026", "salarié . contrat . salaire brut": "1000 €/mois" });
     assert.equal(engine.evaluate("salarié . rémunération . contrôle minimum").nodeValue, true);
+  });
+  it("applies the TP workers employer prévoyance rate through three PMSS", async () => {
+    const { engine } = await makeEngine();
+    situation(engine, {
+      "salarié . contrat . salaire brut": "20000 €/mois",
+      "plafond sécurité sociale": "4000 €/mois",
+    });
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . conventionnelle . employeur").nodeValue, 206.4);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . conventionnelle . salarié").nodeValue, null);
   });
   it("makes agreement outputs inapplicable under another agreement", async () => {
     const { engine } = await makeEngine();
@@ -258,7 +267,7 @@ describe("IDCC 1702 — isolation and statutory baseline", () => {
 describe("IDCC 1702 — regional annual minima", () => {
   it("exports the extended Brittany annual 35-hour minimum without a monthly conversion", async () => {
     const { engine, version, extension } = await makeEngine();
-    assert.equal(version.validFrom, "2026-02-24");
+    assert.equal(version.validFrom, "2026-01-01");
     assert.ok(version.sources.includes("https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054033905"));
     situation(engine);
     assert.equal(evaluate(engine, "minimum annuel").nodeValue, 23863);
