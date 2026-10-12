@@ -1,0 +1,132 @@
+# Convention collective nationale des maisons à succursales de vente au détail d'habillement
+# du 30 juin 1972 (IDCC 675, brochure 3065).
+#
+# Version 2026.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+validFrom: 2026-05-01
+sources:
+  - "Accord du 16 avril 2026 relatif aux salaires mensuels minima garantis, IDCC 675, en vigueur étendu : https://www.legifrance.gouv.fr/liste/idcc?etatTexte=VIGUEUR_ETEN&idcc_suggest=675"
+  - "Arrêté du 6 juillet 2026 portant extension de l'accord, JORF du 10 juillet 2026, NOR TRST2616915A ; référence consultable depuis la fiche officielle IDCC 675 : https://www.legifrance.gouv.fr/liste/idcc?etatTexte=VIGUEUR_ETEN&idcc_suggest=675"
+---
+salarié . convention collective . succursales habillement:
+  titre: Maisons à succursales de vente au détail d'habillement (IDCC 675)
+  valeur: convention collective = 'succursales habillement'
+
+salarié . convention collective . succursales habillement . niveau:
+  titre: Catégorie de classification
+  description: |
+    E1 à E4 pour les employés, AM1 et AM2 pour les agents de maîtrise, C1 à C3 pour les
+    cadres.
+  applicable si: convention collective = 'succursales habillement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . succursales habillement . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum de la catégorie pour 151,67 heures, proratisé pour un temps
+    partiel. Vaut 0 €/mois si la catégorie n'existe pas dans la grille (voir « niveau hors
+    grille »).
+  applicable si: convention collective = 'succursales habillement'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . succursales habillement . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'accord du 16 avril 2026, de 1 824 € (employé 1) à 3 044 € (cadre 3).
+  unité: €/mois
+  variations:
+    - si: niveau = 'E1'
+      alors: 1824 €/mois
+    - si: niveau = 'E2'
+      alors: 1837 €/mois
+    - si: niveau = 'E3'
+      alors: 1851 €/mois
+    - si: niveau = 'E4'
+      alors: 1900 €/mois
+    - si: niveau = 'AM1'
+      alors: 1981 €/mois
+    - si: niveau = 'AM2'
+      alors: 2058 €/mois
+    - si: niveau = 'C1'
+      alors: 2348 €/mois
+    - si: niveau = 'C2'
+      alors: 2581 €/mois
+    - si: niveau = 'C3'
+      alors: 3044 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . succursales habillement . prime d'ancienneté:
+  titre: Prime d'ancienneté
+  description: |
+    Prime mensuelle calculée sur le salaire minimum conventionnel de la catégorie,
+    selon l'ancienneté du salarié. Elle est proratisée selon la quotité de travail
+    via le salaire minimum conventionnel.
+  applicable si: convention collective = 'succursales habillement'
+  unité: €/mois
+  remplace: rémunération . primes . ancienneté
+  formule:
+    produit:
+      - salaire minimum conventionnel
+      - variations:
+          - si: salarié . ancienneté >= 15 an
+            alors: 15%
+          - si: salarié . ancienneté >= 12 an
+            alors: 12%
+          - si: salarié . ancienneté >= 9 an
+            alors: 9%
+          - si: salarié . ancienneté >= 6 an
+            alors: 6%
+          - si: salarié . ancienneté >= 3 an
+            alors: 3%
+          - sinon: 0%
+
+salarié . convention collective . succursales habillement . salaire minimum avec prime d'ancienneté:
+  titre: Salaire minimum conventionnel avec prime d'ancienneté
+  description: Salaire minimum mensuel garanti augmenté de la prime d'ancienneté conventionnelle.
+  applicable si: convention collective = 'succursales habillement'
+  unité: €/mois
+  somme:
+    - salaire minimum conventionnel
+    - prime d'ancienneté
+
+salarié . convention collective . succursales habillement . forfait jours:
+  titre: Convention de forfait en jours
+  description: Le salarié est-il soumis à une convention individuelle de forfait en jours ?
+  applicable si: convention collective = 'succursales habillement'
+  par défaut: non
+
+salarié . convention collective . succursales habillement . salaire minimum annuel forfait jours:
+  titre: Salaire minimum annuel des cadres au forfait jours
+  description: |
+    Minimum annuel correspondant au minimum mensuel de la catégorie cadre, majoré de 15 %
+    pour un forfait annuel en jours. Vaut 0 €/an hors catégories C1 à C3 ou sans forfait jours.
+  applicable si: convention collective = 'succursales habillement'
+  unité: €/an
+  variations:
+    - si: forfait jours
+      alors:
+        variations:
+          - si: niveau = 'C1'
+            alors: 32317.44 €/an
+          - si: niveau = 'C2'
+            alors: 35620.2 €/an
+          - si: niveau = 'C3'
+            alors: 41906.4 €/an
+          - sinon: 0 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . succursales habillement . niveau hors grille:
+  titre: Catégorie absente de la grille
+  description: La catégorie n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'succursales habillement'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour une catégorie inconnue.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
