@@ -1,0 +1,71 @@
+validFrom: 2026-05-01
+sources:
+  - "Accord du 13 janvier 2026 relatif aux salaires pour l'année 2026, grille des salaires minima conventionnels, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054161937"
+  - "Arrêté du 2 avril 2026 portant extension de l'accord, publié au Journal officiel le 17 avril 2026, JORFTEXT000053907604 : https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053907604"
+---
+salarié . convention collective . logistique communication écrite directe:
+  titre: Entreprises de logistique de communication écrite directe (IDCC 1611)
+  valeur: convention collective = 'logistique communication écrite directe'
+
+salarié . convention collective . logistique communication écrite directe . groupe:
+  titre: Groupe de classification
+  description: Groupe I-A à III-G de la grille de l'accord du 13 janvier 2026. Le groupe III-H renvoie au SMIC en vigueur et n'est pas une valeur conventionnelle autonome.
+  applicable si: convention collective = 'logistique communication écrite directe'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . logistique communication écrite directe . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Salaire minimum mensuel pour 151,67 heures, correspondant au groupe de classification, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'logistique communication écrite directe'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . logistique communication écrite directe . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Grille de l'accord du 13 janvier 2026, applicable après son extension à compter du 1er mai 2026.
+  applicable si: convention collective = 'logistique communication écrite directe'
+  unité: €/mois
+  variations:
+    - si: groupe = 'I-A'
+      alors: 5503.51 €/mois
+    - si: groupe = 'I-B'
+      alors: 4818.26 €/mois
+    - si: groupe = 'I-C'
+      alors: 4282.86 €/mois
+    - si: groupe = 'I-D'
+      alors: 4111.55 €/mois
+    - si: groupe = 'I-E'
+      alors: 3298.11 €/mois
+    - si: groupe = 'I-F'
+      alors: 3212.15 €/mois
+    - si: groupe = 'I-G'
+      alors: 3105.07 €/mois
+    - si: groupe = 'II-A'
+      alors: 2998.02 €/mois
+    - si: groupe = 'II-B'
+      alors: 2783.88 €/mois
+    - si: groupe = 'II-C'
+      alors: 2676.81 €/mois
+    - si: groupe = 'III-A'
+      alors: 2501.05 €/mois
+    - si: groupe = 'III-B'
+      alors: 2285.41 €/mois
+    - si: groupe = 'III-C'
+      alors: 2081.85 €/mois
+    - si: groupe = 'III-D'
+      alors: 1964.61 €/mois
+    - si: groupe = 'III-E'
+      alors: 1904.22 €/mois
+    - si: groupe = 'III-F'
+      alors: 1855.38 €/mois
+    - si: groupe = 'III-G'
+      alors: 1837.38 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . logistique communication écrite directe . groupe hors grille:
+  titre: Groupe absent de la grille conventionnelle
+  description: Le groupe n'existe pas dans la grille conventionnelle modélisée. Le groupe III-H renvoie au SMIC en vigueur et doit être fourni par le modèle légal du SMIC.
+  applicable si: convention collective = 'logistique communication écrite directe'
+  valeur: grille = 0 €/mois
