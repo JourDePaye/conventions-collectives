@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "1261-acteurs-lien-social-familial";
 const value = "acteurs du lien social et familial";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.9");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -36,7 +36,7 @@ function amount(name: string) {
 
 describe("IDCC 1261 — 2026 classification and minimum salary", () => {
   it("exports the 2026 value of the point and salary base", () => {
-    assert.equal(version.validFrom, "2026-01-01");
+    assert.equal(version.validFrom, "2026-05-01");
     assert.ok(version.sources.some((source) => source.includes("KALITEXT000048558670")));
     setSituation();
     // EUR/year amounts are normalized by Publicodes when consumed by the monthly rule.
@@ -64,4 +64,11 @@ describe("IDCC 1261 — 2026 classification and minimum salary", () => {
     engine.setSituation({ "salarié . convention collective": "'droit commun'" });
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, null);
   });
+
+  it("calculates the convention health contribution on the PMSS", () => {
+    setSituation();
+    assert.equal(engine.evaluate(`${namespace} . santé . employeur`).nodeValue, 38.448);
+    assert.equal(engine.evaluate(`${namespace} . santé . salarié`).nodeValue, 25.631999999999998);
+  });
+
 });
