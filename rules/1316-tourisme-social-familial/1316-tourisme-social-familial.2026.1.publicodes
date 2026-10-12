@@ -1,0 +1,103 @@
+validFrom: 2026-01-01
+sources:
+  - "Avenant n° 77 du 4 décembre 2025 relatif aux salaires minima conventionnels, étendu par arrêté du 16 février 2026 (JORF du 24 février 2026), texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053721452"
+  - "Avenant n° 78 du 15 janvier 2026 relatif aux salaires minima conventionnels, étendu par arrêté du 4 mai 2026 (JORF du 8 mai 2026), texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054254013"
+---
+salarié . convention collective . tourisme social et familial:
+  titre: Tourisme social et familial (IDCC 1316)
+  valeur: convention collective = 'tourisme social et familial'
+
+salarié . convention collective . tourisme social et familial . niveau:
+  titre: Niveau de classification
+  description: Niveau A à G de la grille des salaires minima conventionnels.
+  applicable si: convention collective = 'tourisme social et familial'
+  par défaut: "'A'"
+
+salarié . convention collective . tourisme social et familial . date de calcul:
+  titre: Date de vérification du minimum
+  description: Date utilisée pour appliquer les paliers d'entrée en vigueur de 2026.
+  applicable si: convention collective = 'tourisme social et familial'
+  par défaut: 01/01/2026
+
+salarié . convention collective . tourisme social et familial . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut pour 151,67 heures, proratisé selon la quotité de travail. Les primes, le treizième mois et les avantages en nature ne sont pas inclus.
+  applicable si: convention collective = 'tourisme social et familial'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . tourisme social et familial . grille mensuelle:
+  titre: Grille mensuelle des minima
+  description: Grille des avenants n° 77 et n° 78, avec les paliers du 1er janvier, du 1er février et du 1er mai 2026.
+  applicable si: convention collective = 'tourisme social et familial'
+  unité: €/mois
+  variations:
+    - si: date de calcul >= 01/05/2026
+      alors:
+        variations:
+          - si: niveau = 'A'
+            alors: 1823.10 €/mois
+          - si: niveau = 'B'
+            alors: 1846.49 €/mois
+          - si: niveau = 'C'
+            alors: 1878.61 €/mois
+          - si: niveau = 'D'
+            alors: 1992.81 €/mois
+          - si: niveau = 'E'
+            alors: 2268.41 €/mois
+          - si: niveau = 'F'
+            alors: 2642.59 €/mois
+          - si: niveau = 'G'
+            alors: 3294.50 €/mois
+          - sinon: 0 €/mois
+    - si: date de calcul >= 01/02/2026
+      alors:
+        variations:
+          - si: niveau = 'A'
+            alors: 1823.10 €/mois
+          - si: niveau = 'B'
+            alors: 1837.30 €/mois
+          - si: niveau = 'C'
+            alors: 1869.26 €/mois
+          - si: niveau = 'D'
+            alors: 1973.08 €/mois
+          - si: niveau = 'E'
+            alors: 2245.95 €/mois
+          - si: niveau = 'F'
+            alors: 2616.43 €/mois
+          - si: niveau = 'G'
+            alors: 3261.88 €/mois
+          - sinon: 0 €/mois
+    - si: date de calcul >= 01/01/2026
+      alors:
+        variations:
+          - si: niveau = 'A'
+            alors: 1821.35 €/mois
+          - si: niveau = 'B'
+            alors: 1837.30 €/mois
+          - si: niveau = 'C'
+            alors: 1869.26 €/mois
+          - si: niveau = 'D'
+            alors: 1973.08 €/mois
+          - si: niveau = 'E'
+            alors: 2245.95 €/mois
+          - si: niveau = 'F'
+            alors: 2616.43 €/mois
+          - si: niveau = 'G'
+            alors: 3261.88 €/mois
+          - sinon: 0 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . tourisme social et familial . niveau hors grille:
+  titre: Niveau absent de la grille
+  applicable si: convention collective = 'tourisme social et familial'
+  valeur: grille mensuelle = 0 €/mois
+
+salarié . convention collective . tourisme social et familial . période hors couverture:
+  titre: Date hors période modélisée
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'tourisme social et familial'
+      - date de calcul < 01/01/2026
