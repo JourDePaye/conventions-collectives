@@ -67,6 +67,7 @@ Cinquante-deux conventions sont actuellement représentées, avec cinquante-cinq
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
 | [Bâtiment — ouvriers des entreprises jusqu'à 10 salariés](rules/1596-batiment-ouvriers-petites-entreprises/README.md) | 1596 | `2026.1` : 1er mai 2026 | Grille mensuelle explicitement limitée au Centre-Val de Loire (7 coefficients), bornes de date et de catégorie ; congés payés CIBTP, chômage intempéries, OPPBTP et RNPC cadre isolés dans le namespace ; aucune extrapolation nationale |
+| [Bâtiment — ouvriers des entreprises de plus de 10 salariés](rules/1597-batiment-ouvriers-plus-de-10/README.md) | 1597 | `2026.1` : 1er janvier 2026 | Grille mensuelle explicitement limitée à la Nouvelle-Aquitaine (7 coefficients), bornes de date et de catégorie ; congés payés CIBTP, chômage intempéries, OPPBTP et RNPC cadre isolés dans le namespace ; aucune extrapolation nationale |
 | [Travaux publics — ouvriers](rules/1702-travaux-publics-ouvriers/README.md) | 1702 | `2026.1` : 24 février 2026, ouvertures régionales jusqu’au 4 septembre 2026 | Sept coefficients, dix barèmes annuels régionaux (63 cellules automatiques, 7 Pays de la Loire sous confirmation), sans conversion mensuelle ; dates/champ bloquants, prorata et comparaison annuelle validés, prime de vacances et congés d’ancienneté ; régions manquantes et cotisations TP hors couverture |
 
 ### TRANSPORT & LOGISTIQUE
