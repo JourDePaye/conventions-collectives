@@ -1,0 +1,149 @@
+validFrom: 2026-07-01
+sources:
+  - "Accord du 7 mai 2026 relatif aux salaires minima conventionnels, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054825266"
+  - "Convention collective nationale des sociétés financières, IDCC 478, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635162"
+---
+salarié . convention collective . sociétés financières:
+  titre: Sociétés financières (IDCC 478)
+  valeur: convention collective = 'sociétés financières'
+
+salarié . convention collective . sociétés financières . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient de 140 à 1000 prévu par la grille de l'accord salarial du 7 mai 2026.
+  applicable si: convention collective = 'sociétés financières'
+  par défaut: 140
+
+salarié . convention collective . sociétés financières . champ juridique:
+  titre: Champ juridique de l'accord salarial
+  description: L'accord du 7 mai 2026 est modélisé pour les employeurs signataires ou adhérents. Aucun arrêté d'extension n'est modélisé.
+  applicable si: convention collective = 'sociétés financières'
+  une possibilité:
+    - "'employeur signataire ou adhérent'"
+    - "'autre employeur'"
+  par défaut: "'employeur signataire ou adhérent'"
+
+salarié . convention collective . sociétés financières . date de calcul:
+  titre: Date de vérification du minimum
+  applicable si: convention collective = 'sociétés financières'
+  par défaut: 01/07/2026
+
+salarié . convention collective . sociétés financières . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Salaire minimum mensuel pour 151,67 heures, colonne 0 à 3 ans, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'sociétés financières'
+      - calcul bloqué = non
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . sociétés financières . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Grille de l'accord du 7 mai 2026, colonne 0 à 3 ans, applicable à compter du 1er juillet 2026 pour les employeurs signataires ou adhérents.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'sociétés financières'
+      - champ juridique = 'employeur signataire ou adhérent'
+      - date de calcul >= 01/07/2026
+  unité: €/mois
+  variations:
+    - si: coefficient = 140
+      alors: 1823 €/mois
+    - si: coefficient = 145
+      alors: 1827 €/mois
+    - si: coefficient = 150
+      alors: 1833 €/mois
+    - si: coefficient = 160
+      alors: 1844 €/mois
+    - si: coefficient = 170
+      alors: 1856 €/mois
+    - si: coefficient = 180
+      alors: 1868 €/mois
+    - si: coefficient = 190
+      alors: 1880 €/mois
+    - si: coefficient = 200
+      alors: 2154 €/mois
+    - si: coefficient = 220
+      alors: 2198 €/mois
+    - si: coefficient = 240
+      alors: 2242 €/mois
+    - si: coefficient = 260
+      alors: 2286 €/mois
+    - si: coefficient = 280
+      alors: 2330 €/mois
+    - si: coefficient = 300
+      alors: 2374 €/mois
+    - si: coefficient = 325
+      alors: 2429 €/mois
+    - si: coefficient = 350
+      alors: 2484 €/mois
+    - si: coefficient = 375
+      alors: 2539 €/mois
+    - si: coefficient = 400
+      alors: 2594 €/mois
+    - si: coefficient = 450
+      alors: 2704 €/mois
+    - si: coefficient = 500
+      alors: 2814 €/mois
+    - si: coefficient = 600
+      alors: 3034 €/mois
+    - si: coefficient = 700
+      alors: 3254 €/mois
+    - si: coefficient = 800
+      alors: 3474 €/mois
+    - si: coefficient = 1000
+      alors: 3914 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . sociétés financières . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la colonne 0 à 3 ans de l'accord modélisé.
+  applicable si: convention collective = 'sociétés financières'
+  toutes ces conditions:
+    - coefficient != 140
+    - coefficient != 145
+    - coefficient != 150
+    - coefficient != 160
+    - coefficient != 170
+    - coefficient != 180
+    - coefficient != 190
+    - coefficient != 200
+    - coefficient != 220
+    - coefficient != 240
+    - coefficient != 260
+    - coefficient != 280
+    - coefficient != 300
+    - coefficient != 325
+    - coefficient != 350
+    - coefficient != 375
+    - coefficient != 400
+    - coefficient != 450
+    - coefficient != 500
+    - coefficient != 600
+    - coefficient != 700
+    - coefficient != 800
+    - coefficient != 1000
+
+salarié . convention collective . sociétés financières . période hors couverture:
+  titre: Date hors période modélisée
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'sociétés financières'
+      - date de calcul < 01/07/2026
+
+salarié . convention collective . sociétés financières . champ hors couverture:
+  titre: Employeur hors champ de l'accord
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'sociétés financières'
+      - champ juridique = 'autre employeur'
+
+salarié . convention collective . sociétés financières . calcul bloqué:
+  titre: Calcul du minimum bloqué
+  applicable si: convention collective = 'sociétés financières'
+  une de ces conditions:
+    - coefficient hors grille
+    - période hors couverture
+    - champ hors couverture
