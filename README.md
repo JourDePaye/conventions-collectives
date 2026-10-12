@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Quatre-vingt-six conventions sont actuellement représentées, avec quatre-vingt-neuf versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Quatre-vingt-sept conventions sont actuellement représentées, avec quatre-vingt-dix versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -47,6 +47,7 @@ Quatre-vingt-six conventions sont actuellement représentées, avec quatre-vingt
 | [Commerce de détail et de gros à prédominance alimentaire](rules/2216-commerce-detail-gros-predominance-alimentaire/README.md) | 2216 | `2025.1` : 1er août 2025 ; `2026.1` : 1er août 2026 | Salaire minimum mensuel garanti par niveau, pauses rémunérées comprises ; proratisation selon la quotité de travail |
 | [Commerce de détail alimentaire spécialisé](rules/3237-commerce-detail-alimentaire-specialise/README.md) | 3237 | `2026.1` : 17 avril 2026 | Grille mensuelle de 11 niveaux (employés, agents de maîtrise et cadres), proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Cinq branches industries alimentaires diverses](rules/3109-industries-alimentaires-diverses/README.md) | 3109 | `2026.1` : 1er janvier 2026 (avenant étendu) | Grille mensuelle de 20 positions N1-E1 à N9-E1, proratisée selon la quotité de travail ; détection des positions hors grille |
+| [Vins, cidres, jus de fruits, sirops, spiritueux et liqueurs de France](rules/0493-vins-cidres-spiritueux/README.md) | 493 | `2026.1` : 1er février 2026 (accord étendu) | Grille mensuelle de 21 positions 1A à 10A, proratisée selon la quotité de travail ; détection des positions hors grille |
 
 ### COMMERCE & DISTRIBUTION (NON ALIMENTAIRE)
 
