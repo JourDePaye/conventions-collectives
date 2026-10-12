@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "0247-industries-habillement";
 const value = "industries habillement";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -29,7 +29,7 @@ describe("IDCC 247 — industries de l'habillement 2026.1", () => {
   it("is effective in March 2026 and cites the extended S 69 amendment", () => {
     assert.equal(version.validFrom, "2026-03-01");
     assert.ok(version.sources.some((source) => source.includes("Avenant n° S 69 du 3 mars 2026")));
-    assert.ok(version.sources.some((source) => source.includes("JORF du 8 mai 2026")));
+    assert.ok(version.sources.some((source) => source.includes("JORF n° 0108 du 8 mai 2026")));
   });
 
   it("calculates the worker monthly minimum and part-time prorating", () => {

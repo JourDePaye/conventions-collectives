@@ -1,6 +1,6 @@
 # Industries de l’habillement — IDCC 247
 
-Le fichier [2026.1](0247-industries-habillement.2026.1.publicodes) entre en vigueur le **1er mars 2026**, date d’application aux salaires de l’avenant S 69 du 3 mars 2026. L’avenant a été étendu par arrêté du 4 mai 2026, publié au JORF le 8 mai 2026. Les sources officielles sont référencées dans les métadonnées du fichier.
+Le fichier [2026.2](0247-industries-habillement.2026.2.publicodes) entre en vigueur le **1er mars 2026**, date d’application aux salaires de l’avenant S 69 du 3 mars 2026. L’avenant a été étendu par arrêté du 4 mai 2026, publié au JORF le 8 mai 2026. Les sources officielles sont référencées dans les métadonnées du fichier.
 
 ## Règles implémentées
 
