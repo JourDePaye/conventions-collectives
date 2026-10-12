@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Cinquante-cinq conventions sont actuellement représentées, avec cinquante-huit versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cinquante-six conventions sont actuellement représentées, avec cinquante-neuf versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -100,6 +100,7 @@ Cinquante-cinq conventions sont actuellement représentées, avec cinquante-huit
 |---|---|---|---|
 | [Sociétés d’assurances](rules/1672-societes-assurances/README.md) | 1672 | `2026.1` : 1er janvier 2026 | Rémunérations minimales annuelles des 7 classes, converties en minimum mensuel sur 13 mensualités et proratisées selon la quotité de travail ; détection des classes hors grille |
 | [Banque](rules/2120-banque/README.md) | 2120 | `2026.1` : 1er avril 2026 | Salaires annuels minima des 11 niveaux (A à K) selon l’ancienneté (0, 5, 10, 15 et 20 ans), convertis en minimum mensuel sur 13 mensualités et proratisés selon la quotité de travail ; détection des niveaux hors grille |
+| [Import-export](rules/0043-import-export/README.md) | 43 | `2026.1` : 1er mars 2026 (accord étendu le 13 mai 2026) | Grille mensuelle de 20 coefficients (E1 à E8, M9 à M12 et C13 à C20), proratisée selon la quotité de travail ; détection des coefficients hors grille |
 | [Promotion immobilière](rules/1512-promotion-immobiliere/README.md) | 1512 | `2026.1` : 1er janvier 2026 (avenant étendu) | Grille mensuelle fondée sur deux valeurs de point pour 13 coefficients ; minimum annuel distinct de 36 276 € pour les niveaux 4 à 6 au forfait de 218 jours ; coefficients hors grille signalés |
 | [Cabinets d’experts-comptables et de commissaires aux comptes](rules/0787-experts-comptables/README.md) | 787 | `2026.1` : 1er mars 2026 | Minimum annuel selon le coefficient (131,54 € par point jusqu'au 164e, puis 79,85 €), équivalent mensuel proratisé, et minimum annuel distinct de l'indice 40 validé |
 | [Entreprises de courtage d’assurances et de réassurances](rules/2247-courtage-assurances/README.md) | 2247 | `2025.1` : 1er juillet 2025 | Salaires annuels minima des 8 classes (A à H), convertis en minimum mensuel sur 13 mensualités et proratisés selon la quotité de travail ; détection des classes hors grille |
