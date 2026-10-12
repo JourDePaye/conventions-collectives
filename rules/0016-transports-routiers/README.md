@@ -1,6 +1,6 @@
 # Transports routiers et activités auxiliaires du transport — IDCC 16
 
-Le fichier [2026.1](0016-transports-routiers.2026.1.publicodes) entre en vigueur le 1er juin 2026, date à laquelle les grilles des quatre sous-secteurs ci-dessous sont en vigueur. Ses sources sont citées dans ses métadonnées. La valeur Publicodes est `transports routiers` ; les règles sont sous `salarié . convention collective . transports routiers`.
+Le fichier [2026.1](0016-transports-routiers.2026.1.publicodes) entre en vigueur le 1er juin 2026, date à laquelle les grilles des quatre sous-secteurs ci-dessous sont en vigueur. Le fichier [2026.2](0016-transports-routiers.2026.2.publicodes) conserve exactement ces minima et documente l'audit paie du 12 octobre 2026. La valeur Publicodes est `transports routiers` ; les règles sont sous `salarié . convention collective . transports routiers`.
 
 La convention collective nationale des transports routiers et activités auxiliaires du transport du 21 décembre 1950 (brochure 3085) a une grille distincte par sous-secteur :
 
@@ -20,10 +20,22 @@ La convention collective nationale des transports routiers et activités auxilia
 
 Les échelons de début de carrière de plusieurs grilles sont inférieurs au SMIC mensuel de 1 867,02 € en vigueur depuis juin 2026 : l’application doit retenir le plus élevé des deux montants.
 
-## Limites
+## Audit paie — 12 octobre 2026
 
-- Aucun texte officiel n’a été lu directement : les montants viennent de pages de synthèse et de PDF d’avenants hébergés par des sites d’information, recoupés en partie seulement. À recouper avec les textes sur Légifrance avant toute publication.
-- **Voyageurs.** L’arrêté d’extension des avenants du 27 novembre 2025 n’a pas été trouvé et semblait en attente en octobre 2026 : le minimum s’impose aux seuls employeurs adhérents aux organisations signataires. Le groupe 7 (cadres supérieurs) n’a pas de montants dans la source.
+Audit ciblé des différences officielles au-delà des minima, sur la convention IDCC 16 et ses textes sectoriels accessibles dans Légifrance/DILA. **Aucune règle supplémentaire n'est ajoutée sous le namespace** dans 2026.2 :
+
+- **Assiette, taux salariés/employeurs, plafonds/tranches et forfaits :** aucun texte étendu général applicable aux quatre sous-secteurs ne fixe une règle de paie calculable avec les entrées de ce package.
+- **Exemptions, avantages en nature, frais, formation professionnelle et AT/MP :** aucune dérogation ou taux conventionnel transversal identifié ; les règles de droit commun de `modele-social` restent applicables.
+- **Santé :** les avenants du 13 avril 2026 identifiés pour les marchandises, le transport sanitaire et le déménagement sont non étendus au 12 octobre 2026 et portent principalement sur les garanties/prestations. Ils ne permettent pas de remplacer le montant standard de santé sans contrat, option et population couverte.
+- **Prévoyance :** les textes disponibles sont sectoriels ou limités à des catégories/activités déterminées ; l'IDCC, le sous-secteur et la classification seuls ne suffisent pas à choisir l'organisme, le contrat, les options ou l'assiette. Aucun taux n'est donc appliqué par défaut.
+
+Cette omission est volontaire : appliquer un taux santé/prévoyance ou une assiette sans ces paramètres sur-appliquerait un accord sectoriel à des salariés non couverts. Le test dédié vérifie que les endpoints standards `modele-social` (AT/MP, formation, santé, prévoyance, coût employeur) restent inchangés et que l'extension reste isolée hors IDCC 16.
+
+Sources officielles examinées : [convention IDCC 16](https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635624), [avenant salaires voyageurs n° 120](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000047394518), [avenant santé marchandises du 13 avril 2026](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054880573), [avenant santé transport sanitaire du 13 avril 2026](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053385431), [avenant santé déménagement du 13 avril 2026](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000050299015), et [accord prévoyance transport sanitaire](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000046043318).
+
+
+- Les montants de la grille 2026.1 sont conservés sans modification par l'audit ; la version 2026.2 ne change que la traçabilité des sources et l'audit d'omission.
+- Les textes antérieurs au 1er juin 2026 et les dispositions qui nécessitent une population, un contrat assureur ou une assiette annuelle dédiée ne sont pas transformés en calculs automatiques.
 - **Marchandises.** C’est l’accord du 11 octobre 2023, les négociations de 2025 et de février 2026 ayant échoué : une revalorisation postérieure est possible. Le minimum mensuel publié pour les ouvriers à 151,67 heures (1 888,70 € pour 110M à 120M) est supérieur de 3 % au taux horaire multiplié par 151,67 heures (1 833,70 €), pour une raison non confirmée : la règle retient le taux horaire, plus bas. Les garanties annuelles (ouvriers, cadres) et les grilles de 169 et 200 heures ne sont pas modélisées.
 - **Cadres.** Les minima mensuels imprimés valent la garantie annuelle divisée par 13,33, et non par 12 : la règle retient ces minima mensuels, sans vérifier la garantie annuelle. Pour le déménagement, la garantie annuelle est établie sur 169 heures.
 - **Majorations non modélisées.** Les majorations de 10 % de la région parisienne (cadres de voyageurs), de 3 % pour les ouvriers mécaniciens ou caissiers de voyageurs, les primes de dimanche et de jour férié et les indemnités spécifiques ne sont pas modélisées.
