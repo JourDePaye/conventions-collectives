@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "1686-commerces-services-audiovisuel";
 const value = "audiovisuel électronique équipement ménager";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -54,6 +54,7 @@ describe("IDCC 1686 — 2026.1 minimum salaries", () => {
     assert.ok(version.sources.some((source) => source.includes("Avenant n° 63 du 12 février 2026")));
     assert.ok(version.sources.some((source) => source.includes("arrêté du 5 mai 2026")));
     assert.ok(version.sources.some((source) => source.includes("TRST2610665A")));
+    assert.ok(version.sources.some((source) => source.includes("Avenant de révision n° 62")));
   });
 
   it("has 16 positions: 12 monthly and 4 annual", () => {
@@ -82,6 +83,16 @@ describe("IDCC 1686 — 2026.1 minimum salaries", () => {
     assert.ok(Math.abs(minimum() - 2060.98 / 2) < 1e-9);
     setSituation("C2", "80%");
     assert.ok(Math.abs(minimum() - (39208.62 / 12) * 0.8) < 1e-9);
+  });
+
+  it("calculates the convention-wide prévoyance rate", () => {
+    engine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . niveau`]: "'III.2'",
+      "salarié . contrat . temps de travail . quotité": "100%",
+      "salarié . contrat . salaire brut": "5000 €/mois",
+    });
+    assert.equal(engine.evaluate(`${namespace} . prévoyance`).nodeValue, 65);
   });
 
   it("rejects levels, steps and positions outside the grid", () => {
