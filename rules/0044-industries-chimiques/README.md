@@ -1,6 +1,6 @@
 # Industries chimiques — IDCC 44
 
-Le fichier [2026.1](0044-industries-chimiques.2026.1.publicodes) entre en vigueur le 1er janvier 2026. Il est fondé sur l’accord du 3 décembre 2025 relatif aux salaires minima de branche, étendu par arrêté du 16 février 2026 (JORF du 24 février 2026), cités dans ses métadonnées. La valeur Publicodes est `industries chimiques` ; les règles sont sous `salarié . convention collective . industries chimiques`.
+Le fichier [2026.2](0044-industries-chimiques.2026.2.publicodes) couvre le minimum santé de branche à compter du 1er septembre 2025 et conserve le barème salarial applicable au 1er janvier 2026. Il est fondé sur l'avenant n° 4 du 2 septembre 2025 relatif au régime de frais de santé, étendu par arrêté du 9 décembre 2025 (JORF du 26 décembre 2025), ainsi que sur l'accord du 3 décembre 2025 relatif aux salaires minima. La valeur Publicodes est `industries chimiques` ; les règles sont sous `salarié . convention collective . industries chimiques`.
 
 La convention collective nationale des industries chimiques et connexes du 30 décembre 1952 (brochure 3108) calcule ses minima à partir de deux paramètres, le salaire de référence (1 848,69 €) et la valeur de référence par point (8,84 €), revalorisés de 1,2 % en 2026. Le minimum d’un coefficient K est : (salaire de référence + (K − 100) × valeur de référence) × coefficient de calcul.
 
@@ -13,7 +13,14 @@ La convention collective nationale des industries chimiques et connexes du 30 d�
 
 Tous les montants de la grille dépassent le SMIC mensuel de 1 867,02 € en vigueur depuis juin 2026.
 
-## Limites
+## Audit paie — 12 octobre 2026
+
+L'avenant n° 4 fixe un minimum de frais de santé de **1,50 % du PMSS** en régime général et **0,82 % en Alsace-Moselle**, avec au moins 50 % à la charge de l'employeur. `santé 2025 . montant contractuel` est prérempli avec ce minimum et peut recevoir le montant total réel du contrat ; zéro est réservé à une dispense validée. Les endpoints standards de santé de `modele-social` sont ainsi alimentés par le montant contractuel de la branche.
+
+L'audit des autres rubriques ne justifie pas d'automatisation supplémentaire sous le namespace IDCC 44 : l'assiette générale, les plafonds et tranches, les forfaits, les taux AT/MP, les exonérations, la formation professionnelle et la prévoyance hors santé restent ceux de `modele-social` ou nécessitent des paramètres de contrat, de catégorie ou d'entreprise non déterminés par l'IDCC seul. Aucun avantage en nature ou exemption générale calculable n'est ajouté.
+
+Sources officielles examinées : [avenant santé](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053041327/?idConteneur=KALICONT000005635613), [arrêté d'extension](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053167638), [accord salaires](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053721357), ainsi que les textes IDCC 44 relatifs à la formation professionnelle et à la prévoyance listés dans la convention.
+
 
 - Le texte de l’accord n’a pas été lu : les 23 montants viennent de deux pages de synthèse concordantes (juristique.org et lofficieldesmetiers.fr) et ont été vérifiés avec la formule ci-dessus. Les pages donnent deux valeurs différentes du salaire de référence (1 848,89 € et 1 848,69 €) : seule 1 848,69 € reproduit les montants du barème. Le numéro de texte et le NOR de l’arrêté ne sont pas vérifiés.
 - Le barème vaut pour 35 heures par semaine. Les barèmes pour d’autres durées du travail, en particulier celui des 38 heures évoqué par les pages consultées, ne sont pas modélisés.

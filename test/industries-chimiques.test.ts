@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "0044-industries-chimiques";
 const value = "industries chimiques";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -69,11 +69,11 @@ function minimum() {
 
 const outOfGrid = () => engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue;
 
-describe("IDCC 44 — 2026.1 minimum salaries", () => {
-  it("is in force from 1 January 2026 and cites the accord and its extension order", () => {
-    assert.equal(version.validFrom, "2026-01-01");
+describe("IDCC 44 — 2026.2 payroll audit and minimum salaries", () => {
+  it("is in force from 1 September 2025 for the extended health agreement and cites its source", () => {
+    assert.equal(version.validFrom, "2025-09-01");
     assert.ok(version.sources.some((source) => source.includes("Accord du 3 décembre 2025")));
-    assert.ok(version.sources.some((source) => source.includes("arrêté du 16 février 2026")));
+    assert.ok(version.sources.some((source) => source.includes("Avenant n° 4 du 2 septembre 2025")));
   });
 
   it("has 23 coefficients", () => {
@@ -114,6 +114,72 @@ describe("IDCC 44 — 2026.1 minimum salaries", () => {
     setSituation(undefined);
     assert.equal(outOfGrid(), true);
     assert.equal(minimum(), 0);
+  });
+
+  it("applies the extended branch health minimum through standard health endpoints", () => {
+    setSituation(250);
+    engine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . coefficient`]: 250,
+      "salarié . contrat . temps de travail . quotité": "100%",
+      "salarié . cotisations . assiette": "3000 €/mois",
+      "plafond sécurité sociale": "4000 €/mois",
+      "salarié . contrat . statut cadre": "non",
+    });
+    assert.equal(minimum(), 2244.51);
+    assert.equal(engine.evaluate(`${namespace} . santé 2025 . montant contractuel`).nodeValue, 60);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . santé . montant").nodeValue, 60);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . santé . employeur").nodeValue, 30);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . santé . salarié").nodeValue, 30);
+
+    engine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . coefficient`]: 250,
+      "salarié . cotisations . assiette": "3000 €/mois",
+      "plafond sécurité sociale": "4000 €/mois",
+      "salarié . régimes spécifiques . alsace moselle": "oui",
+    });
+    assert.equal(engine.evaluate(`${namespace} . santé 2025 . montant contractuel`).nodeValue, 32.8);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . santé . employeur").nodeValue, 16.4);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . santé . salarié").nodeValue, 16.4);
+  });
+
+  it("accepts a more favorable health contract and zero only for a validated dispensation", () => {
+    setSituation(250);
+    const common = {
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . coefficient`]: 250,
+      "salarié . cotisations . assiette": "3000 €/mois",
+      "plafond sécurité sociale": "4000 €/mois",
+    };
+    engine.setSituation({ ...common, [`${namespace} . santé 2025 . montant contractuel`]: "80 €/mois" });
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . santé . montant").nodeValue, 80);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . santé . employeur").nodeValue, 40);
+    engine.setSituation({ ...common, [`${namespace} . santé 2025 . montant contractuel`]: "0 €/mois" });
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . santé . montant").nodeValue, 0);
+  });
+
+  it("does not add IDCC-specific forfaits, AT/MP, formation, or generic conventional protection", () => {
+    const situation = {
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . coefficient`]: 250,
+      "salarié . cotisations . assiette": "3000 €/mois",
+      "entreprise . salariés . effectif": 5,
+      "établissement . taux ATMP": "2%",
+    };
+    engine.setSituation(situation);
+    const baseline = new Engine(modeleSocial, { logger: { log() {}, warn() {}, error() {} } });
+    const { [`${namespace} . coefficient`]: _coefficient, ...baselineSituation } = situation;
+    baseline.setSituation({ ...baselineSituation, "salarié . convention collective": "'droit commun'" });
+    for (const endpoint of [
+      "salarié . cotisations . ATMP",
+      "salarié . cotisations . formation professionnelle",
+      "salarié . cotisations . prévoyances . conventionnelle . employeur",
+      "salarié . cotisations . prévoyances . conventionnelle . salarié",
+      "salarié . cotisations . assiette forfaitaire",
+    ]) {
+      assert.deepEqual(engine.evaluate(endpoint).nodeValue, baseline.evaluate(endpoint).nodeValue, endpoint);
+    }
   });
 
   it("leaves the extension inapplicable for another agreement", () => {
