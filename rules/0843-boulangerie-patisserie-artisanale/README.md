@@ -18,7 +18,7 @@ La valeur Publicodes est `boulangerie-pâtisserie artisanale` ; les règles sont
   - pour les coefficients, le taux horaire multiplié par `salarié . contrat . temps de travail` de `modele-social`, soit 151,67 heures par mois pour un temps plein, comme le SMIC. Par exemple, le coefficient 170 national vaut 1 938,30 €/mois à temps complet ;
   - pour les cadres, un douzième du minimum annuel, multiplié par `salarié . contrat . temps de travail . quotité`. Le montant ne doit donc pas être proratisé une seconde fois.
 - `niveau hors grille` signale un coefficient ou un statut absent de la grille. Les deux grilles retournent alors zéro et l’application doit traiter l’anomalie.
-- `prévoyance . rente éducation` expose uniquement la composante étendue de 0,065 % du salaire brut : 0,039 % employeur et 0,026 % salarié pour les non-cadres, 0,065 % employeur pour les cadres. Les autres garanties de prévoyance ne sont pas modélisées faute d'une assiette complète et de paramètres de contrat sûrs.
+- `prévoyance . rente éducation` expose uniquement la composante étendue de 0,065 % du salaire soumis à cotisations, plafonnée à la tranche A et intégralement patronale pour les non-cadres comme pour les cadres. Les autres garanties de prévoyance ne sont pas modélisées faute d'une assiette complète et de paramètres de contrat sûrs.
 
 Les trois grilles donnent le même salaire pour un coefficient donné quelle que soit la catégorie (fabrication, vente, services) : seule l’union des coefficients est donc modélisée.
 

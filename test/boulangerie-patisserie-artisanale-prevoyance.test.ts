@@ -29,17 +29,12 @@ function setSituation(cadre: "oui" | "non") {
 }
 
 describe("IDCC 843 — rente éducation conventionnelle", () => {
-  it("splits the 0.065% non-cadre rate 60/40 on gross salary", () => {
-    setSituation("non");
-    assert.equal(engine.evaluate(`${namespace} . prévoyance . rente éducation . employeur`).nodeValue, 0.78);
-    assert.ok(Math.abs(engine.evaluate(`${namespace} . prévoyance . rente éducation . salarié`).nodeValue as number - 0.52) < 1e-9);
-    assert.ok(Math.abs(engine.evaluate(`${namespace} . prévoyance . rente éducation`).nodeValue as number - 1.3) < 1e-9);
-  });
-
-  it("charges the full 0.065% employer rate for cadres", () => {
-    setSituation("oui");
-    assert.equal(engine.evaluate(`${namespace} . prévoyance . rente éducation . employeur`).nodeValue, 1.3);
-    assert.equal(engine.evaluate(`${namespace} . prévoyance . rente éducation . salarié`).nodeValue, null);
+  it("applies the 0.065% employer rate to non-cadres and cadres", () => {
+    for (const cadre of ["non", "oui"] as const) {
+      setSituation(cadre);
+      assert.ok(Math.abs((engine.evaluate(`${namespace} . prévoyance . rente éducation . employeur`).nodeValue as number) - 1.3) < 1e-9);
+      assert.ok(Math.abs((engine.evaluate(`${namespace} . prévoyance . rente éducation`).nodeValue as number) - 1.3) < 1e-9);
+    }
   });
 
   it("does not alter the standard social contribution endpoint", () => {

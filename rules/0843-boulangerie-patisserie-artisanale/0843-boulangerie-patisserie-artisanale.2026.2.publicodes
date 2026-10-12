@@ -29,11 +29,11 @@ sources:
     du 2 avril 2026 (JORF n° 0091 du 17 avril 2026, texte n° 60, JORFTEXT 000053907594). Texte de
     l'avenant consulté directement.
   - >-
-    Accord du 19 juin 2012 relatif aux régimes de prévoyance (avenant n° 97 du 11 décembre 2018,
-    étendu par arrêté du 22 décembre 2020, article 3.2) : rente éducation de 0,065 % du salaire
-    brut, répartie à 60 % employeur et 40 % salarié pour les non-cadres, et intégralement patronale
-    pour les cadres ; les règles ci-dessous modélisent uniquement cette composante explicitement
-    commune aux catégories, sans inventer les autres garanties ou assiettes.
+    Accord du 19 juin 2012 relatif aux régimes de prévoyance (avenant n° 130 du 13 juin 2024,
+    étendu par arrêté du 20 décembre 2024, article 2) : rente éducation de 0,065 % du salaire
+    brut soumis à cotisations, plafonné à la tranche A et intégralement patronale pour les
+    salariés non-cadres et cadres ; les règles ci-dessous modélisent uniquement cette composante
+    explicitement commune aux catégories, sans inventer les autres garanties ou assiettes.
 ---
 salarié . convention collective . boulangerie-pâtisserie artisanale:
   titre: Boulangerie-pâtisserie artisanale (IDCC 843)
@@ -200,50 +200,22 @@ salarié . convention collective . boulangerie-pâtisserie artisanale . prévoya
 salarié . convention collective . boulangerie-pâtisserie artisanale . prévoyance . rente éducation:
   titre: Rente éducation conventionnelle
   description: |
-    Composante de rente éducation prévue par l'avenant n° 97. Elle est calculée sur le salaire
-    brut sans plafond : 0,039 % employeur et 0,026 % salarié pour les non-cadres ; 0,065 %
-    employeur pour les cadres. Les autres garanties de prévoyance et leurs éventuelles assiettes
-    ne sont pas déduites ou inventées par ce modèle.
+    Composante de rente éducation prévue par l'avenant n° 130 : 0,065 % du salaire soumis à
+    cotisations sociales plafonné à la tranche A, intégralement à la charge de l'employeur pour
+    les salariés non-cadres et cadres. Les autres garanties de prévoyance et leurs éventuelles
+    assiettes ne sont pas déduites ou inventées par ce modèle.
   applicable si: convention collective = 'boulangerie-pâtisserie artisanale'
   somme:
     - employeur
-    - salarié
 
 salarié . convention collective . boulangerie-pâtisserie artisanale . prévoyance . rente éducation . employeur:
   applicable si: convention collective = 'boulangerie-pâtisserie artisanale'
-  somme:
-    - employeur non cadre
-    - employeur cadre
-
-salarié . convention collective . boulangerie-pâtisserie artisanale . prévoyance . rente éducation . employeur non cadre:
-  applicable si:
-    toutes ces conditions:
-      - convention collective = 'boulangerie-pâtisserie artisanale'
-      - salarié . contrat . statut cadre = non
   barème:
     assiette: salarié . contrat . salaire brut
-    tranches:
-      - taux: 0.039%
-
-salarié . convention collective . boulangerie-pâtisserie artisanale . prévoyance . rente éducation . employeur cadre:
-  applicable si:
-    toutes ces conditions:
-      - convention collective = 'boulangerie-pâtisserie artisanale'
-      - salarié . contrat . statut cadre = oui
-  barème:
-    assiette: salarié . contrat . salaire brut
+    multiplicateur: plafond sécurité sociale
     tranches:
       - taux: 0.065%
-
-salarié . convention collective . boulangerie-pâtisserie artisanale . prévoyance . rente éducation . salarié:
-  applicable si:
-    toutes ces conditions:
-      - convention collective = 'boulangerie-pâtisserie artisanale'
-      - salarié . contrat . statut cadre = non
-  barème:
-    assiette: salarié . contrat . salaire brut
-    tranches:
-      - taux: 0.026%
+        plafond: 1
 
 salarié . convention collective . boulangerie-pâtisserie artisanale . niveau hors grille:
   titre: Niveau absent de la grille
