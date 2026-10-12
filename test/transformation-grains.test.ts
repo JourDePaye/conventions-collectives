@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "1930-transformation-grains";
 const value = "métiers de la transformation des grains";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.3");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -48,12 +48,13 @@ function minimum() {
 
 const outOfGrid = () => engine.evaluate(`${namespace} . niveau hors grille`).nodeValue;
 
-describe("IDCC 1930 — 2026.1 minimum salaries", () => {
-  it("is in force from 1 February 2026 and cites the official extension", () => {
-    assert.equal(version.validFrom, "2026-02-01");
+describe("IDCC 1930 — 2026.3 minimum salaries and seniority premium", () => {
+  it("is in force from 1 June 2026 and cites the official extension", () => {
+    assert.equal(version.validFrom, "2026-06-01");
     assert.ok(version.sources.some((source) => source.includes("Avenant n° 30 du 9 février 2026")));
     assert.ok(version.sources.some((source) => source.includes("Arrêté du 4 mai 2026")));
-    assert.ok(version.sources.some((source) => source.includes("AGRS2610625A")));
+    assert.ok(version.sources.some((source) => source.includes("TRST2610625A")));
+    assert.ok(version.sources.some((source) => source.includes("Avenant n° 31 du 9 février 2026")));
   });
 
   for (const [level, expected] of Object.entries(GRID)) {
@@ -67,6 +68,22 @@ describe("IDCC 1930 — 2026.1 minimum salaries", () => {
   it("prorates the minimum once for part-time work", () => {
     setSituation("IV", "50%");
     assert.equal(minimum(), 1078.76);
+  });
+
+  it("calculates the optional seniority premium from the REMM", () => {
+    engine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . niveau`]: "'IV'",
+      "salarié . contrat . temps de travail . quotité": "50%",
+      [`${namespace} . bénéficie de la prime d'ancienneté`]: "'oui'",
+      "salarié . ancienneté": "6 an",
+    });
+    assert.equal(engine.evaluate(`${namespace} . prime d'ancienneté`).nodeValue, 21.58);
+  });
+
+  it("does not assume eligibility for the optional seniority premium", () => {
+    setSituation("IV");
+    assert.equal(engine.evaluate(`${namespace} . prime d'ancienneté`).nodeValue, null);
   });
 
   it("rejects levels and steps outside the grid", () => {

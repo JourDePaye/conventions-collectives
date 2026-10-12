@@ -1,0 +1,102 @@
+# Convention collective nationale des métiers de la transformation des grains du 9 novembre 2016
+# (IDCC 1930, brochure 3060).
+#
+# Version 2026.3, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+validFrom: 2026-06-01
+sources:
+  - "Avenant n° 30 du 9 février 2026 relatif à la rémunération mensuelle minimum (REMM) au 1er février 2026, article 2 et annexe II « Salaires minima », texte KALI KALITEXT000054262186, publié sur Légifrance."
+  - "Avenant n° 31 du 9 février 2026 relatif à la prime d'ancienneté, article 2 (article 40 de la convention), texte KALI KALIARTI000054262205, en vigueur au 1er juin 2026."
+  - "Arrêté du 4 mai 2026 portant extension d'avenants à la convention collective nationale des métiers de la transformation des grains (IDCC 1930), publié au Journal officiel du 10 mai 2026, NOR TRST2610625A : les avenants n° 30 et n° 31 sont étendus à tous les employeurs et salariés compris dans leur champ d'application."
+---
+salarié . convention collective . métiers de la transformation des grains:
+  titre: Métiers de la transformation des grains (IDCC 1930)
+  valeur: convention collective = 'métiers de la transformation des grains'
+
+salarié . convention collective . métiers de la transformation des grains . niveau:
+  titre: Niveau de classification
+  description: Niveau I à V, VI.1, VI.2, VII, VIII ou IX de la grille des rémunérations mensuelles minimum.
+  applicable si: convention collective = 'métiers de la transformation des grains'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . métiers de la transformation des grains . salaire minimum conventionnel:
+  titre: Rémunération mensuelle minimum
+  description: |
+    Rémunération mensuelle minimum garantie pour 35 heures par semaine (151,67 heures par mois),
+    proratisée pour un temps partiel. Vaut 0 €/mois si la classification n'existe pas dans la
+    grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'métiers de la transformation des grains'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . métiers de la transformation des grains . grille:
+  titre: Rémunération mensuelle minimum à temps plein
+  description: Grille de l'avenant n° 30 du 9 février 2026, applicable au 1er février 2026.
+  applicable si: convention collective = 'métiers de la transformation des grains'
+  unité: €/mois
+  variations:
+    - si: niveau = 'I'
+      alors: 1871.06 €/mois
+    - si: niveau = 'II'
+      alors: 1955.58 €/mois
+    - si: niveau = 'III'
+      alors: 2047.84 €/mois
+    - si: niveau = 'IV'
+      alors: 2157.51 €/mois
+    - si: niveau = 'V'
+      alors: 2426.26 €/mois
+    - si: niveau = 'VI.1'
+      alors: 2608.23 €/mois
+    - si: niveau = 'VI.2'
+      alors: 2801.77 €/mois
+    - si: niveau = 'VII'
+      alors: 3399.33 €/mois
+    - si: niveau = 'VIII'
+      alors: 4063.66 €/mois
+    - si: niveau = 'IX'
+      alors: 5055.07 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . métiers de la transformation des grains . niveau hors grille:
+  titre: Classification absente de la grille
+  description: Le niveau ou l'échelon n'existe pas dans la grille des rémunérations mensuelles minimum.
+  applicable si: convention collective = 'métiers de la transformation des grains'
+  valeur: grille = 0 €/mois
+
+salarié . convention collective . métiers de la transformation des grains . bénéficie de la prime d'ancienneté:
+  titre: Bénéficie de la prime d'ancienneté
+  description: |
+    L'avenant prévoit des cas où la prime peut ne pas être attribuée. Renseigner « oui » uniquement
+    lorsque la prime est due au salarié.
+  applicable si: convention collective = 'métiers de la transformation des grains'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . métiers de la transformation des grains . taux de prime d'ancienneté:
+  titre: Taux de prime d'ancienneté
+  description: Taux conventionnel selon l'ancienneté du salarié.
+  applicable si: convention collective = 'métiers de la transformation des grains'
+  unité: "%"
+  variations:
+    - si: salarié . ancienneté >= 12 an
+      alors: 4 %
+    - si: salarié . ancienneté >= 9 an
+      alors: 3 %
+    - si: salarié . ancienneté >= 6 an
+      alors: 2 %
+    - si: salarié . ancienneté >= 3 an
+      alors: 1 %
+    - sinon: 0 %
+
+salarié . convention collective . métiers de la transformation des grains . prime d'ancienneté:
+  titre: Prime d'ancienneté
+  description: Prime mensuelle calculée sur la rémunération mensuelle minimum brute de la classification, proratisée selon la quotité.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'métiers de la transformation des grains'
+      - bénéficie de la prime d'ancienneté = 'oui'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: taux de prime d'ancienneté * grille * contrat . temps de travail . quotité
