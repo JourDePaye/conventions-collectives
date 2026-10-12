@@ -1,0 +1,113 @@
+# Convention collective nationale des organismes de tourisme du 5 février 1996
+# (IDCC 1909, brochure 3175).
+# Version 2026.1 : accord n° 48 du 26 janvier 2026 relatif à la valeur du point.
+# L'accord est applicable et prend effet au 1er janvier 2026 ; son extension a été publiée
+# le 17 avril 2026 et le texte est d'application directe à toutes les structures de la branche.
+validFrom: 2026-01-01
+sources:
+  - "Accord n° 48 du 26 janvier 2026 relatif à la valeur du point au 1er janvier 2026, articles 1, 2 et 6, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054066676"
+  - "Arrêté du 8 avril 2026 portant extension de l'accord n° 48, publié au Journal officiel le 17 avril 2026, JORFTEXT000053907720."
+---
+salarié . convention collective . organismes de tourisme:
+  titre: Organismes de tourisme (IDCC 1909)
+  valeur: convention collective = 'organismes de tourisme'
+
+salarié . convention collective . organismes de tourisme . niveau:
+  titre: Niveau de classification
+  description: Niveau 1.1/1.2 à 3.3 de la grille de l'accord n° 48 relatif à la valeur du point.
+  applicable si: convention collective = 'organismes de tourisme'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . organismes de tourisme . date de calcul:
+  titre: Date de calcul
+  description: Date à laquelle le salaire minimum conventionnel est vérifié.
+  applicable si: convention collective = 'organismes de tourisme'
+  par défaut: 01/01/1900
+
+salarié . convention collective . organismes de tourisme . accord applicable:
+  applicable si: convention collective = 'organismes de tourisme'
+  valeur: date de calcul >= 01/01/2026
+
+salarié . convention collective . organismes de tourisme . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Salaire minimum mensuel correspondant à l'indice plancher du niveau, pour la valeur du point applicable.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'organismes de tourisme'
+      - accord applicable = oui
+  unité: €/mois
+  variations:
+    - si: niveau = '1.1/1.2'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 1896 €/mois
+          - sinon: 1900.65 €/mois
+    - si: niveau = '1.3'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 1959.20 €/mois
+          - sinon: 1964.01 €/mois
+    - si: niveau = '2.1'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 2085.60 €/mois
+          - sinon: 2090.72 €/mois
+    - si: niveau = '2.2'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 2186.72 €/mois
+          - sinon: 2192.08 €/mois
+    - si: niveau = '2.3'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 2325.76 €/mois
+          - sinon: 2331.46 €/mois
+    - si: niveau = '2.4'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 2741.62 €/mois
+          - sinon: 2748.34 €/mois
+    - si: niveau = '3.1'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 3070.26 €/mois
+          - sinon: 3077.79 €/mois
+    - si: niveau = '3.2'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 3575.86 €/mois
+          - sinon: 3584.63 €/mois
+    - si: niveau = '3.3'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 4271.06 €/mois
+          - sinon: 4281.53 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . organismes de tourisme . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Salaire minimum mensuel du niveau, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'organismes de tourisme'
+      - accord applicable = oui
+      - grille > 0 €/mois
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . organismes de tourisme . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima de l'accord n° 48.
+  applicable si: convention collective = 'organismes de tourisme'
+  valeur: grille = 0 €/mois

@@ -82,6 +82,7 @@ const models = [
   { name: "1431-optique-lunetterie-detail", value: "optique-lunetterie de détail", classification: "coefficient", input: "'K'", minimums: { "2024.1": 3700 }, situation: { "salarié . convention collective . optique-lunetterie de détail . classification": "'nouvelle'" } },
   { name: "3090-spectacle-vivant-prive", value: "spectacle vivant privé", classification: "catégorie administrative", input: "'cadres groupe 1'", minimums: { "2025.1": 3578.18 }, situation: { "salarié . convention collective . spectacle vivant privé . échelon": "'1'" } },
   { name: "3221-agences-presse", value: "agences de presse", classification: "groupe", input: "'1'", minimums: { "2026.1": 1873.86 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . agences de presse . date de calcul": "11/10/2026", "salarié . convention collective . agences de presse . champ juridique": "'tous employeurs après extension'" } },
+  { name: "1909-organismes-tourisme", value: "organismes de tourisme", classification: "niveau", input: "'3.3'", minimums: { "2026.1": 4281.53 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . organismes de tourisme . date de calcul": "11/10/2026" } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;

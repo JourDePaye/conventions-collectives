@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Soixante-dix-neuf conventions sont actuellement représentées, avec quatre-vingt-deux versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Quatre-vingts conventions sont actuellement représentées, avec quatre-vingt-trois versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -19,6 +19,7 @@ Soixante-dix-neuf conventions sont actuellement représentées, avec quatre-ving
 | [Entreprises de prévention et de sécurité](rules/1351-prevention-securite/README.md) | 1351 | `2026.1` : 1er juillet 2026 | Grille de 25 positions pour trois catégories, prime d’ancienneté, majorations nuit et dimanche, paniers, indemnités et minimum de six heures par période |
 | [Bureaux d’études techniques, cabinets d’ingénieurs-conseils et sociétés de conseils (Syntec)](rules/1486-syntec/README.md) | 1486 | `2025.1` : 1er janvier 2025 | Minima mensuels des ETAM et des ingénieurs et cadres selon leur coefficient ; détection des coefficients hors grille |
 | [Organismes de formation](rules/1516-organismes-formation/README.md) | 1516 | `2025.1` : 1er janvier 2025 ; `2027.1` : 1er janvier 2027 | Grille de 31 paliers par fourchette de coefficient, minima annuels bruts convertis en minima mensuels et proratisés selon la quotité de travail ; détection des coefficients hors grille |
+| [Organismes de tourisme](rules/1909-organismes-tourisme/README.md) | 1909 | `2026.1` : 1er janvier 2026 | Grille mensuelle des niveaux 1.1/1.2 à 3.3, avec augmentation de la valeur du point au 1er juillet 2026 ; proratisation selon la quotité de travail ; détection des niveaux hors grille |
 | [Entreprises du bureau et du numérique (commerce de détail de papeterie, fournitures de bureau, bureautique, informatique et librairie)](rules/1539-bureau-numerique/README.md) | 1539 | `2025.1` : 1er septembre 2025 | Grille mensuelle de 12 niveaux (A1 à C4), minimum du niveau A2 pour le niveau A1 après un an d’ancienneté, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Télécommunications](rules/2148-telecommunications/README.md) | 2148 | `2026.1` : 23 janvier 2026 (signataires) ; 18 avril 2026 (champ étendu) | 24 minima annuels des groupes A à G ; comparaison annuelle validée, contrôle intermédiaire si variable, contrôle SMIC mensuel distinct ; majorations et repos de nuit conditionnels |
 | [Activités du déchet](rules/2149-activites-dechet/README.md) | 2149 | `2026.1` : 1er janvier 2026 | Coefficient multiplié par la valeur du point de 18,90 € pour les 11 coefficients de 100 à 170, proratisé selon la quotité de travail ; détection des coefficients hors grille |
