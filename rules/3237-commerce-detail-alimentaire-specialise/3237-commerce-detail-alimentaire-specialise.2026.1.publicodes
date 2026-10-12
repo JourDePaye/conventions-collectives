@@ -1,0 +1,68 @@
+# Convention collective nationale du commerce de détail alimentaire spécialisé du 12 janvier 2021
+# (IDCC 3237, brochure 3305).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+validFrom: 2026-04-17
+sources:
+  - "Avenant n° 9 du 13 janvier 2026 relatif aux salaires minima conventionnels, article 2 et annexe « Salaires minima conventionnels », texte KALI KALITEXT000054164742, publié sur Légifrance."
+  - "Arrêté du 2 avril 2026 portant extension d'un avenant à la convention collective nationale du commerce de détail alimentaire spécialisé (IDCC 3237), publié au Journal officiel du 16 avril 2026, NOR TRST2609047A : l'avenant n° 9 est étendu à tous les employeurs et salariés compris dans son champ d'application à compter du 17 avril 2026."
+---
+salarié . convention collective . commerce de détail alimentaire spécialisé:
+  titre: Commerce de détail alimentaire spécialisé (IDCC 3237)
+  valeur: convention collective = 'commerce de détail alimentaire spécialisé'
+
+salarié . convention collective . commerce de détail alimentaire spécialisé . niveau:
+  titre: Niveau de classification
+  description: Niveaux E1 à E7, AM1, AM2, C1 et C2 de la grille des salaires minima conventionnels.
+  applicable si: convention collective = 'commerce de détail alimentaire spécialisé'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commerce de détail alimentaire spécialisé . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: |
+    Salaire minimum mensuel conventionnel pour 35 heures par semaine. Il est proratisé
+    pour un temps partiel. Vaut 0 €/mois si la classification n'existe pas dans la grille
+    (voir « niveau hors grille »).
+  applicable si: convention collective = 'commerce de détail alimentaire spécialisé'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerce de détail alimentaire spécialisé . grille:
+  titre: Salaire minimum conventionnel à temps plein
+  description: Grille de l'avenant n° 9 du 13 janvier 2026, étendu par arrêté du 2 avril 2026.
+  applicable si: convention collective = 'commerce de détail alimentaire spécialisé'
+  unité: €/mois
+  variations:
+    - si: niveau = 'E1'
+      alors: 1838.81 €/mois
+    - si: niveau = 'E2'
+      alors: 1858.76 €/mois
+    - si: niveau = 'E3'
+      alors: 1878.72 €/mois
+    - si: niveau = 'E4'
+      alors: 1906.35 €/mois
+    - si: niveau = 'E5'
+      alors: 1935.51 €/mois
+    - si: niveau = 'E6'
+      alors: 1957 €/mois
+    - si: niveau = 'E7'
+      alors: 2010.72 €/mois
+    - si: niveau = 'AM1'
+      alors: 2445.10 €/mois
+    - si: niveau = 'AM2'
+      alors: 2518.77 €/mois
+    - si: niveau = 'C1'
+      alors: 3052.92 €/mois
+    - si: niveau = 'C2'
+      alors: 3425.90 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerce de détail alimentaire spécialisé . niveau hors grille:
+  titre: Classification absente de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima conventionnels.
+  applicable si: convention collective = 'commerce de détail alimentaire spécialisé'
+  valeur: grille = 0 €/mois
