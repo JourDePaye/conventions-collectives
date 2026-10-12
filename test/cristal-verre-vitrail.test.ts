@@ -9,7 +9,7 @@ const value = "cristal verre vitrail";
 const namespace = `salarié . convention collective . ${value}`;
 
 const engineFor = async (coefficient: number, quotient = "1", excluded = "non") => {
-  const version = COMPILED_VERSIONS[name]?.find((item: { version: string }) => item.version === "2026.1");
+  const version = COMPILED_VERSIONS[name]?.find((item: { version: string }) => item.version === "2026.2");
   assert.ok(version);
   const extension = await version.loadRules();
   const rules: Record<string, Rule> = { ...modeleSocial };
@@ -37,5 +37,10 @@ describe("IDCC 1821 — cristal, verre et vitrail", () => {
     const engine = await engineFor(120);
     assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, true);
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 0);
+  });
+
+  it("makes the salary grid inapplicable to the excluded annexe B", async () => {
+    const engine = await engineFor(245, "1", "oui");
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, null);
   });
 });

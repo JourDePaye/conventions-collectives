@@ -1,0 +1,97 @@
+validFrom: 2026-01-01
+sources:
+  - "Accord du 3 mars 2026 relatif aux salaires minima pour l'année 2026, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054426642"
+  - "Arrêté du 11 juin 2026 portant extension de l'accord, publié au Journal officiel le 27 juin 2026, JORFTEXT000054322287 : https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054322287"
+---
+salarié . convention collective . cristal verre vitrail:
+  titre: Professions regroupées du cristal, du verre et du vitrail (IDCC 1821)
+  valeur: convention collective = 'cristal verre vitrail'
+
+salarié . convention collective . cristal verre vitrail . coefficient:
+  titre: Coefficient hiérarchique
+  description: Coefficient de la grille des salaires minima de l'accord du 3 mars 2026.
+  applicable si: convention collective = 'cristal verre vitrail'
+  par défaut: 0
+
+salarié . convention collective . cristal verre vitrail . annexe B vitrail exclue:
+  titre: Entreprise relevant de l'annexe B (industrie du vitrail)
+  description: L'accord du 3 mars 2026 exclut les entreprises relevant de l'annexe B.
+  applicable si: convention collective = 'cristal verre vitrail'
+  par défaut: non
+
+salarié . convention collective . cristal verre vitrail . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel garanti à temps complet, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'cristal verre vitrail'
+      - annexe B vitrail exclue = non
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . cristal verre vitrail . grille:
+  titre: Salaire minimum mensuel à temps plein
+  applicable si: convention collective = 'cristal verre vitrail'
+  unité: €/mois
+  variations:
+    - si: coefficient = 115
+      alors: 1858.15 €/mois
+    - si: coefficient = 125
+      alors: 1866.28 €/mois
+    - si: coefficient = 135
+      alors: 1874.41 €/mois
+    - si: coefficient = 145
+      alors: 1882.54 €/mois
+    - si: coefficient = 155
+      alors: 1890.67 €/mois
+    - si: coefficient = 160
+      alors: 1894.74 €/mois
+    - si: coefficient = 175
+      alors: 1906.94 €/mois
+    - si: coefficient = 190
+      alors: 2017.91 €/mois
+    - si: coefficient = 205
+      alors: 2052.66 €/mois
+    - si: coefficient = 220
+      alors: 2087.41 €/mois
+    - si: coefficient = 230
+      alors: 2110.57 €/mois
+    - si: coefficient = 245
+      alors: 2185.59 €/mois
+    - si: coefficient = 260
+      alors: 2222.61 €/mois
+    - si: coefficient = 275
+      alors: 2259.63 €/mois
+    - si: coefficient = 290
+      alors: 2296.65 €/mois
+    - si: coefficient = 295
+      alors: 2308.99 €/mois
+    - si: coefficient = 315
+      alors: 2358.35 €/mois
+    - si: coefficient = 330
+      alors: 2395.37 €/mois
+    - si: coefficient = 345
+      alors: 2432.39 €/mois
+    - si: coefficient = 385
+      alors: 2531.10 €/mois
+    - si: coefficient = 440
+      alors: 2666.85 €/mois
+    - si: coefficient = 490
+      alors: 2784.65 €/mois
+    - si: coefficient = 550
+      alors: 2924.50 €/mois
+    - si: coefficient = 660
+      alors: 3175.50 €/mois
+    - si: coefficient = 770
+      alors: 3435.00 €/mois
+    - si: coefficient = 880
+      alors: 3690.00 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . cristal verre vitrail . coefficient hors grille:
+  titre: Coefficient absent de la grille conventionnelle
+  description: Le coefficient n'existe pas dans la grille conventionnelle modélisée.
+  applicable si: convention collective = 'cristal verre vitrail'
+  valeur: grille = 0 €/mois

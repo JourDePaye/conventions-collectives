@@ -1,6 +1,6 @@
 # Professions regroupées du cristal, du verre et du vitrail — IDCC 1821
 
-Le fichier [2026.1](1821-cristal-verre-vitrail.2026.1.publicodes) entre en vigueur le 1er janvier 2026. Il est fondé sur l'accord du 3 mars 2026 relatif aux salaires minima pour l'année 2026, étendu par arrêté du 11 juin 2026 (JORF du 27 juin 2026), cité dans ses métadonnées. La valeur Publicodes est `cristal verre vitrail` ; les règles sont sous `salarié . convention collective . cristal verre vitrail`.
+Le fichier [2026.2](1821-cristal-verre-vitrail.2026.2.publicodes) entre en vigueur le 1er janvier 2026. Il corrige l'applicabilité de la grille : l'accord du 3 mars 2026 relatif aux salaires minima pour l'année 2026, étendu par arrêté du 11 juin 2026 (JORF du 27 juin 2026), exclut les entreprises relevant de l'annexe B (industrie du vitrail), cité dans ses métadonnées. La valeur Publicodes est `cristal verre vitrail` ; les règles sont sous `salarié . convention collective . cristal verre vitrail`.
 
 ## Règles implémentées
 
