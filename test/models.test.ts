@@ -102,6 +102,7 @@ const models = [
   { name: "1316-tourisme-social-familial", value: "tourisme social et familial", classification: "niveau", input: "'G'", minimums: { "2026.1": 3294.5 }, situation: { "salarié . convention collective . tourisme social et familial . date de calcul": "01/05/2026" } },
   { name: "1611-logistique-communication-ecrite-directe", value: "logistique communication écrite directe", classification: "groupe", input: "'III-A'", minimums: { "2026.1": 2501.05 } },
   { name: "0493-vins-cidres-spiritueux", value: "vins cidres spiritueux", classification: "position", input: "'5A'", minimums: { "2026.1": 2233 } },
+  { name: "1631-hotellerie-plein-air", value: "hôtellerie de plein air", classification: "coefficient", input: 300, minimums: { "2024.1": 2203.92 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;

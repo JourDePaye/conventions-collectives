@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Quatre-vingt-dix-neuf conventions sont actuellement représentées, avec cent trois versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent conventions sont actuellement représentées, avec cent quatre versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -142,6 +142,7 @@ Quatre-vingt-dix-neuf conventions sont actuellement représentées, avec cent tr
 | [Imprimeries de labeur et industries graphiques](rules/0184-imprimeries/README.md) | 184 | `2026.1` : 1er avril 2026 (accord étendu) | Grille mensuelle de 12 groupes et échelons, proratisée selon la quotité de travail ; détection des groupes hors grille |
 | [Optique-lunetterie de détail](rules/1431-optique-lunetterie-detail/README.md) | 1431 | `2024.1` : 1er janvier 2024 | Deux grilles mensuelles étendues : coefficients numériques de la classification actuelle et niveaux A à K de la classification de l’avenant n° 8 ; proratisation selon la quotité de travail ; détection des coefficients hors grille |
 | [Entreprises privées du spectacle vivant](rules/3090-spectacle-vivant-prive/README.md) | 3090 | `2025.1` : 1er septembre 2025 | Périmètre explicite des salariés permanents administratifs, commerciaux et techniques : grilles mensuelles des catégories et échelons vérifiés, proratisation selon la quotité ; artistes, intermittents et annexes exclus |
+| [Hôtellerie de plein air](rules/1631-hotellerie-plein-air/README.md) | 1631 | `2024.1` : 1er novembre 2024 (avenant étendu) | Grille mensuelle bornée de cinq coefficients sourcés, proratisée selon la quotité de travail ; coefficients non modélisés explicitement hors périmètre ; audit explicite des rubriques de paie sans correction conventionnelle |
 | [Sport](rules/2511-sport/README.md) | 2511 | `2026.1` : 1er janvier 2026 | Groupes 1 à 6 mensuels et 7 à 8 annuels sans conversion mensuelle ; majorations temps partiel, prime d’ancienneté ; prévoyance et santé actualisées sur les endpoints standard ; héritage formation/AT/forfait/franchise neutralisé, allocations annuelles de branche à valider séparément |
 | [Golf](rules/2021-golf/README.md) | 2021 | `2026.1` : 1er avril 2026 (accord étendu) | Grille mensuelle des groupes 1 à 7, proratisation selon la quotité ; minima annuels distincts pour les groupes 6 et 7 après deux ans d’ancienneté, sans conversion mensuelle |
 | [Particuliers employeurs et emploi à domicile](rules/3239-particuliers-employeurs-emploi-domicile/README.md) | 3239 | `2026.1` : 1er juin 2026 | Minima des 12 niveaux et certifications, socle assistant maternel par enfant, mensualisation, présence responsable de jour, heures additionnelles et prestations en nature |
