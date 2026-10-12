@@ -31,7 +31,7 @@ function minimum() {
 }
 
 describe("IDCC 1760 — 2026.1 minimum salaries", () => {
-  it("starts on 1 July 2026 and cites the official agreement and extension", () => {
+  it("starts on 1 July 2026 for the extended agreement and cites official sources", () => {
     assert.equal(version.validFrom, "2026-07-01");
     assert.ok(version.sources.some((source) => source.includes("Accord du 2 avril 2026")));
     assert.ok(version.sources.some((source) => source.includes("Arrêté du 11 juin 2026")));

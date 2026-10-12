@@ -1,8 +1,8 @@
 validFrom: 2026-07-01
 sources:
-  - "Accord du 2 avril 2026 relatif aux salaires minima conventionnels de la convention collective nationale des jardineries et graineteries (IDCC 1760), grille mensuelle pour 151,67 heures, applicable aux employeurs signataires à compter du 1er mai 2026."
-  - "Arrêté du 11 juin 2026 portant extension de l'accord du 2 avril 2026, publié au Journal officiel du 27 juin 2026 ; extension applicable à compter du 1er juillet 2026."
-  - "Textes officiels consultés sur Légifrance : KALITEXT000052830328 et JORFTEXT000051802454."
+  - "Accord du 2 avril 2026 relatif aux salaires minima conventionnels de la convention collective nationale des jardineries et graineteries (IDCC 1760), grille mensuelle pour 151,67 heures, applicable aux entreprises adhérentes à l'organisation patronale signataire à compter du 1er mai 2026 et aux autres entreprises au premier jour du mois suivant son extension."
+  - "Arrêté du 11 juin 2026 portant extension de l'accord du 2 avril 2026, publié au Journal officiel du 27 juin 2026 ; l'extension prend effet à compter de cette date."
+  - "Textes officiels consultés sur Légifrance : KALITEXT000054801832 et JORFTEXT000054322267."
 ---
 salarié . convention collective . jardineries graineteries:
   titre: Jardineries et graineteries (IDCC 1760)
