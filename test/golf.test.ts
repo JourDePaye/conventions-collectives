@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const namespace = "salarié . convention collective . golf";
 
 async function engine(situation: Record<string, string> = {}) {
-  const version = COMPILED_VERSIONS["2021-golf"]?.find((v: { version: string }) => v.version === "2026.1");
+  const version = COMPILED_VERSIONS["2021-golf"]?.find((v: { version: string }) => v.version === "2026.2");
   assert.ok(version);
   const rules = { ...modeleSocial, ...(await version.loadRules()) };
   const choice = rules["salarié . convention collective"] as { "une possibilité": string[] };
@@ -42,7 +42,7 @@ describe("IDCC 2021 golf", () => {
       [`${namespace} . groupe`]: "'6'",
       [`${namespace} . deux ans d'ancienneté`]: "oui",
     });
-    assert.equal(e.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue, 37899);
+    assert.equal(e.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue, 38524);
     assert.equal(e.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 3032.22);
   });
 
@@ -60,7 +60,7 @@ describe("IDCC 2021 golf", () => {
   });
 
   it("is inapplicable outside the golf convention", async () => {
-    const version = COMPILED_VERSIONS["2021-golf"]?.find((v: { version: string }) => v.version === "2026.1");
+    const version = COMPILED_VERSIONS["2021-golf"]?.find((v: { version: string }) => v.version === "2026.2");
     assert.ok(version);
     const rules = { ...modeleSocial, ...(await version.loadRules()) };
     const e = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
