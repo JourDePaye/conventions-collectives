@@ -70,7 +70,7 @@ const models = [
   { name: "3237-commerce-detail-alimentaire-specialise", value: "commerce de détail alimentaire spécialisé", classification: "niveau", input: "'E4'", minimums: { "2026.1": 1906.35 } },
   { name: "3109-industries-alimentaires-diverses", value: "industries alimentaires diverses", classification: "position", input: "'N8-E2'", minimums: { "2026.1": 4248.03 } },
   { name: "0292-plasturgie", value: "plasturgie", classification: "coefficient", input: 800, minimums: { "2026.1": 2266 } },
-  { name: "0413-personnes-handicapees", value: "personnes handicapées et inadaptées", classification: "coefficient", input: 434, minimums: { "2022.1": 1657.88 } },
+  { name: "0413-personnes-handicapees", value: "personnes handicapées et inadaptées", classification: "coefficient", input: 434, minimums: { "2026.1": 1810.57 } },
   { name: "0573-commerces-de-gros", value: "commerces de gros", classification: "niveau", input: "'IV.2'", minimums: { "2026.1": 1953.23 } },
   { name: "1396-industries-produits-alimentaires-elabores", value: "industries de produits alimentaires élaborés", classification: "coefficient", input: 225, minimums: { "2026.1": 2206.80 } },
   { name: "1413-travail-temporaire", value: "travail temporaire", classification: "niveau", input: "'H'", minimums: { "2026.1": 2948 } },

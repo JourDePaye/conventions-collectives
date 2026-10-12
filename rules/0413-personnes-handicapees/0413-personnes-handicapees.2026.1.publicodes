@@ -1,0 +1,118 @@
+# Convention collective nationale de travail des établissements et services pour personnes
+# inadaptées et handicapées du 15 mars 1966 (CCN 66, IDCC 413, brochure 3116).
+#
+# Version 2026.1, merged with modele-social by @jourdepaye/payroll-core.
+# A released version is immutable (see versions.lock.json): every evolution or correction
+# uses a new version.
+#
+# This correction keeps the 2022.1 point values and adds the salary-floor and special
+# allowance rules documented by Nexem for the CCN 66.
+
+validFrom: 2022-07-01
+sources:
+  - Avenant n° 361 du 9 juin 2021 relatif aux mesures salariales pour l'année 2021, article 1er,
+    valeur du point portée à 3,82 € au 1er février 2021, Légifrance KALIARTI000043075016.
+  - Recommandation patronale Nexem du 23 novembre 2022 et sa note d'application du 6 janvier 2023,
+    indice de base 403 (ou 413 avec sujétion d'internat) se substituant aux coefficients inférieurs,
+    avec application rétroactive au 1er juillet 2022, Nexem.
+  - CCN 66, article 1er bis de l'annexe 1, indemnité de sujétion spéciale portée à 9,21 % au
+    1er février 2020, Légifrance KALIARTI000043075016.
+  - "CCN 66 — L'essentiel 2024, Nexem : valeur du point à 3,93 € depuis le 1er juillet 2022,
+    minimum au coefficient 403 ou 413 avec sujétion d'internat, plus 9,21 % pour les non-cadres."
+---
+salarié . convention collective . personnes handicapées et inadaptées:
+  titre: Établissements et services pour personnes handicapées et inadaptées (CCN 66, IDCC 413)
+  valeur: convention collective = 'personnes handicapées et inadaptées'
+
+salarié . convention collective . personnes handicapées et inadaptées . coefficient:
+  titre: Coefficient de l'emploi
+  description: |
+    Coefficient hiérarchique de l'emploi occupé, qui intègre l'ancienneté selon les paliers de
+    la convention. La liste des coefficients n'est pas contrôlée.
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  par défaut: 0
+
+salarié . convention collective . personnes handicapées et inadaptées . adhérent à Nexem:
+  titre: Employeur adhérent à Nexem
+  description: |
+    Les employeurs adhérents à Nexem appliquent la recommandation patronale Nexem : valeur du
+    point à 3,93 € et plancher d'indice 403, ou 413 avec sujétion d'internat. Les autres
+    employeurs appliquent l'avenant n° 361, valeur du point à 3,82 €.
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  par défaut: non
+
+salarié . convention collective . personnes handicapées et inadaptées . sujétion d'internat:
+  titre: Emploi avec sujétion d'internat
+  description: Le plancher Nexem est l'indice 413 pour un emploi avec sujétion d'internat, au lieu de 403.
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  par défaut: non
+
+salarié . convention collective . personnes handicapées et inadaptées . valeur du point:
+  titre: Valeur du point
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  unité: €/mois
+  variations:
+    - si: adhérent à Nexem
+      alors: 3.93 €/mois
+    - sinon: 3.82 €/mois
+
+salarié . convention collective . personnes handicapées et inadaptées . coefficient minimum garanti:
+  titre: Coefficient minimum garanti
+  description: |
+    Pour un employeur adhérent à Nexem, les coefficients inférieurs à 403, ou à 413 avec
+    sujétion d'internat, sont remplacés par le plancher correspondant. Sinon le coefficient
+    de l'emploi est conservé.
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  variations:
+    - si:
+        toutes ces conditions:
+          - adhérent à Nexem
+          - sujétion d'internat
+          - coefficient < 413
+      alors: 413
+    - si:
+        toutes ces conditions:
+          - adhérent à Nexem
+          - coefficient < 403
+      alors: 403
+    - sinon: coefficient
+
+salarié . convention collective . personnes handicapées et inadaptées . salaire indiciaire:
+  titre: Salaire indiciaire minimum mensuel
+  description: Coefficient minimum garanti multiplié par la valeur du point, proratisé pour un temps partiel.
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  unité: €/mois
+  produit:
+    - coefficient minimum garanti * valeur du point
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . personnes handicapées et inadaptées . indemnité de sujétion spéciale:
+  titre: Indemnité de sujétion spéciale
+  description: |
+    Indemnité de 9,21 % du salaire indiciaire pour les personnels non cadres bénéficiaires de
+    la CCN 66. Les cadres de direction exclus par l'article 1er bis ne sont pas ajoutés.
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  unité: €/mois
+  variations:
+    - si: contrat . statut cadre
+      alors: 0 €/mois
+    - sinon: salaire indiciaire * 9.21%
+
+salarié . convention collective . personnes handicapées et inadaptées . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire indiciaire, auquel s'ajoute l'indemnité de sujétion spéciale de 9,21 % pour les
+    non-cadres, proratisé pour un temps partiel. Pour les adhérents à Nexem, le plancher
+    d'indice 403 (ou 413 avec sujétion d'internat) s'applique. Vaut 0 €/mois sans coefficient
+    (voir « coefficient hors grille »).
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  unité: €/mois
+  somme:
+    - salaire indiciaire
+    - indemnité de sujétion spéciale
+
+salarié . convention collective . personnes handicapées et inadaptées . coefficient hors grille:
+  titre: Coefficient non renseigné
+  description: Le coefficient est absent ou nul.
+  applicable si: convention collective = 'personnes handicapées et inadaptées'
+  valeur: coefficient < 1

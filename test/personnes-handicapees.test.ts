@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "0413-personnes-handicapees";
 const value = "personnes handicapées et inadaptées";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2022.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -19,12 +19,14 @@ rules["salarié . convention collective"] = {
 Object.assign(rules, extension);
 const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
 
-function setSituation(coefficient: number | undefined, options: { nexem?: boolean; quota?: string } = {}) {
+function setSituation(coefficient: number | undefined, options: { nexem?: boolean; quota?: string; internat?: boolean; cadre?: boolean } = {}) {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     ...(coefficient === undefined ? {} : { [`${namespace} . coefficient`]: coefficient }),
     ...(options.nexem === undefined ? {} : { [`${namespace} . adhérent à Nexem`]: options.nexem ? "oui" : "non" }),
+    ...(options.internat === undefined ? {} : { [`${namespace} . sujétion d'internat`]: options.internat ? "oui" : "non" }),
     ...(options.quota === undefined ? {} : { "salarié . contrat . temps de travail . quotité": options.quota }),
+    ...(options.cadre === undefined ? {} : { "salarié . contrat . statut cadre": options.cadre ? "oui" : "non" }),
   });
 }
 
@@ -36,35 +38,43 @@ const minimum = () => {
 
 const outOfGrid = () => engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue;
 
-describe("IDCC 413 — 2022.1 indexed salary", () => {
-  it("is in force from 1 July 2022 and cites the avenant and the Nexem recommendation", () => {
+describe("IDCC 413 — 2026.1 indexed salary", { concurrency: false }, () => {
+  it("is in force from 1 July 2022 and cites the avenant, Nexem recommendation and sujétion rule", () => {
     assert.equal(version.validFrom, "2022-07-01");
     assert.ok(version.sources.some((source) => source.includes("Avenant n° 361 du 9 juin 2021")));
     assert.ok(version.sources.some((source) => source.includes("Nexem")));
+    assert.ok(version.sources.some((source) => source.includes("9,21 %")));
   });
 
-  it("multiplies the coefficient by 3.82 € without Nexem", () => {
-    // Hand-computed: 434 × 3.82 = 1 657.88; 800 × 3.82 = 3 056; 1 000 × 3.82 = 3 820.
-    for (const [coefficient, expected] of [[434, 1657.88], [489, 1867.98], [800, 3056], [1000, 3820]] as const) {
+  it("applies 3.82 € and the 9.21 % sujétion allowance without Nexem", () => {
+    // Hand-computed from coefficient × 3.82 × 1.0921.
+    for (const [coefficient, expected] of [[434, 1810.57], [489, 2040.02], [800, 3337.46], [1000, 4171.82]] as const) {
       setSituation(coefficient);
       assert.equal(minimum(), expected, `${coefficient}`);
       assert.equal(outOfGrid(), false);
     }
   });
 
-  it("multiplies the coefficient by 3.93 € for Nexem members", () => {
-    // 434 × 3.93 = 1 705.62 (the example given by the pages consulted), 373 × 3.93 = 1 465.89.
-    for (const [coefficient, expected] of [[373, 1465.89], [434, 1705.62], [800, 3144]] as const) {
+  it("applies the Nexem point, floor indices and sujétion allowance", () => {
+    // 403 × 3.93 × 1.0921 = 1 729.66; the 413 floor applies with internat sujétion.
+    for (const [coefficient, expected] of [[373, 1729.66], [434, 1862.71], [800, 3433.56]] as const) {
       setSituation(coefficient, { nexem: true });
       assert.equal(minimum(), expected, `${coefficient}`);
     }
+    setSituation(400, { nexem: true, quota: "100%", internat: true });
+    assert.equal(minimum(), 1772.58);
   });
 
   it("prorates the minimum once for part-time work", () => {
     setSituation(600, { quota: "50%" });
-    assert.equal(minimum(), 1146);
+    assert.equal(minimum(), 1251.55);
     setSituation(600, { nexem: true, quota: "80%" });
-    assert.equal(minimum(), 1886.4);
+    assert.equal(minimum(), 2060.14);
+  });
+
+  it("does not add the sujétion allowance for cadres", () => {
+    setSituation(434, { nexem: true, cadre: true });
+    assert.equal(minimum(), 1705.62);
   });
 
   it("treats a missing or zero coefficient as outside the grid", () => {
