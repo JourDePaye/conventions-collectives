@@ -1,14 +1,15 @@
 # Promotion immobilière — IDCC 1512
 
-Modèle `1512-promotion-immobiliere`, version `2026.1`, espace de noms
+Modèle `1512-promotion-immobiliere`, version `2026.2`, espace de noms
 `salarié . convention collective . promotion immobilière`.
 
 ## Périmètre
 
 Cette version couvre la grille des salaires minima de l'avenant n° 51 du
-12 janvier 2026, applicable au **1er janvier 2026**. L'avenant est référencé
-comme **en vigueur étendu** dans la fiche officielle Légifrance de la
-convention IDCC 1512.
+12 janvier 2026, ainsi que les régimes collectifs de frais de santé et de
+prévoyance applicables au 1er janvier 2026. L'avenant salarial est applicable
+au **1er janvier 2026** et référencé comme **en vigueur étendu** dans la fiche
+officielle Légifrance de la convention IDCC 1512.
 
 La première valeur de point est de 18,85 € pour le coefficient 100, et la
 seconde valeur de point est de 4,50 € pour chaque point au-delà de 100. Les
@@ -20,6 +21,11 @@ Pour les salariés des niveaux 4 à 6 au forfait annuel de 218 jours, l'avenant
 fixe un minimum distinct de **36 276 € bruts par an**. Le modèle expose ce
 minimum sans le convertir en garantie mensuelle.
 
+Le régime conventionnel de frais de santé est modélisé à **2,60 % du PMSS**,
+réparti à parts égales. La prévoyance est calculée sur le brut jusqu'à quatre
+PMSS : non-cadres à 0,67 % en T1 et 1,015 % en T2 pour chaque part ; cadres à
+1,50 % employeur et 0 % salarié en T1, puis 1,015 % pour chaque part en T2.
+
 ## Sources officielles
 
 - [Légifrance — convention collective nationale de la promotion immobilière, IDCC 1512](https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635181)
@@ -30,5 +36,6 @@ minimum sans le convertir en garantie mensuelle.
 
 Les primes, indemnités, classifications détaillées et autres dispositions de
 la convention ne sont pas modélisées. Le contrôle du SMIC, la proratisation du
-minimum mensuel selon la quotité de travail et le choix de la version applicable
-à la période de paie restent à la charge de l'application consommatrice.
+minimum mensuel selon la quotité de travail, les options/dispenses de santé et
+prévoyance, la portabilité, ainsi que le choix de la version applicable à la
+période de paie restent à la charge de l'application consommatrice.
