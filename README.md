@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Cinquante et une conventions sont actuellement représentées, avec cinquante-quatre versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cinquante-deux conventions sont actuellement représentées, avec cinquante-cinq versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -66,6 +66,7 @@ Cinquante et une conventions sont actuellement représentées, avec cinquante-qu
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
+| [Bâtiment — ouvriers des entreprises jusqu'à 10 salariés](rules/1596-batiment-ouvriers-petites-entreprises/README.md) | 1596 | `2026.1` : 1er mai 2026 | Grille mensuelle explicitement limitée au Centre-Val de Loire (7 coefficients), bornes de date et de catégorie ; congés payés CIBTP, chômage intempéries, OPPBTP et RNPC cadre isolés dans le namespace ; aucune extrapolation nationale |
 | [Travaux publics — ouvriers](rules/1702-travaux-publics-ouvriers/README.md) | 1702 | `2026.1` : 24 février 2026, ouvertures régionales jusqu’au 4 septembre 2026 | Sept coefficients, dix barèmes annuels régionaux (63 cellules automatiques, 7 Pays de la Loire sous confirmation), sans conversion mensuelle ; dates/champ bloquants, prorata et comparaison annuelle validés, prime de vacances et congés d’ancienneté ; régions manquantes et cotisations TP hors couverture |
 
 ### TRANSPORT & LOGISTIQUE
