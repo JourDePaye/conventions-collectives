@@ -1,6 +1,6 @@
 # Fabrication de l’ameublement — IDCC 1411
 
-Le fichier [2026.1](1411-fabrication-ameublement.2026.1.publicodes) entre en vigueur le 1er juillet 2026. Il est fondé sur l’accord du 28 mai 2026 relatif aux salaires minima professionnels catégoriels, étendu par arrêté du 24 août 2026 (JORF n° 0206 du 4 septembre 2026, texte n° 42, NOR TRST2621200A), cités dans ses métadonnées. La valeur Publicodes est `fabrication ameublement` ; les règles sont sous `salarié . convention collective . fabrication ameublement`.
+Le fichier [2026.1](1411-fabrication-ameublement.2026.1.publicodes) entre en vigueur le 1er juillet 2026. Le fichier [2026.2](1411-fabrication-ameublement.2026.2.publicodes) entre en vigueur le 11 juillet 2026 et ajoute la contribution conventionnelle de formation professionnelle de 0,50 % pour les entreprises d’au moins 10 salariés. La valeur Publicodes est `fabrication ameublement` ; les règles sont sous `salarié . convention collective . fabrication ameublement`.
 
 La convention collective nationale de la fabrication de l’ameublement du 14 janvier 1986 (brochure 3155) classe les salariés en agents de production (AP), agents fonctionnels (AF), agents d’encadrement (AE) et cadres (C).
 
@@ -10,6 +10,7 @@ La convention collective nationale de la fabrication de l’ameublement du 14 ja
 - `salaire minimum conventionnel . grille` donne le salaire mensuel minimum des 36 échelons, pour 151,67 heures, de 1 867,02 € (`AP11`, `AF1`, `AE1`) à 4 956 € (`C33`).
 - `salaire minimum conventionnel` multiplie la grille par `salarié . contrat . temps de travail . quotité` de `modele-social`. Le montant ne doit donc pas être proratisé une seconde fois. Par exemple, `AP52` vaut 2 117 €/mois à temps complet et 1 058,50 €/mois à mi-temps.
 - `niveau hors grille` signale un échelon absent des 36 positions. La grille retourne alors `0 €/mois` et l’application doit traiter l’anomalie.
+- `2026.2` remplace l’endpoint standard de formation professionnelle et ajoute 0,50 % de l’assiette des cotisations lorsque l’effectif de l’entreprise est au moins égal à 10.
 
 Aucun montant de la grille n’est inférieur au SMIC mensuel de 1 867,02 € en vigueur depuis juin 2026, et trois échelons (`AP11`, `AF1`, `AE1`) lui sont égaux : l’application doit retenir le plus élevé des deux montants.
 
@@ -19,4 +20,10 @@ Aucun montant de la grille n’est inférieur au SMIC mensuel de 1 867,02 € en
 - Les échelons `AP11`, `AF1` et `AE1` figurent à 1 867,02 €, soit le SMIC de juin 2026 : le texte de l’accord peut donner un montant inférieur, auquel cas le SMIC s’applique de toute façon. Le résultat de l’application est le même tant que le SMIC ne baisse pas.
 - L’accord s’applique à compter du 1er juillet 2026 aux employeurs adhérents aux organisations signataires ; pour les autres, l’arrêté ne le rend applicable qu’à compter de sa publication (4 septembre 2026). Cette distinction n’est pas modélisée.
 - Les primes d’ancienneté, majorations, la prévoyance et les autres éléments de la convention ne sont pas modélisés.
+- Les grilles antérieures au 1er juillet 2026 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
+
+## Références officielles complémentaires
+
+- Article relatif à la contribution conventionnelle de formation professionnelle : [KALIARTI000053768212](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000053768212).
+- Arrêté d’extension publié au Journal officiel le 11 juillet 2026 : [JORFTEXT000051861531](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051861531).
 - Les grilles antérieures au 1er juillet 2026 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.

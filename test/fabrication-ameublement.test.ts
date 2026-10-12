@@ -10,6 +10,9 @@ const namespace = `salarié . convention collective . ${value}`;
 const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
 assert.ok(version);
 const extension = await version.loadRules();
+const version2 = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
+assert.ok(version2);
+const extension2 = await version2.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
 const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
 rules["salarié . convention collective"] = {
@@ -18,6 +21,13 @@ rules["salarié . convention collective"] = {
 } as Rule;
 Object.assign(rules, extension);
 const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
+const rules2: Record<string, Rule> = { ...modeleSocial };
+rules2["salarié . convention collective"] = {
+  ...choice,
+  "une possibilité": [...choice["une possibilité"], value],
+} as Rule;
+Object.assign(rules2, extension2);
+const engine2 = new Engine(rules2, { logger: { log() {}, warn() {}, error() {} } });
 
 /** Monthly minimums of the accord of 28 May 2026 (151.67 hours). */
 const MONTHLY: Record<string, number> = {
@@ -121,5 +131,26 @@ describe("IDCC 1411 — 2026.1 minimum salaries", () => {
     for (const name of ["salaire minimum conventionnel", "niveau hors grille"]) {
       assert.equal(engine.evaluate(`${namespace} . ${name}`).nodeValue, null, name);
     }
+  });
+
+  it("adds the 0.50% branch training contribution for employers with at least 10 employees", () => {
+    engine2.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . niveau`]: "'AP52'",
+      "salarié . cotisations . assiette": "3000 €/mois",
+      "entreprise . salariés . effectif": 10,
+    });
+    assert.equal(version2.validFrom, "2026-07-11");
+    assert.equal(
+      engine2.evaluate(`${namespace} . cotisations . formation professionnelle . contribution conventionnelle`).nodeValue,
+      15,
+    );
+    assert.equal(Math.round((engine2.evaluate("salarié . cotisations . formation professionnelle").nodeValue as number) * 100) / 100, 31.5);
+
+    engine2.setSituation({ "entreprise . salariés . effectif": 9 });
+    assert.equal(
+      engine2.evaluate(`${namespace} . cotisations . formation professionnelle . contribution conventionnelle`).nodeValue,
+      null,
+    );
   });
 });
