@@ -1,6 +1,6 @@
 # Bâtiment — ouvriers des entreprises de plus de 10 salariés (IDCC 1597)
 
-Modèle `1597-batiment-ouvriers-plus-de-10`, version `2026.1`, espace de noms
+Modèle `1597-batiment-ouvriers-plus-de-10`, version `2026.3`, espace de noms
 `salarié . convention collective . bâtiment ouvriers plus de 10 salariés`.
 
 ## Périmètre juridiquement borné
@@ -25,7 +25,7 @@ Montants issus de l'accord régional Nouvelle-Aquitaine du 22 octobre 2025, appl
 
 Les règles restent dans l'espace de noms IDCC 1597 et ne redéfinissent pas les clés globales BTP de `modele-social`.
 
-- **Congés payés CIBTP** : taux 2026 de 20,70 % sur l'assiette standard, avec caisse de rattachement explicitement exposée.
+- **Congés payés CIBTP** : caisse de rattachement obligatoire ; 20,70 % pour Grand-Ouest et 20,20 % pour Sud-Ouest à compter du 1er avril 2026. Les autres caisses restent hors calcul plutôt que d'être assimilées à tort.
 - **Chômage intempéries** : assiette plafonnée au plafond de sécurité sociale ; 0,68 % pour le gros œuvre/travaux publics, 0,13 % pour le second œuvre, zéro pour une activité non exposée. L'abattement annuel par entreprise n'est pas calculé salarié par salarié.
 - **RNPC cadres** : uniquement lorsqu'un consommateur demande explicitement le cas cadre ; la tranche A employeur de 1,50 % remplace la prévoyance cadre de droit commun et la tranche C optionnelle n'est pas calculée. Un cadre n'est pas rendu éligible à la grille ouvrière.
 - **OPPBTP** : 0,11 % sur les salaires bruts majorés de 13,14 %, dans le total employeur BTP de ce namespace.
@@ -34,8 +34,9 @@ Les règles restent dans l'espace de noms IDCC 1597 et ne redéfinissent pas les
 
 - [Légifrance — accord régional Nouvelle-Aquitaine du 22 octobre 2025](https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000053497380), étendu par arrêté publié au JORF le 17 janvier 2026.
 - [CIBTP Grand-Ouest — cotisations congés payés](https://www.cibtp-grandouest.fr/entreprise/declarations-cotisations/cotisations-conges-payes), taux 2026 et assiettes des cotisations BTP.
+- [CIBTP Sud-Ouest — évolution du taux de cotisation congés payés](https://www.cibtp-sud-ouest.fr/entreprise/cotisations/evolution-du-taux-de-cotisation-conges-payes), taux Sud-Ouest à compter du 1er avril 2026.
 - [PRO BTP — notice entreprise assiette et taux](https://www.probtp.com/files/live/sites/probtp/files/media/pdf/PRO/declarations/notice-entreprise-assiette-taux.pdf), régime de prévoyance cadres BTP.
 
 ## Limites
 
-La présente version ne prétend pas couvrir les autres régions, les ETAM, les cadres pour le salaire minimum, les primes de vacances, les indemnités de déplacement, les remboursements d'intempéries ni l'abattement annuel d'entreprise. La caisse CIBTP est un paramètre déclaré ; aucune affectation automatique de caisse à partir de la région n'est déduite.
+La présente version ne prétend pas couvrir les autres régions, les ETAM, les cadres pour le salaire minimum, les primes de vacances, les indemnités de déplacement, les remboursements d'intempéries ni l'abattement annuel d'entreprise. La caisse CIBTP est un paramètre obligatoire ; aucune affectation automatique de caisse à partir de la région n'est déduite.
