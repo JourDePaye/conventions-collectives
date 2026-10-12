@@ -1,0 +1,206 @@
+# Convention collective nationale du personnel des cabinets médicaux du 14 octobre 1981
+# (IDCC 1147, brochure 3168).
+#
+# Version 2024.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de la grille de l'avenant n° 90.
+validFrom: 2024-01-01
+sources:
+  - Avenant n° 90 du 14 décembre 2023 relatif aux salaires et aux jours de congés
+    supplémentaires (grille des salaires minima mensuels des positions 4 à 16 pour
+    151,67 heures, revalorisée de 2 %), applicable à compter du 1er janvier 2024, étendu par
+    arrêté du 17 mai 2024 (JORF n° 0126 du 1er juin 2024, texte n° 57, NOR TSST2406494A), dont
+    dont les effets courent à compter de sa publication pour les employeurs non adhérents. Montants
+    recoupés sur deux pages de synthèse concordantes (convention.fr et payfit.com) ; le texte de
+    l'avenant, dont le PDF était inexploitable, n'a pas pu être lu. Aucun avenant de salaires
+    postérieur n'a été trouvé.
+  - >-
+    Avenant n° 88 du 27 janvier 2023 modifiant l'article 9 de l'annexe I relative au régime de
+    prévoyance, étendu par arrêté du 10 juillet 2023 (JORF du 26 juillet 2023), applicable à
+    compter du 1er avril 2023 : cotisation globale de 3,13 % pour le personnel relevant des
+    articles 2.1 et 2.2 de l'ANI prévoyance cadres (2,14 % employeur, 0,99 % salarié), et de
+    2,56 % pour les autres salariés (1,54 % employeur, 1,02 % salarié), sur les tranches T1 et T2
+    plafonnées à quatre plafonds de sécurité sociale. La rente éducation est de 0,10 % (0,10 %
+    employeur) pour les cadres et de 0,10 % (0,06 % employeur, 0,04 % salarié) pour les autres.
+    Le régime est piloté par l'accord de branche et ses garanties, dispenses et organismes ne sont
+    pas déduits par ce modèle.
+---
+salarié . convention collective . cabinets médicaux:
+  titre: Personnel des cabinets médicaux (IDCC 1147)
+  valeur: convention collective = 'cabinets médicaux'
+
+salarié . convention collective . cabinets médicaux . niveau:
+  titre: Position de classification
+  description: |
+    Position de 4 à 16.
+  applicable si: convention collective = 'cabinets médicaux'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . cabinets médicaux . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum de la position pour 151,67 heures, proratisé pour un temps partiel.
+    Vaut 0 €/mois si la position n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'cabinets médicaux'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . cabinets médicaux . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'avenant n° 90, de 1 782,14 € (position 4) à 4 530,83 € (position 16).
+  unité: €/mois
+  variations:
+    - si: niveau = '4'
+      alors: 1782.14 €/mois
+    - si: niveau = '5'
+      alors: 1815.79 €/mois
+    - si: niveau = '6'
+      alors: 1889.38 €/mois
+    - si: niveau = '7'
+      alors: 1966.21 €/mois
+    - si: niveau = '8'
+      alors: 2050.62 €/mois
+    - si: niveau = '9'
+      alors: 2159.91 €/mois
+    - si: niveau = '10'
+      alors: 2275.69 €/mois
+    - si: niveau = '11'
+      alors: 2397.97 €/mois
+    - si: niveau = '12'
+      alors: 2535.40 €/mois
+    - si: niveau = '13'
+      alors: 2685.81 €/mois
+    - si: niveau = '14'
+      alors: 3232.29 €/mois
+    - si: niveau = '15'
+      alors: 3848.01 €/mois
+    - si: niveau = '16'
+      alors: 4530.83 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . cabinets médicaux . niveau hors grille:
+  titre: Position absente de la grille
+  description: La position n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'cabinets médicaux'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour une position inconnue.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . cabinets médicaux . prévoyance:
+  titre: Prévoyance conventionnelle
+  applicable si: convention collective = 'cabinets médicaux'
+  somme:
+    - employeur
+    - salarié
+  description: >-
+    Cotisation globale du régime conventionnel de prévoyance : 3,13 % pour les cadres (2,14 %
+    employeur et 0,99 % salarié) et 2,56 % pour les autres salariés (1,54 % employeur et 1,02 %
+    salarié), sur les tranches T1 et T2 plafonnées à quatre plafonds de sécurité sociale. La rente
+    éducation est exposée séparément comme composante du régime. Les garanties, dispenses et
+    organismes restent à gérer par le contrat.
+
+salarié . convention collective . cabinets médicaux . prévoyance . employeur:
+  applicable si: convention collective = 'cabinets médicaux'
+  variations:
+    - si: contrat . statut cadre = oui
+      alors: employeur cadre
+    - sinon: employeur non cadre
+
+salarié . convention collective . cabinets médicaux . prévoyance . employeur cadre:
+  applicable si: convention collective = 'cabinets médicaux'
+  barème:
+    assiette: contrat . salaire brut
+    multiplicateur: plafond sécurité sociale
+    tranches:
+      - taux: 2.14%
+        plafond: 4
+
+salarié . convention collective . cabinets médicaux . prévoyance . employeur non cadre:
+  applicable si: convention collective = 'cabinets médicaux'
+  barème:
+    assiette: contrat . salaire brut
+    multiplicateur: plafond sécurité sociale
+    tranches:
+      - taux: 1.54%
+        plafond: 4
+
+salarié . convention collective . cabinets médicaux . prévoyance . salarié:
+  applicable si: convention collective = 'cabinets médicaux'
+  variations:
+    - si: contrat . statut cadre = oui
+      alors: salarié cadre
+    - sinon: salarié non cadre
+
+salarié . convention collective . cabinets médicaux . prévoyance . salarié cadre:
+  applicable si: convention collective = 'cabinets médicaux'
+  barème:
+    assiette: contrat . salaire brut
+    multiplicateur: plafond sécurité sociale
+    tranches:
+      - taux: 0.99%
+        plafond: 4
+
+salarié . convention collective . cabinets médicaux . prévoyance . salarié non cadre:
+  applicable si: convention collective = 'cabinets médicaux'
+  barème:
+    assiette: contrat . salaire brut
+    multiplicateur: plafond sécurité sociale
+    tranches:
+      - taux: 1.02%
+        plafond: 4
+
+salarié . convention collective . cabinets médicaux . prévoyance . rente éducation:
+  titre: Rente éducation conventionnelle
+  applicable si: convention collective = 'cabinets médicaux'
+  variations:
+    - si: contrat . statut cadre = oui
+      alors: rente éducation cadre
+    - sinon: rente éducation non cadre
+
+salarié . convention collective . cabinets médicaux . prévoyance . rente éducation . employeur:
+  applicable si: convention collective = 'cabinets médicaux'
+  valeur: rente éducation
+
+salarié . convention collective . cabinets médicaux . prévoyance . rente éducation cadre:
+  applicable si: convention collective = 'cabinets médicaux'
+  somme:
+    - employeur
+
+salarié . convention collective . cabinets médicaux . prévoyance . rente éducation cadre . employeur:
+  applicable si: convention collective = 'cabinets médicaux'
+  barème:
+    assiette: contrat . salaire brut
+    multiplicateur: plafond sécurité sociale
+    tranches:
+      - taux: 0.10%
+        plafond: 1
+
+salarié . convention collective . cabinets médicaux . prévoyance . rente éducation non cadre:
+  applicable si: convention collective = 'cabinets médicaux'
+  somme:
+    - employeur
+
+salarié . convention collective . cabinets médicaux . prévoyance . rente éducation non cadre . employeur:
+  applicable si: convention collective = 'cabinets médicaux'
+  barème:
+    assiette: contrat . salaire brut
+    multiplicateur: plafond sécurité sociale
+    tranches:
+      - taux: 0.06%
+        plafond: 1
+
+salarié . convention collective . cabinets médicaux . prévoyance . composantes:
+  titre: Composantes du régime de prévoyance
+  description: >-
+    La cotisation globale comprend décès, frais d'obsèques, incapacité, invalidité, rente éducation,
+    rente handicap et rente de conjoint pour les cadres, et les garanties correspondantes prévues
+    pour les autres salariés. Ce modèle expose la rente éducation séparément ; elle n'est pas ajoutée
+    une seconde fois à la cotisation globale.
