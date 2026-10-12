@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Quatre-vingt-neuf conventions sont actuellement représentées, avec quatre-vingt-douze versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Quatre-vingt-dix conventions sont actuellement représentées, avec quatre-vingt-treize versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -133,6 +133,7 @@ Quatre-vingt-neuf conventions sont actuellement représentées, avec quatre-ving
 |---|---|---|---|
 | [Agences de presse](rules/3221-agences-presse/README.md) | 3221 | `2026.1` : 1er juillet 2026 (signataires) ; 5 septembre 2026 (champ étendu) | Neuf salaires minima mensuels des groupes 1 à 9, bornes de date et de champ juridique, proratisation selon la quotité de travail ; détection des groupes hors grille |
 | [Entreprises de publicité](rules/0086-publicite/README.md) | 86 | `2025.1` : 19 juin 2025 | Minima mensuels des employés, techniciens/agents de maîtrise et cadres selon les niveaux 1 à 4, proratisés selon la quotité de travail ; détection des niveaux hors grille |
+| [Imprimeries de labeur et industries graphiques](rules/0184-imprimeries/README.md) | 184 | `2026.1` : 1er avril 2026 (accord étendu) | Grille mensuelle de 12 groupes et échelons, proratisée selon la quotité de travail ; détection des groupes hors grille |
 | [Optique-lunetterie de détail](rules/1431-optique-lunetterie-detail/README.md) | 1431 | `2024.1` : 1er janvier 2024 | Deux grilles mensuelles étendues : coefficients numériques de la classification actuelle et niveaux A à K de la classification de l’avenant n° 8 ; proratisation selon la quotité de travail ; détection des coefficients hors grille |
 | [Entreprises privées du spectacle vivant](rules/3090-spectacle-vivant-prive/README.md) | 3090 | `2025.1` : 1er septembre 2025 | Périmètre explicite des salariés permanents administratifs, commerciaux et techniques : grilles mensuelles des catégories et échelons vérifiés, proratisation selon la quotité ; artistes, intermittents et annexes exclus |
 | [Sport](rules/2511-sport/README.md) | 2511 | `2026.1` : 1er janvier 2026 | Groupes 1 à 6 mensuels et 7 à 8 annuels sans conversion mensuelle ; majorations temps partiel, prime d’ancienneté ; prévoyance et santé actualisées sur les endpoints standard ; héritage formation/AT/forfait/franchise neutralisé, allocations annuelles de branche à valider séparément |

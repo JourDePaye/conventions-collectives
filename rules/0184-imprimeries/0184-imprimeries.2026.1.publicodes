@@ -1,0 +1,64 @@
+# Convention collective nationale de travail du personnel des imprimeries de labeur et des industries graphiques du 1er juin 1956 — IDCC 184
+# Brochure 3138. Version 2026.1.
+#
+# Premier document : métadonnées. Second document : règles Publicodes.
+validFrom: 2026-04-01
+sources:
+  - Accord du 6 janvier 2026 relatif aux salaires au 1er avril 2026, publié dans les textes salaires de la convention collective sur Légifrance (KALITEXT000054040197), grille des salaires minima mensuels.
+  - Arrêté du 12 mars 2026 portant extension de l'accord du 6 janvier 2026, publié au JORF du 19 mars 2026.
+  - "Les montants reproduits sont les minima mensuels pour 152,25 heures : IB 4 515 €, IA 4 401 €, II 3 613 €, IIIB 3 010 €, IIIA 2 369 €, IVB 2 232 €, IVA 2 120 €, VC 1 949 €, VB 1 887 €, VA 1 873 €, VIB 1 859 €, VIA 1 843 €."
+---
+salarié . convention collective . imprimeries de labeur et industries graphiques:
+  titre: Imprimeries de labeur et industries graphiques (IDCC 184)
+  valeur: convention collective = 'imprimeries de labeur et industries graphiques'
+
+salarié . convention collective . imprimeries de labeur et industries graphiques . groupe et échelon:
+  titre: Groupe et échelon de classification
+  description: Groupe et échelon de la grille des salaires minima mensuels.
+  applicable si: convention collective = 'imprimeries de labeur et industries graphiques'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . imprimeries de labeur et industries graphiques . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel pour 152,25 heures, proratisé selon la quotité de travail. Vaut 0 €/mois hors grille.
+  applicable si: convention collective = 'imprimeries de labeur et industries graphiques'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . imprimeries de labeur et industries graphiques . salaire minimum conventionnel . grille:
+  titre: Minimum mensuel à temps complet
+  unité: €/mois
+  variations:
+    - si: groupe et échelon = 'IB'
+      alors: 4515 €/mois
+    - si: groupe et échelon = 'IA'
+      alors: 4401 €/mois
+    - si: groupe et échelon = 'II'
+      alors: 3613 €/mois
+    - si: groupe et échelon = 'IIIB'
+      alors: 3010 €/mois
+    - si: groupe et échelon = 'IIIA'
+      alors: 2369 €/mois
+    - si: groupe et échelon = 'IVB'
+      alors: 2232 €/mois
+    - si: groupe et échelon = 'IVA'
+      alors: 2120 €/mois
+    - si: groupe et échelon = 'VC'
+      alors: 1949 €/mois
+    - si: groupe et échelon = 'VB'
+      alors: 1887 €/mois
+    - si: groupe et échelon = 'VA'
+      alors: 1873 €/mois
+    - si: groupe et échelon = 'VIB'
+      alors: 1859 €/mois
+    - si: groupe et échelon = 'VIA'
+      alors: 1843 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . imprimeries de labeur et industries graphiques . groupe hors grille:
+  titre: Groupe absent de la grille
+  description: Le groupe et échelon n'est pas l'une des douze positions de la grille.
+  applicable si: convention collective = 'imprimeries de labeur et industries graphiques'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
