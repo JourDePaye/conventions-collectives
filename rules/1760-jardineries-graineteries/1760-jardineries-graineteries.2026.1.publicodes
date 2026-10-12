@@ -1,0 +1,73 @@
+validFrom: 2026-07-01
+sources:
+  - "Accord du 2 avril 2026 relatif aux salaires minima conventionnels de la convention collective nationale des jardineries et graineteries (IDCC 1760), grille mensuelle pour 151,67 heures, applicable aux employeurs signataires à compter du 1er mai 2026."
+  - "Arrêté du 11 juin 2026 portant extension de l'accord du 2 avril 2026, publié au Journal officiel du 27 juin 2026 ; extension applicable à compter du 1er juillet 2026."
+  - "Textes officiels consultés sur Légifrance : KALITEXT000052830328 et JORFTEXT000051802454."
+---
+salarié . convention collective . jardineries graineteries:
+  titre: Jardineries et graineteries (IDCC 1760)
+  valeur: convention collective = 'jardineries graineteries'
+
+salarié . convention collective . jardineries graineteries . classification:
+  titre: Classification
+  description: Combinaison niveau-échelon de la grille de l'accord du 2 avril 2026, sous la forme `niveau.échelon`.
+  applicable si: convention collective = 'jardineries graineteries'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . jardineries graineteries . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'jardineries graineteries'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . jardineries graineteries . salaire minimum conventionnel . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Grille de l'accord du 2 avril 2026, pour 151,67 heures mensuelles.
+  unité: €/mois
+  variations:
+    - si: classification = '1.1'
+      alors: 1823 €/mois
+    - si: classification = '1.2'
+      alors: 1825 €/mois
+    - si: classification = '1.3'
+      alors: 1827 €/mois
+    - si: classification = '2.1'
+      alors: 1830 €/mois
+    - si: classification = '2.2'
+      alors: 1840 €/mois
+    - si: classification = '3.1'
+      alors: 1850 €/mois
+    - si: classification = '3.2'
+      alors: 1915 €/mois
+    - si: classification = '4.1'
+      alors: 1960 €/mois
+    - si: classification = '4.2'
+      alors: 1980 €/mois
+    - si: classification = '4.3'
+      alors: 2000 €/mois
+    - si: classification = '5.1'
+      alors: 2050 €/mois
+    - si: classification = '5.2'
+      alors: 2120 €/mois
+    - si: classification = '6.1'
+      alors: 2800 €/mois
+    - si: classification = '6.2'
+      alors: 2900 €/mois
+    - si: classification = '7.1'
+      alors: 3400 €/mois
+    - si: classification = '7.2'
+      alors: 3600 €/mois
+    - si: classification = '8.1'
+      alors: 3700 €/mois
+    - si: classification = '8.2'
+      alors: 3900 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . jardineries graineteries . classification hors grille:
+  titre: Classification absente de la grille
+  description: La classification ne correspond pas à une combinaison niveau-échelon de la grille modélisée.
+  applicable si: convention collective = 'jardineries graineteries'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
