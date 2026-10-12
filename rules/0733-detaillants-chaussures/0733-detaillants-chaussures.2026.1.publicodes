@@ -1,0 +1,47 @@
+validFrom: 2026-07-01
+sources:
+  - Avenant n° 108 du 8 avril 2026 relatif aux salaires minima conventionnels de la convention collective nationale des détaillants en chaussures (IDCC 733), grille mensuelle pour 151,67 heures, applicable à compter du 1er juillet 2026.
+  - Arrêté du 17 juin 2026 portant extension de l'avenant n° 108, publié au Journal officiel du 26 juin 2026, NOR TRET2614064A ; extension applicable à compter du premier jour du mois suivant la publication.
+  - Textes consultés sur Légifrance, convention collective IDCC 733.
+---
+salarié . convention collective . détaillants chaussures:
+  titre: Détaillants en chaussures (IDCC 733)
+  valeur: convention collective = 'détaillants chaussures'
+
+salarié . convention collective . détaillants chaussures . niveau:
+  titre: Classe de classification
+  description: Classe de la grille de l'avenant n° 108.
+  applicable si: convention collective = 'détaillants chaussures'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . détaillants chaussures . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'détaillants chaussures'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . détaillants chaussures . salaire minimum conventionnel . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Grille de l'avenant n° 108, pour 151,67 heures mensuelles.
+  unité: €/mois
+  variations:
+    - si: niveau = 'I-A'
+      alors: 1831 €/mois
+    - si: niveau = 'II-A'
+      alors: 1867 €/mois
+    - si: niveau = 'III-A'
+      alors: 1940 €/mois
+    - si: niveau = 'IV-A'
+      alors: 2293 €/mois
+    - si: niveau = 'V-A'
+      alors: 3197 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . détaillants chaussures . niveau hors grille:
+  titre: Classe absente de la grille
+  description: La classe n'existe pas dans la grille modélisée des salaires minima.
+  applicable si: convention collective = 'détaillants chaussures'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
