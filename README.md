@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Cinquante-six conventions sont actuellement représentées, avec cinquante-neuf versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Soixante-cinq conventions sont actuellement représentées, avec soixante-huit versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -105,6 +105,7 @@ Cinquante-six conventions sont actuellement représentées, avec cinquante-neuf 
 | [Promotion immobilière](rules/1512-promotion-immobiliere/README.md) | 1512 | `2026.1` : 1er janvier 2026 (avenant étendu) | Grille mensuelle fondée sur deux valeurs de point pour 13 coefficients ; minimum annuel distinct de 36 276 € pour les niveaux 4 à 6 au forfait de 218 jours ; coefficients hors grille signalés |
 | [Cabinets d’experts-comptables et de commissaires aux comptes](rules/0787-experts-comptables/README.md) | 787 | `2026.1` : 1er mars 2026 | Minimum annuel selon le coefficient (131,54 € par point jusqu'au 164e, puis 79,85 €), équivalent mensuel proratisé, et minimum annuel distinct de l'indice 40 validé |
 | [Entreprises de courtage d’assurances et de réassurances](rules/2247-courtage-assurances/README.md) | 2247 | `2025.1` : 1er juillet 2025 | Salaires annuels minima des 8 classes (A à H), convertis en minimum mensuel sur 13 mensualités et proratisés selon la quotité de travail ; détection des classes hors grille |
+| [Personnel des agences générales d'assurances](rules/2335-agences-generales-assurances/README.md) | 2335 | `2026.1` : 1er janvier 2026 (signataires) ; 19 mars 2026 (champ étendu) | Sept salaires minima annuels bruts des classes 1 à 6 et 5 bis, bornes de date et de champ juridique, sans conversion mensuelle |
 
 ### CULTURE, MÉDIAS & AUTRES
 
