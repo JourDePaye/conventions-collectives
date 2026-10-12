@@ -1,0 +1,106 @@
+# Convention collective nationale des activités industrielles de boulangerie et pâtisserie du 13 juillet 1993 (IDCC 1747).
+# Version 2025.1 : grille de transposition harmonisée au 1er février 2025.
+validFrom: 2025-02-01
+sources:
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051537768
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000051537779
+  - https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051508529
+---
+salarié . convention collective . boulangerie industrielle 1747:
+  titre: Activités industrielles de boulangerie et pâtisserie (IDCC 1747)
+  valeur: convention collective = 'boulangerie industrielle 1747'
+
+salarié . convention collective . boulangerie industrielle 1747 . niveau:
+  titre: Niveau et échelon de classification
+  description: Niveau et échelon de la grille de transposition harmonisée, sous la forme A1 à M, fournie par l'application.
+  applicable si: convention collective = 'boulangerie industrielle 1747'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . boulangerie industrielle 1747 . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Salaire minimum conventionnel brut mensuel pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'boulangerie industrielle 1747'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . boulangerie industrielle 1747 . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: Grille de transposition harmonisée de l'avenant du 16 janvier 2025, applicable au 1er février 2025 pour 151,67 heures mensuelles.
+  applicable si: convention collective = 'boulangerie industrielle 1747'
+  unité: €/mois
+  variations:
+    - si: niveau = 'A1'
+      alors: 1804.80 €/mois
+    - si: niveau = 'A2'
+      alors: 1814.33 €/mois
+    - si: niveau = 'B1'
+      alors: 1825.01 €/mois
+    - si: niveau = 'B2'
+      alors: 1839.61 €/mois
+    - si: niveau = 'C1'
+      alors: 1855.52 €/mois
+    - si: niveau = 'C2'
+      alors: 1872.23 €/mois
+    - si: niveau = 'C3'
+      alors: 1892.82 €/mois
+    - si: niveau = 'D1'
+      alors: 1917.72 €/mois
+    - si: niveau = 'D2'
+      alors: 1933.07 €/mois
+    - si: niveau = 'D3'
+      alors: 1954.33 €/mois
+    - si: niveau = 'E1'
+      alors: 1988.82 €/mois
+    - si: niveau = 'E2'
+      alors: 2020.64 €/mois
+    - si: niveau = 'E3'
+      alors: 2074.18 €/mois
+    - si: niveau = 'F1'
+      alors: 2201.48 €/mois
+    - si: niveau = 'F2'
+      alors: 2222.39 €/mois
+    - si: niveau = 'F3'
+      alors: 2253.51 €/mois
+    - si: niveau = 'G1'
+      alors: 2299.58 €/mois
+    - si: niveau = 'G2'
+      alors: 2342.12 €/mois
+    - si: niveau = 'G3'
+      alors: 2412.38 €/mois
+    - si: niveau = 'H1'
+      alors: 2544.01 €/mois
+    - si: niveau = 'H2'
+      alors: 2610.15 €/mois
+    - si: niveau = 'H3'
+      alors: 2718.47 €/mois
+    - si: niveau = 'I'
+      alors: 2891.30 €/mois
+    - si: niveau = 'J1'
+      alors: 3070.81 €/mois
+    - si: niveau = 'J2'
+      alors: 3175.22 €/mois
+    - si: niveau = 'J3'
+      alors: 3280.00 €/mois
+    - si: niveau = 'K1'
+      alors: 3461.53 €/mois
+    - si: niveau = 'K2'
+      alors: 3648.45 €/mois
+    - si: niveau = 'K3'
+      alors: 3834.52 €/mois
+    - si: niveau = 'L1'
+      alors: 4019.73 €/mois
+    - si: niveau = 'L2'
+      alors: 4276.99 €/mois
+    - si: niveau = 'L3'
+      alors: 4578.52 €/mois
+    - si: niveau = 'M'
+      alors: 5161.52 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . boulangerie industrielle 1747 . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau et échelon n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'boulangerie industrielle 1747'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois

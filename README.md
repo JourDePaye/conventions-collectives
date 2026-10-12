@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Soixante-six conventions sont actuellement représentées, avec soixante-neuf versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Soixante-sept conventions sont actuellement représentées, avec soixante-dix versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -117,6 +117,7 @@ Soixante-six conventions sont actuellement représentées, avec soixante-neuf ve
 | [Sport](rules/2511-sport/README.md) | 2511 | `2026.1` : 1er janvier 2026 | Groupes 1 à 6 mensuels et 7 à 8 annuels sans conversion mensuelle ; majorations temps partiel, prime d’ancienneté ; prévoyance et santé actualisées sur les endpoints standard ; héritage formation/AT/forfait/franchise neutralisé, allocations annuelles de branche à valider séparément |
 | [Particuliers employeurs et emploi à domicile](rules/3239-particuliers-employeurs-emploi-domicile/README.md) | 3239 | `2026.1` : 1er juin 2026 | Minima des 12 niveaux et certifications, socle assistant maternel par enfant, mensualisation, présence responsable de jour, heures additionnelles et prestations en nature |
 | [Presse quotidienne et hebdomadaire en régions](rules/3242-presse-regions/README.md) | 3242 | `2023.1` : 1er juillet 2023 | Grille mensuelle de 15 positions (ouvriers, 6 échelons d’employés, 8 sous-groupes de cadres) de l’accord du 30 juin 2023 (presse quotidienne régionale), proratisée selon la quotité de travail ; détection des positions hors grille |
+| [Activités industrielles de boulangerie et pâtisserie](rules/1747-boulangerie-industrielle/README.md) | 1747 | `2025.1` : 1er février 2025 | Grille mensuelle de 33 niveaux et échelons A1 à M, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Activités industrielles de boulangerie et pâtisserie et professionnels de l’œuf](rules/3255-boulangerie-industrielle/README.md) | 3255 | `2025.1` : 1er février 2025 | Grille mensuelle de 13 niveaux et échelons A1 à E3, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 
 Les références des accords et de leurs arrêtés d’extension figurent dans les métadonnées de chaque fichier source.
