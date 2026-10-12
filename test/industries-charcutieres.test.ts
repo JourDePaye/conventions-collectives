@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "1586-industries-charcutieres";
 const value = "industries charcutières";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -49,11 +49,12 @@ function minimum() {
 const outOfGrid = () => engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue;
 
 describe("IDCC 1586 — 2026.1 minimum salaries", () => {
-  it("is in force from 1 February 2026 and cites the accord and its extension order", () => {
-    assert.equal(version.validFrom, "2026-02-01");
+  it("is in force from 3 April 2026 and cites the salary and prévoyance texts", () => {
+    assert.equal(version.validFrom, "2026-04-03");
     assert.ok(version.sources.some((source) => source.includes("Accord du 16 janvier 2026")));
     assert.ok(version.sources.some((source) => source.includes("arrêté du 14 avril 2026")));
     assert.ok(version.sources.some((source) => source.includes("TRST2609134A")));
+    assert.ok(version.sources.some((source) => source.includes("Avenant n° 9")));
   });
 
   it("has 49 coefficients: 45 from 125 to 345 in steps of 5, and 350, 400, 600, 700", () => {
@@ -87,6 +88,30 @@ describe("IDCC 1586 — 2026.1 minimum salaries", () => {
     setSituation(undefined);
     assert.equal(outOfGrid(), true);
     assert.equal(minimum(), 0);
+  });
+
+  it("calculates the extended non-cadre prévoyance contribution on four PMSS", () => {
+    engine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . coefficient`]: 200,
+      "salarié . contrat . temps de travail . quotité": "100%",
+      "salarié . contrat . salaire brut": "5000 €/mois",
+      "salarié . contrat . statut cadre": "non",
+    });
+    assert.equal(engine.evaluate(`${namespace} . prévoyance . employeur`).nodeValue, 26);
+    assert.equal(engine.evaluate(`${namespace} . prévoyance . salarié`).nodeValue, 26);
+  });
+
+  it("calculates only the mandatory 1.50% employer minimum for cadres", () => {
+    engine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . coefficient`]: 400,
+      "salarié . contrat . temps de travail . quotité": "100%",
+      "salarié . contrat . salaire brut": "5000 €/mois",
+      "salarié . contrat . statut cadre": "oui",
+    });
+    assert.ok(Math.abs((engine.evaluate(`${namespace} . prévoyance . employeur`).nodeValue as number) - 60.075) < 1e-12);
+    assert.equal(engine.evaluate(`${namespace} . prévoyance . salarié`).nodeValue, 0);
   });
 
   it("leaves the extension inapplicable for another agreement", () => {
