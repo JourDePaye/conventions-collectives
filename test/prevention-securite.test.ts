@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const model = "1351-prevention-securite";
 const value = "prévention et sécurité";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[model]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[model]?.find((entry) => entry.version === "2026.3");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -65,7 +65,7 @@ describe("IDCC 1351 — July 2026 extended agreement", () => {
     assert.equal(version.validFrom, "2026-07-01");
     for (const reference of [
       "KALIARTI000049067305", "KALIARTI000053576558", "KALIARTI000005853757",
-      "KALITEXT000005680940", "KALIARTI000005853996",
+      "KALITEXT000005680940", "KALIARTI000005853996", "KALIARTI000047104169",
     ]) {
       assert.ok(version.sources.some((source) => source.includes(reference)), reference);
     }
@@ -179,5 +179,38 @@ describe("IDCC 1351 — allowances and six-hour period minimum", () => {
     for (const name of Object.keys(extension).filter((name) => name !== namespace)) {
       assert.equal(engine.evaluate(name).nodeValue, null, name);
     }
+  });
+});
+
+describe("IDCC 1351 — conventionally required provident contribution", () => {
+  it("splits the non-cadre 1.06% contribution equally on gross salary", () => {
+    setSituation({}, {
+      "salarié . contrat . salaire brut": "3000 €/mois",
+    });
+    assert.equal(amount("prévoyance non cadre . employeur"), 15.9);
+    assert.equal(amount("prévoyance non cadre . salarié"), 15.9);
+    assert.equal(amount("prévoyance"), 31.8);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . conventionnelle . employeur").nodeValue, 15.9);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . conventionnelle . salarié").nodeValue, 15.9);
+  });
+
+  it("applies the cadre rates by tranche A and B", () => {
+    setSituation({}, {
+      "salarié . contrat . statut cadre": "oui",
+      "salarié . contrat . salaire brut": "6000 €/mois",
+      "plafond sécurité sociale": "4000 €/mois",
+    });
+    assert.equal(amount("prévoyance cadre . employeur"), 72);
+    assert.equal(amount("prévoyance cadre . salarié"), 10.4);
+    assert.equal(amount("prévoyance"), 82.4);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . conventionnelle . employeur").nodeValue, 72);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . conventionnelle . salarié").nodeValue, 10.4);
+  });
+
+  it("does not expose the convention contribution for another agreement", () => {
+    setSituation({}, { "salarié . convention collective": "'droit commun'" });
+    assert.equal(engine.evaluate(`${namespace} . prévoyance`).nodeValue, null);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . conventionnelle . employeur").nodeValue, null);
+    assert.equal(engine.evaluate("salarié . cotisations . prévoyances . conventionnelle . salarié").nodeValue, null);
   });
 });
