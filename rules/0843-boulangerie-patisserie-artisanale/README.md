@@ -1,6 +1,6 @@
 # Boulangerie-pâtisserie artisanale — IDCC 843
 
-Le fichier [2026.1](0843-boulangerie-patisserie-artisanale.2026.1.publicodes) entre en vigueur le 1er février 2026. Il réunit trois textes, cités dans ses métadonnées :
+Le fichier [2026.1](0843-boulangerie-patisserie-artisanale.2026.1.publicodes) entre en vigueur le 1er février 2026. Le fichier [2026.2](0843-boulangerie-patisserie-artisanale.2026.2.publicodes) ajoute la composante de rente éducation de prévoyance déjà étendue, sans modifier la grille salariale.
 
 - l’avenant n° 139 du 14 janvier 2026 (grille nationale, applicable le 1er janvier 2026), étendu par arrêté du 10 avril 2026 (JORF n° 0091 du 17 avril 2026, NOR TRST2608824A) ;
 - l’accord Île-de-France n° 61 du 22 janvier 2026 (applicable le 1er février 2026), étendu par arrêté du 8 avril 2026 (JORF n° 0091 du 17 avril 2026, texte n° 80) ;
@@ -18,6 +18,7 @@ La valeur Publicodes est `boulangerie-pâtisserie artisanale` ; les règles sont
   - pour les coefficients, le taux horaire multiplié par `salarié . contrat . temps de travail` de `modele-social`, soit 151,67 heures par mois pour un temps plein, comme le SMIC. Par exemple, le coefficient 170 national vaut 1 938,30 €/mois à temps complet ;
   - pour les cadres, un douzième du minimum annuel, multiplié par `salarié . contrat . temps de travail . quotité`. Le montant ne doit donc pas être proratisé une seconde fois.
 - `niveau hors grille` signale un coefficient ou un statut absent de la grille. Les deux grilles retournent alors zéro et l’application doit traiter l’anomalie.
+- `prévoyance . rente éducation` expose uniquement la composante étendue de 0,065 % du salaire brut : 0,039 % employeur et 0,026 % salarié pour les non-cadres, 0,065 % employeur pour les cadres. Les autres garanties de prévoyance ne sont pas modélisées faute d'une assiette complète et de paramètres de contrat sûrs.
 
 Les trois grilles donnent le même salaire pour un coefficient donné quelle que soit la catégorie (fabrication, vente, services) : seule l’union des coefficients est donc modélisée.
 
