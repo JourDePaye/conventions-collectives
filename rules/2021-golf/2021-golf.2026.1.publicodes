@@ -1,0 +1,71 @@
+validFrom: 2026-04-01
+sources:
+  - https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053749739
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053741377
+---
+salarié . convention collective . golf:
+  applicable si: convention collective = 'golf'
+  valeur: oui
+salarié . convention collective . golf . groupe:
+  applicable si: convention collective = 'golf'
+  par défaut: "'non renseigné'"
+salarié . convention collective . golf . deux ans d'ancienneté:
+  applicable si: convention collective = 'golf'
+  description: Le salarié justifie d'au moins deux ans d'ancienneté dans l'entreprise pour l'application des minima annuels des groupes 6 et 7.
+  par défaut: non
+salarié . convention collective . golf . salaire minimum mensuel:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'golf'
+      - une de ces conditions:
+          - groupe = '1'
+          - groupe = '2'
+          - groupe = '3'
+          - groupe = '4'
+          - groupe = '5'
+          - groupe = '6'
+          - groupe = '7'
+  unité: €/mois
+  variations:
+    - si: groupe = '1'
+      alors: 1882.56 €/mois
+    - si: groupe = '2'
+      alors: 1899.84 €/mois
+    - si: groupe = '3'
+      alors: 1975.06 €/mois
+    - si: groupe = '4'
+      alors: 2136.68 €/mois
+    - si: groupe = '5'
+      alors: 2379.63 €/mois
+    - si: groupe = '6'
+      alors: 3032.22 €/mois
+    - sinon: 3586.21 €/mois
+salarié . convention collective . golf . salaire minimum conventionnel:
+  applicable si: convention collective = 'golf'
+  unité: €/mois
+  valeur: salaire minimum mensuel * contrat . temps de travail . quotité
+salarié . convention collective . golf . salaire minimum annuel conventionnel:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'golf'
+      - deux ans d'ancienneté
+      - une de ces conditions:
+          - groupe = '6'
+          - groupe = '7'
+  unité: €/an
+  produit:
+    - variations:
+        - si: groupe = '6'
+          alors: 37899 €/an
+        - sinon: 48060 €/an
+    - contrat . temps de travail . quotité
+salarié . convention collective . golf . groupe hors grille:
+  applicable si: convention collective = 'golf'
+  toutes ces conditions:
+    - groupe != '1'
+    - groupe != '2'
+    - groupe != '3'
+    - groupe != '4'
+    - groupe != '5'
+    - groupe != '6'
+    - groupe != '7'
