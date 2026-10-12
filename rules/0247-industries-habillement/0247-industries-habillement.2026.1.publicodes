@@ -1,0 +1,412 @@
+# Convention collective nationale des industries de l'habillement du 17 février 1958 (IDCC 247, brochure 3098).
+#
+# Version 2026.1 — avenant S 69 du 3 mars 2026, étendu par arrêté du 4 mai 2026.
+validFrom: 2026-03-01
+sources:
+  - "Avenant n° S 69 du 3 mars 2026 relatif aux salaires, articles 1 à 5, applicable aux salaires de mars 2026 : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054303564 (ouvriers), KALIARTI000054303565 (employés), KALIARTI000054303566 (techniciens et agents de maîtrise), KALIARTI000054303567 (ingénieurs et cadres)."
+  - "Arrêté du 4 mai 2026 portant extension de l’avenant S 69, JORF du 8 mai 2026, NOR ASTS2612222A : https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000054048746"
+---
+salarié . convention collective . industries habillement:
+  titre: Industries de l'habillement (IDCC 247)
+  valeur: convention collective = 'industries habillement'
+
+salarié . convention collective . industries habillement . annexe:
+  titre: Annexe de classification
+  description: Ouvriers, employés, techniciens et agents de maîtrise, ou ingénieurs et cadres.
+  applicable si: convention collective = 'industries habillement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . industries habillement . niveau:
+  titre: Niveau et échelon
+  description: Niveaux I à VI et échelons publiés par l'avenant S 69.
+  applicable si: convention collective = 'industries habillement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . industries habillement . ancienneté en années:
+  titre: Ancienneté retenue
+  description: Années de présence dans l'entreprise pour les grilles des employés et ETAM.
+  applicable si: convention collective = 'industries habillement'
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . industries habillement . salaire minimum conventionnel:
+  titre: Minimum mensuel conventionnel
+  description: Minimum mensuel brut des annexes I à III, pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'industries habillement'
+  unité: €/mois
+  produit:
+    - minimum mensuel
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . industries habillement . minimum mensuel:
+  titre: Minimum mensuel à temps complet
+  applicable si: convention collective = 'industries habillement'
+  unité: €/mois
+  variations:
+    - si: annexe = 'ouvriers'
+      alors:
+        variations:
+          - si: niveau = 'I.1'
+            alors:
+              valeur: 1833 €/mois
+          - si: niveau = 'I.2'
+            alors:
+              valeur: 1842 €/mois
+          - si: niveau = 'I.3'
+            alors:
+              valeur: 1846 €/mois
+          - si: niveau = 'I.4'
+            alors:
+              valeur: 1852 €/mois
+          - si: niveau = 'II.1'
+            alors:
+              valeur: 1856 €/mois
+          - si: niveau = 'II.2'
+            alors:
+              valeur: 1861 €/mois
+          - si: niveau = 'II.3'
+            alors:
+              valeur: 1867 €/mois
+          - si: niveau = 'II.4'
+            alors:
+              valeur: 1871 €/mois
+          - si: niveau = 'III.1'
+            alors:
+              valeur: 1877 €/mois
+          - si: niveau = 'III.2'
+            alors:
+              valeur: 1917 €/mois
+          - sinon: 0 €/mois
+    - si: annexe = 'employés'
+      alors:
+        variations:
+          - si: niveau = 'I.1'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1879 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1872 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1865 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1858 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1851 €/mois
+                - sinon: 1833 €/mois
+          - si: niveau = 'I.2'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1890 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1883 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1876 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1869 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1862 €/mois
+                - sinon: 1844 €/mois
+          - si: niveau = 'I.3'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1893 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1886 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1879 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1872 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1865 €/mois
+                - sinon: 1847 €/mois
+          - si: niveau = 'I.4'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1895 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1888 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1881 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1874 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1867 €/mois
+                - sinon: 1849 €/mois
+          - si: niveau = 'II.1'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1916 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1906 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1896 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1886 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1876 €/mois
+                - sinon: 1851 €/mois
+          - si: niveau = 'II.2'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1918 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1908 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1898 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1888 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1878 €/mois
+                - sinon: 1854 €/mois
+          - si: niveau = 'II.3'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1918 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1908 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1898 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1888 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1878 €/mois
+                - sinon: 1854 €/mois
+          - si: niveau = 'II.4'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1919 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1909 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1899 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1889 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1879 €/mois
+                - sinon: 1855 €/mois
+          - si: niveau = 'III.1'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1940 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1927 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1915 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1902 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1889 €/mois
+                - sinon: 1858 €/mois
+          - si: niveau = 'III.2'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1943 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1931 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1918 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1905 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1893 €/mois
+                - sinon: 1861 €/mois
+          - si: niveau = 'III.3'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1951 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1938 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1925 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1913 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1900 €/mois
+                - sinon: 1868 €/mois
+          - si: niveau = 'III.4'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 2001 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1989 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1976 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1964 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1951 €/mois
+                - sinon: 1919 €/mois
+          - sinon: 0 €/mois
+    - si: annexe = 'etam'
+      alors:
+        variations:
+          - si: niveau = 'III.2'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1943 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1931 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1918 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1905 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1893 €/mois
+                - sinon: 1861 €/mois
+          - si: niveau = 'III.3'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 1951 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1938 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1925 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1913 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1900 €/mois
+                - sinon: 1868 €/mois
+          - si: niveau = 'III.4'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 2001 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 1989 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 1976 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 1964 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 1951 €/mois
+                - sinon: 1919 €/mois
+          - si: niveau = 'IV.1'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 2150 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 2135 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 2120 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 2104 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 2089 €/mois
+                - sinon: 2051 €/mois
+          - si: niveau = 'IV.2'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 2341 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 2326 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 2310 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 2295 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 2280 €/mois
+                - sinon: 2241 €/mois
+          - si: niveau = 'IV.3'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 2543 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 2528 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 2513 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 2497 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 2482 €/mois
+                - sinon: 2444 €/mois
+          - si: niveau = 'IV.4'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 2754 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 2739 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 2724 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 2708 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 2693 €/mois
+                - sinon: 2655 €/mois
+          - si: niveau = 'V.1'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 2961 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 2937 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 2914 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 2890 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 2866 €/mois
+                - sinon: 2807 €/mois
+          - si: niveau = 'V.2'
+            alors:
+              variations:
+                - si: ancienneté en années >= 15 an
+                  alors: 3269 €/mois
+                - si: ancienneté en années >= 12 an
+                  alors: 3246 €/mois
+                - si: ancienneté en années >= 9 an
+                  alors: 3222 €/mois
+                - si: ancienneté en années >= 6 an
+                  alors: 3198 €/mois
+                - si: ancienneté en années >= 3 an
+                  alors: 3175 €/mois
+                - sinon: 3116 €/mois
+          - sinon: 0 €/mois
+
+salarié . convention collective . industries habillement . salaire minimum annuel conventionnel:
+  titre: Minimum annuel conventionnel des ingénieurs et cadres
+  description: Minimum annuel brut 2026 de l’annexe IV, non converti en minimum mensuel.
+  applicable si: convention collective = 'industries habillement'
+  unité: €/an
+  variations:
+    - si: niveau = 'IV.3'
+      alors: 29310 €/an
+    - si: niveau = 'V.1'
+      alors: 32766 €/an
+    - si: niveau = 'V.2'
+      alors: 35953 €/an
+    - si: niveau = 'V.3'
+      alors: 40477 €/an
+    - si: niveau = 'V.4'
+      alors: 43157 €/an
+    - si: niveau = 'VI.1'
+      alors: 46155 €/an
+    - si: niveau = 'VI.2'
+      alors: 50040 €/an
+    - si: niveau = 'VI.3'
+      alors: 57263 €/an
+    - si: niveau = 'VI.4'
+      alors: 66652 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . industries habillement . niveau hors grille:
+  titre: Niveau absent de la grille
+  applicable si: convention collective = 'industries habillement'
+  valeur: minimum mensuel = 0 €/mois

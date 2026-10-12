@@ -75,6 +75,7 @@ const models = [
   { name: "1516-organismes-formation", value: "organismes de formation", classification: "coefficient", input: 240, minimums: { "2025.1": 2463.73, "2027.1": 2513 } },
   { name: "1501-restauration-rapide", value: "restauration rapide", classification: "niveau", input: "'III.B'", minimums: { "2025.1": 1961.05 } },
   { name: "1505-commerce-detail-alimentaire-non-specialise", value: "commerce de détail alimentaire non spécialisé", classification: "niveau", input: "'E4'", minimums: { "2026.1": 1903.28 } },
+  { name: "0247-industries-habillement", value: "industries habillement", classification: "niveau", input: "'I.1'", minimums: { "2026.1": 1833 }, situation: { "salarié . convention collective . industries habillement . annexe": "'ouvriers'" } },
   { name: "1534-industrie-commerces-gros-viandes", value: "industrie et commerces en gros des viandes", classification: "niveau", input: "'IV.2'", minimums: { "2026.1": 2050 } },
   { name: "1930-transformation-grains", value: "métiers de la transformation des grains", classification: "niveau", input: "'VI.1'", minimums: { "2026.1": 2608.23 } },
   { name: "1938-industries-transformation-volailles", value: "industries de la transformation des volailles", classification: "coefficient", input: 400, minimums: { "2025.1": 3268.01 } },

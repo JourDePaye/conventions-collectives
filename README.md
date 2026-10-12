@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Quatre-vingt-quatorze conventions sont actuellement représentées, avec quatre-vingt-dix-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Quatre-vingt-seize conventions sont actuellement représentées, avec quatre-vingt-dix-neuf versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -59,6 +59,7 @@ Quatre-vingt-quatorze conventions sont actuellement représentées, avec quatre-
 | [Détaillants en chaussures](rules/0733-detaillants-chaussures/README.md) | 733 | `2026.1` : 1er juillet 2026 (avenant étendu) | Grille mensuelle de 9 catégories (employés, agents de maîtrise et cadres), proratisée selon la quotité de travail ; détection des catégories hors grille |
 | [Jardineries et graineteries](rules/1760-jardineries-graineteries/README.md) | 1760 | `2026.1` : 1er juillet 2026 (accord étendu) | Grille mensuelle de 18 combinaisons de niveaux 1 à 8 et d'échelons, proratisée selon la quotité de travail ; détection des classifications hors grille |
 | [Commerce de détail de l’habillement et des articles textiles](rules/1483-commerce-detail-habillement-textiles/README.md) | 1483 | `2026.1` : 1er avril 2026 | Barème de 13 catégories (employés, agents de maîtrise, cadres), primes d’ancienneté des employés et des agents de maîtrise A1 et A2, minima des agents de maîtrise B et des cadres selon l’ancienneté, proratisés selon la quotité de travail ; détection des catégories hors grille |
+| [Industries de l’habillement](rules/0247-industries-habillement/README.md) | 247 | `2026.1` : 1er mars 2026 | Annexes ouvriers, employés et ETAM avec paliers d’ancienneté ; minima annuels 2026 des cadres ; proratisation des minima mensuels et détection des niveaux hors grille |
 | [Commerce de détail de l’horlogerie-bijouterie](rules/1487-commerce-detail-horlogerie-bijouterie/README.md) | 1487 | `2026.1` : 1er janvier 2026 | Grille mensuelle de 10 niveaux A à J, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Commerce de détail non alimentaire](rules/1517-commerce-detail-non-alimentaire/README.md) | 1517 | `2026.1` : 1er juin 2026 | Grille mensuelle de 9 niveaux, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Commerces de détail de papeterie, fournitures de bureau, bureautique, informatique et librairie](rules/1513-papeterie-librairie/README.md) | 1513 | `2026.1` : 1er août 2026 | Grille mensuelle de 10 coefficients, proratisée selon la quotité de travail ; détection des coefficients hors grille |
