@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "1388-industrie-petrole";
 const value = "industrie pétrole";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -24,11 +24,12 @@ const PUBLISHED: Record<number, number> = {
   150: 1887.03, 200: 2213.92, 215: 2311.98, 310: 3235.69, 400: 4110.78, 550: 5569.26, 880: 8777.91,
 };
 
-function setSituation(coefficient: number | undefined, quota = "100%") {
+function setSituation(coefficient: number | undefined, quota = "100%", seniority?: number) {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     ...(coefficient === undefined ? {} : { [`${namespace} . coefficient`]: coefficient }),
     "salarié . contrat . temps de travail . quotité": quota,
+    ...(seniority === undefined ? {} : { [`${namespace} . ancienneté en mois`]: `${seniority} mois` }),
   });
 }
 
@@ -40,7 +41,7 @@ function minimum() {
 
 const outOfGrid = () => engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue;
 
-describe("IDCC 1388 — 2026.1 minimum salaries", () => {
+describe("IDCC 1388 — 2026.2 minimum salaries", () => {
   it("is in force from 1 January 2026 and cites the accord and its extension order", () => {
     assert.equal(version.validFrom, "2026-01-01");
     assert.ok(version.sources.some((source) => source.includes("Accord du 27 novembre 2025")));
@@ -90,5 +91,24 @@ describe("IDCC 1388 — 2026.1 minimum salaries", () => {
     engine.setSituation({ "salarié . convention collective": "'droit commun'" });
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, null);
     assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, null);
+  });
+});
+
+describe("IDCC 1388 — 2026.2 RMAG", () => {
+  const rmag = () => engine.evaluate(`${namespace} . ressource minimale annuelle garantie`).nodeValue;
+
+  it("returns the annual guarantee after six months of continuous presence", () => {
+    setSituation(200, "100%", 6);
+    assert.equal(rmag(), 23550);
+  });
+
+  it("prorates the annual guarantee for part-time work", () => {
+    setSituation(200, "50%", 6);
+    assert.equal(rmag(), 11775);
+  });
+
+  it("does not apply before six months of continuous presence", () => {
+    setSituation(200, "100%", 5);
+    assert.equal(rmag(), 0);
   });
 });
