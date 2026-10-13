@@ -40,7 +40,7 @@ const models = [
   { name: "1536-distributeurs-conseils-hors-domicile", value: "distributeurs conseils hors domicile", classification: "classification", input: "'III.2'", minimums: { "2026.1": 2024 } },
   { name: "2728-sucreries", value: "sucreries", classification: "classe", input: "'1A'", minimums: { "2026.1": 23005.08 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . sucreries . date de calcul": "11/10/2026", "salarié . convention collective . sucreries . champ juridique": "'tous employeurs après extension'" } },
   { name: "1607-jeux-jouets", value: "jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme", classification: "coefficient", input: 200, minimums: { "2026.1": 2154 } },
-  { name: "2596-coiffure", value: "coiffure", classification: "niveau", input: "'T2.1'", minimums: { "2026.1": 1869 } },
+  { name: "2596-coiffure", value: "coiffure", classification: "niveau", input: "'T2.1'", minimums: { "2026.1": 1869, "2026.2": 1869 } },
   { name: "2941-aide-soins-domicile", value: "aide et soins à domicile", classification: "niveau", input: "'TAM.1.1'", minimums: { "2026.1": 2157.98 } },
   { name: "3043-entreprises-proprete", value: "propreté", classification: "niveau", input: "'ASP-A'", minimums: { "2026.1": 1898.91 } },
   { name: "3127-services-personne", value: "services à la personne", classification: "emploi-repère", input: "'jardinage'", minimums: { "2024.1": 1771.51 } },

@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "2596-coiffure";
 const value = "coiffure";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -69,11 +69,11 @@ const amount = () => {
 
 const outOfGrid = () => engine.evaluate(`${namespace} . niveau hors grille`).nodeValue;
 
-describe("IDCC 2596 — 2026.1 minimum salaries", () => {
+describe("IDCC 2596 — 2026.2 payroll rules", () => {
   it("is in force from 1 March 2026 and cites the avenant and its extension order", () => {
     assert.equal(version.validFrom, "2026-03-01");
     assert.ok(version.sources.some((source) => source.includes("Avenant n° 51 du 3 décembre 2025")));
-    assert.ok(version.sources.some((source) => source.includes("arrêté du 17 février 2026")));
+    assert.ok(version.sources.some((source) => source.toLowerCase().includes("arrêté du 17 février 2026")));
   });
 
   it("has 30 classifications", () => {
@@ -93,6 +93,27 @@ describe("IDCC 2596 — 2026.1 minimum salaries", () => {
     assert.equal(amount(), 934.5);
     setSituation("A250", "80%");
     assert.equal(amount(), 1561.6);
+  });
+
+  it("calculates the seniority bonus from the convention thresholds and prorates it", () => {
+    const bonus = () => engine.evaluate(`${namespace} . prime d'ancienneté`).nodeValue;
+    const setSeniority = (seniority: string, quota = "100%") => engine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . niveau`]: "'T2.1'",
+      "salarié . ancienneté": seniority,
+      "salarié . contrat . temps de travail . quotité": quota,
+    });
+    setSeniority("4 an");
+    assert.equal(bonus(), 0);
+    setSeniority("5 an");
+    assert.equal(bonus(), 36);
+    setSeniority("7 an");
+    assert.equal(bonus(), 49);
+    setSeniority("12 an", "50%");
+    assert.equal(bonus(), 41);
+    setSeniority("20 an");
+    assert.equal(bonus(), 117);
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum avec prime d'ancienneté`).nodeValue, 1986);
   });
 
   it("rejects classifications outside the grid", () => {

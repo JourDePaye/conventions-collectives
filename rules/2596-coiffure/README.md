@@ -1,6 +1,6 @@
 # Coiffure et professions connexes — IDCC 2596
 
-Le fichier [2026.1](2596-coiffure.2026.1.publicodes) entre en vigueur le 1er mars 2026. Il est fondé sur l’avenant n° 51 du 3 décembre 2025 relatif aux salaires minima, étendu par arrêté du 17 février 2026, cités dans ses métadonnées. La valeur Publicodes est `coiffure` ; les règles sont sous `salarié . convention collective . coiffure`.
+Le fichier [2026.1](2596-coiffure.2026.1.publicodes) entre en vigueur le 1er mars 2026. La version [2026.2](2596-coiffure.2026.2.publicodes), également applicable au 1er mars 2026, ajoute la prime d’ancienneté de l’article 3 de l’avenant n° 51. L’avenant n° 51 du 3 décembre 2025 est étendu par arrêté du 17 février 2026. Les références officielles sont citées dans les métadonnées. La valeur Publicodes est `coiffure` ; les règles sont sous `salarié . convention collective . coiffure`.
 
 La convention collective nationale de la coiffure et des professions connexes du 10 juillet 2006 (brochure 3159) a quatre filières : technique de la coiffure (niveaux et échelons), esthétique-cosmétique, non technique et administrative (coefficients).
 
@@ -43,13 +43,13 @@ La convention collective nationale de la coiffure et des professions connexes du
 
 - `salaire minimum conventionnel . grille` donne le minimum mensuel à temps plein de ces classifications.
 - `salaire minimum conventionnel` multiplie la grille par `salarié . contrat . temps de travail . quotité` de `modele-social`. Le montant ne doit donc pas être proratisé une seconde fois. Par exemple, `T2.1` vaut 1 869,00 €/mois à temps complet et 934,50 €/mois à mi-temps.
+- `prime d'ancienneté` expose les montants mensuels de 36 €, 49 €, 64 €, 82 €, 99 € et 117 € après 5, 7, 9, 12, 15 et 20 ans d’ancienneté, puis applique la quotité de travail. `salaire minimum avec prime d'ancienneté` additionne séparément le minimum et cette prime.
 - `niveau hors grille` signale une classification absente de ces codes. La grille retourne alors `0 €/mois` et l’application doit traiter l’anomalie.
 
 Les classifications de 1 843 € à 1 855 € (niveau 1 technique, esthétique-cosmétique jusqu’au coefficient 135, non technique) sont inférieures au SMIC mensuel de 1 867,02 € en vigueur depuis juin 2026 : l’application doit retenir le plus élevé des deux montants.
 
 ## Limites
 
-- Le texte de l’avenant n’a pas pu être lu : les montants viennent de trois pages de synthèse concordantes (payfit.com, fiche-paie.net et convention.fr). La date de publication de l’arrêté d’extension diffère selon les pages (17 février ou 24 février 2026) et son numéro de texte et son NOR ne sont pas vérifiés. À recouper avec l’avenant sur Légifrance.
-- Le code `A330P` désigne la ligne « 330+ » des pages de synthèse (2 806 €), dont le sens exact (coefficient supérieur à 330) n’a pas pu être vérifié.
-- La prime d’ancienneté (de 36 € à 5 ans à 117 € à 20 ans par mois d’après les pages consultées), les autres primes, la prévoyance et le contrat d’apprentissage ne sont pas modélisés.
+- Le code `A330P` désigne la ligne « 330+ » de l’article 1 de l’avenant (2 806 €), interprétée ici comme un coefficient supérieur à 330.
+- Les autres primes, la prévoyance et le contrat d’apprentissage ne sont pas modélisés.
 - Les grilles antérieures au 1er mars 2026 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
