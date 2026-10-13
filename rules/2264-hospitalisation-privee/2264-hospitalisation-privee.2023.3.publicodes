@@ -1,0 +1,344 @@
+# Convention collective nationale de l'hospitalisation privée du 18 avril 2002 (IDCC 2264,
+# brochure 3307, FHP).
+#
+# Version 2023.3, correction d'audit paie ; fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+validFrom: 2023-01-01
+sources:
+  - Avenant n° 32 du 10 novembre 2022 relatif aux revalorisations salariales, annexe 1, grille des coefficients 176 à 242 englobant la rémunération annuelle garantie, étendu par arrêté du 8 février 2023 (JORF du 21 février 2023), texte KALIARTI000047137426.
+  - Avenant du 22 février 2023 à l'annexe du 10 décembre 2002 relatif aux salaires au 1er janvier 2023, articles 1 à 5, étendu par arrêté du 11 mai 2023 (JORF du 1er juin 2023), texte KALIARTI000047583120.
+---
+salarié . convention collective . hospitalisation privée:
+  titre: Hospitalisation privée (IDCC 2264)
+  valeur: convention collective = 'hospitalisation privée'
+
+salarié . convention collective . hospitalisation privée . coefficient:
+  titre: Coefficient de l'emploi
+  description: Coefficient hiérarchique de l'emploi occupé.
+  applicable si: convention collective = 'hospitalisation privée'
+  par défaut: 0
+
+salarié . convention collective . hospitalisation privée . valeur du point:
+  titre: Valeur du point
+  description: Valeur du point de 7,26 € à partir du coefficient 243, au 1er janvier 2023.
+  applicable si: convention collective = 'hospitalisation privée'
+  unité: €/mois
+  valeur: 7.26 €/mois
+
+salarié . convention collective . hospitalisation privée . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: Salaire minimum conventionnel à temps plein, proratisé pour un temps partiel.
+  applicable si: convention collective = 'hospitalisation privée'
+  unité: €/mois
+  produit:
+    - salaire indiciaire
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . hospitalisation privée . salaire minimum conventionnel . salaire indiciaire:
+  titre: Salaire minimum mensuel à temps plein
+  description: Grille forfaitaire des coefficients 176 à 242 ; coefficient multiplié par la valeur du point à partir de 243.
+  applicable si: convention collective = 'hospitalisation privée'
+  unité: €/mois
+  variations:
+    - si: coefficient < 243
+      alors: grille mensuelle
+    - sinon: coefficient * valeur du point
+
+salarié . convention collective . hospitalisation privée . grille mensuelle:
+  titre: Salaire mensuel forfaitaire à temps plein
+  description: Grille de l'annexe 1 de l'avenant n° 32 du 10 novembre 2022, coefficients 176 à 242 inclus.
+  applicable si: convention collective = 'hospitalisation privée'
+  unité: €/mois
+  variations:
+    - si: coefficient = 176
+      alors: 1729.36 €/mois
+    - si: coefficient = 178
+      alors: 1729.86 €/mois
+    - si: coefficient = 180
+      alors: 1730.36 €/mois
+    - si: coefficient = 181
+      alors: 1730.86 €/mois
+    - si: coefficient = 182
+      alors: 1731.36 €/mois
+    - si: coefficient = 183
+      alors: 1731.86 €/mois
+    - si: coefficient = 184
+      alors: 1732.36 €/mois
+    - si: coefficient = 185
+      alors: 1732.86 €/mois
+    - si: coefficient = 186
+      alors: 1733.36 €/mois
+    - si: coefficient = 187
+      alors: 1733.86 €/mois
+    - si: coefficient = 188
+      alors: 1734.36 €/mois
+    - si: coefficient = 189
+      alors: 1734.86 €/mois
+    - si: coefficient = 190
+      alors: 1735.36 €/mois
+    - si: coefficient = 191
+      alors: 1735.86 €/mois
+    - si: coefficient = 192
+      alors: 1736.36 €/mois
+    - si: coefficient = 193
+      alors: 1736.86 €/mois
+    - si: coefficient = 194
+      alors: 1737.36 €/mois
+    - si: coefficient = 195
+      alors: 1737.86 €/mois
+    - si: coefficient = 196
+      alors: 1738.36 €/mois
+    - si: coefficient = 197
+      alors: 1738.86 €/mois
+    - si: coefficient = 198
+      alors: 1739.36 €/mois
+    - si: coefficient = 199
+      alors: 1739.86 €/mois
+    - si: coefficient = 200
+      alors: 1740.36 €/mois
+    - si: coefficient = 201
+      alors: 1740.86 €/mois
+    - si: coefficient = 202
+      alors: 1741.36 €/mois
+    - si: coefficient = 203
+      alors: 1741.86 €/mois
+    - si: coefficient = 204
+      alors: 1742.36 €/mois
+    - si: coefficient = 205
+      alors: 1742.86 €/mois
+    - si: coefficient = 206
+      alors: 1743.36 €/mois
+    - si: coefficient = 207
+      alors: 1743.86 €/mois
+    - si: coefficient = 208
+      alors: 1744.36 €/mois
+    - si: coefficient = 209
+      alors: 1744.86 €/mois
+    - si: coefficient = 210
+      alors: 1745.36 €/mois
+    - si: coefficient = 211
+      alors: 1745.86 €/mois
+    - si: coefficient = 212
+      alors: 1746.36 €/mois
+    - si: coefficient = 213
+      alors: 1746.86 €/mois
+    - si: coefficient = 214
+      alors: 1747.36 €/mois
+    - si: coefficient = 215
+      alors: 1747.86 €/mois
+    - si: coefficient = 216
+      alors: 1748.36 €/mois
+    - si: coefficient = 217
+      alors: 1748.86 €/mois
+    - si: coefficient = 218
+      alors: 1749.36 €/mois
+    - si: coefficient = 219
+      alors: 1749.86 €/mois
+    - si: coefficient = 220
+      alors: 1750.36 €/mois
+    - si: coefficient = 221
+      alors: 1750.86 €/mois
+    - si: coefficient = 222
+      alors: 1751.36 €/mois
+    - si: coefficient = 223
+      alors: 1751.86 €/mois
+    - si: coefficient = 224
+      alors: 1752.36 €/mois
+    - si: coefficient = 225
+      alors: 1752.86 €/mois
+    - si: coefficient = 226
+      alors: 1753.36 €/mois
+    - si: coefficient = 227
+      alors: 1753.86 €/mois
+    - si: coefficient = 228
+      alors: 1754.36 €/mois
+    - si: coefficient = 229
+      alors: 1754.86 €/mois
+    - si: coefficient = 230
+      alors: 1755.36 €/mois
+    - si: coefficient = 231
+      alors: 1755.86 €/mois
+    - si: coefficient = 232
+      alors: 1756.36 €/mois
+    - si: coefficient = 233
+      alors: 1756.86 €/mois
+    - si: coefficient = 234
+      alors: 1757.36 €/mois
+    - si: coefficient = 235
+      alors: 1757.86 €/mois
+    - si: coefficient = 236
+      alors: 1758.36 €/mois
+    - si: coefficient = 237
+      alors: 1758.86 €/mois
+    - si: coefficient = 238
+      alors: 1759.36 €/mois
+    - si: coefficient = 239
+      alors: 1759.86 €/mois
+    - si: coefficient = 240
+      alors: 1760.36 €/mois
+    - si: coefficient = 241
+      alors: 1760.86 €/mois
+    - si: coefficient = 242
+      alors: 1761.36 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . hospitalisation privée . salaire minimum annuel conventionnel:
+  titre: Rémunération annuelle garantie
+  description: Rémunération annuelle brute totale englobant la rémunération annuelle garantie pour les coefficients 176 à 242, proratisée pour un temps partiel.
+  applicable si: convention collective = 'hospitalisation privée'
+  unité: €/an
+  produit:
+    - rémunération annuelle garantie à temps plein
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . hospitalisation privée . rémunération annuelle garantie à temps plein:
+  titre: Rémunération annuelle garantie à temps plein
+  applicable si: convention collective = 'hospitalisation privée'
+  unité: €/an
+  valeur: grille annuelle
+
+salarié . convention collective . hospitalisation privée . grille annuelle:
+  titre: Rémunération annuelle garantie forfaitaire à temps plein
+  description: Colonne « Annuel » de l'annexe 1 de l'avenant n° 32 du 10 novembre 2022.
+  applicable si: convention collective = 'hospitalisation privée'
+  unité: €/an
+  variations:
+    - si: coefficient = 176
+      alors: 20752.32 €/an
+    - si: coefficient = 178
+      alors: 20758.32 €/an
+    - si: coefficient = 180
+      alors: 20764.32 €/an
+    - si: coefficient = 181
+      alors: 20770.32 €/an
+    - si: coefficient = 182
+      alors: 20776.32 €/an
+    - si: coefficient = 183
+      alors: 20782.32 €/an
+    - si: coefficient = 184
+      alors: 20788.32 €/an
+    - si: coefficient = 185
+      alors: 20794.32 €/an
+    - si: coefficient = 186
+      alors: 20800.32 €/an
+    - si: coefficient = 187
+      alors: 20806.32 €/an
+    - si: coefficient = 188
+      alors: 20812.32 €/an
+    - si: coefficient = 189
+      alors: 20818.32 €/an
+    - si: coefficient = 190
+      alors: 20824.32 €/an
+    - si: coefficient = 191
+      alors: 20830.32 €/an
+    - si: coefficient = 192
+      alors: 20836.32 €/an
+    - si: coefficient = 193
+      alors: 20842.32 €/an
+    - si: coefficient = 194
+      alors: 20848.32 €/an
+    - si: coefficient = 195
+      alors: 20854.32 €/an
+    - si: coefficient = 196
+      alors: 20860.32 €/an
+    - si: coefficient = 197
+      alors: 20866.32 €/an
+    - si: coefficient = 198
+      alors: 20872.32 €/an
+    - si: coefficient = 199
+      alors: 20878.32 €/an
+    - si: coefficient = 200
+      alors: 20884.32 €/an
+    - si: coefficient = 201
+      alors: 20890.32 €/an
+    - si: coefficient = 202
+      alors: 20896.32 €/an
+    - si: coefficient = 203
+      alors: 20902.32 €/an
+    - si: coefficient = 204
+      alors: 20908.32 €/an
+    - si: coefficient = 205
+      alors: 20914.32 €/an
+    - si: coefficient = 206
+      alors: 20920.32 €/an
+    - si: coefficient = 207
+      alors: 20926.32 €/an
+    - si: coefficient = 208
+      alors: 20932.32 €/an
+    - si: coefficient = 209
+      alors: 20938.32 €/an
+    - si: coefficient = 210
+      alors: 20944.32 €/an
+    - si: coefficient = 211
+      alors: 20950.32 €/an
+    - si: coefficient = 212
+      alors: 20956.32 €/an
+    - si: coefficient = 213
+      alors: 20962.32 €/an
+    - si: coefficient = 214
+      alors: 20968.32 €/an
+    - si: coefficient = 215
+      alors: 20974.32 €/an
+    - si: coefficient = 216
+      alors: 20980.32 €/an
+    - si: coefficient = 217
+      alors: 20986.32 €/an
+    - si: coefficient = 218
+      alors: 20992.32 €/an
+    - si: coefficient = 219
+      alors: 20998.32 €/an
+    - si: coefficient = 220
+      alors: 21004.32 €/an
+    - si: coefficient = 221
+      alors: 21010.32 €/an
+    - si: coefficient = 222
+      alors: 21016.32 €/an
+    - si: coefficient = 223
+      alors: 21022.32 €/an
+    - si: coefficient = 224
+      alors: 21028.32 €/an
+    - si: coefficient = 225
+      alors: 21034.32 €/an
+    - si: coefficient = 226
+      alors: 21040.32 €/an
+    - si: coefficient = 227
+      alors: 21046.32 €/an
+    - si: coefficient = 228
+      alors: 21052.32 €/an
+    - si: coefficient = 229
+      alors: 21058.32 €/an
+    - si: coefficient = 230
+      alors: 21064.32 €/an
+    - si: coefficient = 231
+      alors: 21070.32 €/an
+    - si: coefficient = 232
+      alors: 21076.32 €/an
+    - si: coefficient = 233
+      alors: 21082.32 €/an
+    - si: coefficient = 234
+      alors: 21088.32 €/an
+    - si: coefficient = 235
+      alors: 21094.32 €/an
+    - si: coefficient = 236
+      alors: 21103.64 €/an
+    - si: coefficient = 237
+      alors: 21193.06 €/an
+    - si: coefficient = 238
+      alors: 21282.48 €/an
+    - si: coefficient = 239
+      alors: 21371.91 €/an
+    - si: coefficient = 240
+      alors: 21461.33 €/an
+    - si: coefficient = 241
+      alors: 21550.75 €/an
+    - si: coefficient = 242
+      alors: 21640.17 €/an
+    - sinon: 0 €/an
+
+
+salarié . convention collective . hospitalisation privée . coefficient hors grille:
+  titre: Coefficient absent ou inférieur à 176
+  description: Le coefficient est absent, inférieur à 176 ou absent de la grille forfaitaire des coefficients 176 à 242.
+  applicable si: convention collective = 'hospitalisation privée'
+  valeur: salaire minimum conventionnel . salaire indiciaire = 0 €/mois

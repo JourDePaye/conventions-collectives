@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "2264-hospitalisation-privee";
 const value = "hospitalisation privée";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2023.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2023.3");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -35,9 +35,10 @@ const minimum = () => {
 
 const outOfGrid = () => engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue;
 
-describe("IDCC 2264 — 2023.1 base salary", () => {
-  it("is in force from 1 January 2023 and cites the avenant", () => {
+describe("IDCC 2264 — 2023.3 base salary", () => {
+  it("is in force from 1 January 2023 and cites the salary amendments", () => {
     assert.equal(version.validFrom, "2023-01-01");
+    assert.ok(version.sources.some((source) => source.includes("Avenant n° 32")));
     assert.ok(version.sources.some((source) => source.includes("22 février 2023")));
   });
 
@@ -54,11 +55,21 @@ describe("IDCC 2264 — 2023.1 base salary", () => {
     }
   });
 
-  it("gives no indexed minimum below 243, where fixed amounts under the SMIC apply", () => {
-    for (const coefficient of [176, 200, 242]) {
+  it("uses the fixed monthly and annual grid from 176 through 242", () => {
+    for (const [coefficient, monthly, annual] of [[176, 1729.36, 20752.32], [200, 1740.36, 20884.32], [242, 1761.36, 21640.17]] as const) {
       setSituation(coefficient);
-      assert.equal(minimum(), 0, `${coefficient}`);
+      assert.equal(minimum(), monthly, `${coefficient}`);
       assert.equal(outOfGrid(), false, `${coefficient}`);
+      const result = engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue;
+      assert.equal(Math.round((result as number) * 100) / 100, annual, `${coefficient} annual`);
+    }
+  });
+
+  it("reports coefficients absent from the fixed grid", () => {
+    for (const coefficient of [177, 179, 175]) {
+      setSituation(coefficient);
+      assert.equal(outOfGrid(), true, `${coefficient}`);
+      assert.equal(minimum(), 0, `${coefficient}`);
     }
   });
 
