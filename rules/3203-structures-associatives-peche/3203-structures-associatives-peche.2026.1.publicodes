@@ -1,0 +1,83 @@
+# Convention collective nationale des structures associatives de pêche de loisir et de protection du milieu aquatique du 22 juin 2013 (IDCC 3203).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+
+validFrom: 2026-01-01
+sources:
+  - >-
+    Avenant n° 16 du 17 décembre 2025 relatif aux salaires minima conventionnels au 1er janvier
+    2026, applicable à compter du 1er janvier 2026, texte publié sur Légifrance dans la convention
+    IDCC 3203 sous l'identifiant KALITEXT000049150737. La grille fixe les rémunérations minimales
+    mensuelles pour 151,67 heures, de 1 855 € à 3 355 €.
+  - >-
+    L'avenant n° 16 est conclu pour une durée indéterminée et demeure un texte non étendu à la
+    date de modélisation : le champ juridique est donc limité aux employeurs signataires ou
+    adhérents ; l'application à d'autres employeurs n'est pas inventée par ce modèle.
+  - >-
+    Audit des effets de paie : l'avenant chiffré consulté fixe uniquement les minima mensuels.
+    Aucun taux, plafond, forfait, prime, avantage, santé, prévoyance, formation ou AT/MP chiffré
+    et applicable au périmètre de cette version n'est ajouté.
+---
+salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique:
+  titre: Structures associatives de pêche de loisir et de protection du milieu aquatique (IDCC 3203)
+  valeur: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
+
+salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . niveau et échelon:
+  titre: Niveau et échelon de classification
+  description: Positionnement de niveau I à VI et, pour les niveaux II à VI, échelon publié par l'avenant salarial.
+  applicable si: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . champ juridique:
+  titre: Champ juridique
+  description: L'avenant n° 16 est modélisé dans son champ signataire ou adhérent, avant extension.
+  applicable si: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
+  par défaut: "'employeur signataire ou adhérent'"
+
+salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . salaire minimum conventionnel . grille:
+  titre: Grille mensuelle à temps plein
+  unité: €/mois
+  variations:
+    - si: niveau et échelon = 'I'
+      alors: 1855 €/mois
+    - si: niveau et échelon = 'II.1'
+      alors: 1887 €/mois
+    - si: niveau et échelon = 'II.2'
+      alors: 1942 €/mois
+    - si: niveau et échelon = 'III.1'
+      alors: 2004 €/mois
+    - si: niveau et échelon = 'III.2'
+      alors: 2069 €/mois
+    - si: niveau et échelon = 'IV.1'
+      alors: 2169 €/mois
+    - si: niveau et échelon = 'IV.2'
+      alors: 2269 €/mois
+    - si: niveau et échelon = 'IV.3'
+      alors: 2419 €/mois
+    - si: niveau et échelon = 'V.1'
+      alors: 2574 €/mois
+    - si: niveau et échelon = 'V.2'
+      alors: 2729 €/mois
+    - si: niveau et échelon = 'V.3'
+      alors: 2884 €/mois
+    - si: niveau et échelon = 'VI.1'
+      alors: 3041 €/mois
+    - si: niveau et échelon = 'VI.2'
+      alors: 3198 €/mois
+    - si: niveau et échelon = 'VI.3'
+      alors: 3355 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . niveau hors grille:
+  titre: Niveau ou échelon absent de la grille
+  description: Le positionnement n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois

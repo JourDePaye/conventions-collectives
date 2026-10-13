@@ -145,6 +145,7 @@ const models = [
   { name: "2147-services-eau-assainissement", value: "services eau assainissement", classification: "groupe", input: "'VI'", minimums: { "2025.1": 40289 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "1875-cabinets-cliniques-veterinaires", value: "cabinets et cliniques vétérinaires", classification: "coefficient", input: 120, minimums: { "2026.1": 2155.2 } },
   { name: "1307-exploitation-cinematographique", value: "exploitation cinématographique", classification: "coefficient", input: 300, minimums: { "2025.1": 2203.92 } },
+  { name: "3203-structures-associatives-peche", value: "structures associatives de pêche de loisir et de protection du milieu aquatique", classification: "niveau et échelon", input: "'VI.3'", minimums: { "2026.1": 3355 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
