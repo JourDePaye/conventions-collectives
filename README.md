@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent vingt-six conventions** sont actuellement représentées, avec **cent quatre-vingt-treize versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent vingt-huit conventions** sont actuellement représentées, avec **cent quatre-vingt-quinze versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent vingt-six conventions sont actuellement représentées, avec cent quatre-vingt-treize versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent vingt-huit conventions sont actuellement représentées, avec cent quatre-vingt-quinze versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -81,6 +81,7 @@ Cent vingt-six conventions sont actuellement représentées, avec cent quatre-vi
 | [Grands magasins et magasins populaires](rules/2156-grands-magasins/README.md) | 2156 | `2026.1` : 1er juin 2024 | Grille mensuelle de 12 positions (employés en 8 échelons, agent de maîtrise, cadres) et rémunérations minimales annuelles, toutes deux proratisées selon la quotité de travail ; détection des niveaux hors grille |
 | [Commerce de l'ameublement](rules/1880-commerce-ameublement/README.md) | 1880 | `2026.1` : 1er juin 2026 (champ général) | Grille mensuelle des niveaux employés 1 à 5, proratisée selon la quotité de travail ; catégories agents de maîtrise et cadres explicitement hors périmètre |
 | [Coopération maritime](rules/2494-cooperation-maritime/README.md) | 2494 | `2026.1` : 1er juillet 2026 (accord du 31 mars 2026 étendu) | Grille annuelle des niveaux 1 à 9 et échelons A/B des cadres, proratisée selon la quotité de travail ; comparaison conservée en €/an et classifications hors grille détectées |
+| [Commerce des articles de sports et équipements de loisirs](rules/1557-commerce-articles-sports-loisirs/README.md) | 1557 | `2025.1` : 1er mars 2025 (accords étendus) | Grilles mensuelles des coefficients 130 à 550 et des classifications O1 à O4, proratisées selon la quotité de travail ; classifications hors grille détectées |
 
 ### INDUSTRIE, MÉTALLURGIE & CHIMIE
 

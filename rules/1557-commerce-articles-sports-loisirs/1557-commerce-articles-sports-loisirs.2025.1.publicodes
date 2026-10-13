@@ -1,0 +1,98 @@
+# Convention collective nationale du commerce des articles de sports et d'équipements de loisirs du 26 juin 1989
+# (IDCC 1557, brochure 3049).
+# Version 2025.1 : accords du 4 mars 2025 relatifs aux salaires minima,
+# étendus par arrêté du 13 mai 2025, publié au JORF du 24 mai 2025.
+validFrom: 2025-03-01
+sources:
+  - >-
+    Accord du 4 mars 2025 relatif aux salaires minima conventionnels (grille
+    générale), IDCC 1557, articles 1 à 4, publié sur Légifrance.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051694875?origin=list
+  - >-
+    Accord du 4 mars 2025 relatif aux salaires minima conventionnels (grille
+    ouvriers/ouvrières), IDCC 1557, articles 1 à 3, publié sur Légifrance.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051694880?origin=list
+  - >-
+    Arrêté du 13 mai 2025 portant extension d'accords conclus dans le cadre de
+    la convention collective nationale du commerce des articles de sports et
+    d'équipements de loisirs, publié au JORF du 24 mai 2025.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051566263
+---
+salarié . convention collective . commerce articles sports loisirs:
+  titre: Commerce des articles de sports et équipements de loisirs (IDCC 1557)
+  valeur: convention collective = 'commerce articles sports loisirs'
+
+salarié . convention collective . commerce articles sports loisirs . classification:
+  titre: Classification conventionnelle
+  description: Référence de la grille de l'accord du 4 mars 2025, par exemple 250 ou O3.
+  applicable si: convention collective = 'commerce articles sports loisirs'
+  par défaut: "'non renseignée'"
+
+salarié . convention collective . commerce articles sports loisirs . grille:
+  titre: Salaire minimum mensuel conventionnel à temps plein
+  description: Valeurs mensuelles minimales des grilles générale et ouvriers/ouvrières de l'accord du 4 mars 2025.
+  applicable si: convention collective = 'commerce articles sports loisirs'
+  unité: €/mois
+  variations:
+    - si: classification = '130'
+      alors: 1766.92 €/mois
+    - si: classification = '140'
+      alors: 1789 €/mois
+    - si: classification = '150'
+      alors: 1795 €/mois
+    - si: classification = '160'
+      alors: 1805 €/mois
+    - si: classification = '170'
+      alors: 1845 €/mois
+    - si: classification = '180'
+      alors: 1847 €/mois
+    - si: classification = '190'
+      alors: 1852 €/mois
+    - si: classification = '200'
+      alors: 1865 €/mois
+    - si: classification = '220'
+      alors: 1975 €/mois
+    - si: classification = '240'
+      alors: 2025 €/mois
+    - si: classification = '250'
+      alors: 2089 €/mois
+    - si: classification = '280'
+      alors: 2210 €/mois
+    - si: classification = '320'
+      alors: 2497 €/mois
+    - si: classification = '350'
+      alors: 2616 €/mois
+    - si: classification = '380'
+      alors: 2777 €/mois
+    - si: classification = '390'
+      alors: 2888 €/mois
+    - si: classification = '420'
+      alors: 3064 €/mois
+    - si: classification = '450'
+      alors: 3331 €/mois
+    - si: classification = '500'
+      alors: 3560 €/mois
+    - si: classification = '550'
+      alors: 3814 €/mois
+    - si: classification = 'O1'
+      alors: 1801.80 €/mois
+    - si: classification = 'O2'
+      alors: 1840 €/mois
+    - si: classification = 'O3'
+      alors: 1874 €/mois
+    - si: classification = 'O4'
+      alors: 1914 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerce articles sports loisirs . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'commerce articles sports loisirs'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . commerce articles sports loisirs . classification hors grille:
+  titre: Classification absente de la grille
+  description: La classification ne figure pas dans les grilles de l'accord du 4 mars 2025.
+  applicable si: convention collective = 'commerce articles sports loisirs'
+  valeur: grille = 0 €/mois
