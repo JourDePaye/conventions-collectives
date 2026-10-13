@@ -1,0 +1,101 @@
+# Convention collective nationale des industries de carrières et matériaux de construction (IDCC 3249).
+# Version 2026.1 : accord Île-de-France du 19 mars 2026, applicable au 1er janvier 2026.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Île-de-France, accord du 19 mars 2026 relatif aux salaires minimaux au 1er janvier 2026,
+    Légifrance, KALITEXT000054337807.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054337807/
+  - >-
+    Arrêté du 21 mai 2026 portant extension de l'accord du 19 mars 2026, publié au Journal
+    officiel du 29 mai 2026, NOR TSSD2612437A.
+---
+salarié . convention collective . carrières et matériaux de construction:
+  titre: Industries de carrières et matériaux de construction (IDCC 3249)
+  valeur: convention collective = 'carrières et matériaux de construction'
+
+salarié . convention collective . carrières et matériaux de construction . niveau et échelon:
+  titre: Niveau et échelon de classification
+  description: Niveaux 1 à 7 et échelons 1 à 3 de la grille ouvriers et ETAM.
+  applicable si: convention collective = 'carrières et matériaux de construction'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . carrières et matériaux de construction . région:
+  titre: Région d'emploi
+  description: Cette version modélise exclusivement la grille étendue en Île-de-France.
+  une possibilité:
+    - "'Île-de-France'"
+    - "'hors Île-de-France'"
+  applicable si: convention collective = 'carrières et matériaux de construction'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . carrières et matériaux de construction . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à 151,67 heures, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'carrières et matériaux de construction'
+      - région = 'Île-de-France'
+  unité: €/mois
+  produit:
+    - grille Île-de-France
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . carrières et matériaux de construction . grille Île-de-France:
+  titre: Grille mensuelle Île-de-France 2026
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'carrières et matériaux de construction'
+      - région = 'Île-de-France'
+  unité: €/mois
+  variations:
+    - si: niveau et échelon = '1.1'
+      alors: 1840 €/mois
+    - si: niveau et échelon = '1.2'
+      alors: 1866 €/mois
+    - si: niveau et échelon = '1.3'
+      alors: 1874 €/mois
+    - si: niveau et échelon = '2.1'
+      alors: 1903 €/mois
+    - si: niveau et échelon = '2.2'
+      alors: 1957 €/mois
+    - si: niveau et échelon = '2.3'
+      alors: 1969 €/mois
+    - si: niveau et échelon = '3.1'
+      alors: 2000 €/mois
+    - si: niveau et échelon = '3.2'
+      alors: 2060 €/mois
+    - si: niveau et échelon = '3.3'
+      alors: 2069 €/mois
+    - si: niveau et échelon = '4.1'
+      alors: 2104 €/mois
+    - si: niveau et échelon = '4.2'
+      alors: 2178 €/mois
+    - si: niveau et échelon = '4.3'
+      alors: 2187 €/mois
+    - si: niveau et échelon = '5.1'
+      alors: 2252 €/mois
+    - si: niveau et échelon = '5.2'
+      alors: 2409 €/mois
+    - si: niveau et échelon = '5.3'
+      alors: 2451 €/mois
+    - si: niveau et échelon = '6.1'
+      alors: 2546 €/mois
+    - si: niveau et échelon = '6.2'
+      alors: 2748 €/mois
+    - si: niveau et échelon = '6.3'
+      alors: 2814 €/mois
+    - si: niveau et échelon = '7.1'
+      alors: 2975 €/mois
+    - si: niveau et échelon = '7.2'
+      alors: 3240 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . carrières et matériaux de construction . niveau et échelon hors grille:
+  titre: Niveau et échelon absent de la grille
+  description: Le niveau et l'échelon n'existent pas dans la grille Île-de-France 2026.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'carrières et matériaux de construction'
+      - région = 'Île-de-France'
+  valeur: grille Île-de-France = 0 €/mois
