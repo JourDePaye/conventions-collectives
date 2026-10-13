@@ -1,0 +1,144 @@
+# Convention collective nationale des industries du bois et de l'importation des bois
+# du 28 novembre 1955 (IDCC 158, brochure 3041).
+# Version 2026.1 : avenant n° 7 du 19 février 2026 à l'accord du 10 septembre 2019,
+# applicable au 1er avril 2026 pour les employeurs signataires ou adhérents.
+validFrom: 2026-04-01
+sources:
+  - >-
+    Avenant n° 7 du 19 février 2026 à l'accord du 10 septembre 2019 relatif
+    aux classifications et aux salaires minimaux du personnel ouvrier, ACT,
+    AM et cadres dans les industries du bois et de l'importation des bois,
+    IDCC 158, articles 2, 3 et 5 et annexe I, publié sur Légifrance.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054825946
+  - >-
+    Convention collective nationale des industries du bois et de l'importation
+    des bois du 28 novembre 1955, IDCC 158, publiée sur Légifrance.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635186
+---
+salarié . convention collective . industries du bois:
+  titre: Industries du bois et de l'importation des bois (IDCC 158)
+  valeur: convention collective = 'industries du bois'
+
+salarié . convention collective . industries du bois . classification:
+  titre: Classification conventionnelle
+  description: Classification de l'avenant n° 7, par exemple ACT 6.1, AM 2.2 ou C 4.
+  applicable si: convention collective = 'industries du bois'
+  par défaut: "'ACT 1'"
+
+salarié . convention collective . industries du bois . champ juridique:
+  titre: Champ juridique de l'avenant salarial
+  description: L'avenant est modélisé pour les employeurs signataires ou adhérents ; l'extension n'est pas présumée.
+  applicable si: convention collective = 'industries du bois'
+  une possibilité:
+    - "'employeur signataire ou adhérent'"
+    - "'autre employeur'"
+  par défaut: "'employeur signataire ou adhérent'"
+
+salarié . convention collective . industries du bois . grille mensuelle:
+  titre: Salaire minimum mensuel conventionnel à temps plein
+  description: Grilles de l'annexe I de l'avenant n° 7, pour 151,67 heures, applicables au 1er avril 2026.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'industries du bois'
+      - champ juridique = 'employeur signataire ou adhérent'
+  unité: €/mois
+  variations:
+    - si: classification = 'ouvrier 1 AB'
+      alors: 1824 €/mois
+    - si: classification = 'ouvrier 2.1 C'
+      alors: 1830 €/mois
+    - si: classification = 'ouvrier 2.2 D'
+      alors: 1832 €/mois
+    - si: classification = 'ouvrier 3.1 E'
+      alors: 1841 €/mois
+    - si: classification = 'ouvrier 3.2 F'
+      alors: 1854 €/mois
+    - si: classification = 'ouvrier 3.3 G'
+      alors: 1885 €/mois
+    - si: classification = 'ouvrier 4.1 H'
+      alors: 1902 €/mois
+    - si: classification = 'ouvrier 4.2 I'
+      alors: 2016 €/mois
+    - si: classification = 'ouvrier 4.3 J'
+      alors: 2215 €/mois
+    - si: classification = 'ACT 1'
+      alors: 1824 €/mois
+    - si: classification = 'ACT 2.1'
+      alors: 1832 €/mois
+    - si: classification = 'ACT 2.2'
+      alors: 1848 €/mois
+    - si: classification = 'ACT 3.1'
+      alors: 1885 €/mois
+    - si: classification = 'ACT 3.2'
+      alors: 1902 €/mois
+    - si: classification = 'ACT 4'
+      alors: 2016 €/mois
+    - si: classification = 'ACT 5.1'
+      alors: 2144 €/mois
+    - si: classification = 'ACT 5.2'
+      alors: 2264 €/mois
+    - si: classification = 'ACT 6.1'
+      alors: 2448 €/mois
+    - si: classification = 'ACT 6.2'
+      alors: 2642 €/mois
+    - si: classification = 'ACT 7.1'
+      alors: 2969 €/mois
+    - si: classification = 'ACT 7.2'
+      alors: 3305 €/mois
+    - si: classification = 'AM 1'
+      alors: 2144 €/mois
+    - si: classification = 'AM 2.1'
+      alors: 2371 €/mois
+    - si: classification = 'AM 2.2'
+      alors: 2642 €/mois
+    - si: classification = 'AM 3.1'
+      alors: 2969 €/mois
+    - si: classification = 'AM 3.2'
+      alors: 3305 €/mois
+    - si: classification = 'C 1'
+      alors: 2702 €/mois
+    - si: classification = 'C 2'
+      alors: 3236 €/mois
+    - si: classification = 'C 3'
+      alors: 3638 €/mois
+    - si: classification = 'C 4'
+      alors: 3910 €/mois
+    - si: classification = 'C 5'
+      alors: 4044 €/mois
+    - si: classification = 'C 6'
+      alors: 4248 €/mois
+    - si: classification = 'C 7'
+      alors: 4518 €/mois
+    - si: classification = 'C 8'
+      alors: 4856 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industries du bois . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'industries du bois'
+      - calcul bloqué = non
+  unité: €/mois
+  valeur: grille mensuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . industries du bois . classification hors grille:
+  titre: Classification absente de la grille
+  description: La classification ne figure pas dans les grilles modélisées de l'avenant n° 7.
+  applicable si: convention collective = 'industries du bois'
+  valeur: grille mensuelle = 0 €/mois
+
+salarié . convention collective . industries du bois . champ hors couverture:
+  titre: Employeur hors champ de l'avenant
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'industries du bois'
+      - champ juridique = 'autre employeur'
+
+salarié . convention collective . industries du bois . calcul bloqué:
+  titre: Calcul du minimum bloqué
+  applicable si: convention collective = 'industries du bois'
+  une de ces conditions:
+    - classification hors grille
+    - champ hors couverture
