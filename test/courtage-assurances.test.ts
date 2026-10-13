@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "2247-courtage-assurances";
 const value = "courtage assurances";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2025.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -47,9 +47,15 @@ const amount = () => {
   return roundToCents(result as number);
 };
 
+const annualAmount = () => {
+  const result = engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue;
+  assert.equal(typeof result, "number");
+  return roundToCents(result as number);
+};
+
 const outOfGrid = () => engine.evaluate(`${namespace} . niveau hors grille`).nodeValue;
 
-describe("IDCC 2247 — 2025.1 minimum salaries", () => {
+describe("IDCC 2247 — 2026.2 minimum salaries", () => {
   it("is in force from 1 July 2025 and cites the avenant", () => {
     assert.equal(version.validFrom, "2025-07-01");
     assert.ok(version.sources.some((source) => source.includes("Avenant du 19 juin 2025")));
@@ -57,15 +63,16 @@ describe("IDCC 2247 — 2025.1 minimum salaries", () => {
   });
 
   for (const [level, annual] of Object.entries(ANNUAL)) {
-    it(`class ${level}: ${annual} € a year, a thirteenth a month`, () => {
+    it(`class ${level}: ${annual} € a year, a twelfth a month`, () => {
       setSituation(level);
-      assert.equal(amount(), roundToCents(annual / 13));
+      assert.equal(amount(), roundToCents(annual / 12));
+      assert.equal(annualAmount(), annual);
       assert.equal(outOfGrid(), false);
     });
   }
 
   it("gives the monthly amounts quoted in the README", () => {
-    for (const [level, monthly] of [["D", 2208], ["A", 1775.08], ["H", 4247.77]] as const) {
+    for (const [level, monthly] of [["D", 2392], ["A", 1923], ["H", 4601.75]] as const) {
       setSituation(level);
       assert.equal(amount(), monthly, level);
     }
@@ -73,9 +80,11 @@ describe("IDCC 2247 — 2025.1 minimum salaries", () => {
 
   it("prorates the monthly minimum once for part-time work", () => {
     setSituation("D", "50%");
-    assert.equal(amount(), 1104);
+    assert.equal(amount(), 1196);
+    assert.equal(annualAmount(), 14352);
     setSituation("F", "80%");
-    assert.equal(amount(), roundToCents((38803 / 13) * 0.8));
+    assert.equal(amount(), roundToCents((38803 / 12) * 0.8));
+    assert.equal(annualAmount(), roundToCents(38803 * 0.8));
   });
 
   it("rejects classes outside the grid", () => {
@@ -83,6 +92,7 @@ describe("IDCC 2247 — 2025.1 minimum salaries", () => {
       setSituation(level);
       assert.equal(outOfGrid(), true, level);
       assert.equal(amount(), 0, level);
+      assert.equal(annualAmount(), 0, level);
     }
   });
 
@@ -90,12 +100,13 @@ describe("IDCC 2247 — 2025.1 minimum salaries", () => {
     setSituation(undefined);
     assert.equal(outOfGrid(), true);
     assert.equal(amount(), 0);
+    assert.equal(annualAmount(), 0);
   });
 
   it("leaves the extension inapplicable for another agreement", () => {
     setSituation("D");
     engine.setSituation({ "salarié . convention collective": "'droit commun'" });
-    for (const name of ["salaire minimum conventionnel", "niveau hors grille"]) {
+    for (const name of ["salaire minimum conventionnel", "salaire minimum annuel conventionnel", "niveau hors grille"]) {
       assert.equal(engine.evaluate(`${namespace} . ${name}`).nodeValue, null, name);
     }
   });
