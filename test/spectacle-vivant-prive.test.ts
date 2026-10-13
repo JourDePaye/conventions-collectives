@@ -8,7 +8,7 @@ const id = "3090-spectacle-vivant-prive";
 const ns = "salarié . convention collective . spectacle vivant privé";
 
 async function makeEngine() {
-  const version = COMPILED_VERSIONS[id]?.find((candidate) => candidate.version === "2025.1");
+  const version = COMPILED_VERSIONS[id]?.find((candidate) => candidate.version === "2025.2");
   assert.ok(version, "IDCC 3090 must be exported");
   assert.equal(version.validFrom, "2025-09-01");
   const extension = await version.loadRules();
@@ -59,14 +59,22 @@ describe("IDCC 3090 — spectacle vivant privé", () => {
 
   it("covers technical staff and prorates the monthly minimum", async () => {
     const engine = await makeEngine();
-    engine.setSituation({
-      salarié: "oui",
-      dirigeant: "non",
-      "salarié . convention collective": "'spectacle vivant privé'",
-      "salarié . contrat . temps de travail . quotité": "100%",
-      [`${ns} . catégorie technique`]: "'cadres groupe 2'",
-    });
-    assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, 2812.29);
+    for (const [category, expected] of [
+      ["cadres groupe 2", 2658.78],
+      ["agents de maîtrise", 2115.8],
+      ["employés qualifiés groupe 1", 1906.49],
+      ["employés qualifiés groupe 2", 1821.56],
+      ["employés", 1801.8],
+    ] as const) {
+      engine.setSituation({
+        salarié: "oui",
+        dirigeant: "non",
+        "salarié . convention collective": "'spectacle vivant privé'",
+        "salarié . contrat . temps de travail . quotité": "100%",
+        [`${ns} . catégorie technique`]: `'${category}'`,
+      });
+      assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, expected, category);
+    }
     engine.setSituation({
       salarié: "oui",
       dirigeant: "non",
@@ -74,7 +82,7 @@ describe("IDCC 3090 — spectacle vivant privé", () => {
       "salarié . contrat . temps de travail . quotité": "50%",
       [`${ns} . catégorie technique`]: "'employés qualifiés groupe 1'",
     });
-    assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, 953.41);
+    assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, 953.25);
   });
 
   it("returns no minimum for an unknown classification", async () => {
