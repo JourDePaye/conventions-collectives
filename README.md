@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent trente-quatre conventions** sont actuellement représentées, avec **deux cent une versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent trente-cinq conventions** sont actuellement représentées, avec **deux cent deux versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent trente-quatre conventions sont actuellement représentées, avec deux cent une versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent trente-cinq conventions sont actuellement représentées, avec deux cent deux versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -136,6 +136,7 @@ Cent trente-quatre conventions sont actuellement représentées, avec deux cent 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
 | [Établissements privés à but non lucratif (CCN 51)](rules/0029-etablissements-prives-non-lucratifs/README.md) | 29 | `2026.1` : 1er janvier 2026 | Salaire de base (coefficient multiplié par la valeur du point de 4,568 €), proratisé selon la quotité de travail ; détection du coefficient absent |
+| [Services de prévention et de santé au travail interentreprises](rules/0897-services-prevention-sante-travail-interentreprises/README.md) | 897 | `2026.1` : 1er janvier 2026 | 13 rémunérations minimales annuelles garanties des classes A à M, proratisées selon la quotité de travail ; indemnités de déplacement et de repas non calculées automatiquement ; détection des classes hors grille |
 | [Établissements et services pour personnes inadaptées et handicapées (CCN 66)](rules/0413-personnes-handicapees/README.md) | 413 | `2022.1` : 1er juillet 2022 ; `2026.1` : correction applicable au 1er juillet 2022 | Salaire indiciaire (coefficient multiplié par la valeur du point de 3,82 € ou de 3,93 € pour les adhérents à Nexem), plancher Nexem aux indices 403/413, indemnité de sujétion spéciale de 9,21 % pour les non-cadres, proratisation selon la quotité de travail ; détection du coefficient absent |
 | [Cabinets médicaux](rules/1147-cabinets-medicaux/README.md) | 1147 | `2024.1` : 1er janvier 2024 | Grille mensuelle de 13 positions (de 4 à 16), proratisée selon la quotité de travail ; détection des positions hors grille |
 | [Acteurs du lien social et familial (centres sociaux)](rules/1261-acteurs-lien-social-familial/README.md) | 1261 | `2026.1` : 1er janvier 2026 | Salaire socle annuel, points de pesée et points d'expérience professionnelle, convertis en minimum hiérarchique mensuel |
