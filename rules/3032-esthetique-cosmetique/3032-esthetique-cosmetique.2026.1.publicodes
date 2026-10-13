@@ -1,0 +1,219 @@
+validFrom: 2026-06-01
+sources:
+  - "Avenant n° 43 du 22 janvier 2026 relatif aux salaires minima de la convention collective nationale de l'esthétique-cosmétique et de l'enseignement technique et professionnel lié aux métiers de l'esthétique et de la parfumerie (IDCC 3032), grilles mensuelles pour 151,67 heures."
+  - "Arrêté du 18 mai 2026 portant extension de l'avenant n° 43, publié au Journal officiel du 28 mai 2026 (JORFTEXT000054144697) ; l'avenant est applicable à compter du 1er juin 2026."
+  - "Montants de l'avenant n° 43 recoupés avec la grille publiée par le Bulletin officiel des conventions collectives, fascicule 2026/14."
+---
+salarié . convention collective . esthétique cosmétique:
+  titre: Esthétique-cosmétique et enseignement associé (IDCC 3032)
+  valeur: convention collective = 'esthétique cosmétique'
+
+salarié . convention collective . esthétique cosmétique . secteur:
+  titre: Secteur d'activité
+  description: Instituts de beauté et services généraux, ou enseignement technique et professionnel lié aux métiers de l'esthétique, des soins corporels et de la parfumerie.
+  applicable si: convention collective = 'esthétique cosmétique'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . esthétique cosmétique . classification:
+  titre: Classification
+  description: Coefficient, avec l'échelon A ou B pour le secteur de l'enseignement, sous la forme `coefficient` ou `coefficient-échelon`.
+  applicable si: convention collective = 'esthétique cosmétique'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . esthétique cosmétique . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'esthétique cosmétique'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . esthétique cosmétique . salaire minimum conventionnel . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Grille de l'avenant n° 43 du 22 janvier 2026, pour 151,67 heures mensuelles.
+  unité: €/mois
+  variations:
+    - si:
+        toutes ces conditions:
+          - secteur = 'instituts de beauté et services généraux'
+          - classification = '135'
+      alors: 1848 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'instituts de beauté et services généraux'
+          - classification = '150'
+      alors: 1861 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'instituts de beauté et services généraux'
+          - classification = '160'
+      alors: 1877 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'instituts de beauté et services généraux'
+          - classification = '175'
+      alors: 1895 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'instituts de beauté et services généraux'
+          - classification = '180'
+      alors: 1917 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'instituts de beauté et services généraux'
+          - classification = '200'
+      alors: 1995 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'instituts de beauté et services généraux'
+          - classification = '230'
+      alors: 2072 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'instituts de beauté et services généraux'
+          - classification = '250'
+      alors: 2300 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'instituts de beauté et services généraux'
+          - classification = '270'
+      alors: 2834 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'instituts de beauté et services généraux'
+          - classification = '300'
+      alors: 3875 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '135-A'
+      alors: 1848 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '135-B'
+      alors: 1885 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '150-A'
+      alors: 1861 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '150-B'
+      alors: 1899 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '200-A'
+      alors: 1995 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '200-B'
+      alors: 2035 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '230-A'
+      alors: 2072 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '230-B'
+      alors: 2114 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '240-A'
+      alors: 2122 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '240-B'
+      alors: 2165 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '245-A'
+      alors: 2159 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '245-B'
+      alors: 2203 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '250-A'
+      alors: 2300 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '250-B'
+      alors: 2346 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '270-A'
+      alors: 2834 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '270-B'
+      alors: 2891 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '300-A'
+      alors: 3875 €/mois
+    - si:
+        toutes ces conditions:
+          - secteur = 'enseignement technique et professionnel'
+          - classification = '300-B'
+      alors: 3953 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . esthétique cosmétique . prime d'ancienneté:
+  titre: Prime mensuelle d'ancienneté
+  description: Prime distincte du salaire de base, versée selon l'ancienneté et proratisée selon la quotité de travail.
+  applicable si: convention collective = 'esthétique cosmétique'
+  unité: €/mois
+  produit:
+    - montant selon ancienneté
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . esthétique cosmétique . prime d'ancienneté . montant selon ancienneté:
+  unité: €/mois
+  variations:
+    - si: ancienneté >= 25 an
+      alors: 206 €/mois
+    - si: ancienneté >= 20 an
+      alors: 190 €/mois
+    - si: ancienneté >= 15 an
+      alors: 179 €/mois
+    - si: ancienneté >= 12 an
+      alors: 143 €/mois
+    - si: ancienneté >= 9 an
+      alors: 111 €/mois
+    - si: ancienneté >= 6 an
+      alors: 75 €/mois
+    - si: ancienneté >= 3 an
+      alors: 44 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . esthétique cosmétique . salaire minimum avec prime d'ancienneté:
+  titre: Salaire minimum mensuel avec prime d'ancienneté
+  description: Minimum conventionnel et prime d'ancienneté, chacun proratisé au temps de travail.
+  unité: €/mois
+  somme:
+    - salaire minimum conventionnel
+    - prime d'ancienneté
+
+salarié . convention collective . esthétique cosmétique . classification hors grille:
+  titre: Classification absente de la grille
+  description: La combinaison secteur-classification ne correspond pas à la grille de l'avenant n° 43.
+  applicable si: convention collective = 'esthétique cosmétique'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
