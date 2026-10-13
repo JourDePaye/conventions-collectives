@@ -99,6 +99,7 @@ const models = [
   { name: "1539-bureau-numerique", value: "bureau et numérique", classification: "niveau", input: "'A3'", minimums: { "2025.1": 1875, "2025.2": 1875 } },
   { name: "1555-produits-pharmaceutiques", value: "produits pharmaceutiques", classification: "niveau", input: "'II.1'", minimums: { "2026.1": 2121.77 }, situation: { "salarié . convention collective . produits pharmaceutiques . date de calcul": "11/10/2026", "salarié . convention collective . produits pharmaceutiques . champ juridique": "'tous employeurs après extension'" } },
   { name: "1586-industries-charcutieres", value: "industries charcutières", classification: "coefficient", input: 200, minimums: { "2026.1": 2130.2 } },
+  { name: "1543-boyauderie", value: "boyauderie", classification: "coefficient", input: 200, minimums: { "2026.1": 2130.2 } },
   { name: "1821-cristal-verre-vitrail", value: "cristal verre vitrail", classification: "coefficient", input: 245, minimums: { "2026.2": 2185.59 } },
   { name: "1558-industries-ceramiques", value: "industries céramiques", classification: "classification", input: "'NC-E4'", minimums: { "2025.1": 1978.4 } },
   { name: "1580-industrie-chaussure", value: "industrie chaussure", classification: "classification", input: "'2.2'", minimums: { "2026.1": 1886 } },

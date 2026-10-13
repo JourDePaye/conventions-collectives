@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent trente-neuf conventions** sont actuellement représentées, avec **deux cent six versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent quarante conventions** sont actuellement représentées, avec **deux cent sept versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent trente-neuf conventions sont actuellement représentées, avec deux cent six versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent quarante conventions sont actuellement représentées, avec deux cent sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -56,6 +56,7 @@ Cent trente-neuf conventions sont actuellement représentées, avec deux cent si
 | [Métiers de la transformation des grains](rules/1930-transformation-grains/README.md) | 1930 | `2026.1` : 1er février 2026 | Rémunérations mensuelles minimum de 10 positions (niveaux I à V, VI.1, VI.2, VII à IX), proratisées selon la quotité de travail ; détection des classifications hors grille |
 | [Industries de la transformation des volailles](rules/1938-industries-transformation-volailles/README.md) | 1938 | `2025.1` : 1er février 2025 (accord étendu) | Grille mensuelle de 32 coefficients de 120 à 700, proratisée selon la quotité de travail ; détection des coefficients hors grille |
 | [Industries charcutières (salaison, charcuterie en gros, conserves de viandes)](rules/1586-industries-charcutieres/README.md) | 1586 | `2026.1` : 1er février 2026 | Grille mensuelle de 49 coefficients (de 125 à 700, ouvriers et employés, techniciens et agents de maîtrise, cadres), proratisée selon la quotité de travail ; détection des coefficients hors grille |
+| [Boyauderie](rules/1543-boyauderie/README.md) | 1543 | `2026.1` : 1er février 2026 | Grille mensuelle de 49 coefficients issue de l’accord rattaché à la branche des industries charcutières, proratisée selon la quotité de travail ; détection des coefficients hors grille ; prévoyance non-cadres et cadres modélisée |
 | [Fleuristes, vente et services des animaux familiers](rules/1978-fleuristes-animaux/README.md) | 1978 | `2026.1` : 1er août 2026 | Grille mensuelle de 21 positions (niveaux I à VII, échelons 1 à 3), proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Hôtels, cafés, restaurants (HCR)](rules/1979-hotels-cafes-restaurants/README.md) | 1979 | `2024.1` : 1er décembre 2024 | Minima horaires par niveau et échelon, conversion en minimum mensuel selon la durée du contrat ; détection des niveaux hors grille |
 | [Commerce de détail et de gros à prédominance alimentaire](rules/2216-commerce-detail-gros-predominance-alimentaire/README.md) | 2216 | `2025.1` : 1er août 2025 ; `2026.1` et `2026.2` : 1er août 2026 | Salaire minimum mensuel garanti par niveau, pauses rémunérées comprises ; minima annuels sur 12 mois et forfait jours ; proratisation selon la quotité de travail |
