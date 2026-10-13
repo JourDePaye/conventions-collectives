@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent trente-sept conventions** sont actuellement représentées, avec **deux cent quatre versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent trente-huit conventions** sont actuellement représentées, avec **deux cent cinq versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent trente-sept conventions sont actuellement représentées, avec deux cent quatre versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent trente-huit conventions sont actuellement représentées, avec deux cent cinq versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -143,6 +143,7 @@ Cent trente-sept conventions sont actuellement représentées, avec deux cent qu
 | [Cabinets médicaux](rules/1147-cabinets-medicaux/README.md) | 1147 | `2024.1` : 1er janvier 2024 | Grille mensuelle de 13 positions (de 4 à 16), proratisée selon la quotité de travail ; détection des positions hors grille |
 | [Acteurs du lien social et familial (centres sociaux)](rules/1261-acteurs-lien-social-familial/README.md) | 1261 | `2026.1` : 1er janvier 2026 | Salaire socle annuel, points de pesée et points d'expérience professionnelle, convertis en minimum hiérarchique mensuel |
 | [Cabinets dentaires](rules/1619-cabinets-dentaires/README.md) | 1619 | `2026.1` : 1er janvier 2026 | Taux horaires minima de 9 emplois (entretien, réception, secrétaire, aide et assistant dentaires, prothésistes de niveau 1 à 4) convertis en minima mensuels, proratisés selon la quotité de travail ; détection des emplois hors grille |
+| [Cabinets et cliniques vétérinaires](rules/1875-cabinets-cliniques-veterinaires/README.md) | 1875 | `2026.1` : 1er janvier 2026 (avenant n° 91 étendu) | Valeur du point de 17,96 € et cinq coefficients salariés non vétérinaires, minima mensuels proratisés selon la quotité de travail ; détection des coefficients hors grille |
 | [Prothésistes dentaires et personnels des laboratoires de prothèse dentaire](rules/0993-prothesistes-dentaires/README.md) | 993 | `2026.1` : 1er octobre 2026 (accord étendu) ; `2026.2` : même date (correction) | Grille mensuelle de 12 emplois et qualifications, proratisée selon la quotité de travail ; détection des qualifications hors grille ; audit explicite des rubriques de paie sans correction conventionnelle |
 | [Pharmacie d’officine](rules/1996-pharmacie-officine/README.md) | 1996 | `2025.1` : 24 mai 2025 ; `2026.1` : 17 avril 2026 | Minima selon le coefficient, la valeur du point et le salaire garanti au coefficient 100 ; proratisation selon la quotité de travail |
 | [Hospitalisation privée (cliniques privées à but lucratif)](rules/2264-hospitalisation-privee/README.md) | 2264 | `2023.1` : 1er janvier 2023 | Salaire de base (coefficient multiplié par la valeur du point de 7,26 €, à partir du coefficient 243), proratisé selon la quotité de travail ; détection du coefficient absent ou inférieur à 176 |

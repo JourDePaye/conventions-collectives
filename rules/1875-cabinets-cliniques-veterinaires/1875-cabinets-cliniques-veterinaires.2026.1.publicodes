@@ -1,0 +1,77 @@
+# Convention collective nationale des cabinets et cliniques vétérinaires du 5 juillet 1995
+# (IDCC 1875, brochure 3282).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+
+validFrom: 2026-01-01
+sources:
+  - >-
+    Avenant n° 91 du 6 janvier 2026 relatif à la valeur du point conventionnel pour
+    l'année 2026, fixé à 17,96 € sur la base de 151,67 heures, applicable impérativement
+    à compter du 1er janvier 2026 ; étendu par arrêté du 2 avril 2026 publié au Journal
+    officiel du 17 avril 2026 (IDCC 1875, texte KALITEXT000054066637).
+  - >-
+    Avenant n° 82 du 9 juin 2022 relatif aux salaires minima et aux classifications,
+    étendu par arrêté du 14 novembre 2022 publié au Journal officiel du 22 décembre 2022
+    (coefficients des échelons 1 à 5 : 105, 108, 110, 113 et 120).
+---
+salarié . convention collective . cabinets et cliniques vétérinaires:
+  titre: Cabinets et cliniques vétérinaires (IDCC 1875)
+  valeur: convention collective = 'cabinets et cliniques vétérinaires'
+
+salarié . convention collective . cabinets et cliniques vétérinaires . coefficient:
+  titre: Coefficient de classification
+  description: |
+    Coefficient de l'échelon du personnel salarié non vétérinaire : 105 (nettoyage et
+    entretien), 108 (accueil et secrétariat), 110 (auxiliaire vétérinaire), 113 (auxiliaire
+    vétérinaire 4) ou 120 (auxiliaire spécialisé vétérinaire).
+  applicable si: convention collective = 'cabinets et cliniques vétérinaires'
+  par défaut: 0
+
+salarié . convention collective . cabinets et cliniques vétérinaires . valeur du point:
+  titre: Valeur minimale du point conventionnel
+  description: Valeur fixée par l'avenant n° 91 pour 2026, sur la base de 151,67 heures.
+  applicable si: convention collective = 'cabinets et cliniques vétérinaires'
+  valeur: 17.96 €/point
+
+salarié . convention collective . cabinets et cliniques vétérinaires . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: |
+    Coefficient multiplié par la valeur minimale du point, pour 151,67 heures mensuelles,
+    puis proratisé selon la quotité de travail. Vaut 0 €/mois pour un coefficient absent
+    ou hors de la classification modélisée.
+  applicable si: convention collective = 'cabinets et cliniques vétérinaires'
+  unité: €/mois
+  produit:
+    - salaire minimum conventionnel . temps plein
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . cabinets et cliniques vétérinaires . salaire minimum conventionnel . temps plein:
+  titre: Salaire minimum mensuel à temps plein
+  unité: €/mois
+  arrondi: 2 décimales
+  variations:
+    - si: coefficient = 105
+      alors: 1885.80 €/mois
+    - si: coefficient = 108
+      alors: 1939.68 €/mois
+    - si: coefficient = 110
+      alors: 1975.60 €/mois
+    - si: coefficient = 113
+      alors: 2029.48 €/mois
+    - si: coefficient = 120
+      alors: 2155.20 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . cabinets et cliniques vétérinaires . coefficient hors grille:
+  titre: Coefficient absent de la grille modélisée
+  description: La version 2026.1 couvre les coefficients 105, 108, 110, 113 et 120 du personnel salarié non vétérinaire.
+  applicable si: convention collective = 'cabinets et cliniques vétérinaires'
+  toutes ces conditions:
+    - coefficient != 105
+    - coefficient != 108
+    - coefficient != 110
+    - coefficient != 113
+    - coefficient != 120
