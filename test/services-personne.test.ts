@@ -51,7 +51,9 @@ describe("IDCC 3127 — 2024.1 services à la personne", () => {
   it("is effective from 20 June 2024 and cites the extended wage amendment", () => {
     assert.equal(version.validFrom, "2024-06-20");
     assert.ok(version.sources.some((source) => source.includes("Avenant n° 11 du 22 janvier 2024")));
+    assert.ok(version.sources.some((source) => source.includes("KALICONT000027084096")));
     assert.ok(version.sources.some((source) => source.includes("KALIARTI000049731128")));
+    assert.ok(version.sources.some((source) => source.includes("arrêté du 14 juin 2024")));
   });
 
   for (const [job, hourly] of Object.entries(HOURLY)) {

@@ -4,7 +4,7 @@ Ce répertoire contient le modèle Publicodes de la convention collective nation
 
 ## Version `2024.1`
 
-La version est applicable à compter du **20 juin 2024**, date de publication de l'arrêté d'extension de l'avenant n° 11 du 22 janvier 2024. La grille ne s'applique pas à Mayotte.
+La version est applicable à compter du **20 juin 2024**, date de publication de l'arrêté d'extension du **14 juin 2024** relatif à l'avenant n° 11 du 22 janvier 2024. La grille ne s'applique pas à Mayotte.
 
 ## Emplois-repères et minimums
 
