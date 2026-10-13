@@ -134,6 +134,7 @@ const models = [
   { name: "2972-navigation-personnel-sedentaire", value: "personnel sédentaire entreprises navigation", classification: "niveau", input: "'I'", minimums: { "2026.1": 22604.30 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "1557-commerce-articles-sports-loisirs", value: "commerce articles sports loisirs", classification: "classification", input: "'250'", minimums: { "2025.1": 2089 } },
   { name: "3236-industrie-services-nautiques", value: "industrie services nautiques", classification: "niveau et échelon", input: "'VI.2'", minimums: { "2025.1": 2477.87 } },
+  { name: "2528-maroquinerie", value: "maroquinerie", classification: "classification", input: "'TAM III'", minimums: { "2026.1": 1953 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
