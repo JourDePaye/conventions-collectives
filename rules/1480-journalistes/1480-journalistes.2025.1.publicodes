@@ -1,0 +1,60 @@
+# Convention collective nationale des journalistes du 1er novembre 1976 (IDCC 1480).
+#
+# Version 2025.1, based on amendment no. 4 of 4 July 2025, extended on 12 September 2025.
+# A released version is immutable: later corrections require a new version.
+
+validFrom: 2025-09-01
+sources:
+  - >-
+    Avenant n° 4 du 4 juillet 2025 à l'accord du 3 juillet 2019 relatif à la classification
+    et aux salaires minima des journalistes d'agences de presse, Légifrance, KALIARTI000052299406.
+  - >-
+    Arrêté du 12 septembre 2025 portant extension de l'avenant n° 4,
+    Journal officiel, NOR TSST2525479A, JORFTEXT000052260481.
+  - >-
+    Grille des salaires minima mensuels bruts des groupes 1 à 8 à compter du 1er septembre 2025.
+---
+salarié . convention collective . journalistes:
+  titre: Journalistes (IDCC 1480)
+  valeur: convention collective = 'journalistes'
+
+salarié . convention collective . journalistes . groupe:
+  titre: Groupe de qualification
+  description: Groupe 1 à 8 de la grille des salaires minima conventionnels des journalistes d'agences de presse.
+  applicable si: convention collective = 'journalistes'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . journalistes . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'journalistes'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . journalistes . salaire minimum conventionnel . grille:
+  titre: Grille mensuelle à temps plein
+  unité: €/mois
+  variations:
+    - si: groupe = '1'
+      alors: 1905.12 €/mois
+    - si: groupe = '2'
+      alors: 2105.71 €/mois
+    - si: groupe = '3'
+      alors: 2299.90 €/mois
+    - si: groupe = '4'
+      alors: 2506.54 €/mois
+    - si: groupe = '5'
+      alors: 2752.38 €/mois
+    - si: groupe = '6'
+      alors: 3010.45 €/mois
+    - si: groupe = '7'
+      alors: 3252.50 €/mois
+    - si: groupe = '8'
+      alors: 3612.64 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . journalistes . groupe hors grille:
+  titre: Groupe absent de la grille
+  description: Le groupe n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'journalistes'
+  valeur: salarié . convention collective . journalistes . salaire minimum conventionnel . grille = 0 €/mois
