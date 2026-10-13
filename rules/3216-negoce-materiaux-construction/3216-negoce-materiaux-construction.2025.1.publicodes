@@ -1,0 +1,68 @@
+# Convention collective nationale des salariés du négoce des matériaux de construction du 8 décembre 2015
+# (IDCC 3216, brochure 3154).
+#
+# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+validFrom: 2025-04-26
+sources:
+  - "Avenant du 21 janvier 2025 relatif aux minima conventionnels et à la prime d'ancienneté, article 2 et annexe « Minima conventionnels », texte KALI KALITEXT000051537906, publié sur Légifrance. Le texte prévoit une application à compter du 1er janvier 2025."
+  - "Arrêté du 9 avril 2025 portant extension d'un avenant à la convention collective des salariés du négoce des matériaux de construction (IDCC 3216), publié au Journal officiel du 26 avril 2025, JORFTEXT000051521231."
+---
+salarié . convention collective . négoce des matériaux de construction:
+  titre: Négoce des matériaux de construction (IDCC 3216)
+  valeur: convention collective = 'négoce des matériaux de construction'
+
+salarié . convention collective . négoce des matériaux de construction . coefficient:
+  titre: Coefficient de classification
+  description: Coefficients 165, 170, 180, 195, 210, 225, 245, 250, 270, 290, 310, 330 ou 350 de la grille des minima conventionnels.
+  applicable si: convention collective = 'négoce des matériaux de construction'
+  par défaut: 0
+
+salarié . convention collective . négoce des matériaux de construction . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: Salaire minimum mensuel conventionnel pour la durée légale du travail, proratisé selon la quotité de travail. Le Smic légal reste applicable lorsqu'il est supérieur.
+  applicable si: convention collective = 'négoce des matériaux de construction'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . négoce des matériaux de construction . grille:
+  titre: Salaire minimum conventionnel à temps plein
+  description: Grille de l'avenant du 21 janvier 2025, applicable au 1er janvier 2025.
+  applicable si: convention collective = 'négoce des matériaux de construction'
+  unité: €/mois
+  variations:
+    - si: coefficient = 165
+      alors: 1827.10 €/mois
+    - si: coefficient = 170
+      alors: 1834.20 €/mois
+    - si: coefficient = 180
+      alors: 1848.66 €/mois
+    - si: coefficient = 195
+      alors: 1907.99 €/mois
+    - si: coefficient = 210
+      alors: 1967.31 €/mois
+    - si: coefficient = 225
+      alors: 2026.64 €/mois
+    - si: coefficient = 245
+      alors: 2105.74 €/mois
+    - si: coefficient = 250
+      alors: 2125.51 €/mois
+    - si: coefficient = 270
+      alors: 2204.61 €/mois
+    - si: coefficient = 290
+      alors: 2283.71 €/mois
+    - si: coefficient = 310
+      alors: 2362.81 €/mois
+    - si: coefficient = 330
+      alors: 2441.91 €/mois
+    - si: coefficient = 350
+      alors: 2521.01 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . négoce des matériaux de construction . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille des minima conventionnels.
+  applicable si: convention collective = 'négoce des matériaux de construction'
+  valeur: grille = 0 €/mois
