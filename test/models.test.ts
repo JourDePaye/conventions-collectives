@@ -148,6 +148,7 @@ const models = [
   { name: "2198-commerce-distance", value: "commerce à distance", classification: "niveau", input: "'G référent'", minimums: { "2026.1": 3627 } },
   { name: "3203-structures-associatives-peche", value: "structures associatives de pêche de loisir et de protection du milieu aquatique", classification: "niveau et échelon", input: "'VI.3'", minimums: { "2026.1": 3355 } },
   { name: "2332-entreprises-architecture", value: "entreprises d'architecture", classification: "coefficient", input: 300, minimums: { "2025.1": 2739 }, situation: { "salarié . convention collective . entreprises d'architecture . zone": "'zone 1'" } },
+  { name: "3224-distribution-commerce-gros-papiers-cartons", value: "distribution commerce gros papiers cartons", classification: "niveau et échelon", input: "'III.2'", minimums: { "2025.1": 1961.8 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
