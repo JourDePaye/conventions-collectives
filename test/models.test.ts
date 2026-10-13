@@ -7,6 +7,7 @@ import modeleSocial from "modele-social";
 import { COMPILED_VERSIONS } from "../src/index.ts";
 
 const models = [
+  { name: "1000-cabinets-avocats", value: "cabinets d'avocats", classification: "coefficient", input: 300, minimums: { "2025.1": 2390 } },
   { name: "3032-esthetique-cosmetique", value: "esthétique cosmétique", classification: "classification", input: "'250'", minimums: { "2026.1": 2300 }, situation: { "salarié . convention collective . esthétique cosmétique . secteur": "'instituts de beauté et services généraux'" } },
   { name: "0016-transports-routiers", value: "transports routiers", classification: "niveau", input: "'V-O-110'", minimums: { "2026.1": 1884.8 } },
   { name: "3233-industrie-fabrication-ciments", value: "industrie de la fabrication des ciments", classification: "coefficient", input: 205, minimums: { "2026.1": 1993 }, situation: { "salarié . convention collective . industrie de la fabrication des ciments . catégorie": "'ouvriers et ETAM'" } },

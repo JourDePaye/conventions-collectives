@@ -1,0 +1,99 @@
+# Convention collective nationale des avocats et de leur personnel du 20 février 1979 (IDCC 1000, brochure 3078).
+#
+# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application de l'avenant n° 136 du 24 janvier 2025.
+validFrom: 2025-01-01
+sources:
+  - Avenant n° 136 du 24 janvier 2025 relatif aux salaires minima du personnel salarié non-avocats,
+    article 1 (grille de 16 coefficients, couvrant 17 lignes de niveaux, dont 240 rattaché aux niveaux 3 et 4), et article 2 (application
+    au 1er janvier 2025), texte KALI KALITEXT000051537685, Légifrance.
+  - Arrêté du 9 avril 2025 portant extension d'avenants à la convention collective nationale du personnel
+    des cabinets d'avocats (n° 1000), JORF du 26 avril 2025, JORFTEXT000051521244.
+  - L'article 1 de l'avenant rappelle que treize mensualités doivent être payées en application de l'article 12
+    modifié par l'avenant n° 46. Les minima mensuels du tableau sont conservés et le minimum annuel expose 13 fois
+    le montant mensuel, sans modéliser le calendrier de versement.
+---
+salarié . convention collective . cabinets d'avocats:
+  titre: Cabinets d'avocats (IDCC 1000)
+  valeur: convention collective = 'cabinets d'avocats'
+
+salarié . convention collective . cabinets d'avocats . coefficient:
+  titre: Coefficient de classification
+  description: |
+    Coefficient de 207 à 560 selon la classification du personnel salarié non-avocats.
+  applicable si: convention collective = 'cabinets d'avocats'
+  par défaut: 0
+
+salarié . convention collective . cabinets d'avocats . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire brut mensuel minimum du tableau de l'avenant n° 136, versé sur treize mensualités,
+    proratisé selon la quotité de travail. Vaut 0 €/mois si le coefficient n'existe pas dans la
+    grille (voir « coefficient hors grille »).
+  applicable si: convention collective = 'cabinets d'avocats'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille mensuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . cabinets d'avocats . grille mensuelle:
+  titre: Salaire brut mensuel minimum à temps plein, en euros
+  description: |
+    Minima mensuels de l'avenant n° 136 du 24 janvier 2025, applicables au 1er janvier 2025.
+  applicable si: convention collective = 'cabinets d'avocats'
+  variations:
+    - si: coefficient = 207
+      alors: 1851.23
+    - si: coefficient = 215
+      alors: 1875
+    - si: coefficient = 225
+      alors: 1900
+    - si: coefficient = 240
+      alors: 1930
+    - si: coefficient = 250
+      alors: 2010
+    - si: coefficient = 265
+      alors: 2130
+    - si: coefficient = 270
+      alors: 2170
+    - si: coefficient = 285
+      alors: 2290
+    - si: coefficient = 300
+      alors: 2390
+    - si: coefficient = 350
+      alors: 2748.35
+    - si: coefficient = 385
+      alors: 2994.11
+    - si: coefficient = 410
+      alors: 3188.53
+    - si: coefficient = 450
+      alors: 3499.61
+    - si: coefficient = 480
+      alors: 3732.92
+    - si: coefficient = 510
+      alors: 3966.23
+    - si: coefficient = 560
+      alors: 4355.07
+    - sinon: 0
+
+salarié . convention collective . cabinets d'avocats . salaire minimum annuel conventionnel:
+  titre: Salaire minimum annuel conventionnel
+  description: |
+    Minimum brut annuel correspondant aux treize mensualités du salaire mensuel minimum,
+    proratisé selon la quotité de travail. Le texte rappelle le versement de treize mensualités;
+    cette règle ne calcule pas un éventuel calendrier de versement.
+  applicable si: convention collective = 'cabinets d'avocats'
+  unité: €/an
+  arrondi: 2 décimales
+  valeur: grille mensuelle * 13 * contrat . temps de travail . quotité
+
+salarié . convention collective . cabinets d'avocats . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans les minima modélisés de l'avenant n° 136.
+  applicable si: convention collective = 'cabinets d'avocats'
+  valeur: grille mensuelle = 0
