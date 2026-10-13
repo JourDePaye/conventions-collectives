@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent trente-huit conventions** sont actuellement représentées, avec **deux cent cinq versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent trente-neuf conventions** sont actuellement représentées, avec **deux cent six versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent trente-huit conventions sont actuellement représentées, avec deux cent cinq versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent trente-neuf conventions sont actuellement représentées, avec deux cent six versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -174,6 +174,7 @@ Cent trente-huit conventions sont actuellement représentées, avec deux cent ci
 | [Agences de presse](rules/3221-agences-presse/README.md) | 3221 | `2026.2` : 1er juillet 2026 (signataires) ; 4 septembre 2026 (champ étendu) | Neuf salaires minima mensuels des groupes 1 à 9, bornes de date et de champ juridique, proratisation selon la quotité de travail ; détection des groupes hors grille |
 | [Journalistes](rules/1480-journalistes/README.md) | 1480 | `2025.1` : 1er septembre 2025 (signataires) ; 19 septembre 2025 (champ étendu) | Huit salaires minima mensuels des groupes 1 à 8 des journalistes d’agences de presse, proratisation selon la quotité de travail ; détection des groupes hors grille |
 | [Entreprises de publicité](rules/0086-publicite/README.md) | 86 | `2025.1` : 19 juin 2025 | Minima mensuels des employés, techniciens/agents de maîtrise et cadres selon les niveaux 1 à 4, proratisés selon la quotité de travail ; détection des niveaux hors grille |
+| [Exploitation cinématographique](rules/1307-exploitation-cinematographique/README.md) | 1307 | `2025.1` : 1er février 2025 | Grille mensuelle de 26 coefficients pour 151,67 heures, proratisée selon la quotité de travail ; détection des coefficients hors grille ; congés et primes nécessitant des données supplémentaires non calculés automatiquement |
 | [Imprimeries de labeur et industries graphiques](rules/0184-imprimeries/README.md) | 184 | `2026.1` : 1er avril 2026 (accord étendu) | Grille mensuelle de 12 groupes et échelons, proratisée selon la quotité de travail ; détection des groupes hors grille |
 | [Optique-lunetterie de détail](rules/1431-optique-lunetterie-detail/README.md) | 1431 | `2024.1` : 1er janvier 2024 | Deux grilles mensuelles étendues : coefficients numériques de la classification actuelle et niveaux A à K de la classification de l’avenant n° 8 ; proratisation selon la quotité de travail ; détection des coefficients hors grille |
 | [Entreprises privées du spectacle vivant](rules/3090-spectacle-vivant-prive/README.md) | 3090 | `2025.2` : 1er septembre 2025 | Périmètre explicite des salariés permanents administratifs, commerciaux et techniques : grilles mensuelles des catégories et échelons vérifiés, proratisation selon la quotité ; artistes, intermittents et annexes exclus |

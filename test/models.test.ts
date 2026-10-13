@@ -143,6 +143,7 @@ const models = [
   { name: "0897-services-prevention-sante-travail-interentreprises", value: "services prévention santé travail interentreprises", classification: "classe", input: "'G'", minimums: { "2026.1": 32493 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "2147-services-eau-assainissement", value: "services eau assainissement", classification: "groupe", input: "'VI'", minimums: { "2025.1": 40289 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "1875-cabinets-cliniques-veterinaires", value: "cabinets et cliniques vétérinaires", classification: "coefficient", input: 120, minimums: { "2026.1": 2155.2 } },
+  { name: "1307-exploitation-cinematographique", value: "exploitation cinématographique", classification: "coefficient", input: 300, minimums: { "2025.1": 2203.92 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
