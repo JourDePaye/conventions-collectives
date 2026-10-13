@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Cent trois conventions sont actuellement représentées, avec cent sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent quatre conventions sont actuellement représentées, avec cent huit versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -99,6 +99,7 @@ Cent trois conventions sont actuellement représentées, avec cent sept versions
 | [Travaux publics — ouvriers](rules/1702-travaux-publics-ouvriers/README.md) | 1702 | `2026.3` : 1er janvier 2026, barèmes régionaux ouverts jusqu'au 4 septembre 2026 | Sept coefficients, dix barèmes annuels régionaux (63 cellules automatiques, 7 Pays de la Loire sous confirmation), sans conversion mensuelle ; dates/champ bloquants, prorata et comparaison annuelle validés, prime de vacances et congés d’ancienneté ; prévoyance employeur 1,72 % plafonnée à 3 PMSS ; caisses CIBTP/intempéries et OPPBTP hors couverture |
 | [Travaux publics — ETAM](rules/2614-travaux-publics-etam/README.md) | 2614 | `2026.1` : 17 avril 2026 | Grille annuelle Île-de-France des niveaux A à H, minimums forfait-jours F à H, bornes de région/date/catégorie ; CIBTP, chômage intempéries et OPPBTP isolés dans le namespace ; aucune correction RNPC cadre ni extrapolation nationale |
 | [Travaux publics — cadres](rules/3212-travaux-publics-cadres/README.md) | 3212 | `2024.1` : 1er janvier 2024 | Neuf minima annuels A1 à C2, grilles annuelles et forfait-jours distinctes ; correction RNPC cadre BTP isolée ; pas de conversion mensuelle ni de taux CIBTP/intempéries/OPPBTP inventés |
+| [Économistes de la construction et métreurs-vérificateurs](rules/3213-economistes-construction/README.md) | 3213 | `2026.1` : 11 juillet 2026 (accord du 8 avril 2026 étendu) | Grille mensuelle des niveaux A1 à F (ETAM) et G à I (cadres), avec colonnes nationale hors Île-de-France et Île-de-France ; proratisation selon la quotité de travail ; audit des rubriques de paie sans correction conventionnelle |
 
 ### TRANSPORT & LOGISTIQUE
 
