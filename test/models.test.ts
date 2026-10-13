@@ -140,6 +140,7 @@ const models = [
   { name: "3249-carrieres-materiaux", value: "carrières et matériaux de construction", classification: "niveau et échelon", input: "'5.2'", minimums: { "2026.1": 2409 }, situation: { "salarié . convention collective . carrières et matériaux de construction . région": "'Île-de-France'" } },
   { name: "3222-menuiseries-charpentes-portes-planes", value: "menuiseries charpentes constructions industrialisées portes planes", classification: "classification", input: "'N8 E2'", minimums: { "2026.1": 3564 } },
   { name: "0897-services-prevention-sante-travail-interentreprises", value: "services prévention santé travail interentreprises", classification: "classe", input: "'G'", minimums: { "2026.1": 32493 }, minimumRule: "salaire minimum annuel conventionnel" },
+  { name: "2147-services-eau-assainissement", value: "services eau assainissement", classification: "groupe", input: "'VI'", minimums: { "2025.1": 40289 }, minimumRule: "salaire minimum annuel conventionnel" },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;

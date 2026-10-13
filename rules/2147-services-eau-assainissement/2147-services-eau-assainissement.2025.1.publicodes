@@ -1,0 +1,87 @@
+# Convention collective nationale des entreprises des services d'eau et d'assainissement du 12 avril 2000 (IDCC 2147, brochure 3302).
+#
+# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution ou correction passe par une nouvelle version.
+#
+# Date d'effet rétroactive de l'avenant n° 23 du 10 juin 2025.
+validFrom: 2025-01-01
+sources:
+  - >-
+    Avenant n° 23 du 10 juin 2025 relatif à la négociation obligatoire sur les salaires,
+    IDCC 2147, articles 1 et 2 : salaires globaux bruts minimaux annuels des groupes I à VIII
+    et compensation minimale de l'astreinte de 15,36 € par période de 24 heures. Texte officiel :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000052283616
+  - >-
+    Arrêté du 4 septembre 2025 portant extension de l'avenant n° 23, publié au JORF du
+    10 septembre 2025. L'avenant prévoit une application à l'ensemble des entreprises de la
+    branche avec effet au 1er janvier 2025.
+  - >-
+    Convention collective nationale des entreprises des services d'eau et d'assainissement du
+    12 avril 2000, fiche officielle IDCC 2147 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635338
+---
+salarié . convention collective . services eau assainissement:
+  titre: Entreprises des services d'eau et d'assainissement (IDCC 2147)
+  valeur: convention collective = 'services eau assainissement'
+
+salarié . convention collective . services eau assainissement . groupe:
+  titre: Groupe de classification
+  description: Groupe I à VIII de la classification conventionnelle.
+  applicable si: convention collective = 'services eau assainissement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . services eau assainissement . salaire minimum conventionnel:
+  titre: Équivalent mensuel indicatif du salaire minimum annuel
+  description: |
+    Douzième indicatif du salaire global brut minimal annuel du groupe, proratisé selon la
+    quotité de travail. La comparaison juridiquement pertinente reste annuelle via « salaire
+    minimum annuel conventionnel » ; les éléments de rémunération à retenir suivent l'avenant.
+    Vaut 0 €/mois si le groupe n'existe pas dans la grille.
+  applicable si: convention collective = 'services eau assainissement'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille annuelle / 12 * contrat . temps de travail . quotité
+
+salarié . convention collective . services eau assainissement . salaire minimum annuel conventionnel:
+  titre: Salaire minimum annuel conventionnel
+  description: Salaire global brut minimal annuel à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'services eau assainissement'
+  unité: €/an
+  arrondi: 2 décimales
+  valeur: grille annuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . services eau assainissement . grille annuelle:
+  titre: Salaire global brut minimal annuel à temps plein
+  description: Grille de l'avenant n° 23 du 10 juin 2025, en euros par an.
+  applicable si: convention collective = 'services eau assainissement'
+  variations:
+    - si: groupe = 'I'
+      alors: 22862
+    - si: groupe = 'II'
+      alors: 23693
+    - si: groupe = 'III'
+      alors: 25257
+    - si: groupe = 'IV'
+      alors: 26407
+    - si: groupe = 'V'
+      alors: 30938
+    - si: groupe = 'VI'
+      alors: 40289
+    - si: groupe = 'VII'
+      alors: 55161
+    - si: groupe = 'VIII'
+      alors: 65237
+    - sinon: 0
+
+salarié . convention collective . services eau assainissement . compensation minimale astreinte:
+  titre: Compensation minimale de l'astreinte
+  description: Compensation minimale par période d'astreinte de 24 heures, hors interventions.
+  applicable si: convention collective = 'services eau assainissement'
+  unité: €/période de 24 heures
+  valeur: 15.36 €/période de 24 heures
+
+salarié . convention collective . services eau assainissement . groupe hors grille:
+  titre: Groupe absent de la grille
+  description: Le groupe n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'services eau assainissement'
+  valeur: grille annuelle = 0
