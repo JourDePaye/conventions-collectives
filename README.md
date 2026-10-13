@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent trente conventions** sont actuellement représentées, avec **cent quatre-vingt-dix-sept versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent trente-deux conventions** sont actuellement représentées, avec **cent quatre-vingt-dix-neuf versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent trente conventions sont actuellement représentées, avec cent quatre-vingt-dix-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent trente-deux conventions sont actuellement représentées, avec cent quatre-vingt-dix-neuf versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -45,6 +45,7 @@ Cent trente conventions sont actuellement représentées, avec cent quatre-vingt
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
 | [Industrie laitière](rules/0112-industrie-laitiere/README.md) | 0112 | `2026.1` : 1er février 2026 ; `2026.2` : 1er février 2026 (RAM au 1er janvier 2026) | Grilles mensuelle et annuelle de 28 positions, minima annuels distincts pour l'encadrement au forfait annuel, prorata mensuel conservé ; détection des classifications hors grille |
+| [Exploitations frigorifiques](rules/0200-exploitations-frigorifiques/README.md) | 0200 | `2026.1` : 1er janvier 2026 | Grille mensuelle des coefficients 1 à 23, proratisée selon la quotité de travail ; prime de froid conditionnelle et déduction d’une prime de même objet ; détection des coefficients hors grille |
 | [Boulangerie-pâtisserie (entreprises artisanales)](rules/0843-boulangerie-patisserie-artisanale/README.md) | 843 | `2026.1` : 1er février 2026 | Taux horaires minima de 10 coefficients selon trois zones (national, Île-de-France, Bouches-du-Rhône), appliqués aux heures du contrat, et minima annuels des cadres 1 et 2 convertis en minima mensuels ; détection des niveaux hors grille |
 | [Restauration de collectivités](rules/1266-restauration-collective/README.md) | 1266 | `2025.1` : 1er juillet 2025 (effet général après extension) | Neuf niveaux horaires, mensuels et annuels distincts ; ancienneté employés, PAC/PSM conditionnelles, treizième mois, intermittence, coupures et détachement ; paritarisme annuel entreprise, SMIC et contrôles de champ/date |
 | [Pâtisserie](rules/1267-patisserie/README.md) | 1267 | `2026.1` : 1er janvier 2026 (avenant n° 98 étendu) | Grille mensuelle de 9 niveaux I à IX, proratisée selon la quotité de travail ; détection des niveaux hors grille |
