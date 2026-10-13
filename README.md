@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent quarante-deux conventions** sont actuellement représentées, avec **deux cent neuf versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent quarante-trois conventions** sont actuellement représentées, avec **deux cent dix versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent quarante-deux conventions sont actuellement représentées, avec deux cent neuf versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent quarante-trois conventions sont actuellement représentées, avec deux cent dix versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -124,6 +124,7 @@ Cent quarante-deux conventions sont actuellement représentées, avec deux cent 
 | [Travaux publics — ETAM](rules/2614-travaux-publics-etam/README.md) | 2614 | `2026.1` : 17 avril 2026 | Grille annuelle Île-de-France des niveaux A à H, minimums forfait-jours F à H, bornes de région/date/catégorie ; CIBTP, chômage intempéries et OPPBTP isolés dans le namespace ; aucune correction RNPC cadre ni extrapolation nationale |
 | [Travaux publics — cadres](rules/3212-travaux-publics-cadres/README.md) | 3212 | `2024.1` : 1er janvier 2024 | Neuf minima annuels A1 à C2, grilles annuelles et forfait-jours distinctes ; correction RNPC cadre BTP isolée ; pas de conversion mensuelle ni de taux CIBTP/intempéries/OPPBTP inventés |
 | [Économistes de la construction et métreurs-vérificateurs](rules/3213-economistes-construction/README.md) | 3213 | `2026.1` : 11 juillet 2026 (accord du 8 avril 2026 étendu) | Grille mensuelle des niveaux A1 à F (ETAM) et G à I (cadres), avec colonnes nationale hors Île-de-France et Île-de-France ; proratisation selon la quotité de travail ; audit des rubriques de paie sans correction conventionnelle |
+| [Entreprises d'architecture](rules/2332-entreprises-architecture/README.md) | 2332 | `2025.1` : 11 février 2025 (accord régional Rhône-Alpes, employeurs signataires ou adhérents) | Valeur du point de 9,13 € en zone 1 et 9,02 € en zone 2, planchers mensuels de 1 945 € et 1 892 €, proratisation selon la quotité ; zone hors accord détectée |
 | [Négoce des matériaux de construction](rules/3216-negoce-materiaux-construction/README.md) | 3216 | `2025.1` : 26 avril 2025 (avenant du 21 janvier 2025 étendu) | Grille mensuelle de 13 coefficients 165 à 350, proratisée selon la quotité de travail ; détection des coefficients hors grille ; prime d'ancienneté et autres rubriques non déduites automatiquement |
 
 ### TRANSPORT & LOGISTIQUE
