@@ -84,6 +84,7 @@ const models = [
   { name: "0413-personnes-handicapees", value: "personnes handicapées et inadaptées", classification: "coefficient", input: 434, minimums: { "2026.1": 1810.57 } },
   { name: "0573-commerces-de-gros", value: "commerces de gros", classification: "niveau", input: "'IV.2'", minimums: { "2026.1": 1953.23 } },
   { name: "1396-industries-produits-alimentaires-elabores", value: "industries de produits alimentaires élaborés", classification: "coefficient", input: 225, minimums: { "2026.1": 2206.80 } },
+  { name: "1412-installation-aeraulique-thermique-frigorifique", value: "installation aeraulique thermique frigorifique", classification: "coefficient", input: 300, minimums: { "2026.1": 2471.98 } },
   { name: "1413-travail-temporaire", value: "travail temporaire", classification: "niveau", input: "'H'", minimums: { "2026.1": 2948 } },
   { name: "1043-gardiens-concierges-employes-immeubles", value: "gardiens concierges et employés d'immeubles", classification: "catégorie", input: "'A'", minimums: { "2025.1": 1887 }, situation: { "salarié . convention collective . gardiens concierges et employés d'immeubles . coefficient hiérarchique": 600, "salarié . convention collective . gardiens concierges et employés d'immeubles . heures contractuelles": "151.67 heures/mois" } },
   { name: "1090-services-automobile", value: "services automobile", classification: "niveau", input: "'7'", minimums: { "2026.1": 1999 } },

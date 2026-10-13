@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent trente-six conventions** sont actuellement représentées, avec **deux cent trois versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent trente-sept conventions** sont actuellement représentées, avec **deux cent quatre versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent trente-six conventions sont actuellement représentées, avec deux cent trois versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent trente-sept conventions sont actuellement représentées, avec deux cent quatre versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -18,6 +18,7 @@ Cent trente-six conventions sont actuellement représentées, avec deux cent tro
 |---|---|---|---|
 | [Salariés permanents des entreprises de travail temporaire](rules/1413-travail-temporaire/README.md) | 1413 | `2026.1` : 1er février 2026 | Minima mensuels des niveaux A à M, minimum majoré du niveau F en forfait jours, proratisation selon la quotité de travail ; détection des niveaux hors grille |
 | [Distribution, logistique et services de proximité](rules/1408-distribution-logistique-energies/README.md) | 1408 | `2025.1` : 1er mai 2025 (avenant étendu) | Grille mensuelle de 16 coefficients, proratisée selon la quotité de travail ; prime d’ancienneté de 3 % à 15 % ; détection des coefficients hors grille |
+| [Entreprises d'installation sans fabrication de matériel aéraulique, thermique et frigorifique](rules/1412-installation-aeraulique-thermique-frigorifique/README.md) | 1412 | `2026.1` : 1er janvier 2026 (avenant étendu le 27 juin 2026) | Grilles mensuelle et annuelle des coefficients 176 à 700, proratisées selon la quotité de travail ; prime d'ancienneté documentée mais non calculée ; détection des coefficients hors grille |
 | [Services de l’automobile (commerce, réparation, contrôle technique, écoles de conduite)](rules/1090-services-automobile/README.md) | 1090 | `2026.1` : 1er mai 2026 | Grille de 34 positions pour les ouvriers et employés (échelons 1 à 12), la maîtrise (échelons 17 à 25) et les cadres (niveaux I à V), proratisée selon la quotité de travail ; détection des échelons et niveaux hors grille |
 | [Entreprises de prévention et de sécurité](rules/1351-prevention-securite/README.md) | 1351 | `2026.1` : 1er juillet 2026 | Grille de 25 positions pour trois catégories, prime d’ancienneté, majorations nuit et dimanche, paniers, indemnités et minimum de six heures par période |
 | [Bureaux d’études techniques, cabinets d’ingénieurs-conseils et sociétés de conseils (Syntec)](rules/1486-syntec/README.md) | 1486 | `2025.1` : 1er janvier 2025 ; `2026.1` : 1er janvier 2026 ; `2026.2` : même date (correction) | Minima mensuels des ETAM et des ingénieurs et cadres selon leur coefficient ; contribution conventionnelle de formation professionnelle de 0,05 % ou 0,10 % selon l’effectif, ajoutée à la contribution légale ; détection des coefficients hors grille |
