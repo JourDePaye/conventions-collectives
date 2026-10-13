@@ -1,0 +1,96 @@
+# Convention collective nationale des menuiseries, charpentes et constructions industrialisées et portes planes (IDCC 3222).
+# Version 2026.1 : accord du 8 avril 2026, applicable au 1er mai 2026.
+validFrom: 2026-05-01
+sources:
+  - >-
+    Accord du 8 avril 2026 relatif aux salaires et aux primes d'ancienneté, Légifrance,
+    KALITEXT000054825878.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054825878
+  - >-
+    Arrêté du 6 juillet 2026 portant extension de l'accord, publié au Journal officiel
+    n° 0160 du 10 juillet 2026.
+  - >-
+    Convention collective nationale du 19 janvier 2017, étendue par arrêté du 28 mai 2019.
+---
+salarié . convention collective . menuiseries charpentes constructions industrialisées portes planes:
+  titre: Menuiseries, charpentes et constructions industrialisées et portes planes (IDCC 3222)
+  valeur: convention collective = 'menuiseries charpentes constructions industrialisées portes planes'
+
+salarié . convention collective . menuiseries charpentes constructions industrialisées portes planes . classification:
+  titre: Classification conventionnelle
+  description: Niveau et échelon de la classification conventionnelle.
+  applicable si: convention collective = 'menuiseries charpentes constructions industrialisées portes planes'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . menuiseries charpentes constructions industrialisées portes planes . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à 151,67 heures, applicable à compter du 1er mai 2026 et proratisé selon la quotité de travail.
+  applicable si: convention collective = 'menuiseries charpentes constructions industrialisées portes planes'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . menuiseries charpentes constructions industrialisées portes planes . grille mensuelle:
+  titre: Grille mensuelle 2026
+  description: Salaires minima mensuels bruts de l'accord du 8 avril 2026, base 151,67 heures.
+  applicable si: convention collective = 'menuiseries charpentes constructions industrialisées portes planes'
+  unité: €/mois
+  variations:
+    - si: classification = 'N1 E unique'
+      alors: 1824 €/mois
+    - si: classification = 'N2 E1'
+      alors: 1826 €/mois
+    - si: classification = 'N2 E2'
+      alors: 1828 €/mois
+    - si: classification = 'N2 E3'
+      alors: 1835 €/mois
+    - si: classification = 'N3 E1'
+      alors: 1842 €/mois
+    - si: classification = 'N3 E2'
+      alors: 1848 €/mois
+    - si: classification = 'N3 E3'
+      alors: 1862 €/mois
+    - si: classification = 'N4 E1'
+      alors: 1876 €/mois
+    - si: classification = 'N4 E2'
+      alors: 1901 €/mois
+    - si: classification = 'N4 E3'
+      alors: 1925 €/mois
+    - si: classification = 'N5 E unique'
+      alors: 2096 €/mois
+    - si: classification = 'N5 E1'
+      alors: 1842 €/mois
+    - si: classification = 'N5 E2'
+      alors: 1901 €/mois
+    - si: classification = 'N5 E3'
+      alors: 2071 €/mois
+    - si: classification = 'N6 E1'
+      alors: 2262 €/mois
+    - si: classification = 'N6 E2'
+      alors: 2581 €/mois
+    - si: classification = 'N6 E3'
+      alors: 2920 €/mois
+    - si: classification = 'N7 E unique'
+      alors: 3013 €/mois
+    - si: classification = 'N7 E1'
+      alors: 2833 €/mois
+    - si: classification = 'N7 E2'
+      alors: 2996 €/mois
+    - si: classification = 'N8 E1'
+      alors: 3326 €/mois
+    - si: classification = 'N8 E2'
+      alors: 3564 €/mois
+    - si: classification = 'N8 E3'
+      alors: 4039 €/mois
+    - si: classification = 'N8 E4'
+      alors: 4644 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . menuiseries charpentes constructions industrialisées portes planes . classification hors grille:
+  titre: Classification absente de la grille
+  description: La classification n'existe pas dans la grille de l'accord du 8 avril 2026.
+  applicable si: convention collective = 'menuiseries charpentes constructions industrialisées portes planes'
+  valeur:
+    toutes ces conditions:
+      - grille mensuelle = 0 €/mois

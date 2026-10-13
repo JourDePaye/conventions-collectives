@@ -166,6 +166,7 @@ Cent trente-trois conventions sont actuellement représentées, avec deux cents 
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
+| [Menuiseries, charpentes et constructions industrialisées et portes planes](rules/3222-menuiseries-charpentes-portes-planes/README.md) | 3222 | `2026.1` : 1er mai 2026 (accord étendu) | Grille mensuelle de 24 classifications N1 à N8, proratisée selon la quotité de travail ; classifications hors grille détectées ; prime d'ancienneté non calculée automatiquement |
 | [Agences de presse](rules/3221-agences-presse/README.md) | 3221 | `2026.2` : 1er juillet 2026 (signataires) ; 4 septembre 2026 (champ étendu) | Neuf salaires minima mensuels des groupes 1 à 9, bornes de date et de champ juridique, proratisation selon la quotité de travail ; détection des groupes hors grille |
 | [Journalistes](rules/1480-journalistes/README.md) | 1480 | `2025.1` : 1er septembre 2025 (signataires) ; 19 septembre 2025 (champ étendu) | Huit salaires minima mensuels des groupes 1 à 8 des journalistes d’agences de presse, proratisation selon la quotité de travail ; détection des groupes hors grille |
 | [Entreprises de publicité](rules/0086-publicite/README.md) | 86 | `2025.1` : 19 juin 2025 | Minima mensuels des employés, techniciens/agents de maîtrise et cadres selon les niveaux 1 à 4, proratisés selon la quotité de travail ; détection des niveaux hors grille |
