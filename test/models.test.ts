@@ -64,7 +64,7 @@ const models = [
   { name: "2120-banque", value: "banque", classification: "niveau", input: "'E'", minimums: { "2026.1": 1864.62 } },
   { name: "2121-edition", value: "édition", classification: "niveau", input: "'C3A'", minimums: { "2026.1": 2964 } },
   { name: "2148-telecommunications", value: "télécommunications", classification: "niveau", input: "'A.1'", minimums: { "2026.1": 22757 }, minimumRule: "minimum annuel", situation: { "salarié . convention collective . télécommunications . date de calcul": "11/10/2026" } },
-  { name: "2149-activites-dechet", value: "activités du déchet", classification: "coefficient", input: 125, minimums: { "2026.1": 2362.5 } },
+  { name: "2149-activites-dechet", value: "activités du déchet", classification: "coefficient", input: 125, minimums: { "2026.1": 2362.5, "2026.2": 2333.75 } },
   { name: "2156-grands-magasins", value: "grands magasins", classification: "niveau", input: "'IV.2'", minimums: { "2024.1": 1895 } },
   { name: "2216-commerce-detail-gros-predominance-alimentaire", value: "commerce alimentaire", classification: "niveau", input: "'4B'", minimums: { "2025.1": 2032.03, "2026.1": 2054.33 } },
   { name: "3237-commerce-detail-alimentaire-specialise", value: "commerce de détail alimentaire spécialisé", classification: "niveau", input: "'E4'", minimums: { "2026.1": 1906.35 } },

@@ -1,8 +1,8 @@
 # Activités du déchet — IDCC 2149
 
-Le fichier [2026.1](2149-activites-dechet.2026.1.publicodes) entre en vigueur le 1er janvier 2026. Il applique la valeur du point de 18,90 € (revalorisation de 1,23 %) aux onze coefficients de la classification. La valeur Publicodes est `activités du déchet` ; les règles sont sous `salarié . convention collective . activités du déchet`.
+Le fichier [2026.2](2149-activites-dechet.2026.2.publicodes) entre en vigueur le 1er janvier 2026. Il retient la dernière valeur du point officiellement publiée, 18,67 € au 1er janvier 2025, faute de texte officiel 2026 opposable à l'ensemble du champ. La convention distingue les minima mensuels des coefficients 100 à 132 et les minima annuels des coefficients 150 à 170.
 
-La convention collective nationale des activités du déchet du 11 mai 2000 (brochure 3156) classe les emplois par coefficient, de 100 à 170, et le salaire minimum est le coefficient multiplié par la valeur du point.
+La convention collective nationale des activités du déchet du 16 avril 2019 (brochure 3156) classe les emplois par coefficient, de 100 à 170. La valeur Publicodes est `activités du déchet` ; les règles sont sous `salarié . convention collective . activités du déchet`.
 
 ## Règles implémentées
 
@@ -10,27 +10,27 @@ La convention collective nationale des activités du déchet du 11 mai 2000 (bro
 
 | Coefficient | Niveau et position | Minimum mensuel (151,67 h) |
 |---|---|---|
-| `100` | I | 1 890,00 € |
-| `104` | II.1 | 1 965,60 € |
-| `107` | II.2 | 2 022,30 € |
-| `110` | II.3 | 2 079,00 € |
-| `114` | III.1 | 2 154,60 € |
-| `118` | III.2 | 2 230,20 € |
-| `125` | III.3 | 2 362,50 € |
-| `132` | III.4 | 2 494,80 € |
-| `150` | IV.1 | 2 835,00 € |
-| `167` | IV.2 | 3 156,30 € |
-| `170` | V | 3 213,00 € |
+| `100` | I | 1 867,00 € |
+| `104` | II.1 | 1 941,68 € |
+| `107` | II.2 | 1 997,69 € |
+| `110` | II.3 | 2 053,70 € |
+| `114` | III.1 | 2 128,38 € |
+| `118` | III.2 | 2 203,06 € |
+| `125` | III.3 | 2 333,75 € |
+| `132` | III.4 | 2 464,44 € |
+| `150` | IV.1 | 33 606,00 € / an |
+| `167` | IV.2 | 37 414,68 € / an |
+| `170` | V | 38 086,80 € / an |
 
-- `valeur du point` vaut 18,90 € au 1er janvier 2026.
-- `salaire minimum conventionnel` multiplie le coefficient par la valeur du point, puis par `salarié . contrat . temps de travail . quotité` de `modele-social`. Le montant ne doit donc pas être proratisé une seconde fois. Par exemple, le coefficient 125 vaut 2 362,50 €/mois à temps complet et 1 181,25 €/mois à mi-temps.
+- `valeur du point` vaut 18,67 €, dernière valeur officiellement publiée et utilisée faute de nouvelle valeur opposable.
+- `salaire minimum conventionnel` couvre les coefficients 100 à 132 et multiplie le coefficient par la valeur du point, puis par `salarié . contrat . temps de travail . quotité` de `modele-social`. Le montant ne doit donc pas être proratisé une seconde fois. Par exemple, le coefficient 125 vaut 2 333,75 €/mois à temps complet et 1 166,88 €/mois à mi-temps.
+- `salaire minimum annuel conventionnel` couvre les coefficients 150 à 170, en €/an, et applique la quotité une seule fois.
 - `coefficient hors grille` signale un coefficient absent des onze coefficients : le minimum vaut alors `0 €/mois` et l’application doit traiter l’anomalie.
 
-Tous les minima de la grille (à partir de 1 890,00 €) dépassent le SMIC mensuel de 1 867,02 € en vigueur depuis juin 2026.
+Les minima mensuels de la grille sont comparés au SMIC par `modele-social`; les coefficients IV et V sont exposés en annuel.
 
 ## Limites
 
-- **Base juridique non établie.** Le texte qui fixe la valeur du point de 18,90 € n’a pas pu être lu. Les deux pages de synthèse consultées (juristique.org et salaire-minimum.com) donnent la même valeur et la même grille, et un document de la fédération patronale FNADE sur la valeur du point au 1er janvier 2026, dont le PDF était illisible, existe, mais je n’ai pu établir ni sa date, ni sa nature (accord paritaire ou recommandation patronale), ni son extension. Un arrêté d’extension du 18 mars 2026 (JORF du 2 avril 2026) existe pour cette convention, mais il étend l’avenant n° 80 sur la prise en charge de l’invalidité, non les salaires. Si la valeur est une recommandation patronale, elle ne s’impose qu’aux adhérents de la fédération. À recouper avec les textes sur Légifrance.
-- Les niveaux et positions ci-dessus sont ceux des pages de synthèse ; les coefficients absents du tableau, notamment ceux des cadres, ne sont pas repris.
+- La valeur de 18,67 € est celle du dernier texte officiel retrouvé, applicable au 1er janvier 2025 ; aucune valeur 2026 opposable à l'ensemble du champ n'a été retenue.
 - Les indemnités (salissure, repas) et les primes de la convention ne sont pas modélisées.
-- Les valeurs du point antérieures au 1er janvier 2026 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
+- Les coefficients absents du tableau, notamment ceux des cadres, ne sont pas repris.

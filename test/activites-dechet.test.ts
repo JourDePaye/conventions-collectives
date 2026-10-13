@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "2149-activites-dechet";
 const value = "activités du déchet";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -19,19 +19,22 @@ rules["salarié . convention collective"] = {
 Object.assign(rules, extension);
 const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
 
-/** Monthly minimums published for 1 January 2026 (point of 18.90 €), by coefficient. */
+/** Monthly minimums retained from the latest official point value (18.67 €), by coefficient. */
 const MONTHLY: Record<number, number> = {
-  100: 1890.00,
-  104: 1965.60,
-  107: 2022.30,
-  110: 2079.00,
-  114: 2154.60,
-  118: 2230.20,
-  125: 2362.50,
-  132: 2494.80,
-  150: 2835.00,
-  167: 3156.30,
-  170: 3213.00,
+  100: 1867.00,
+  104: 1941.68,
+  107: 1997.69,
+  110: 2053.70,
+  114: 2128.38,
+  118: 2203.06,
+  125: 2333.75,
+  132: 2464.44,
+};
+
+const ANNUAL: Record<number, number> = {
+  150: 33606,
+  167: 37414.68,
+  170: 38086.8,
 };
 
 function setSituation(coefficient: number | undefined, quota?: string) {
@@ -50,14 +53,14 @@ const minimum = () => {
 
 const outOfGrid = () => engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue;
 
-describe("IDCC 2149 — 2026.1 minimum salaries", () => {
-  it("is in force from 1 January 2026 and cites the point value", () => {
+describe("IDCC 2149 — 2026.2 minimum salaries", () => {
+  it("is in force from 1 January 2026 and cites the official point-value sources", () => {
     assert.equal(version.validFrom, "2026-01-01");
-    assert.ok(version.sources.some((source) => source.includes("18,90 €")));
+    assert.ok(version.sources.some((source) => source.includes("KALITEXT000039313034")));
   });
 
   it("has 11 coefficients", () => {
-    assert.equal(Object.keys(MONTHLY).length, 11);
+    assert.equal(Object.keys(MONTHLY).length + Object.keys(ANNUAL).length, 11);
   });
 
   for (const [coefficient, monthly] of Object.entries(MONTHLY)) {
@@ -68,11 +71,20 @@ describe("IDCC 2149 — 2026.1 minimum salaries", () => {
     });
   }
 
+  for (const [coefficient, annual] of Object.entries(ANNUAL)) {
+    it(`coefficient ${coefficient}: ${annual} € a year`, () => {
+      setSituation(Number(coefficient));
+      assert.equal(Math.round((engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue as number) * 100) / 100, annual);
+      assert.equal(minimum(), 0);
+      assert.equal(outOfGrid(), false);
+    });
+  }
+
   it("prorates the minimum once for part-time work", () => {
     setSituation(125, "50%");
-    assert.equal(minimum(), 1181.25);
+    assert.equal(minimum(), 1166.88);
     setSituation(150, "80%");
-    assert.equal(minimum(), 2268);
+    assert.equal(Math.round((engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue as number) * 100) / 100, 26884.8);
   });
 
   it("rejects coefficients outside the grid", () => {
