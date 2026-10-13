@@ -1,0 +1,94 @@
+# Convention collective nationale des commerces de gros de l'habillement, de la mercerie, de la chaussure et du jouet du 13 mars 1969
+# (IDCC 500, brochure 3148).
+#
+# Version 2024.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+validFrom: 2024-12-01
+sources:
+  - >-
+    Avenant n° 56 A du 26 novembre 2024 relatif aux salaires minima mensuels, texte KALI
+    KALITEXT000051190916, applicable à compter du mois suivant la signature, publié sur
+    Légifrance.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051190916
+  - >-
+    Arrêté du 29 janvier 2025 portant extension de l'avenant n° 56 A, publié au Journal
+    officiel du 14 février 2025 ; l'avenant est étendu à l'ensemble des entreprises et
+    salariés compris dans le champ de la convention, mentionné dans la fiche officielle
+    du texte KALI.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051190916
+---
+salarié . convention collective . commerces de gros habillement:
+  titre: Commerces de gros de l'habillement, mercerie, chaussure et jouet (IDCC 500)
+  valeur: convention collective = 'commerces de gros habillement'
+
+salarié . convention collective . commerces de gros habillement . classification:
+  titre: Classification
+  description: Catégorie, niveau et échelon de la grille des salaires minima conventionnels.
+  applicable si: convention collective = 'commerces de gros habillement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commerces de gros habillement . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: |
+    Salaire minimum mensuel conventionnel pour 35 heures par semaine. Il est proratisé
+    pour un temps partiel. Vaut 0 €/mois si la classification n'existe pas dans la grille
+    (voir « classification hors grille »). Les minima inférieurs au SMIC légal restent
+    soumis au plancher légal applicable.
+  applicable si: convention collective = 'commerces de gros habillement'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerces de gros habillement . grille:
+  titre: Salaire minimum conventionnel à temps plein
+  description: Grille de l'avenant n° 56 A du 26 novembre 2024, applicable au 1er décembre 2024.
+  applicable si: convention collective = 'commerces de gros habillement'
+  unité: €/mois
+  variations:
+    - si: classification = 'employés I A'
+      alors: 1813 €/mois
+    - si: classification = 'employés I B'
+      alors: 1819 €/mois
+    - si: classification = 'employés II A'
+      alors: 1840 €/mois
+    - si: classification = 'employés II B'
+      alors: 1846 €/mois
+    - si: classification = 'employés III A'
+      alors: 1867 €/mois
+    - si: classification = 'employés III B'
+      alors: 1873 €/mois
+    - si: classification = 'employés IV A'
+      alors: 1894 €/mois
+    - si: classification = 'employés IV B'
+      alors: 1900 €/mois
+    - si: classification = 'employés V A'
+      alors: 1921 €/mois
+    - si: classification = 'employés V B'
+      alors: 1927 €/mois
+    - si: classification = 'agents de maîtrise VI A'
+      alors: 2062 €/mois
+    - si: classification = 'agents de maîtrise VI B'
+      alors: 2154 €/mois
+    - si: classification = 'agents de maîtrise VI C'
+      alors: 2278 €/mois
+    - si: classification = 'agents de maîtrise VII'
+      alors: 2440 €/mois
+    - si: classification = 'cadres I A'
+      alors: 2753 €/mois
+    - si: classification = 'cadres I B'
+      alors: 2991 €/mois
+    - si: classification = 'cadres II A'
+      alors: 3429 €/mois
+    - si: classification = 'cadres II B'
+      alors: 4061 €/mois
+    - si: classification = 'cadres III'
+      alors: 4579 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerces de gros habillement . classification hors grille:
+  titre: Classification absente de la grille modélisée
+  description: La classification saisie n'existe pas dans la grille de l'avenant n° 56 A.
+  applicable si: convention collective = 'commerces de gros habillement'
+  valeur: grille = 0 €/mois

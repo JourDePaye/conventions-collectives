@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent dix-neuf conventions** sont actuellement représentées, avec **cent soixante-quinze versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent vingt conventions** sont actuellement représentées, avec **cent soixante-seize versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent dix-neuf conventions sont actuellement représentées, avec cent soixante-quinze versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent vingt conventions sont actuellement représentées, avec cent soixante-seize versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -62,6 +62,7 @@ Cent dix-neuf conventions sont actuellement représentées, avec cent soixante-q
 |---|---|---|---|
 | [Commerces de gros](rules/0573-commerces-de-gros/README.md) | 573 | `2026.1` : 1er mars 2026 ; `2026.2` : 1er juillet 2026 | Grille de 28 positions (niveaux I à VI en minima mensuels, niveaux VII à X en minima annuels convertis en minima mensuels), proratisée selon la quotité de travail ; prévoyance non-cadres 0,62 % jusqu'à 4 plafonds (60/40 employeur-salarié) et cadres 1,50 % tranche A ; détection des niveaux hors grille |
 | [Maisons à succursales de vente au détail d’habillement](rules/0675-succursales-habillement/README.md) | 675 | `2026.1` : 1er mai 2026 ; `2026.2` : 1er mai 2026 | Grille mensuelle de 9 catégories, prime d’ancienneté de 3 % à 15 %, minimum annuel majoré de 15 % pour les cadres au forfait jours, quotité et détection des catégories hors grille |
+| [Commerces de gros de l'habillement, de la mercerie, de la chaussure et du jouet](rules/0500-commerces-gros-habillement/README.md) | 500 | `2024.1` : 1er décembre 2024 (avenant étendu) | 19 minima mensuels des employés, agents de maîtrise et cadres, proratisés selon la quotité de travail ; détection des classifications hors grille |
 | [Détaillants en chaussures](rules/0733-detaillants-chaussures/README.md) | 733 | `2026.1` : 1er juillet 2026 (avenant étendu) | Grille mensuelle de 9 catégories (employés, agents de maîtrise et cadres), proratisée selon la quotité de travail ; détection des catégories hors grille |
 | [Entreprises de pompes funèbres](rules/0759-pompes-funebres/README.md) | 759 | `2020.4` : 1er janvier 2020 (accord étendu) | Grille mensuelle de 13 niveaux et positions avec paliers d’ancienneté à 3, 5, 10, 15, 20 et 25 ans, proratisée selon la quotité de travail ; audit des éléments de rémunération inclus ou exclus de la comparaison |
 | [Jardineries et graineteries](rules/1760-jardineries-graineteries/README.md) | 1760 | `2026.1` : 1er juillet 2026 (accord étendu) | Grille mensuelle de 18 combinaisons de niveaux 1 à 8 et d'échelons, proratisée selon la quotité de travail ; détection des classifications hors grille |
