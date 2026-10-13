@@ -1,0 +1,173 @@
+validFrom: 2025-01-01
+sources:
+  - >-
+    Accord du 14 janvier 2025 relatif à l'évolution des salaires minima conventionnels,
+    IDCC 1558, texte officiel Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051580202
+  - >-
+    Arrêté du 17 avril 2025 portant extension de l'accord, publié au Journal officiel
+    du 26 avril 2025 : https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051580202
+  - >-
+    L'accord fixe également l'indemnité de panier à 16 € à compter du 1er janvier 2025
+    (article 6).
+---
+salarié . convention collective . industries céramiques:
+  titre: Industries céramiques de France (IDCC 1558)
+  valeur: convention collective = 'industries céramiques'
+
+salarié . convention collective . industries céramiques . classification:
+  titre: Niveau et échelon de classification
+  description: Niveau et échelon de la grille de l'accord salarial du 14 janvier 2025.
+  applicable si: convention collective = 'industries céramiques'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . industries céramiques . forfait annuel en jours:
+  titre: Salarié au forfait annuel en jours
+  description: Sélectionner oui pour les minima annuels spécifiques au forfait jours des cadres.
+  applicable si: convention collective = 'industries céramiques'
+  par défaut: non
+
+salarié . convention collective . industries céramiques . salarié éligible à l'indemnité de panier:
+  titre: Salarié éligible à l'indemnité de panier
+  description: Éligibilité à déclarer lorsque les conditions conventionnelles de panier sont remplies.
+  applicable si: convention collective = 'industries céramiques'
+  par défaut: non
+
+salarié . convention collective . industries céramiques . grille mensuelle:
+  titre: Salaire minimum mensuel conventionnel à temps plein
+  description: Minima mensuels des niveaux NA à NF pour 151,67 heures.
+  applicable si: convention collective = 'industries céramiques'
+  unité: €/mois
+  variations:
+    - si: classification = 'NA-E1'
+      alors: 1812.24 €/mois
+    - si: classification = 'NA-E2'
+      alors: 1819.68 €/mois
+    - si: classification = 'NB-E1'
+      alors: 1829.60 €/mois
+    - si: classification = 'NB-E2'
+      alors: 1842 €/mois
+    - si: classification = 'NB-E3'
+      alors: 1854.40 €/mois
+    - si: classification = 'NC-E1'
+      alors: 1866.80 €/mois
+    - si: classification = 'NC-E2'
+      alors: 1891.60 €/mois
+    - si: classification = 'NC-E3'
+      alors: 1928.80 €/mois
+    - si: classification = 'NC-E4'
+      alors: 1978.40 €/mois
+    - si: classification = 'ND-E1'
+      alors: 2028 €/mois
+    - si: classification = 'ND-E2'
+      alors: 2090 €/mois
+    - si: classification = 'ND-E3'
+      alors: 2152 €/mois
+    - si: classification = 'ND-E4'
+      alors: 2214 €/mois
+    - si: classification = 'NE-E1'
+      alors: 2288.40 €/mois
+    - si: classification = 'NE-E2'
+      alors: 2362.80 €/mois
+    - si: classification = 'NE-E3'
+      alors: 2437.20 €/mois
+    - si: classification = 'NE-E4'
+      alors: 2511.60 €/mois
+    - si: classification = 'NF-E1'
+      alors: 2598.40 €/mois
+    - si: classification = 'NF-E2'
+      alors: 2685.20 €/mois
+    - si: classification = 'NF-E3'
+      alors: 2772 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industries céramiques . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel des niveaux NA à NF, proratisé selon la quotité de travail. Les niveaux cadres sont annuels.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'industries céramiques'
+      - grille mensuelle > 0 €/mois
+  unité: €/mois
+  valeur: grille mensuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . industries céramiques . grille annuelle:
+  titre: Salaire minimum annuel conventionnel à temps plein
+  description: Minima annuels 2025 des niveaux NG à J ; la colonne forfait jours est choisie explicitement.
+  applicable si: convention collective = 'industries céramiques'
+  unité: €/an
+  variations:
+    - si:
+        toutes ces conditions:
+          - classification = 'NG-E1'
+          - forfait annuel en jours = 'non'
+      alors: 32222.40 €/an
+    - si:
+        toutes ces conditions:
+          - classification = 'NG-E1'
+          - forfait annuel en jours = 'oui'
+      alors: 34477.97 €/an
+    - si:
+        toutes ces conditions:
+          - classification = 'NG-E2'
+          - forfait annuel en jours = 'non'
+      alors: 34305.60 €/an
+    - si:
+        toutes ces conditions:
+          - classification = 'NG-E2'
+          - forfait annuel en jours = 'oui'
+      alors: 36706.99 €/an
+    - si:
+        toutes ces conditions:
+          - classification = 'H'
+          - forfait annuel en jours = 'non'
+      alors: 38918.40 €/an
+    - si:
+        toutes ces conditions:
+          - classification = 'H'
+          - forfait annuel en jours = 'oui'
+      alors: 42810.24 €/an
+    - si:
+        toutes ces conditions:
+          - classification = 'I'
+          - forfait annuel en jours = 'non'
+      alors: 47266.08 €/an
+    - si:
+        toutes ces conditions:
+          - classification = 'I'
+          - forfait annuel en jours = 'oui'
+      alors: 51992.69 €/an
+    - si:
+        toutes ces conditions:
+          - classification = 'J'
+          - forfait annuel en jours = 'non'
+      alors: 58560 €/an
+    - si:
+        toutes ces conditions:
+          - classification = 'J'
+          - forfait annuel en jours = 'oui'
+      alors: 64416 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . industries céramiques . salaire minimum annuel conventionnel:
+  titre: Salaire minimum annuel conventionnel
+  description: Minimum annuel brut des cadres, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'industries céramiques'
+      - grille annuelle > 0 €/an
+  unité: €/an
+  valeur: grille annuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . industries céramiques . indemnité de panier:
+  titre: Indemnité conventionnelle de panier
+  description: Montant par journée éligible, lorsque l'éligibilité est déclarée ; l'application doit fournir le nombre de jours.
+  applicable si: convention collective = 'industries céramiques'
+  unité: €/jour
+  valeur: 16 €/jour * salarié éligible à l'indemnité de panier
+
+salarié . convention collective . industries céramiques . niveau hors grille:
+  titre: Niveau ou échelon absent de la grille conventionnelle
+  description: La classification ne figure pas dans les grilles 2025 modélisées.
+  applicable si: convention collective = 'industries céramiques'
+  valeur: grille mensuelle = 0 €/mois

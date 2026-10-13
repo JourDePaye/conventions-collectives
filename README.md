@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent vingt conventions** sont actuellement représentées, avec **cent soixante-seize versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent vingt-et-une conventions** sont actuellement représentées, avec **cent soixante-dix-sept versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent vingt conventions sont actuellement représentées, avec cent soixante-seize versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent vingt-et-une conventions sont actuellement représentées, avec cent soixante-dix-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -96,6 +96,7 @@ Cent vingt conventions sont actuellement représentées, avec cent soixante-seiz
 | [Production et transformation des papiers et cartons](rules/3238-production-transformation-papiers-cartons/README.md) | 3238 | `2026.2` : 1er janvier 2026 | Grille mensuelle OETAM de 15 coefficients et garantie annuelle de 22 779 €, proratisées selon la quotité de travail ; détection des coefficients hors grille |
 | [Industrie de la chaussure](rules/1580-industrie-chaussure/README.md) | 1580 | `2026.1` : 1er janvier 2026 (accord étendu) | Grilles mensuelles des niveaux 1 à 3 et annuelles des niveaux 4 à 6 et positions cadres P1 à P4, converties en minimum mensuel et proratisées selon la quotité de travail ; détection des classifications hors grille |
 | [Professions regroupées du cristal, du verre et du vitrail](rules/1821-cristal-verre-vitrail/README.md) | 1821 | `2026.2` : 1er janvier 2026 (accord étendu) | Grille mensuelle de 26 coefficients, proratisée selon la quotité de travail ; industrie du vitrail de l’annexe B exclue |
+| [Industries céramiques de France](rules/1558-industries-ceramiques/README.md) | 1558 | `2025.1` : 1er janvier 2025 (accord étendu le 26 avril 2025) | Grilles mensuelles des niveaux NA à NF et annuelles des cadres NG à J, colonne forfait jours distincte ; indemnité de panier de 16 € exposée séparément ; détection des classifications hors grille |
 
 ### BÂTIMENT & TRAVAUX PUBLICS
 
