@@ -48,7 +48,9 @@ function minimum() {
 describe("IDCC 3109 — 2026.1 minimum salaries", () => {
   it("is in force from 1 January 2026 and cites the extended amendment", () => {
     assert.equal(version.validFrom, "2026-01-01");
-    assert.ok(version.sources.some((source) => source.includes("Avenant n° 31 du 16 janvier 2026")));
+    assert.ok(version.sources.some((source) => source.includes("article 1er et annexe")));
+    assert.ok(version.sources.some((source) => source.includes("KALIARTI000054162160")));
+    assert.ok(version.sources.some((source) => source.includes("Arrêté du 2 avril 2026")));
     assert.ok(version.sources.some((source) => source.includes("JORFTEXT000053907584")));
   });
 

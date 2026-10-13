@@ -4,8 +4,8 @@
 
 - **Texte salarial :** avenant n° 31 du 16 janvier 2026 relatif aux salaires minima conventionnels.
 - **Date d'effet modélisée :** 1er janvier 2026.
-- **Extension :** arrêté du 9 avril 2026, publié au Journal officiel le 17 avril 2026 ; l'avenant est étendu à toutes les entreprises du champ.
-- **Grille :** 21 positions de classification N1-E1 à N9-E1, selon l'annexe de l'avenant.
+- **Extension :** arrêté du 2 avril 2026, publié au Journal officiel le 17 avril 2026 ; l'avenant est étendu à toutes les entreprises du champ.
+- **Grille :** 20 positions de classification N1-E1 à N9-E1, selon l'annexe de l'avenant.
 - **Proratisation :** le minimum mensuel est multiplié par la quotité de travail.
 
 ### Sources officielles
