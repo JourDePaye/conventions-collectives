@@ -1,0 +1,50 @@
+# Convention collective nationale des entreprises au service de la création et de l'événement — entreprises de doublage (IDCC 2717)
+# Version 2024.1, minimum de l'annexe doublage applicable au 1er juin 2024.
+# Cette version ne modélise que la ligne tarifaire explicitement vérifiée pour 1 à 6 lignes,
+# demi-journée, un rôle. Les autres prestations de doublage et les autres annexes restent hors grille.
+---
+validFrom: '2024-06-01'
+sources:
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000047046159?idConteneur=KALICONT000051346072
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000051346072
+  - https://echanges.dila.gouv.fr/OPENDATA/KALI/
+---
+salarié . convention collective . création événement:
+  titre: Entreprises techniques au service de la création et de l'événement — doublage (IDCC 2717)
+  valeur: convention collective = 'création événement'
+
+salarié . convention collective . création événement . prestation:
+  titre: Prestation de doublage
+  description: Catégorie tarifaire effectivement prévue au contrat. La version couvre uniquement 1 à 6 lignes, demi-journée, un rôle.
+  applicable si: convention collective = 'création événement'
+  par défaut: "'non renseignée'"
+
+salarié . convention collective . création événement . salaire minimum conventionnel:
+  titre: Minimum conventionnel de doublage
+  description: Minimum brut de la ligne tarifaire vérifiée, sans conversion mensuelle et sans ajout de droits voisins, indemnités, frais, congés, prévoyance, santé ou formation.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'création événement'
+      - grille = 112.40 €/demi-journée
+  unité: €/demi-journée
+  valeur: grille
+
+salarié . convention collective . création événement . grille:
+  titre: Grille tarifaire de doublage
+  unité: €/demi-journée
+  variations:
+    - si: prestation = '1 à 6 lignes — demi-journée — 1 rôle'
+      alors: 112.40 €/demi-journée
+    - sinon: 0 €/demi-journée
+
+salarié . convention collective . création événement . classification hors grille:
+  titre: Prestation hors grille modélisée
+  description: La prestation de doublage renseignée n'est pas la ligne tarifaire explicitement couverte par cette version.
+  applicable si: convention collective = 'création événement'
+  valeur: grille = 0 €/demi-journée
+
+salarié . convention collective . création événement . audit paie:
+  titre: Audit des rubriques de paie
+  description: L'accord salarial fixe un minimum de prestation de doublage. Aucun taux conventionnel distinct d'assiette, de cotisation, de plafond, de forfait, de santé, de prévoyance, de formation ou d'AT/MP n'est calculé par cette version ; ces rubriques restent celles du régime légal ou d'un accord applicable renseigné séparément.
+  applicable si: convention collective = 'création événement'
+  valeur: oui
