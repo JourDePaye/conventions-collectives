@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent vingt-cinq conventions** sont actuellement représentées, avec **cent quatre-vingt-douze versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent vingt-six conventions** sont actuellement représentées, avec **cent quatre-vingt-treize versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent vingt-cinq conventions sont actuellement représentées, avec cent quatre-vingt-douze versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent vingt-six conventions sont actuellement représentées, avec cent quatre-vingt-treize versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -179,6 +179,7 @@ Cent vingt-cinq conventions sont actuellement représentées, avec cent quatre-v
 | [Bricolage](rules/1606-bricolage/README.md) | 1606 | `2025.1` : 1er juillet 2025 (accord étendu ; application signataires au 1er mai) ; `2025.2` : même date (correction) | Grille mensuelle de 13 coefficients, proratisée selon la quotité de travail ; détection des coefficients hors grille ; audit explicite des rubriques de paie sans correction conventionnelle |
 | [Activités industrielles de boulangerie et pâtisserie](rules/1747-boulangerie-industrielle/README.md) | 1747 | `2025.1` : 1er février 2025 | Grille mensuelle de 33 niveaux et échelons A1 à M, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Activités industrielles de boulangerie et pâtisserie et professionnels de l’œuf](rules/3255-boulangerie-industrielle/README.md) | 3255 | `2025.1` : 1er février 2025 ; `2026.1` : 1er avril 2026 ; `2026.2` : même date (correction) | Grille mensuelle de 13 niveaux et échelons A1 à E3, proratisée selon la quotité de travail ; détection des niveaux hors grille |
+| [Professionnels de l’œuf — ancien IDCC repris par l’IDCC 3255](rules/2075-professionnels-oeuf/README.md) | 2075 | `2025.1` : 1er février 2025 | Reprise de la grille mensuelle successorale de 13 niveaux et échelons A1 à E3, proratisée selon la quotité de travail ; détection des niveaux hors grille ; historique autonome antérieur non modélisé |
 
 ### IMMOBILIER & HABITAT
 

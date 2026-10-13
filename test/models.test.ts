@@ -130,6 +130,7 @@ const models = [
   { name: "2272-assainissement-maintenance-industrielle", value: "assainissement et maintenance industrielle", classification: "coefficient", input: 430, minimums: { "2026.1": 3044.24 } },
   { name: "1982-negoce-medico-technique", value: "négoce médico-technique", classification: "niveau", input: "'TAM7'", minimums: { "2026.1": 2174 } },
   { name: "1267-patisserie", value: "pâtisserie", classification: "niveau", input: "'VII'", minimums: { "2026.1": 2071 } },
+  { name: "2075-professionnels-oeuf", value: "professionnels de l'œuf", classification: "niveau", input: "'E3'", minimums: { "2025.1": 2074.18 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
