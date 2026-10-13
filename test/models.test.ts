@@ -127,6 +127,7 @@ const models = [
   { name: "2494-cooperation-maritime", value: "coopération maritime", classification: "niveau et échelon", input: "'3.2'", minimums: { "2026.1": 26273 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "0915-societes-expertises-evaluations", value: "sociétés d'expertises et d'évaluations", classification: "niveau", input: "'N 5'", minimums: { "2026.1": 27039 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "0500-commerces-gros-habillement", value: "commerces de gros habillement", classification: "classification", input: "'employés IV B'", minimums: { "2024.1": 1900 } },
+  { name: "2272-assainissement-maintenance-industrielle", value: "assainissement et maintenance industrielle", classification: "coefficient", input: 430, minimums: { "2026.1": 3044.24 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
