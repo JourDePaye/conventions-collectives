@@ -9,7 +9,7 @@ const value = "travaux publics ETAM";
 const namespace = `salarié . convention collective . ${value}`;
 
 async function makeEngine() {
-  const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+  const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
   assert.ok(version, "IDCC 2614 must be exported");
   const extension = await version.loadRules();
   const rules: Record<string, Rule> = { ...modeleSocial };
@@ -48,6 +48,7 @@ const amount = (engine: Engine, rule: string) => {
 describe("IDCC 2614 — Île-de-France ETAM 2026", () => {
   it("uses the sourced annual regional grid", async () => {
     const { engine, version } = await makeEngine();
+    assert.equal(version.version, "2026.2");
     assert.equal(version.validFrom, "2026-04-17");
     for (const [level, expected] of Object.entries({ A: 23545, B: 25372, C: 27185, D: 29847, E: 33260, F: 37255, G: 39628, H: 40624 })) {
       situation(engine, { [`${namespace} . niveau`]: `'${level}'` });
@@ -83,7 +84,7 @@ describe("IDCC 2614 — Île-de-France ETAM 2026", () => {
     const { engine, extension } = await makeEngine();
     assert.ok(Object.keys(extension).every((name) => name === namespace || name.startsWith(`${namespace} . `)));
     situation(engine, { [`${namespace} . chômage intempéries . secteur`]: "'gros œuvre'" });
-    assert.equal(amount(engine, "congés intempéries"), 1035);
+    assert.equal(amount(engine, "congés intempéries"), 1010);
     assert.equal(amount(engine, "chômage intempéries"), 27.23);
     assert.equal(amount(engine, "OPPBTP"), 6.22);
     situation(engine, { [`${namespace} . chômage intempéries . secteur`]: "'second œuvre'" });

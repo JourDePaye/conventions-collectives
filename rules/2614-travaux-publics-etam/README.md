@@ -1,6 +1,6 @@
 # Travaux publics — ETAM (IDCC 2614)
 
-Modèle `2614-travaux-publics-etam`, version `2026.1`, espace de noms
+Modèle `2614-travaux-publics-etam`, version `2026.2`, espace de noms
 `salarié . convention collective . travaux publics ETAM`.
 
 ## Périmètre juridiquement borné
@@ -34,7 +34,7 @@ arrondie à l'euro publié.
 Les règles restent exclusivement dans l'espace de noms IDCC 2614 et ne redéfinissent
 pas les clés globales de `modele-social`.
 
-- **Congés payés CIBTP** : assiette standard et taux 2026 de 20,70 %.
+- **Congés payés CIBTP** : assiette standard et taux CIBTP Île-de-France de 20,20 % à compter du 1er avril 2026.
 - **Chômage intempéries** : assiette plafonnée au PMSS ; 0,68 % pour le gros œuvre,
   0,13 % pour le second œuvre, zéro pour une activité non exposée. L'abattement
   annuel reste un calcul d'entreprise et n'est pas simulé salarié par salarié.
