@@ -8,7 +8,7 @@ const id = "2728-sucreries";
 const ns = "salarié . convention collective . sucreries";
 
 async function makeEngine() {
-  const version = COMPILED_VERSIONS[id]?.find((v) => v.version === "2026.1");
+  const version = COMPILED_VERSIONS[id]?.find((v) => v.version === "2026.2");
   assert.ok(version, "IDCC 2728 must be exported");
   const extension = await version.loadRules();
   const rules: Record<string, Rule> = { ...modeleSocial };
@@ -91,5 +91,33 @@ describe("IDCC 2728 — annual endpoint", () => {
     const result = get(engine, "salaire minimum annuel conventionnel");
     assert.equal(result.nodeValue, 61807.31);
     assert.equal(result.unit?.denominators?.includes("an"), true);
+  });
+});
+
+describe("IDCC 2728 — specific annual minima and premiums", () => {
+  it("applies the confirmed specific annual minima and senior executive minimum", async () => {
+    const engine = await makeEngine();
+    set(engine, { "catégorie spécifique": "'agents de maîtrise et techniciens confirmés'", "condition spécifique remplie": "oui" });
+    assert.equal(get(engine, "rémunération spécifique").nodeValue, 31370.10);
+    set(engine, { "catégorie spécifique": "'ingénieurs et cadres confirmés'", "condition spécifique remplie": "oui" });
+    assert.equal(get(engine, "rémunération spécifique").nodeValue, 43208.27);
+    set(engine, { "catégorie spécifique": "'cadres supérieurs'" });
+    assert.equal(get(engine, "rémunération spécifique").nodeValue, 80043.76);
+  });
+
+  it("does not apply a confirmed-category minimum without the campaign or seniority condition", async () => {
+    const engine = await makeEngine();
+    set(engine, { "catégorie spécifique": "'agents de maîtrise et techniciens confirmés'" });
+    assert.equal(get(engine, "rémunération spécifique").nodeValue, null);
+  });
+
+  it("calculates the night-post basket premium and exposes the vacation premium", async () => {
+    const engine = await makeEngine();
+    set(engine, { "type de poste avec panier": "'poste de 8 heures'", "nombre de postes avec panier": "10 poste/mois" });
+    assert.equal(get(engine, "montant de la prime de panier").nodeValue, 6.02);
+    assert.ok(Math.abs((get(engine, "prime de panier").nodeValue as number) - 60.2) < 1e-9);
+    set(engine, { "type de poste avec panier": "'poste de plus de 8 heures'", "nombre de postes avec panier": "10 poste/mois" });
+    assert.equal(get(engine, "prime de panier").nodeValue, 75.9);
+    assert.equal(get(engine, "prime de vacances").nodeValue, 520.26);
   });
 });
