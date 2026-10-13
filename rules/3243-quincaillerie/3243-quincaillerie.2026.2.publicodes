@@ -1,0 +1,98 @@
+# Convention collective nationale des commerces de quincaillerie, fournitures industrielles,
+# fers, métaux et équipement de la maison du 24 novembre 2021 (IDCC 3243, brochure 3389).
+#
+# Version 2026.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+
+validFrom: 2026-05-01
+sources:
+  - >-
+    Avenant n° 3 du 22 janvier 2026 relatif aux salaires minima hiérarchiques (annexe 2),
+    publié sur Légifrance sous l'identifiant KALIARTI000054066782 et étendu par arrêté.
+  - >-
+    Arrêté du 8 avril 2026 portant extension d'un avenant à la convention collective nationale
+    des commerces de quincaillerie, fournitures industrielles, fers, métaux et équipement de la
+    maison (IDCC 3243), Légifrance, JORFTEXT000053907795, JORF du 17 avril 2026 ; application
+    générale à compter du 1er mai 2026.
+  - >-
+    Grille des salaires minima hiérarchiques mensuels bruts à temps plein : niveaux I à IX,
+    échelons 1 à 3 sauf niveau IX limité à l'échelon 1.
+---
+salarié . convention collective . quincaillerie fournitures industrielles fers métaux équipement maison:
+  titre: Quincaillerie, fournitures industrielles, fers, métaux et équipement de la maison (IDCC 3243)
+  valeur: convention collective = 'quincaillerie fournitures industrielles fers métaux équipement maison'
+
+salarié . convention collective . quincaillerie fournitures industrielles fers métaux équipement maison . niveau et échelon:
+  titre: Niveau et échelon de classification
+  description: Niveau I à IX et échelon 1 à 3 ; le niveau IX ne comporte que l'échelon 1.
+  applicable si: convention collective = 'quincaillerie fournitures industrielles fers métaux équipement maison'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . quincaillerie fournitures industrielles fers métaux équipement maison . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'quincaillerie fournitures industrielles fers métaux équipement maison'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . quincaillerie fournitures industrielles fers métaux équipement maison . salaire minimum conventionnel . grille:
+  titre: Grille mensuelle à temps plein
+  unité: €/mois
+  variations:
+    - si: niveau et échelon = 'I.1'
+      alors: 1840 €/mois
+    - si: niveau et échelon = 'I.2'
+      alors: 1845 €/mois
+    - si: niveau et échelon = 'I.3'
+      alors: 1850 €/mois
+    - si: niveau et échelon = 'II.1'
+      alors: 1855 €/mois
+    - si: niveau et échelon = 'II.2'
+      alors: 1865 €/mois
+    - si: niveau et échelon = 'II.3'
+      alors: 1875 €/mois
+    - si: niveau et échelon = 'III.1'
+      alors: 1886 €/mois
+    - si: niveau et échelon = 'III.2'
+      alors: 1896 €/mois
+    - si: niveau et échelon = 'III.3'
+      alors: 1906 €/mois
+    - si: niveau et échelon = 'IV.1'
+      alors: 1916 €/mois
+    - si: niveau et échelon = 'IV.2'
+      alors: 1936 €/mois
+    - si: niveau et échelon = 'IV.3'
+      alors: 1956 €/mois
+    - si: niveau et échelon = 'V.1'
+      alors: 1987 €/mois
+    - si: niveau et échelon = 'V.2'
+      alors: 2067 €/mois
+    - si: niveau et échelon = 'V.3'
+      alors: 2138 €/mois
+    - si: niveau et échelon = 'VI.1'
+      alors: 2169 €/mois
+    - si: niveau et échelon = 'VI.2'
+      alors: 2249 €/mois
+    - si: niveau et échelon = 'VI.3'
+      alors: 2351 €/mois
+    - si: niveau et échelon = 'VII.1'
+      alors: 2922 €/mois
+    - si: niveau et échelon = 'VII.2'
+      alors: 3134 €/mois
+    - si: niveau et échelon = 'VII.3'
+      alors: 3402 €/mois
+    - si: niveau et échelon = 'VIII.1'
+      alors: 3579 €/mois
+    - si: niveau et échelon = 'VIII.2'
+      alors: 3763 €/mois
+    - si: niveau et échelon = 'VIII.3'
+      alors: 3979 €/mois
+    - si: niveau et échelon = 'IX.1'
+      alors: 4753 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . quincaillerie fournitures industrielles fers métaux équipement maison . niveau et échelon hors grille:
+  titre: Niveau et échelon absent de la grille
+  description: La combinaison niveau-échelon n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'quincaillerie fournitures industrielles fers métaux équipement maison'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois

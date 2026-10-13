@@ -2,6 +2,8 @@
 
 La version `2025.1` modélise l'article 21 de la convention collective nationale du **1er octobre 2024**, avec les salaires minima conventionnels mensuels bruts applicables au **1er février 2025** pour 151,67 heures mensuelles. La convention a été étendue par arrêté du 20 novembre 2025, publié au Journal officiel le 27 novembre 2025. La version `2026.1` reprend l'avenant n° 4 du 22 janvier 2026, applicable aux entreprises non signataires au **1er avril 2026** après extension.
 
+La version `2026.2`, en vigueur à la même date, corrige `niveau hors grille` : dans la version `2026.1`, la règle comparait la grille à zéro, alors que la grille n'a pas de valeur par défaut et devient non applicable pour un niveau inconnu ; la règle ne valait donc jamais vrai. Elle vaut désormais vrai lorsque la grille est non applicable.
+
 La valeur Publicodes est `boulangerie industrielle` et les règles sont sous `salarié . convention collective . boulangerie industrielle`.
 
 ## Règles implémentées

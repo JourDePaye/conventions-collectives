@@ -2,6 +2,8 @@
 
 Le fichier [2026.1](0993-prothesistes-dentaires.2026.1.publicodes) entre en vigueur le **1er octobre 2026**, premier jour du mois suivant la publication au JORF du 4 septembre 2026 de l’arrêté du 24 août 2026 portant extension de l’accord du 15 juin 2026.
 
+Le fichier [2026.2](0993-prothesistes-dentaires.2026.2.publicodes), en vigueur à la même date, corrige `niveau hors grille` : dans la version 2026.1, la règle comparait `grille` à zéro, une référence que publicodes résout vers la règle elle-même, si bien qu’elle ne valait jamais vrai. Elle compare désormais `salaire minimum conventionnel . grille`.
+
 La valeur Publicodes est `prothésistes dentaires` et les règles sont sous `salarié . convention collective . prothésistes dentaires`.
 
 ## Grille salariale implémentée

@@ -2,6 +2,8 @@
 
 Le fichier [2026.1](3013-librairie.2026.1.publicodes) entre en vigueur le **1er avril 2026**, soit le premier jour du mois suivant la publication de l'arrêté d'extension du 24 février 2026 au Journal officiel du 5 mars 2026. La valeur Publicodes est `librairie` ; les règles sont sous `salarié . convention collective . librairie`.
 
+Le fichier [2026.2](3013-librairie.2026.2.publicodes), en vigueur à la même date, corrige `niveau hors grille` : dans la version 2026.1, la règle comparait `grille` à zéro, une référence que publicodes résout vers la règle elle-même, si bien qu’elle ne valait jamais vrai. Elle compare désormais `salaire minimum conventionnel . grille`.
+
 ## Grille salariale implémentée
 
 | Niveau | Minimum mensuel brut |

@@ -2,6 +2,8 @@
 
 Le fichier [2026.1](3243-quincaillerie.2026.1.publicodes) entre en vigueur le **1er mai 2026** pour le champ général, après l'arrêté d'extension du 8 avril 2026 publié au Journal officiel du 17 avril 2026. Il modélise l'avenant n° 3 du 22 janvier 2026 relatif aux salaires minima hiérarchiques (annexe 2). La valeur Publicodes est `quincaillerie fournitures industrielles fers métaux équipement maison` ; les règles sont sous `salarié . convention collective . quincaillerie fournitures industrielles fers métaux équipement maison`.
 
+Le fichier [2026.2](3243-quincaillerie.2026.2.publicodes), en vigueur à la même date, corrige `niveau et échelon hors grille` : dans la version 2026.1, la règle comparait `grille` à zéro, une référence que publicodes résout vers la règle elle-même, si bien qu’elle ne valait jamais vrai. Elle compare désormais `salaire minimum conventionnel . grille`.
+
 ## Grille salariale implémentée
 
 | Niveau et échelon | Minimum mensuel brut |

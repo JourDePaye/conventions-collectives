@@ -2,6 +2,8 @@
 
 Le fichier [2025.1](1606-bricolage.2025.1.publicodes) entre en vigueur le **1er juillet 2025** pour le champ général, conformément à l’accord du 31 mars 2025 relatif aux salaires minima conventionnels et à son extension publiée au Journal officiel le 10 juin 2025. L’accord prévoyait une application conventionnelle au 1er mai 2025 pour ses signataires ; cette version retient la date d’effet générale après extension. La valeur Publicodes est `bricolage` ; les règles sont sous `salarié . convention collective . bricolage`.
 
+Le fichier [2025.2](1606-bricolage.2025.2.publicodes), en vigueur à la même date, corrige `coefficient hors grille` : dans la version 2025.1, la règle comparait `grille` à zéro, une référence que publicodes résout vers la règle elle-même, si bien qu’elle ne valait jamais vrai. Elle compare désormais `salaire minimum conventionnel . grille`.
+
 ## Grille salariale implémentée
 
 | Coefficient | Minimum mensuel brut |

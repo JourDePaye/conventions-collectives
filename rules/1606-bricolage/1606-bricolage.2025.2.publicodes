@@ -1,0 +1,72 @@
+# Convention collective nationale du bricolage du 30 septembre 1993 (IDCC 1606).
+#
+# Version 2025.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+
+validFrom: 2025-07-01
+sources:
+  - >-
+    Accord du 31 mars 2025 relatif aux salaires minima conventionnels dans la convention
+    collective nationale du bricolage, publié sur Légifrance sous l'identifiant
+    KALITEXT000051909640.
+  - >-
+    Arrêté d'extension du 2 juin 2025, publié au Journal officiel du 10 juin 2025,
+    rendant l'accord applicable à l'ensemble des employeurs et salariés du champ.
+  - >-
+    Grille des minima mensuels bruts à temps plein : coefficients 120 à 600,
+    de 1 810 € à 3 560 €.
+---
+salarié . convention collective . bricolage:
+  titre: Bricolage (IDCC 1606)
+  valeur: convention collective = 'bricolage'
+
+salarié . convention collective . bricolage . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient de la grille des salaires minima conventionnels du bricolage.
+  applicable si: convention collective = 'bricolage'
+  par défaut: 0
+
+salarié . convention collective . bricolage . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'bricolage'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . bricolage . salaire minimum conventionnel . grille:
+  titre: Grille mensuelle à temps plein
+  unité: €/mois
+  variations:
+    - si: coefficient = 120
+      alors: 1810 €/mois
+    - si: coefficient = 140
+      alors: 1825 €/mois
+    - si: coefficient = 150
+      alors: 1837 €/mois
+    - si: coefficient = 160
+      alors: 1855 €/mois
+    - si: coefficient = 190
+      alors: 1885 €/mois
+    - si: coefficient = 200
+      alors: 1945 €/mois
+    - si: coefficient = 220
+      alors: 2045 €/mois
+    - si: coefficient = 250
+      alors: 2111 €/mois
+    - si: coefficient = 280
+      alors: 2250 €/mois
+    - si: coefficient = 320
+      alors: 2818 €/mois
+    - si: coefficient = 400
+      alors: 2950 €/mois
+    - si: coefficient = 500
+      alors: 3305 €/mois
+    - si: coefficient = 600
+      alors: 3560 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . bricolage . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'bricolage'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois

@@ -2,6 +2,8 @@
 
 Le fichier [2026.1](3205-cooperatives-consommateurs.2026.1.publicodes) entre en vigueur le **1er mai 2026**, conformément à l'avenant n° 932 relatif aux salaires minima conventionnels et à son extension publiée au Journal officiel. La valeur Publicodes est `coopératives de consommateurs` ; les règles sont sous `salarié . convention collective . coopératives de consommateurs`.
 
+Le fichier [2026.2](3205-cooperatives-consommateurs.2026.2.publicodes), en vigueur à la même date, corrige `niveau hors grille` : dans la version 2026.1, la règle comparait `grille` à zéro, une référence que publicodes résout vers la règle elle-même, si bien qu’elle ne valait jamais vrai. Elle compare désormais `salaire minimum conventionnel . grille`.
+
 ## Grille salariale implémentée
 
 | Niveau | Minimum mensuel brut |

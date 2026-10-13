@@ -2,6 +2,8 @@
 
 Le fichier [2026.1](3250-commissaires-justice.2026.1.publicodes) entre en vigueur le **1er janvier 2026**. Il modélise l’avenant n° 12 du 9 décembre 2025 relatif aux minima conventionnels 2026, sous la valeur Publicodes `commissaires de justice et sociétés de ventes volontaires`.
 
+Le fichier [2026.2](3250-commissaires-justice.2026.2.publicodes), en vigueur à la même date, corrige `catégorie et coefficient hors grille` : dans la version 2026.1, la règle comparait `grille` à zéro, une référence que publicodes résout vers la règle elle-même, si bien qu’elle ne valait jamais vrai. Elle compare désormais `salaire minimum conventionnel . grille`.
+
 Le champ juridique doit être confirmé par l’appelant avec `champ juridique = 'employeur signataire ou adhérent'`. Il n’est pas déduit automatiquement d’un simple choix d’IDCC.
 
 ## Grille salariale implémentée

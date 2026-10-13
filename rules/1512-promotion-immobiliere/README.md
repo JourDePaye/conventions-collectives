@@ -1,9 +1,11 @@
 # Promotion immobilière — IDCC 1512
 
-Modèle `1512-promotion-immobiliere`, version `2026.2`, espace de noms
+Modèle `1512-promotion-immobiliere`, version `2026.3`, espace de noms
 `salarié . convention collective . promotion immobilière`.
 
 ## Périmètre
+
+La version `2026.3` reprend la version `2026.2` à l'identique, à la même date, et corrige `coefficient hors grille` : l'expression `coefficient < 100 ou coefficient > 787` n'est pas une condition publicodes valide et ne valait jamais vrai. La règle vaut désormais vrai lorsque le coefficient n'est pas dans la grille (minimum mensuel nul).
 
 Cette version couvre la grille des salaires minima de l'avenant n° 51 du
 12 janvier 2026, ainsi que les régimes collectifs de frais de santé et de

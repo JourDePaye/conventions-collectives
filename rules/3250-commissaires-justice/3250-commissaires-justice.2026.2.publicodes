@@ -1,0 +1,116 @@
+# Convention collective nationale des commissaires de justice et sociétés de ventes volontaires du 16 novembre 2022 (IDCC 3250).
+#
+# Version 2026.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+
+validFrom: 2026-01-01
+sources:
+  - >-
+    Avenant n° 12 du 9 décembre 2025 relatif aux salaires minima conventionnels pour l'année 2026,
+    Légifrance, texte KALIARTI000054177556, rattaché à la convention collective nationale des
+    commissaires de justice et sociétés de ventes volontaires (IDCC 3250).
+  - >-
+    Convention collective nationale des commissaires de justice et sociétés de ventes volontaires
+    du 16 novembre 2022, Légifrance, texte KALITEXT000046771122, article 8 de l'avenant n° 12 :
+    entrée en vigueur au 1er janvier 2026 pour les entreprises relevant du champ de l'accord.
+  - >-
+    Grille de l'annexe de l'avenant n° 12 : minima mensuels bruts pour un temps plein de 151,67
+    heures, classés par catégorie et coefficient.
+---
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires:
+  titre: Commissaires de justice et sociétés de ventes volontaires (IDCC 3250)
+  valeur: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
+
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . champ juridique:
+  titre: Champ juridique de l'accord salarial
+  description: L'avenant est modélisé pour les entreprises relevant de son champ d'application ; le statut signataire ou adhérent doit être confirmé par l'appelant.
+  applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . catégorie et coefficient:
+  titre: Catégorie et coefficient de classification
+  description: Catégorie et coefficient figurant dans la grille des minima mensuels 2026.
+  applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'commissaires de justice et sociétés de ventes volontaires'
+      - champ juridique = 'employeur signataire ou adhérent'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . salaire minimum conventionnel . grille:
+  titre: Grille mensuelle à temps plein
+  unité: €/mois
+  variations:
+    - si: catégorie et coefficient = 'I.1-215'
+      alors: 1801.80 €/mois
+    - si: catégorie et coefficient = 'I.2-230'
+      alors: 1805.50 €/mois
+    - si: catégorie et coefficient = 'I.3-245'
+      alors: 1816.10 €/mois
+    - si: catégorie et coefficient = 'I.4-260'
+      alors: 1825.78 €/mois
+    - si: catégorie et coefficient = 'II.1-275'
+      alors: 1831.80 €/mois
+    - si: catégorie et coefficient = 'II.2-283'
+      alors: 2463.29 €/mois
+    - si: catégorie et coefficient = 'II.3-295'
+      alors: 2548.80 €/mois
+    - si: catégorie et coefficient = 'II.4-305'
+      alors: 2658.13 €/mois
+    - si: catégorie et coefficient = 'II.5-315'
+      alors: 2768.69 €/mois
+    - si: catégorie et coefficient = 'II.6-325'
+      alors: 2881.32 €/mois
+    - si: catégorie et coefficient = 'II.7-335'
+      alors: 2997.28 €/mois
+    - si: catégorie et coefficient = 'II.8-345'
+      alors: 3113.55 €/mois
+    - si: catégorie et coefficient = 'III.1-350'
+      alors: 3227.12 €/mois
+    - si: catégorie et coefficient = 'III.2-360'
+      alors: 3338.92 €/mois
+    - si: catégorie et coefficient = 'III.3-370'
+      alors: 3451.18 €/mois
+    - si: catégorie et coefficient = 'III.4-380'
+      alors: 3564.34 €/mois
+    - si: catégorie et coefficient = 'III.5-390'
+      alors: 3677.48 €/mois
+    - si: catégorie et coefficient = 'III.6-400'
+      alors: 3790.60 €/mois
+    - si: catégorie et coefficient = 'IV.1-410'
+      alors: 3903.74 €/mois
+    - si: catégorie et coefficient = 'IV.2-420'
+      alors: 4016.88 €/mois
+    - si: catégorie et coefficient = 'IV.3-430'
+      alors: 4130.03 €/mois
+    - si: catégorie et coefficient = 'IV.4-440'
+      alors: 4243.18 €/mois
+    - si: catégorie et coefficient = 'IV.5-450'
+      alors: 4356.32 €/mois
+    - si: catégorie et coefficient = 'IV.6-460'
+      alors: 4469.46 €/mois
+    - si: catégorie et coefficient = 'IV.7-470'
+      alors: 4582.61 €/mois
+    - si: catégorie et coefficient = 'IV.8-480'
+      alors: 4695.75 €/mois
+    - si: catégorie et coefficient = 'IV.9-490'
+      alors: 4808.90 €/mois
+    - si: catégorie et coefficient = 'IV.10-500'
+      alors: 4922.04 €/mois
+    - si: catégorie et coefficient = 'IV.11-510'
+      alors: 5035.19 €/mois
+    - si: catégorie et coefficient = 'IV.12-520'
+      alors: 5148.33 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . catégorie et coefficient hors grille:
+  titre: Catégorie et coefficient absent de la grille
+  description: La combinaison catégorie-coefficient n'existe pas dans la grille des salaires minima 2026.
+  applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois

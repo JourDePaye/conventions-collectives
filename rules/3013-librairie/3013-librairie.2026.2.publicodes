@@ -1,0 +1,68 @@
+# Convention collective nationale de la librairie du 24 mars 2011 (IDCC 3013).
+#
+# Version 2026.2, based on the extended salary amendment effective 1 April 2026.
+# A released version is immutable: later corrections require a new version.
+
+validFrom: 2026-04-01
+sources:
+  - >-
+    Avenant n° 14 du 5 novembre 2025 relatif aux salaires minima conventionnels,
+    Légifrance, KALITEXT000053926509.
+  - >-
+    Arrêté d'extension du 24 février 2026, publié au Journal officiel du 5 mars 2026,
+    rendant l'avenant applicable à l'ensemble des employeurs et salariés du champ.
+  - >-
+    Grille des minima mensuels bruts à temps plein : niveaux 1 à 12, de 1 834 € à 3 993 €.
+---
+salarié . convention collective . librairie:
+  titre: Librairie (IDCC 3013)
+  valeur: convention collective = 'librairie'
+
+salarié . convention collective . librairie . niveau:
+  titre: Niveau de classification
+  description: Niveau 1 à 12 de la grille des salaires minima conventionnels.
+  applicable si: convention collective = 'librairie'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . librairie . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'librairie'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . librairie . salaire minimum conventionnel . grille:
+  titre: Grille mensuelle à temps plein
+  unité: €/mois
+  variations:
+    - si: niveau = '1'
+      alors: 1834 €/mois
+    - si: niveau = '2'
+      alors: 1840 €/mois
+    - si: niveau = '3'
+      alors: 1871 €/mois
+    - si: niveau = '4'
+      alors: 1900 €/mois
+    - si: niveau = '5'
+      alors: 1963 €/mois
+    - si: niveau = '6'
+      alors: 2041 €/mois
+    - si: niveau = '7'
+      alors: 2150 €/mois
+    - si: niveau = '8'
+      alors: 2426 €/mois
+    - si: niveau = '9'
+      alors: 2758 €/mois
+    - si: niveau = '10'
+      alors: 3103 €/mois
+    - si: niveau = '11'
+      alors: 3542 €/mois
+    - si: niveau = '12'
+      alors: 3993 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . librairie . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'librairie'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
