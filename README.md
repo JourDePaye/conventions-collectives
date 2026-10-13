@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent sept conventions** sont actuellement représentées, avec **cent soixante-quatre versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent neuf conventions** sont actuellement représentées, avec **cent soixante-cinq versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent sept conventions sont actuellement représentées, avec cent soixante-quatre versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent neuf conventions sont actuellement représentées, avec cent soixante-cinq versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -160,6 +160,7 @@ Cent sept conventions sont actuellement représentées, avec cent soixante-quatr
 | [Librairie](rules/3013-librairie/README.md) | 3013 | `2026.1` : 1er avril 2026 (avenant étendu) | Grille mensuelle des niveaux 1 à 12, proratisée selon la quotité de travail ; détection des niveaux hors grille ; audit explicite des rubriques de paie sans correction conventionnelle |
 | [Presse quotidienne et hebdomadaire en régions](rules/3242-presse-regions/README.md) | 3242 | `2023.2` : 1er juillet 2023 | Grille mensuelle de 15 positions (ouvriers, 6 échelons d’employés, 8 sous-groupes de cadres) de l’accord du 30 juin 2023 (presse quotidienne régionale), proratisée selon la quotité de travail ; détection des positions hors grille |
 | [Industries de jeux, jouets, articles de fêtes et ornements de Noël, articles de puériculture, voitures d'enfants et modèles réduits](rules/1607-jeux-jouets/README.md) | 1607 | `2026.1` : 1er avril 2026 (avenant étendu) | Grille mensuelle de 22 coefficients, colonne 0 à 3 ans, proratisée selon la quotité de travail ; détection des coefficients hors grille ; colonnes d'ancienneté supérieure non modélisées |
+| [Bricolage](rules/1606-bricolage/README.md) | 1606 | `2025.1` : 1er juillet 2025 (accord étendu ; application signataires au 1er mai) | Grille mensuelle de 13 coefficients, proratisée selon la quotité de travail ; détection des coefficients hors grille ; audit explicite des rubriques de paie sans correction conventionnelle |
 | [Activités industrielles de boulangerie et pâtisserie](rules/1747-boulangerie-industrielle/README.md) | 1747 | `2025.1` : 1er février 2025 | Grille mensuelle de 33 niveaux et échelons A1 à M, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Activités industrielles de boulangerie et pâtisserie et professionnels de l’œuf](rules/3255-boulangerie-industrielle/README.md) | 3255 | `2025.1` : 1er février 2025 ; `2026.1` : 1er avril 2026 | Grille mensuelle de 13 niveaux et échelons A1 à E3, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 
