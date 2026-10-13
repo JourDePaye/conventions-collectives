@@ -7,8 +7,8 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const model = "2098-prestataires-tertiaire";
 const value = "prestataires tertiaires";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[model]?.find((entry) => entry.version === "2026.1");
-assert.ok(version, "IDCC 2098 version 2026.1 must be compiled");
+const version = COMPILED_VERSIONS[model]?.find((entry) => entry.version === "2026.2");
+assert.ok(version, "IDCC 2098 version 2026.2 must be compiled");
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
 const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
@@ -20,11 +20,11 @@ Object.assign(rules, extension);
 const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
 
 const MONTHLY: Record<number, number> = {
-  120: 1823.03, 130: 1826.21, 140: 1832.44, 150: 1840.56, 160: 1844,
-  170: 1848, 180: 1872, 190: 1906, 200: 1942, 210: 1993, 220: 2055,
-  230: 2184, 240: 2301, 250: 2404, 260: 2536, 270: 2705, 280: 2960,
-  290: 3201, 300: 3455, 320: 3748, 350: 4107, 400: 4758, 450: 5463,
-  500: 6157,
+  120: 1867.02, 130: 1867.02, 140: 1867.02, 150: 1870, 160: 1873.97,
+  170: 1881.88, 190: 1905.6, 200: 1972.87, 220: 2038.12, 230: 2080.34,
+  240: 2141.75, 250: 2195.48, 260: 2268.41, 280: 2553.54, 290: 2734.06,
+  300: 3204.15, 330: 3249.28, 360: 3474.92, 390: 3756.98, 420: 4039.03,
+  450: 4934.09, 500: 5836.67, 550: 6427.1,
 };
 
 function setSituation(coefficient: number | undefined, quota?: string, context: Record<string, string | number> = {}) {
@@ -42,10 +42,10 @@ function amount(name: string) {
   return Math.round((result as number) * 100) / 100;
 }
 
-describe("IDCC 2098 — 2026.1 prestataires de services tertiaires", () => {
+describe("IDCC 2098 — 2026.2 prestataires de services tertiaires", () => {
   it("is effective from 1 August 2026 and cites the extended salary agreement", () => {
     assert.equal(version.validFrom, "2026-08-01");
-    assert.ok(version.sources.some((source) => source.includes("Accord du 11 septembre 2025")));
+    assert.ok(version.sources.some((source) => source.includes("Accord du 27 mai 2026")));
     assert.ok(version.sources.some((source) => source.includes("KALITEXT000054936719")));
     assert.ok(version.sources.some((source) => source.includes("JORFTEXT000054570646")));
   });
@@ -60,11 +60,11 @@ describe("IDCC 2098 — 2026.1 prestataires de services tertiaires", () => {
 
   it("prorates the monthly minimum once for part-time work", () => {
     setSituation(240, "60%");
-    assert.equal(amount("salaire minimum conventionnel"), 1380.6);
+    assert.equal(amount("salaire minimum conventionnel"), 1285.05);
   });
 
   it("rejects coefficients outside the grid", () => {
-    for (const coefficient of [0, 110, 125, 310, 600]) {
+    for (const coefficient of [0, 110, 180, 210, 270, 310, 400, 600]) {
       setSituation(coefficient);
       assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, true, String(coefficient));
       assert.equal(amount("salaire minimum conventionnel"), 0, String(coefficient));
@@ -77,14 +77,15 @@ describe("IDCC 2098 — 2026.1 prestataires de services tertiaires", () => {
     assert.equal(amount("salaire minimum conventionnel"), 0);
   });
 
-  it("exposes compensatory rest for eligible night workers without inventing a cash premium", () => {
+  it("exposes 4% compensatory rest for eligible night workers", () => {
     engine.setSituation({
       "salarié . convention collective": `'${value}'`,
       [`${namespace} . coefficient`]: 120,
       [`${namespace} . heures de nuit`]: "10 heure/mois",
-      [`${namespace} . taux de repos compensateur de nuit`]: "2%",
+      [`${namespace} . travailleur de nuit`]: "oui",
     });
-    assert.equal(amount("repos compensateur de nuit"), 0.2);
+    assert.equal(amount("repos compensateur de nuit"), 0.4);
+    assert.equal(amount("taux de majoration de nuit occasionnelle"), 25);
   });
 
   it("is inapplicable outside the agreement", () => {

@@ -2,9 +2,9 @@
 
 Ce répertoire contient le modèle Publicodes de la convention collective nationale du personnel des prestataires de services dans le domaine du secteur tertiaire (IDCC 2098).
 
-## Version `2026.1`
+## Versions `2026.1` et `2026.2`
 
-La version est applicable à partir du **1er août 2026**, après l'extension de l'accord salarial du 11 septembre 2025 par arrêté publié le 31 juillet 2026.
+`2026.1` reprend la grille antérieure applicable au 1er août 2026. `2026.2` corrige la source et la grille à la suite de l'accord du **27 mai 2026**, étendu par arrêté du 28 juillet 2026 publié le 31 juillet 2026 ; cette grille est applicable au **1er août 2026**.
 
 ## Salaire minimum conventionnel
 
@@ -19,7 +19,7 @@ Le minimum doit être comparé à la rémunération mensuelle contractuelle selo
 
 ## Travail de nuit
 
-L'accord de nuit prévoit du repos compensateur. La règle expose les heures de nuit et un taux fourni par l'application appelante : 2 % dans le régime ordinaire ou 5 % dans le cas annuel prévu par l'accord. La CCN nationale ne fournit pas ici de majoration salariale générale de nuit à déduire automatiquement ; des règles plus spécifiques peuvent dépendre de l'activité ou d'un accord d'entreprise.
+L'accord prévoit une plage conventionnelle de 22 h à 7 h (pouvant être fixée à 21 h–6 h par accord collectif), une majoration de 25 % pour le travail de nuit occasionnel et un repos compensateur de 4 % pour les travailleurs de nuit. Le statut de travailleur de nuit reste une entrée fournie par l'application appelante.
 
 ## Périmètre non modélisé
 
@@ -27,7 +27,8 @@ Cette version ne modélise pas les compléments dépendant d'annexes sectorielle
 
 ## Sources
 
-- [Accord du 11 septembre 2025 relatif aux salaires minimaux](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054936719)
-- [Arrêté d'extension du 24 juillet 2026](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054570646)
+- [Accord du 27 mai 2026 relatif aux salaires et à la valeur de point](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054936719)
+- [Article relatif aux salaires](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054936744)
+- [Arrêté d'extension du 28 juillet 2026](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054570646)
 - [Classification des emplois](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000024922383)
 - [Accord relatif au travail de nuit](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005680405)
