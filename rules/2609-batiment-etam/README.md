@@ -1,16 +1,16 @@
 # Bâtiment — ETAM (IDCC 2609)
 
-Modèle `2609-batiment-etam`, version `2026.1`, espace de noms
+Modèles `2609-batiment-etam`, versions `2026.1` et `2026.2`, espace de noms
 `salarié . convention collective . bâtiment ETAM`.
 
 ## Périmètre juridiquement borné
 
-Cette version modélise les ETAM du bâtiment dans la région **Corse**, pour la
-période du 1er avril au 31 décembre 2026. Elle ne fabrique pas de grille
-nationale, ni de grille pour une autre région, ni de minimum de salaire pour
-les cadres.
+La version `2026.1` modélise les ETAM du bâtiment dans la région **Corse**, pour
+la période du 1er avril au 31 décembre 2026. La version `2026.2` modélise la
+grille **Occitanie**, applicable du 1er mai au 31 décembre 2026. Les modèles ne
+fabriquent pas de grille nationale, ni de minimum de salaire pour les cadres.
 
-## Grille mensuelle Corse — 2026
+## Grille mensuelle Corse — 2026.1
 
 Pour 35 heures par semaine ou 151,67 heures mensuelles :
 
@@ -26,8 +26,25 @@ Pour 35 heures par semaine ou 151,67 heures mensuelles :
 | H | 3 231,05 € |
 
 Ces montants proviennent de l'accord Corse du 15 décembre 2025 relatif aux
-salaires à compter du 1er avril 2026. Le modèle reste limité à la région et à
-la période explicitement vérifiées par cette source.
+salaires à compter du 1er avril 2026.
+
+## Grille mensuelle Occitanie — 2026.2
+
+Pour 35 heures par semaine ou 151,67 heures mensuelles :
+
+| Niveau | Minimum brut mensuel |
+|---:|---:|
+| A | 1 847,16 € |
+| B | 1 936,54 € |
+| C | 2 061,72 € |
+| D | 2 256,45 € |
+| E | 2 462,01 € |
+| F | 2 902,48 € |
+| G | 3 176,04 € |
+| H | 3 497,50 € |
+
+Ces montants proviennent de l'accord Occitanie du 13 février 2026 relatif aux
+salaires minimaux au 1er mai 2026, étendu par arrêté publié le 29 mai 2026.
 
 ## Comportements BTP isolés dans ce modèle
 
@@ -51,6 +68,8 @@ clés globales de `modele-social`.
 ## Sources
 
 - [Légifrance — accord Corse du 15 décembre 2025 relatif aux salaires à compter du 1er avril 2026](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054092314)
+- [Légifrance — accord Occitanie du 13 février 2026 relatif aux salaires minimaux au 1er mai 2026](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054337649), étendu par arrêté du 19 mai 2026 publié au Journal officiel le 29 mai 2026 (NOR TRST2612648A)
+- [Légifrance — convention collective nationale IDCC 2609, brochure 3002](https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000018773893)
 - [CIBTP France — principales revalorisations pour 2026](https://www.cibtp.fr/actualite-/-presse/actualites/actualite/principales-revalorisations-pour-2026)
 - [CIBTP France — régime de chômage intempéries](https://www.cibtp.fr/media/commun/1_Documents/chomage-intemperies/en-bref_regime-intemperies/ci_med_en-bref_regime-intemperies.pdf)
 - [OPPBTP — arrêté fixant le taux 2026](https://www.oppbtp.com/app/uploads/2025/12/arrete-2025-taux-2026.pdf)
