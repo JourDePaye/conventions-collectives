@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent seize conventions** sont actuellement représentées, avec **cent soixante et onze versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent dix-sept conventions** sont actuellement représentées, avec **cent soixante-treize versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent seize conventions sont actuellement représentées, avec cent soixante et onze versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent dix-sept conventions sont actuellement représentées, avec cent soixante-treize versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -82,6 +82,7 @@ Cent seize conventions sont actuellement représentées, avec cent soixante et o
 |---|---|---|---|
 | [Industries textiles](rules/0018-industries-textiles/README.md) | 18 | `2026.1` : 1er juin 2026 | Grille mensuelle de 21 positions (niveaux 1 à 6 en échelons et positions I à IV), proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Industries chimiques](rules/0044-industries-chimiques/README.md) | 44 | `2026.2` : 1er septembre 2025 (santé) ; 1er janvier 2026 (salaires) | Barème de 23 coefficients (de 130 à 880), proratisé selon la quotité de travail ; minimum santé de branche à 1,50 % du PMSS (0,82 % en Alsace-Moselle) |
+| [Industrie pharmaceutique](rules/0176-industrie-pharmaceutique/README.md) | 176 | `2026.1` : 1er janvier 2026 (accord étendu) | Grille mensuelle de 20 groupes et niveaux, pour 151,67 heures, proratisée selon la quotité de travail ; détection des groupes hors grille |
 | [Plasturgie](rules/0292-plasturgie/README.md) | 292 | `2026.1` : 1er mars 2026 | Grille mensuelle de 15 coefficients (de 700 à 940), proratisée selon la quotité de travail ; détection des coefficients hors grille |
 | [Produits pharmaceutiques](rules/1555-produits-pharmaceutiques/README.md) | 1555 | `2026.1` : 1er mars 2026 (signataires) ; 8 mai 2026 (champ étendu) | 13 rémunérations minimales mensuelles garanties des niveaux I.1 à II.7, 10 rémunérations annuelles garanties des niveaux III.1 à III.10, bornes de date et de champ juridique, proratisation mensuelle sans conversion annuelle |
 | [Industrie du pétrole](rules/1388-industrie-petrole/README.md) | 1388 | `2026.1` / `2026.2` : 1er janvier 2026 | Minimum hiérarchique calculé par formule (valeur du point, majoration conventionnelle et surmajoration) pour les coefficients de 130 à 880, proratisé selon la quotité ; `2026.2` ajoute la RMAG de 23 550 €/an après six mois de présence continue ; détection des coefficients hors plage |

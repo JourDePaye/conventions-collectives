@@ -15,6 +15,7 @@ const models = [
   { name: "0043-import-export", value: "import-export", classification: "coefficient", input: "'C16'", minimums: { "2026.1": 3564 } },
   { name: "0478-societes-financieres", value: "sociétés financières", classification: "coefficient", input: 230, minimums: { "2026.1": 22381 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . sociétés financières . date de calcul": "01/06/2026", "salarié . convention collective . sociétés financières . champ juridique": "'employeur signataire ou adhérent'" } },
   { name: "0044-industries-chimiques", value: "industries chimiques", classification: "coefficient", input: 250, minimums: { "2026.2": 2244.51 } },
+  { name: "0176-industrie-pharmaceutique", value: "industrie pharmaceutique", classification: "groupe", input: "'6C'", minimums: { "2026.1": 3344.51 } },
   { name: "0112-industrie-laitiere", value: "industrie laitière", classification: "niveau", input: "'7.2'", minimums: { "2026.1": 2235.92, "2026.2": 2235.92 } },
   { name: "0675-succursales-habillement", value: "succursales habillement", classification: "niveau", input: "'E4'", minimums: { "2026.1": 1900 } },
   { name: "0733-detaillants-chaussures", value: "détaillants chaussures", classification: "niveau", input: 3, minimums: { "2026.1": 1869 } },
