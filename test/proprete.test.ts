@@ -59,6 +59,7 @@ function amount(name: string) {
 describe("IDCC 3043 — 2026.1 entreprises de propreté", () => {
   it("is effective from 1 April 2026 and cites the extended wage amendment", () => {
     assert.equal(version.validFrom, "2026-04-01");
+    assert.ok(version.sources.some((source) => source.includes("IDCC 3043, brochure 3173")));
     assert.ok(version.sources.some((source) => source.includes("Avenant n° 27 du 18 décembre 2025")));
     assert.ok(version.sources.some((source) => source.includes("KALIARTI000053748401")));
   });
