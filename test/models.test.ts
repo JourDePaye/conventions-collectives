@@ -9,7 +9,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const models = [
   { name: "0016-transports-routiers", value: "transports routiers", classification: "niveau", input: "'V-O-110'", minimums: { "2026.1": 1884.8 } },
   { name: "3233-industrie-fabrication-ciments", value: "industrie de la fabrication des ciments", classification: "coefficient", input: 205, minimums: { "2026.1": 1993 }, situation: { "salarié . convention collective . industrie de la fabrication des ciments . catégorie": "'ouvriers et ETAM'" } },
-  { name: "3238-production-transformation-papiers-cartons", value: "production transformation papiers cartons", classification: "coefficient", input: 185, minimums: { "2026.1": 1985 } },
+  { name: "3238-production-transformation-papiers-cartons", value: "production transformation papiers cartons", classification: "coefficient", input: 185, minimums: { "2026.2": 22779 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "0018-industries-textiles", value: "industries textiles", classification: "niveau", input: "'4.2'", minimums: { "2026.1": 1996 } },
   { name: "0029-etablissements-prives-non-lucratifs", value: "établissements privés non lucratifs", classification: "coefficient", input: 477, minimums: { "2026.1": 2178.94 } },
   { name: "0043-import-export", value: "import-export", classification: "coefficient", input: "'C16'", minimums: { "2026.1": 3564 } },

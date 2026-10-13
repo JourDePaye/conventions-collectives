@@ -1,0 +1,98 @@
+# Convention collective nationale de la production et de la transformation des papiers et cartons du 29 janvier 2021 (IDCC 3238, brochure 3250).
+#
+# Version 2026.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Cette version est figée après publication ; toute évolution passe par une nouvelle version.
+#
+# Grille OETAM et garantie annuelle de l'avenant n° 21 du 30 janvier 2026, applicables au 1er janvier 2026.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Avenant n° 21 du 30 janvier 2026 relatif aux salaires minima conventionnels des ouvriers,
+    employés, techniciens et agents de maîtrise : grille mensuelle des coefficients 125 à 350,
+    et garantie annuelle de rémunération OETAM fixée à 22 779 €, applicables au 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054254117
+  - >-
+    Arrêté du 4 mai 2026 portant extension de l'avenant n° 21, publié au Journal officiel du
+    8 mai 2026 ; le texte est en vigueur étendu dans la version consolidée officielle.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054260231
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054260229
+---
+salarié . convention collective . production transformation papiers cartons:
+  titre: Production et transformation des papiers et cartons (IDCC 3238)
+  valeur: convention collective = 'production transformation papiers cartons'
+
+salarié . convention collective . production transformation papiers cartons . coefficient:
+  titre: Coefficient de classification OETAM
+  description: Coefficient de la grille salariale OETAM de l'avenant n° 21.
+  applicable si: convention collective = 'production transformation papiers cartons'
+  par défaut: 0
+
+salarié . convention collective . production transformation papiers cartons . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: Minimum mensuel brut OETAM pour 35 heures par semaine, proratisé pour un temps partiel. Vaut 0 €/mois si le coefficient n'existe pas dans la grille.
+  applicable si: convention collective = 'production transformation papiers cartons'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . production transformation papiers cartons . grille mensuelle:
+  titre: Grille mensuelle OETAM à temps plein
+  description: Grille de l'avenant n° 21 du 30 janvier 2026, applicable au 1er janvier 2026.
+  applicable si: convention collective = 'production transformation papiers cartons'
+  unité: €/mois
+  variations:
+    - si: coefficient = 125
+      alors: 1843 €/mois
+    - si: coefficient = 130
+      alors: 1850 €/mois
+    - si: coefficient = 135
+      alors: 1856 €/mois
+    - si: coefficient = 140
+      alors: 1873 €/mois
+    - si: coefficient = 150
+      alors: 1895 €/mois
+    - si: coefficient = 160
+      alors: 1923 €/mois
+    - si: coefficient = 170
+      alors: 1948 €/mois
+    - si: coefficient = 185
+      alors: 1985 €/mois
+    - si: coefficient = 195
+      alors: 2021 €/mois
+    - si: coefficient = 215
+      alors: 2172 €/mois
+    - si: coefficient = 235
+      alors: 2332 €/mois
+    - si: coefficient = 260
+      alors: 2510 €/mois
+    - si: coefficient = 285
+      alors: 2713 €/mois
+    - si: coefficient = 315
+      alors: 2967 €/mois
+    - si: coefficient = 350
+      alors: 3258 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . production transformation papiers cartons . salaire minimum annuel conventionnel:
+  titre: Garantie annuelle de rémunération OETAM
+  description: Garantie annuelle brute OETAM à temps plein, proratisée selon la quotité de travail. Elle reste exprimée en €/an et ne constitue pas une conversion mensuelle de la grille.
+  applicable si: convention collective = 'production transformation papiers cartons'
+  unité: €/an
+  produit:
+    - garantie annuelle OETAM
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . production transformation papiers cartons . garantie annuelle OETAM:
+  titre: Garantie annuelle de rémunération OETAM à temps plein
+  description: Montant fixé par l'avenant n° 21 du 30 janvier 2026 pour l'année 2026.
+  applicable si: convention collective = 'production transformation papiers cartons'
+  valeur: 22779 €/an
+
+salarié . convention collective . production transformation papiers cartons . coefficient hors grille:
+  titre: Coefficient absent de la grille OETAM
+  description: Le coefficient est absent de la grille de l'avenant n° 21.
+  applicable si: convention collective = 'production transformation papiers cartons'
+  valeur:
+    toutes ces conditions:
+      - grille mensuelle = 0 €/mois

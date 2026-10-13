@@ -9,7 +9,7 @@ const value = "production transformation papiers cartons";
 const namespace = `salarié . convention collective . ${value}`;
 
 async function engineFor(situation: Record<string, string>) {
-  const version = COMPILED_VERSIONS[agreement]?.find((candidate) => candidate.version === "2026.1");
+  const version = COMPILED_VERSIONS[agreement]?.find((candidate) => candidate.version === "2026.2");
   assert.ok(version);
   const extension = await version.loadRules();
   const rules: Record<string, Rule> = { ...modeleSocial };
@@ -46,5 +46,16 @@ describe("IDCC 3238 — production et transformation des papiers et cartons", ()
     const engine = await engineFor({ [`${namespace} . coefficient`]: "999" });
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 0);
     assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, true);
+  });
+
+  it("exposes the 2026 OETAM annual guarantee without converting it to monthly", async () => {
+    const engine = await engineFor({ [`${namespace} . coefficient`]: "185" });
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue, 22779);
+    engine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . coefficient`]: "185",
+      "salarié . contrat . temps de travail . quotité": "50 %",
+    });
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue, 11389.5);
   });
 });
