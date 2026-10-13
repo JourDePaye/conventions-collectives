@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "3241-telediffusion";
 const value = "télédiffusion";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry: { version: string }) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry: { version: string }) => entry.version === "2026.2");
 
 assert.ok(version);
 const extension = await version.loadRules();
@@ -17,10 +17,11 @@ rules["salarié . convention collective"] = { ...choice, "une possibilité": [..
 Object.assign(rules, extension);
 const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
 
-function setSituation(niveau: string) {
+function setSituation(niveau: string, minimum = "M1") {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     [`${namespace} . niveau`]: `'${niveau}'`,
+    [`${namespace} . minimum`]: `'${minimum}'`,
   });
 }
 
@@ -28,10 +29,10 @@ function amount() {
   return engine.evaluate(`${namespace} . salaire minimum journalier`).nodeValue;
 }
 
-describe("IDCC 3241 — 2026.1 CDDU salary minimums and payroll audit", () => {
+describe("IDCC 3241 — 2026.2 CDDU salary minimums and payroll audit", () => {
   it("uses the official 1 June 2026 effective date", () => {
     assert.equal(version.validFrom, "2026-06-01");
-    assert.ok(version.sources.some((source: string) => source.includes("11 mai 2026")));
+    assert.ok(version.sources.some((source: string) => source.includes("ASET2650556M")));
   });
 
   for (const [level, minimum] of Object.entries({
@@ -54,9 +55,14 @@ describe("IDCC 3241 — 2026.1 CDDU salary minimums and payroll audit", () => {
     });
   }
 
-  it("marks an unknown classification outside the grid", () => {
+  it("supports the official M2 column", () => {
+    setSituation("5-1", "M2");
+    assert.equal(amount(), 189.16);
+  });
+
+  it("applies the official level 8 floor", () => {
     setSituation("8");
-    assert.equal(amount(), 0);
+    assert.equal(amount(), 284.38);
     assert.equal(engine.evaluate(`${namespace} . niveau hors grille`).nodeValue, true);
   });
 
