@@ -8,7 +8,7 @@ Le dépôt contient les modèles de conventions collectives, leurs références 
 
 ## Conventions déjà présentes
 
-Cent deux conventions sont actuellement représentées, avec cent six versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent trois conventions sont actuellement représentées, avec cent sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -150,6 +150,7 @@ Cent deux conventions sont actuellement représentées, avec cent six versions d
 | [Particuliers employeurs et emploi à domicile](rules/3239-particuliers-employeurs-emploi-domicile/README.md) | 3239 | `2026.2` : 1er novembre 2026 | Minima des 12 niveaux et certifications, socle assistant maternel par enfant, mensualisation, présence responsable de jour, heures additionnelles et prestations en nature |
 | [Télédiffusion](rules/3241-telediffusion/README.md) | 3241 | `2026.2` : 1er juin 2026 | Minima journaliers bruts CDDU (8 heures), liste 1, niveaux 1 à 7-2, colonnes M1/M2 ; plancher du niveau 8 ; liste 2 et rubriques de paie générales hors périmètre |
 | [Coopératives de consommateurs](rules/3205-cooperatives-consommateurs/README.md) | 3205 | `2026.1` : 1er mai 2026 (avenant étendu) | Grille mensuelle des niveaux 1 à 12, proratisée selon la quotité de travail ; détection des niveaux hors grille ; audit explicite des rubriques de paie sans correction conventionnelle |
+| [Librairie](rules/3013-librairie/README.md) | 3013 | `2026.1` : 1er avril 2026 (avenant étendu) | Grille mensuelle des niveaux 1 à 12, proratisée selon la quotité de travail ; détection des niveaux hors grille ; audit explicite des rubriques de paie sans correction conventionnelle |
 | [Presse quotidienne et hebdomadaire en régions](rules/3242-presse-regions/README.md) | 3242 | `2023.2` : 1er juillet 2023 | Grille mensuelle de 15 positions (ouvriers, 6 échelons d’employés, 8 sous-groupes de cadres) de l’accord du 30 juin 2023 (presse quotidienne régionale), proratisée selon la quotité de travail ; détection des positions hors grille |
 | [Industries de jeux, jouets, articles de fêtes et ornements de Noël, articles de puériculture, voitures d'enfants et modèles réduits](rules/1607-jeux-jouets/README.md) | 1607 | `2026.1` : 1er avril 2026 (avenant étendu) | Grille mensuelle de 22 coefficients, colonne 0 à 3 ans, proratisée selon la quotité de travail ; détection des coefficients hors grille ; colonnes d'ancienneté supérieure non modélisées |
 | [Activités industrielles de boulangerie et pâtisserie](rules/1747-boulangerie-industrielle/README.md) | 1747 | `2025.1` : 1er février 2025 | Grille mensuelle de 33 niveaux et échelons A1 à M, proratisée selon la quotité de travail ; détection des niveaux hors grille |

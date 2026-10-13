@@ -29,6 +29,7 @@ const models = [
   { name: "3239-particuliers-employeurs-emploi-domicile", value: "particuliers employeurs et emploi à domicile", classification: "niveau", input: "'I'", minimums: { "2026.2": 2206.32 }, minimumRule: "salaire minimum conventionnel" },
   { name: "3241-telediffusion", value: "télédiffusion", classification: "niveau", input: "'5-1'", minimums: { "2026.1": 180.16 }, minimumRule: "salaire minimum journalier" },
   { name: "3205-cooperatives-consommateurs", value: "coopératives de consommateurs", classification: "niveau", input: "'8'", minimums: { "2026.1": 2134.86 } },
+  { name: "3013-librairie", value: "librairie", classification: "niveau", input: "'8'", minimums: { "2026.1": 2426 } },
   { name: "2247-courtage-assurances", value: "courtage assurances", classification: "niveau", input: "'D'", minimums: { "2026.2": 2392 } },
   { name: "2335-agences-generales-assurances", value: "agences générales assurances", classification: "classe", input: "'1'", minimums: { "2026.1": 23194 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . agences générales assurances . date de calcul": "11/10/2026", "salarié . convention collective . agences générales assurances . champ juridique": "'tous employeurs après extension'" } },
   { name: "1747-boulangerie-industrielle", value: "boulangerie industrielle 1747", classification: "niveau", input: "'L3'", minimums: { "2025.1": 4578.52 } },
