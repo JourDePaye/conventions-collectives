@@ -1,0 +1,87 @@
+# Convention collective nationale du négoce de matériel médico-technique du 9 avril 1998
+# (IDCC 1982, brochure 3286).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+validFrom: 2026-06-01
+sources:
+  - >-
+    Avenant n° 2 du 20 février 2026 relatif aux salaires minima conventionnels, applicable
+    au 1er juin 2026, texte KALI KALITEXT000054177346 et article KALIARTI000054177348.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054177346
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054177348
+  - >-
+    Arrêté du 18 mai 2026 portant extension d'un avenant à la convention collective
+    nationale du négoce de matériel médico-technique, publié au Journal officiel du
+    28 mai 2026, JORFTEXT000054149339.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054149339
+  - >-
+    Convention collective nationale du négoce de matériel médico-technique du 9 avril 1998,
+    classification des emplois et niveaux conventionnels.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635723
+---
+salarié . convention collective . négoce médico-technique:
+  titre: Négoce de matériel médico-technique (IDCC 1982)
+  valeur: convention collective = 'négoce médico-technique'
+
+salarié . convention collective . négoce médico-technique . niveau:
+  titre: Niveau de classification
+  description: >-
+    Niveau conventionnel déterminé par la classification du poste. Les quatre premiers niveaux
+    sont ceux des employés (E1 à E4), les niveaux TAM5 à TAM8 ceux des techniciens et agents de
+    maîtrise, et les niveaux C9 à D14 ceux des cadres.
+  applicable si: convention collective = 'négoce médico-technique'
+  par défaut: '''hors grille'''
+
+salarié . convention collective . négoce médico-technique . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: >-
+    Salaire brut mensuel minimum pour un temps plein, selon l'avenant n° 2 applicable au 1er juin
+    2026, proratisé selon la quotité de travail. Les majorations, primes et avantages qui ne sont
+    pas inclus dans l'assiette conventionnelle ne sont pas ajoutés automatiquement.
+  applicable si: convention collective = 'négoce médico-technique'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille mensuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . négoce médico-technique . grille mensuelle:
+  titre: Salaire mensuel minimum à temps plein
+  applicable si: convention collective = 'négoce médico-technique'
+  unité: €/mois
+  variations:
+    - si: niveau = 'E1'
+      alors: 1837 €/mois
+    - si: niveau = 'E2'
+      alors: 1857 €/mois
+    - si: niveau = 'E3'
+      alors: 1879 €/mois
+    - si: niveau = 'E4'
+      alors: 1909 €/mois
+    - si: niveau = 'TAM5'
+      alors: 1967 €/mois
+    - si: niveau = 'TAM6'
+      alors: 2050 €/mois
+    - si: niveau = 'TAM7'
+      alors: 2174 €/mois
+    - si: niveau = 'TAM8'
+      alors: 2278 €/mois
+    - si: niveau = 'C9'
+      alors: 2536 €/mois
+    - si: niveau = 'C10'
+      alors: 2744 €/mois
+    - si: niveau = 'C11'
+      alors: 3074 €/mois
+    - si: niveau = 'C12'
+      alors: 3365 €/mois
+    - si: niveau = 'C13'
+      alors: 3727 €/mois
+    - si: niveau = 'D14'
+      alors: 4141 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . négoce médico-technique . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau de classification n'existe pas dans la grille des salaires minima modélisée.
+  applicable si: convention collective = 'négoce médico-technique'
+  valeur: grille mensuelle = 0 €/mois

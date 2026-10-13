@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent vingt-trois conventions** sont actuellement représentées, avec **cent quatre-vingt-dix versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent vingt-quatre conventions** sont actuellement représentées, avec **cent quatre-vingt-onze versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent vingt-trois conventions sont actuellement représentées, avec cent quatre-vingt-dix versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent vingt-quatre conventions sont actuellement représentées, avec cent quatre-vingt-onze versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -35,6 +35,7 @@ Cent vingt-trois conventions sont actuellement représentées, avec cent quatre-
 | [Esthétique-cosmétique et enseignement associé](rules/3032-esthetique-cosmetique/README.md) | 3032 | `2026.1` : 1er juin 2026 (avenant étendu) | Grilles mensuelles des instituts/services généraux et de l’enseignement technique et professionnel, prime d’ancienneté de 44 € à 206 €, proratisation selon la quotité de travail ; détection des classifications hors grille |
 || [Prestataires de services dans le domaine du secteur tertiaire](rules/2098-prestataires-tertiaire/README.md) | 2098 | `2026.2` : 1er août 2026 | Grille mensuelle 2026 de 23 coefficients de 120 à 550, proratisée selon la quotité de travail ; majoration de nuit occasionnelle, repos compensateur des travailleurs de nuit et détection des coefficients hors grille |
 || [Assainissement et maintenance industrielle](rules/2272-assainissement-maintenance-industrielle/README.md) | 2272 | `2026.1` : 1er avril 2026 (avenant n° 45 étendu) | Grille mensuelle fondée sur une partie fixe de 1 052,484 € et une valeur du point de 4,632 €, exceptions 2026 aux coefficients 170 et 185, proratisation selon la quotité de travail ; détection des coefficients hors grille |
+|| [Négoce de matériel médico-technique](rules/1982-negoce-medico-technique/README.md) | 1982 | `2026.1` : 1er juin 2026 (avenant n° 2 étendu) | Grille mensuelle de 14 niveaux E1 à D14, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 ||| [Cabinets d'avocats et personnel salarié](rules/1000-cabinets-avocats/README.md) | 1000 | `2025.1` : 1er janvier 2025 (avenant n° 136 étendu) | Grille mensuelle de 16 coefficients pour le personnel salarié non-avocats, minimum annuel sur 13 mensualités, proratisation selon la quotité de travail ; détection des coefficients hors grille |
 || [Notariat](rules/2205-notariat/README.md) | 2205 | `2026.1` : 1er mars 2026 (avenant salarial modélisé pour les employeurs signataires ou adhérents) | Grille mensuelle de 8 niveaux E à C4, valeur du point de 16,06 € et minima arrondis à l’euro supérieur ; proratisation selon la quotité de travail ; champ juridique et niveaux hors grille explicités |
 
