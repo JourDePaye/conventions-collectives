@@ -1,0 +1,119 @@
+# Convention collective nationale des commerces de gros de l'habillement, de la mercerie, de la chaussure et du jouet du 13 mars 1969
+# (IDCC 500, brochure 3148).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+validFrom: 2026-09-20
+sources:
+  - >-
+    Annexe 56/A du 25 juin 2026 relative aux salaires minima mensuels, applicable au 1er juillet
+    2026 dans les entreprises adhérentes à l'organisation patronale signataire.
+  - >-
+    Arrêté du 7 septembre 2026 portant extension de l'annexe 56/A du 25 juin 2026, publié au
+    Journal officiel n° 0219 du 19 septembre 2026 (texte n° 64, NOR TRST2622504A) ; l'extension
+    prend effet à la publication de l'arrêté, la grille s'applique donc à tous les employeurs le
+    lendemain, 20 septembre 2026. Texte de l'annexe au BOCC, fascicule n° 2026/30.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054860941
+  - >-
+    Montants de la grille relevés dans le communiqué de la CFDT du 2 juillet 2026 « Une nouvelle
+    grille de salaires dans le commerce de gros de l'habillement, de la mercerie, de la chaussure
+    et du jouet » (hausses de 3 % pour les employés, 1,5 % pour les agents de maîtrise et 1 % pour
+    les cadres par rapport à la grille de novembre 2024) ; le texte de l'annexe n'était pas encore
+    publié dans la base KALI de Légifrance et reste à contrôler.
+    https://services.cfdt.fr/sinformer/nos-communiques/une-nouvelle-grille-de-salaires-dans-le-commerce-de-gros-de-l-habillement-de-la-mercerie-de-la-chaussure-et-du-jouet
+---
+salarié . convention collective . commerces de gros habillement:
+  titre: Commerces de gros de l'habillement, mercerie, chaussure et jouet (IDCC 500)
+  valeur: convention collective = 'commerces de gros habillement'
+
+salarié . convention collective . commerces de gros habillement . classification:
+  titre: Classification
+  description: |
+    Code de la catégorie, du niveau et de l'échelon de la grille des salaires minima :
+    E-IA (employés I A),
+    E-IB (employés I B),
+    E-IIA (employés II A),
+    E-IIB (employés II B),
+    E-IIIA (employés III A),
+    E-IIIB (employés III B),
+    E-IVA (employés IV A),
+    E-IVB (employés IV B),
+    E-VA (employés V A),
+    E-VB (employés V B),
+    AM-VIA (agents de maîtrise VI A),
+    AM-VIB (agents de maîtrise VI B),
+    AM-VIC (agents de maîtrise VI C),
+    AM-VII (agents de maîtrise VII),
+    C-IA (cadres I A),
+    C-IB (cadres I B),
+    C-IIA (cadres II A),
+    C-IIB (cadres II B),
+    C-III (cadres III).
+  applicable si: convention collective = 'commerces de gros habillement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commerces de gros habillement . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: |
+    Salaire minimum mensuel conventionnel pour 35 heures par semaine. Il est proratisé
+    pour un temps partiel. Vaut 0 €/mois si la classification n'existe pas dans la grille
+    (voir « classification hors grille »). Les minima inférieurs au SMIC légal restent
+    soumis au plancher légal applicable.
+  applicable si: convention collective = 'commerces de gros habillement'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerces de gros habillement . grille:
+  titre: Salaire minimum conventionnel à temps plein
+  description: Grille de l'annexe 56/A du 25 juin 2026, applicable à tous les employeurs le 20 septembre 2026.
+  applicable si: convention collective = 'commerces de gros habillement'
+  unité: €/mois
+  variations:
+    - si: classification = 'E-IA'
+      alors: 1868 €/mois
+    - si: classification = 'E-IB'
+      alors: 1873 €/mois
+    - si: classification = 'E-IIA'
+      alors: 1896 €/mois
+    - si: classification = 'E-IIB'
+      alors: 1901 €/mois
+    - si: classification = 'E-IIIA'
+      alors: 1923 €/mois
+    - si: classification = 'E-IIIB'
+      alors: 1929 €/mois
+    - si: classification = 'E-IVA'
+      alors: 1951 €/mois
+    - si: classification = 'E-IVB'
+      alors: 1957 €/mois
+    - si: classification = 'E-VA'
+      alors: 1979 €/mois
+    - si: classification = 'E-VB'
+      alors: 1985 €/mois
+    - si: classification = 'AM-VIA'
+      alors: 2093 €/mois
+    - si: classification = 'AM-VIB'
+      alors: 2186 €/mois
+    - si: classification = 'AM-VIC'
+      alors: 2312 €/mois
+    - si: classification = 'AM-VII'
+      alors: 2476 €/mois
+    - si: classification = 'C-IA'
+      alors: 2780 €/mois
+    - si: classification = 'C-IB'
+      alors: 3020 €/mois
+    - si: classification = 'C-IIA'
+      alors: 3463 €/mois
+    - si: classification = 'C-IIB'
+      alors: 4101 €/mois
+    - si: classification = 'C-III'
+      alors: 4625 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerces de gros habillement . classification hors grille:
+  titre: Classification absente de la grille modélisée
+  description: La classification saisie n'existe pas dans la grille de l'annexe 56/A du 25 juin 2026.
+  applicable si: convention collective = 'commerces de gros habillement'
+  valeur: grille = 0 €/mois
