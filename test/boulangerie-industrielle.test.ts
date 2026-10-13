@@ -8,7 +8,7 @@ const id = "3255-boulangerie-industrielle";
 const ns = "salarié . convention collective . boulangerie industrielle";
 
 async function makeEngine() {
-  const version = COMPILED_VERSIONS[id]?.find((v) => v.version === "2025.1");
+  const version = COMPILED_VERSIONS[id]?.find((v) => v.version === "2026.1");
   assert.ok(version, "IDCC 3255 must be exported");
   const extension = await version.loadRules();
   const rules: Record<string, Rule> = { ...modeleSocial };
@@ -31,22 +31,30 @@ function set(engine: Engine, niveau = "'A1'", quotite = "100%") {
 const get = (engine: Engine) => engine.evaluate(`${ns} . salaire minimum conventionnel`);
 
 const minima: Record<string, number> = {
-  A1: 1804.8,
-  A2: 1814.33,
-  B1: 1825.01,
-  B2: 1839.61,
-  C1: 1855.52,
-  C2: 1872.23,
-  C3: 1892.82,
-  D1: 1917.72,
-  D2: 1933.07,
-  D3: 1954.33,
-  E1: 1988.82,
-  E2: 2020.64,
-  E3: 2074.18,
+  A1: 1840.02,
+  A2: 1849.72,
+  B1: 1860.6,
+  B2: 1875.74,
+  C1: 1891.96,
+  C2: 1908.98,
+  C3: 1930.22,
+  D1: 1955.63,
+  D2: 1971.29,
+  D3: 1992.99,
+  E1: 2028.16,
+  E2: 2060.61,
+  E3: 2115.22,
 };
 
-describe("IDCC 3255 — 2025 monthly minimum salaries", () => {
+describe("IDCC 3255 — 2026 monthly minimum salaries", () => {
+  it("uses the extended 2026.1 salary amendment metadata", async () => {
+    const version = COMPILED_VERSIONS[id]?.find((v) => v.version === "2026.1");
+    assert.ok(version);
+    assert.equal(version.validFrom, "2026-04-01");
+    assert.ok(version.sources.includes("https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054162288"));
+    assert.ok(version.sources.includes("https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053907634"));
+  });
+
   for (const [niveau, amount] of Object.entries(minima)) {
     it(`${niveau} minimum is ${amount} euros`, async () => {
       const engine = await makeEngine();
@@ -58,7 +66,7 @@ describe("IDCC 3255 — 2025 monthly minimum salaries", () => {
   it("prorates the 151.67-hour minimum for part-time work", async () => {
     const engine = await makeEngine();
     set(engine, "'E3'", "50%");
-    assert.equal(get(engine).nodeValue, 1037.09);
+    assert.equal(get(engine).nodeValue, 1057.61);
   });
 
   it("rejects a classification outside the sourced grid", async () => {

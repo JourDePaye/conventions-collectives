@@ -1,0 +1,66 @@
+# Convention collective nationale des activités industrielles de boulangerie et pâtisserie et des professionnels de l'œuf du 1er octobre 2024 (IDCC 3255).
+# Version 2026.1 : grille des salaires minima conventionnels mensuels au 1er avril 2026
+# pour les entreprises non signataires, après extension de l'avenant n° 4.
+validFrom: 2026-04-01
+sources:
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054162288
+  - https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053907634
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000051160618
+---
+salarié . convention collective . boulangerie industrielle:
+  titre: Activités industrielles de boulangerie et pâtisserie et professionnels de l'œuf (IDCC 3255)
+  valeur: convention collective = 'boulangerie industrielle'
+salarié . convention collective . boulangerie industrielle . niveau:
+  titre: Niveau et échelon de classification
+  description: Niveau et échelon de la classification conventionnelle, sous la forme A1 à E3. La classification est fournie par l'application.
+  applicable si: convention collective = 'boulangerie industrielle'
+  par défaut: "'non renseigné'"
+salarié . convention collective . boulangerie industrielle . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Salaire minimum conventionnel brut mensuel pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'boulangerie industrielle'
+      - grille > 0 €/mois
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+salarié . convention collective . boulangerie industrielle . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: Grille de l'article 21 modifiée par l'avenant n° 4 du 22 janvier 2026, applicable au 1er avril 2026 après extension, pour 151,67 heures mensuelles.
+  applicable si: convention collective = 'boulangerie industrielle'
+  unité: €/mois
+  variations:
+    - si: niveau = 'A1'
+      alors: 1840.02 €/mois
+    - si: niveau = 'A2'
+      alors: 1849.72 €/mois
+    - si: niveau = 'B1'
+      alors: 1860.60 €/mois
+    - si: niveau = 'B2'
+      alors: 1875.74 €/mois
+    - si: niveau = 'C1'
+      alors: 1891.96 €/mois
+    - si: niveau = 'C2'
+      alors: 1908.98 €/mois
+    - si: niveau = 'C3'
+      alors: 1930.22 €/mois
+    - si: niveau = 'D1'
+      alors: 1955.63 €/mois
+    - si: niveau = 'D2'
+      alors: 1971.29 €/mois
+    - si: niveau = 'D3'
+      alors: 1992.99 €/mois
+    - si: niveau = 'E1'
+      alors: 2028.16 €/mois
+    - si: niveau = 'E2'
+      alors: 2060.61 €/mois
+    - si: niveau = 'E3'
+      alors: 2115.22 €/mois
+    - sinon: 0 €/mois
+salarié . convention collective . boulangerie industrielle . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau et échelon n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'boulangerie industrielle'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
