@@ -6,7 +6,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 
 const value = "particuliers employeurs et emploi à domicile";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS["3239-particuliers-employeurs-emploi-domicile"]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS["3239-particuliers-employeurs-emploi-domicile"]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -41,26 +41,26 @@ function amount(name: string) {
   return Math.round((result.nodeValue as number) * 100) / 100;
 }
 
-// Published values, including the rounded certified rates, from annex 6, avenant 10.
+// Published values, including the rounded certified rates, from annex 6, avenant 11.
 const grid = [
-  ["I", 12.61, 2194.14, 13.11, 2281.14],
-  ["II", 12.74, 2216.76, 13.25, 2305.50],
-  ["III", 12.89, 2242.86, 13.41, 2333.34],
-  ["IV", 13.08, 2275.92, 13.60, 2366.40],
-  ["V", 13.28, 2310.72, 13.94, 2425.56],
-  ["VI", 13.80, 2401.20, 14.49, 2521.26],
-  ["VII", 14.11, 2455.14, 14.11, 2455.14],
-  ["VIII", 14.52, 2526.48, 14.52, 2526.48],
-  ["IX", 15.29, 2660.46, 15.29, 2660.46],
-  ["X", 16.12, 2804.88, 16.12, 2804.88],
-  ["XI", 17.06, 2968.44, 17.06, 2968.44],
-  ["XII", 18.07, 3144.18, 18.07, 3144.18],
+  ["I", 12.68, 2206.32, 13.19, 2295.06],
+  ["II", 12.82, 2230.68, 13.33, 2319.42],
+  ["III", 12.97, 2256.78, 13.49, 2347.26],
+  ["IV", 13.16, 2289.84, 13.69, 2382.06],
+  ["V", 13.36, 2324.64, 14.03, 2441.22],
+  ["VI", 13.88, 2415.12, 14.57, 2535.18],
+  ["VII", 14.19, 2469.06, 14.19, 2469.06],
+  ["VIII", 14.61, 2542.14, 14.61, 2542.14],
+  ["IX", 15.38, 2676.12, 15.38, 2676.12],
+  ["X", 16.22, 2822.28, 16.22, 2822.28],
+  ["XI", 17.16, 2985.84, 17.16, 2985.84],
+  ["XII", 18.18, 3163.32, 18.18, 3163.32],
 ] as const;
 
-describe("IDCC 3239 — June 2026 employee salary grid", () => {
+describe("IDCC 3239 — November 2026 employee salary grid", () => {
   it("exports the effective date and primary legal references", () => {
-    assert.equal(version.validFrom, "2026-06-01");
-    for (const reference of ["KALITEXT000054254158", "KALITEXT000054254151", "KALITEXT000043941642", "LEGIARTI000018261010"]) {
+    assert.equal(version.validFrom, "2026-11-01");
+    for (const reference of ["KALITEXT000054952048", "JORFTEXT000054939317", "KALITEXT000054254151", "KALITEXT000043941642", "LEGIARTI000018261010"]) {
       assert.ok(version.sources.some((source) => source.includes(reference)), reference);
     }
   });
@@ -85,7 +85,7 @@ describe("IDCC 3239 — June 2026 employee salary grid", () => {
   it("uses 52/12 at part-time and ignores generic modele-social proration", () => {
     setSituation({ "heures de base par semaine": "20 heure/semaine" }, { "salarié . contrat . temps de travail . quotité": "50%" });
     assert.equal(amount("heures rémunérées de base"), 86.67);
-    assert.equal(amount("salaire minimum conventionnel"), 1092.87);
+    assert.equal(amount("salaire minimum conventionnel"), 1098.93);
   });
   it("applies the employee SMIC floor after certification", () => {
     setSituation({ "certification professionnelle": "oui" }, { "SMIC . horaire": "14 €/heure" });
@@ -98,23 +98,23 @@ describe("IDCC 3239 — June 2026 employee salary grid", () => {
     delete situation["SMIC . horaire"];
     engine.setSituation(situation);
     assert.equal(engine.evaluate("SMIC . horaire").nodeValue, 12.31);
-    assert.equal(amount("salaire minimum conventionnel"), 2194.14);
+    assert.equal(amount("salaire minimum conventionnel"), 2206.32);
   });
   it("converts eligible daytime responsible presence to two-thirds", () => {
     setSituation({ "heures de base par semaine": "20 heure/semaine", "heures de présence responsable par semaine": "6 heure/semaine" });
     assert.equal(amount("heures équivalentes par semaine"), 24);
     assert.equal(amount("heures rémunérées de base"), 104);
-    assert.equal(amount("salaire minimum conventionnel"), 1311.44);
+    assert.equal(amount("salaire minimum conventionnel"), 1318.72);
   });
   it("pays irregular hours using the actual monthly counter", () => {
     setSituation({ "mode de rémunération": "'réel'", "heures de base réelles du mois": "30 heure/mois" });
-    assert.equal(amount("salaire minimum conventionnel"), 378.30);
+    assert.equal(amount("salaire minimum conventionnel"), 380.40);
   });
   it("exposes net benefit deductions without reducing the gross minimum", () => {
     setSituation();
     assert.equal(amount("prestation en nature repas"), 4.70);
     assert.equal(amount("prestation en nature logement"), 71);
-    assert.equal(amount("salaire minimum conventionnel"), 2194.14);
+    assert.equal(amount("salaire minimum conventionnel"), 2206.32);
   });
 });
 
@@ -151,11 +151,11 @@ describe("IDCC 3239 — additional paid hours", () => {
     setSituation({ "taux horaire contractuel": "15 €/heure", "heures supplémentaires à 25 pour cent": "8 heure/mois", "heures supplémentaires à 50 pour cent": "2 heure/mois" },
       { "salarié . contrat . temps de travail . quotité": "50%" });
     assert.equal(amount("rémunération des heures additionnelles"), 195);
-    assert.equal(amount("salaire minimum conventionnel"), 2194.14);
+    assert.equal(amount("salaire minimum conventionnel"), 2206.32);
   });
   it("protects additional hours against a contractual rate below the minimum", () => {
     setSituation({ "taux horaire contractuel": "10 €/heure", "heures supplémentaires à 25 pour cent": "8 heure/mois" });
-    assert.equal(amount("rémunération des heures additionnelles"), 126.10);
+    assert.equal(amount("rémunération des heures additionnelles"), 126.80);
   });
   for (const [inputRate, expected] of [["0%", 22], ["10%", 22], ["20%", 24]] as const) {
     it(`assistant maternel enforces the 10% floor for input ${inputRate}`, () => {
