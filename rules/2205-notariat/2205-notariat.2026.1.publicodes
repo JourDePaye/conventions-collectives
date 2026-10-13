@@ -1,0 +1,98 @@
+# Convention collective nationale du notariat du 8 juin 2001 actualisée par l'accord du 16 décembre 2021 (IDCC 2205).
+#
+# Version 2026.1, fondée sur l'avenant n° 65 du 19 février 2026 relatif aux salaires.
+# L'avenant est modélisé dans son champ signataire/adhérent ; aucune extension n'est
+# supposée. Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+validFrom: 2026-03-01
+sources:
+  - "Avenant n° 65 du 19 février 2026 relatif aux salaires, articles 1 et 2 (valeur du point à 16,06 € et minima mensuels au 1er mars 2026), texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054177364?idConteneur=KALICONT000005635092"
+  - "Convention collective nationale du notariat du 8 juin 2001 actualisée par l'accord du 16 décembre 2021, IDCC 2205, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635092"
+---
+salarié . convention collective . notariat:
+  titre: Notariat (IDCC 2205)
+  valeur: convention collective = 'notariat'
+
+salarié . convention collective . notariat . niveau:
+  titre: Niveau de classification
+  description: Niveau E, T1, T2, T3, C1, C2, C3 ou C4 de la grille de l'avenant n° 65.
+  applicable si: convention collective = 'notariat'
+  une possibilité:
+    - "'E'"
+    - "'T1'"
+    - "'T2'"
+    - "'T3'"
+    - "'C1'"
+    - "'C2'"
+    - "'C3'"
+    - "'C4'"
+  par défaut: "'E'"
+
+salarié . convention collective . notariat . champ juridique:
+  titre: Champ juridique de l'avenant salarial
+  description: L'avenant n° 65 est modélisé pour les employeurs signataires ou adhérents ; aucune extension n'est modélisée.
+  applicable si: convention collective = 'notariat'
+  une possibilité:
+    - "'employeur signataire ou adhérent'"
+    - "'autre employeur'"
+  par défaut: "'employeur signataire ou adhérent'"
+
+salarié . convention collective . notariat . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut pour 35 heures, arrondi à l'euro supérieur selon l'avenant n° 65, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'notariat'
+      - champ juridique = 'employeur signataire ou adhérent'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . notariat . grille:
+  titre: Grille mensuelle au 1er mars 2026
+  description: Minima mensuels bruts des huit niveaux de la grille du notariat.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'notariat'
+      - champ juridique = 'employeur signataire ou adhérent'
+  unité: €/mois
+  variations:
+    - si: niveau = 'E'
+      alors: 1928 €/mois
+    - si: niveau = 'T1'
+      alors: 2120 €/mois
+    - si: niveau = 'T2'
+      alors: 2345 €/mois
+    - si: niveau = 'T3'
+      alors: 3132 €/mois
+    - si: niveau = 'C1'
+      alors: 3534 €/mois
+    - si: niveau = 'C2'
+      alors: 4337 €/mois
+    - si: niveau = 'C3'
+      alors: 5461 €/mois
+    - si: niveau = 'C4'
+      alors: 6103 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . notariat . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau ne figure pas dans la grille salariale de l'avenant n° 65.
+  applicable si: convention collective = 'notariat'
+  toutes ces conditions:
+    - niveau != 'E'
+    - niveau != 'T1'
+    - niveau != 'T2'
+    - niveau != 'T3'
+    - niveau != 'C1'
+    - niveau != 'C2'
+    - niveau != 'C3'
+    - niveau != 'C4'
+
+salarié . convention collective . notariat . période hors champ juridique:
+  titre: Employeur hors champ modélisé
+  description: L'employeur n'est pas signataire ou adhérent de l'avenant salarial modélisé.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'notariat'
+      - champ juridique = 'autre employeur'

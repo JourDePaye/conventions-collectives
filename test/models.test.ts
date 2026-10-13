@@ -63,6 +63,7 @@ const models = [
   { name: "1996-pharmacie-officine", value: "pharmacie", classification: "coefficient", input: 470, minimums: { "2025.1": 3717.51, "2026.1": 3762.42 } },
   { name: "2021-golf", value: "golf", classification: "groupe", input: "'3'", minimums: { "2026.1": 1975.06, "2026.2": 1975.06 } },
   { name: "2120-banque", value: "banque", classification: "niveau", input: "'E'", minimums: { "2026.1": 1864.62 } },
+  { name: "2205-notariat", value: "notariat", classification: "niveau", input: "'E'", minimums: { "2026.1": 1928 }, situation: { "salarié . convention collective . notariat . champ juridique": "'employeur signataire ou adhérent'" } },
   { name: "2121-edition", value: "édition", classification: "niveau", input: "'C3A'", minimums: { "2026.1": 2964 } },
   { name: "2148-telecommunications", value: "télécommunications", classification: "niveau", input: "'A.1'", minimums: { "2026.1": 22757 }, minimumRule: "minimum annuel", situation: { "salarié . convention collective . télécommunications . date de calcul": "11/10/2026" } },
   { name: "2149-activites-dechet", value: "activités du déchet", classification: "coefficient", input: 125, minimums: { "2026.1": 2362.5, "2026.2": 2333.75 } },
