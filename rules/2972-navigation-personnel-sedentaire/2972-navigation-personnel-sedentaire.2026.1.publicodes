@@ -1,0 +1,65 @@
+# Convention collective nationale du personnel sédentaire des entreprises de navigation du 14 septembre 2010
+# (IDCC 2972, brochure 3216).
+# Version 2026.1 : avenant n° 9 du 13 avril 2026 relatif aux salaires minima,
+# étendu par arrêté du 17 juillet 2026, publié au JORF du 23 juillet 2026.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Avenant n° 9 du 13 avril 2026 relatif aux salaires minima de la convention
+    collective nationale du personnel sédentaire des entreprises de navigation,
+    texte publié dans la convention collective IDCC 2972 sur Légifrance.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000025844703
+  - >-
+    Arrêté du 17 juillet 2026 portant extension d'un avenant à la convention
+    collective nationale du personnel sédentaire des entreprises de navigation,
+    publié au JORF du 23 juillet 2026.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052097520
+---
+salarié . convention collective . personnel sédentaire entreprises navigation:
+  titre: Personnel sédentaire des entreprises de navigation (IDCC 2972)
+  valeur: convention collective = 'personnel sédentaire entreprises navigation'
+
+salarié . convention collective . personnel sédentaire entreprises navigation . niveau:
+  titre: Niveau de classification
+  description: Niveau I à IX de la grille des salaires minima annuels.
+  applicable si: convention collective = 'personnel sédentaire entreprises navigation'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . personnel sédentaire entreprises navigation . grille annuelle:
+  titre: Salaire minimum annuel conventionnel à temps plein
+  description: Grille de l'avenant n° 9 du 13 avril 2026, en euros bruts annuels pour 35 heures hebdomadaires.
+  applicable si: convention collective = 'personnel sédentaire entreprises navigation'
+  unité: €/an
+  variations:
+    - si: niveau = 'I'
+      alors: 22604.30 €/an
+    - si: niveau = 'II'
+      alors: 22893.94 €/an
+    - si: niveau = 'III'
+      alors: 23472.91 €/an
+    - si: niveau = 'IV'
+      alors: 24583.86 €/an
+    - si: niveau = 'V'
+      alors: 27235.52 €/an
+    - si: niveau = 'VI'
+      alors: 32191.96 €/an
+    - si: niveau = 'VII'
+      alors: 36117.82 €/an
+    - si: niveau = 'VIII'
+      alors: 44644.19 €/an
+    - si: niveau = 'IX'
+      alors: 54042.96 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . personnel sédentaire entreprises navigation . salaire minimum annuel conventionnel:
+  titre: Salaire minimum annuel conventionnel
+  description: Minimum annuel brut, proratisé selon la quotité de travail. La comparaison juridique reste annuelle.
+  applicable si: convention collective = 'personnel sédentaire entreprises navigation'
+  unité: €/an
+  valeur: grille annuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . personnel sédentaire entreprises navigation . niveau hors grille:
+  titre: Classification absente de la grille
+  description: Le niveau ne figure pas dans le barème modélisé.
+  applicable si: convention collective = 'personnel sédentaire entreprises navigation'
+  valeur: grille annuelle = 0 €/an
