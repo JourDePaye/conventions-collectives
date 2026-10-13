@@ -1,0 +1,108 @@
+# Convention collective nationale de la distribution, de la logistique et des services de proximité (IDCC 1408).
+# Version 2025.1, avenant n° 25 du 27 mars 2025 étendu.
+# A released version is immutable: later corrections require a new version.
+
+validFrom: 2025-05-01
+sources:
+  - >-
+    Avenant n° 25 du 27 mars 2025 relatif aux salaires minima,
+    Légifrance, KALITEXT000051787046.
+  - >-
+    Arrêté du 21 mai 2025 portant extension de l'avenant, publié au Journal officiel,
+    texte officiel référencé par l'accord étendu.
+  - >-
+    Grille des minima mensuels bruts des coefficients 200 à 460 et prime d'ancienneté
+    selon l'ancienneté conventionnelle.
+---
+salarié . convention collective . distribution logistique énergies:
+  titre: Distribution, logistique et services de proximité (IDCC 1408)
+  valeur: convention collective = 'distribution logistique énergies'
+
+salarié . convention collective . distribution logistique énergies . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient de la grille des minima mensuels.
+  applicable si: convention collective = 'distribution logistique énergies'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . distribution logistique énergies . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . distribution logistique énergies . grille:
+  titre: Grille mensuelle 2025
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: €/mois
+  variations:
+    - si: coefficient = 200
+      alors: 1852.12 €/mois
+    - si: coefficient = 210
+      alors: 1858.37 €/mois
+    - si: coefficient = 220
+      alors: 1867.80 €/mois
+    - si: coefficient = 230
+      alors: 1882.42 €/mois
+    - si: coefficient = 240
+      alors: 1911.42 €/mois
+    - si: coefficient = 250
+      alors: 1989.36 €/mois
+    - si: coefficient = 300
+      alors: 2145.22 €/mois
+    - si: coefficient = 310
+      alors: 2456.96 €/mois
+    - si: coefficient = 320
+      alors: 2768.68 €/mois
+    - si: coefficient = 400
+      alors: 2846.62 €/mois
+    - si: coefficient = 410
+      alors: 3158.36 €/mois
+    - si: coefficient = 420
+      alors: 3781.82 €/mois
+    - si: coefficient = 430
+      alors: 4405.29 €/mois
+    - si: coefficient = 440
+      alors: 5184.63 €/mois
+    - si: coefficient = 450
+      alors: 6119.83 €/mois
+    - si: coefficient = 460
+      alors: 7522.62 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . distribution logistique énergies . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille des minima 2025.
+  applicable si: convention collective = 'distribution logistique énergies'
+  valeur: grille = 0 €/mois
+
+salarié . convention collective . distribution logistique énergies . ancienneté:
+  titre: Ancienneté conventionnelle
+  description: Ancienneté ouvrant droit à la prime d'ancienneté.
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: années
+  par défaut: 0 années
+
+salarié . convention collective . distribution logistique énergies . prime d'ancienneté:
+  titre: Prime mensuelle d'ancienneté
+  description: Prime calculée sur le salaire minimum conventionnel après proratisation.
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: €/mois
+  valeur: salaire minimum conventionnel * taux prime d'ancienneté
+
+salarié . convention collective . distribution logistique énergies . taux prime d'ancienneté:
+  titre: Taux de prime d'ancienneté
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: '%'
+  variations:
+    - si: ancienneté >= 15 années
+      alors: 15%
+    - si: ancienneté >= 12 années
+      alors: 12%
+    - si: ancienneté >= 9 années
+      alors: 9%
+    - si: ancienneté >= 6 années
+      alors: 6%
+    - si: ancienneté >= 3 années
+      alors: 3%
+    - sinon: 0%
