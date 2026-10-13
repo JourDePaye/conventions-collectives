@@ -1,0 +1,90 @@
+# Convention collective nationale des activités de marchés financiers (IDCC 2931).
+# Version 2026.1 : accord du 9 décembre 2025 relatif à la revalorisation
+# des salaires minima hiérarchiques 2026.
+# L'accord est modélisé pour les employeurs signataires ou adhérents ;
+# l'accord salarial n'est pas modélisé comme étendu.
+validFrom: 2026-01-01
+sources:
+  - "Accord du 9 décembre 2025 relatif à la revalorisation des salaires minima hiérarchiques 2026, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053715956"
+  - "Convention collective nationale des activités de marchés financiers du 11 juin 2010, IDCC 2931, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000025496787"
+---
+salarié . convention collective . activités de marchés financiers:
+  titre: Activités de marchés financiers (IDCC 2931)
+  valeur: convention collective = 'activités de marchés financiers'
+
+salarié . convention collective . activités de marchés financiers . catégorie:
+  titre: Catégorie de classification
+  description: Catégorie I.A à III.C prévue par le barème des salaires minima hiérarchiques de l'accord du 9 décembre 2025.
+  applicable si: convention collective = 'activités de marchés financiers'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . activités de marchés financiers . champ juridique:
+  titre: Champ juridique de l'accord salarial
+  description: L'accord du 9 décembre 2025 est modélisé pour les employeurs signataires ou adhérents. Aucun arrêté d'extension de cet accord salarial n'est modélisé.
+  applicable si: convention collective = 'activités de marchés financiers'
+  une possibilité:
+    - "'employeur signataire ou adhérent'"
+    - "'autre employeur'"
+  par défaut: "'employeur signataire ou adhérent'"
+
+salarié . convention collective . activités de marchés financiers . date de calcul:
+  titre: Date de vérification du minimum
+  applicable si: convention collective = 'activités de marchés financiers'
+  par défaut: 01/01/1900
+
+salarié . convention collective . activités de marchés financiers . accord applicable:
+  applicable si: convention collective = 'activités de marchés financiers'
+  toutes ces conditions:
+    - champ juridique = 'employeur signataire ou adhérent'
+    - date de calcul >= 01/01/2026
+
+salarié . convention collective . activités de marchés financiers . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Barème mensuel des salaires minima hiérarchiques de l'accord du 9 décembre 2025, pour un temps plein.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'activités de marchés financiers'
+      - accord applicable = oui
+  unité: €/mois
+  variations:
+    - si: catégorie = 'I.A'
+      alors: 1854 €/mois
+    - si: catégorie = 'I.B'
+      alors: 2228 €/mois
+    - si: catégorie = 'II.A'
+      alors: 2689 €/mois
+    - si: catégorie = 'II.B'
+      alors: 2950 €/mois
+    - si: catégorie = 'III.A'
+      alors: 3071 €/mois
+    - si: catégorie = 'III.B'
+      alors: 3575 €/mois
+    - si: catégorie = 'III.C'
+      alors: 4389 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . activités de marchés financiers . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Salaire minimum mensuel de la catégorie pour un temps plein, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'activités de marchés financiers'
+      - accord applicable = oui
+      - grille > 0 €/mois
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . activités de marchés financiers . catégorie hors grille:
+  titre: Catégorie absente de la grille
+  description: La catégorie n'existe pas dans le barème des salaires minima hiérarchiques modélisé.
+  applicable si: convention collective = 'activités de marchés financiers'
+  valeur: grille = 0 €/mois
+
+salarié . convention collective . activités de marchés financiers . calcul bloqué:
+  titre: Calcul du minimum bloqué
+  applicable si: convention collective = 'activités de marchés financiers'
+  une de ces conditions:
+    - catégorie hors grille
+    - accord applicable = non

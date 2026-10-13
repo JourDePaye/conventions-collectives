@@ -111,6 +111,7 @@ const models = [
   { name: "3213-economistes-construction", value: "économistes de la construction et métreurs-vérificateurs", classification: "niveau", input: "'I'", minimums: { "2026.1": 4738.91 }, situation: { "salarié . convention collective . économistes de la construction et métreurs-vérificateurs . zone": "'national'" } },
   { name: "1480-journalistes", value: "journalistes", classification: "groupe", input: "'4'", minimums: { "2025.1": 2506.54 } },
   { name: "0275-transport-aerien-personnel-sol", value: "transport aérien personnel au sol", classification: "coefficient", input: 245, minimums: { "2025.1": 2105 }, situation: { "salarié . convention collective . transport aérien personnel au sol . date de calcul": "01/11/2025", "salarié . convention collective . transport aérien personnel au sol . champ juridique": "'employeur signataire ou adhérent'" } },
+  { name: "2931-activites-marches-financiers", value: "activités de marchés financiers", classification: "catégorie", input: "'III.B'", minimums: { "2026.1": 3575 }, situation: { "salarié . convention collective . activités de marchés financiers . date de calcul": "11/10/2026", "salarié . convention collective . activités de marchés financiers . champ juridique": "'employeur signataire ou adhérent'" } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
