@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const id = "3221-agences-presse";
 const value = "agences de presse";
 const ns = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[id]?.find((entry: { version: string }) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[id]?.find((entry: { version: string }) => entry.version === "2026.2");
 assert.ok(version, "IDCC 3221 must be exported");
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -28,7 +28,7 @@ function set(group: string, date = "11/10/2026", scope = "tous employeurs après
 }
 const minimum = () => engine.evaluate(`${ns} . salaire minimum conventionnel`).nodeValue;
 
-describe("IDCC 3221 — 2026.1 salary minima", () => {
+describe("IDCC 3221 — 2026.2 salary minima", () => {
   it("is effective on 1 July 2026 and cites the extended amendment", () => {
     assert.equal(version.validFrom, "2026-07-01");
     assert.ok(version.sources.some((source: string) => source.includes("Avenant n° 10 du 1er juin 2026")));
@@ -49,11 +49,12 @@ describe("IDCC 3221 — 2026.1 salary minima", () => {
     assert.equal(minimum(), null);
     set("1", "01/07/2026", "employeur signataire ou adhérent");
     assert.equal(minimum(), 1873.86);
-    set("1", "04/09/2026", "tous employeurs après extension");
+    set("1", "03/09/2026", "tous employeurs après extension");
     assert.equal(minimum(), null);
-    set("1", "05/09/2026", "tous employeurs après extension");
+    set("1", "04/09/2026", "tous employeurs après extension");
     assert.equal(minimum(), 1873.86);
   });
+
   it("rejects groups outside the sourced grid and unrelated agreements", () => {
     set("10");
     assert.equal(minimum(), null);
