@@ -120,6 +120,7 @@ const models = [
   { name: "1408-distribution-logistique-energies", value: "distribution logistique énergies", classification: "coefficient", input: 320, minimums: { "2025.1": 2768.68 } },
   { name: "2717-creation-evenement", value: "création événement", classification: "prestation", input: "'1 à 6 lignes — demi-journée — 1 rôle'", minimums: { "2024.1": 112.40 }, minimumRule: "salaire minimum conventionnel" },
   { name: "1880-commerce-ameublement", value: "commerce de l'ameublement", classification: "niveau", input: "'5'", minimums: { "2026.1": 1871 } },
+  { name: "2494-cooperation-maritime", value: "coopération maritime", classification: "niveau et échelon", input: "'3.2'", minimums: { "2026.1": 26273 }, minimumRule: "salaire minimum annuel conventionnel" },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;

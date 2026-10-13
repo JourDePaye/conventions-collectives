@@ -74,6 +74,7 @@ Cent seize conventions sont actuellement représentées, avec cent soixante et o
 | [Commerces et services de l’audiovisuel, de l’électronique et de l’équipement ménager](rules/1686-commerces-services-audiovisuel/README.md) | 1686 | `2026.1` : 1er mai 2026 ; `2026.2` : 1er mai 2026 | Grille de 16 positions (minima mensuels des niveaux I à IV en 3 échelons, rémunérations annuelles des 4 positions de cadres converties en minima mensuels), prévoyance globale 1,30 % du salaire brut, proratisation selon la quotité de travail ; détection des classifications hors grille |
 | [Grands magasins et magasins populaires](rules/2156-grands-magasins/README.md) | 2156 | `2026.1` : 1er juin 2024 | Grille mensuelle de 12 positions (employés en 8 échelons, agent de maîtrise, cadres) et rémunérations minimales annuelles, toutes deux proratisées selon la quotité de travail ; détection des niveaux hors grille |
 | [Commerce de l'ameublement](rules/1880-commerce-ameublement/README.md) | 1880 | `2026.1` : 1er juin 2026 (champ général) | Grille mensuelle des niveaux employés 1 à 5, proratisée selon la quotité de travail ; catégories agents de maîtrise et cadres explicitement hors périmètre |
+| [Coopération maritime](rules/2494-cooperation-maritime/README.md) | 2494 | `2026.1` : 1er juillet 2026 (accord du 31 mars 2026 étendu) | Grille annuelle des niveaux 1 à 9 et échelons A/B des cadres, proratisée selon la quotité de travail ; comparaison conservée en €/an et classifications hors grille détectées |
 
 ### INDUSTRIE, MÉTALLURGIE & CHIMIE
 
