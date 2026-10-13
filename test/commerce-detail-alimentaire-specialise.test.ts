@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "3237-commerce-detail-alimentaire-specialise";
 const value = "commerce de détail alimentaire spécialisé";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -20,14 +20,15 @@ Object.assign(rules, extension);
 const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
 
 const GRID: Record<string, number> = {
-  E1: 1838.81, E2: 1858.76, E3: 1878.72, E4: 1906.35, E5: 1935.51, E6: 1957,
-  E7: 2010.72, AM1: 2445.1, AM2: 2518.77, C1: 3052.92, C2: 3425.9,
+  E1: 1875.01, E2: 1896.66, E3: 1913.02, E4: 1940.81, E5: 1970.14, E6: 1991.76,
+  E7: 2047.34, AM1: 2488.93, AM2: 2564.58, C1: 3108.07, C2: 3487.9,
 };
 
-function setSituation(level: string | undefined, quota = "100%") {
+function setSituation(level: string | undefined, quota = "100%", months?: number) {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     ...(level === undefined ? {} : { [`${namespace} . niveau`]: `'${level}'` }),
+    ...(months === undefined ? {} : { [`${namespace} . mois dans le niveau`]: `${months} mois` }),
     "salarié . contrat . temps de travail . quotité": quota,
   });
 }
@@ -40,11 +41,11 @@ function minimum() {
 
 const outOfGrid = () => engine.evaluate(`${namespace} . niveau hors grille`).nodeValue;
 
-describe("IDCC 3237 — 2026.1 minimum salaries", () => {
-  it("is extended from 17 April 2026 and cites the official salary text", () => {
-    assert.equal(version.validFrom, "2026-04-17");
-    assert.ok(version.sources.some((source) => source.includes("Avenant n° 9 du 13 janvier 2026")));
-    assert.ok(version.sources.some((source) => source.includes("TRST2609047A")));
+describe("IDCC 3237 — 2026.2 minimum salaries", () => {
+  it("is extended from 1 October 2026 and cites the official salary text", () => {
+    assert.equal(version.validFrom, "2026-10-01");
+    assert.ok(version.sources.some((source) => source.includes("Avenant n° 10 du 16 juin 2026")));
+    assert.ok(version.sources.some((source) => source.includes("TRST2622492A")));
   });
 
   for (const [level, expected] of Object.entries(GRID)) {
@@ -57,7 +58,18 @@ describe("IDCC 3237 — 2026.1 minimum salaries", () => {
 
   it("prorates the minimum once for part-time work", () => {
     setSituation("E4", "50%");
-    assert.equal(minimum(), 953.18);
+    assert.equal(minimum(), 970.41);
+  });
+
+  it("gives the annual guaranteed minimum for 218-day forfait jours", () => {
+    setSituation("C1");
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum annuel forfait jours`).nodeValue, 38722);
+    setSituation("C1", "100%", 25);
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum annuel forfait jours`).nodeValue, 40760);
+    setSituation("C2");
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum annuel forfait jours`).nodeValue, 45855);
+    setSituation("C2", "100%", 25);
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum annuel forfait jours`).nodeValue, 50950);
   });
 
   it("rejects levels outside the monthly grid", () => {

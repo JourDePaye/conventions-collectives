@@ -1,0 +1,100 @@
+# Convention collective nationale des métiers du commerce de détail alimentaire spécialisé du 12 janvier 2021
+# (IDCC 3237, brochure 3387).
+#
+# Version 2026.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+validFrom: 2026-10-01
+sources:
+  - "Avenant n° 10 du 16 juin 2026 relatif aux salaires minima dans la branche des métiers du commerce de détail alimentaire spécialisé (IDCC 3237), articles 1 et 2 : nouvelle grille mensuelle et minima annuels garantis des cadres au forfait jours pour 218 jours. Texte publié par la branche et repris dans les données conventionnelles officielles."
+  - "Arrêté du 7 septembre 2026 portant extension d'un avenant à la convention collective nationale des métiers du commerce de détail alimentaire spécialisé (n° 3237), publié au Journal officiel du 19 septembre 2026, JORF n° 0219, texte n° 55, NOR TRST2622492A : extension à tous les employeurs et salariés du champ de la convention."
+  - "Convention collective nationale des métiers du commerce de détail alimentaire spécialisé du 12 janvier 2021, IDCC 3237, brochure 3387, texte de base KALI KALITEXT000043562373, conteneur KALICONT000044617302."
+---
+salarié . convention collective . commerce de détail alimentaire spécialisé:
+  titre: Commerce de détail alimentaire spécialisé (IDCC 3237)
+  valeur: convention collective = 'commerce de détail alimentaire spécialisé'
+
+salarié . convention collective . commerce de détail alimentaire spécialisé . niveau:
+  titre: Niveau de classification
+  description: Niveaux E1 à E7, AM1, AM2, C1 et C2 de la grille des salaires minima conventionnels.
+  applicable si: convention collective = 'commerce de détail alimentaire spécialisé'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commerce de détail alimentaire spécialisé . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: |
+    Salaire minimum mensuel conventionnel pour 35 heures par semaine. Il est proratisé
+    pour un temps partiel. Vaut 0 €/mois si la classification n'existe pas dans la grille
+    (voir « niveau hors grille »). Le minimum annuel des cadres au forfait jours est
+    donné par « salaire minimum annuel forfait jours ».
+  applicable si: convention collective = 'commerce de détail alimentaire spécialisé'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerce de détail alimentaire spécialisé . grille:
+  titre: Salaire minimum conventionnel à temps plein
+  description: Grille de l'avenant n° 10 du 16 juin 2026, étendu par arrêté du 7 septembre 2026.
+  applicable si: convention collective = 'commerce de détail alimentaire spécialisé'
+  unité: €/mois
+  variations:
+    - si: niveau = 'E1'
+      alors: 1875.01 €/mois
+    - si: niveau = 'E2'
+      alors: 1896.66 €/mois
+    - si: niveau = 'E3'
+      alors: 1913.02 €/mois
+    - si: niveau = 'E4'
+      alors: 1940.81 €/mois
+    - si: niveau = 'E5'
+      alors: 1970.14 €/mois
+    - si: niveau = 'E6'
+      alors: 1991.76 €/mois
+    - si: niveau = 'E7'
+      alors: 2047.34 €/mois
+    - si: niveau = 'AM1'
+      alors: 2488.93 €/mois
+    - si: niveau = 'AM2'
+      alors: 2564.58 €/mois
+    - si: niveau = 'C1'
+      alors: 3108.07 €/mois
+    - si: niveau = 'C2'
+      alors: 3487.90 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerce de détail alimentaire spécialisé . niveau hors grille:
+  titre: Classification absente de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima conventionnels.
+  applicable si: convention collective = 'commerce de détail alimentaire spécialisé'
+  valeur: grille = 0 €/mois
+
+salarié . convention collective . commerce de détail alimentaire spécialisé . mois dans le niveau:
+  titre: Ancienneté dans le niveau, en mois
+  description: Nombre de mois passés dans le niveau pour le minimum annuel des cadres au forfait jours.
+  applicable si: convention collective = 'commerce de détail alimentaire spécialisé'
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . commerce de détail alimentaire spécialisé . salaire minimum annuel forfait jours:
+  titre: Salaire minimum annuel garanti des cadres au forfait jours
+  description: |
+    Salaire annuel minimum garanti des niveaux C1 et C2 pour 218 jours de travail par an,
+    journée de solidarité incluse. Le montant des 24 premiers mois dans le niveau s'applique
+    jusqu'à 24 mois ; celui d'après 24 mois s'applique au-delà. Vaut 0 €/an pour les autres niveaux.
+  applicable si: convention collective = 'commerce de détail alimentaire spécialisé'
+  unité: €/an
+  variations:
+    - si: niveau = 'C1'
+      alors:
+        variations:
+          - si: mois dans le niveau > 24 mois
+            alors: 40760 €/an
+          - sinon: 38722 €/an
+    - si: niveau = 'C2'
+      alors:
+        variations:
+          - si: mois dans le niveau > 24 mois
+            alors: 50950 €/an
+          - sinon: 45855 €/an
+    - sinon: 0 €/an

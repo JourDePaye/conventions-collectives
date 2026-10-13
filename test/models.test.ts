@@ -67,7 +67,7 @@ const models = [
   { name: "2149-activites-dechet", value: "activités du déchet", classification: "coefficient", input: 125, minimums: { "2026.1": 2362.5, "2026.2": 2333.75 } },
   { name: "2156-grands-magasins", value: "grands magasins", classification: "niveau", input: "'IV.2'", minimums: { "2026.1": 1895 } },
   { name: "2216-commerce-detail-gros-predominance-alimentaire", value: "commerce alimentaire", classification: "niveau", input: "'4B'", minimums: { "2025.1": 2032.03, "2026.1": 2054.33, "2026.2": 2054.33 } },
-  { name: "3237-commerce-detail-alimentaire-specialise", value: "commerce de détail alimentaire spécialisé", classification: "niveau", input: "'E4'", minimums: { "2026.1": 1906.35 } },
+  { name: "3237-commerce-detail-alimentaire-specialise", value: "commerce de détail alimentaire spécialisé", classification: "niveau", input: "'E4'", minimums: { "2026.1": 1906.35, "2026.2": 1940.81 } },
   { name: "3109-industries-alimentaires-diverses", value: "industries alimentaires diverses", classification: "position", input: "'N8-E2'", minimums: { "2026.1": 4248.03 } },
   { name: "0292-plasturgie", value: "plasturgie", classification: "coefficient", input: 800, minimums: { "2026.1": 2266 } },
   { name: "0413-personnes-handicapees", value: "personnes handicapées et inadaptées", classification: "coefficient", input: 434, minimums: { "2026.1": 1810.57 } },
