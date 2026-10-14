@@ -1,0 +1,103 @@
+# Convention collective nationale du caoutchouc du 6 mars 1953 (IDCC 45, brochure
+# 3046).
+#
+# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+validFrom: 2025-05-01
+sources:
+  - >-
+    Accord du 29 janvier 2025 relatif aux salaires minima, IDCC 45, articles 1 à 5,
+    étendu par arrêté du 9 avril 2025 (JORF du 26 avril 2025) : point mensuel de 7,45 €,
+    salaire minimum hiérarchique de 2 011,50 € au coefficient 270 et taux effectifs
+    garantis des coefficients 130, 140, 150, 160, 170, 180, 190, 215, 225, 240 et 255.
+    Article 5 : entrée en vigueur le premier jour du mois suivant la publication de
+    l'arrêté d'extension pour les employeurs non adhérents aux organisations signataires.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051493574?idConteneur=KALICONT000005635597
+  - >-
+    Article 2 du même accord : interpolation des taux effectifs garantis des coefficients
+    140 à 255 entre les bornes conventionnelles ; article 4 : aucune distinction de salaire
+    selon l'effectif de l'entreprise.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051493581
+  - >-
+    Convention collective nationale du caoutchouc du 6 mars 1953, étendue par arrêté du
+    29 mai 1969 (JORF du 18 juin 1969), IDCC 45, brochure 3046. La convention de base et ses chapitres dédiés à la
+    protection sociale, à la formation professionnelle, aux primes et aux avantages ont été
+    examinés pour borner le modèle ; aucun taux ni aucune assiette générique supplémentaire
+    calculable avec les entrées de paie disponibles n'est ajouté.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635597
+---
+salarié . convention collective . caoutchouc:
+  titre: Caoutchouc (IDCC 45)
+  valeur: convention collective = 'caoutchouc'
+
+salarié . convention collective . caoutchouc . coefficient:
+  titre: Coefficient hiérarchique
+  description: |
+    Coefficient de la classification du caoutchouc couvert par la grille 2025 :
+    130, 140, 150, 160, 170, 180, 190, 215, 225, 240, 255 ou 270.
+  applicable si: convention collective = 'caoutchouc'
+  par défaut: 0
+
+salarié . convention collective . caoutchouc . point mensuel:
+  titre: Valeur du point mensuel
+  description: Valeur conventionnelle du point mensuel fixée par l'accord du 29 janvier 2025.
+  applicable si: convention collective = 'caoutchouc'
+  unité: €/point
+  valeur: 7.45 €/point
+
+salarié . convention collective . caoutchouc . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire minimum mensuel conventionnel pour la durée légale du travail, proratisé pour
+    un temps partiel. La grille comprend les taux effectifs garantis des coefficients
+    inférieurs à 270 et le salaire minimum hiérarchique du coefficient 270.
+    Vaut 0 €/mois pour un coefficient absent de la grille.
+  applicable si: convention collective = 'caoutchouc'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . caoutchouc . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'accord du 29 janvier 2025, applicable au 1er mai 2025 après son extension.
+    Les montants des coefficients 130 à 255 sont les taux effectifs garantis ; le coefficient
+    270 correspond au salaire minimum hiérarchique de 2 011,50 €.
+  unité: €/mois
+  variations:
+    - si: coefficient = 130
+      alors: 1819.67 €/mois
+    - si: coefficient = 140
+      alors: 1833.37 €/mois
+    - si: coefficient = 150
+      alors: 1847.07 €/mois
+    - si: coefficient = 160
+      alors: 1860.78 €/mois
+    - si: coefficient = 170
+      alors: 1874.48 €/mois
+    - si: coefficient = 180
+      alors: 1888.18 €/mois
+    - si: coefficient = 190
+      alors: 1901.88 €/mois
+    - si: coefficient = 215
+      alors: 1936.14 €/mois
+    - si: coefficient = 225
+      alors: 1949.84 €/mois
+    - si: coefficient = 240
+      alors: 1970.39 €/mois
+    - si: coefficient = 255
+      alors: 1990.95 €/mois
+    - si: coefficient = 270
+      alors: 2011.50 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . caoutchouc . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille des salaires minima 2025.
+  applicable si: convention collective = 'caoutchouc'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
