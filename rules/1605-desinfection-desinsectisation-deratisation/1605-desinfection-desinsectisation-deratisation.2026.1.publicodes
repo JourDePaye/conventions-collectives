@@ -1,0 +1,76 @@
+# Convention collective nationale des entreprises de désinfection, désinsectisation, dératisation (3D) du 1er septembre 1991 (IDCC 1605)
+# Version 2026.1 : accord salarial du 17 décembre 2025, étendu le 9 mars 2026.
+validFrom: 2026-03-18
+sources:
+  - >-
+    Accord du 17 décembre 2025 relatif à la revalorisation salariale pour l'année 2026,
+    niveaux 1 à 4 du groupe 1 : 1 837,13 €, 1 892,13 €, 1 947,13 € et 2 002,13 €
+    mensuels bruts pour 151,67 heures ; texte officiel Légifrance KALITEXT000054040312.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054040312?idConteneur=KALICONT000005635437
+  - >-
+    Arrêté du 9 mars 2026 portant extension de l'accord, publié au Journal officiel
+    du 18 mars 2026, JORFTEXT000053685524.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053685524
+  - >-
+    Les recherches du conteneur officiel IDCC 1605 portent aussi sur les textes dédiés
+    prévoyance/retraite, santé, formation professionnelle, AT/MP et contributions ;
+    aucune cotisation générique supplémentaire calculable avec les seules entrées
+    de ce modèle n'est ajoutée.
+---
+salarié . convention collective . désinfection désinsectisation dératisation:
+  titre: Entreprises de désinfection, désinsectisation, dératisation (3D) (IDCC 1605)
+  valeur: convention collective = 'désinfection désinsectisation dératisation'
+
+salarié . convention collective . désinfection désinsectisation dératisation . niveau:
+  titre: Niveau de classification
+  description: Niveau de la grille modélisée du groupe 1 (ouvriers et employés), de 1 à 4.
+  applicable si: convention collective = 'désinfection désinsectisation dératisation'
+  par défaut: 0
+
+salarié . convention collective . désinfection désinsectisation dératisation . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut du groupe 1 pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'désinfection désinsectisation dératisation'
+  unité: €/mois
+  produit:
+    - salaire minimum conventionnel . temps plein
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . désinfection désinsectisation dératisation . salaire minimum conventionnel . temps plein:
+  titre: Salaire minimum mensuel à temps plein
+  unité: €/mois
+  arrondi: 2 décimales
+  variations:
+    - si: niveau = 1
+      alors: 1837.13 €/mois
+    - si: niveau = 2
+      alors: 1892.13 €/mois
+    - si: niveau = 3
+      alors: 1947.13 €/mois
+    - si: niveau = 4
+      alors: 2002.13 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . désinfection désinsectisation dératisation . niveau hors grille:
+  titre: Niveau absent de la grille modélisée
+  description: La version 2026.1 couvre les niveaux 1 à 4 du groupe 1 ; les groupes 2 et 3 nécessitent une grille complémentaire.
+  applicable si: convention collective = 'désinfection désinsectisation dératisation'
+  toutes ces conditions:
+    - niveau != 1
+    - niveau != 2
+    - niveau != 3
+    - niveau != 4
+
+salarié . convention collective . désinfection désinsectisation dératisation . audit paie:
+  titre: Éléments conventionnels modélisés et non automatisés
+  description: >-
+    L'accord salarial 2026 modifie les minima mensuels et les primes d'ancienneté associées ;
+    le présent modèle ne calcule que les minima du groupe 1, niveaux 1 à 4. Les groupes 2 et 3,
+    la prime d'ancienneté, la prime panier indexée sur le plafond Urssaf, les déplacements,
+    indemnités, majorations, avantages en nature et frais restent externes. Les textes dédiés
+    de la branche relatifs aux cotisations salarié/employeur ont été recherchés pour les bases,
+    taux, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation professionnelle
+    et AT/MP : aucune règle générique calculable avec les entrées du modèle ne justifie une
+    substitution ; ces rubriques ne sont donc ni remplacées par zéro ni redéfinies.
+  applicable si: convention collective = 'désinfection désinsectisation dératisation'
+  valeur: oui
