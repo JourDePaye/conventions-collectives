@@ -31,6 +31,7 @@ const models = [
   { name: "1351-prevention-securite", value: "prévention et sécurité", classification: "coefficient", input: 120, minimums: { "2026.1": 1883.85 } },
   { name: "3242-presse-regions", value: "presse en régions", classification: "niveau", input: "'E5'", minimums: { "2023.2": 1878.55 } },
   { name: "3243-quincaillerie", value: "quincaillerie fournitures industrielles fers métaux équipement maison", classification: "niveau et échelon", input: "'VI.3'", minimums: { "2026.1": 2351, "2026.2": 2351 } },
+  { name: "3245-operateurs-voyages-guides", value: "opérateurs voyages et guides", classification: "groupe", input: "'E'", minimums: { "2025.1": 2162.07 } },
   { name: "3248-metallurgie", value: "métallurgie", classification: "niveau", input: "'C5'", minimums: { "2026.1": 2042.5, "2026.2": 2042.5 } },
   { name: "3239-particuliers-employeurs-emploi-domicile", value: "particuliers employeurs et emploi à domicile", classification: "niveau", input: "'I'", minimums: { "2026.2": 2206.32 }, minimumRule: "salaire minimum conventionnel" },
   { name: "3241-telediffusion", value: "télédiffusion", classification: "niveau", input: "'5-1'", minimums: { "2026.1": 180.16 }, minimumRule: "salaire minimum journalier" },

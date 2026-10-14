@@ -1,0 +1,67 @@
+validFrom: 2025-01-01
+sources:
+  - >-
+    Accord du 31 janvier 2025 relatif aux salaires minima hiérarchiques,
+    applicables au 1er janvier 2025, Légifrance, IDCC 3245,
+    KALITEXT000051447495.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051447495
+  - >-
+    Bulletin officiel des conventions collectives 2025/08, texte TRA 155,
+    publication officielle de l'accord et de sa grille salariale.
+---
+salarié . convention collective . opérateurs voyages et guides:
+  titre: Opérateurs de voyages et des guides (IDCC 3245)
+  valeur: convention collective = 'opérateurs voyages et guides'
+
+salarié . convention collective . opérateurs voyages et guides . groupe:
+  titre: Groupe de classification
+  description: Groupe de l'emploi selon la grille de l'accord du 31 janvier 2025.
+  applicable si: convention collective = 'opérateurs voyages et guides'
+  par défaut: "'A'"
+
+salarié . convention collective . opérateurs voyages et guides . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'opérateurs voyages et guides'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . opérateurs voyages et guides . grille mensuelle:
+  titre: Minimum mensuel brut à temps plein
+  description: Grille de l'accord du 31 janvier 2025, applicable au 1er février 2025.
+  applicable si: convention collective = 'opérateurs voyages et guides'
+  unité: €/mois
+  variations:
+    - si: groupe = 'A'
+      alors: 1819.82 €/mois
+    - si: groupe = 'B'
+      alors: 1870.77 €/mois
+    - si: groupe = 'C'
+      alors: 1936.25 €/mois
+    - si: groupe = 'D'
+      alors: 1998.21 €/mois
+    - si: groupe = 'E'
+      alors: 2162.07 €/mois
+    - si: groupe = 'F'
+      alors: 2520.97 €/mois
+    - si: groupe = 'G'
+      alors: 3075.50 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . opérateurs voyages et guides . groupe hors grille:
+  titre: Groupe absent de la grille
+  applicable si: convention collective = 'opérateurs voyages et guides'
+  valeur:
+    toutes ces conditions:
+      - grille mensuelle = 0 €/mois
+
+salarié . convention collective . opérateurs voyages et guides . audit paie:
+  titre: Éléments conventionnels modélisés et non automatisés
+  description: >-
+    La version modélise les minima mensuels de l'accord du 31 janvier 2025.
+    Les primes, majorations, congés, cotisations, santé, prévoyance, formation
+    et AT/MP restent à déterminer par l'application selon les données disponibles.
+  applicable si: convention collective = 'opérateurs voyages et guides'
+  valeur: oui
