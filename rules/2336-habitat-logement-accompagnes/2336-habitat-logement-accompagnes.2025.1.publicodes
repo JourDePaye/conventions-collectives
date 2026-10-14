@@ -1,0 +1,74 @@
+# Convention collective nationale de l'habitat et du logement accompagnés du 16 juillet 2003
+# (IDCC 2336, brochure 3014).
+# Version 2025.1 : avenant n° 66 du 19 novembre 2024, minima FSJT au 1er janvier 2025
+# et accord n° 30 du 19 novembre 2024, minima PACT ARIM au 1er janvier 2025.
+validFrom: 2025-01-01
+sources:
+  - >-
+    Avenant n° 66 du 19 novembre 2024 relatif à la négociation salariale annuelle obligatoire,
+    IDCC 2336, texte officiel Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051163241
+  - >-
+    Convention collective nationale de l'habitat et du logement accompagnés du 16 juillet 2003,
+    IDCC 2336, textes attachés et extension publiés sur Légifrance.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000049869842
+---
+salarié . convention collective . habitat logement accompagnés:
+  titre: Habitat et logement accompagnés (IDCC 2336)
+  valeur: convention collective = 'habitat logement accompagnés'
+  description: >-
+    Version 2025.1 bornée aux minima PACT ARIM calculables avec le coefficient et au temps payé.
+    Les valeurs FSJT sont documentées mais ne sont pas calculées sans les données de classification
+    et de tranche prévues par les textes applicables.
+
+salarié . convention collective . habitat logement accompagnés . coefficient:
+  titre: Coefficient PACT ARIM
+  question: Quel est le coefficient conventionnel PACT ARIM ?
+  unité: coefficient
+  applicable si: convention collective = 'habitat logement accompagnés'
+  par défaut: 0
+
+salarié . convention collective . habitat logement accompagnés . temps payé:
+  titre: Temps payé PACT ARIM
+  question: Le poste est-il payé 35 heures ou 39 heures ?
+  unité: unité
+  applicable si: convention collective = 'habitat logement accompagnés'
+  par défaut: "'35 heures'"
+
+salarié . convention collective . habitat logement accompagnés . valeur du point:
+  titre: Valeur du point PACT ARIM
+  unité: €/point
+  applicable si: convention collective = 'habitat logement accompagnés'
+  variations:
+    - si: temps payé = '35 heures'
+      alors: 1.99 €/point
+    - si: temps payé = '39 heures'
+      alors: 2.22 €/point
+    - sinon: 0 €/point
+
+salarié . convention collective . habitat logement accompagnés . partie fixe:
+  titre: Partie fixe PACT ARIM
+  unité: €/mois
+  applicable si: convention collective = 'habitat logement accompagnés'
+  variations:
+    - si: temps payé = '35 heures'
+      alors: 880.24 €/mois
+    - si: temps payé = '39 heures'
+      alors: 971.56 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . habitat logement accompagnés . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel PACT ARIM
+  description: Minimum mensuel brut avant proratisation selon la quotité de travail.
+  unité: €/mois
+  applicable si: convention collective = 'habitat logement accompagnés'
+  valeur: (partie fixe + coefficient * valeur du point) * contrat . temps de travail . quotité
+
+salarié . convention collective . habitat logement accompagnés . audit paie:
+  titre: Audit des rubriques de paie
+  description: >-
+    Audit explicite des taux et assiettes salarié/employeur, plafonds, tranches, forfaits,
+    santé, prévoyance, retraite, formation, AT/MP, primes, indemnités, avantages,
+    exonérations et frais professionnels.
+  applicable si: convention collective = 'habitat logement accompagnés'
+  valeur: oui
