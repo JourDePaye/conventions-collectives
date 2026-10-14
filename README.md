@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent quatre-vingts conventions** sont actuellement représentées, avec **deux cent quarante-six versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent quatre-vingt-une conventions** sont actuellement représentées, avec **deux cent quarante-sept versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent quatre-vingts conventions sont actuellement représentées, avec deux cent quarante-six versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent quatre-vingt-une conventions sont actuellement représentées, avec deux cent quarante-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -94,6 +94,7 @@ Cent quatre-vingts conventions sont actuellement représentées, avec deux cent 
 | [Commerce de l'ameublement](rules/1880-commerce-ameublement/README.md) | 1880 | `2026.1` : 1er juin 2026 (champ général) | Grille mensuelle des niveaux employés 1 à 5, proratisée selon la quotité de travail ; catégories agents de maîtrise et cadres explicitement hors périmètre |
 | [Commerce à distance](rules/2198-commerce-distance/README.md) | 2198 | `2026.1` : 1er avril 2026 (accord étendu) | 23 minima mensuels des niveaux A à G (débutant, maîtrisant, référent/polyvalent) et H (maîtrisant, référent), proratisés selon la quotité de travail ; détection des niveaux hors grille ; audit des rubriques de paie sans correction conventionnelle |
 | [Coopération maritime](rules/2494-cooperation-maritime/README.md) | 2494 | `2026.1` : 1er juillet 2026 (accord du 31 mars 2026 étendu) | Grille annuelle des niveaux 1 à 9 et échelons A/B des cadres, proratisée selon la quotité de travail ; comparaison conservée en €/an et classifications hors grille détectées |
+| [Géomètres-experts, géomètres-topographes, photogrammètres et experts fonciers](rules/2543-geometres-experts/README.md) | 2543 | `2024.1` : 1er avril 2024 (accord étendu) | Grille mensuelle des classifications I.1 à V.1, proratisée selon la quotité de travail ; classifications hors grille bloquées ; audit explicite des cotisations salarié/employeur, assiettes, plafonds, tranches, forfaits, santé, prévoyance, formation, AT/MP, retraite, primes, avantages et frais |
 | [Coopératives agricoles de céréales, de meunerie, d'approvisionnement, d'alimentation du bétail et d'oléagineux](rules/1077-cooperatives-agricoles-cereales/README.md) | 1077 | `2025.1` : 1er mars 2025 | Grille mensuelle des niveaux 1 à 6, proratisée selon la quotité de travail ; détection des niveaux hors grille ; audit explicite des cotisations salarié/employeur, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes et avantages |
 | [Commerce des articles de sports et équipements de loisirs](rules/1557-commerce-articles-sports-loisirs/README.md) | 1557 | `2025.1` : 1er mars 2025 (accords étendus) | Grilles mensuelles des coefficients 130 à 550 et des classifications O1 à O4, proratisées selon la quotité de travail ; classifications hors grille détectées |
 
