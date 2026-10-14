@@ -1,0 +1,76 @@
+# Convention collective nationale des personnels des ports de plaisance du 8 mars 2012 (IDCC 1182).
+# Version 2025.1 : accord du 22 mai 2025 relatif aux mesures salariales,
+# valeur du point de 11,88 € à compter du 1er mai 2025.
+validFrom: 2025-05-01
+sources:
+  - >-
+    Accord du 22 mai 2025 relatif aux mesures salariales, IDCC 1182,
+    Légifrance, KALITEXT000052447538.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000052447538
+  - >-
+    Avenant n° 74 du 9 décembre 2009 relatif aux classifications et à la grille
+    indiciaire, étendu par arrêté du 5 juillet 2012, KALIARTI000025115221.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000025115221
+  - >-
+    Accord du 22 mai 2025 relatif à la santé-prévoyance, KALITEXT000052447521.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000052447521
+---
+salarié . convention collective . ports de plaisance:
+  titre: Personnels des ports de plaisance (IDCC 1182)
+  valeur: convention collective = 'ports de plaisance'
+
+salarié . convention collective . ports de plaisance . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient des niveaux 4 A à 8 E de la grille indiciaire étendue.
+  applicable si: convention collective = 'ports de plaisance'
+  par défaut: 225
+
+salarié . convention collective . ports de plaisance . valeur du point:
+  titre: Valeur conventionnelle du point
+  description: Valeur du point d'indice fixée à 11,88 € à compter du 1er mai 2025.
+  applicable si: convention collective = 'ports de plaisance'
+  unité: €/point
+  valeur: 11.88 €/point
+
+salarié . convention collective . ports de plaisance . grille mensuelle:
+  titre: Salaire minimum mensuel conventionnel à temps plein
+  description: Minimum calculé par coefficient multiplié par la valeur conventionnelle du point.
+  applicable si: convention collective = 'ports de plaisance'
+  unité: €/mois
+  valeur: coefficient * valeur du point
+
+salarié . convention collective . ports de plaisance . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'ports de plaisance'
+  unité: €/mois
+  valeur: grille mensuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . ports de plaisance . coefficient hors grille:
+  titre: Coefficient absent de la grille modélisée
+  description: Seuls les coefficients explicitement publiés par la classification sont calculés.
+  applicable si: convention collective = 'ports de plaisance'
+  une de ces conditions:
+    - coefficient < 225
+    - coefficient > 605
+
+salarié . convention collective . ports de plaisance . audit paie:
+  titre: Audit des rubriques de paie
+  description: Les effets conventionnels de cotisations, bases, plafonds, tranches, forfaits, santé, prévoyance, formation, AT/MP, primes et avantages ont été audités ; les cotisations santé/prévoyance sont exposées comme répartitions sans taux monétaires, car l'accord renvoie au contrat collectif.
+  applicable si: convention collective = 'ports de plaisance'
+  valeur: non
+
+salarié . convention collective . ports de plaisance . cotisation prévoyance part patronale:
+  titre: Part patronale minimale de la prévoyance
+  description: L'accord santé-prévoyance fixe une répartition de 60 % employeur et 40 % salarié pour les non-cadres, sur les cotisations obligatoires de prévoyance ; il prévoit une participation cadre distincte, sans fixer ici un taux total générique.
+  applicable si: convention collective = 'ports de plaisance'
+  unité: '%'
+  valeur: 60%
+
+salarié . convention collective . ports de plaisance . cotisation prévoyance part salariale:
+  titre: Part salariale minimale de la prévoyance
+  applicable si: convention collective = 'ports de plaisance'
+  unité: '%'
+  valeur: 40%
+
+
