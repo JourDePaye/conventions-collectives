@@ -1,0 +1,167 @@
+# Convention collective nationale de la répartition pharmaceutique (IDCC 1621).
+# Version 2025.2 : grille des rémunérations mensuelles brutes minimales garanties.
+validFrom: 2025-07-01
+sources:
+  - >-
+    Accord du 22 avril 2025 relatif aux salaires pour l'année 2025, annexe
+    (grilles au 1er janvier et au 1er juillet 2025), publié au BOCC 2025-21
+    sous le numéro NOR ASET2550539M ; texte officiel Légifrance KALITEXT000051947486.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051947486
+  - >-
+    Convention collective nationale de la répartition pharmaceutique du 7 janvier 1992,
+    brochure 3262, IDCC 1621 ; le présent modèle couvre les rémunérations mensuelles
+    brutes minimales garanties pour 151,67 heures.
+---
+salarié . convention collective . répartition pharmaceutique:
+  titre: Répartition pharmaceutique (IDCC 1621)
+  valeur: convention collective = 'répartition pharmaceutique'
+
+salarié . convention collective . répartition pharmaceutique . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient figurant dans la grille conventionnelle des rémunérations minimales garanties.
+  applicable si: convention collective = 'répartition pharmaceutique'
+  par défaut: 0
+
+salarié . convention collective . répartition pharmaceutique . salaire minimum conventionnel:
+  titre: Rémunération mensuelle brute minimale garantie
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'répartition pharmaceutique'
+  unité: €/mois
+  produit:
+    - salaire minimum conventionnel . temps plein
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . répartition pharmaceutique . salaire minimum conventionnel . temps plein:
+  titre: Rémunération mensuelle brute minimale garantie à temps plein
+  unité: €/mois
+  arrondi: 2 décimales
+  variations:
+    - si: coefficient = 135
+      alors: 1871.34 €/mois
+    - si: coefficient = 140
+      alors: 1899.17 €/mois
+    - si: coefficient = 145
+      alors: 1921.47 €/mois
+    - si: coefficient = 150
+      alors: 1938.16 €/mois
+    - si: coefficient = 155
+      alors: 1960.45 €/mois
+    - si: coefficient = 160
+      alors: 1993.86 €/mois
+    - si: coefficient = 165
+      alors: 2016.14 €/mois
+    - si: coefficient = 170
+      alors: 2032.85 €/mois
+    - si: coefficient = 175
+      alors: 2055.14 €/mois
+    - si: coefficient = 180
+      alors: 2077.40 €/mois
+    - si: coefficient = 185
+      alors: 2105.24 €/mois
+    - si: coefficient = 190
+      alors: 2121.95 €/mois
+    - si: coefficient = 195
+      alors: 2149.81 €/mois
+    - si: coefficient = 200
+      alors: 2177.65 €/mois
+    - si: coefficient = 205
+      alors: 2211.08 €/mois
+    - si: coefficient = 210
+      alors: 2244.48 €/mois
+    - si: coefficient = 215
+      alors: 2277.90 €/mois
+    - si: coefficient = 220
+      alors: 2311.32 €/mois
+    - si: coefficient = 225
+      alors: 2344.75 €/mois
+    - si: coefficient = 230
+      alors: 2378.16 €/mois
+    - si: coefficient = 235
+      alors: 2411.57 €/mois
+    - si: coefficient = 240
+      alors: 2450.55 €/mois
+    - si: coefficient = 250
+      alors: 2534.10 €/mois
+    - si: coefficient = 260
+      alors: 2578.65 €/mois
+    - si: coefficient = 270
+      alors: 2662.19 €/mois
+    - si: coefficient = 280
+      alors: 2745.74 €/mois
+    - si: coefficient = 290
+      alors: 2829.27 €/mois
+    - si: coefficient = 300
+      alors: 2872.82 €/mois
+    - si: coefficient = 330
+      alors: 3114.53 €/mois
+    - si: coefficient = 360
+      alors: 3283.81 €/mois
+    - si: coefficient = 400
+      alors: 3648.65 €/mois
+    - si: coefficient = 450
+      alors: 4062.40 €/mois
+    - si: coefficient = 500
+      alors: 4494.92 €/mois
+    - si: coefficient = 550
+      alors: 4927.50 €/mois
+    - si: coefficient = 600
+      alors: 5360.05 €/mois
+    - si: coefficient = 700
+      alors: 6253.39 €/mois
+    - si: coefficient = 800
+      alors: 7090.27 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . répartition pharmaceutique . coefficient hors grille:
+  titre: Coefficient absent de la grille modélisée
+  description: Les coefficients non listés dans l'annexe salariale ne sont pas extrapolés.
+  applicable si: convention collective = 'répartition pharmaceutique'
+  toutes ces conditions:
+    - coefficient != 135
+    - coefficient != 140
+    - coefficient != 145
+    - coefficient != 150
+    - coefficient != 155
+    - coefficient != 160
+    - coefficient != 165
+    - coefficient != 170
+    - coefficient != 175
+    - coefficient != 180
+    - coefficient != 185
+    - coefficient != 190
+    - coefficient != 195
+    - coefficient != 200
+    - coefficient != 205
+    - coefficient != 210
+    - coefficient != 215
+    - coefficient != 220
+    - coefficient != 225
+    - coefficient != 230
+    - coefficient != 235
+    - coefficient != 240
+    - coefficient != 250
+    - coefficient != 260
+    - coefficient != 270
+    - coefficient != 280
+    - coefficient != 290
+    - coefficient != 300
+    - coefficient != 330
+    - coefficient != 360
+    - coefficient != 400
+    - coefficient != 450
+    - coefficient != 500
+    - coefficient != 550
+    - coefficient != 600
+    - coefficient != 700
+    - coefficient != 800
+
+salarié . convention collective . répartition pharmaceutique . audit paie:
+  titre: Éléments conventionnels modélisés et non automatisés
+  description: >-
+    Le modèle couvre uniquement les rémunérations mensuelles minimales garanties.
+    Les primes, majorations, frais, intéressement, santé, prévoyance, formation,
+    AT/MP et les éléments individuels de rémunération exigent des données de paie
+    ou de contrat non représentées ici ; leur absence ne supprime pas l'obligation
+    conventionnelle.
+  applicable si: convention collective = 'répartition pharmaceutique'
+  valeur: oui
