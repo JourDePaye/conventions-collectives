@@ -161,6 +161,7 @@ const models = [
   { name: "1499-miroiterie", value: "miroiterie transformation négoce verre", classification: "coefficient", input: 300, minimums: { "2025.1": 2157.51 } },
   { name: "1589-industries-recuperation", value: "industries récupération", classification: "niveau", input: 10, minimums: { "2026.1": 2280 } },
   { name: "1790-espaces-loisirs", value: "espaces loisirs", classification: "niveau", input: "'IV'", minimums: { "2026.1": 2441.1 }, situation: { "salarié . convention collective . espaces loisirs . coefficient": 280 } },
+  { name: "2150-personnels-hlm", value: "personnels hlm", classification: "coefficient", input: "'G7'", minimums: { "2026.1": 46776.54 }, minimumRule: "salaire minimum annuel conventionnel" },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;

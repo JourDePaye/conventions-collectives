@@ -1,0 +1,96 @@
+# Convention collective nationale des personnels des sociétés anonymes et fondations d'HLM du 27 avril 2000 (IDCC 2150).
+# Version 2026.1 : avenant n° 15 du 7 janvier 2026, étendu par arrêté du 2 avril 2026.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Avenant n° 15 du 7 janvier 2026 relatif au barème de rémunérations minimales de l'IDCC 2150,
+    minima annuels bruts par cotation/coefficient et prime de vacances portée à 900 € brut,
+    applicables au 1er janvier 2026. KALICONT000005635331.
+  - >-
+    Arrêté du 2 avril 2026 portant extension de l'avenant n° 15, publié au Journal officiel
+    du 17 avril 2026, JORFTEXT000053907654.
+  - >-
+    Fédération des entreprises sociales pour l'habitat, page officielle « Convention collective
+    et avenants », entrée du 7 janvier 2026 relative à l'avenant n° 15.
+---
+salarié . convention collective . personnels hlm:
+  titre: Personnels des sociétés anonymes et fondations d'HLM (IDCC 2150)
+  valeur: convention collective = 'personnels hlm'
+
+salarié . convention collective . personnels hlm . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient administratif, entretien ou maintenance de l'avenant n° 15.
+  applicable si: convention collective = 'personnels hlm'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . personnels hlm . salaire minimum annuel conventionnel:
+  titre: Salaire minimum annuel conventionnel
+  description: Minimum annuel brut à temps plein, proratisé selon la quotité de travail. Les montants restent exprimés en €/an.
+  applicable si: convention collective = 'personnels hlm'
+  unité: €/an
+  produit:
+    - grille annuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . personnels hlm . grille annuelle:
+  titre: Grille annuelle à temps plein
+  description: Minima annuels bruts de l'avenant n° 15 du 7 janvier 2026.
+  applicable si: convention collective = 'personnels hlm'
+  unité: €/an
+  variations:
+    - si: coefficient = 'G1'
+      alors: 24599.54 €/an
+    - si: coefficient = 'EE'
+      alors: 24599.54 €/an
+    - si: coefficient = 'OE'
+      alors: 24599.54 €/an
+    - si: coefficient = 'EQ'
+      alors: 24599.54 €/an
+    - si: coefficient = 'OQ1'
+      alors: 24599.54 €/an
+    - si: coefficient = 'G2'
+      alors: 25586.99 €/an
+    - si: coefficient = 'GQ'
+      alors: 25586.99 €/an
+    - si: coefficient = 'AQ'
+      alors: 25586.99 €/an
+    - si: coefficient = 'OQ2'
+      alors: 25586.99 €/an
+    - si: coefficient = 'G3'
+      alors: 27244.72 €/an
+    - si: coefficient = 'GHQ'
+      alors: 27244.72 €/an
+    - si: coefficient = 'OHQ'
+      alors: 27244.72 €/an
+    - si: coefficient = 'G4'
+      alors: 30195.27 €/an
+    - si: coefficient = 'GS'
+      alors: 30195.27 €/an
+    - si: coefficient = 'CE'
+      alors: 30195.27 €/an
+    - si: coefficient = 'G5'
+      alors: 38133.95 €/an
+    - si: coefficient = 'G6'
+      alors: 40318.01 €/an
+    - si: coefficient = 'G7'
+      alors: 46776.54 €/an
+    - si: coefficient = 'G8'
+      alors: 53305.70 €/an
+    - si: coefficient = 'G9'
+      alors: 65261.78 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . personnels hlm . prime de vacances annuelle:
+  titre: Prime de vacances annuelle
+  description: Montant brut annuel de la prime de vacances prévu par l'avenant n° 15, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'personnels hlm'
+  unité: €/an
+  produit:
+    - 900 €/an
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . personnels hlm . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient ne correspond à aucune ligne de l'avenant n° 15.
+  applicable si: convention collective = 'personnels hlm'
+  valeur: grille annuelle = 0 €/an
