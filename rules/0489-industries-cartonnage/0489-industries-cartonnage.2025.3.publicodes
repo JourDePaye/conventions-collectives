@@ -1,0 +1,105 @@
+# Convention collective nationale des industries du cartonnage du 17 février 2011 (IDCC 489, brochure 3135).
+# Version 2025.1 : avenant n° 166 du 12 mars 2025 relatif aux salaires minima au 1er mai 2025.
+validFrom: 2025-05-01
+sources:
+  - >-
+    Avenant n° 166 du 12 mars 2025 relatif aux salaires minima au 1er mai 2025,
+    Bulletin officiel des conventions collectives 2025-16 TRA 14 à 16, NOR ASET2550438M,
+    ministère du Travail, IDCC 489.
+  - >-
+    Le texte fixe les minima des ouvriers, employés et agents de maîtrise sur 151,67 heures,
+    ainsi que les garanties annuelles des cadres ; il demande l'extension mais aucun arrêté
+    d'extension n'a été retenu dans cette version, qui reste bornée au texte signataire.
+---
+salarié . convention collective . industries du cartonnage:
+  titre: Industries du cartonnage (IDCC 489)
+  valeur: convention collective = 'industries du cartonnage'
+
+salarié . convention collective . industries du cartonnage . catégorie:
+  titre: Catégorie professionnelle
+  description: Ouvriers, employés et agents de maîtrise, ou cadres.
+  applicable si: convention collective = 'industries du cartonnage'
+  par défaut: "'ouvriers employés et agents de maîtrise'"
+
+salarié . convention collective . industries du cartonnage . coefficient:
+  titre: Coefficient de classification
+  applicable si: convention collective = 'industries du cartonnage'
+  par défaut: 180
+
+salarié . convention collective . industries du cartonnage . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minima mensuels des ouvriers, employés et agents de maîtrise pour 151,67 heures, proratisés selon la quotité. Les cadres sont comparés sur leur garantie annuelle.
+  applicable si: convention collective = 'industries du cartonnage'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille mensuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . industries du cartonnage . grille mensuelle:
+  titre: Minimum mensuel à temps plein
+  applicable si: convention collective = 'industries du cartonnage'
+  unité: €/mois
+  variations:
+    - si: coefficient = 180
+      alors: 1841.27 €/mois
+    - si: coefficient = 185
+      alors: 1851.89 €/mois
+    - si: coefficient = 190
+      alors: 1862.51 €/mois
+    - si: coefficient = 195
+      alors: 1876.16 €/mois
+    - si: coefficient = 200
+      alors: 1886.77 €/mois
+    - si: coefficient = 210
+      alors: 1921.66 €/mois
+    - si: coefficient = 220
+      alors: 1979.29 €/mois
+    - si: coefficient = 240
+      alors: 2105.18 €/mois
+    - si: coefficient = 260
+      alors: 2202.25 €/mois
+    - si: coefficient = 275
+      alors: 2309.93 €/mois
+    - si: coefficient = 290
+      alors: 2411.55 €/mois
+    - si: coefficient = 315
+      alors: 2582.94 €/mois
+    - si: coefficient = 350
+      alors: 2822.58 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industries du cartonnage . garantie annuelle cadre:
+  titre: Garantie annuelle minimale des cadres
+  applicable si: convention collective = 'industries du cartonnage'
+  unité: €/an
+  variations:
+    - si: coefficient = 355
+      alors: 34696 €/an
+    - si: coefficient = 410
+      alors: 39707 €/an
+    - si: coefficient = 470
+      alors: 45142 €/an
+    - si: coefficient = 510
+      alors: 48796 €/an
+    - si: coefficient = 600
+      alors: 56980 €/an
+    - si: coefficient = 700
+      alors: 66053 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . industries du cartonnage . classification hors grille:
+  titre: Classification absente de la grille modélisée
+  applicable si: convention collective = 'industries du cartonnage'
+  valeur: grille mensuelle = 0 €/mois
+
+salarié . convention collective . industries du cartonnage . audit paie:
+  titre: Audit conventionnel des rubriques de paie
+  description: >-
+    Audit explicite du texte salarial et de la convention IDCC 489 pour les cotisations salarié et employeur,
+    assiettes, plafonds, tranches, forfaits, exonérations, santé, prévoyance, retraite, formation, AT/MP,
+    primes, avantages en nature et frais. L'avenant salarial ne fixe aucun taux générique calculable pour ces
+    rubriques ; les régimes dédiés et les taux légaux dépendent de la catégorie, de l'affiliation, de l'effectif,
+    du risque et de paramètres externes. Les primes d'ancienneté, dimanche/jours fériés, treizième mois,
+    vacances et remboursements de frais sont explicitement exclus ou conditionnels dans la comparaison salariale
+    et ne sont pas calculés sans entrées dédiées. Aucun taux n'est inventé.
+  applicable si: convention collective = 'industries du cartonnage'
+  valeur: oui

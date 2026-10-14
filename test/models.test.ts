@@ -189,6 +189,7 @@ const models = [
   { name: "7024-production-agricole-cuma", value: "production agricole et cuma", classification: "coefficient", input: 200, minimums: { "2025.1": 2784.6 } },
   { name: "2543-geometres-experts", value: "géomètres-experts géomètres-topographes photogrammètres experts fonciers", classification: "classification", input: "'II.2'", minimums: { "2024.1": 1950.53 } },
   { name: "1659-rouissage-teillage-lin", value: "rouissage teillage lin", classification: "coefficient", input: 300, minimums: { "2024.1": 2558.05 } },
+  { name: "0489-industries-cartonnage", value: "industries du cartonnage", classification: "coefficient", input: 240, minimums: { "2025.3": 2105.18 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
