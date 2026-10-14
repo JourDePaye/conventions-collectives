@@ -1,0 +1,153 @@
+# Convention collective nationale de la bijouterie, joaillerie, orfèvrerie, horlogerie (BJOH), IDCC 3251.
+# Version 2025.1 : salaires minima conventionnels au 1er avril 2025.
+validFrom: 2025-04-01
+sources:
+  - >-
+    Accord du 19 mars 2025 relatif aux salaires minimaux conventionnels de la BJOH,
+    revalorisation de 1,5 % au 1er avril 2025, étendu par arrêté du 12 septembre 2025,
+    JORF du 19 septembre 2025 ; texte officiel Légifrance KALITEXT000052299815.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000052299815
+  - >-
+    Convention collective nationale de la bijouterie, joaillerie, orfèvrerie, horlogerie
+    du 3 octobre 2023, étendue par arrêté du 28 juin 2024, JORF du 12 juillet 2024,
+    IDCC 3251 ; conteneur officiel KALICONT000048984729.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000048984729
+---
+salarié . convention collective . bijouterie joaillerie orfèvrerie horlogerie:
+  titre: Bijouterie, joaillerie, orfèvrerie, horlogerie (IDCC 3251)
+  valeur: convention collective = 'bijouterie joaillerie orfèvrerie horlogerie'
+
+salarié . convention collective . bijouterie joaillerie orfèvrerie horlogerie . classification:
+  titre: Niveau et échelon de classification
+  description: >-
+    Classification BJOH sous la forme niveau.échelon : niveaux 1 à 7 et échelons 1 à 4.
+    Les catégories particulières hors de cette grille ne sont pas extrapolées.
+  applicable si: convention collective = 'bijouterie joaillerie orfèvrerie horlogerie'
+  par défaut: "'1.1'"
+
+salarié . convention collective . bijouterie joaillerie orfèvrerie horlogerie . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: >-
+    Minimum mensuel brut pour 151,67 heures au 1er avril 2025, proratisé selon la quotité
+    de travail. Les éléments exclus de la ressource minimale garantie par la convention,
+    notamment les majorations d'heures supplémentaires, de dimanche, de jours fériés et de
+    nuit, les remboursements de frais et les primes exceptionnelles, ne sont pas ajoutés.
+  applicable si: convention collective = 'bijouterie joaillerie orfèvrerie horlogerie'
+  unité: €/mois
+  produit:
+    - salaire minimum conventionnel . temps plein
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . bijouterie joaillerie orfèvrerie horlogerie . salaire minimum conventionnel . temps plein:
+  titre: Salaire minimum mensuel à temps plein
+  unité: €/mois
+  variations:
+    - si: classification = '1.1'
+      alors: 1865 €/mois
+    - si: classification = '1.2'
+      alors: 1888 €/mois
+    - si: classification = '1.3'
+      alors: 1944 €/mois
+    - si: classification = '1.4'
+      alors: 1967 €/mois
+    - si: classification = '2.1'
+      alors: 1992 €/mois
+    - si: classification = '2.2'
+      alors: 2032 €/mois
+    - si: classification = '2.3'
+      alors: 2072 €/mois
+    - si: classification = '2.4'
+      alors: 2133 €/mois
+    - si: classification = '3.1'
+      alors: 2164 €/mois
+    - si: classification = '3.2'
+      alors: 2227 €/mois
+    - si: classification = '3.3'
+      alors: 2357 €/mois
+    - si: classification = '3.4'
+      alors: 2527 €/mois
+    - si: classification = '4.1'
+      alors: 2583 €/mois
+    - si: classification = '4.2'
+      alors: 2632 €/mois
+    - si: classification = '4.3'
+      alors: 2827 €/mois
+    - si: classification = '4.4'
+      alors: 3003 €/mois
+    - si: classification = '5.1'
+      alors: 3211 €/mois
+    - si: classification = '5.2'
+      alors: 3441 €/mois
+    - si: classification = '5.3'
+      alors: 3781 €/mois
+    - si: classification = '5.4'
+      alors: 3919 €/mois
+    - si: classification = '6.1'
+      alors: 3948 €/mois
+    - si: classification = '6.2'
+      alors: 4206 €/mois
+    - si: classification = '6.3'
+      alors: 4619 €/mois
+    - si: classification = '6.4'
+      alors: 5115 €/mois
+    - si: classification = '7.1'
+      alors: 5163 €/mois
+    - si: classification = '7.2'
+      alors: 5525 €/mois
+    - si: classification = '7.3'
+      alors: 6144 €/mois
+    - si: classification = '7.4'
+      alors: 6559 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . bijouterie joaillerie orfèvrerie horlogerie . classification hors grille:
+  titre: Classification absente de la grille modélisée
+  description: La grille BJOH modélisée couvre les niveaux 1 à 7 et les échelons 1 à 4.
+  applicable si: convention collective = 'bijouterie joaillerie orfèvrerie horlogerie'
+  toutes ces conditions:
+    - classification != '1.1'
+    - classification != '1.2'
+    - classification != '1.3'
+    - classification != '1.4'
+    - classification != '2.1'
+    - classification != '2.2'
+    - classification != '2.3'
+    - classification != '2.4'
+    - classification != '3.1'
+    - classification != '3.2'
+    - classification != '3.3'
+    - classification != '3.4'
+    - classification != '4.1'
+    - classification != '4.2'
+    - classification != '4.3'
+    - classification != '4.4'
+    - classification != '5.1'
+    - classification != '5.2'
+    - classification != '5.3'
+    - classification != '5.4'
+    - classification != '6.1'
+    - classification != '6.2'
+    - classification != '6.3'
+    - classification != '6.4'
+    - classification != '7.1'
+    - classification != '7.2'
+    - classification != '7.3'
+    - classification != '7.4'
+
+
+salarié . convention collective . bijouterie joaillerie orfèvrerie horlogerie . audit paie:
+  titre: Audit conventionnel des rubriques de paie
+  description: >-
+    Audit réalisé sur la convention BJOH, son accord salaires du 19 mars 2025 et son
+    extension : aucune évolution chiffrée de cotisation salariale ou patronale, d'assiette,
+    de plafond, de tranche ou de forfait n'est ajoutée au présent modèle. Aucun accord
+    BJOH dédié de frais de santé, prévoyance ou formation avec un taux exploitable n'a été
+    identifié dans les textes officiels consultés ; les régimes légalement applicables et
+    les contrats d'entreprise restent donc gérés par modele-social ou par des entrées
+    externes. La cotisation AT/MP dépend du taux notifié à l'employeur et n'est pas une
+    règle de branche calculable ici. L'accord salarial ne crée pas de prime, indemnité,
+    avantage en nature ou remboursement de frais chiffré ; les majorations de nuit,
+    dimanche, jours fériés et heures supplémentaires sont exclues du minimum garanti.
+    Cette omission documentée ne vaut pas renonciation aux obligations conventionnelles.
+  applicable si: convention collective = 'bijouterie joaillerie orfèvrerie horlogerie'
+  valeur: oui
