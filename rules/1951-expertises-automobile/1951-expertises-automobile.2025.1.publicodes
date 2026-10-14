@@ -1,0 +1,99 @@
+# Convention collective nationale des cabinets ou entreprises d'expertises en automobile du 20 novembre 1996 (IDCC 1951, brochure 3295).
+#
+# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+
+validFrom: 2025-01-01
+sources:
+  - |
+    Avenant n° 92 du 19 juin 2025 relatif à la grille des salaires, applicable au 1er janvier 2025,
+    rendu obligatoire par arrêté du 4 septembre 2025 publié au Journal officiel du 10 septembre 2025
+    (NOR ASET2550706M). Texte officiel : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051842821
+  - |
+    Convention collective nationale des cabinets ou entreprises d'expertises en automobile du
+    20 novembre 1996, IDCC 1951, étendue par arrêté du 8 avril 1998 ; fiche officielle :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005636009
+  - |
+    Arrêté du 4 septembre 2025 portant extension de l'avenant n° 92, publié au Journal officiel
+    du 10 septembre 2025 (NOR ASET2523803A) : https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052221215
+---
+salarié . convention collective . expertises automobile:
+  titre: Cabinets ou entreprises d'expertises en automobile (IDCC 1951)
+  valeur: convention collective = 'expertises automobile'
+
+salarié . convention collective . expertises automobile . niveau:
+  titre: Niveau de classification
+  description: Niveau 1 à 10 de la grille des revenus annuels bruts minima 2025.
+  applicable si: convention collective = 'expertises automobile'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . expertises automobile . salaire minimum annuel conventionnel:
+  titre: Revenu annuel brut minimum conventionnel
+  description: |
+    Revenu annuel brut minimum à temps plein, proratisé selon la quotité de travail. La comparaison
+    reste annuelle, conformément à l'avenant n° 92 ; les éléments de rémunération inclus dans cette
+    comparaison ne sont pas automatiquement reconstitués.
+  applicable si: convention collective = 'expertises automobile'
+  unité: €/an
+  arrondi: 2 décimales
+  valeur: grille annuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . expertises automobile . salaire minimum mensuel indicatif:
+  titre: Douzième indicatif du revenu annuel brut minimum
+  description: |
+    Douzième informatif du revenu annuel brut minimum, proratisé selon la quotité de travail. Ce
+    montant ne remplace pas la comparaison annuelle et ne modélise pas les éléments inclus dans la
+    rémunération annuelle conventionnelle.
+  applicable si: convention collective = 'expertises automobile'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille annuelle / 12 * contrat . temps de travail . quotité
+
+salarié . convention collective . expertises automobile . grille annuelle:
+  titre: Revenus annuels bruts minima conventionnels 2025
+  description: Grille de l'avenant n° 92, applicable au 1er janvier 2025.
+  applicable si: convention collective = 'expertises automobile'
+  variations:
+    - si: niveau = '1'
+      alors: 22111
+    - si: niveau = '2'
+      alors: 23635
+    - si: niveau = '3'
+      alors: 27153
+    - si: niveau = '4'
+      alors: 31917
+    - si: niveau = '5'
+      alors: 34776
+    - si: niveau = '6'
+      alors: 38323
+    - si: niveau = '7'
+      alors: 46228
+    - si: niveau = '8'
+      alors: 46432
+    - si: niveau = '9'
+      alors: 48553
+    - si: niveau = '10'
+      alors: 52071
+    - sinon: 0
+
+salarié . convention collective . expertises automobile . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des revenus annuels minima 2025.
+  applicable si: convention collective = 'expertises automobile'
+  toutes ces conditions:
+    - niveau != '1'
+    - niveau != '2'
+    - niveau != '3'
+    - niveau != '4'
+    - niveau != '5'
+    - niveau != '6'
+    - niveau != '7'
+    - niveau != '8'
+    - niveau != '9'
+    - niveau != '10'
+
+salarié . convention collective . expertises automobile . audit paie:
+  titre: Audit des rubriques de paie
+  description: Aucun taux ou base conventionnelle générique supplémentaire n'est calculé par cette version.
+  applicable si: convention collective = 'expertises automobile'
+  valeur: non
