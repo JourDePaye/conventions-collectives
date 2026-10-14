@@ -190,6 +190,7 @@ const models = [
   { name: "2543-geometres-experts", value: "géomètres-experts géomètres-topographes photogrammètres experts fonciers", classification: "classification", input: "'II.2'", minimums: { "2024.1": 1950.53 } },
   { name: "1659-rouissage-teillage-lin", value: "rouissage teillage lin", classification: "coefficient", input: 300, minimums: { "2024.1": 2558.05 } },
   { name: "0489-industries-cartonnage", value: "industries du cartonnage", classification: "coefficient", input: 240, minimums: { "2025.3": 2105.18 } },
+  { name: "3227-industries-fabrication-chaux", value: "industries de la fabrication de la chaux", classification: "coefficient", input: 185, minimums: { "2024.1": 2182.2 }, situation: { "salarié . convention collective . industries de la fabrication de la chaux . catégorie": "'ouvriers'" } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
@@ -377,6 +378,37 @@ describe("compiled collective agreement models", () => {
       "salarié . convention collective": "'pâtes alimentaires sèches et couscous non préparé'",
       [`${namespace} . coefficient`]: 999,
       [`${namespace} . champ juridique`]: "'employeur signataire ou adhérent'",
+    });
+    assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, true);
+  });
+  it("3227-industries-fabrication-chaux exposes sourced minima, holiday bonus, audit, and isolation", async () => {
+    const version = COMPILED_VERSIONS["3227-industries-fabrication-chaux"]?.find((v) => v.version === "2024.1");
+    assert.ok(version);
+    const extension = await version.loadRules();
+    const rules: Record<string, Rule> = { ...modeleSocial };
+    const namespace = "salarié . convention collective . industries de la fabrication de la chaux";
+    for (const name of Object.keys(extension)) {
+      assert.ok(name === namespace || name.startsWith(`${namespace} . `), name);
+      assert.ok(!(name in rules), `Duplicate modele-social rule: ${name}`);
+    }
+    const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
+    rules["salarié . convention collective"] = { ...choice, "une possibilité": [...new Set([...choice["une possibilité"], "industries de la fabrication de la chaux"])] } as Rule;
+    Object.assign(rules, extension);
+    const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
+    engine.setSituation({
+      "salarié . convention collective": "'industries de la fabrication de la chaux'",
+      [`${namespace} . catégorie`]: "'ouvriers'",
+      [`${namespace} . coefficient`]: 185,
+      "salarié . contrat . statut cadre": "non",
+    });
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 2182.2);
+    assert.equal(engine.evaluate(`${namespace} . prime de vacances`).nodeValue, 2200);
+    assert.equal(engine.evaluate(`${namespace} . audit paie`).nodeValue, true);
+    assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, false);
+    engine.setSituation({
+      "salarié . convention collective": "'industries de la fabrication de la chaux'",
+      [`${namespace} . catégorie`]: "'ouvriers'",
+      [`${namespace} . coefficient`]: 999,
     });
     assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, true);
   });
