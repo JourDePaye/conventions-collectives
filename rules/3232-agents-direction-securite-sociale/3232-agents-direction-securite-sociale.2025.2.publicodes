@@ -1,0 +1,82 @@
+# Convention collective nationale des agents de direction des organismes du régime général de sécurité sociale du 18 septembre 2018 (IDCC 3232).
+# Version 2025.2 : avenants du 31 janvier 2025, dispositions applicables au 1er janvier 2025.
+validFrom: 2025-01-01
+sources:
+  - >-
+    Convention collective nationale des agents de direction des organismes du régime général de sécurité sociale
+    du 18 septembre 2018, IDCC 3232, Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000039800704
+  - >-
+    Avenant du 31 janvier 2025 relatif au montant, aux conditions d'attribution et de remboursement des prêts
+    accordés aux agents de direction et agents comptables en vue de l'achat d'un véhicule automobile,
+    ainsi qu'à l'indemnité de double résidence, IDCC 3232, Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051447486
+  - >-
+    Protocole d'accord du 22 novembre 2024 relatif à la classification des emplois et au dispositif de rémunération
+    du personnel de direction, agréé le 20 mars 2025, mise en œuvre de la nouvelle grille au 1er juillet 2025,
+    information UCANSS : https://jurilettres.ucanss.fr/lettresCirculaires/LC011-25.html/
+---
+salarié . convention collective . agents de direction sécurité sociale:
+  titre: Agents de direction des organismes du régime général de sécurité sociale (IDCC 3232)
+  valeur: convention collective = 'agents de direction sécurité sociale'
+  description: >-
+    Modèle borné aux montants conventionnels 2025 de l'indemnité de double résidence et du prêt automobile.
+    La nouvelle grille de rémunération du 1er juillet 2025 n'est pas calculée sans les données individuelles
+    de classement et de rémunération prévues par le protocole.
+
+salarié . convention collective . agents de direction sécurité sociale . zone double résidence:
+  titre: Zone de la double résidence
+  question: Dans quelle zone se situe l'hébergement de la double résidence ?
+  unité: unité
+  applicable si: convention collective = 'agents de direction sécurité sociale'
+  par défaut: 3
+
+salarié . convention collective . agents de direction sécurité sociale . enfants à charge:
+  titre: Enfants à charge pour la majoration de double résidence
+  unité: enfant
+  applicable si: convention collective = 'agents de direction sécurité sociale'
+  par défaut: 0
+
+salarié . convention collective . agents de direction sécurité sociale . indemnité double résidence:
+  titre: Indemnité mensuelle de double résidence
+  description: Montant maximal conventionnel applicable aux nouvelles situations à compter du 1er janvier 2025.
+  unité: €/mois
+  applicable si: convention collective = 'agents de direction sécurité sociale'
+  somme:
+    - montant de base double résidence
+    - enfants à charge * 53.06 €/mois
+
+salarié . convention collective . agents de direction sécurité sociale . montant de base double résidence:
+  titre: Montant de base de la double résidence
+  unité: €/mois
+  applicable si: convention collective = 'agents de direction sécurité sociale'
+  variations:
+    - si: zone double résidence = 1
+      alors: 1065.24 €/mois
+    - si: zone double résidence = 2
+      alors: 852.19 €/mois
+    - si: zone double résidence = 3
+      alors: 532.62 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . agents de direction sécurité sociale . plafond prêt automobile:
+  titre: Plafond du prêt automobile
+  description: Plafond maximal du prêt accordé pour l'achat d'un véhicule à compter du 1er janvier 2025.
+  unité: €
+  applicable si: convention collective = 'agents de direction sécurité sociale'
+  valeur: 8970.87 €
+
+salarié . convention collective . agents de direction sécurité sociale . plafond renouvellement prêt automobile:
+  titre: Plafond du renouvellement du prêt automobile
+  description: Plafond maximal en cas de renouvellement dans les situations conventionnelles prévues.
+  unité: €
+  applicable si: convention collective = 'agents de direction sécurité sociale'
+  valeur: 5912.58 €
+
+salarié . convention collective . agents de direction sécurité sociale . audit paie:
+  titre: Audit des rubriques de paie
+  description: >-
+    Audit explicite des taux salarié/employeur, assiettes, plafonds, tranches, forfaits, santé, prévoyance,
+    retraite, formation, AT/MP, primes, indemnités, avantages, exonérations et frais.
+  applicable si: convention collective = 'agents de direction sécurité sociale'
+  valeur: oui
