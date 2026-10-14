@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent cinquante-cinq conventions** sont actuellement représentées, avec **deux cent vingt-quatre versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent cinquante-six conventions** sont actuellement représentées, avec **deux cent vingt-cinq versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent cinquante-cinq conventions sont actuellement représentées, avec deux cent vingt-quatre versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent cinquante-six conventions sont actuellement représentées, avec deux cent vingt-cinq versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -175,6 +175,7 @@ Cent cinquante-cinq conventions sont actuellement représentées, avec deux cent
 | [Cabinets d’experts-comptables et de commissaires aux comptes](rules/0787-experts-comptables/README.md) | 787 | `2026.1` : 1er mars 2026 | Minimum annuel selon le coefficient (131,54 € par point jusqu'au 164e, puis 79,85 €), équivalent mensuel proratisé, et minimum annuel distinct de l'indice 40 validé |
 | [Sociétés d’expertises et d’évaluations](rules/0915-societes-expertises-evaluations/README.md) | 915 | `2026.1` : 29 mai 2026 (avenant étendu) | Dix minima annuels bruts des niveaux N 1 à N 10, proratisés selon la quotité de travail ; détection des niveaux hors grille |
 | [Sociétés financières](rules/0478-societes-financieres/README.md) | 478 | `2026.1` : 1er juin 2026 (employeurs signataires ou adhérents) | Grille annuelle de 22 coefficients, colonne 0 à 3 ans, proratisée selon la quotité de travail ; détection des coefficients hors grille ; colonnes d'ancienneté supérieure non modélisées |
+| [Sociétés concessionnaires ou exploitantes d'autoroutes ou d'ouvrages routiers](rules/2583-societes-autoroutes/README.md) | 2583 | `2024.1` : 12 septembre 2024 (accord 2024 étendu) | Rémunérations annuelles garanties 2024 des classes A à P, proratisées selon la quotité de travail ; comparaison conservée en €/an ; audit explicite des rubriques de paie et des cotisations |
 | [Activités de marchés financiers](rules/2931-activites-marches-financiers/README.md) | 2931 | `2026.1` : 1er janvier 2026 (employeurs signataires ou adhérents) | Sept minima mensuels des catégories I.A à III.C, proratisés selon la quotité de travail ; catégories hors grille et champ juridique explicites |
 | [Entreprises de courtage d’assurances et de réassurances](rules/2247-courtage-assurances/README.md) | 2247 | `2025.1` : 1er juillet 2025 | Salaires annuels minima des 8 classes (A à H), convertis en minimum mensuel sur 13 mensualités et proratisés selon la quotité de travail ; détection des classes hors grille |
 | [Personnel des agences générales d'assurances](rules/2335-agences-generales-assurances/README.md) | 2335 | `2026.1` : 1er janvier 2026 (signataires) ; 19 mars 2026 (champ étendu) | Sept salaires minima annuels bruts des classes 1 à 6 et 5 bis, bornes de date et de champ juridique, sans conversion mensuelle |
