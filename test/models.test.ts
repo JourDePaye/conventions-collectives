@@ -344,4 +344,40 @@ describe("compiled collective agreement models", () => {
     assert.equal(engine.evaluate(`${namespace} . audit paie`).nodeValue, true);
     assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, false);
   });
+  it("1987-pates-alimentaires-seches exposes hourly minimums, premiums, scope, audit, and isolation", async () => {
+    const version = COMPILED_VERSIONS["1987-pates-alimentaires-seches"]?.find((v) => v.version === "2024.2");
+    assert.ok(version);
+    const extension = await version.loadRules();
+    const rules: Record<string, Rule> = { ...modeleSocial };
+    const namespace = "salarié . convention collective . pâtes alimentaires sèches et couscous non préparé";
+    for (const name of Object.keys(extension)) {
+      assert.ok(name === namespace || name.startsWith(`${namespace} . `), name);
+      assert.ok(!(name in rules), `Duplicate modele-social rule: ${name}`);
+    }
+    const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
+    rules["salarié . convention collective"] = { ...choice, "une possibilité": [...new Set([...choice["une possibilité"], "pâtes alimentaires sèches et couscous non préparé"])] } as Rule;
+    Object.assign(rules, extension);
+    const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
+    engine.setSituation({
+      "salarié . convention collective": "'pâtes alimentaires sèches et couscous non préparé'",
+      [`${namespace} . coefficient`]: 200,
+      [`${namespace} . ancienneté en années`]: 6,
+      [`${namespace} . champ juridique`]: "'employeur signataire ou adhérent'",
+      "salarié . contrat . statut cadre": "non",
+    });
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum horaire`).nodeValue, 12.7);
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 1926.2089999999998);
+    assert.equal(engine.evaluate(`${namespace} . prime ancienneté`).nodeValue, 0.7619999999999999);
+    assert.equal(engine.evaluate(`${namespace} . prime vacances`).nodeValue, 575);
+    assert.equal(engine.evaluate(`${namespace} . indemnité journalière de poste`).nodeValue, 5.2);
+    assert.equal(engine.evaluate(`${namespace} . panier de nuit`).nodeValue, 11);
+    assert.equal(engine.evaluate(`${namespace} . audit paie`).nodeValue, true);
+    assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, false);
+    engine.setSituation({
+      "salarié . convention collective": "'pâtes alimentaires sèches et couscous non préparé'",
+      [`${namespace} . coefficient`]: 999,
+      [`${namespace} . champ juridique`]: "'employeur signataire ou adhérent'",
+    });
+    assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, true);
+  });
 });
