@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent soixante-seize conventions** sont actuellement représentées, avec **deux cent quarante-quatre versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent soixante-dix-neuf conventions** sont actuellement représentées, avec **deux cent quarante-cinq versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent soixante-seize conventions sont actuellement représentées, avec deux cent quarante-quatre versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent soixante-dix-neuf conventions sont actuellement représentées, avec deux cent quarante-cinq versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -201,6 +201,7 @@ Cent soixante-seize conventions sont actuellement représentées, avec deux cent
 |---|---|---|---|
 | [Menuiseries, charpentes et constructions industrialisées et portes planes](rules/3222-menuiseries-charpentes-portes-planes/README.md) | 3222 | `2026.1` : 1er mai 2026 (accord étendu) | Grille mensuelle de 24 classifications N1 à N8, proratisée selon la quotité de travail ; classifications hors grille détectées ; prime d'ancienneté non calculée automatiquement |
 | [Personnel navigant du groupement des armateurs de services de passages d'eau](rules/3228-groupement-armateurs-passages-eau/README.md) | 3228 | `2022.1` : 1er janvier 2022 (accord du 14 mars 2022 étendu) | Huit minima mensuels de l'annexe GASPE, base 1 607 heures, proratisés selon la quotité ; fonctions hors grille détectées ; audit explicite des cotisations salarié/employeur, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais |
+| [Navigation intérieure](rules/3229-navigation-interieure/README.md) | 3229 | `2026.1` : 1er janvier 2026 (protocole du 17 décembre 2025 étendu) | Garantie annuelle du matelot (coefficient 001) selon six tranches d'ancienneté, proratisée selon la quotité ; autres classifications hors périmètre ; audit explicite des cotisations salarié/employeur, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais |
 | [Agences de presse](rules/3221-agences-presse/README.md) | 3221 | `2026.2` : 1er juillet 2026 (signataires) ; 4 septembre 2026 (champ étendu) | Neuf salaires minima mensuels des groupes 1 à 9, bornes de date et de champ juridique, proratisation selon la quotité de travail ; détection des groupes hors grille |
 | [Journalistes](rules/1480-journalistes/README.md) | 1480 | `2025.1` : 1er septembre 2025 (signataires) ; 19 septembre 2025 (champ étendu) | Huit salaires minima mensuels des groupes 1 à 8 des journalistes d’agences de presse, proratisation selon la quotité de travail ; détection des groupes hors grille |
 | [Entreprises de publicité](rules/0086-publicite/README.md) | 86 | `2025.1` : 19 juin 2025 | Minima mensuels des employés, techniciens/agents de maîtrise et cadres selon les niveaux 1 à 4, proratisés selon la quotité de travail ; détection des niveaux hors grille |

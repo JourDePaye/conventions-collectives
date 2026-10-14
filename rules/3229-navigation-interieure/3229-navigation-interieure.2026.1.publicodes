@@ -1,0 +1,61 @@
+# Convention collective nationale du personnel des entreprises de transport en navigation intérieure du 20 décembre 2018 (IDCC 3229).
+# Version 2026.1 : protocole d'accord du 17 décembre 2025 relatif aux salaires minima,
+# applicable au 1er janvier 2026, étendu par arrêté du 18 mai 2026.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Protocole d'accord du 17 décembre 2025 relatif aux salaires minima conventionnels,
+    barème du personnel de navigation intérieure, publié sur Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054370936
+  - >-
+    Arrêté du 18 mai 2026 portant extension du protocole d'accord, publié au Journal
+    officiel du 29 mai 2026 : https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054149359
+---
+salarié . convention collective . navigation intérieure:
+  titre: Navigation intérieure (IDCC 3229)
+  valeur: convention collective = 'navigation intérieure'
+
+salarié . convention collective . navigation intérieure . classification:
+  titre: Classification et ancienneté de navigation
+  description: Code de classification et tranche d'ancienneté de l'annexe salariale.
+  applicable si: convention collective = 'navigation intérieure'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . navigation intérieure . grille annuelle:
+  titre: Rémunération minimale annuelle garantie
+  description: Barème brut annuel toutes primes incluses, hors sujétions particulières et primes annuelles, pour la classification « Matelot » (coefficient 001).
+  applicable si: convention collective = 'navigation intérieure'
+  unité: €/an
+  variations:
+    - si: classification = 'matelot — 0 à 3 ans'
+      alors: 22889 €/an
+    - si: classification = 'matelot — 3 à 6 ans'
+      alors: 23576 €/an
+    - si: classification = 'matelot — 6 à 9 ans'
+      alors: 24262 €/an
+    - si: classification = 'matelot — 9 à 12 ans'
+      alors: 24949 €/an
+    - si: classification = 'matelot — 12 à 15 ans'
+      alors: 25636 €/an
+    - si: classification = 'matelot — au-delà de 15 ans'
+      alors: 26322 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . navigation intérieure . salaire minimum annuel conventionnel:
+  titre: Rémunération minimale annuelle conventionnelle
+  description: Minimum annuel brut proratisé selon la quotité de travail.
+  applicable si: convention collective = 'navigation intérieure'
+  unité: €/an
+  valeur: grille annuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . navigation intérieure . classification hors grille:
+  titre: Classification absente du périmètre modélisé
+  description: Cette version couvre uniquement la ligne Matelot, coefficient 001, du barème publié.
+  applicable si: convention collective = 'navigation intérieure'
+  valeur: grille annuelle = 0 €/an
+
+salarié . convention collective . navigation intérieure . audit paie:
+  titre: Audit des rubriques de paie
+  description: Recherche explicite des cotisations salarié/employeur, taux, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais ; aucun taux conventionnel générique n'est calculé par cette version.
+  applicable si: convention collective = 'navigation intérieure'
+  valeur: non
