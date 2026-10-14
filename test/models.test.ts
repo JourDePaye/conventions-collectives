@@ -163,6 +163,7 @@ const models = [
   { name: "1790-espaces-loisirs", value: "espaces loisirs", classification: "niveau", input: "'IV'", minimums: { "2026.1": 2441.1 }, situation: { "salarié . convention collective . espaces loisirs . coefficient": 280 } },
   { name: "2150-personnels-hlm", value: "personnels hlm", classification: "coefficient", input: "'G7'", minimums: { "2026.1": 46776.54 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "0959-laboratoires-biologie-medicale", value: "laboratoires biologie médicale", classification: "coefficient", input: 800, minimums: { "2024.1": 5608.31 } },
+  { name: "3254-boucherie-poissonnerie", value: "boucherie poissonnerie", classification: "niveau", input: "'IV-D'", minimums: { "2026.1": 2525 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;

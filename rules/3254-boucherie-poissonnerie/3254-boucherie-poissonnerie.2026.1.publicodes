@@ -1,0 +1,76 @@
+# Convention collective nationale de la boucherie, boucherie-charcuterie-traiteur, poissonnerie
+# (détail et gros), écailler, traiteur de la mer du 24 septembre 2024 (IDCC 3254).
+# Version 2026.1: avenant n° 9-B du 4 février 2026, étendu le 4 mai 2026.
+validFrom: 2026-06-01
+sources:
+  - Avenant n° 9-B du 4 février 2026 relatif aux salaires, grille revalorisée de 1,2 %, KALI KALITEXT000054254741.
+  - Arrêté du 4 mai 2026 portant extension de l'avenant n° 9-B, publié au Journal officiel du 10 mai 2026.
+  - Convention collective nationale du 24 septembre 2024, articles 1 à 110, conteneur KALICONT000052370692.
+  - Accord du 22 novembre 2021 relatif aux régimes de frais de santé et de prévoyance, articles 3 et 5, textes KALI en vigueur.
+---
+salarié . convention collective . boucherie poissonnerie:
+  titre: Boucherie-poissonnerie (IDCC 3254)
+  valeur: convention collective = 'boucherie poissonnerie'
+
+salarié . convention collective . boucherie poissonnerie . niveau:
+  titre: Niveau et échelon de classification
+  description: Niveau et échelon de la grille salariale de l'avenant n° 9-B du 4 février 2026.
+  applicable si: convention collective = 'boucherie poissonnerie'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . boucherie poissonnerie . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'boucherie poissonnerie'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . boucherie poissonnerie . grille:
+  titre: Salaire minimum mensuel à temps plein
+  unité: €/mois
+  variations:
+    - si: niveau = 'I-A'
+      alors: 1938 €/mois
+    - si: niveau = 'I-B'
+      alors: 1959 €/mois
+    - si: niveau = 'II-A'
+      alors: 1983 €/mois
+    - si: niveau = 'II-B'
+      alors: 2002 €/mois
+    - si: niveau = 'II-C'
+      alors: 2037 €/mois
+    - si: niveau = 'III-A'
+      alors: 2159 €/mois
+    - si: niveau = 'III-B'
+      alors: 2207 €/mois
+    - si: niveau = 'III-C'
+      alors: 2293 €/mois
+    - si: niveau = 'IV-A'
+      alors: 2301 €/mois
+    - si: niveau = 'IV-B'
+      alors: 2371 €/mois
+    - si: niveau = 'IV-C'
+      alors: 2407 €/mois
+    - si: niveau = 'IV-D'
+      alors: 2525 €/mois
+    - si: niveau = 'V'
+      alors: 2740 €/mois
+    - si: niveau = 'VI-A'
+      alors: 2988 €/mois
+    - si: niveau = 'VI-B'
+      alors: 3008 €/mois
+    - si: niveau = 'VI-C'
+      alors: 3368 €/mois
+    - si: niveau = 'VII-A'
+      alors: 3835 €/mois
+    - si: niveau = 'VII-B'
+      alors: 3933 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . boucherie poissonnerie . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau et l'échelon ne correspondent pas à une ligne modélisée de la grille.
+  applicable si: convention collective = 'boucherie poissonnerie'
+  valeur: grille = 0 €/mois
