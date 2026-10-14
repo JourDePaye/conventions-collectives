@@ -155,6 +155,7 @@ const models = [
   { name: "3251-bijouterie-joaillerie-horlogerie", value: "bijouterie joaillerie orfèvrerie horlogerie", classification: "classification", input: "'3.2'", minimums: { "2025.1": 2227 } },
   { name: "3256-etablissements-soins-veterinaires", value: "établissements de soins vétérinaires", classification: "coefficient", input: 120, minimums: { "2026.1": 2155.2 } },
   { name: "1621-repartition-pharmaceutique", value: "répartition pharmaceutique", classification: "coefficient", input: 300, minimums: { "2025.1": 2844.38, "2025.2": 2872.82 } },
+  { name: "3097-production-cinematographique", value: "production cinématographique", classification: "niveau", input: 4, minimums: { "2026.1": 2113.53 } },
   { name: "1307-exploitation-cinematographique", value: "exploitation cinématographique", classification: "coefficient", input: 300, minimums: { "2025.1": 2203.92 } },
   { name: "2198-commerce-distance", value: "commerce à distance", classification: "niveau", input: "'G référent'", minimums: { "2026.1": 3627 } },
   { name: "3203-structures-associatives-peche", value: "structures associatives de pêche de loisir et de protection du milieu aquatique", classification: "niveau et échelon", input: "'VI.3'", minimums: { "2026.1": 3355 } },

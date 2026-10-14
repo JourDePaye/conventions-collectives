@@ -1,0 +1,78 @@
+# Convention collective nationale de la production cinématographique du 19 janvier 2012 (IDCC 3097).
+# Version 2026.1 : avenant du 26 mars 2025 relatif aux salaires minima du titre IV,
+# étendu par arrêté du 6 janvier 2026, entrée en vigueur générale au 1er février 2026.
+validFrom: 2026-02-01
+sources:
+  - >-
+    Avenant du 26 mars 2025 relatif à la révision des salaires minima (titre IV),
+    IDCC 3097, articles 1 à 4 et annexes IV.A et IV.B : minima mensuels des niveaux
+    2 à 6 et compléments de 3 % ; étendu par arrêté du 6 janvier 2026 (JORF du
+    17 janvier 2026). https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053497544
+  - >-
+    Convention collective nationale de la production cinématographique du 19 janvier
+    2012, fiche officielle IDCC 3097 et régime de la branche.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000028059838/
+  - >-
+    Avenant du 11 septembre 2024 portant révision des dispositions relatives à la
+    collecte des contributions conventionnelles, IDCC 3097, texte officiel
+    KALITEXT000051295352. Aucun taux générique employeur/salarié calculable dans
+    les entrées de paie du modèle n'est ajouté.
+---
+salarié . convention collective . production cinématographique:
+  titre: Production cinématographique (IDCC 3097)
+  valeur: convention collective = 'production cinématographique'
+
+salarié . convention collective . production cinématographique . niveau:
+  titre: Niveau du personnel permanent
+  description: Niveau 2 à 6 de l'annexe IV.A du titre IV. Les niveaux 1 et 7 sont hors niveau.
+  applicable si: convention collective = 'production cinématographique'
+  par défaut: 0
+
+salarié . convention collective . production cinématographique . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut incluant les compléments conventionnels publiés, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'production cinématographique'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . production cinématographique . grille mensuelle:
+  titre: Grille mensuelle des minima du titre IV — 2026.1
+  description: Avenant du 26 mars 2025, montants incluant les compléments d'autonomie, technicité et responsabilité applicables.
+  applicable si: convention collective = 'production cinématographique'
+  unité: €/mois
+  variations:
+    - si: niveau = 2
+      alors: 3029.73 €/mois
+    - si: niveau = 3
+      alors: 2430.49 €/mois
+    - si: niveau = 4
+      alors: 2113.53 €/mois
+    - si: niveau = 5
+      alors: 1948.56 €/mois
+    - si: niveau = 6
+      alors: 1855.85 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . production cinématographique . niveau hors grille:
+  titre: Niveau hors grille
+  applicable si: convention collective = 'production cinématographique'
+  valeur: grille mensuelle = 0 €/mois
+
+salarié . convention collective . production cinématographique . audit paie:
+  titre: Audit des rubriques de paie conventionnelles
+  description: >-
+    Audit effectué sur l'avenant salarial du 26 mars 2025, la convention IDCC 3097,
+    l'avenant du 11 septembre 2024 sur la collecte des contributions conventionnelles
+    et les textes officiels attachés relatifs aux salaires. Les minima mensuels du titre IV,
+    les compléments de 3 %, la base mensuelle, la proratisation et la clause de plancher
+    SMIC sont identifiés. Aucun taux ou assiette générique salarié/employeur calculable
+    n'est ajouté pour les cotisations, plafonds ou tranches, forfaits, santé, prévoyance,
+    formation professionnelle, AT/MP, primes, indemnités, avantages en nature ou
+    intéressement : ces rubriques dépendent des textes dédiés, du statut et des données
+    de paie non représentées ici. Les textes santé, prévoyance, formation, AT/MP,
+    primes et avantages ont été recherchés dans les textes attachés officiels ; omission
+    volontaire plutôt qu'un taux par défaut.
+  applicable si: convention collective = 'production cinématographique'
+  valeur: oui
