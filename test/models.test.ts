@@ -154,6 +154,7 @@ const models = [
   { name: "3252-mannequins", value: "mannequins", classification: "catégorie", input: 3, minimums: { "2025.1": 716.18 }, minimumRule: "salaire minimum conventionnel" },
   { name: "3223-personnels-navigants-officiers", value: "personnels navigants officiers transport maritime", classification: "fonction et zone", input: "'capitaine ≥15000 UMS — long cours'", minimums: { "2025.1": 63049.92 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "1499-miroiterie", value: "miroiterie transformation négoce verre", classification: "coefficient", input: 300, minimums: { "2025.1": 2157.51 } },
+  { name: "1589-industries-recuperation", value: "industries récupération", classification: "niveau", input: 10, minimums: { "2026.1": 2280 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
