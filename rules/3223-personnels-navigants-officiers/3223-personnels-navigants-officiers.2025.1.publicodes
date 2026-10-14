@@ -1,0 +1,119 @@
+# Convention collective nationale des personnels navigants officiers des entreprises de transport et services maritimes (IDCC 3223).
+# Version 2025.1 : avenant n° 4 du 14 octobre 2025, applicable rétroactivement au 1er janvier 2025.
+validFrom: 2025-01-01
+sources:
+  - >-
+    Avenant n° 4 du 14 octobre 2025 relatif aux salaires minima de la convention
+    collective nationale des personnels navigants officiers des entreprises de
+    transport et services maritimes, texte Légifrance KALIARTI000053366138.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000053366138
+  - >-
+    Arrêté du 16 mars 2026 portant extension de l'avenant, publié au Journal
+    officiel du 17 avril 2026.
+---
+salarié . convention collective . personnels navigants officiers transport maritime:
+  titre: Personnels navigants officiers transport et services maritimes (IDCC 3223)
+  valeur: convention collective = 'personnels navigants officiers transport maritime'
+
+salarié . convention collective . personnels navigants officiers transport maritime . fonction et zone:
+  titre: Fonction et zone de navigation
+  description: Fonction de l'officier et catégorie de navigation servant à sélectionner la garantie annuelle.
+  applicable si: convention collective = 'personnels navigants officiers transport maritime'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . personnels navigants officiers transport maritime . grille annuelle:
+  titre: Salaire minimum annuel conventionnel à temps plein
+  description: Grille de l'article 2 de l'avenant n° 4, en euros bruts annuels.
+  applicable si: convention collective = 'personnels navigants officiers transport maritime'
+  unité: €/an
+  variations:
+    - si: fonction et zone = 'CQ navire de mer — long cours'
+      alors: 36738.98 €/an
+    - si: fonction et zone = 'CQ navire de mer — cabotage international'
+      alors: 33319.87 €/an
+    - si: fonction et zone = 'chef de poste électronicien — long cours'
+      alors: 41995.46 €/an
+    - si: fonction et zone = 'chef de poste électronicien — cabotage international'
+      alors: 37680.30 €/an
+    - si: fonction et zone = 'CQ DESMM — long cours'
+      alors: 40061.25 €/an
+    - si: fonction et zone = 'CQ DESMM — cabotage international'
+      alors: 36738.98 €/an
+    - si: fonction et zone = 'électrotechnicien ETO — long cours'
+      alors: 36738.98 €/an
+    - si: fonction et zone = 'électrotechnicien ETO — cabotage international'
+      alors: 33319.87 €/an
+    - si: fonction et zone = 'CQ pont machine — long cours'
+      alors: 34519.51 €/an
+    - si: fonction et zone = 'CQ pont machine — cabotage international'
+      alors: 31100.34 €/an
+    - si: fonction et zone = 'capitaine ≥15000 UMS — long cours'
+      alors: 63049.92 €/an
+    - si: fonction et zone = 'capitaine ≥15000 UMS — cabotage international'
+      alors: 54679.38 €/an
+    - si: fonction et zone = 'chef mécanicien ≥15000 UMS — long cours'
+      alors: 58103.15 €/an
+    - si: fonction et zone = 'chef mécanicien ≥15000 UMS — cabotage international'
+      alors: 51947.74 €/an
+    - si: fonction et zone = '2nd capitaine et 2nd mécanicien ≥15000 UMS — long cours'
+      alors: 45967.56 €/an
+    - si: fonction et zone = '2nd capitaine et 2nd mécanicien ≥15000 UMS — cabotage international'
+      alors: 40841.16 €/an
+    - si: fonction et zone = 'capitaine 3000 à <15000 UMS — long cours'
+      alors: 60151.98 €/an
+    - si: fonction et zone = 'capitaine 3000 à <15000 UMS — cabotage international'
+      alors: 51947.74 €/an
+    - si: fonction et zone = 'chef mécanicien 3000 à <15000 UMS — long cours'
+      alors: 55366.84 €/an
+    - si: fonction et zone = 'chef mécanicien 3000 à <15000 UMS — cabotage international'
+      alors: 49386.81 €/an
+    - si: fonction et zone = '2nd capitaine et 2nd mécanicien 3000 à <15000 UMS — long cours'
+      alors: 43748.16 €/an
+    - si: fonction et zone = '2nd capitaine et 2nd mécanicien 3000 à <15000 UMS — cabotage international'
+      alors: 38621.87 €/an
+    - si: fonction et zone = 'capitaine <3000 UMS — long cours'
+      alors: 54412.94 €/an
+    - si: fonction et zone = 'capitaine <3000 UMS — cabotage international'
+      alors: 46991.91 €/an
+    - si: fonction et zone = 'chef mécanicien <3000 UMS — long cours'
+      alors: 50094.38 €/an
+    - si: fonction et zone = 'chef mécanicien <3000 UMS — cabotage international'
+      alors: 44684.76 €/an
+    - si: fonction et zone = '2nd capitaine et 2nd mécanicien <3000 UMS — long cours'
+      alors: 41107.50 €/an
+    - si: fonction et zone = '2nd capitaine et 2nd mécanicien <3000 UMS — cabotage international'
+      alors: 37555 €/an
+    - si: fonction et zone = 'capitaine <500 UMS — cabotage international'
+      alors: 41960.13 €/an
+    - si: fonction et zone = 'chef mécanicien <500 UMS — cabotage international'
+      alors: 39900.03 €/an
+    - si: fonction et zone = 'autre <500 UMS — cabotage international'
+      alors: 32042.80 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . personnels navigants officiers transport maritime . salaire minimum annuel conventionnel:
+  titre: Salaire minimum annuel conventionnel
+  description: Minimum annuel brut proratisé selon la quotité de travail ; la comparaison juridique reste annuelle.
+  applicable si: convention collective = 'personnels navigants officiers transport maritime'
+  unité: €/an
+  valeur: grille annuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . personnels navigants officiers transport maritime . indemnité de nourriture:
+  titre: Indemnité conventionnelle de nourriture
+  description: Forfait journalier brut exposé séparément ; le nombre de jours éligibles doit être fourni par la paie.
+  applicable si: convention collective = 'personnels navigants officiers transport maritime'
+  unité: €/jour
+  valeur: 15.76 €/jour
+
+salarié . convention collective . personnels navigants officiers transport maritime . indemnité frais divers:
+  titre: Indemnité conventionnelle de frais divers
+  description: Forfait journalier brut exposé séparément ; le nombre de jours éligibles doit être fourni par la paie.
+  applicable si: convention collective = 'personnels navigants officiers transport maritime'
+  unité: €/jour
+  valeur: 11.20 €/jour
+
+salarié . convention collective . personnels navigants officiers transport maritime . fonction et zone hors grille:
+  titre: Fonction et zone absente de la grille
+  description: La combinaison ne figure pas dans le barème modélisé.
+  applicable si: convention collective = 'personnels navigants officiers transport maritime'
+  valeur: grille annuelle = 0 €/an
