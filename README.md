@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent soixante-trois conventions** sont actuellement représentées, avec **deux cent trente-deux versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent soixante-quatre conventions** sont actuellement représentées, avec **deux cent trente-trois versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent soixante-trois conventions sont actuellement représentées, avec deux cent trente-deux versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent soixante-quatre conventions sont actuellement représentées, avec deux cent trente-trois versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -172,6 +172,7 @@ Cent soixante-trois conventions sont actuellement représentées, avec deux cent
 
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
+| [Maisons d’étudiants](rules/1671-maisons-etudiants/README.md) | 1671 | `2026.2` : 1er janvier 2026 (signataires) ; 1er juillet 2026 (champ étendu) | Grille des classes 1 à 20 et valeur du point de 68,80 €, minimum annuel proratisé ; treizième mois à montée en charge ; santé 65 % employeur / 35 % salarié ; audit explicite des rubriques de paie |
 | [Sociétés d’assurances](rules/1672-societes-assurances/README.md) | 1672 | `2026.3` : 1er janvier 2026 | Rémunérations minimales annuelles des 7 classes, avec endpoint annuel proratisé et équivalent mensuel indicatif sur 12 mois ; détection des classes hors grille |
 | [Banque](rules/2120-banque/README.md) | 2120 | `2026.1` : 1er avril 2026 | Salaires annuels minima des 11 niveaux (A à K) selon l’ancienneté (0, 5, 10, 15 et 20 ans), convertis en minimum mensuel sur 13 mensualités et proratisés selon la quotité de travail ; détection des niveaux hors grille |
 | [Édition](rules/2121-edition/README.md) | 2121 | `2026.1` : 1er juillet 2026 (avenant étendu) | Grille mensuelle de 16 catégories employés, agents de maîtrise/techniciens et cadres, proratisée selon la quotité de travail ; détection des catégories hors grille |
