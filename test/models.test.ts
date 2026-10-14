@@ -33,6 +33,7 @@ const models = [
   { name: "3242-presse-regions", value: "presse en régions", classification: "niveau", input: "'E5'", minimums: { "2023.2": 1878.55 } },
   { name: "3243-quincaillerie", value: "quincaillerie fournitures industrielles fers métaux équipement maison", classification: "niveau et échelon", input: "'VI.3'", minimums: { "2026.1": 2351, "2026.2": 2351 } },
   { name: "3245-operateurs-voyages-guides", value: "opérateurs voyages et guides", classification: "groupe", input: "'E'", minimums: { "2025.1": 2162.07 } },
+  { name: "3228-groupement-armateurs-passages-eau", value: "groupement armateurs passages eau", classification: "fonction", input: "'matelots matelots légers'", minimums: { "2022.1": 1606.01 } },
   { name: "3248-metallurgie", value: "métallurgie", classification: "niveau", input: "'C5'", minimums: { "2026.1": 2042.5, "2026.2": 2042.5 } },
   { name: "3231-metallurgie-jura", value: "métallurgie jura", classification: "coefficient", input: 240, minimums: { "2023.1": 22970 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "2583-societes-autoroutes", value: "sociétés autoroutes", classification: "classe", input: "'I'", minimums: { "2024.1": 36321 }, minimumRule: "salaire minimum annuel conventionnel" },
