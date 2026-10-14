@@ -1,0 +1,89 @@
+# Convention collective nationale des établissements de soins vétérinaires (IDCC 3256).
+# Version 2026.1 : valeur du point conventionnel applicable au 1er janvier 2026.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Avenant n° 91 du 6 janvier 2026 relatif à la valeur du point conventionnel pour
+    l'année 2026, fixé à 17,96 € sur la base de 151,67 heures, applicable impérativement
+    à compter du 1er janvier 2026 ; texte officiel Légifrance KALITEXT000054066637.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054066637
+  - >-
+    Annexe I à la convention collective des cabinets et cliniques vétérinaires,
+    classification des emplois modifiée par l'avenant n° 84 du 16 janvier 2024,
+    coefficients 105, 108, 110, 113 et 120 ; texte officiel Légifrance
+    KALIARTI000050150780.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000050150780
+  - >-
+    Convention collective nationale des établissements de soins vétérinaires du 24 juin
+    2025 (IDCC 3256), issue de la fusion des champs vétérinaires ; le présent modèle
+    couvre uniquement la grille commune des salariés non vétérinaires documentée par
+    les sources officielles de classification et de valeur du point.
+---
+salarié . convention collective . établissements de soins vétérinaires:
+  titre: Établissements de soins vétérinaires (IDCC 3256)
+  valeur: convention collective = 'établissements de soins vétérinaires'
+
+salarié . convention collective . établissements de soins vétérinaires . coefficient:
+  titre: Coefficient de classification
+  description: >-
+    Coefficient du personnel salarié non vétérinaire : 105 (nettoyage et entretien),
+    108 (accueil et secrétariat), 110 (auxiliaire vétérinaire), 113 (auxiliaire
+    vétérinaire 4) ou 120 (auxiliaire spécialisé vétérinaire).
+  applicable si: convention collective = 'établissements de soins vétérinaires'
+  par défaut: 0
+
+salarié . convention collective . établissements de soins vétérinaires . valeur du point:
+  titre: Valeur minimale du point conventionnel
+  description: Valeur fixée par l'avenant n° 91 pour 2026, sur la base de 151,67 heures.
+  applicable si: convention collective = 'établissements de soins vétérinaires'
+  valeur: 17.96 €/point
+
+salarié . convention collective . établissements de soins vétérinaires . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: >-
+    Coefficient multiplié par la valeur minimale du point, pour 151,67 heures mensuelles,
+    puis proratisé selon la quotité de travail. Les coefficients non couverts valent 0.
+  applicable si: convention collective = 'établissements de soins vétérinaires'
+  unité: €/mois
+  produit:
+    - salaire minimum conventionnel . temps plein
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . établissements de soins vétérinaires . salaire minimum conventionnel . temps plein:
+  titre: Salaire minimum mensuel à temps plein
+  unité: €/mois
+  arrondi: 2 décimales
+  variations:
+    - si: coefficient = 105
+      alors: 1885.80 €/mois
+    - si: coefficient = 108
+      alors: 1939.68 €/mois
+    - si: coefficient = 110
+      alors: 1975.60 €/mois
+    - si: coefficient = 113
+      alors: 2029.48 €/mois
+    - si: coefficient = 120
+      alors: 2155.20 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . établissements de soins vétérinaires . coefficient hors grille:
+  titre: Coefficient absent de la grille modélisée
+  description: La version 2026.1 couvre les cinq coefficients salariés non vétérinaires 105, 108, 110, 113 et 120.
+  applicable si: convention collective = 'établissements de soins vétérinaires'
+  toutes ces conditions:
+    - coefficient != 105
+    - coefficient != 108
+    - coefficient != 110
+    - coefficient != 113
+    - coefficient != 120
+
+salarié . convention collective . établissements de soins vétérinaires . audit paie:
+  titre: Éléments conventionnels modélisés et non automatisés
+  description: >-
+    La version modélise la valeur du point et les minima des salariés non vétérinaires.
+    Les CQP donnant lieu à des points supplémentaires, les primes, gardes, astreintes,
+    dimanches, jours fériés, frais, santé, prévoyance, formation et les classifications
+    vétérinaires nécessitent des entrées de paie ou de qualification non représentées ici.
+    Leur absence ne vaut pas renonciation à l'obligation conventionnelle.
+  applicable si: convention collective = 'établissements de soins vétérinaires'
+  valeur: oui
