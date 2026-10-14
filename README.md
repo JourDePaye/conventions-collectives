@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent soixante-douze conventions** sont actuellement représentées, avec **deux cent quarante et une versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent soixante-treize conventions** sont actuellement représentées, avec **deux cent quarante-deux versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent soixante-douze conventions sont actuellement représentées, avec deux cent quarante et une versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent soixante-treize conventions sont actuellement représentées, avec deux cent quarante-deux versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -122,7 +122,8 @@ Cent soixante-douze conventions sont actuellement représentées, avec deux cent
 | [Industries céramiques de France](rules/1558-industries-ceramiques/README.md) | 1558 | `2025.1` : 1er janvier 2025 (accord étendu le 26 avril 2025) | Grilles mensuelles des niveaux NA à NF et annuelles des cadres NG à J, colonne forfait jours distincte ; indemnité de panier de 16 € exposée séparément ; détection des classifications hors grille |
 | [Industries de la maroquinerie](rules/2528-maroquinerie/README.md) | 2528 | `2026.1` : 1er janvier 2026 (accord étendu) | Grille mensuelle du secteur maroquinerie–ganterie de peau pour ouvriers, employés, TAM et cadres ; proratisation selon la quotité de travail ; détection des classifications hors grille ; tannerie-mégisserie et cordonnerie multiservice non modélisées |
 | [Miroiterie, transformation et négoce du verre](rules/1499-miroiterie/README.md) | 1499 | `2025.1` : 1er mai 2025 (accord étendu) | 17 minima mensuels et horaires des coefficients 140 à 880, prime d'ancienneté horaire de 3 % à 15 %, prime de panier de nuit exposée séparément ; proratisation selon la quotité de travail ; détection des coefficients hors grille |
-| [Industries et commerce de la récupération](rules/1589-industries-recuperation/README.md) | 1589 | `2026.1` : 1er avril 2026 (accord étendu) | Grille mensuelle des 12 niveaux 1 à 12, proratisée selon la quotité de travail ; détection des niveaux hors grille |
+| [Métallurgie de Bourgogne-Franche-Comté (périmètre historique)](rules/1353-metallurgie-bourgogne/README.md) | 1353 | `2022.1` : 1er juin 2022 (accord territorial étendu) | Rémunérations minimales hiérarchiques mensuelles de la colonne ouvriers pour 14 coefficients, proratisées selon la quotité ; périmètre territorial et historique explicite ; audit des cotisations, santé, prévoyance, retraite, formation, AT/MP, primes et avantages |
+| [Industries de la récupération](rules/1589-industries-recuperation/README.md) | 1589 | `2026.1` : 1er avril 2026 (accord étendu) | Grille mensuelle des 12 niveaux 1 à 12, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 
 ### BÂTIMENT & TRAVAUX PUBLICS
 
