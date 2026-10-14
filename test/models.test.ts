@@ -222,4 +222,35 @@ describe("compiled collective agreement models", () => {
       });
     }
   }
+
+  it("3219-portage-salarial exposes sourced remuneration rates and remains isolated", async () => {
+    const version = COMPILED_VERSIONS["3219-portage-salarial"]?.find((v) => v.version === "2024.1");
+    assert.ok(version);
+    const extension = await version.loadRules();
+    const rules: Record<string, Rule> = { ...modeleSocial };
+    const namespace = "salarié . convention collective . portage salarial";
+    for (const name of Object.keys(extension)) {
+      assert.ok(name === namespace || name.startsWith(`${namespace} . `), name);
+      assert.ok(!(name in rules), `Duplicate modele-social rule: ${name}`);
+    }
+    const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
+    rules["salarié . convention collective"] = {
+      ...choice,
+      "une possibilité": [...new Set([...choice["une possibilité"], "portage salarial"])],
+    } as Rule;
+    Object.assign(rules, extension);
+    const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
+    engine.setSituation({
+      "salarié . convention collective": "'portage salarial'",
+      [`${namespace} . classification`]: "'senior'",
+      "salarié . contrat . statut cadre": "non",
+    });
+    const rate = engine.evaluate(`${namespace} . taux de rémunération minimale`).nodeValue;
+    assert.equal(rate, 75);
+    const minimum = engine.evaluate(`${namespace} . rémunération minimale mensuelle`).nodeValue;
+    const pmss = engine.evaluate("plafond sécurité sociale").nodeValue;
+    assert.equal(minimum, (pmss as number) * 0.75);
+    assert.equal(engine.evaluate(`${namespace} . réserve financière`).nodeValue, 0);
+    assert.equal(engine.evaluate(`${namespace} . indemnité de précarité`).nodeValue, 0);
+  });
 });
