@@ -1,0 +1,117 @@
+# Convention collective nationale des chaînes de cafétérias et assimilés du 28 août 1998 (IDCC 2060).
+# Version 2024.1 : avenant n° 22 du 11 avril 2024 relatif aux salaires, étendu par arrêté du 19 août 2024.
+validFrom: 2024-09-01
+sources:
+  - >-
+    Avenant n° 22 du 11 avril 2024 relatif aux salaires, étendu par arrêté du
+    19 août 2024 publié au Journal officiel du 23 août 2024 : minima horaires
+    des niveaux I à IV et minima annuels du niveau V ; texte officiel Légifrance
+    KALITEXT000050140869.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000050140869
+  - >-
+    Conteneur officiel de la convention collective nationale des chaînes de
+    cafétérias et assimilés, IDCC 2060, KALICONT000005635326. Les textes
+    dédiés aux cotisations, santé, prévoyance, retraite, formation, AT/MP,
+    primes, avantages et frais ont été recherchés pour l'audit de paie.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635326
+---
+salarié . convention collective . chaînes de cafétérias et assimilés:
+  titre: Chaînes de cafétérias et assimilés (IDCC 2060)
+  valeur: convention collective = 'chaînes de cafétérias et assimilés'
+
+salarié . convention collective . chaînes de cafétérias et assimilés . niveau et échelon:
+  titre: Niveau et échelon de classification
+  description: Niveau I à IV pour les employés et agents de maîtrise, ou niveau V pour les cadres ; écrire par exemple « I.1 » ou « V.2 ».
+  applicable si: convention collective = 'chaînes de cafétérias et assimilés'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . chaînes de cafétérias et assimilés . taux horaire minimum conventionnel:
+  titre: Taux horaire minimum conventionnel
+  description: Minimum horaire brut de l'avenant n° 22 du 11 avril 2024, applicable après extension au 1er septembre 2024.
+  applicable si: convention collective = 'chaînes de cafétérias et assimilés'
+  unité: €/heure
+  variations:
+    - si: niveau et échelon = 'I.1'
+      alors: 11.70 €/heure
+    - si: niveau et échelon = 'I.2'
+      alors: 11.75 €/heure
+    - si: niveau et échelon = 'I.3'
+      alors: 11.80 €/heure
+    - si: niveau et échelon = 'II.1'
+      alors: 11.90 €/heure
+    - si: niveau et échelon = 'II.2'
+      alors: 11.95 €/heure
+    - si: niveau et échelon = 'II.3'
+      alors: 12.00 €/heure
+    - si: niveau et échelon = 'III.1'
+      alors: 12.20 €/heure
+    - si: niveau et échelon = 'III.2'
+      alors: 12.40 €/heure
+    - si: niveau et échelon = 'III.3'
+      alors: 12.80 €/heure
+    - si: niveau et échelon = 'IV.1'
+      alors: 13.00 €/heure
+    - si: niveau et échelon = 'IV.2'
+      alors: 13.30 €/heure
+    - si: niveau et échelon = 'IV.3'
+      alors: 14.10 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . chaînes de cafétérias et assimilés . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut calculé à partir du taux horaire et des heures contractuelles ; les cadres relèvent de la garantie annuelle distincte.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'chaînes de cafétérias et assimilés'
+      - taux horaire minimum conventionnel > 0 €/heure
+  unité: €/mois
+  produit:
+    - taux horaire minimum conventionnel
+    - contrat . temps de travail
+
+salarié . convention collective . chaînes de cafétérias et assimilés . rémunération minimum annuelle conventionnelle:
+  titre: Rémunération minimum annuelle conventionnelle des cadres
+  description: Garantie annuelle brute du niveau V à temps plein, proratisée selon la quotité de travail ; elle ne doit pas être convertie automatiquement en minimum mensuel.
+  applicable si: convention collective = 'chaînes de cafétérias et assimilés'
+  unité: €/an
+  produit:
+    - rémunération minimum annuelle conventionnelle . grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . chaînes de cafétérias et assimilés . rémunération minimum annuelle conventionnelle . grille:
+  titre: Garantie annuelle brute à temps plein
+  unité: €/an
+  variations:
+    - si: niveau et échelon = 'V.1'
+      alors: 34000 €/an
+    - si: niveau et échelon = 'V.2'
+      alors: 46368 €/an
+    - si: niveau et échelon = 'V.3'
+      alors: 47500 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . chaînes de cafétérias et assimilés . niveau et échelon hors grille:
+  titre: Niveau et échelon absent de la grille modélisée
+  description: La version 2024.1 couvre les niveaux I.1 à IV.3 horaires et V.1 à V.3 annuels ; les autres valeurs nécessitent une source complémentaire.
+  applicable si: convention collective = 'chaînes de cafétérias et assimilés'
+  valeur:
+    toutes ces conditions:
+      - taux horaire minimum conventionnel = 0 €/heure
+      - rémunération minimum annuelle conventionnelle . grille = 0 €/an
+
+salarié . convention collective . chaînes de cafétérias et assimilés . audit paie:
+  titre: Audit des rubriques conventionnelles de paie
+  description: >-
+    L'avenant n° 22 fixe les minima de rémunération. Une recherche explicite a
+    porté sur les évolutions de cotisations salarié et employeur, leurs bases,
+    plafonds, tranches, forfaits et exonérations, ainsi que sur les accords et
+    avenants dédiés à la santé, prévoyance, retraite complémentaire, formation
+    professionnelle, AT/MP, primes, indemnités, avantages en nature et frais,
+    et leurs éventuels arrêtés d'extension. Aucun taux ou assiette générique
+    additionnel, commun à toute la branche et calculable avec les seules
+    entrées de ce modèle, n'est retenu dans cette version. Ces rubriques restent
+    donc externes et ne sont ni remplacées par zéro ni redéfinies ; les primes,
+    repas, frais, ancienneté, travail du dimanche ou de nuit et avantages en
+    nature nécessitent des entrées de situation et des textes spécifiques.
+  applicable si: convention collective = 'chaînes de cafétérias et assimilés'
+  valeur: oui

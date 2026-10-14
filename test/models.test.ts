@@ -77,6 +77,7 @@ const models = [
   { name: "1702-travaux-publics-ouvriers", value: "travaux publics ouvriers", classification: "coefficient", input: 100, minimums: { "2026.3": 23863 }, minimumRule: "minimum annuel", situation: { "salarié . convention collective . travaux publics ouvriers . catégorie": "'ouvrier'", "salarié . convention collective . travaux publics ouvriers . région": "'Bretagne'", "salarié . convention collective . travaux publics ouvriers . date de calcul": "11/10/2026" } },
   { name: "1486-syntec", value: "syntec", classification: "coefficient", input: 355, minimums: { "2025.1": 2045, "2026.1": 2045, "2026.2": 2045 } },
   { name: "1979-hotels-cafes-restaurants", value: "HCR", classification: "niveau", input: "'II.3'", minimums: { "2024.1": 1997.45 } },
+  { name: "2060-chaines-cafeterias", value: "chaînes de cafétérias et assimilés", classification: "niveau et échelon", input: "'III.2'", minimums: { "2024.1": 1880.67 } },
   { name: "1978-fleuristes-animaux", value: "fleuristes animaux", classification: "niveau", input: "'V.2'", minimums: { "2026.1": 2274.30, "2026.2": 2274.30 } },
   { name: "1996-pharmacie-officine", value: "pharmacie", classification: "coefficient", input: 470, minimums: { "2025.1": 3717.51, "2026.1": 3762.42 } },
   { name: "2021-golf", value: "golf", classification: "groupe", input: "'3'", minimums: { "2026.1": 1975.06, "2026.2": 1975.06 } },
