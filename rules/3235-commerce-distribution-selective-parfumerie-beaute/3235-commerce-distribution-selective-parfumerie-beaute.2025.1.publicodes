@@ -1,0 +1,93 @@
+validFrom: 2025-06-08
+sources:
+  - >-
+    Accord du 18 juin 2024 relatif à la formation professionnelle tout au long de la vie,
+    IDCC 3235, Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000050299025
+  - >-
+    Accord du 30 septembre 2020 relatif à la constitution de la branche et à la création
+    d'une CPPNI, IDCC 3235, étendu par arrêté du 15 mai 2025, Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000050298967?idConteneur=KALICONT000043249122
+  - >-
+    Convention collective nationale du commerce de détail de la distribution sélective,
+    de la parfumerie et de la beauté, IDCC 3235, Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000043249122
+---
+salarié . convention collective . commerce de détail distribution sélective parfumerie beauté:
+  titre: Commerce de détail de la distribution sélective, de la parfumerie et de la beauté (IDCC 3235)
+  valeur: convention collective = 'commerce de détail distribution sélective parfumerie beauté'
+  description: >-
+    Modèle borné aux contributions de formation et d'apprentissage explicitement
+    calculables dans l'accord étendu du 18 juin 2024. Les salaires minima,
+    cotisations salarié/employeur, santé, prévoyance, retraite, AT/MP, primes,
+    avantages, indemnités et frais non documentés par une règle calculable restent
+    externes.
+
+salarié . convention collective . commerce de détail distribution sélective parfumerie beauté . effectif entreprise:
+  question: Quel est l'effectif de l'entreprise ?
+  unité: salarié
+  applicable si: convention collective = 'commerce de détail distribution sélective parfumerie beauté'
+
+salarié . convention collective . commerce de détail distribution sélective parfumerie beauté . assiette annuelle formation:
+  question: Quelle est l'assiette annuelle des contributions de formation ?
+  unité: €/an
+  applicable si: convention collective = 'commerce de détail distribution sélective parfumerie beauté'
+
+salarié . convention collective . commerce de détail distribution sélective parfumerie beauté . assiette annuelle CDD:
+  question: Quelle est la masse salariale annuelle des salariés en CDD ?
+  unité: €/an
+  applicable si: convention collective = 'commerce de détail distribution sélective parfumerie beauté'
+
+salarié . convention collective . commerce de détail distribution sélective parfumerie beauté . Alsace-Moselle:
+  question: L'établissement est-il situé dans le Bas-Rhin, le Haut-Rhin ou la Moselle ?
+  par défaut: non
+  applicable si: convention collective = 'commerce de détail distribution sélective parfumerie beauté'
+
+salarié . convention collective . commerce de détail distribution sélective parfumerie beauté . taux contribution formation:
+  titre: Taux employeur de contribution à la formation professionnelle
+  unité: '%'
+  applicable si: convention collective = 'commerce de détail distribution sélective parfumerie beauté'
+  variations:
+    - si: effectif entreprise < 11 salarié
+      alors: 0.55 %
+    - sinon: 1 %
+
+salarié . convention collective . commerce de détail distribution sélective parfumerie beauté . contribution formation professionnelle:
+  titre: Contribution employeur à la formation professionnelle
+  unité: €/an
+  applicable si: convention collective = 'commerce de détail distribution sélective parfumerie beauté'
+  valeur: assiette annuelle formation * taux contribution formation
+
+salarié . convention collective . commerce de détail distribution sélective parfumerie beauté . taux taxe apprentissage:
+  titre: Taux employeur de taxe d'apprentissage
+  unité: '%'
+  applicable si: convention collective = 'commerce de détail distribution sélective parfumerie beauté'
+  variations:
+    - si: Alsace-Moselle = oui
+      alors: 0.44 %
+    - sinon: 0.68 %
+
+salarié . convention collective . commerce de détail distribution sélective parfumerie beauté . taxe apprentissage:
+  titre: Taxe d'apprentissage employeur
+  unité: €/an
+  applicable si: convention collective = 'commerce de détail distribution sélective parfumerie beauté'
+  valeur: assiette annuelle formation * taux taxe apprentissage
+
+salarié . convention collective . commerce de détail distribution sélective parfumerie beauté . contribution CPF CDD:
+  titre: Contribution employeur au CPF des salariés en CDD
+  unité: €/an
+  applicable si: convention collective = 'commerce de détail distribution sélective parfumerie beauté'
+  valeur: assiette annuelle CDD * 1 %
+
+salarié . convention collective . commerce de détail distribution sélective parfumerie beauté . audit paie:
+  titre: Audit explicite des rubriques conventionnelles de paie
+  description: >-
+    Les textes officiels et accords dédiés ont été recherchés pour les taux des
+    cotisations salarié et employeur, assiettes, plafonds, tranches, forfaits,
+    santé, prévoyance, retraite complémentaire et supplémentaire, formation,
+    AT/MP, primes, indemnités, avantages en nature et frais. Seules les
+    contributions employeur de formation, taxe d'apprentissage et CPF-CDD sont
+    calculées ici ; aucun taux salarié, taux de santé/prévoyance/retraite,
+    AT/MP, salaire minimum, prime, avantage ou frais n'est inventé ou mis à zéro.
+  applicable si: convention collective = 'commerce de détail distribution sélective parfumerie beauté'
+  valeur: oui
