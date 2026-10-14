@@ -1,0 +1,118 @@
+# Convention collective nationale de la radiodiffusion du 11 avril 1996
+# (IDCC 1922, brochure 3285).
+# Version 2025.1 : accord du 27 juin 2025 relatif aux salaires minimums conventionnels,
+# étendu par arrêté du 4 septembre 2025, applicable le 1er octobre 2025.
+validFrom: 2025-10-01
+sources:
+  - >-
+    Accord du 27 juin 2025 relatif aux salaires minimums conventionnels,
+    IDCC 1922, articles 2, 3 et 6, texte officiel Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000052283586
+  - >-
+    Avenant du 17 janvier 2025 à l'accord du 17 décembre 2015 relatif à la création
+    d'un régime de santé et de prévoyance, texte officiel Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051834668
+  - >-
+    Accord du 17 décembre 2015 relatif à la création d'un régime de santé et de prévoyance,
+    article 10, texte officiel Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000032241955
+  - >-
+    Accord du 28 janvier 2020 relatif à la formation professionnelle et au développement
+    des compétences et des qualifications, article 13, texte officiel Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000042598259
+---
+salarié . convention collective . radiodiffusion:
+  titre: Radiodiffusion (IDCC 1922)
+  valeur: convention collective = 'radiodiffusion'
+  description: >-
+    Version 2025.1 applicable à compter du 1er octobre 2025. La grille calculée
+    concerne les personnels de radiodiffusion hors journalistes ; les journalistes
+    relèvent des barèmes spécifiques prévus par les textes applicables.
+
+salarié . convention collective . radiodiffusion . indice:
+  titre: Indice de classification
+  question: Quel est l'indice conventionnel de radiodiffusion ?
+  unité: indice
+  applicable si: convention collective = 'radiodiffusion'
+  par défaut: 0
+
+salarié . convention collective . radiodiffusion . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: >-
+    Salaire minimum mensuel brut calculé selon SC = (120 × valeur du point A)
+    + (Z × valeur du point B), avec Z = indice - 120 lorsque l'indice est au moins 121.
+    Le résultat est proratisé selon la quotité de travail.
+  unité: €/mois
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'radiodiffusion'
+      - indice >= 120
+  valeur: (120 * 15.14 €/indice + (indice - 120) * 10.19 €/indice) * contrat . temps de travail . quotité
+
+salarié . convention collective . radiodiffusion . valeur du point A:
+  titre: Valeur du point A
+  unité: €/indice
+  applicable si: convention collective = 'radiodiffusion'
+  valeur: 15.14 €/indice
+
+salarié . convention collective . radiodiffusion . valeur du point B:
+  titre: Valeur du point B
+  unité: €/indice
+  applicable si: convention collective = 'radiodiffusion'
+  valeur: 10.19 €/indice
+
+salarié . convention collective . radiodiffusion . prévoyance non cadre:
+  titre: Prévoyance non-cadre — taux total
+  description: Cotisation conventionnelle de 0,88 % de la tranche A, répartie à parts égales entre employeur et salarié.
+  unité: '%'
+  applicable si: convention collective = 'radiodiffusion'
+  valeur: 0.88 %
+
+salarié . convention collective . radiodiffusion . prévoyance non cadre . part employeur:
+  titre: Prévoyance non-cadre — part employeur
+  unité: '%'
+  applicable si: convention collective = 'radiodiffusion'
+  valeur: 0.44 %
+
+salarié . convention collective . radiodiffusion . prévoyance non cadre . part salarié:
+  titre: Prévoyance non-cadre — part salarié
+  unité: '%'
+  applicable si: convention collective = 'radiodiffusion'
+  valeur: 0.44 %
+
+salarié . convention collective . radiodiffusion . prévoyance cadre:
+  titre: Prévoyance cadre — taux employeur minimal
+  description: La cotisation cadre est à la charge de l'employeur à hauteur de 1,50 % de la tranche A ; le régime conventionnel de 0,88 % s'impute sur cette obligation.
+  unité: '%'
+  applicable si: convention collective = 'radiodiffusion'
+  valeur: 1.50 %
+
+salarié . convention collective . radiodiffusion . santé:
+  titre: Frais de santé conventionnels
+  applicable si: convention collective = 'radiodiffusion'
+  valeur: oui
+
+salarié . convention collective . radiodiffusion . santé . part employeur:
+  titre: Frais de santé — part employeur minimale
+  description: L'employeur finance au moins 50 % de la cotisation du socle obligatoire ; les montants exprimés en pourcentage du PMSS varient selon le régime général ou local et la situation familiale.
+  unité: '%'
+  applicable si: convention collective = 'radiodiffusion'
+  valeur: 50 %
+
+salarié . convention collective . radiodiffusion . audit paie:
+  titre: Audit des rubriques de paie
+  description: >-
+    Les accords et avenants dédiés ont été recherchés pour les taux et assiettes
+    salarié/employeur, plafonds et tranches, forfaits, santé, prévoyance, retraite,
+    formation, AT/MP, primes, indemnités, avantages, exonérations et frais professionnels.
+    Les taux de prévoyance conventionnels calculables et la prise en charge minimale
+    santé sont exposés ; les autres rubriques restent soumises aux règles légales,
+    aux catégories et aux contrats et ne sont pas inventées.
+  applicable si: convention collective = 'radiodiffusion'
+  valeur: oui
+
+salarié . convention collective . radiodiffusion . indice hors grille:
+  titre: Indice hors grille
+  description: Un indice inférieur à 120 ne permet pas de calculer le minimum avec la formule publiée.
+  applicable si: convention collective = 'radiodiffusion'
+  valeur: indice < 120

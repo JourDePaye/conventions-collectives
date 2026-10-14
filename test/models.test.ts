@@ -51,6 +51,7 @@ const models = [
   { name: "2511-sport", value: "sport", classification: "groupe", input: "'3'", minimums: { "2026.1": 1997.87 } },
   { name: "1512-promotion-immobiliere", value: "promotion immobilière", classification: "coefficient", input: 100, minimums: { "2026.1": 1885, "2026.3": 1885 } },
   { name: "2336-habitat-logement-accompagnes", value: "habitat logement accompagnés", classification: "coefficient", input: 500, minimums: { "2025.1": 1875.24 } },
+  { name: "1922-radiodiffusion", value: "radiodiffusion", classification: "indice", input: 200, minimums: { "2025.1": 2632 }, situation: { "salarié . convention collective . radiodiffusion . indice": 200 } },
   { name: "1513-papeterie-librairie", value: "papeterie fournitures bureau bureautique informatique librairie", classification: "coefficient", input: "'6'", minimums: { "2026.1": 1830 } },
   { name: "1536-distributeurs-conseils-hors-domicile", value: "distributeurs conseils hors domicile", classification: "classification", input: "'III.2'", minimums: { "2026.1": 2024 } },
   { name: "2728-sucreries", value: "sucreries", classification: "classe", input: "'1A'", minimums: { "2026.1": 23005.08 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . sucreries . date de calcul": "11/10/2026", "salarié . convention collective . sucreries . champ juridique": "'tous employeurs après extension'" } },
