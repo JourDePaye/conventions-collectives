@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent quatre-vingt-onze conventions** sont actuellement représentées, avec **deux cent soixante versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent quatre-vingt-douze conventions** sont actuellement représentées, avec **deux cent soixante-et-une versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent quatre-vingt-onze conventions sont actuellement représentées, avec deux cent soixante versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent quatre-vingt-douze conventions sont actuellement représentées, avec deux cent soixante-et-une versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -76,6 +76,7 @@ Cent quatre-vingt-onze conventions sont actuellement représentées, avec deux c
 | [Cinq branches industries alimentaires diverses](rules/3109-industries-alimentaires-diverses/README.md) | 3109 | `2026.1` : 1er janvier 2026 (avenant étendu) | Grille mensuelle de 20 positions N1-E1 à N9-E1, proratisée selon la quotité de travail ; détection des positions hors grille |
 | [Vins, cidres, jus de fruits, sirops, spiritueux et liqueurs de France](rules/0493-vins-cidres-spiritueux/README.md) | 493 | `2026.1` : 1er février 2026 (accord étendu) | Grille mensuelle de 21 positions 1A à 10A, proratisée selon la quotité de travail ; détection des positions hors grille |
 | [Boucherie, boucherie-charcuterie-traiteur, poissonnerie](rules/3254-boucherie-poissonnerie/README.md) | 3254 | `2026.1` : 1er juin 2026 (avenant n° 9-B étendu) | Grille mensuelle de 18 niveaux et échelons I-A à VII-B, proratisée selon la quotité de travail ; audit explicite des cotisations salarié/employeur, assiettes, plafonds, tranches, forfaits, santé, prévoyance, formation, AT/MP, primes et avantages ; classifications hors grille détectées |
+| [Poissonnerie de détail, demi-gros et gros](rules/1504-poissonnerie/README.md) | 1504 | `2024.1` : 1er mai 2024 (avenant étendu) | 24 minima mensuels des coefficients 130 à 250 et 300 à 450, proratisés selon la quotité de travail ; détection des coefficients hors grille ; audit explicite des cotisations salarié/employeur, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais |
 
 ### COMMERCE & DISTRIBUTION (NON ALIMENTAIRE)
 
