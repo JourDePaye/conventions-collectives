@@ -180,6 +180,7 @@ const models = [
   { name: "3016-ateliers-chantiers-insertion", value: "ateliers et chantiers d'insertion", classification: "coefficient", input: 240, minimums: { "2026.1": 1897.6 } },
   { name: "3016-ateliers-chantiers-insertion", value: "ateliers et chantiers d'insertion", classification: "coefficient", input: 313, minimums: { "2026.1": 2192.52 } },
   { name: "1612-transport-aerien-personnel-navigant", value: "personnel navigant technique hélicoptères", classification: "classification", input: "'FTR3-2'", minimums: { "2024.1": 5757 } },
+  { name: "3220-offices-publics-habitat", value: "offices publics habitat", classification: "classe", input: 13, minimums: { "2026.1": 5359.23 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;

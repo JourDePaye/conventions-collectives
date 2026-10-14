@@ -1,0 +1,94 @@
+# Convention collective nationale des organismes publics et coopératifs de l'habitat social (IDCC 3220).
+# Version 2026.1 : avenant n° 1 du 21 janvier 2026 relatif aux minima hiérarchiques, applicable au 1er janvier 2026.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Avenant n° 1 du 21 janvier 2026 relatif à la revalorisation du barème des rémunérations
+    minimales applicables au sein des offices publics de l'habitat, sociétés de coordination et
+    sociétés coopératives HLM, IDCC 3220, barème national des classes 1 à 13 applicable au
+    1er janvier 2026. Publication officielle FOPH :
+    https://www.foph.fr/system/files/medias/file/2026/02/Avenant_1_Salaires_OPCHS_CPPNI_21_janvier_2026_VD%C3%A9f%20sign%C3%A9.docx_1.pdf
+  - >-
+    Convention collective nationale des organismes publics et coopératifs de l'habitat social,
+    étendue par arrêté du 10 juin 2025 publié au Journal officiel n° 0143 du 21 juin 2025.
+    Référence officielle reproduite dans l'avenant n° 1 et publication JORF disponible depuis la
+    page FOPH « Revalorisation des salaires de branche 2026, impacts chiffrés ».
+    https://www.foph.fr/documentation/negociation-de-branche/revalorisation-des-salaires-de-branche-2026-impacts-chiffres
+---
+salarié . convention collective . offices publics habitat:
+  titre: Organismes publics et coopératifs de l'habitat social (IDCC 3220)
+  valeur: convention collective = 'offices publics habitat'
+
+salarié . convention collective . offices publics habitat . classe:
+  titre: Classe d'emploi
+  description: Classe d'emploi de la classification commune OPCHS, de 1 à 13.
+  applicable si: convention collective = 'offices publics habitat'
+  par défaut: 0
+
+salarié . convention collective . offices publics habitat . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: Salaire minimum hiérarchique mensuel brut à 35 heures, proratisé selon la quotité de travail. Les primes et avantages en nature sont exclus du barème.
+  applicable si: convention collective = 'offices publics habitat'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . offices publics habitat . grille mensuelle:
+  titre: Barème national mensuel à temps plein
+  description: Barème national de l'avenant n° 1 du 21 janvier 2026, applicable au 1er janvier 2026.
+  applicable si: convention collective = 'offices publics habitat'
+  unité: €/mois
+  variations:
+    - si: classe = 1
+      alors: 1825.22 €/mois
+    - si: classe = 2
+      alors: 1890.82 €/mois
+    - si: classe = 3
+      alors: 1956.99 €/mois
+    - si: classe = 4
+      alors: 2054.85 €/mois
+    - si: classe = 5
+      alors: 2178.13 €/mois
+    - si: classe = 6
+      alors: 2308.82 €/mois
+    - si: classe = 7
+      alors: 2447.35 €/mois
+    - si: classe = 8
+      alors: 2692.08 €/mois
+    - si: classe = 9
+      alors: 3015.13 €/mois
+    - si: classe = 10
+      alors: 3376.96 €/mois
+    - si: classe = 11
+      alors: 3883.50 €/mois
+    - si: classe = 12
+      alors: 4466.02 €/mois
+    - si: classe = 13
+      alors: 5359.23 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . offices publics habitat . classe hors grille:
+  titre: Classe absente de la grille
+  description: La classe fournie ne correspond pas aux classes 1 à 13 du barème national.
+  applicable si: convention collective = 'offices publics habitat'
+  toutes ces conditions:
+    - classe != 1
+    - classe != 2
+    - classe != 3
+    - classe != 4
+    - classe != 5
+    - classe != 6
+    - classe != 7
+    - classe != 8
+    - classe != 9
+    - classe != 10
+    - classe != 11
+    - classe != 12
+    - classe != 13
+
+salarié . convention collective . offices publics habitat . audit paie:
+  titre: Audit des rubriques de paie
+  description: Les textes de base, salaires, avenants dédiés et extensions ont été recherchés pour les taux et assiettes salarié/employeur, plafonds et tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais ; aucun taux conventionnel générique supplémentaire n'est calculé par cette version.
+  applicable si: convention collective = 'offices publics habitat'
+  valeur: non
