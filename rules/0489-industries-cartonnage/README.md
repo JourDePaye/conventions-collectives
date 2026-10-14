@@ -1,6 +1,6 @@
 # Industries du cartonnage — IDCC 489
 
-La version `2025.1` reprend l'avenant n° 166 du 12 mars 2025, applicable au 1er mai 2025 dans son champ signataire. Le texte a été publié au Bulletin officiel des conventions collectives 2025-16 (NOR ASET2550438M) et demande l'extension ; aucun arrêté d'extension n'est modélisé ici.
+La version `2025.3` reprend l'avenant n° 166 du 12 mars 2025, applicable au 1er mai 2025 dans son champ signataire. Le texte a été publié au Bulletin officiel des conventions collectives 2025-16 (NOR ASET2550438M) et demande l'extension ; aucun arrêté d'extension n'est modélisé ici.
 
 ## Règles
 

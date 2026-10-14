@@ -20,7 +20,7 @@ function setSituation(category: string, coefficient: number, quota = "100%") { e
 const get = (rule: string) => engine.evaluate(`${namespace} . ${rule}`).nodeValue;
 const num = (rule: string) => { const value = get(rule); assert.equal(typeof value, "number"); return Math.round((value as number) * 100) / 100; };
 
-describe("IDCC 489 — 2025.1 salaires et audit paie", () => {
+describe("IDCC 489 — 2025.3 salaires et audit paie", () => {
   it("uses the signatory effective date and official BOCC source", () => { assert.equal(version.validFrom, "2025-05-01"); assert.ok(version.sources.some((source) => source.includes("ASET2550438M"))); });
   for (const [coefficient, expected] of Object.entries(monthly)) it(`coefficient ${coefficient}: ${expected} €/month`, () => { setSituation("ouvriers employés et agents de maîtrise", Number(coefficient)); assert.equal(num("salaire minimum conventionnel"), expected); assert.equal(get("classification hors grille"), false); });
   it("prorates the monthly minimum once", () => { setSituation("ouvriers employés et agents de maîtrise", 240, "50%"); assert.equal(num("salaire minimum conventionnel"), 1052.59); });
