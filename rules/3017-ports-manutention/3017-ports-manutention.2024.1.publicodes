@@ -1,0 +1,148 @@
+# Convention collective nationale unifiée ports et manutention du 15 avril 2011 (IDCC 3017).
+# Version 2024.1 : avenant n° 17 du 27 octobre 2023 relatif aux salaires minimaux conventionnels garantis,
+# étendu par arrêté du 13 mai 2024 ; application au 1er janvier 2024.
+validFrom: 2024-01-01
+sources:
+  - >-
+    Avenant n° 17 du 27 octobre 2023 relatif aux salaires minimaux conventionnels
+    garantis, étendu par arrêté du 13 mai 2024 publié au Journal officiel du 31
+    mai 2024 : grilles des salariés des établissements portuaires applicables au
+    1er janvier 2024 ; texte officiel Légifrance KALITEXT000049508746.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000049508746
+  - >-
+    Conteneur officiel de la convention collective nationale unifiée ports et
+    manutention, IDCC 3017, KALICONT000029142476. Les textes dédiés aux
+    cotisations, santé, prévoyance, retraite, formation, AT/MP, primes,
+    indemnités, avantages et frais ont été recherchés pour l'audit de paie.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000029142476
+---
+salarié . convention collective . ports et manutention:
+  titre: Ports et manutention (IDCC 3017)
+  valeur: convention collective = 'ports et manutention'
+
+salarié . convention collective . ports et manutention . classification:
+  titre: Classification portuaire
+  description: >-
+    Classification des salariés des établissements portuaires des ports de
+    commerce et de pêche. Cette version modélise uniquement la ligne B de la
+    grille 2024.1, dont les paliers d'ancienneté sont explicitement publiés.
+    Les autres classifications et les grilles des autres salariés de la
+    manutention et des ouvriers dockers titulaires de deux CQP sont hors de
+    cette version.
+  applicable si: convention collective = 'ports et manutention'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . ports et manutention . ancienneté dans la classification:
+  titre: Ancienneté dans la classification
+  description: Années révolues d'ancienneté utilisées pour sélectionner le palier SBMH.
+  unité: année
+  applicable si: convention collective = 'ports et manutention'
+  par défaut: 0 année
+
+salarié . convention collective . ports et manutention . salaire minimum conventionnel:
+  titre: Salaire brut mensuel minimum hiérarchique
+  description: >-
+    SBMH mensuel 2024.1 des salariés des établissements portuaires des ports de
+    commerce et de pêche. Le palier d'ancienneté est plafonné à 33 ans et le
+    montant est proratisé par la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'ports et manutention'
+      - salaire minimum conventionnel . grille > 0 €/mois
+  unité: €/mois
+  produit:
+    - salaire minimum conventionnel . grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . ports et manutention . salaire minimum conventionnel . grille:
+  titre: SBMH mensuel à temps plein
+  unité: €/mois
+  variations:
+    - si:
+        toutes ces conditions:
+          - classification = 'B'
+          - ancienneté dans la classification >= 33 années
+      alors: 2583 €/mois
+    - si:
+        toutes ces conditions:
+          - classification = 'B'
+          - ancienneté dans la classification >= 30 années
+      alors: 2522 €/mois
+    - si:
+        toutes ces conditions:
+          - classification = 'B'
+          - ancienneté dans la classification >= 27 années
+      alors: 2462 €/mois
+    - si:
+        toutes ces conditions:
+          - classification = 'B'
+          - ancienneté dans la classification >= 24 années
+      alors: 2400 €/mois
+    - si:
+        toutes ces conditions:
+          - classification = 'B'
+          - ancienneté dans la classification >= 21 années
+      alors: 2340 €/mois
+    - si:
+        toutes ces conditions:
+          - classification = 'B'
+          - ancienneté dans la classification >= 18 années
+      alors: 2280 €/mois
+    - si:
+        toutes ces conditions:
+          - classification = 'B'
+          - ancienneté dans la classification >= 15 années
+      alors: 2218 €/mois
+    - si:
+        toutes ces conditions:
+          - classification = 'B'
+          - ancienneté dans la classification >= 12 années
+      alors: 2157 €/mois
+    - si:
+        toutes ces conditions:
+          - classification = 'B'
+          - ancienneté dans la classification >= 9 années
+      alors: 2097 €/mois
+    - si:
+        toutes ces conditions:
+          - classification = 'B'
+          - ancienneté dans la classification >= 6 années
+      alors: 2036 €/mois
+    - si:
+        toutes ces conditions:
+          - classification = 'B'
+          - ancienneté dans la classification >= 3 années
+      alors: 1975 €/mois
+    - si: classification = 'B'
+      alors: 1914 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . ports et manutention . classification hors grille:
+  titre: Classification hors grille modélisée
+  description: >-
+    La version couvre uniquement la grille 2024.1 des salariés des
+    établissements portuaires des ports de commerce et de pêche. Les grilles
+    des autres salariés de la manutention et des ouvriers dockers titulaires
+    d'au moins deux CQP sont explicitement hors périmètre.
+  applicable si: convention collective = 'ports et manutention'
+  valeur: classification != 'B'
+
+salarié . convention collective . ports et manutention . audit paie:
+  titre: Audit des rubriques conventionnelles de paie
+  description: >-
+    L'avenant n° 17 fixe des salaires bruts minima hiérarchiques et les paliers
+    d'ancienneté. Une recherche dédiée a porté sur les évolutions des
+    cotisations salarié et employeur, leurs assiettes, taux, plafonds, tranches,
+    forfaits et exonérations, ainsi que sur les accords et avenants dédiés à la
+    santé, prévoyance, retraite complémentaire et retraite supplémentaire,
+    formation professionnelle, AT/MP, préretraite/pénibilité, primes, médailles,
+    indemnités, avantages en nature et frais, et leurs arrêtés d'extension.
+    Aucun taux ou assiette conventionnel générique supplémentaire, calculable
+    avec les seules entrées de ce modèle, n'est retenu : les accords de
+    prévoyance et de retraite supplémentaire nécessitent notamment statut,
+    assiette et paramètres de régime, et plusieurs avenants récents sont non
+    étendus. Ces rubriques restent externes et ne sont ni remplacées par zéro
+    ni redéfinies ; les primes, indemnités, frais, avantages et dispositifs
+    individuels nécessitent des entrées de situation et des textes spécifiques.
+  applicable si: convention collective = 'ports et manutention'
+  valeur: oui
