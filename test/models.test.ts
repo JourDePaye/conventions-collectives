@@ -198,6 +198,7 @@ const models = [
   { name: "0489-industries-cartonnage", value: "industries du cartonnage", classification: "coefficient", input: 240, minimums: { "2025.3": 2105.18 } },
   { name: "3227-industries-fabrication-chaux", value: "industries de la fabrication de la chaux", classification: "coefficient", input: 185, minimums: { "2024.1": 2182.2 }, situation: { "salarié . convention collective . industries de la fabrication de la chaux . catégorie": "'ouvriers'" } },
   { name: "2707-batiment-etam-ile-de-france", value: "bâtiment ETAM Île-de-France", classification: "niveau", input: "'G'", minimums: { "2018.1": 2915 } },
+  { name: "2002-blanchisserie-teinturerie", value: "blanchisserie teinturerie", classification: "niveau", input: "'I-1'", minimums: { "2026.1": 1823.07 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
