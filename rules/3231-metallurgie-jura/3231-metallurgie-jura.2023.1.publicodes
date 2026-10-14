@@ -1,0 +1,93 @@
+# Convention collective territoriale des industries métallurgiques, mécaniques, similaires et connexes du Jura du 11 janvier 2019 (IDCC 3231).
+# Version 2023.1 : avenant du 8 septembre 2023 relatif aux rémunérations effectives garanties,
+# étendu par arrêté du 13 novembre 2023 (JORF du 2 décembre 2023).
+validFrom: 2023-09-08
+sources:
+  - >-
+    Avenant du 8 septembre 2023 relatif aux rémunérations effectives garanties,
+    Jura (ex-IDCC 3231), KALITEXT000048437037, Légifrance ; étendu par arrêté
+    du 13 novembre 2023, JORF du 2 décembre 2023.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000048437037
+  - >-
+    Avenant du 5 avril 2023 relatif aux rémunérations effectives garanties et aux
+    rémunérations minimales hiérarchiques, Jura (ex-IDCC 3231), KALITEXT000047734529,
+    Légifrance.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000047734529
+---
+salarié . convention collective . métallurgie jura:
+  titre: Métallurgie du Jura (IDCC 3231)
+  description: Modèle historique applicable au barème Jura 2023, désormais rattaché à la convention nationale de la métallurgie.
+  valeur: convention collective = 'métallurgie jura'
+
+salarié . convention collective . métallurgie jura . coefficient:
+  titre: Coefficient hiérarchique
+  description: Coefficient de la grille des rémunérations effectives garanties 2023.
+  applicable si: convention collective = 'métallurgie jura'
+  par défaut: 140
+
+salarié . convention collective . métallurgie jura . rémunération effective garantie annuelle:
+  titre: Rémunération effective garantie annuelle
+  description: Minimum brut annuel pour 35 heures hebdomadaires, proratisé selon la quotité de travail. La comparaison reste annuelle.
+  applicable si: convention collective = 'métallurgie jura'
+  unité: €/an
+  variations:
+    - si: coefficient = 140
+      alors: 20915 €/an
+    - si: coefficient = 145
+      alors: 20951 €/an
+    - si: coefficient = 155
+      alors: 20961 €/an
+    - si: coefficient = 170
+      alors: 21022 €/an
+    - si: coefficient = 180
+      alors: 21134 €/an
+    - si: coefficient = 190
+      alors: 21287 €/an
+    - si: coefficient = 215
+      alors: 21675 €/an
+    - si: coefficient = 225
+      alors: 22185 €/an
+    - si: coefficient = 240
+      alors: 22970 €/an
+    - si: coefficient = 255
+      alors: 23786 €/an
+    - si: coefficient = 270
+      alors: 24704 €/an
+    - si: coefficient = 285
+      alors: 25877 €/an
+    - si: coefficient = 305
+      alors: 27499 €/an
+    - si: coefficient = 335
+      alors: 29917 €/an
+    - si: coefficient = 365
+      alors: 32701 €/an
+    - si: coefficient = 395
+      alors: 36108 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . métallurgie jura . salaire minimum annuel conventionnel:
+  titre: Salaire minimum annuel conventionnel
+  description: Garantie annuelle 2023, proratisée une seule fois selon la quotité de travail.
+  applicable si: convention collective = 'métallurgie jura'
+  unité: €/an
+  valeur: rémunération effective garantie annuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . métallurgie jura . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  applicable si: convention collective = 'métallurgie jura'
+  valeur: rémunération effective garantie annuelle = 0 €/an
+
+salarié . convention collective . métallurgie jura . audit paie:
+  titre: Audit des rubriques de paie
+  description: >-
+    L'avenant salarial fixe uniquement les rémunérations effectives garanties annuelles
+    et précise les éléments inclus ou exclus de leur comparaison : majorations de nuit,
+    dimanche et jours fériés, travaux pénibles/dangereux/insalubres, intéressement,
+    prime d'ancienneté et remboursements de frais sont exclus selon leurs régimes propres.
+    La recherche des textes dédiés et des arrêtés d'extension n'a pas identifié de taux
+    conventionnel calculable à ajouter pour les cotisations salariales ou patronales,
+    leurs assiettes, plafonds ou tranches, forfaits, santé, prévoyance, formation,
+    AT/MP, primes, indemnités ou avantages en nature avec les entrées de ce modèle.
+    Ces rubriques restent gérées par les régimes et données de paie applicables.
+  applicable si: convention collective = 'métallurgie jura'
+  valeur: oui
