@@ -1,0 +1,63 @@
+# Convention collective nationale des mannequins du 22 juin 2004 (IDCC 3252).
+# Version 2025.1 : accord du 17 juin 2025 relatif aux salaires minimaux des mannequins adultes.
+validFrom: 2025-07-01
+sources:
+  - >-
+    Accord du 17 juin 2025 relatif aux salaires minimaux des mannequins adultes,
+    applicable au 1er juillet 2025 aux employeurs signataires, IDCC 3252, tableau des
+    catégories 1 à 4, texte officiel Légifrance KALITEXT000051982866.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051982866
+  - >-
+    Convention collective nationale des mannequins du 22 juin 2004, fiche officielle
+    IDCC 3252, texte Légifrance KALICONT000044594539.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000044594539
+---
+salarié . convention collective . mannequins:
+  titre: Mannequins (IDCC 3252)
+  valeur: convention collective = 'mannequins'
+
+salarié . convention collective . mannequins . catégorie:
+  titre: Catégorie de mannequin adulte
+  description: Catégorie 1 à 4 du barème de l'accord du 17 juin 2025. La catégorie est fournie par l'application.
+  applicable si: convention collective = 'mannequins'
+  par défaut: 0
+
+salarié . convention collective . mannequins . salaire minimum conventionnel:
+  titre: Salaire minimum hebdomadaire conventionnel
+  description: Minimum hebdomadaire brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'mannequins'
+  unité: €/semaine
+  produit:
+    - grille hebdomadaire
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . mannequins . grille hebdomadaire:
+  titre: Grille hebdomadaire des salaires minima adultes 2025
+  description: Barème de l'accord du 17 juin 2025, applicable au 1er juillet 2025 aux employeurs signataires.
+  applicable si: convention collective = 'mannequins'
+  unité: €/semaine
+  variations:
+    - si: catégorie = 1
+      alors: 622.60 €/semaine
+    - si: catégorie = 2
+      alors: 671.63 €/semaine
+    - si: catégorie = 3
+      alors: 716.18 €/semaine
+    - si: catégorie = 4
+      alors: 764.13 €/semaine
+    - sinon: 0 €/semaine
+
+salarié . convention collective . mannequins . catégorie hors grille:
+  titre: Catégorie absente de la grille
+  applicable si: convention collective = 'mannequins'
+  valeur: grille hebdomadaire = 0 €/semaine
+
+salarié . convention collective . mannequins . audit paie:
+  titre: Éléments conventionnels modélisés et non automatisés
+  description: >-
+    La version modélise les minima hebdomadaires adultes des catégories 1 à 4 et leur
+    proratisation selon la quotité. Les cachets, minima des mannequins de moins de 16 ans,
+    allocations, congés, frais professionnels, commissions et cotisations restent à
+    déterminer par l'application selon la prestation et les conditions d'emploi.
+  applicable si: convention collective = 'mannequins'
+  valeur: oui
