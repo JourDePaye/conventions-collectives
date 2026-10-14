@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent quatre-vingt-huit conventions** sont actuellement représentées, avec **deux cent cinquante-sept versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent quatre-vingt-neuf conventions** sont actuellement représentées, avec **deux cent cinquante-huit versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent quatre-vingt-huit conventions sont actuellement représentées, avec deux cent cinquante-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent quatre-vingt-neuf conventions sont actuellement représentées, avec deux cent cinquante-huit versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -149,6 +149,7 @@ Cent quatre-vingt-huit conventions sont actuellement représentées, avec deux c
 | [Distribution et commerce de gros des papiers-cartons](rules/3224-distribution-commerce-gros-papiers-cartons/README.md) | 3224 | `2025.1` : 1er mars 2025 (avenant n° 12 étendu) | 13 minima mensuels et garanties annuelles des niveaux I.1 à V.3, proratisés selon la quotité ; financement patronal santé de 55 % et prime de panier de nuit de 6,30 € exposés ; classifications hors grille détectées |
 | [Négoce des matériaux de construction](rules/3216-negoce-materiaux-construction/README.md) | 3216 | `2025.1` : 26 avril 2025 (avenant du 21 janvier 2025 étendu) | Grille mensuelle de 13 coefficients 165 à 350, proratisée selon la quotité de travail ; détection des coefficients hors grille ; prime d'ancienneté et autres rubriques non déduites automatiquement |
 | [Industries de la fabrication de la chaux](rules/3227-industries-fabrication-chaux/README.md) | 3227 | `2024.1` : 1er janvier 2024 (accord du 27 février 2024) | 7 minima mensuels ouvriers, 20 minima annuels ETDAM, prime de vacances de 2 200 €/an, proratisation et audit paie explicite ; cadres et cotisations conventionnelles non calculables documentés |
+| [Bâtiment — ETAM Île-de-France](rules/2707-batiment-etam-ile-de-france/README.md) | 2707 | `2018.1` : 1er janvier 2018 (accord salarial officiel) | 7 minima mensuels des niveaux A à G ; proratisation selon la quotité ; niveau hors grille et audit explicite des rubriques de paie ; modèle historique limité à l’Île-de-France |
 
 ### TRANSPORT & LOGISTIQUE
 
