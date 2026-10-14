@@ -184,6 +184,7 @@ const models = [
   { name: "3220-offices-publics-habitat", value: "offices publics habitat", classification: "classe", input: 13, minimums: { "2026.1": 5359.23 } },
   { name: "3229-navigation-interieure", value: "navigation intérieure", classification: "classification", input: "'matelot — 0 à 3 ans'", minimums: { "2026.1": 22889 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "2219-taxis", value: "taxis", classification: "classification", input: "'niveau 1 — conducteur débutant — titulaire carte professionnelle'", minimums: { "2025.1": 1837.86 } },
+  { name: "7024-production-agricole-cuma", value: "production agricole et cuma", classification: "coefficient", input: 200, minimums: { "2025.1": 2784.6 } },
   { name: "2543-geometres-experts", value: "géomètres-experts géomètres-topographes photogrammètres experts fonciers", classification: "classification", input: "'II.2'", minimums: { "2024.1": 1950.53 } },
 ] as const;
 
@@ -312,5 +313,31 @@ describe("compiled collective agreement models", () => {
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 1950.53);
     assert.equal(engine.evaluate(`${namespace} . audit paie`).nodeValue, true);
     assert.equal(engine.evaluate(`${namespace} . classification hors grille`).nodeValue, false);
+  });
+  it("7024-production-agricole-cuma exposes the sourced hourly minimum, audit marker, and remains isolated", async () => {
+    const version = COMPILED_VERSIONS["7024-production-agricole-cuma"]?.find((v) => v.version === "2025.1");
+    assert.ok(version);
+    const extension = await version.loadRules();
+    const rules: Record<string, Rule> = { ...modeleSocial };
+    const namespace = "salarié . convention collective . production agricole et cuma";
+    for (const name of Object.keys(extension)) {
+      assert.ok(name === namespace || name.startsWith(`${namespace} . `), name);
+      assert.ok(!(name in rules), `Duplicate modele-social rule: ${name}`);
+    }
+    const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
+    rules["salarié . convention collective"] = {
+      ...choice,
+      "une possibilité": [...new Set([...choice["une possibilité"], "production agricole et cuma"])],
+    } as Rule;
+    Object.assign(rules, extension);
+    const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
+    engine.setSituation({
+      "salarié . convention collective": "'production agricole et cuma'",
+      [`${namespace} . coefficient`]: 200,
+      "salarié . contrat . statut cadre": "non",
+    });
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 2784.6);
+    assert.equal(engine.evaluate(`${namespace} . audit paie`).nodeValue, true);
+    assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, false);
   });
 });
