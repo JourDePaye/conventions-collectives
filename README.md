@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent quatre-vingt-neuf conventions** sont actuellement représentées, avec **deux cent cinquante-huit versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent quatre-vingt-dix conventions** sont actuellement représentées, avec **deux cent cinquante-neuf versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent quatre-vingt-neuf conventions sont actuellement représentées, avec deux cent cinquante-huit versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent quatre-vingt-dix conventions sont actuellement représentées, avec deux cent cinquante-neuf versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -195,6 +195,7 @@ Cent quatre-vingt-neuf conventions sont actuellement représentées, avec deux c
 | [Banque](rules/2120-banque/README.md) | 2120 | `2026.1` : 1er avril 2026 | Salaires annuels minima des 11 niveaux (A à K) selon l’ancienneté (0, 5, 10, 15 et 20 ans), convertis en minimum mensuel sur 13 mensualités et proratisés selon la quotité de travail ; détection des niveaux hors grille |
 | [Édition](rules/2121-edition/README.md) | 2121 | `2026.1` : 1er juillet 2026 (avenant étendu) | Grille mensuelle de 16 catégories employés, agents de maîtrise/techniciens et cadres, proratisée selon la quotité de travail ; détection des catégories hors grille |
 | [Import-export](rules/0043-import-export/README.md) | 43 | `2026.1` : 1er mars 2026 (accord étendu le 13 mai 2026) | Grille mensuelle de 20 coefficients (E1 à E8, M9 à M12 et C13 à C20), proratisée selon la quotité de travail ; détection des coefficients hors grille |
+| [Import-export et commerce international](rules/2708-import-export-commerce-international/README.md) | 2708 | `2017.1` : 1er janvier 2017 (périmètre historique) | Classification conventionnelle exposée ; audit explicite des cotisations salarié/employeur, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais ; aucun effet calculable ajouté sans source officielle suffisamment précise |
 | [Promotion immobilière](rules/1512-promotion-immobiliere/README.md) | 1512 | `2026.2` : 1er janvier 2026 (salaires, santé et prévoyance) ; `2026.3` : même date (correction) | Grille mensuelle fondée sur deux valeurs de point pour 13 coefficients ; minimum annuel distinct de 36 276 € pour les niveaux 4 à 6 au forfait de 218 jours ; santé à 2,60 % du PMSS répartie 50/50 ; prévoyance T1/T2 jusqu'à 4 PMSS ; coefficients hors grille signalés |
 | [Immobilier](rules/1527-immobilier/README.md) | 1527 | `2026.1` : 1er juin 2026 (avenant n° 111 étendu) | Grille mensuelle de neuf niveaux E1 à C4, minimum annuel sur 13 mensualités, et prime d'ancienneté exposée séparément |
 | [Cabinets d’experts-comptables et de commissaires aux comptes](rules/0787-experts-comptables/README.md) | 787 | `2026.1` : 1er mars 2026 | Minimum annuel selon le coefficient (131,54 € par point jusqu'au 164e, puis 79,85 €), équivalent mensuel proratisé, et minimum annuel distinct de l'indice 40 validé |
