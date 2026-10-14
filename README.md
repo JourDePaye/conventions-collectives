@@ -111,6 +111,7 @@ Cent quarante-huit conventions sont actuellement représentées, avec deux cent 
 | [Professions regroupées du cristal, du verre et du vitrail](rules/1821-cristal-verre-vitrail/README.md) | 1821 | `2026.2` : 1er janvier 2026 (accord étendu) | Grille mensuelle de 26 coefficients, proratisée selon la quotité de travail ; industrie du vitrail de l’annexe B exclue |
 | [Industries céramiques de France](rules/1558-industries-ceramiques/README.md) | 1558 | `2025.1` : 1er janvier 2025 (accord étendu le 26 avril 2025) | Grilles mensuelles des niveaux NA à NF et annuelles des cadres NG à J, colonne forfait jours distincte ; indemnité de panier de 16 € exposée séparément ; détection des classifications hors grille |
 | [Industries de la maroquinerie](rules/2528-maroquinerie/README.md) | 2528 | `2026.1` : 1er janvier 2026 (accord étendu) | Grille mensuelle du secteur maroquinerie–ganterie de peau pour ouvriers, employés, TAM et cadres ; proratisation selon la quotité de travail ; détection des classifications hors grille ; tannerie-mégisserie et cordonnerie multiservice non modélisées |
+| [Miroiterie, transformation et négoce du verre](rules/1499-miroiterie/README.md) | 1499 | `2025.1` : 1er mai 2025 (accord étendu) | 17 minima mensuels et horaires des coefficients 140 à 880, prime d'ancienneté horaire de 3 % à 15 %, prime de panier de nuit exposée séparément ; proratisation selon la quotité de travail ; détection des coefficients hors grille |
 
 ### BÂTIMENT & TRAVAUX PUBLICS
 
