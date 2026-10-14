@@ -1,0 +1,509 @@
+# Convention collective nationale des remontées mécaniques et domaines skiables du 15 mai 1968 (IDCC 454), mise à jour par l'avenant n° 73 du 30 septembre 2021.
+# Version 2026.1 : avenant n° 88 du 26 novembre 2025, minima et indemnités au 1er décembre 2025.
+validFrom: 2025-12-01
+sources:
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635642
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000053576535
+  - https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051807027
+---
+salarié . convention collective . remontées mécaniques domaines skiables:
+  titre: Remontées mécaniques et domaines skiables (IDCC 454)
+  valeur: convention collective = 'remontées mécaniques domaines skiables'
+
+salarié . convention collective . remontées mécaniques domaines skiables . niveau de rémunération:
+  titre: Niveau de rémunération (NR)
+  description: Niveau de rémunération conventionnel compris entre 200 et 409.
+  unité: NR
+  applicable si: convention collective = 'remontées mécaniques domaines skiables'
+  par défaut: 200
+
+salarié . convention collective . remontées mécaniques domaines skiables . salaire minimum horaire conventionnel:
+  titre: Salaire minimum horaire conventionnel
+  description: Minimum horaire brut garanti au 1er décembre 2025, à temps plein.
+  unité: €/heure
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'remontées mécaniques domaines skiables'
+      - salaire horaire grille > 0 €/heure
+  valeur: salaire horaire grille
+
+salarié . convention collective . remontées mécaniques domaines skiables . salaire minimum mensuel conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Équivalent du minimum horaire pour 151,67 heures mensuelles, proratisé selon la quotité ; la source fixe un minimum horaire.
+  unité: €/mois
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'remontées mécaniques domaines skiables'
+      - salaire horaire grille > 0 €/heure
+  produit:
+    - salaire horaire grille
+    - 151.67 heures/mois
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . remontées mécaniques domaines skiables . salaire horaire grille:
+  titre: Grille horaire au 1er décembre 2025
+  unité: €/heure
+  applicable si: convention collective = 'remontées mécaniques domaines skiables'
+  variations:
+    - si: niveau de rémunération = 200
+      alors: 12.0648 €/heure
+    - si: niveau de rémunération = 201
+      alors: 12.159 €/heure
+    - si: niveau de rémunération = 202
+      alors: 12.2527 €/heure
+    - si: niveau de rémunération = 203
+      alors: 12.3459 €/heure
+    - si: niveau de rémunération = 204
+      alors: 12.4386 €/heure
+    - si: niveau de rémunération = 205
+      alors: 12.5309 €/heure
+    - si: niveau de rémunération = 206
+      alors: 12.6226 €/heure
+    - si: niveau de rémunération = 207
+      alors: 12.7139 €/heure
+    - si: niveau de rémunération = 208
+      alors: 12.8048 €/heure
+    - si: niveau de rémunération = 209
+      alors: 12.8951 €/heure
+    - si: niveau de rémunération = 210
+      alors: 12.985 €/heure
+    - si: niveau de rémunération = 211
+      alors: 13.0743 €/heure
+    - si: niveau de rémunération = 212
+      alors: 13.1633 €/heure
+    - si: niveau de rémunération = 213
+      alors: 13.2517 €/heure
+    - si: niveau de rémunération = 214
+      alors: 13.3397 €/heure
+    - si: niveau de rémunération = 215
+      alors: 13.4272 €/heure
+    - si: niveau de rémunération = 216
+      alors: 13.5142 €/heure
+    - si: niveau de rémunération = 217
+      alors: 13.6008 €/heure
+    - si: niveau de rémunération = 218
+      alors: 13.6869 €/heure
+    - si: niveau de rémunération = 219
+      alors: 13.7725 €/heure
+    - si: niveau de rémunération = 220
+      alors: 13.8577 €/heure
+    - si: niveau de rémunération = 221
+      alors: 13.9403 €/heure
+    - si: niveau de rémunération = 222
+      alors: 13.7925 €/heure
+    - si: niveau de rémunération = 223
+      alors: 13.8987 €/heure
+    - si: niveau de rémunération = 224
+      alors: 14.0047 €/heure
+    - si: niveau de rémunération = 225
+      alors: 14.1107 €/heure
+    - si: niveau de rémunération = 226
+      alors: 14.2165 €/heure
+    - si: niveau de rémunération = 227
+      alors: 14.3223 €/heure
+    - si: niveau de rémunération = 228
+      alors: 14.4279 €/heure
+    - si: niveau de rémunération = 229
+      alors: 14.5334 €/heure
+    - si: niveau de rémunération = 230
+      alors: 14.6388 €/heure
+    - si: niveau de rémunération = 231
+      alors: 14.7441 €/heure
+    - si: niveau de rémunération = 232
+      alors: 14.8493 €/heure
+    - si: niveau de rémunération = 233
+      alors: 14.9544 €/heure
+    - si: niveau de rémunération = 234
+      alors: 15.0594 €/heure
+    - si: niveau de rémunération = 235
+      alors: 15.1643 €/heure
+    - si: niveau de rémunération = 236
+      alors: 15.269 €/heure
+    - si: niveau de rémunération = 237
+      alors: 15.3737 €/heure
+    - si: niveau de rémunération = 238
+      alors: 15.4782 €/heure
+    - si: niveau de rémunération = 239
+      alors: 15.5827 €/heure
+    - si: niveau de rémunération = 240
+      alors: 15.687 €/heure
+    - si: niveau de rémunération = 241
+      alors: 15.7912 €/heure
+    - si: niveau de rémunération = 242
+      alors: 15.8953 €/heure
+    - si: niveau de rémunération = 243
+      alors: 15.9993 €/heure
+    - si: niveau de rémunération = 244
+      alors: 16.1032 €/heure
+    - si: niveau de rémunération = 245
+      alors: 16.207 €/heure
+    - si: niveau de rémunération = 246
+      alors: 16.3107 €/heure
+    - si: niveau de rémunération = 247
+      alors: 16.4143 €/heure
+    - si: niveau de rémunération = 248
+      alors: 16.5177 €/heure
+    - si: niveau de rémunération = 249
+      alors: 16.6211 €/heure
+    - si: niveau de rémunération = 250
+      alors: 16.7243 €/heure
+    - si: niveau de rémunération = 251
+      alors: 16.8275 €/heure
+    - si: niveau de rémunération = 252
+      alors: 16.9305 €/heure
+    - si: niveau de rémunération = 253
+      alors: 17.0334 €/heure
+    - si: niveau de rémunération = 254
+      alors: 17.1363 €/heure
+    - si: niveau de rémunération = 255
+      alors: 17.239 €/heure
+    - si: niveau de rémunération = 256
+      alors: 17.3416 €/heure
+    - si: niveau de rémunération = 257
+      alors: 17.4441 €/heure
+    - si: niveau de rémunération = 258
+      alors: 17.5465 €/heure
+    - si: niveau de rémunération = 259
+      alors: 17.6487 €/heure
+    - si: niveau de rémunération = 260
+      alors: 17.7509 €/heure
+    - si: niveau de rémunération = 261
+      alors: 17.853 €/heure
+    - si: niveau de rémunération = 262
+      alors: 17.955 €/heure
+    - si: niveau de rémunération = 263
+      alors: 18.0568 €/heure
+    - si: niveau de rémunération = 264
+      alors: 18.1586 €/heure
+    - si: niveau de rémunération = 265
+      alors: 18.2602 €/heure
+    - si: niveau de rémunération = 266
+      alors: 18.3618 €/heure
+    - si: niveau de rémunération = 267
+      alors: 18.4632 €/heure
+    - si: niveau de rémunération = 268
+      alors: 18.5645 €/heure
+    - si: niveau de rémunération = 269
+      alors: 18.6657 €/heure
+    - si: niveau de rémunération = 270
+      alors: 18.7668 €/heure
+    - si: niveau de rémunération = 271
+      alors: 18.8678 €/heure
+    - si: niveau de rémunération = 272
+      alors: 18.9687 €/heure
+    - si: niveau de rémunération = 273
+      alors: 19.0695 €/heure
+    - si: niveau de rémunération = 274
+      alors: 19.1702 €/heure
+    - si: niveau de rémunération = 275
+      alors: 19.2708 €/heure
+    - si: niveau de rémunération = 276
+      alors: 19.3713 €/heure
+    - si: niveau de rémunération = 277
+      alors: 19.4717 €/heure
+    - si: niveau de rémunération = 278
+      alors: 19.5719 €/heure
+    - si: niveau de rémunération = 279
+      alors: 19.6721 €/heure
+    - si: niveau de rémunération = 280
+      alors: 19.7768 €/heure
+    - si: niveau de rémunération = 281
+      alors: 19.8814 €/heure
+    - si: niveau de rémunération = 282
+      alors: 19.9859 €/heure
+    - si: niveau de rémunération = 283
+      alors: 20.0904 €/heure
+    - si: niveau de rémunération = 284
+      alors: 20.1949 €/heure
+    - si: niveau de rémunération = 285
+      alors: 20.2993 €/heure
+    - si: niveau de rémunération = 286
+      alors: 20.4036 €/heure
+    - si: niveau de rémunération = 287
+      alors: 20.5079 €/heure
+    - si: niveau de rémunération = 288
+      alors: 20.6121 €/heure
+    - si: niveau de rémunération = 289
+      alors: 20.7163 €/heure
+    - si: niveau de rémunération = 290
+      alors: 20.8204 €/heure
+    - si: niveau de rémunération = 291
+      alors: 20.9244 €/heure
+    - si: niveau de rémunération = 292
+      alors: 21.0284 €/heure
+    - si: niveau de rémunération = 293
+      alors: 21.1324 €/heure
+    - si: niveau de rémunération = 294
+      alors: 21.2362 €/heure
+    - si: niveau de rémunération = 295
+      alors: 21.3401 €/heure
+    - si: niveau de rémunération = 296
+      alors: 21.4438 €/heure
+    - si: niveau de rémunération = 297
+      alors: 21.5475 €/heure
+    - si: niveau de rémunération = 298
+      alors: 21.6512 €/heure
+    - si: niveau de rémunération = 299
+      alors: 21.7548 €/heure
+    - si: niveau de rémunération = 300
+      alors: 21.8583 €/heure
+    - si: niveau de rémunération = 301
+      alors: 21.9618 €/heure
+    - si: niveau de rémunération = 302
+      alors: 22.0652 €/heure
+    - si: niveau de rémunération = 303
+      alors: 22.1686 €/heure
+    - si: niveau de rémunération = 304
+      alors: 22.2719 €/heure
+    - si: niveau de rémunération = 305
+      alors: 22.3752 €/heure
+    - si: niveau de rémunération = 306
+      alors: 22.4784 €/heure
+    - si: niveau de rémunération = 307
+      alors: 22.5815 €/heure
+    - si: niveau de rémunération = 308
+      alors: 22.6846 €/heure
+    - si: niveau de rémunération = 309
+      alors: 22.7876 €/heure
+    - si: niveau de rémunération = 310
+      alors: 22.8906 €/heure
+    - si: niveau de rémunération = 311
+      alors: 22.9935 €/heure
+    - si: niveau de rémunération = 312
+      alors: 23.0964 €/heure
+    - si: niveau de rémunération = 313
+      alors: 23.1992 €/heure
+    - si: niveau de rémunération = 314
+      alors: 23.3019 €/heure
+    - si: niveau de rémunération = 315
+      alors: 23.4046 €/heure
+    - si: niveau de rémunération = 316
+      alors: 23.5073 €/heure
+    - si: niveau de rémunération = 317
+      alors: 23.6099 €/heure
+    - si: niveau de rémunération = 318
+      alors: 23.7124 €/heure
+    - si: niveau de rémunération = 319
+      alors: 23.8148 €/heure
+    - si: niveau de rémunération = 320
+      alors: 23.9173 €/heure
+    - si: niveau de rémunération = 321
+      alors: 24.0196 €/heure
+    - si: niveau de rémunération = 322
+      alors: 24.1219 €/heure
+    - si: niveau de rémunération = 323
+      alors: 24.2241 €/heure
+    - si: niveau de rémunération = 324
+      alors: 24.3263 €/heure
+    - si: niveau de rémunération = 325
+      alors: 24.4285 €/heure
+    - si: niveau de rémunération = 326
+      alors: 24.5305 €/heure
+    - si: niveau de rémunération = 327
+      alors: 24.6325 €/heure
+    - si: niveau de rémunération = 328
+      alors: 24.7345 €/heure
+    - si: niveau de rémunération = 329
+      alors: 24.8364 €/heure
+    - si: niveau de rémunération = 330
+      alors: 24.9383 €/heure
+    - si: niveau de rémunération = 331
+      alors: 25.04 €/heure
+    - si: niveau de rémunération = 332
+      alors: 25.1418 €/heure
+    - si: niveau de rémunération = 333
+      alors: 25.2435 €/heure
+    - si: niveau de rémunération = 334
+      alors: 25.3451 €/heure
+    - si: niveau de rémunération = 335
+      alors: 25.4466 €/heure
+    - si: niveau de rémunération = 336
+      alors: 25.5482 €/heure
+    - si: niveau de rémunération = 337
+      alors: 25.6496 €/heure
+    - si: niveau de rémunération = 338
+      alors: 25.751 €/heure
+    - si: niveau de rémunération = 339
+      alors: 25.8524 €/heure
+    - si: niveau de rémunération = 340
+      alors: 25.9536 €/heure
+    - si: niveau de rémunération = 341
+      alors: 26.0549 €/heure
+    - si: niveau de rémunération = 342
+      alors: 26.156 €/heure
+    - si: niveau de rémunération = 343
+      alors: 26.2572 €/heure
+    - si: niveau de rémunération = 344
+      alors: 26.3582 €/heure
+    - si: niveau de rémunération = 345
+      alors: 26.4592 €/heure
+    - si: niveau de rémunération = 346
+      alors: 26.5602 €/heure
+    - si: niveau de rémunération = 347
+      alors: 26.6611 €/heure
+    - si: niveau de rémunération = 348
+      alors: 26.7619 €/heure
+    - si: niveau de rémunération = 349
+      alors: 26.8627 €/heure
+    - si: niveau de rémunération = 350
+      alors: 26.9634 €/heure
+    - si: niveau de rémunération = 351
+      alors: 27.0641 €/heure
+    - si: niveau de rémunération = 352
+      alors: 27.1647 €/heure
+    - si: niveau de rémunération = 353
+      alors: 27.2653 €/heure
+    - si: niveau de rémunération = 354
+      alors: 27.3658 €/heure
+    - si: niveau de rémunération = 355
+      alors: 27.4662 €/heure
+    - si: niveau de rémunération = 356
+      alors: 27.5666 €/heure
+    - si: niveau de rémunération = 357
+      alors: 27.667 €/heure
+    - si: niveau de rémunération = 358
+      alors: 27.7672 €/heure
+    - si: niveau de rémunération = 359
+      alors: 27.8675 €/heure
+    - si: niveau de rémunération = 360
+      alors: 27.9676 €/heure
+    - si: niveau de rémunération = 361
+      alors: 28.0677 €/heure
+    - si: niveau de rémunération = 362
+      alors: 28.1678 €/heure
+    - si: niveau de rémunération = 363
+      alors: 28.2678 €/heure
+    - si: niveau de rémunération = 364
+      alors: 28.3678 €/heure
+    - si: niveau de rémunération = 365
+      alors: 28.4676 €/heure
+    - si: niveau de rémunération = 366
+      alors: 28.5675 €/heure
+    - si: niveau de rémunération = 367
+      alors: 28.6673 €/heure
+    - si: niveau de rémunération = 368
+      alors: 28.767 €/heure
+    - si: niveau de rémunération = 369
+      alors: 28.8667 €/heure
+    - si: niveau de rémunération = 370
+      alors: 28.9663 €/heure
+    - si: niveau de rémunération = 371
+      alors: 29.0658 €/heure
+    - si: niveau de rémunération = 372
+      alors: 29.1653 €/heure
+    - si: niveau de rémunération = 373
+      alors: 29.2648 €/heure
+    - si: niveau de rémunération = 374
+      alors: 29.3642 €/heure
+    - si: niveau de rémunération = 375
+      alors: 29.4635 €/heure
+    - si: niveau de rémunération = 376
+      alors: 29.5628 €/heure
+    - si: niveau de rémunération = 377
+      alors: 29.662 €/heure
+    - si: niveau de rémunération = 378
+      alors: 29.7612 €/heure
+    - si: niveau de rémunération = 379
+      alors: 29.8603 €/heure
+    - si: niveau de rémunération = 380
+      alors: 29.9594 €/heure
+    - si: niveau de rémunération = 381
+      alors: 30.0584 €/heure
+    - si: niveau de rémunération = 382
+      alors: 30.1573 €/heure
+    - si: niveau de rémunération = 383
+      alors: 30.2562 €/heure
+    - si: niveau de rémunération = 384
+      alors: 30.355 €/heure
+    - si: niveau de rémunération = 385
+      alors: 30.4538 €/heure
+    - si: niveau de rémunération = 386
+      alors: 30.5526 €/heure
+    - si: niveau de rémunération = 387
+      alors: 30.6512 €/heure
+    - si: niveau de rémunération = 388
+      alors: 30.7498 €/heure
+    - si: niveau de rémunération = 389
+      alors: 30.8484 €/heure
+    - si: niveau de rémunération = 390
+      alors: 30.9469 €/heure
+    - si: niveau de rémunération = 391
+      alors: 31.0454 €/heure
+    - si: niveau de rémunération = 392
+      alors: 31.1438 €/heure
+    - si: niveau de rémunération = 393
+      alors: 31.2421 €/heure
+    - si: niveau de rémunération = 394
+      alors: 31.3404 €/heure
+    - si: niveau de rémunération = 395
+      alors: 31.4386 €/heure
+    - si: niveau de rémunération = 396
+      alors: 31.5368 €/heure
+    - si: niveau de rémunération = 397
+      alors: 31.6349 €/heure
+    - si: niveau de rémunération = 398
+      alors: 31.733 €/heure
+    - si: niveau de rémunération = 399
+      alors: 31.831 €/heure
+    - si: niveau de rémunération = 400
+      alors: 31.929 €/heure
+    - si: niveau de rémunération = 401
+      alors: 32.0317 €/heure
+    - si: niveau de rémunération = 402
+      alors: 32.1344 €/heure
+    - si: niveau de rémunération = 403
+      alors: 32.2371 €/heure
+    - si: niveau de rémunération = 404
+      alors: 32.3398 €/heure
+    - si: niveau de rémunération = 405
+      alors: 32.4424 €/heure
+    - si: niveau de rémunération = 406
+      alors: 32.545 €/heure
+    - si: niveau de rémunération = 407
+      alors: 32.6476 €/heure
+    - si: niveau de rémunération = 408
+      alors: 32.7502 €/heure
+    - si: niveau de rémunération = 409
+      alors: 32.8528 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . remontées mécaniques domaines skiables . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau fourni ne correspond pas à un NR compris entre 200 et 409.
+  applicable si: convention collective = 'remontées mécaniques domaines skiables'
+  valeur: salaire horaire grille = 0 €/heure
+
+salarié . convention collective . remontées mécaniques domaines skiables . indemnité compensatrice de panier:
+  titre: Indemnité compensatrice de panier
+  unité: €/mois
+  description: Montant conventionnel forfaitaire exposé séparément ; son déclenchement dépend de la situation de travail.
+  applicable si: convention collective = 'remontées mécaniques domaines skiables'
+  valeur: 7.94 €/mois
+
+salarié . convention collective . remontées mécaniques domaines skiables . indemnité compensatrice d'équipement skis et bâtons:
+  titre: Indemnité compensatrice d'équipement — skis et bâtons
+  unité: €/an
+  description: Montant conventionnel exposé séparément ; non ajouté automatiquement au salaire.
+  applicable si: convention collective = 'remontées mécaniques domaines skiables'
+  valeur: 51.55 €/an
+
+salarié . convention collective . remontées mécaniques domaines skiables . indemnité compensatrice d'équipement chaussures:
+  titre: Indemnité compensatrice d'équipement — chaussures
+  unité: €/an
+  description: Montant conventionnel exposé séparément ; non ajouté automatiquement au salaire.
+  applicable si: convention collective = 'remontées mécaniques domaines skiables'
+  valeur: 30 €/an
+
+salarié . convention collective . remontées mécaniques domaines skiables . prime de langue étrangère:
+  titre: Prime de langue étrangère
+  unité: €/mois
+  description: Montant conventionnel exposé séparément ; éligibilité à fournir par l'application.
+  applicable si: convention collective = 'remontées mécaniques domaines skiables'
+  valeur: 65.10 €/mois
+
+salarié . convention collective . remontées mécaniques domaines skiables . prime d'artificier:
+  titre: Prime d'artificier
+  unité: €/mois
+  description: Montant conventionnel exposé séparément ; éligibilité à fournir par l'application.
+  applicable si: convention collective = 'remontées mécaniques domaines skiables'
+  valeur: 50 €/mois
