@@ -151,6 +151,7 @@ const models = [
   { name: "2972-navigation-personnel-sedentaire", value: "personnel sédentaire entreprises navigation", classification: "niveau", input: "'I'", minimums: { "2026.1": 22604.30 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "1557-commerce-articles-sports-loisirs", value: "commerce articles sports loisirs", classification: "classification", input: "'250'", minimums: { "2025.1": 2089 } },
   { name: "2257-casinos", value: "casinos", classification: "indice", input: 140, minimums: { "2025.1": 1991 } },
+  { name: "3217-branche-ferroviaire", value: "branche ferroviaire", classification: "classe", input: 1, minimums: { "2025.1": 22377 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . branche ferroviaire . ancienneté": 0 } },
   { name: "3236-industrie-services-nautiques", value: "industrie services nautiques", classification: "niveau et échelon", input: "'VI.2'", minimums: { "2025.1": 2477.87 } },
   { name: "2528-maroquinerie", value: "maroquinerie", classification: "classification", input: "'TAM III'", minimums: { "2026.1": 1953 } },
   { name: "3249-carrieres-materiaux", value: "carrières et matériaux de construction", classification: "niveau et échelon", input: "'5.2'", minimums: { "2026.1": 2409 }, situation: { "salarié . convention collective . carrières et matériaux de construction . région": "'Île-de-France'" } },
