@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent soixante conventions** sont actuellement représentées, avec **deux cent vingt-neuf versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent soixante-deux conventions** sont actuellement représentées, avec **deux cent trente et une versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent soixante conventions sont actuellement représentées, avec deux cent vingt-neuf versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent soixante-deux conventions sont actuellement représentées, avec deux cent trente et une versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -143,6 +143,7 @@ Cent soixante conventions sont actuellement représentées, avec deux cent vingt
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
 | [Personnel au sol des entreprises de transport aérien](rules/0275-transport-aerien-personnel-sol/README.md) | 275 | `2025.1` : 1er avril 2025 (employeurs signataires ou adhérents) | Grille mensuelle de 20 coefficients avec paliers au 1er septembre et au 1er novembre 2025, proratisation selon la quotité de travail ; indemnité de panier de 7,40 € exposée séparément ; coefficient hors grille et champ juridique explicites |
+| [Personnel au sol des entreprises de transport aérien — manutention et nettoyage](rules/1391-manutention-nettoyage-aeroports/README.md) | 1391 | `2026.1` : 1er janvier 2026 | Cinq minima mensuels des catégories A à E, proratisés selon la quotité de travail ; audit explicite des cotisations, santé, prévoyance, formation, AT/MP, primes et avantages ; catégories hors grille détectées |
 | [Personnel sédentaire des entreprises de navigation](rules/2972-navigation-personnel-sedentaire/README.md) | 2972 | `2026.1` : 1er janvier 2026 (avenant n° 9 étendu) | Grille annuelle de neuf niveaux I à IX, proratisée selon la quotité de travail ; comparaison conservée en €/an et niveaux hors grille détectés |
 | [Personnels navigants officiers des entreprises de transport et services maritimes](rules/3223-personnels-navigants-officiers/README.md) | 3223 | `2025.1` : 1er janvier 2025 (avenant n° 4 étendu) | Grille annuelle de fonctions et catégories de navigation, proratisée selon la quotité ; indemnités journalières de nourriture et frais divers exposées séparément ; fonctions hors grille détectées |
 | [Transports routiers et activités auxiliaires du transport](rules/0016-transports-routiers/README.md) | 16 | `2026.1` : 1er juin 2026 | Grilles de 108 classifications des quatre sous-secteurs (marchandises, voyageurs, logistique, déménagement) avec paliers d'ancienneté, proratisées selon la quotité de travail ; détection des classifications hors grille |

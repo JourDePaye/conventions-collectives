@@ -165,6 +165,7 @@ const models = [
   { name: "0959-laboratoires-biologie-medicale", value: "laboratoires biologie médicale", classification: "coefficient", input: 800, minimums: { "2024.1": 5608.31 } },
   { name: "3254-boucherie-poissonnerie", value: "boucherie poissonnerie", classification: "niveau", input: "'IV-D'", minimums: { "2026.1": 2525 } },
   { name: "3253-cabinets-avocats-salaries", value: "cabinets d'avocats salariés", classification: "coefficient", input: 300, minimums: { "2025.1": 2390 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . cabinets d'avocats salariés . date de calcul": "01/10/2025" } },
+  { name: "1391-manutention-nettoyage-aeroports", value: "manutention nettoyage aéroports", classification: "catégorie", input: "'C'", minimums: { "2026.1": 2602 } },
 ] as const;
 
 const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
