@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Cent soixante-dix-neuf conventions** sont actuellement représentées, avec **deux cent quarante-cinq versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Cent quatre-vingts conventions** sont actuellement représentées, avec **deux cent quarante-six versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent soixante-dix-neuf conventions sont actuellement représentées, avec deux cent quarante-cinq versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Cent quatre-vingts conventions sont actuellement représentées, avec deux cent quarante-six versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -152,6 +152,7 @@ Cent soixante-dix-neuf conventions sont actuellement représentées, avec deux c
 | [Personnel sédentaire des entreprises de navigation](rules/2972-navigation-personnel-sedentaire/README.md) | 2972 | `2026.1` : 1er janvier 2026 (avenant n° 9 étendu) | Grille annuelle de neuf niveaux I à IX, proratisée selon la quotité de travail ; comparaison conservée en €/an et niveaux hors grille détectés |
 | [Personnels navigants officiers des entreprises de transport et services maritimes](rules/3223-personnels-navigants-officiers/README.md) | 3223 | `2025.1` : 1er janvier 2025 (avenant n° 4 étendu) | Grille annuelle de fonctions et catégories de navigation, proratisée selon la quotité ; indemnités journalières de nourriture et frais divers exposées séparément ; fonctions hors grille détectées |
 | [Transports routiers et activités auxiliaires du transport](rules/0016-transports-routiers/README.md) | 16 | `2026.1` : 1er juin 2026 | Grilles de 108 classifications des quatre sous-secteurs (marchandises, voyageurs, logistique, déménagement) avec paliers d'ancienneté, proratisées selon la quotité de travail ; détection des classifications hors grille |
+| [Taxis](rules/2219-taxis/README.md) | 2219 | `2025.1` : 1er juin 2025 (accord étendu le 15 octobre 2025) | Minimum mensuel de 1 837,86 € pour le niveau 1 des conducteurs débutants titulaires de la carte professionnelle, proratisé selon la quotité ; autres classifications et rubriques de paie explicitement hors périmètre |
 | [Industrie de la fabrication des ciments](rules/3233-industrie-fabrication-ciments/README.md) | 3233 | `2026.1` : 9 juillet 2026 (champ étendu) | Grilles mensuelles des ouvriers et ETAM et des ingénieurs et cadres selon le coefficient ; proratisation selon la quotité de travail ; détection des coefficients hors grille |
 
 ### SANTÉ & ACTION SOCIALE

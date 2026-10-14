@@ -1,0 +1,53 @@
+# Convention collective nationale des taxis du 11 septembre 2001 (IDCC 2219).
+# Version 2025.1 : accord du 20 juin 2025 relatif aux rémunérations minimales,
+# applicable au 1er juin 2025 et étendu par arrêté du 9 octobre 2025.
+validFrom: 2025-06-01
+sources:
+  - >-
+    Accord du 20 juin 2025 relatif aux rémunérations minimales des personnels,
+    articles 2 et 3, publié sur Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000052447745
+  - >-
+    Arrêté du 9 octobre 2025 portant extension de l'accord conclu dans le cadre
+    de la convention collective nationale des taxis (IDCC 2219), publié au
+    Journal officiel du 15 octobre 2025 :
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052391450
+---
+salarié . convention collective . taxis:
+  titre: Taxis (IDCC 2219)
+  valeur: convention collective = 'taxis'
+
+salarié . convention collective . taxis . classification:
+  titre: Classification taxi
+  description: Classification strictement couverte par la ligne de l'accord salarial modélisée dans cette version.
+  applicable si: convention collective = 'taxis'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . taxis . grille mensuelle:
+  titre: Minimum mensuel conventionnel des taxis
+  description: Minimum mensuel brut de la ligne « Niveau 1. Conducteur(trice) débutant(e), titulaire de la carte professionnelle » de l'accord du 20 juin 2025.
+  applicable si: convention collective = 'taxis'
+  unité: €/mois
+  variations:
+    - si: classification = 'niveau 1 — conducteur débutant — titulaire carte professionnelle'
+      alors: 1837.86 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . taxis . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut proratisé selon la quotité de travail.
+  applicable si: convention collective = 'taxis'
+  unité: €/mois
+  valeur: grille mensuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . taxis . classification hors grille:
+  titre: Classification absente du périmètre modélisé
+  description: Cette version couvre uniquement la ligne niveau 1 des conducteurs débutants titulaires de la carte professionnelle.
+  applicable si: convention collective = 'taxis'
+  valeur: grille mensuelle = 0 €/mois
+
+salarié . convention collective . taxis . audit paie:
+  titre: Audit des rubriques de paie
+  description: Recherche explicite des cotisations salarié/employeur, taux, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais dans l'accord salarial, la convention et les textes dédiés ; aucun taux conventionnel générique calculable n'est ajouté par cette version.
+  applicable si: convention collective = 'taxis'
+  valeur: non
