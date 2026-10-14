@@ -1,0 +1,137 @@
+# Convention collective de branche des salariés en portage salarial du 22 mars 2017 (IDCC 3219).
+# Version 2024.3 : correction de la date d'effet, du plafond conventionnel et ajout de la contribution formation audités depuis 2024.2.
+validFrom: 2024-07-17
+sources:
+  - >-
+    Avenant n° 12 du 20 décembre 2022 relatif à la classification et à la rémunération,
+    article 3 modifiant l'article 21.3 : 63 % du plafond de la sécurité sociale pour le
+    premier niveau, 70 % pour junior, 75 % pour senior et 85 % pour expert ; réserve
+    financière et indemnité de précarité de 10 %. Le texte retient le plafond de sécurité
+    sociale base 2017 (3 269 € mensuels).
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000047348889
+  - >-
+    Arrêté du 17 juillet 2023 portant extension de l'avenant n° 12, publié au Journal
+    officiel du 26 juillet 2023.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000047877684
+  - >-
+    Avenant n° 13 du 19 avril 2023 relatif à la détermination des prélèvements sociaux,
+    fiscaux et autres charges financées par le salarié porté, examiné pour l'audit des
+    taux salarié/employeur, assiettes, plafonds, santé, prévoyance et financement de branche.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000047734523
+  - >-
+    Avenant n° 10 du 15 décembre 2020 relatif à la formation professionnelle : 1,05 % de la
+    masse salariale pour les entreprises de moins de 11 salariés et 0,60 % à partir de 11
+    salariés ; étendu par arrêté du 2 juillet 2021, applicable au 1er janvier 2021.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043458334
+---
+salarié . convention collective . portage salarial:
+  titre: Salariés en portage salarial (IDCC 3219)
+  valeur: convention collective = 'portage salarial'
+
+salarié . convention collective . portage salarial . classification:
+  titre: Classification du salarié porté
+  description: Niveau de classification prévu par l'article 37 de la convention collective.
+  applicable si: convention collective = 'portage salarial'
+  par défaut: "'junior'"
+
+salarié . convention collective . portage salarial . rémunération minimale mensuelle:
+  titre: Rémunération minimale mensuelle du salarié porté
+  description: >-
+    Minimum mensuel payable au mois le mois, exprimé en pourcentage du plafond mensuel
+    de la sécurité sociale base 2017 fixé par l'avenant n° 12 à 3 269 €. Il intègre le
+    salaire de base, les congés payés et la prime d'apport d'affaire ; les périodes sans
+    prestation ne sont pas rémunérées.
+  applicable si: convention collective = 'portage salarial'
+  unité: €/mois
+  produit:
+    - plafond sécurité sociale base 2017
+    - taux de rémunération minimale
+
+salarié . convention collective . portage salarial . plafond sécurité sociale base 2017:
+  titre: Plafond mensuel de sécurité sociale conventionnel base 2017
+  description: Montant de référence fixé par l'avenant n° 12, non actualisé avec le PMSS courant.
+  applicable si: convention collective = 'portage salarial'
+  unité: €/mois
+  valeur: 3269 €/mois
+
+salarié . convention collective . portage salarial . taux de rémunération minimale:
+  titre: Taux conventionnel de rémunération minimale
+  description: Taux de l'article 21.3 modifié par l'avenant n° 12.
+  applicable si: convention collective = 'portage salarial'
+  unité: '%'
+  variations:
+    - si: classification = 'premier niveau'
+      alors: 63%
+    - si: classification = 'junior'
+      alors: 70%
+    - si: classification = 'senior'
+      alors: 75%
+    - si: classification = 'expert'
+      alors: 85%
+    - sinon: 0%
+
+salarié . convention collective . portage salarial . contribution conventionnelle formation professionnelle:
+  titre: Contribution conventionnelle employeur à la formation professionnelle
+  description: >-
+    Contribution annuelle due par l'employeur sur la masse salariale de référence :
+    1,05 % si l'entreprise compte moins de 11 salariés, 0,60 % à partir de 11 salariés.
+    Les deux entrées doivent être fournies par la paie.
+  applicable si: convention collective = 'portage salarial'
+  unité: €/an
+  produit:
+    - masse salariale annuelle de référence formation
+    - taux contribution formation
+
+salarié . convention collective . portage salarial . masse salariale annuelle de référence formation:
+  titre: Masse salariale annuelle de référence pour la formation
+  description: Assiette annuelle fournie par la paie pour la contribution conventionnelle employeur.
+  applicable si: convention collective = 'portage salarial'
+  unité: €/an
+  par défaut: 0 €/an
+
+salarié . convention collective . portage salarial . effectif entreprise pour formation:
+  titre: Effectif de l'entreprise pour la formation
+  description: Effectif de l'entreprise à utiliser pour le seuil conventionnel de 11 salariés.
+  applicable si: convention collective = 'portage salarial'
+  unité: salarié
+  par défaut: 0 salarié
+
+salarié . convention collective . portage salarial . taux contribution formation:
+  titre: Taux conventionnel employeur de formation professionnelle
+  applicable si: convention collective = 'portage salarial'
+  unité: '%'
+  variations:
+    - si: effectif entreprise pour formation < 11 salarié
+      alors: 1.05%
+    - sinon: 0.60%
+
+salarié . convention collective . portage salarial . réserve financière:
+  titre: Réserve financière conventionnelle
+  description: >-
+    Pour un CDI, la convention prévoit une réserve de 10 % du salaire de base de la
+    dernière mission. Le salaire de base doit être fourni par la paie ; zéro par défaut
+    signifie que l'entrée n'a pas été renseignée, pas que l'obligation disparaît.
+  applicable si: convention collective = 'portage salarial'
+  unité: €/mois
+  produit:
+    - salaire de base de la dernière mission
+    - 10%
+
+salarié . convention collective . portage salarial . salaire de base de la dernière mission:
+  titre: Salaire de base de la dernière mission
+  description: Base externe nécessaire au calcul de la réserve financière CDI.
+  applicable si: convention collective = 'portage salarial'
+  unité: €/mois
+  par défaut: 0 €/mois
+
+salarié . convention collective . portage salarial . indemnité de précarité:
+  titre: Indemnité de précarité conventionnelle
+  description: Pour un CDD, indemnité de précarité de 10 % versée à l'issue du contrat.
+  applicable si: convention collective = 'portage salarial'
+  unité: €/mois
+  par défaut: 0 €/mois
+
+salarié . convention collective . portage salarial . classification hors grille:
+  titre: Classification absente de la grille
+  applicable si: convention collective = 'portage salarial'
+  valeur: taux de rémunération minimale = 0%

@@ -224,7 +224,7 @@ describe("compiled collective agreement models", () => {
   }
 
   it("3219-portage-salarial exposes sourced remuneration rates and remains isolated", async () => {
-    const version = COMPILED_VERSIONS["3219-portage-salarial"]?.find((v) => v.version === "2024.1");
+    const version = COMPILED_VERSIONS["3219-portage-salarial"]?.find((v) => v.version === "2024.3");
     assert.ok(version);
     const extension = await version.loadRules();
     const rules: Record<string, Rule> = { ...modeleSocial };
@@ -243,14 +243,20 @@ describe("compiled collective agreement models", () => {
     engine.setSituation({
       "salarié . convention collective": "'portage salarial'",
       [`${namespace} . classification`]: "'senior'",
+      [`${namespace} . salaire de base de la dernière mission`]: "2000 €/mois",
+      [`${namespace} . masse salariale annuelle de référence formation`]: "100000 €/an",
+      [`${namespace} . effectif entreprise pour formation`]: "10 salarié",
       "salarié . contrat . statut cadre": "non",
     });
     const rate = engine.evaluate(`${namespace} . taux de rémunération minimale`).nodeValue;
     assert.equal(rate, 75);
     const minimum = engine.evaluate(`${namespace} . rémunération minimale mensuelle`).nodeValue;
-    const pmss = engine.evaluate("plafond sécurité sociale").nodeValue;
+    const pmss = engine.evaluate(`${namespace} . plafond sécurité sociale base 2017`).nodeValue;
+    assert.equal(pmss, 3269);
     assert.equal(minimum, (pmss as number) * 0.75);
-    assert.equal(engine.evaluate(`${namespace} . réserve financière`).nodeValue, 0);
+    assert.equal(engine.evaluate(`${namespace} . réserve financière`).nodeValue, 200);
+    assert.equal(engine.evaluate(`${namespace} . taux contribution formation`).nodeValue, 1.05);
+    assert.equal(engine.evaluate(`${namespace} . contribution conventionnelle formation professionnelle`).nodeValue, 1050);
     assert.equal(engine.evaluate(`${namespace} . indemnité de précarité`).nodeValue, 0);
   });
 });
