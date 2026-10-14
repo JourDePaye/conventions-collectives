@@ -1,0 +1,79 @@
+# Convention collective nationale de la cordonnerie multiservice du 7 août 1989 (IDCC 1561), secteur rattaché à la branche maroquinerie.
+# Version 2026.1 : accord du 18 février 2026, étendu le 4 mai 2026, applicable au 1er janvier 2026.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Accord du 18 février 2026 relatif aux salaires minima à partir du 1er janvier 2026
+    dans les entreprises de la cordonnerie multiservice, IDCC 1561, Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054262265
+  - >-
+    Arrêté du 4 mai 2026 portant extension de l'accord du 18 février 2026,
+    publié au JORF du 10 mai 2026 :
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054051104
+  - >-
+    Convention collective nationale de la cordonnerie multiservice du 7 août 1989,
+    fusionnée avec la convention de rattachement IDCC 2528 par arrêté du 23 janvier 2019.
+    Le secteur cordonnerie multiservice reste modélisé séparément selon sa grille dédiée.
+---
+salarié . convention collective . cordonnerie multiservice:
+  titre: Cordonnerie multiservice (IDCC 1561)
+  valeur: convention collective = 'cordonnerie multiservice'
+
+salarié . convention collective . cordonnerie multiservice . classification:
+  titre: Catégorie et échelon
+  description: Classification sous la forme catégorie-échelon, par exemple I-1 ou IV-2.
+  applicable si: convention collective = 'cordonnerie multiservice'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . cordonnerie multiservice . grille mensuelle:
+  titre: Salaire minimum brut mensuel à temps plein
+  description: Grille nationale pour 151,67 heures et 35 heures hebdomadaires, accord du 18 février 2026.
+  applicable si: convention collective = 'cordonnerie multiservice'
+  unité: €/mois
+  variations:
+    - si: classification = 'I-1'
+      alors: 1857.19 €/mois
+    - si: classification = 'I-2'
+      alors: 1866.40 €/mois
+    - si: classification = 'II-1'
+      alors: 1874.07 €/mois
+    - si: classification = 'II-2'
+      alors: 1880.21 €/mois
+    - si: classification = 'III-1'
+      alors: 1973.84 €/mois
+    - si: classification = 'IV-1'
+      alors: 2069 €/mois
+    - si: classification = 'IV-2'
+      alors: 2291.56 €/mois
+    - si: classification = 'V'
+      alors: 2521.79 €/mois
+    - si: classification = 'VI'
+      alors: 2742.81 €/mois
+    - si: classification = 'VII'
+      alors: 3082.01 €/mois
+    - si: classification = 'VIII'
+      alors: 3421.22 €/mois
+    - si: classification = 'IX'
+      alors: 3645.31 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . cordonnerie multiservice . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum brut à 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'cordonnerie multiservice'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . cordonnerie multiservice . classification hors grille:
+  titre: Classification absente de la grille
+  description: La classification ne correspond pas aux catégories et échelons de l'accord.
+  applicable si: convention collective = 'cordonnerie multiservice'
+  valeur: grille mensuelle = 0 €/mois
+
+salarié . convention collective . cordonnerie multiservice . audit paie:
+  titre: Audit des rubriques de paie
+  description: Les textes de la convention, les accords dédiés de salaires et de prévoyance, leurs extensions et le rattachement à la branche maroquinerie ont été recherchés. Aucun taux ou assiette conventionnelle salarié/employeur supplémentaire n'est calculé par cette version.
+  applicable si: convention collective = 'cordonnerie multiservice'
+  valeur: non
