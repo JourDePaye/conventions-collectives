@@ -1,0 +1,68 @@
+validFrom: 2023-11-01
+sources:
+  - >-
+    Convention collective nationale de la branche ferroviaire du 31 mai 2016,
+    IDCC 3244, article 41 et annexe, Légifrance, KALICONT000046802926.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000046802926
+  - >-
+    Arrêté du 6 novembre 2023 portant extension de la convention collective
+    nationale de la branche ferroviaire, JORFTEXT000048423669.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048423669
+  - >-
+    Avenant n° 1 du 15 décembre 2022 relatif à la formation professionnelle,
+    IDCC 3244, KALIARTI000047932919.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000047932919
+---
+salarié . convention collective . branche ferroviaire:
+  titre: Branche ferroviaire (IDCC 3244)
+  valeur: convention collective = 'branche ferroviaire'
+
+salarié . convention collective . branche ferroviaire . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient de la grille de rémunération conventionnelle, borné aux coefficients 210 à 270.
+  applicable si: convention collective = 'branche ferroviaire'
+  par défaut: 210
+
+salarié . convention collective . branche ferroviaire . valeur du point:
+  titre: Valeur conventionnelle du point
+  description: Valeur du point fixée à 16,315 € par l'article 41 de la convention collective.
+  applicable si: convention collective = 'branche ferroviaire'
+  unité: €/point
+  valeur: 16.315 €/point
+
+salarié . convention collective . branche ferroviaire . grille mensuelle:
+  titre: Salaire minimum mensuel conventionnel à temps plein
+  description: Minimum mensuel calculé par coefficient multiplié par la valeur conventionnelle du point.
+  applicable si: convention collective = 'branche ferroviaire'
+  unité: €/mois
+  valeur: coefficient * valeur du point
+
+salarié . convention collective . branche ferroviaire . minimum avant proratisation:
+  titre: Salaire minimum mensuel avant proratisation
+  description: Maximum entre la grille et le plafond mensuel de sécurité sociale.
+  applicable si: convention collective = 'branche ferroviaire'
+  variations:
+    - si: grille mensuelle < plafond sécurité sociale
+      alors: plafond sécurité sociale
+    - sinon: grille mensuelle
+
+salarié . convention collective . branche ferroviaire . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, au moins égal au plafond mensuel de sécurité sociale, puis proratisé selon la quotité de travail.
+  applicable si: convention collective = 'branche ferroviaire'
+  unité: €/mois
+  valeur: minimum avant proratisation * contrat . temps de travail . quotité
+
+salarié . convention collective . branche ferroviaire . coefficient hors grille:
+  titre: Coefficient absent de la grille modélisée
+  description: Les coefficients inférieurs à 210 ou supérieurs à 270 ne sont pas couverts par la grille publiée.
+  applicable si: convention collective = 'branche ferroviaire'
+  une de ces conditions:
+    - coefficient < 210
+    - coefficient > 270
+
+salarié . convention collective . branche ferroviaire . audit paie:
+  titre: Audit des rubriques de paie
+  description: Les cotisations salarié/employeur, assiettes, plafonds, tranches, forfaits, santé, prévoyance, formation, AT/MP, primes et avantages ont été recherchés ; aucun taux générique supplémentaire n'est calculé par cette version.
+  applicable si: convention collective = 'branche ferroviaire'
+  valeur: non
