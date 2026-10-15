@@ -1,0 +1,123 @@
+# Convention collective nationale de l'hôtellerie de plein air (IDCC 1631).
+# Version 2025.1 : avenant n° 46 du 30 décembre 2024 relatif aux salaires, première étape, applicable au
+# 1er avril 2025 (premier jour du mois suivant la parution de l'arrêté d'extension).
+validFrom: 2025-04-01
+sources:
+  - >-
+    Avenant n° 46 du 30 décembre 2024 relatif aux salaires, annexe 1 : salaires minima mensuels
+    bruts des coefficients 100 à 300 (base 151,67 heures) ; coefficient 100 à 1 836,88 €, valeur du
+    point de 5,49 € à compter du premier jour du mois suivant la parution de l'arrêté d'extension,
+    soit le 1er avril 2025, puis de 5,57 € au 1er octobre 2025. Étendu par arrêté du 25 février 2025
+    publié au Journal officiel du 18 mars 2025 (BO 2025-3). Légifrance KALITEXT000051314765 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051314765
+  - >-
+    Convention collective nationale de l'hôtellerie de plein air du 2 juin 1993, IDCC 1631,
+    conteneur Légifrance KALICONT000005635029 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635029
+---
+salarié . convention collective . hôtellerie de plein air:
+  titre: Hôtellerie de plein air (IDCC 1631)
+  valeur: convention collective = 'hôtellerie de plein air'
+salarié . convention collective . hôtellerie de plein air . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient fourni par l'application. Seuls les coefficients explicitement sourcés dans cette version sont modélisés.
+  applicable si: convention collective = 'hôtellerie de plein air'
+  par défaut: 0
+salarié . convention collective . hôtellerie de plein air . salaire minimum conventionnel . grille:
+  titre: Salaire minimum mensuel brut à temps plein
+  description: Montants mensuels bruts de l'annexe 1 de l'avenant n° 46 applicables à compter du 1er avril 2025 (valeur du point de 5,49 €).
+  applicable si: convention collective = 'hôtellerie de plein air'
+  unité: €/mois
+  variations:
+    - si: coefficient = 100
+      alors: 1836.88 €/mois
+    - si: coefficient = 105
+      alors: 1864.33 €/mois
+    - si: coefficient = 110
+      alors: 1891.78 €/mois
+    - si: coefficient = 115
+      alors: 1919.23 €/mois
+    - si: coefficient = 120
+      alors: 1946.68 €/mois
+    - si: coefficient = 125
+      alors: 1974.13 €/mois
+    - si: coefficient = 130
+      alors: 2001.58 €/mois
+    - si: coefficient = 135
+      alors: 2029.03 €/mois
+    - si: coefficient = 140
+      alors: 2056.48 €/mois
+    - si: coefficient = 145
+      alors: 2083.93 €/mois
+    - si: coefficient = 150
+      alors: 2111.38 €/mois
+    - si: coefficient = 155
+      alors: 2138.83 €/mois
+    - si: coefficient = 160
+      alors: 2166.28 €/mois
+    - si: coefficient = 165
+      alors: 2193.73 €/mois
+    - si: coefficient = 170
+      alors: 2221.18 €/mois
+    - si: coefficient = 175
+      alors: 2248.63 €/mois
+    - si: coefficient = 180
+      alors: 2276.08 €/mois
+    - si: coefficient = 185
+      alors: 2303.53 €/mois
+    - si: coefficient = 190
+      alors: 2330.98 €/mois
+    - si: coefficient = 195
+      alors: 2358.43 €/mois
+    - si: coefficient = 200
+      alors: 2385.88 €/mois
+    - si: coefficient = 205
+      alors: 2413.33 €/mois
+    - si: coefficient = 210
+      alors: 2440.78 €/mois
+    - si: coefficient = 215
+      alors: 2468.23 €/mois
+    - si: coefficient = 220
+      alors: 2495.68 €/mois
+    - si: coefficient = 225
+      alors: 2523.13 €/mois
+    - si: coefficient = 230
+      alors: 2550.58 €/mois
+    - si: coefficient = 235
+      alors: 2578.03 €/mois
+    - si: coefficient = 240
+      alors: 2605.48 €/mois
+    - si: coefficient = 245
+      alors: 2632.93 €/mois
+    - si: coefficient = 250
+      alors: 2660.38 €/mois
+    - si: coefficient = 255
+      alors: 2687.83 €/mois
+    - si: coefficient = 260
+      alors: 2715.28 €/mois
+    - si: coefficient = 265
+      alors: 2742.73 €/mois
+    - si: coefficient = 270
+      alors: 2770.18 €/mois
+    - si: coefficient = 275
+      alors: 2797.63 €/mois
+    - si: coefficient = 280
+      alors: 2825.08 €/mois
+    - si: coefficient = 285
+      alors: 2852.53 €/mois
+    - si: coefficient = 290
+      alors: 2879.98 €/mois
+    - si: coefficient = 295
+      alors: 2907.43 €/mois
+    - si: coefficient = 300
+      alors: 2934.88 €/mois
+    - sinon: 0 €/mois
+salarié . convention collective . hôtellerie de plein air . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut de la grille modélisée, proratisé selon la quotité de travail. Les autres coefficients de l'avenant restent à fournir par l'appelant tant qu'ils ne sont pas intégrés dans une nouvelle version.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'hôtellerie de plein air'
+      - salaire minimum conventionnel . grille > 0 €/mois
+  unité: €/mois
+  valeur: salaire minimum conventionnel . grille * salarié . contrat . temps de travail . quotité
