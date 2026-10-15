@@ -116,7 +116,7 @@ const models = [
   { name: "1586-industries-charcutieres", value: "industries charcutières", classification: "coefficient", input: 200, minimums: { "2026.1": 2130.2 } },
   { name: "1543-boyauderie", value: "boyauderie", classification: "coefficient", input: 200, minimums: { "2026.1": 2130.2 } },
   { name: "1821-cristal-verre-vitrail", value: "cristal verre vitrail", classification: "coefficient", input: 245, minimums: { "2026.2": 2185.59 } },
-  { name: "1558-industries-ceramiques", value: "industries céramiques", classification: "classification", input: "'NC-E4'", minimums: { "2025.1": 1978.4 } },
+  { name: "1558-industries-ceramiques", value: "industries céramiques", classification: "classification", input: "'NC-E4'", minimums: { "2025.1": 1978.4, "2025.2": 1978.4 } },
   { name: "1580-industrie-chaussure", value: "industrie chaussure", classification: "classification", input: "'2.2'", minimums: { "2026.1": 1886 } },
   { name: "1596-batiment-ouvriers-petites-entreprises", value: "bâtiment ouvriers petites entreprises", classification: "coefficient", input: 150, minimums: { "2026.1": 1823 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . bâtiment ouvriers petites entreprises . catégorie": "'ouvrier'", "salarié . convention collective . bâtiment ouvriers petites entreprises . région": "'Centre-Val de Loire'", "salarié . convention collective . bâtiment ouvriers petites entreprises . date de calcul": "01/05/2026" } },
   { name: "1597-batiment-ouvriers-plus-de-10", value: "bâtiment ouvriers plus de 10 salariés", classification: "coefficient", input: 150, minimums: { "2026.1": 1838.24 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . bâtiment ouvriers plus de 10 salariés . catégorie": "'ouvrier'", "salarié . convention collective . bâtiment ouvriers plus de 10 salariés . région": "'Nouvelle-Aquitaine'", "salarié . convention collective . bâtiment ouvriers plus de 10 salariés . date de calcul": "01/01/2026" } },
@@ -192,10 +192,10 @@ const models = [
   { name: "3220-offices-publics-habitat", value: "offices publics habitat", classification: "classe", input: 13, minimums: { "2026.1": 5359.23 } },
   { name: "3229-navigation-interieure", value: "navigation intérieure", classification: "classification", input: "'matelot — 0 à 3 ans'", minimums: { "2026.1": 22889 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "2219-taxis", value: "taxis", classification: "classification", input: "'niveau 1 — conducteur débutant — titulaire carte professionnelle'", minimums: { "2025.1": 1837.86 } },
-  { name: "7024-production-agricole-cuma", value: "production agricole et cuma", classification: "coefficient", input: 200, minimums: { "2025.1": 2784.6 } },
+  { name: "7024-production-agricole-cuma", value: "production agricole et cuma", classification: "coefficient", input: 200, minimums: { "2025.1": 2784.6, "2025.2": 2784.6 } },
   { name: "2543-geometres-experts", value: "géomètres-experts géomètres-topographes photogrammètres experts fonciers", classification: "classification", input: "'II.2'", minimums: { "2024.1": 1950.53 } },
   { name: "1659-rouissage-teillage-lin", value: "rouissage teillage lin", classification: "coefficient", input: 300, minimums: { "2024.1": 2558.05 } },
-  { name: "0489-industries-cartonnage", value: "industries du cartonnage", classification: "coefficient", input: 240, minimums: { "2025.3": 2105.18 } },
+  { name: "0489-industries-cartonnage", value: "industries du cartonnage", classification: "coefficient", input: 240, minimums: { "2025.3": 2105.18, "2025.4": 2105.18 } },
   { name: "3227-industries-fabrication-chaux", value: "industries de la fabrication de la chaux", classification: "coefficient", input: 185, minimums: { "2024.1": 2182.2 }, situation: { "salarié . convention collective . industries de la fabrication de la chaux . catégorie": "'ouvriers'" } },
   { name: "2707-batiment-etam-ile-de-france", value: "bâtiment ETAM Île-de-France", classification: "niveau", input: "'G'", minimums: { "2018.1": 2915 } },
   { name: "2002-blanchisserie-teinturerie", value: "blanchisserie teinturerie", classification: "niveau", input: "'I-1'", minimums: { "2026.1": 1823.07 } },
@@ -352,6 +352,34 @@ describe("compiled collective agreement models", () => {
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 2784.6);
     assert.equal(engine.evaluate(`${namespace} . audit paie`).nodeValue, true);
     assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, false);
+  });
+  it("7024-production-agricole-cuma 2025.2 applies palier 12 from 400 points and only rejects coefficients below 9", async () => {
+    const version = COMPILED_VERSIONS["7024-production-agricole-cuma"]?.find((v) => v.version === "2025.2");
+    assert.ok(version);
+    assert.equal(version.validFrom, "2025-07-01");
+    const namespace = "salarié . convention collective . production agricole et cuma";
+    const rules: Record<string, Rule> = { ...modeleSocial };
+    const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
+    rules["salarié . convention collective"] = {
+      ...choice,
+      "une possibilité": [...new Set([...choice["une possibilité"], "production agricole et cuma"])],
+    } as Rule;
+    Object.assign(rules, await version.loadRules());
+    const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
+    const evaluate = (coefficient: number, rule: string) => {
+      engine.setSituation({
+        "salarié . convention collective": "'production agricole et cuma'",
+        [`${namespace} . coefficient`]: coefficient,
+        "salarié . contrat . statut cadre": "non",
+      });
+      return engine.evaluate(`${namespace} . ${rule}`).nodeValue;
+    };
+    // Palier 1 (11,88 €/h) from coefficient 9, palier 12 (23,88 €/h) from 400 points, without maximum.
+    for (const [coefficient, hourly] of [[9, 11.88], [400, 23.88], [1000, 23.88]] as const) {
+      assert.equal(evaluate(coefficient, "taux horaire minimum"), hourly, String(coefficient));
+      assert.equal(evaluate(coefficient, "coefficient hors grille"), false, String(coefficient));
+    }
+    for (const coefficient of [0, 8]) assert.equal(evaluate(coefficient, "coefficient hors grille"), true, String(coefficient));
   });
   it("1987-pates-alimentaires-seches exposes hourly minimums, premiums, scope, audit, and isolation", async () => {
     const version = COMPILED_VERSIONS["1987-pates-alimentaires-seches"]?.find((v) => v.version === "2024.2");

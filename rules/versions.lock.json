@@ -25,6 +25,7 @@
   "0468-commerce-succursaliste-chaussure.2024.1": "ab3faca0ab1afccf",
   "0478-societes-financieres.2026.1": "836189dc995b58ae",
   "0489-industries-cartonnage.2025.3": "50b56868c9260e14",
+  "0489-industries-cartonnage.2025.4": "d2578e0a0d4691e9",
   "0493-vins-cidres-spiritueux.2026.1": "c069c19e6a2c4645",
   "0500-commerces-gros-habillement.2024.1": "36e9efc9b06411d7",
   "0500-commerces-gros-habillement.2024.2": "48bc6a38ef8aa017",
@@ -104,6 +105,7 @@
   "1555-produits-pharmaceutiques.2026.1": "4826d8360d8bc160",
   "1557-commerce-articles-sports-loisirs.2025.1": "e81aba14158662bf",
   "1558-industries-ceramiques.2025.1": "30819835bdfb035b",
+  "1558-industries-ceramiques.2025.2": "f5a684e1cfc535eb",
   "1561-cordonnerie-multiservice.2026.1": "49390dd56518ca80",
   "1580-industrie-chaussure.2026.1": "1ef8ecd0e64a97cb",
   "1586-industries-charcutieres.2026.1": "c5fa147c1f597dcd",
@@ -267,5 +269,6 @@
   "3255-boulangerie-industrielle.2026.1": "d03c589ece3fde3f",
   "3255-boulangerie-industrielle.2026.2": "95bbcb19b71bb12b",
   "3256-etablissements-soins-veterinaires.2026.1": "01a3daf5a8f20073",
-  "7024-production-agricole-cuma.2025.1": "328bb43cbfdd454f"
+  "7024-production-agricole-cuma.2025.1": "328bb43cbfdd454f",
+  "7024-production-agricole-cuma.2025.2": "aed66b77875e1a83"
 }

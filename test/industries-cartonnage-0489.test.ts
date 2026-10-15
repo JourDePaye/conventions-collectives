@@ -27,3 +27,24 @@ describe("IDCC 489 — 2025.3 salaires et audit paie", () => {
   it("evaluates the annual cadre guarantees without monthly conversion", () => { setSituation("cadres", 600); assert.equal(num("garantie annuelle cadre"), 56980); assert.equal(num("salaire minimum conventionnel"), 0); assert.equal(get("audit paie"), true); });
   it("rejects an unknown classification and isolates another agreement", () => { setSituation("ouvriers employés et agents de maîtrise", 999); assert.equal(get("classification hors grille"), true); engine.setSituation({ "salarié . convention collective": "'droit commun'" }); assert.equal(get("audit paie"), null); });
 });
+
+describe("IDCC 489 — 2025.4 executives in the grid", () => {
+  it("keeps the effective date and no longer marks executives' coefficients out of the grid", async () => {
+    const revision = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2025.4");
+    assert.ok(revision);
+    assert.equal(revision.validFrom, "2025-05-01");
+    const fixed = new Engine({ ...rules, ...(await revision.loadRules()) }, { logger: { log() {}, warn() {}, error() {} } });
+    const evaluate = (coefficient: number, rule: string) => {
+      fixed.setSituation({ "salarié . convention collective": `'${value}'`, [`${namespace} . coefficient`]: coefficient });
+      return fixed.evaluate(`${namespace} . ${rule}`).nodeValue;
+    };
+    for (const [coefficient, guarantee] of [[355, 34696], [600, 56980], [700, 66053]] as const) {
+      assert.equal(evaluate(coefficient, "classification hors grille"), false, String(coefficient));
+      assert.equal(evaluate(coefficient, "garantie annuelle cadre"), guarantee);
+      assert.equal(evaluate(coefficient, "salaire minimum conventionnel"), 0);
+    }
+    assert.equal(evaluate(240, "classification hors grille"), false);
+    assert.equal(evaluate(240, "salaire minimum conventionnel"), 2105.18);
+    for (const coefficient of [0, 999]) assert.equal(evaluate(coefficient, "classification hors grille"), true, String(coefficient));
+  });
+});

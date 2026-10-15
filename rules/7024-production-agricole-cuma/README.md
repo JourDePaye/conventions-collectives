@@ -2,11 +2,13 @@
 
 Le fichier [2025.1](7024-production-agricole-cuma.2025.1.publicodes) reprend l'avenant n° 9 du 12 mars 2025, étendu par arrêté du 4 juin 2025 publié au Journal officiel du 11 juin 2025. La grille est applicable au 1er juillet 2025.
 
+La révision [2025.2](7024-production-agricole-cuma.2025.2.publicodes), même date d'effet, corrige `coefficient hors grille` : en 2025.1, la règle exigeait un coefficient à la fois inférieur à 9 et supérieur à 400, et n'était donc jamais vraie. En 2025.2, seul un coefficient inférieur à 9 est hors grille, le palier 12 couvrant 400 points et plus. Les bornes des paliers (article 4.5 de la convention) ont été relevées sur une source secondaire et restent à vérifier sur le texte officiel.
+
 ## Règles implémentées
 
-- `coefficient` couvre les coefficients 9 à 400 dans les intervalles de l'avenant ;
+- `coefficient` couvre les paliers 1 (coefficients 9 à 11) à 12 (400 points et plus) ;
 - `salaire minimum conventionnel` expose les minima horaires bruts 11,88 €, 11,97 €, 12,14 €, 12,40 €, 12,93 €, 13,54 €, 14,33 €, 15,32 €, 16,58 €, 18,36 €, 20,90 € et 23,88 € ;
-- `coefficient hors grille` signale les valeurs hors de la grille modélisée.
+- `coefficient hors grille` signale un coefficient inférieur à 9 (à partir de 2025.2).
 
 La source fixe un minimum horaire. Aucune conversion automatique en minimum mensuel ou annuel n'est effectuée : la durée réellement rémunérée et les règles de paie agricoles doivent rester fournies par le calcul appelant.
 

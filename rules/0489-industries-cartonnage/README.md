@@ -2,11 +2,13 @@
 
 La version `2025.3` reprend l'avenant n° 166 du 12 mars 2025, applicable au 1er mai 2025 dans son champ signataire. Le texte a été publié au Bulletin officiel des conventions collectives 2025-16 (NOR ASET2550438M) et demande l'extension ; aucun arrêté d'extension n'est modélisé ici.
 
+La révision `2025.4`, même date d'effet, ne déclare plus hors grille les coefficients des cadres (355 à 700), qui n'ont qu'une garantie annuelle : `classification hors grille` n'est vraie que pour un coefficient absent des deux barèmes. En `2025.3`, elle ne testait que la grille mensuelle.
+
 ## Règles
 
 - 13 minima mensuels des coefficients 180 à 350 pour ouvriers, employés et agents de maîtrise, sur 151,67 heures et proratisés selon la quotité.
 - 6 garanties annuelles des cadres, conservées en €/an pour une comparaison annuelle ; le taux mensuel de 80 % ou 70 % pour les fonctions à forte variable n'est pas choisi sans entrée dédiée.
-- Détection des classifications hors grille et audit paie explicite.
+- Détection des classifications absentes des deux barèmes (à partir de `2025.4`) et audit paie explicite.
 
 ## Audit paie
 
