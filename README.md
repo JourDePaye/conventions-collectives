@@ -4,13 +4,13 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-**Deux cents conventions** sont actuellement représentées, avec **deux cent soixante-huit versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+**Deux cents conventions** sont actuellement représentées, avec **deux cent soixante-neuf versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
 
 ## Conventions déjà présentes
 
-Cent quatre-vingt-dix-huit conventions sont actuellement représentées, avec deux cent soixante-sept versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
+Deux cents conventions sont actuellement représentées, avec deux cent soixante-neuf versions de modèles. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 ### SERVICES, INGÉNIERIE & NUMÉRIQUE
 
@@ -29,7 +29,6 @@ Cent quatre-vingt-dix-huit conventions sont actuellement représentées, avec de
 | [Entreprises du bureau et du numérique (commerce de détail de papeterie, fournitures de bureau, bureautique, informatique et librairie)](rules/1539-bureau-numerique/README.md) | 1539 | `2025.1` : 1er septembre 2025 | Grille mensuelle de 12 niveaux (A1 à C4), minimum du niveau A2 pour le niveau A1 après un an d’ancienneté, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [ÉCLAT (animation, éducation populaire, sport)](rules/1518-eclat/README.md) | 1518 | `2026.1` : 1er janvier 2026 ; `2026.2` : 1er janvier 2026 | Grille mensuelle des groupes A à J, points de coordination du groupe C et ancienneté ; formation professionnelle à 2,10 % et formation des dirigeants bénévoles à 0,05 % de l’assiette |
 | [Industries du cartonnage](rules/0489-industries-cartonnage/README.md) | 489 | `2025.3` : 1er mai 2025 (avenant n° 166, champ signataire) | 13 minima mensuels des coefficients 180 à 350 pour ouvriers, employés et agents de maîtrise ; 6 garanties annuelles des cadres conservées en €/an ; proratisation et classifications hors grille ; audit explicite des cotisations salarié/employeur, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais |
-
 | [Structures associatives de pêche de loisir et de protection du milieu aquatique](rules/3203-structures-associatives-peche/README.md) | 3203 | `2026.1` : 1er janvier 2026 (avenant non étendu) | Grille mensuelle des positionnements I à VI.3, proratisée selon la quotité de travail ; champ signataire ou adhérent explicité ; détection des positionnements hors grille ; audit des rubriques de paie sans correction conventionnelle |
 | [Industrie et services nautiques](rules/3236-industrie-services-nautiques/README.md) | 3236 | `2025.1` : 1er avril 2025 (avenant étendu) | Grille mensuelle de 16 niveaux et échelons `I.1` à `VII.4`, proratisée selon la quotité de travail ; détection des classifications hors grille |
 | [Branche ferroviaire](rules/3244-branche-ferroviaire/README.md) | 3244 | `2023.1` : 1er novembre 2023 (convention étendue) | Minimum mensuel par coefficient et valeur du point de 16,315 €, plancher du plafond mensuel de sécurité sociale et proratisation ; audit explicite des rubriques de paie ; détection des coefficients hors grille |
@@ -254,13 +253,14 @@ Cent quatre-vingt-dix-huit conventions sont actuellement représentées, avec de
 | [Activités industrielles de boulangerie et pâtisserie et professionnels de l’œuf](rules/3255-boulangerie-industrielle/README.md) | 3255 | `2025.1` : 1er février 2025 ; `2026.1` : 1er avril 2026 ; `2026.2` : même date (correction) | Grille mensuelle de 13 niveaux et échelons A1 à E3, proratisée selon la quotité de travail ; détection des niveaux hors grille |
 | [Professionnels de l’œuf — ancien IDCC repris par l’IDCC 3255](rules/2075-professionnels-oeuf/README.md) | 2075 | `2025.1` : 1er février 2025 | Reprise de la grille mensuelle successorale de 13 niveaux et échelons A1 à E3, proratisée selon la quotité de travail ; détection des niveaux hors grille ; historique autonome antérieur non modélisé |
 | [Ateliers et chantiers d'insertion](rules/3016-ateliers-chantiers-insertion/README.md) | 3016 | `2026.1` : 1er juin 2026 (avenant n° 39 étendu) | Formule des minima mensuels des emplois-repères du titre V : valeur socle de 928 € + coefficient × valeur du point de 4,04 €, proratisée selon la quotité ; salariés polyvalents au SMIC et coefficients hors grille explicités ; audit des cotisations, santé, prévoyance, retraite, formation, AT/MP, primes et frais |
+| [Presse d'information spécialisée](rules/3230-presse-information-specialisee/README.md) | 3230 | `2024.1` : 1er janvier 2024 (protocole étendu le 15 janvier 2024) | Grille mensuelle des niveaux 1 à 9, paliers d'ancienneté à 3, 6 et 9 ans, proratisation selon la quotité de travail ; audit explicite des cotisations et autres rubriques de paie |
 
 ### IMMOBILIER & HABITAT
 
+| Convention | IDCC | Versions et dates d’effet | Règles présentes |
+|---|---|---|---|
 | [Gardiens, concierges et employés d'immeubles](rules/1043-gardiens-concierges-employes-immeubles/README.md) | 1043 | `2025.1` : 1er mai 2025 (avenant n° 110 étendu) | Formules de salaire minimum des catégories A et B selon le coefficient, les heures ou les unités de valeur ; prime de tri sélectif ; avantage en nature logement et prix conventionnel de l'électricité ; paramètres contractuels explicitement fournis |
 | [Organismes publics et coopératifs de l'habitat social](rules/3220-offices-publics-habitat/README.md) | 3220 | `2026.1` : 1er janvier 2026 (avenant n° 1) | Barème mensuel national des classes 1 à 13, salaire de base à 35 heures proratisé selon la quotité ; classes hors grille détectées ; audit explicite des cotisations salarié/employeur, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais |
-
-| [Presse d'information spécialisée](rules/3230-presse-information-specialisee/README.md) | 3230 | `2024.1` : 1er janvier 2024 (protocole étendu le 15 janvier 2024) | Grille mensuelle des niveaux 1 à 9, paliers d'ancienneté à 3, 6 et 9 ans, proratisation selon la quotité de travail ; audit explicite des cotisations et autres rubriques de paie |
 
 Les références des accords et de leurs arrêtés d’extension figurent dans les métadonnées de chaque fichier source.
 
