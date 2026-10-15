@@ -2,6 +2,8 @@
 
 La version `2024.1` modélise l'accord du 26 mars 2024 relatif aux minima conventionnels. Il a été étendu par arrêté du 27 mai 2024, publié au Journal officiel du 1er juin 2024 ; l'application à tous les employeurs du champ est donc modélisée à compter du 1er juillet 2024.
 
+La version `2025.1` reprend l'accord du **3 décembre 2024** relatif aux salaires (Légifrance `KALITEXT000051294879`), applicable à compter du mois qui suit la signature, soit le **1er janvier 2025**, et étendu par arrêté du 25 février 2025 publié au Journal officiel du 14 mars 2025. L'accord du 18 juin 2026, étendu par arrêté du 7 septembre 2026, n'est pas modélisé : sa grille n'a pas pu être lue sur Légifrance à la date de cette version.
+
 ## Règles calculées
 
 - Minima mensuels bruts des employés des niveaux 1 à 5, avec les échelons 1 et 2 lorsqu'ils sont prévus.

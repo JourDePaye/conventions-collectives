@@ -2,6 +2,8 @@
 
 La version `2024.2` reprend l’avenant n° 2024-01 du 22 février 2024, applicable au 1er février 2024 pour les montants horaires, avec prime de vacances au 31 mai 2024. Le texte demande l’extension ; le modèle reste limité aux employeurs signataires ou adhérents, sans présumer d’un arrêté d’extension.
 
+La version `2026.1` reprend l'accord du **5 mars 2026** (Légifrance `KALITEXT000054337523`, étendu par arrêté du 20 mai 2026 publié au Journal officiel du 29 mai 2026) : nouveaux minima horaires au **1er janvier 2026**, prime de vacances portée à 600 € au 31 mai 2026 ; l'indemnité journalière de poste (5,20 €), le panier de nuit (11 €) et les taux de prime d'ancienneté sont inchangés. Le texte ne vise que le « petit champ » (ancien IDCC 1987, aujourd'hui rattaché à l'IDCC 3109).
+
 ## Règles
 
 - 31 salaires minima horaires des coefficients 135 à 600 ; conversion en minimum mensuel sur 151,67 heures et proratisation selon la quotité.

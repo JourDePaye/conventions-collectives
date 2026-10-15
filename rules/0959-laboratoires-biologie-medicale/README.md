@@ -2,6 +2,8 @@
 
 La version `2024.1` modélise l'accord salarial du **11 janvier 2024**, applicable impérativement au **1er janvier 2024** à l'ensemble des employeurs de la branche et étendu par arrêté du **3 avril 2024**, publié au Journal officiel du **18 avril 2024**.
 
+La version `2026.1` reprend l'accord du **10 juin 2026** relatif aux salaires minima, applicable impérativement au **1er juin 2026** et étendu par arrêté du 7 septembre 2026 publié au Journal officiel du 19 septembre 2026 (Légifrance `KALITEXT000054951894`). Les 22 coefficients sont inchangés ; seuls les montants mensuels changent. Les accords salariaux intermédiaires de 2025 ne sont pas modélisés.
+
 ## Salaire minimum conventionnel
 
 Le barème fixe des minima horaires et mensuels pour 151,67 heures. Les coefficients couverts par le modèle sont :

@@ -2,6 +2,8 @@
 
 La version `2024.1` modélise les rémunérations minima garanties mensuelles applicables au **1er janvier 2024** pour 151,67 heures. Elle reprend l'avenant n° 37 du 10 janvier 2024, étendu par arrêté publié au Journal officiel du 17 juillet 2024. Les montants officiels sont ceux de l'annexe salariale, pour les coefficients 120 à 600.
 
+La version `2025.1` reprend l'avenant n° 38 du 19 février 2025, qui revalorise de 2,3 % les barèmes de l'avenant n° 37 au **1er mars 2025** (Légifrance `KALITEXT000051664798`, étendu par arrêté du 15 juillet 2025 publié au Journal officiel du 16 juillet 2025). Les 14 coefficients sont inchangés.
+
 La valeur Publicodes est `rouissage teillage lin` et les règles sont sous `salarié . convention collective . rouissage teillage lin`.
 
 ## Règles implémentées

@@ -1,0 +1,164 @@
+# Convention collective nationale de l'hôtellerie de plein air (IDCC 1631).
+# Version 2026.1 : avenant n° 47 du 28 janvier 2026 relatif aux salaires, étendu, applicable au 1er mai 2026.
+# Nouvelle grille de coefficients de la classification issue de l'accord du 22 mai 2025 : 100 à 700.
+validFrom: 2026-05-01
+sources:
+  - >-
+    Avenant n° 47 du 28 janvier 2026 relatif aux salaires, annexe 1 : grille des salaires minima
+    conventionnels mensuels bruts par coefficient (100 à 700, base 151,67 heures), entrée en vigueur
+    le 1er mai 2026 (premier jour du mois suivant la parution de l'arrêté d'extension du 8 avril 2026,
+    publié au Journal officiel n° 0091 du 17 avril 2026), Légifrance KALIARTI000054092148 :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054092148
+  - >-
+    Convention collective nationale de l'hôtellerie de plein air du 2 juin 1993, IDCC 1631,
+    conteneur Légifrance KALICONT000005635029 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635029
+---
+salarié . convention collective . hôtellerie de plein air:
+  titre: Hôtellerie de plein air (IDCC 1631)
+  valeur: convention collective = 'hôtellerie de plein air'
+salarié . convention collective . hôtellerie de plein air . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient fourni par l'application. Seuls les coefficients explicitement sourcés dans cette version sont modélisés.
+  applicable si: convention collective = 'hôtellerie de plein air'
+  par défaut: 0
+salarié . convention collective . hôtellerie de plein air . salaire minimum conventionnel . grille:
+  titre: Salaire minimum mensuel brut à temps plein
+  description: Montants mensuels bruts de l'annexe 1 de l'avenant n° 47, applicables à compter du 1er mai 2026.
+  applicable si: convention collective = 'hôtellerie de plein air'
+  unité: €/mois
+  variations:
+    - si: coefficient = 100
+      alors: 1858.92 €/mois
+    - si: coefficient = 105
+      alors: 1887.07 €/mois
+    - si: coefficient = 110
+      alors: 1915.22 €/mois
+    - si: coefficient = 120
+      alors: 1971.52 €/mois
+    - si: coefficient = 130
+      alors: 2027.82 €/mois
+    - si: coefficient = 140
+      alors: 2084.12 €/mois
+    - si: coefficient = 150
+      alors: 2140.42 €/mois
+    - si: coefficient = 160
+      alors: 2196.72 €/mois
+    - si: coefficient = 170
+      alors: 2253.02 €/mois
+    - si: coefficient = 180
+      alors: 2309.32 €/mois
+    - si: coefficient = 190
+      alors: 2365.62 €/mois
+    - si: coefficient = 200
+      alors: 2421.92 €/mois
+    - si: coefficient = 210
+      alors: 2478.22 €/mois
+    - si: coefficient = 220
+      alors: 2534.52 €/mois
+    - si: coefficient = 230
+      alors: 2590.82 €/mois
+    - si: coefficient = 240
+      alors: 2647.12 €/mois
+    - si: coefficient = 250
+      alors: 2703.42 €/mois
+    - si: coefficient = 260
+      alors: 2759.72 €/mois
+    - si: coefficient = 270
+      alors: 2816.02 €/mois
+    - si: coefficient = 280
+      alors: 2872.32 €/mois
+    - si: coefficient = 290
+      alors: 2928.62 €/mois
+    - si: coefficient = 300
+      alors: 2984.92 €/mois
+    - si: coefficient = 310
+      alors: 3041.22 €/mois
+    - si: coefficient = 320
+      alors: 3097.52 €/mois
+    - si: coefficient = 330
+      alors: 3153.82 €/mois
+    - si: coefficient = 340
+      alors: 3210.12 €/mois
+    - si: coefficient = 350
+      alors: 3266.42 €/mois
+    - si: coefficient = 360
+      alors: 3322.72 €/mois
+    - si: coefficient = 370
+      alors: 3379.02 €/mois
+    - si: coefficient = 380
+      alors: 3435.32 €/mois
+    - si: coefficient = 390
+      alors: 3491.62 €/mois
+    - si: coefficient = 400
+      alors: 3547.92 €/mois
+    - si: coefficient = 410
+      alors: 3604.22 €/mois
+    - si: coefficient = 420
+      alors: 3660.52 €/mois
+    - si: coefficient = 430
+      alors: 3716.82 €/mois
+    - si: coefficient = 440
+      alors: 3773.12 €/mois
+    - si: coefficient = 450
+      alors: 3829.42 €/mois
+    - si: coefficient = 460
+      alors: 3885.72 €/mois
+    - si: coefficient = 470
+      alors: 3942.02 €/mois
+    - si: coefficient = 480
+      alors: 3998.32 €/mois
+    - si: coefficient = 490
+      alors: 4054.62 €/mois
+    - si: coefficient = 500
+      alors: 4110.92 €/mois
+    - si: coefficient = 510
+      alors: 4167.22 €/mois
+    - si: coefficient = 520
+      alors: 4223.52 €/mois
+    - si: coefficient = 530
+      alors: 4279.82 €/mois
+    - si: coefficient = 540
+      alors: 4336.12 €/mois
+    - si: coefficient = 550
+      alors: 4392.42 €/mois
+    - si: coefficient = 560
+      alors: 4448.72 €/mois
+    - si: coefficient = 570
+      alors: 4505.02 €/mois
+    - si: coefficient = 580
+      alors: 4561.32 €/mois
+    - si: coefficient = 590
+      alors: 4617.62 €/mois
+    - si: coefficient = 600
+      alors: 4673.92 €/mois
+    - si: coefficient = 610
+      alors: 4730.22 €/mois
+    - si: coefficient = 620
+      alors: 4786.52 €/mois
+    - si: coefficient = 630
+      alors: 4842.82 €/mois
+    - si: coefficient = 640
+      alors: 4899.12 €/mois
+    - si: coefficient = 650
+      alors: 4955.42 €/mois
+    - si: coefficient = 660
+      alors: 5011.72 €/mois
+    - si: coefficient = 670
+      alors: 5068.02 €/mois
+    - si: coefficient = 680
+      alors: 5124.32 €/mois
+    - si: coefficient = 690
+      alors: 5180.62 €/mois
+    - si: coefficient = 700
+      alors: 5236.92 €/mois
+    - sinon: 0 €/mois
+salarié . convention collective . hôtellerie de plein air . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut de la grille modélisée, proratisé selon la quotité de travail. Les autres coefficients de l'avenant restent à fournir par l'appelant tant qu'ils ne sont pas intégrés dans une nouvelle version.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'hôtellerie de plein air'
+      - salaire minimum conventionnel . grille > 0 €/mois
+  unité: €/mois
+  valeur: salaire minimum conventionnel . grille * salarié . contrat . temps de travail . quotité

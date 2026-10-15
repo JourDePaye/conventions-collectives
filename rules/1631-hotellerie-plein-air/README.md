@@ -2,6 +2,8 @@
 
 La version `2024.1` modélise l'avenant n° 44 du **19 juin 2024** relatif aux salaires minima conventionnels, applicable au **1er novembre 2024** et étendu. La valeur Publicodes est `hôtellerie de plein air`.
 
+La version `2026.1` reprend l'avenant n° 47 du **28 janvier 2026** (Légifrance `KALIARTI000054092148`), applicable au **1er mai 2026** après l'arrêté d'extension du 8 avril 2026 (Journal officiel du 17 avril 2026). Elle applique la nouvelle classification issue de l'accord du 22 mai 2025 : 61 coefficients de 100 à 700, du minimum 1 858,92 € (coefficient 100) au minimum 5 236,92 € (coefficient 700), soit 5,63 € par point au-delà du coefficient 100. Les coefficients 285, 325 et 349 de la version `2024.1` n'existent plus dans cette grille, et les montants de `2024.1` ne correspondent pas à ceux publiés par l'avenant n° 47 : ils sont à vérifier sur le texte de l'avenant n° 44. Les avenants intermédiaires ne sont pas modélisés.
+
 ## Grille implémentée
 
 | Coefficient | Minimum mensuel brut |

@@ -1,30 +1,38 @@
-# Personnel navigant technique des exploitants d'hélicoptères — IDCC 1612
+# Travail aérien, personnel navigant des essais et réceptions — IDCC 1612
 
-La version `2024.1` reprend l'avenant n° 8 du 21 novembre 2023 relatif aux salaires minima de la convention collective nationale du personnel navigant technique des exploitants d'hélicoptères. La grille FTR1-1 à FTR8-3 est applicable au 1er janvier 2024, pour 151,67 heures mensuelles, et est proratisée selon la quotité de travail.
+La convention collective nationale du travail aérien du 21 janvier 1991 couvre le personnel navigant des essais et réceptions (pilotes d'essais, ingénieurs et mécaniciens navigants d'essais). Conteneur Légifrance `KALICONT000005635916`.
 
-## Règles implémentées
+## Versions
 
-- `classification` reçoit la classification FTR publiée par l'avenant n° 8 ;
-- `salaire minimum conventionnel` expose les 24 minima mensuels bruts et applique la quotité de travail ;
-- les classifications hors grille restent explicitement non couvertes ;
-- `audit paie` expose que les rubriques conventionnelles non calculées ont été recherchées.
+- `2024.1` : **modèle erroné, remplacé.** Il décrivait le personnel navigant technique des exploitants d'hélicoptères, une autre convention (IDCC 1944), avec une grille FTR1-1 à FTR8-3 dont la source citée n'existe pas sur Légifrance et dont les montants ne correspondent à aucun texte publié. Cette version publiée reste dans le package, car une version publiée ne se modifie pas, mais la révision `2024.2` la remplace dès la même date.
+- `2024.2` : reconstruction complète sur l'**avenant n° 8 du 7 mai 2024** (BO 2024-27, Légifrance `KALITEXT000050130287`), signé par le GIFAS, **en vigueur non étendu** depuis le 4 juillet 2024. Son annexe 1 fixe les planchers de traitement fixe mensuel, en valeurs au **1er janvier 2024** : la version prend effet à cette date.
 
-## Audit explicite des rubriques de paie
+La valeur publicodes `personnel navigant technique hélicoptères` est historique : elle est conservée pour que les versions publiées restent calculables avec la même valeur de convention. Les règles sont sous `salarié . convention collective . personnel navigant technique hélicoptères`.
 
-Les textes de base, l'avenant salarial n° 8, les avenants dédiés et les arrêtés d'extension disponibles ont été recherchés. Seules les valeurs salariales officiellement calculables sont implémentées.
+## Règles implémentées (2024.2)
 
-- **Cotisations salarié/employeur, taux et assiettes** : aucun taux conventionnel générique salarié/employeur calculable avec les entrées standard n'est ajouté ; les cotisations légales restent dans `modele-social`.
-- **Bases, plafonds et tranches** : aucune assiette, aucun plafond ou découpage de tranches propre à la branche n'est identifié dans les textes retenus pour la grille salariale ; les bases légales restent externes.
-- **Forfaits et assiettes forfaitaires** : aucun forfait conventionnel générique applicable à tous les salariés n'est automatisé.
-- **Santé et prévoyance** : les régimes et répartitions sont dépendants des garanties et catégories ; aucun taux ou montant générique suffisamment déterminé pour cet endpoint salarial n'est ajouté.
-- **Formation professionnelle** : les recherches d'avenants et d'arrêtés d'extension dédiés n'ont pas établi de contribution additionnelle calculable avec les entrées du modèle ; la contribution légale reste dans le modèle social.
-- **AT/MP et retraite** : aucun taux conventionnel universel ; AT/MP dépend de la tarification de l'activité et la retraite des paramètres légaux/régimes applicables.
-- **Primes, indemnités, avantages et frais** : les indemnités de vol, déplacement, découcher, repas, ancienneté, sujétions et avantages en nature ne sont pas déduits du minimum faute d'une règle générique et d'entrées suffisantes.
-- **Évolution des taux et bases** : une recherche dédiée des avenants de cotisations, santé, prévoyance, formation, retraite et des textes d'extension a été menée ; aucun changement de taux, base, plafond ou forfait nécessaire à ce calcul n'est retenu. Les textes non étendus ou catégoriels ne sont pas présentés comme obligations générales.
+- `classification` reçoit la classification suivie de l'échelon, par exemple `PEX 1` ou `ENE-B 3`.
+- `minimum mensuel de la grille` expose les 25 planchers de l'annexe 1 (en euros par mois) :
+
+| Classification | 1er | 2e | 3e | 4e | 5e |
+|---|---:|---:|---:|---:|---:|
+| `PEX` : pilotes d'essais expérimentaux (FTR1 ou PEX) | 5 757 | 6 334 | 7 199 | 8 060 | 8 633 |
+| `INE-A` : LFTE-1 ou INE-A | 5 388 | 6 194 | 7 004 | 7 810 | 8 344 |
+| `ENA-A` : LFTE-1 – MNE ou ENA-A | 3 648 | 4 196 | 4 742 | 5 300 | 5 648 |
+| `PE` : FTR2 ou PE | 4 612 | 5 076 | 5 717 | 6 454 | 6 914 |
+| `ENE-B` : LFTE-2 ou MNR ou ENE-B | 3 603 | 4 143 | 4 683 | 5 221 | 5 582 |
+
+- L'échelon dépend de l'ancienneté dans la fonction : 1er échelon dès la 1re année, 2e dès la 3e année, 3e dès la 5e année, 4e dès la 10e année, 5e dès la 15e année pour les pilotes et dès la 17e année pour les autres spécialités. Le modèle reçoit l'échelon, il ne le calcule pas.
+- `salaire minimum conventionnel` proratise le plancher selon la quotité de travail. L'article 19 définit le traitement fixe comme un forfait indépendant de l'horaire et ne prévoit rien pour le temps partiel : la proratisation est un choix du modèle.
+- `classification hors grille` est vraie pour une classification ou un échelon absent de l'annexe, y compris les codes FTR de la version 2024.1.
+
+## Limites
+
+- **Champ** : l'avenant n° 8 n'est pas étendu ; il s'applique aux entreprises adhérentes du GIFAS.
+- **Revalorisation** : l'article 19 indexe les minima sur l'évolution moyenne des minima hiérarchiques des cadres de la convention de la métallurgie, avec un coefficient fixé chaque année par la commission paritaire. Les coefficients de 2025 et 2026 ne sont pas publiés sur Légifrance : la grille reste celle du 1er janvier 2024.
+- **Primes de vol** : les annexes sur les primes de vol en avion et en hélicoptère ne sont pas modélisées, pas plus que les cotisations, la santé, la prévoyance, la formation et l'AT/MP.
 
 ## Sources officielles
 
-- Convention collective nationale du personnel navigant technique des exploitants d'hélicoptères, IDCC 1612, KALICONT000005635114.
-- Avenant n° 8 du 21 novembre 2023 relatif aux salaires minima, KALITEXT000049938920 et KALIARTI000049938925.
-
-Cette version n'intègre pas automatiquement les cotisations légales, régimes santé/prévoyance, AT/MP, formation, retraite, primes ou frais qui nécessitent des entrées de paie propres à l'employeur, à la catégorie ou au régime concerné.
+- Avenant n° 8 du 7 mai 2024, Légifrance `KALITEXT000050130287` ; article 19 et annexe 1, `KALIARTI000050130292`.
+- Convention collective nationale du travail aérien du 21 janvier 1991 (personnel navigant des essais et réceptions), IDCC 1612, `KALICONT000005635916`.

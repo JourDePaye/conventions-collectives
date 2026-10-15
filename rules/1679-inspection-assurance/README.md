@@ -2,6 +2,8 @@
 
 La version `2007.2` modélise le protocole d'accord du **21 mars 2007** relatif aux rémunérations minimales annuelles (RMA), avec effet au **1er janvier 2007**. L'accord est publié par Légifrance comme texte **en vigueur non étendu**. Il concerne les inspecteurs encore en fonction à la date de signature ; le modèle conserve cette limite dans sa documentation et ne présente pas cette grille historique comme une garantie actuelle universelle.
 
+La version `2026.1` reprend le protocole d'accord du **10 juin 2026** relatif aux rémunérations minimales pour l'année 2026 (Légifrance `KALITEXT000054887714`), avec effet au **1er janvier 2026** : classes 5, 6 et 7 à 35 500 €, 45 030 € et 62 560 €. Le texte est « en vigueur non étendu » : il s'applique aux entreprises liées par la FFA. Les protocoles annuels de 2008 à 2025 ne sont pas modélisés.
+
 La valeur Publicodes est `inspection assurance` et les règles sont sous `salarié . convention collective . inspection assurance`.
 
 ## Règles implémentées

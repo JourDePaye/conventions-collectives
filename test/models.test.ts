@@ -24,7 +24,7 @@ const models = [
   { name: "0112-industrie-laitiere", value: "industrie laitière", classification: "niveau", input: "'7.2'", minimums: { "2026.1": 2235.92, "2026.2": 2235.92 } },
   { name: "0675-succursales-habillement", value: "succursales habillement", classification: "niveau", input: "'E4'", minimums: { "2026.1": 1900 } },
   { name: "0733-detaillants-chaussures", value: "détaillants chaussures", classification: "niveau", input: 3, minimums: { "2026.1": 1869 } },
-  { name: "0468-commerce-succursaliste-chaussure", value: "commerce succursaliste de la chaussure", classification: "niveau et échelon", input: "'5.2'", minimums: { "2024.1": 1890.62 } },
+  { name: "0468-commerce-succursaliste-chaussure", value: "commerce succursaliste de la chaussure", classification: "niveau et échelon", input: "'5.2'", minimums: { "2024.1": 1890.62, "2025.1": 1918.98 } },
   { name: "0759-pompes-funebres", value: "pompes funèbres", classification: "niveau", input: "'II'", minimums: { "2020.4": 1573 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . pompes funèbres . position": 1, "salarié . convention collective . pompes funèbres . ancienneté dans l'emploi": 0 } },
   { name: "0843-boulangerie-patisserie-artisanale", value: "boulangerie-pâtisserie artisanale", classification: "niveau", input: "'170'", minimums: { "2026.1": 1938.3 } },
   { name: "1147-cabinets-medicaux", value: "cabinets médicaux", classification: "niveau", input: "'8'", minimums: { "2024.1": 2050.62 } },
@@ -34,7 +34,7 @@ const models = [
   { name: "3242-presse-regions", value: "presse en régions", classification: "niveau", input: "'E5'", minimums: { "2023.2": 1878.55 } },
   { name: "3243-quincaillerie", value: "quincaillerie fournitures industrielles fers métaux équipement maison", classification: "niveau et échelon", input: "'VI.3'", minimums: { "2026.1": 2351, "2026.2": 2351 } },
   { name: "3245-operateurs-voyages-guides", value: "opérateurs voyages et guides", classification: "groupe", input: "'E'", minimums: { "2025.1": 2162.07 } },
-  { name: "3228-groupement-armateurs-passages-eau", value: "groupement armateurs passages eau", classification: "fonction", input: "'matelots matelots légers'", minimums: { "2022.1": 1606.01 } },
+  { name: "3228-groupement-armateurs-passages-eau", value: "groupement armateurs passages eau", classification: "fonction", input: "'matelots matelots légers'", minimums: { "2022.1": 1606.01, "2025.1": 1826.25, "2026.1": 1847.8 } },
   { name: "3248-metallurgie", value: "métallurgie", classification: "niveau", input: "'C5'", minimums: { "2026.1": 2042.5, "2026.2": 2042.5 } },
   { name: "3231-metallurgie-jura", value: "métallurgie jura", classification: "coefficient", input: 240, minimums: { "2023.1": 22970 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "2583-societes-autoroutes", value: "sociétés autoroutes", classification: "classe", input: "'I'", minimums: { "2024.1": 36321 }, minimumRule: "salaire minimum annuel conventionnel" },
@@ -135,7 +135,7 @@ const models = [
   { name: "1316-tourisme-social-familial", value: "tourisme social et familial", classification: "niveau", input: "'G'", minimums: { "2026.1": 3294.5 }, situation: { "salarié . convention collective . tourisme social et familial . date de calcul": "01/05/2026" } },
   { name: "1611-logistique-communication-ecrite-directe", value: "logistique communication écrite directe", classification: "groupe", input: "'III-A'", minimums: { "2026.1": 2501.05 } },
   { name: "0493-vins-cidres-spiritueux", value: "vins cidres spiritueux", classification: "position", input: "'5A'", minimums: { "2026.1": 2233 } },
-  { name: "1631-hotellerie-plein-air", value: "hôtellerie de plein air", classification: "coefficient", input: 300, minimums: { "2024.1": 2203.92 } },
+  { name: "1631-hotellerie-plein-air", value: "hôtellerie de plein air", classification: "coefficient", input: 300, minimums: { "2024.1": 2203.92, "2026.1": 2984.92 } },
   { name: "3213-economistes-construction", value: "économistes de la construction et métreurs-vérificateurs", classification: "niveau", input: "'I'", minimums: { "2026.1": 4738.91 }, situation: { "salarié . convention collective . économistes de la construction et métreurs-vérificateurs . zone": "'national'" } },
   { name: "1480-journalistes", value: "journalistes", classification: "groupe", input: "'4'", minimums: { "2025.1": 2506.54 } },
   { name: "0275-transport-aerien-personnel-sol", value: "transport aérien personnel au sol", classification: "coefficient", input: 245, minimums: { "2025.1": 2105 }, situation: { "salarié . convention collective . transport aérien personnel au sol . date de calcul": "01/11/2025", "salarié . convention collective . transport aérien personnel au sol . champ juridique": "'employeur signataire ou adhérent'" } },
@@ -178,7 +178,7 @@ const models = [
   { name: "1589-industries-recuperation", value: "industries récupération", classification: "niveau", input: 10, minimums: { "2026.1": 2280 } },
   { name: "1790-espaces-loisirs", value: "espaces loisirs", classification: "niveau", input: "'IV'", minimums: { "2026.1": 2441.1 }, situation: { "salarié . convention collective . espaces loisirs . coefficient": 280 } },
   { name: "2150-personnels-hlm", value: "personnels hlm", classification: "coefficient", input: "'G7'", minimums: { "2026.1": 46776.54 }, minimumRule: "salaire minimum annuel conventionnel" },
-  { name: "0959-laboratoires-biologie-medicale", value: "laboratoires biologie médicale", classification: "coefficient", input: 800, minimums: { "2024.1": 5608.31 } },
+  { name: "0959-laboratoires-biologie-medicale", value: "laboratoires biologie médicale", classification: "coefficient", input: 800, minimums: { "2024.1": 5608.31, "2026.1": 5636.05 } },
   { name: "3254-boucherie-poissonnerie", value: "boucherie poissonnerie", classification: "niveau", input: "'IV-D'", minimums: { "2026.1": 2525 } },
   { name: "3253-cabinets-avocats-salaries", value: "cabinets d'avocats salariés", classification: "coefficient", input: 300, minimums: { "2025.1": 2390 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . cabinets d'avocats salariés . date de calcul": "01/10/2025" } },
   { name: "1391-manutention-nettoyage-aeroports", value: "manutention nettoyage aéroports", classification: "catégorie", input: "'C'", minimums: { "2026.1": 2602 } },
@@ -192,9 +192,9 @@ const models = [
   { name: "3220-offices-publics-habitat", value: "offices publics habitat", classification: "classe", input: 13, minimums: { "2026.1": 5359.23 } },
   { name: "3229-navigation-interieure", value: "navigation intérieure", classification: "classification", input: "'matelot — 0 à 3 ans'", minimums: { "2026.1": 22889 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "2219-taxis", value: "taxis", classification: "classification", input: "'niveau 1 — conducteur débutant — titulaire carte professionnelle'", minimums: { "2025.1": 1837.86 } },
-  { name: "7024-production-agricole-cuma", value: "production agricole et cuma", classification: "coefficient", input: 200, minimums: { "2025.1": 2784.6, "2025.2": 2784.6, "2025.3": 2784.6 } },
+  { name: "7024-production-agricole-cuma", value: "production agricole et cuma", classification: "coefficient", input: 200, minimums: { "2025.1": 2784.6, "2025.2": 2784.6, "2025.3": 2784.6, "2026.1": 2817.97 } },
   { name: "2543-geometres-experts", value: "géomètres-experts géomètres-topographes photogrammètres experts fonciers", classification: "classification", input: "'II.2'", minimums: { "2024.1": 1950.53 } },
-  { name: "1659-rouissage-teillage-lin", value: "rouissage teillage lin", classification: "coefficient", input: 300, minimums: { "2024.1": 2558.05 } },
+  { name: "1659-rouissage-teillage-lin", value: "rouissage teillage lin", classification: "coefficient", input: 300, minimums: { "2024.1": 2558.05, "2025.1": 2616.89 } },
   { name: "0489-industries-cartonnage", value: "industries du cartonnage", classification: "coefficient", input: 240, minimums: { "2025.3": 2105.18, "2025.4": 2105.18 } },
   { name: "3227-industries-fabrication-chaux", value: "industries de la fabrication de la chaux", classification: "coefficient", input: 185, minimums: { "2024.1": 2182.2 }, situation: { "salarié . convention collective . industries de la fabrication de la chaux . catégorie": "'ouvriers'" } },
   { name: "2707-batiment-etam-ile-de-france", value: "bâtiment ETAM Île-de-France", classification: "niveau", input: "'G'", minimums: { "2018.1": 2915 } },
@@ -380,6 +380,37 @@ describe("compiled collective agreement models", () => {
       assert.equal(evaluate(coefficient, "coefficient hors grille"), false, String(coefficient));
     }
     for (const coefficient of [0, 8]) assert.equal(evaluate(coefficient, "coefficient hors grille"), true, String(coefficient));
+  });
+  it("7024-production-agricole-cuma 2026.1 applies the twelve hourly rates of the avenant n° 10 from 1 May 2026", async () => {
+    const version = COMPILED_VERSIONS["7024-production-agricole-cuma"]?.find((v) => v.version === "2026.1");
+    assert.ok(version);
+    assert.equal(version.validFrom, "2026-05-01");
+    const namespace = "salarié . convention collective . production agricole et cuma";
+    const rules: Record<string, Rule> = { ...modeleSocial };
+    const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
+    rules["salarié . convention collective"] = {
+      ...choice,
+      "une possibilité": [...new Set([...choice["une possibilité"], "production agricole et cuma"])],
+    } as Rule;
+    Object.assign(rules, await version.loadRules());
+    const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
+    const hourly = (coefficient: number) => {
+      engine.setSituation({
+        "salarié . convention collective": "'production agricole et cuma'",
+        [`${namespace} . coefficient`]: coefficient,
+        "salarié . contrat . statut cadre": "non",
+      });
+      return engine.evaluate(`${namespace} . taux horaire minimum`).nodeValue;
+    };
+    // First and last coefficient of each palier of the article 4.5, with the rates of the avenant n° 10.
+    const paliers = [
+      [9, 11, 12.02], [12, 16, 12.11], [17, 24, 12.28], [25, 35, 12.55], [36, 51, 13.08], [52, 73, 13.7],
+      [74, 104, 14.5], [105, 143, 15.5], [144, 196, 16.78], [197, 270, 18.58], [271, 399, 21.15], [400, 1000, 24.16],
+    ] as const;
+    for (const [first, last, rate] of paliers) {
+      assert.equal(hourly(first), rate, `coefficient ${first}`);
+      assert.equal(hourly(last), rate, `coefficient ${last}`);
+    }
   });
   it("1987-pates-alimentaires-seches exposes hourly minimums, premiums, scope, audit, and isolation", async () => {
     const version = COMPILED_VERSIONS["1987-pates-alimentaires-seches"]?.find((v) => v.version === "2024.2");
