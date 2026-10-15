@@ -1,0 +1,79 @@
+# Convention collective nationale de l'inspection d'assurance du 27 juillet 1992 (IDCC 1679).
+# Version 2012.1 : accord du 25 avril 2012 relatif aux rémunérations minimales pour l'année 2012, non étendu.
+validFrom: 2012-01-01
+sources:
+  - >-
+    Accord du 25 avril 2012 relatif aux rémunérations minimales pour l'année 2012 : rémunérations minimales annuelles des classes 5 à 7 à effet au 1er janvier 2012
+    (article 1er) ; texte « en vigueur non étendu », applicable aux entreprises liées par
+    l'organisation signataire. Légifrance KALITEXT000026383056 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000026383056
+  - >-
+    Convention collective nationale de l'inspection d'assurance du 27 juillet 1992, IDCC 1679,
+    conteneur Légifrance KALICONT000005635475 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635475
+---
+salarié . convention collective . inspection assurance:
+  titre: Inspection d'assurance (IDCC 1679)
+  valeur: convention collective = 'inspection assurance'
+
+salarié . convention collective . inspection assurance . classe:
+  titre: Classe de classification
+  description: Classe 5 à 7 du barème des rémunérations minimales annuelles des fonctions d'inspection.
+  applicable si: convention collective = 'inspection assurance'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . inspection assurance . date de calcul:
+  titre: Date de calcul
+  description: Date de référence pour le texte salarial de 2012.
+  applicable si: convention collective = 'inspection assurance'
+  par défaut: 01/01/1900
+
+salarié . convention collective . inspection assurance . accord salarial applicable:
+  titre: Accord salarial applicable
+  description: Le texte fixe le barème avec effet au 1er janvier 2012 ; il est publié comme texte non étendu.
+  applicable si: convention collective = 'inspection assurance'
+  valeur: date de calcul >= 01/01/2012
+
+salarié . convention collective . inspection assurance . grille annuelle:
+  titre: Rémunération minimale annuelle à temps plein
+  description: RMA 2012 des classes 5 à 7, en euros par an, du texte salarial de 2012.
+  applicable si: convention collective = 'inspection assurance'
+  variations:
+    - si: classe = '5'
+      alors: 30090
+    - si: classe = '6'
+      alors: 39710
+    - si: classe = '7'
+      alors: 55410
+    - sinon: 0
+
+salarié . convention collective . inspection assurance . salaire minimum annuel conventionnel:
+  titre: Rémunération minimale annuelle conventionnelle
+  description: Minimum annuel à temps plein, proratisé selon la quotité ; la comparaison reste annuelle.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'inspection assurance'
+      - accord salarial applicable = oui
+      - grille annuelle > 0 €/an
+  unité: €/an
+  arrondi: 2 décimales
+  valeur: grille annuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . inspection assurance . salaire minimum mensuel indicatif:
+  titre: Équivalent mensuel indicatif
+  description: Douzième informatif de la RMA annuelle ; il ne remplace pas la comparaison annuelle.
+  applicable si: convention collective = 'inspection assurance'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille annuelle / 12 * contrat . temps de travail . quotité
+
+salarié . convention collective . inspection assurance . classe hors grille:
+  titre: Classe absente de la grille
+  applicable si: convention collective = 'inspection assurance'
+  valeur: grille annuelle = 0 €/an
+
+salarié . convention collective . inspection assurance . audit paie:
+  titre: Audit des rubriques de paie
+  description: Les textes salariaux consultés ne fixent pas de taux générique salarié/employeur, assiette, plafond, tranche, forfait, santé, prévoyance, formation, AT/MP, prime ou avantage calculable par ce modèle ; ces éléments restent externes.
+  applicable si: convention collective = 'inspection assurance'
+  valeur: non

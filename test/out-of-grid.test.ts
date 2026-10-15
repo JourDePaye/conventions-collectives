@@ -82,6 +82,7 @@ const FIXED: {
   },
   { model: "3255-boulangerie-industrielle", version: "2026.2", rule: "niveau hors grille", input: "niveau", valid: "'E3'", invalid: ["'E9'", "'non renseigné'"] },
   { model: "1512-promotion-immobiliere", version: "2026.3", rule: "coefficient hors grille", input: "coefficient", valid: 100, invalid: [0, 101, 900] },
+  { model: "0897-services-prevention-sante-travail-interentreprises", version: "2026.2", rule: "classe hors grille", input: "classe", valid: "'M'", invalid: ["'N'", "'non renseigné'"] },
   // Palier 1 starts at coefficient 9 and palier 12 covers 400 and above.
   { model: "7024-production-agricole-cuma", version: "2026.1", rule: "coefficient hors grille", input: "coefficient", valid: 1000, invalid: [0, 8] },
   // Executives' coefficients only have an annual guarantee, and are in the grid.

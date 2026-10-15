@@ -70,6 +70,50 @@ const UPDATES: Update[] = [
     },
   },
   {
+    // Signed copy published by the GASPE; the protocol is not on Légifrance nor in the BOCC.
+    model: "3228-groupement-armateurs-passages-eau",
+    version: "2023.1",
+    validFrom: "2023-04-01",
+    value: "groupement armateurs passages eau",
+    input: "fonction",
+    rule: "salaire minimum conventionnel",
+    source: "Accord%20NAO%20branche%20CCN%203228%20-%202023.pdf",
+    text: true,
+    grid: {
+      "capitaines et chefs mécaniciens 16e catégorie ENIM": 3292.45,
+      "capitaines et chefs mécaniciens 15e catégorie ENIM": 2838.32,
+      "capitaines et chefs mécaniciens 12e catégorie ENIM": 2533.48,
+      "capitaines chefs mécaniciens moins de 200 ums 12e catégorie ENIM": 2446.05,
+      "patrons de vedettes inférieures à 50 ums": 1935.08,
+      "maîtres pont et machine": 1876.42,
+      "mécaniciens ouvriers mécaniciens timoniers": 1802.99,
+      "matelots qualifiés graisseurs": 1751.79,
+      "matelots matelots légers": 1731.94,
+    },
+  },
+  {
+    // Signed copy published by the GASPE; the protocol is not on Légifrance nor in the BOCC.
+    model: "3228-groupement-armateurs-passages-eau",
+    version: "2024.1",
+    validFrom: "2024-01-01",
+    value: "groupement armateurs passages eau",
+    input: "fonction",
+    rule: "salaire minimum conventionnel",
+    source: "Accord%20NAO%20branche%20CCN%203228%20-%202024.pdf",
+    text: true,
+    grid: {
+      "capitaines et chefs mécaniciens 16e catégorie ENIM": 3424.15,
+      "capitaines et chefs mécaniciens 15e catégorie ENIM": 2951.85,
+      "capitaines et chefs mécaniciens 12e catégorie ENIM": 2634.82,
+      "capitaines chefs mécaniciens moins de 200 ums 12e catégorie ENIM": 2543.9,
+      "patrons de vedettes inférieures à 50 ums": 2012.48,
+      "maîtres pont et machine": 1951.48,
+      "mécaniciens ouvriers mécaniciens timoniers": 1875.11,
+      "matelots qualifiés graisseurs": 1821.86,
+      "matelots matelots légers": 1801.22,
+    },
+  },
+  {
     model: "3228-groupement-armateurs-passages-eau",
     version: "2025.1",
     validFrom: "2025-01-01",
@@ -269,6 +313,42 @@ const UPDATES: Update[] = [
     situation: { "date de calcul": "01/10/2026" },
   },
 ];
+
+/** Yearly RMA texts of IDCC 1679 from 2008 to 2025 (Légifrance), classes 5, 6 and 7 in euros per year. */
+const RMA_1679: [string, string, number, number, number][] = [
+  ["2008", "KALITEXT000019652438", 27750, 36630, 51120],
+  ["2009", "KALITEXT000021180854", 28370, 37440, 52250],
+  ["2010", "KALITEXT000023175797", 28890, 38120, 53200],
+  ["2011", "KALITEXT000024769836", 29470, 38890, 54270],
+  ["2012", "KALITEXT000026383056", 30090, 39710, 55410],
+  ["2013", "KALITEXT000028465771", 30400, 40110, 55970],
+  ["2014", "KALITEXT000029361310", 30620, 40400, 56370],
+  ["2015", "KALITEXT000031284455", 30780, 40610, 56660],
+  ["2016", "KALITEXT000033196798", 30940, 40820, 56950],
+  ["2017", "KALITEXT000035677627", 31190, 41150, 57410],
+  ["2018", "KALITEXT000037651968", 31510, 41570, 57990],
+  ["2019", "KALITEXT000039191674", 31890, 41870, 58400],
+  ["2020", "KALITEXT000042312633", 32090, 42040, 58640],
+  ["2021", "KALITEXT000044091288", 32290, 42210, 58880],
+  ["2022", "KALITEXT000046478078", 33100, 42970, 59940],
+  ["2023", "KALITEXT000048044307", 34100, 43830, 61140],
+  ["2024", "KALITEXT000050140803", 34860, 44490, 62060],
+  ["2025", "KALITEXT000052226917", 35210, 44670, 62310],
+];
+for (const [year, source, classe5, classe6, classe7] of RMA_1679) {
+  UPDATES.push({
+    model: "1679-inspection-assurance",
+    version: `${year}.1`,
+    validFrom: `${year}-01-01`,
+    value: "inspection assurance",
+    input: "classe",
+    rule: "salaire minimum annuel conventionnel",
+    source,
+    text: true,
+    grid: { "5": classe5, "6": classe6, "7": classe7 },
+    situation: { "date de calcul": `01/06/${year}` },
+  });
+}
 
 async function engineOf(update: Update) {
   const version = COMPILED_VERSIONS[update.model]?.find((entry) => entry.version === update.version);

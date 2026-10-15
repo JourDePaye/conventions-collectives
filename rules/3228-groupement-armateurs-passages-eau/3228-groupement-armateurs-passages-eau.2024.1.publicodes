@@ -1,0 +1,74 @@
+# Convention collective nationale du personnel navigant du groupement des armateurs de services de passages d'eau (IDCC 3228).
+# Version 2024.1 : protocole d'accord NAO 2024 du 7 mai 2024, barème au 1er janvier 2024, étendu.
+validFrom: 2024-01-01
+sources:
+  - >-
+    Protocole d'accord NAO 2024 du 7 mai 2024, signé par le GASPE, l'UGICT/CGT Officiers, la CGT
+    Marins, l'Union maritime CFDT et la FEETS-FO (avec réserves) : minima de la grille revalorisés
+    de 4 % à compter du 1er janvier 2024 ; annexe 1, barème du personnel « Officier » et « Appui »
+    au 1er janvier 2024, base 1 607 heures annuelles (taux horaire sur 151,67 heures par mois).
+    Copie signée publiée par le GASPE (armateurscotiers.fr, documents) :
+    https://gaspe-api.hello-0d0.workers.dev/api/media/raw/document/eca7a4db-cc11-4b25-a4c2-72b4e225f55c-Accord%20NAO%20branche%20CCN%203228%20-%202024.pdf
+  - >-
+    Avis d'extension au Journal officiel n° 0270 du 15 novembre 2024 (JORFTEXT000050495849) ;
+    arrêté du 20 mars 2025 portant extension, publié au Journal officiel n° 0091 du 16 avril 2025
+    (JORFTEXT000051469423), article 1er étendu sous réserve de l'application du SMIC ; le modèle
+    retient la date d'effet du protocole, le 1er janvier 2024.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051469423
+---
+salarié . convention collective . groupement armateurs passages eau:
+  titre: Personnel navigant du GASPE (IDCC 3228)
+  valeur: convention collective = 'groupement armateurs passages eau'
+
+salarié . convention collective . groupement armateurs passages eau . fonction:
+  titre: Fonction navigante
+  description: Fonction de l'annexe 1 du barème GASPE au 1er janvier 2024.
+  applicable si: convention collective = 'groupement armateurs passages eau'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . groupement armateurs passages eau . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Salaire mensuel brut minimal hors accessoires, sur la base de 1 607 heures annuelles, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'groupement armateurs passages eau'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . groupement armateurs passages eau . grille mensuelle:
+  titre: Barème mensuel GASPE au 1er janvier 2024
+  description: Minima mensuels hors accessoires de l'annexe 1 du protocole NAO 2024 du 7 mai 2024.
+  applicable si: convention collective = 'groupement armateurs passages eau'
+  unité: €/mois
+  variations:
+    - si: fonction = 'capitaines et chefs mécaniciens 16e catégorie ENIM'
+      alors: 3424.15 €/mois
+    - si: fonction = 'capitaines et chefs mécaniciens 15e catégorie ENIM'
+      alors: 2951.85 €/mois
+    - si: fonction = 'capitaines et chefs mécaniciens 12e catégorie ENIM'
+      alors: 2634.82 €/mois
+    - si: fonction = 'capitaines chefs mécaniciens moins de 200 ums 12e catégorie ENIM'
+      alors: 2543.90 €/mois
+    - si: fonction = 'patrons de vedettes inférieures à 50 ums'
+      alors: 2012.48 €/mois
+    - si: fonction = 'maîtres pont et machine'
+      alors: 1951.48 €/mois
+    - si: fonction = 'mécaniciens ouvriers mécaniciens timoniers'
+      alors: 1875.11 €/mois
+    - si: fonction = 'matelots qualifiés graisseurs'
+      alors: 1821.86 €/mois
+    - si: fonction = 'matelots matelots légers'
+      alors: 1801.22 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . groupement armateurs passages eau . fonction hors grille:
+  titre: Fonction absente du barème
+  description: La fonction fournie ne correspond pas à une fonction de l'annexe 1.
+  applicable si: convention collective = 'groupement armateurs passages eau'
+  valeur: grille mensuelle = 0 €/mois
+
+salarié . convention collective . groupement armateurs passages eau . audit paie:
+  titre: Audit des rubriques de paie
+  description: L'accord salarial et les textes dédiés ont été recherchés pour les cotisations salarié et employeur, taux, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais ; aucun taux conventionnel générique supplémentaire n'est calculé par cette version.
+  applicable si: convention collective = 'groupement armateurs passages eau'
+  valeur: non

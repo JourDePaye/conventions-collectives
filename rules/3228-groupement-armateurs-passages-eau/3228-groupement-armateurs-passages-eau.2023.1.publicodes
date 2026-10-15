@@ -1,0 +1,70 @@
+# Convention collective nationale du personnel navigant du groupement des armateurs de services de passages d'eau (IDCC 3228).
+# Version 2023.1 : protocole d'accord NAO 2023 du 22 mars 2023, barème au 1er avril 2023, non étendu.
+validFrom: 2023-04-01
+sources:
+  - >-
+    Protocole d'accord NAO 2023 du 22 mars 2023, signé par le GASPE, l'UGICT/CGT Officiers et
+    l'Union maritime CFDT : minima de la grille revalorisés de 3 % à compter du 1er avril 2023,
+    certaines catégories au-delà, et ajout de la ligne des capitaines et chefs mécaniciens de plus
+    de 3 000 ums (16e catégorie ENIM) ; annexe 1, barème du personnel « Officier » et « Appui » au
+    1er avril 2023, base 1 607 heures annuelles (taux horaire sur 151,67 heures par mois). Texte
+    non publié sur Légifrance ni au BOCC et non étendu : il s'applique aux employeurs membres du
+    GASPE. Copie signée publiée par le GASPE (armateurscotiers.fr, documents) :
+    https://gaspe-api.hello-0d0.workers.dev/api/media/raw/document/269bda8b-862a-4931-aeea-29a9c00a1abb-Accord%20NAO%20branche%20CCN%203228%20-%202023.pdf
+---
+salarié . convention collective . groupement armateurs passages eau:
+  titre: Personnel navigant du GASPE (IDCC 3228)
+  valeur: convention collective = 'groupement armateurs passages eau'
+
+salarié . convention collective . groupement armateurs passages eau . fonction:
+  titre: Fonction navigante
+  description: Fonction de l'annexe 1 du barème GASPE au 1er avril 2023.
+  applicable si: convention collective = 'groupement armateurs passages eau'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . groupement armateurs passages eau . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Salaire mensuel brut minimal hors accessoires, sur la base de 1 607 heures annuelles, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'groupement armateurs passages eau'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . groupement armateurs passages eau . grille mensuelle:
+  titre: Barème mensuel GASPE au 1er avril 2023
+  description: Minima mensuels hors accessoires de l'annexe 1 du protocole NAO 2023 du 22 mars 2023.
+  applicable si: convention collective = 'groupement armateurs passages eau'
+  unité: €/mois
+  variations:
+    - si: fonction = 'capitaines et chefs mécaniciens 16e catégorie ENIM'
+      alors: 3292.45 €/mois
+    - si: fonction = 'capitaines et chefs mécaniciens 15e catégorie ENIM'
+      alors: 2838.32 €/mois
+    - si: fonction = 'capitaines et chefs mécaniciens 12e catégorie ENIM'
+      alors: 2533.48 €/mois
+    - si: fonction = 'capitaines chefs mécaniciens moins de 200 ums 12e catégorie ENIM'
+      alors: 2446.05 €/mois
+    - si: fonction = 'patrons de vedettes inférieures à 50 ums'
+      alors: 1935.08 €/mois
+    - si: fonction = 'maîtres pont et machine'
+      alors: 1876.42 €/mois
+    - si: fonction = 'mécaniciens ouvriers mécaniciens timoniers'
+      alors: 1802.99 €/mois
+    - si: fonction = 'matelots qualifiés graisseurs'
+      alors: 1751.79 €/mois
+    - si: fonction = 'matelots matelots légers'
+      alors: 1731.94 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . groupement armateurs passages eau . fonction hors grille:
+  titre: Fonction absente du barème
+  description: La fonction fournie ne correspond pas à une fonction de l'annexe 1.
+  applicable si: convention collective = 'groupement armateurs passages eau'
+  valeur: grille mensuelle = 0 €/mois
+
+salarié . convention collective . groupement armateurs passages eau . audit paie:
+  titre: Audit des rubriques de paie
+  description: L'accord salarial et les textes dédiés ont été recherchés pour les cotisations salarié et employeur, taux, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais ; aucun taux conventionnel générique supplémentaire n'est calculé par cette version.
+  applicable si: convention collective = 'groupement armateurs passages eau'
+  valeur: non

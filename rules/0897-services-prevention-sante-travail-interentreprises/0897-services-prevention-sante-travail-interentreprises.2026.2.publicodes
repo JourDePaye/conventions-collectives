@@ -1,0 +1,78 @@
+# Convention collective nationale des services de prévention et de santé au travail interentreprises du 20 juillet 1976
+# (IDCC 897).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution ou correction passe par une nouvelle version.
+
+# Version 2026.2 : révision de 2026.1 ; `classe hors grille` utilisait `ou`, qui n'est pas un opérateur
+# publicodes, et déclarait toutes les classes hors grille. Elle teste désormais la grille.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Accord du 19 février 2026 relatif aux rémunérations minimales annuelles garanties au 1er janvier
+    2026, IDCC 897, publié sur Légifrance sous l'identifiant KALITEXT000054303796 ; article 2,
+    tableau des classes A à M.
+  - >-
+    Article 2 de l'accord, KALIARTI000054303800 : rémunérations minimales annuelles garanties
+    revalorisées de 1 % à compter du 1er janvier 2026.
+  - >-
+    Arrêté d'extension du 4 mai 2026, publié au Journal officiel du 10 mai 2026 ; l'accord est
+    étendu à tous les services de prévention et de santé au travail interentreprises du champ.
+  - >-
+    Les indemnités de déplacement et de repas de l'avenant distinct du 19 février 2026 ne sont
+    pas calculées automatiquement : elles dépendent de frais et de situations de déplacement.
+---
+salarié . convention collective . services prévention santé travail interentreprises:
+  titre: Services de prévention et de santé au travail interentreprises (IDCC 897)
+  valeur: convention collective = 'services prévention santé travail interentreprises'
+
+salarié . convention collective . services prévention santé travail interentreprises . classe:
+  titre: Classe de classification
+  description: Classe A à M de la grille des rémunérations minimales annuelles garanties.
+  applicable si: convention collective = 'services prévention santé travail interentreprises'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . services prévention santé travail interentreprises . salaire minimum annuel conventionnel:
+  titre: Rémunération minimale annuelle garantie
+  description: Minimum annuel brut à temps plein, proratisé selon la quotité de travail. Le contrôle des garanties d'évolution liées à l'ancienneté des cadres n'est pas calculé automatiquement.
+  applicable si: convention collective = 'services prévention santé travail interentreprises'
+  unité: €/an
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . services prévention santé travail interentreprises . salaire minimum annuel conventionnel . grille:
+  titre: Grille annuelle des rémunérations minimales garanties
+  unité: €/an
+  variations:
+    - si: classe = 'A'
+      alors: 24378 €/an
+    - si: classe = 'B'
+      alors: 24866 €/an
+    - si: classe = 'C'
+      alors: 26125 €/an
+    - si: classe = 'D'
+      alors: 27227 €/an
+    - si: classe = 'E'
+      alors: 29223 €/an
+    - si: classe = 'F'
+      alors: 30275 €/an
+    - si: classe = 'G'
+      alors: 32493 €/an
+    - si: classe = 'H'
+      alors: 34875 €/an
+    - si: classe = 'I'
+      alors: 36131 €/an
+    - si: classe = 'J'
+      alors: 38778 €/an
+    - si: classe = 'K'
+      alors: 41626 €/an
+    - si: classe = 'L'
+      alors: 73693 €/an
+    - si: classe = 'M'
+      alors: 86449 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . services prévention santé travail interentreprises . classe hors grille:
+  titre: Classe absente de la grille
+  description: La classe n'existe pas dans la grille des rémunérations minimales annuelles garanties.
+  applicable si: convention collective = 'services prévention santé travail interentreprises'
+  valeur: salaire minimum annuel conventionnel . grille = 0 €/an
