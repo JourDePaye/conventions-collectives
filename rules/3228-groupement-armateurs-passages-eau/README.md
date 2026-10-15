@@ -2,7 +2,9 @@
 
 La version `2022.1` modélise l'accord du **14 mars 2022** relatif aux salaires minima, applicable au **1er janvier 2022**, étendu par arrêté du 26 juillet 2022.
 
-Les versions `2025.1` (protocole du **25 avril 2025**, NAO 2025, `KALITEXT000052133151`, étendu par arrêté du 25 novembre 2025) et `2026.1` (protocole du **31 mars 2026**, NAO 2026, `KALITEXT000054872417`, étendu par arrêté du 29 septembre 2026 publié au Journal officiel du 13 octobre 2026) reprennent les barèmes « Officier » et « Appui » des 1er janvier 2025 et 1er janvier 2026 pour les employeurs membres du GASPE, avec une fonction de plus : les capitaines et chefs mécaniciens de plus de 3 000 ums (16e catégorie ENIM). Dans la version `2022.1`, les montants des deux fonctions de 12e catégorie semblent inversés par rapport aux barèmes suivants (ordre croissant du montant selon les ums) : à vérifier sur le texte du 14 mars 2022.
+Les versions `2025.1` (protocole du **25 avril 2025**, NAO 2025, `KALITEXT000052133151`, étendu par arrêté du 25 novembre 2025) et `2026.1` (protocole du **31 mars 2026**, NAO 2026, `KALITEXT000054872417`, étendu par arrêté du 29 septembre 2026 publié au Journal officiel du 13 octobre 2026) reprennent les barèmes « Officier » et « Appui » des 1er janvier 2025 et 1er janvier 2026 pour les employeurs membres du GASPE, avec une fonction de plus : les capitaines et chefs mécaniciens de plus de 3 000 ums (16e catégorie ENIM). Pour les deux fonctions de 12e catégorie, le barème de 2022 donne le montant le plus élevé à la ligne « moins de 200 ums », alors que ceux de 2025 et 2026 le donnent à la ligne « plus de 200 ums » : chaque version suit les libellés de son texte.
+
+La version `2022.2` a les mêmes règles que `2022.1` et corrige sa source : `2022.1` citait `KALITEXT000046565704`, un avenant de la convention des agences de presse (IDCC 3221). Le protocole du 14 mars 2022 est `KALITEXT000045976880`, étendu par arrêté du 26 juillet 2022 publié au Journal officiel du 3 août 2022 ; ses montants sont ceux du modèle.
 
 ## Règles implémentées
 

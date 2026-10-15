@@ -310,3 +310,15 @@ describe("IDCC 1612 2024.2: classifications outside the annex", () => {
     }
   });
 });
+
+describe("IDCC 3228 2022.2: source of the protocol of 14 March 2022", () => {
+  it("cites the protocol of the agreement and keeps the grid of 2022.1", async () => {
+    const versions = COMPILED_VERSIONS["3228-groupement-armateurs-passages-eau"]!;
+    const fixed = versions.find((entry) => entry.version === "2022.2")!;
+    const former = versions.find((entry) => entry.version === "2022.1")!;
+    assert.equal(fixed.validFrom, "2022-01-01");
+    assert.ok(fixed.sources.some((source) => source.includes("KALITEXT000045976880")));
+    assert.ok(!fixed.sources.some((source) => source.includes("KALITEXT000046565704")));
+    assert.deepEqual(await fixed.loadRules(), await former.loadRules());
+  });
+});
