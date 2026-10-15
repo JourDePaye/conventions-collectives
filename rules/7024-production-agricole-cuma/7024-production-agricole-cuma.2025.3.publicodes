@@ -1,0 +1,101 @@
+# Convention collective nationale de la production agricole et cuma (IDCC 7024)
+# Version 2025.3 : avenant n° 9 du 12 mars 2025, étendu par arrêté du 4 juin 2025, applicable au 1er juillet 2025.
+# Révision de 2025.2 (elle-même révision de 2025.1) : mêmes règles ; les bornes des paliers sont désormais sourcées sur
+# le texte officiel de l'article 4.5. Seul un coefficient inférieur à 9 est hors grille, le palier 12 couvrant 400 points et plus.
+validFrom: 2025-07-01
+sources:
+  - >-
+    Avenant n° 9 du 12 mars 2025 relatif aux salaires minima, étendu par arrêté
+    du 4 juin 2025 publié au Journal officiel du 11 juin 2025 : paliers 1 à 12,
+    taux horaires de 11,88 € à 23,88 € ; texte officiel Légifrance
+    KALITEXT000051787305.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051787305?idConteneur=KALICONT000043036630
+  - >-
+    Conteneur officiel de la convention collective nationale de la production
+    agricole et CUMA, IDCC 7024, sur Légifrance ; les textes dédiés aux
+    cotisations, santé, prévoyance, retraite, formation, AT/MP, primes,
+    avantages et frais ont été recherchés pour l'audit de paie.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000043036630
+  - >-
+    Article 4.5 de la convention collective nationale de la production agricole et CUMA du
+    15 septembre 2020, tableau des paliers : palier 1 pour les coefficients 9 à 11, palier 2 de
+    12 à 16, palier 3 de 17 à 24, palier 4 de 25 à 35, palier 5 de 36 à 51, palier 6 de 52 à 73,
+    palier 7 de 74 à 104, palier 8 de 105 à 143, palier 9 de 144 à 196, palier 10 de 197 à 270,
+    palier 11 de 271 à 399, palier 12 à partir de 400 sans borne supérieure, Légifrance :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000042949918
+---
+salarié . convention collective . production agricole et cuma:
+  titre: Production agricole et CUMA (IDCC 7024)
+  valeur: convention collective = 'production agricole et cuma'
+
+salarié . convention collective . production agricole et cuma . coefficient:
+  titre: Coefficient de l'emploi
+  description: Coefficient de l'emploi servant à déterminer le palier salarial national 2025.
+  applicable si: convention collective = 'production agricole et cuma'
+  par défaut: 0
+
+salarié . convention collective . production agricole et cuma . taux horaire minimum:
+  titre: Taux horaire minimum conventionnel
+  description: Minimum horaire brut 2025 pour un emploi à temps plein ; le salaire réel doit respecter au moins ce minimum pour les heures rémunérées.
+  applicable si: convention collective = 'production agricole et cuma'
+  unité: €/heure
+  arrondi: 2 décimales
+  variations:
+    - si: coefficient >= 400
+      alors: 23.88 €/heure
+    - si: coefficient >= 271
+      alors: 20.90 €/heure
+    - si: coefficient >= 197
+      alors: 18.36 €/heure
+    - si: coefficient >= 144
+      alors: 16.58 €/heure
+    - si: coefficient >= 105
+      alors: 15.32 €/heure
+    - si: coefficient >= 74
+      alors: 14.33 €/heure
+    - si: coefficient >= 52
+      alors: 13.54 €/heure
+    - si: coefficient >= 36
+      alors: 12.93 €/heure
+    - si: coefficient >= 25
+      alors: 12.40 €/heure
+    - si: coefficient >= 17
+      alors: 12.14 €/heure
+    - si: coefficient >= 12
+      alors: 11.97 €/heure
+    - si: coefficient >= 9
+      alors: 11.88 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . production agricole et cuma . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: Minimum mensuel calculé à partir du taux horaire conventionnel et des heures contractuelles.
+  applicable si: convention collective = 'production agricole et cuma'
+  unité: €/mois
+  produit:
+    - taux horaire minimum
+    - contrat . temps de travail
+
+salarié . convention collective . production agricole et cuma . coefficient hors grille:
+  titre: Coefficient absent de la grille modélisée
+  description: >-
+    Les paliers de l'article 4.5 commencent au coefficient 9 (palier 1) et le palier 12
+    couvre 400 points et plus : seul un coefficient inférieur à 9 est hors grille.
+  applicable si: convention collective = 'production agricole et cuma'
+  valeur: coefficient < 9
+
+salarié . convention collective . production agricole et cuma . audit paie:
+  titre: Éléments conventionnels modélisés et non automatisés
+  description: >-
+    L'avenant n° 9 modifie les minima horaires ; le présent modèle ne calcule
+    que la grille nationale par coefficient. Les changements de cotisations
+    salarié et employeur, assiettes, taux, plafonds, tranches et forfaits, la
+    complémentaire santé, la prévoyance, la retraite complémentaire, la
+    formation professionnelle, l'AT/MP, les primes, indemnités, frais et
+    avantages en nature ont été recherchés dans la convention, les accords
+    dédiés et leurs arrêtés d'extension. Aucun taux ou assiette conventionnel
+    générique supplémentaire n'est calculable avec les seules entrées du
+    modèle : ces rubriques restent externes et ne sont ni remplacées par zéro
+    ni redéfinies.
+  applicable si: convention collective = 'production agricole et cuma'
+  valeur: oui

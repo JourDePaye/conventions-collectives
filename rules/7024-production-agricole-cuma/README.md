@@ -2,7 +2,7 @@
 
 Le fichier [2025.1](7024-production-agricole-cuma.2025.1.publicodes) reprend l'avenant n° 9 du 12 mars 2025, étendu par arrêté du 4 juin 2025 publié au Journal officiel du 11 juin 2025. La grille est applicable au 1er juillet 2025.
 
-La révision [2025.2](7024-production-agricole-cuma.2025.2.publicodes), même date d'effet, corrige `coefficient hors grille` : en 2025.1, la règle exigeait un coefficient à la fois inférieur à 9 et supérieur à 400, et n'était donc jamais vraie. En 2025.2, seul un coefficient inférieur à 9 est hors grille, le palier 12 couvrant 400 points et plus. Les bornes des paliers (article 4.5 de la convention) ont été relevées sur une source secondaire et restent à vérifier sur le texte officiel.
+La révision [2025.2](7024-production-agricole-cuma.2025.2.publicodes), même date d'effet, corrige `coefficient hors grille` : en 2025.1, la règle exigeait un coefficient à la fois inférieur à 9 et supérieur à 400, et n'était donc jamais vraie. En 2025.2, seul un coefficient inférieur à 9 est hors grille, le palier 12 couvrant 400 points et plus. La révision [2025.3](7024-production-agricole-cuma.2025.3.publicodes) a les mêmes règles et source les bornes des paliers sur le texte officiel de l'article 4.5 (Légifrance, `KALIARTI000042949918`) : palier 1 de 9 à 11, palier 12 à partir de 400 sans borne supérieure.
 
 ## Règles implémentées
 

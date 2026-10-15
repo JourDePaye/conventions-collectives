@@ -83,7 +83,7 @@ const FIXED: {
   { model: "3255-boulangerie-industrielle", version: "2026.2", rule: "niveau hors grille", input: "niveau", valid: "'E3'", invalid: ["'E9'", "'non renseigné'"] },
   { model: "1512-promotion-immobiliere", version: "2026.3", rule: "coefficient hors grille", input: "coefficient", valid: 100, invalid: [0, 101, 900] },
   // Palier 1 starts at coefficient 9 and palier 12 covers 400 and above.
-  { model: "7024-production-agricole-cuma", version: "2025.2", rule: "coefficient hors grille", input: "coefficient", valid: 1000, invalid: [0, 8] },
+  { model: "7024-production-agricole-cuma", version: "2025.3", rule: "coefficient hors grille", input: "coefficient", valid: 1000, invalid: [0, 8] },
   // Executives' coefficients only have an annual guarantee, and are in the grid.
   { model: "0489-industries-cartonnage", version: "2025.4", rule: "classification hors grille", input: "coefficient", valid: 600, invalid: [0, 999] },
   { model: "1558-industries-ceramiques", version: "2025.2", rule: "niveau hors grille", input: "classification", valid: "'J'", invalid: ["'ZZ-E9'", "'non renseigné'"] },

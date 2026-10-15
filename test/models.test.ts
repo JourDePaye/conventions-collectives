@@ -192,7 +192,7 @@ const models = [
   { name: "3220-offices-publics-habitat", value: "offices publics habitat", classification: "classe", input: 13, minimums: { "2026.1": 5359.23 } },
   { name: "3229-navigation-interieure", value: "navigation intérieure", classification: "classification", input: "'matelot — 0 à 3 ans'", minimums: { "2026.1": 22889 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "2219-taxis", value: "taxis", classification: "classification", input: "'niveau 1 — conducteur débutant — titulaire carte professionnelle'", minimums: { "2025.1": 1837.86 } },
-  { name: "7024-production-agricole-cuma", value: "production agricole et cuma", classification: "coefficient", input: 200, minimums: { "2025.1": 2784.6, "2025.2": 2784.6 } },
+  { name: "7024-production-agricole-cuma", value: "production agricole et cuma", classification: "coefficient", input: 200, minimums: { "2025.1": 2784.6, "2025.2": 2784.6, "2025.3": 2784.6 } },
   { name: "2543-geometres-experts", value: "géomètres-experts géomètres-topographes photogrammètres experts fonciers", classification: "classification", input: "'II.2'", minimums: { "2024.1": 1950.53 } },
   { name: "1659-rouissage-teillage-lin", value: "rouissage teillage lin", classification: "coefficient", input: 300, minimums: { "2024.1": 2558.05 } },
   { name: "0489-industries-cartonnage", value: "industries du cartonnage", classification: "coefficient", input: 240, minimums: { "2025.3": 2105.18, "2025.4": 2105.18 } },
@@ -353,8 +353,8 @@ describe("compiled collective agreement models", () => {
     assert.equal(engine.evaluate(`${namespace} . audit paie`).nodeValue, true);
     assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, false);
   });
-  it("7024-production-agricole-cuma 2025.2 applies palier 12 from 400 points and only rejects coefficients below 9", async () => {
-    const version = COMPILED_VERSIONS["7024-production-agricole-cuma"]?.find((v) => v.version === "2025.2");
+  it("7024-production-agricole-cuma 2025.3 applies palier 12 from 400 points and only rejects coefficients below 9", async () => {
+    const version = COMPILED_VERSIONS["7024-production-agricole-cuma"]?.find((v) => v.version === "2025.3");
     assert.ok(version);
     assert.equal(version.validFrom, "2025-07-01");
     const namespace = "salarié . convention collective . production agricole et cuma";
