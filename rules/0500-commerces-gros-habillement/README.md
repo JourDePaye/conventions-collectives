@@ -6,6 +6,8 @@ Le fichier [2024.2](0500-commerces-gros-habillement.2024.2.publicodes), à la m�
 
 Le fichier [2026.1](0500-commerces-gros-habillement.2026.1.publicodes) entre en vigueur le 20 septembre 2026 avec la grille de l'annexe 56/A du 25 juin 2026. Cette grille s'applique au 1er juillet 2026 dans les entreprises adhérentes à l'organisation patronale signataire, et à tous les employeurs le lendemain de la publication de l'arrêté d'extension du 7 septembre 2026 (JO du 19 septembre 2026). **Les montants viennent du communiqué de la CFDT du 2 juillet 2026** : le texte de l'annexe n'était pas encore dans la base KALI de Légifrance et doit encore être contrôlé. Ils sont cohérents avec les hausses annoncées (3 % pour les employés, 1,5 % pour les agents de maîtrise, 1 % pour les cadres).
 
+Le fichier [2026.2](0500-commerces-gros-habillement.2026.2.publicodes), à la même date, a les mêmes règles et remplace la source : le texte de l'avenant du 25 juin 2026 à l'annexe 56 A, publié au BOCC 2026-30 (texte n° 4, NOR ASET2650737M), donne exactement les 19 montants du communiqué de la CFDT.
+
 La valeur Publicodes est `commerces de gros habillement` ; les règles sont sous `salarié . convention collective . commerces de gros habillement`.
 
 ## Règles implémentées
@@ -27,6 +29,7 @@ La valeur Publicodes est `commerces de gros habillement` ; les règles sont sous
 - Avenant n° 56 A du 26 novembre 2024 relatif aux salaires minima, texte KALI `KALITEXT000051190916`, Légifrance.
 - Arrêté du 29 janvier 2025 portant extension de l'avenant n° 56 A, publié au Journal officiel du 14 février 2025 et référencé dans la fiche officielle du texte KALI.
 - Annexe 56/A du 25 juin 2026 relative aux salaires minima mensuels (BOCC n° 2026/30), étendue par arrêté du 7 septembre 2026 publié au Journal officiel du 19 septembre 2026 (`JORFTEXT000054860941`).
-- Communiqué de la CFDT du 2 juillet 2026 donnant la grille de l'annexe 56/A (source secondaire, à remplacer par le texte officiel).
+- Avenant du 25 juin 2026 à l'annexe 56 A sur les salaires minima mensuels, BOCC 2026-30, texte n° 4 (`boc_20260030_0000_0004`).
+- Communiqué de la CFDT du 2 juillet 2026 donnant la grille de l'annexe 56/A (source secondaire, utilisée par la version 2026.1, confirmée par le texte du BOCC).
 
 Les références et les liens officiels figurent également dans l'en-tête du fichier `.publicodes`.

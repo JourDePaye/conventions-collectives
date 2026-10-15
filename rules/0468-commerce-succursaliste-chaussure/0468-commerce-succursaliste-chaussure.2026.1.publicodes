@@ -1,0 +1,145 @@
+# Convention collective nationale du commerce succursaliste de la chaussure du 2 juillet 1968, mise à jour le 18 novembre 1971 (IDCC 468).
+# Version 2026.1 : accord du 18 juin 2026 relatif aux salaires minima conventionnels au 1er août 2026, étendu par arrêté du 7 septembre 2026 publié au Journal officiel du 19 septembre 2026.
+validFrom: 2026-08-01
+sources:
+  - >-
+    Accord du 18 juin 2026 relatif aux salaires minima conventionnels au 1er août 2026, convention
+    collective nationale du commerce succursaliste de la chaussure (IDCC 468, brochure 3120), signé
+    par la FEC et la FNECS CFE-CGC, la CFTC CSFV, la FS CFDT et l'UNSA FCS : à compter du 1er août
+    2026, minima mensuels des employés (niveaux 1 à 5) et des agents de maîtrise (niveaux 6 et 7),
+    minima annuels des cadres (niveaux 8 à 12). Bulletin officiel des conventions collectives
+    2026-30 TRA, texte n° 3, NOR ASET2650721M :
+    https://www.legifrance.gouv.fr/download/pdf/bocc?id=boc_20260030_0000_0003.pdf
+  - >-
+    Arrêté du 7 septembre 2026 portant extension de l'accord, publié au Journal officiel n° 0219
+    du 19 septembre 2026, avec effet à sa publication pour tous les employeurs du champ ; le modèle
+    retient la date d'effet de l'accord, le 1er août 2026.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054860931
+  - >-
+    Convention collective nationale du commerce succursaliste de la chaussure,
+    IDCC 468, conteneur officiel Légifrance KALICONT000005635394.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635394
+---
+salarié . convention collective . commerce succursaliste de la chaussure:
+  titre: Commerce succursaliste de la chaussure (IDCC 468)
+  valeur: convention collective = 'commerce succursaliste de la chaussure'
+  description: >-
+    Modèle borné à l'accord du 18 juin 2026 étendu : minima mensuels des
+    employés et agents de maîtrise, minima annuels des cadres, avec proratisation
+    selon la quotité de travail.
+
+salarié . convention collective . commerce succursaliste de la chaussure . niveau et échelon:
+  titre: Niveau et échelon de classification
+  question: Quel est le niveau et l'échelon conventionnels ?
+  applicable si: convention collective = 'commerce succursaliste de la chaussure'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commerce succursaliste de la chaussure . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps complet, proratisé selon la quotité de travail, pour les employés et agents de maîtrise.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'commerce succursaliste de la chaussure'
+      - salaire minimum conventionnel . grille > 0 €/mois
+  unité: €/mois
+  produit:
+    - salaire minimum conventionnel . grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerce succursaliste de la chaussure . salaire minimum conventionnel . grille:
+  titre: Salaire minimum mensuel à temps complet
+  unité: €/mois
+  variations:
+    - si: niveau et échelon = '1'
+      alors: 1867.02 €/mois
+    - si: niveau et échelon = '2.1'
+      alors: 1869.63 €/mois
+    - si: niveau et échelon = '2.2'
+      alors: 1874.90 €/mois
+    - si: niveau et échelon = '3.1'
+      alors: 1879.11 €/mois
+    - si: niveau et échelon = '3.2'
+      alors: 1888.60 €/mois
+    - si: niveau et échelon = '4.1'
+      alors: 1910.19 €/mois
+    - si: niveau et échelon = '4.2'
+      alors: 1920.98 €/mois
+    - si: niveau et échelon = '5.1'
+      alors: 1954.43 €/mois
+    - si: niveau et échelon = '5.2'
+      alors: 1965.23 €/mois
+    - si: niveau et échelon = '6'
+      alors: 2118.50 €/mois
+    - si: niveau et échelon = '7'
+      alors: 2341.92 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerce succursaliste de la chaussure . rémunération minimum annuelle conventionnelle:
+  titre: Rémunération minimum annuelle conventionnelle des cadres
+  description: Garantie annuelle brute à temps plein, proratisée selon la quotité de travail ; elle reste exprimée en €/an.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'commerce succursaliste de la chaussure'
+      - rémunération minimum annuelle conventionnelle . grille > 0 €/an
+  unité: €/an
+  produit:
+    - rémunération minimum annuelle conventionnelle . grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerce succursaliste de la chaussure . rémunération minimum annuelle conventionnelle . grille:
+  titre: Garantie annuelle brute à temps plein
+  unité: €/an
+  variations:
+    - si: niveau et échelon = '8'
+      alors: 30017 €/an
+    - si: niveau et échelon = '8.2'
+      alors: 31370 €/an
+    - si: niveau et échelon = '9'
+      alors: 33402 €/an
+    - si: niveau et échelon = '9.2'
+      alors: 35435 €/an
+    - si: niveau et échelon = '10'
+      alors: 37918 €/an
+    - si: niveau et échelon = '11'
+      alors: 42433 €/an
+    - si: niveau et échelon = '12'
+      alors: 48075 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . commerce succursaliste de la chaussure . niveau et échelon hors grille:
+  titre: Niveau et échelon absent de la grille modélisée
+  applicable si: convention collective = 'commerce succursaliste de la chaussure'
+  toutes ces conditions:
+    - niveau et échelon != '1'
+    - niveau et échelon != '2.1'
+    - niveau et échelon != '2.2'
+    - niveau et échelon != '3.1'
+    - niveau et échelon != '3.2'
+    - niveau et échelon != '4.1'
+    - niveau et échelon != '4.2'
+    - niveau et échelon != '5.1'
+    - niveau et échelon != '5.2'
+    - niveau et échelon != '6'
+    - niveau et échelon != '7'
+    - niveau et échelon != '8'
+    - niveau et échelon != '8.2'
+    - niveau et échelon != '9'
+    - niveau et échelon != '9.2'
+    - niveau et échelon != '10'
+    - niveau et échelon != '11'
+    - niveau et échelon != '12'
+
+salarié . convention collective . commerce succursaliste de la chaussure . audit paie:
+  titre: Audit explicite des rubriques conventionnelles de paie
+  description: >-
+    Les textes de la convention, l'accord salarial, l'arrêté d'extension et les
+    accords ou avenants dédiés ont été recherchés pour les taux de cotisations
+    salarié et employeur, bases, plafonds, tranches, forfaits, exonérations,
+    santé, prévoyance, retraite complémentaire et supplémentaire, formation,
+    AT/MP, primes, indemnités, avantages en nature et frais professionnels.
+    Aucun taux ou assiette conventionnel supplémentaire n'est calculable avec
+    les seules entrées de ce modèle ; ces rubriques restent externes et ne sont
+    ni remplacées par zéro ni redéfinies. Seuls les minima de rémunération de
+    l'accord du 18 juin 2026 sont calculés.
+  applicable si: convention collective = 'commerce succursaliste de la chaussure'
+  valeur: oui

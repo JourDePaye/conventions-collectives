@@ -137,6 +137,31 @@ const UPDATES: Update[] = [
     grid: { "8": 29428, "8.2": 30755, "9": 32747, "9.2": 34740, "10": 37174, "11": 41601, "12": 47133 },
   },
   {
+    model: "0468-commerce-succursaliste-chaussure",
+    version: "2026.1",
+    validFrom: "2026-08-01",
+    value: "commerce succursaliste de la chaussure",
+    input: "niveau et échelon",
+    rule: "salaire minimum conventionnel . grille",
+    source: "boc_20260030_0000_0003",
+    text: true,
+    grid: {
+      "1": 1867.02, "2.1": 1869.63, "2.2": 1874.9, "3.1": 1879.11, "3.2": 1888.6, "4.1": 1910.19,
+      "4.2": 1920.98, "5.1": 1954.43, "5.2": 1965.23, "6": 2118.5, "7": 2341.92,
+    },
+  },
+  {
+    model: "0468-commerce-succursaliste-chaussure",
+    version: "2026.1",
+    validFrom: "2026-08-01",
+    value: "commerce succursaliste de la chaussure",
+    input: "niveau et échelon",
+    rule: "rémunération minimum annuelle conventionnelle . grille",
+    source: "boc_20260030_0000_0003",
+    text: true,
+    grid: { "8": 30017, "8.2": 31370, "9": 33402, "9.2": 35435, "10": 37918, "11": 42433, "12": 48075 },
+  },
+  {
     // Avenant n° 45, column from 1 October 2024; replaces version 2024.1, whose grid was wrong.
     model: "1631-hotellerie-plein-air",
     version: "2024.2",

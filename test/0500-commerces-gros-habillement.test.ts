@@ -49,7 +49,8 @@ const GRID_2024 = {
   "C-IA": 2753, "C-IB": 2991, "C-IIA": 3429, "C-IIB": 4061, "C-III": 4579,
 };
 
-// Annexe 56/A du 25 juin 2026, amounts of the CFDT communiqué of 2 July 2026.
+// Avenant du 25 juin 2026 à l'annexe 56 A (BOCC 2026-30, texte n° 4); the CFDT communiqué of
+// 2 July 2026, the source of version 2026.1, gives the same amounts.
 const GRID_2026 = {
   "E-IA": 1868, "E-IB": 1873, "E-IIA": 1896, "E-IIB": 1901, "E-IIIA": 1923, "E-IIIB": 1929,
   "E-IVA": 1951, "E-IVB": 1957, "E-VA": 1979, "E-VB": 1985,
@@ -60,6 +61,7 @@ const GRID_2026 = {
 for (const [revision, validFrom, grid] of [
   ["2024.2", "2024-12-01", GRID_2024],
   ["2026.1", "2026-09-20", GRID_2026],
+  ["2026.2", "2026-09-20", GRID_2026],
 ] as const) {
   describe(`IDCC 500 — commerces de gros de l'habillement — ${revision}`, () => {
     it("takes effect on its sourced date", async () => {
@@ -89,3 +91,10 @@ for (const [revision, validFrom, grid] of [
     });
   });
 }
+
+describe("IDCC 500 — 2026.2 official source", () => {
+  it("cites the text published in the BOCC", async () => {
+    const { version } = await engineFor("2026.2", "E-IA");
+    assert.ok(version.sources.some((source) => source.includes("boc_20260030_0000_0004")));
+  });
+});

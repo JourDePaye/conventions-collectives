@@ -2,7 +2,9 @@
 
 La version `2024.1` modélise l'accord du 26 mars 2024 relatif aux minima conventionnels. Il a été étendu par arrêté du 27 mai 2024, publié au Journal officiel du 1er juin 2024 ; l'application à tous les employeurs du champ est donc modélisée à compter du 1er juillet 2024.
 
-La version `2025.1` reprend l'accord du **3 décembre 2024** relatif aux salaires (Légifrance `KALITEXT000051294879`), applicable à compter du mois qui suit la signature, soit le **1er janvier 2025**, et étendu par arrêté du 25 février 2025 publié au Journal officiel du 14 mars 2025. L'accord du 18 juin 2026, étendu par arrêté du 7 septembre 2026, n'est pas modélisé : sa grille n'a pas pu être lue sur Légifrance à la date de cette version.
+La version `2025.1` reprend l'accord du **3 décembre 2024** relatif aux salaires (Légifrance `KALITEXT000051294879`), applicable à compter du mois qui suit la signature, soit le **1er janvier 2025**, et étendu par arrêté du 25 février 2025 publié au Journal officiel du 14 mars 2025.
+
+La version `2026.1` reprend l'accord du **18 juin 2026** relatif aux salaires minima conventionnels au **1er août 2026** (BOCC 2026-30, texte n° 3, NOR ASET2650721M), étendu par arrêté du 7 septembre 2026 publié au Journal officiel du 19 septembre 2026. Le niveau 1 est porté à 1 867,02 € par mois, le niveau 7 à 2 341,92 € et le niveau 12 à 48 075 € par an. L'extension prend effet à sa publication pour les employeurs non adhérents ; le modèle retient la date d'effet de l'accord, le 1er août 2026.
 
 ## Règles calculées
 
