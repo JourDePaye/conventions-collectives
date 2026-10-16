@@ -157,7 +157,7 @@ const models = [
   { name: "3097-production-cinematographique", value: "production cinématographique", classification: "niveau", input: 4, minimums: { "2026.1": 2113.53 } },
   { name: "1307-exploitation-cinematographique", value: "exploitation cinématographique", classification: "coefficient", input: 300, minimums: { "2025.1": 2203.92 } },
   { name: "2198-commerce-distance", value: "commerce à distance", classification: "niveau", input: "'G référent'", minimums: { "2026.1": 3627 } },
-  { name: "3203-structures-associatives-peche", value: "structures associatives de pêche de loisir et de protection du milieu aquatique", classification: "niveau et échelon", input: "'VI.3'", minimums: { "2026.1": 3355 } },
+  { name: "3203-structures-associatives-peche", value: "structures associatives de pêche de loisir et de protection du milieu aquatique", classification: "niveau et échelon", input: "'VI.3'", minimums: { "2026.1": 3355, "2026.2": 3355 } },
   { name: "2332-entreprises-architecture", value: "entreprises d'architecture", classification: "coefficient", input: 300, minimums: { "2025.1": 2739, "2025.2": 0, "2025.3": 2739, "2026.1": 2763 }, situation: { "salarié . convention collective . entreprises d'architecture . zone": "'zone 1'" } },
   { name: "3224-distribution-commerce-gros-papiers-cartons", value: "distribution commerce gros papiers cartons", classification: "niveau et échelon", input: "'III.2'", minimums: { "2025.1": 1961.8 } },
   { name: "3223-personnels-navigants-officiers", value: "personnels navigants officiers transport maritime", classification: "fonction et zone", input: "'capitaine ≥15000 UMS — long cours'", minimums: { "2025.1": 63049.92 }, minimumRule: "salaire minimum annuel conventionnel" },

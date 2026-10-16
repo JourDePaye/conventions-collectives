@@ -15,7 +15,7 @@ L’avenant est pris dans son champ signataire ou adhérent, avant extension. Le
 - `salaire minimum conventionnel . grille` donne le minimum mensuel brut à temps plein (151,67 heures), de 1 855 € à 3 355 €.
 - `salaire minimum conventionnel` prorate la grille selon la quotité de travail.
 - `niveau hors grille` signale les positionnements absents et la grille retourne alors `0 €/mois`.
-- `champ juridique` documente le périmètre signataire ou adhérent de l’avenant non étendu.
+- `champ juridique` : à partir de la version `2026.2` (même date d'effet que 2026.1, qu'elle remplace), le minimum n'est applicable qu'aux employeurs `employeur signataire ou adhérent` (défaut) ; pour `autre employeur`, l'avenant n'étant pas étendu, le minimum vaut 0 €/mois (aucun minimum n’est dû au titre de l’avenant). La version 2026.1 ne faisait que documenter ce périmètre sans le faire respecter.
 
 ## Audit des effets de paie
 

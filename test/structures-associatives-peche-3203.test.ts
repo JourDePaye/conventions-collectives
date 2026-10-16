@@ -7,8 +7,8 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const name = "3203-structures-associatives-peche";
 const namespace = "salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique";
 
-async function engineFor(positionnement: string, quotité = 1) {
-  const version = COMPILED_VERSIONS[name]?.find((candidate) => candidate.version === "2026.1");
+async function engineFor(positionnement: string, quotité = 1, revision = "2026.1", situation: Record<string, string> = {}) {
+  const version = COMPILED_VERSIONS[name]?.find((candidate) => candidate.version === revision);
   assert.ok(version);
   const extension = await version.loadRules();
   const rules: Record<string, Rule> = { ...modeleSocial };
@@ -24,6 +24,7 @@ async function engineFor(positionnement: string, quotité = 1) {
     [`${namespace} . niveau et échelon`]: `'${positionnement}'`,
     "salarié . contrat . statut cadre": "non",
     "salarié . contrat . temps de travail . quotité": `${quotité * 100}%`,
+    ...situation,
   });
   return { engine, version };
 }
@@ -56,5 +57,25 @@ describe("IDCC 3203 — 2026.1 minimum salaries", () => {
     engine.setSituation({ "salarié . convention collective": "'boyauderie'" });
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, null);
     assert.equal(engine.evaluate("salarié . convention collective").nodeValue, "boyauderie");
+  });
+});
+
+describe("IDCC 3203 — 2026.2 legal scope of the non-extended avenant", () => {
+  const scope = `${namespace} . champ juridique`;
+
+  it("keeps the minimum of the avenant n° 16 for a member employer, by default", async () => {
+    const { engine } = await engineFor("VI.3", 1, "2026.2");
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 3355);
+    const explicit = await engineFor("VI.3", 1, "2026.2", { [scope]: "'employeur signataire ou adhérent'" });
+    assert.equal(explicit.engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 3355);
+  });
+
+  it("gives no minimum to another employer, since the avenant is not extended", async () => {
+    const { engine } = await engineFor("VI.3", 1, "2026.2", { [scope]: "'autre employeur'" });
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 0);
+    // The classification check does not depend on the employer.
+    assert.equal(engine.evaluate(`${namespace} . niveau hors grille`).nodeValue, false);
+    const unknown = await engineFor("VII.1", 1, "2026.2", { [scope]: "'autre employeur'" });
+    assert.equal(unknown.engine.evaluate(`${namespace} . niveau hors grille`).nodeValue, true);
   });
 });
