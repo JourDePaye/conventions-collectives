@@ -6,7 +6,7 @@ Modèle `3250-commissaires-justice`, versions `2025.1` et `2026.1`, espace de no
 ## Périmètre
 
 Convention collective nationale du 16 novembre 2022, étendue par arrêté du 10 juillet 2024.
-Les avenants salariaux sont étendus, aucune règle `champ juridique` n'est donc nécessaire.
+Les avenants salariaux sont étendus, aucune règle `adhérent d'une organisation signataire` n'est donc nécessaire.
 
 | Version | Date d'effet | Texte |
 |---|---|---|

@@ -17,7 +17,7 @@ const models = [
   { name: "0043-import-export", value: "import-export", classification: "coefficient", input: "'C16'", minimums: { "2026.1": 3564 } },
   { name: "0044-industries-chimiques", value: "industries chimiques", classification: "coefficient", input: 250, minimums: { "2025.1": 2218.4, "2026.2": 2244.51, "2026.3": 2218.4, "2026.4": 2244.51 } },
   { name: "0045-caoutchouc", value: "caoutchouc", classification: "coefficient", input: 225, minimums: { "2025.1": 1949.84 } },
-  { name: "0158-industries-bois", value: "industries du bois", classification: "classification", input: "'ACT 6.1'", minimums: { "2026.1": 2448, "2026.2": 2448 }, situation: { "salarié . convention collective . industries du bois . champ juridique": "'employeur signataire ou adhérent'" } },
+  { name: "0158-industries-bois", value: "industries du bois", classification: "classification", input: "'ACT 6.1'", minimums: { "2026.1": 2448, "2026.2": 2448 }, situation: { "salarié . convention collective . industries du bois . adhérent d'une organisation signataire": "oui" } },
   { name: "0176-industrie-pharmaceutique", value: "industrie pharmaceutique", classification: "groupe", input: "'6C'", minimums: { "2026.1": 3344.51, "2026.2": 3344.51 } },
   { name: "0112-industrie-laitiere", value: "industrie laitière", classification: "niveau", input: "'7.2'", minimums: { "2026.1": 2235.92, "2026.2": 2235.92 } },
   { name: "0675-succursales-habillement", value: "succursales habillement", classification: "niveau", input: "'E4'", minimums: { "2026.1": 1900, "2026.2": 1900, "2026.3": 1900 } },
@@ -41,7 +41,7 @@ const models = [
   { name: "3216-negoce-materiaux-construction", value: "négoce des matériaux de construction", classification: "coefficient", input: 245, minimums: { "2025.1": 2105.74, "2025.2": 2105.74, "2026.1": 2129 } },
   { name: "3013-librairie", value: "librairie", classification: "niveau", input: "'8'", minimums: { "2026.1": 2426, "2026.2": 2426, "2026.3": 2426 } },
   { name: "2247-courtage-assurances", value: "courtage assurances", classification: "niveau", input: "'D'", minimums: { "2026.2": 2392 } },
-  { name: "2335-agences-generales-assurances", value: "agences générales assurances", classification: "classe", input: "'1'", minimums: { "2026.1": 23194 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . agences générales assurances . date de calcul": "11/10/2026", "salarié . convention collective . agences générales assurances . champ juridique": "'tous employeurs après extension'" } },
+  { name: "2335-agences-generales-assurances", value: "agences générales assurances", classification: "classe", input: "'1'", minimums: { "2026.1": 23194 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . agences générales assurances . date de calcul": "11/10/2026", "salarié . convention collective . agences générales assurances . adhérent d'une organisation signataire": "non" } },
   { name: "1760-jardineries-graineteries", value: "jardineries graineteries", classification: "classification", input: "'4.2'", minimums: { "2026.1": 1980 } },
   { name: "2264-hospitalisation-privee", value: "hospitalisation privée", classification: "coefficient", input: 300, minimums: { "2023.3": 2178 } },
   { name: "2511-sport", value: "sport", classification: "groupe", input: "'3'", minimums: { "2026.1": 1997.87 } },
@@ -49,7 +49,7 @@ const models = [
   { name: "2336-habitat-logement-accompagnes", value: "habitat logement accompagnés", classification: "coefficient", input: 500, minimums: { "2025.1": 1875.24, "2026.1": 1887.28 } },
   { name: "1922-radiodiffusion", value: "radiodiffusion", classification: "indice", input: 200, minimums: { "2025.1": 2632 }, situation: { "salarié . convention collective . radiodiffusion . indice": 200 } },
   { name: "1536-distributeurs-conseils-hors-domicile", value: "distributeurs conseils hors domicile", classification: "classification", input: "'III.2'", minimums: { "2026.1": 2024 } },
-  { name: "2728-sucreries", value: "sucreries", classification: "classe", input: "'1A'", minimums: { "2026.1": 23005.08 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . sucreries . date de calcul": "11/10/2026", "salarié . convention collective . sucreries . champ juridique": "'tous employeurs après extension'" } },
+  { name: "2728-sucreries", value: "sucreries", classification: "classe", input: "'1A'", minimums: { "2026.1": 23005.08 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . sucreries . date de calcul": "11/10/2026", "salarié . convention collective . sucreries . adhérent d'une organisation signataire": "non" } },
   { name: "1607-jeux-jouets", value: "jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme", classification: "coefficient", input: 200, minimums: { "2026.1": 2154, "2026.3": 2154, "2026.4": 2154 } },
   { name: "1605-desinfection-desinsectisation-deratisation", value: "désinfection désinsectisation dératisation", classification: "niveau", input: 1, minimums: { "2026.1": 1837.13, "2026.2": 1837.13 } },
   { name: "1606-bricolage", value: "bricolage", classification: "coefficient", input: 250, minimums: { "2025.1": 2111, "2025.2": 2111 } },
@@ -69,7 +69,7 @@ const models = [
   { name: "1671-maisons-etudiants", value: "maisons d'étudiants", classification: "classe", input: 10, minimums: { "2026.2": 28208, "2026.3": 28208 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . maisons d'étudiants . date de calcul": "04/10/2026" } },
   { name: "1679-inspection-assurance", value: "inspection assurance", classification: "classe", input: "'6'", minimums: { "2007.2": 35800 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . inspection assurance . date de calcul": "01/01/2007" } },
   { name: "1951-expertises-automobile", value: "expertises automobile", classification: "niveau", input: "'5'", minimums: { "2025.1": 34776 }, minimumRule: "salaire minimum annuel conventionnel" },
-  { name: "1672-societes-assurances", value: "sociétés assurances", classification: "niveau", input: "'3'", minimums: { "2026.3": 2089.17, "2026.4": 2131.67 } },
+  { name: "1672-societes-assurances", value: "sociétés assurances", classification: "niveau", input: "'3'", minimums: { "2026.3": 2089.17, "2026.4": 2131.67 }, situation: { "salarié . convention collective . sociétés assurances . adhérent d'une organisation signataire": "oui" } },
   { name: "1686-commerces-services-audiovisuel", value: "audiovisuel électronique équipement ménager", classification: "niveau", input: "'III.2'", minimums: { "2026.2": 2060.98 } },
   { name: "1702-travaux-publics-ouvriers", value: "travaux publics ouvriers", classification: "coefficient", input: 100, minimums: { "2026.3": 23863 }, minimumRule: "minimum annuel", situation: { "salarié . convention collective . travaux publics ouvriers . catégorie": "'ouvrier'", "salarié . convention collective . travaux publics ouvriers . région": "'Bretagne'", "salarié . convention collective . travaux publics ouvriers . date de calcul": "11/10/2026" } },
   { name: "1486-syntec", value: "syntec", classification: "coefficient", input: 355, minimums: { "2025.1": 2045, "2026.1": 2045, "2026.2": 2045 } },
@@ -80,7 +80,7 @@ const models = [
   { name: "1996-pharmacie-officine", value: "pharmacie", classification: "coefficient", input: 470, minimums: { "2025.1": 3717.51, "2026.1": 3762.42 } },
   { name: "2021-golf", value: "golf", classification: "groupe", input: "'3'", minimums: { "2026.1": 1975.06, "2026.2": 1975.06 } },
   { name: "2120-banque", value: "banque", classification: "niveau", input: "'E'", minimums: { "2026.1": 1864.62 } },
-  { name: "2205-notariat", value: "notariat", classification: "niveau", input: "'E'", minimums: { "2026.1": 1928 }, situation: { "salarié . convention collective . notariat . champ juridique": "'employeur signataire ou adhérent'" } },
+  { name: "2205-notariat", value: "notariat", classification: "niveau", input: "'E'", minimums: { "2026.1": 1928 }, situation: { "salarié . convention collective . notariat . adhérent d'une organisation signataire": "oui" } },
   { name: "2121-edition", value: "édition", classification: "niveau", input: "'C3A'", minimums: { "2026.1": 2964, "2026.2": 2964 } },
   { name: "2148-telecommunications", value: "télécommunications", classification: "niveau", input: "'A.1'", minimums: { "2026.1": 22757 }, minimumRule: "minimum annuel", situation: { "salarié . convention collective . télécommunications . date de calcul": "11/10/2026" } },
   { name: "2149-activites-dechet", value: "activités du déchet", classification: "coefficient", input: 125, minimums: { "2026.1": 2362.5, "2026.2": 2333.75 } },
@@ -105,7 +105,7 @@ const models = [
   { name: "1930-transformation-grains", value: "métiers de la transformation des grains", classification: "niveau", input: "'VI.1'", minimums: { "2026.1": 2608.23, "2026.3": 2608.23 } },
   { name: "1938-industries-transformation-volailles", value: "industries de la transformation des volailles", classification: "coefficient", input: 400, minimums: { "2025.1": 3268.01, "2026.1": 3308.86 } },
   { name: "1539-bureau-numerique", value: "bureau et numérique", classification: "niveau", input: "'A3'", minimums: { "2025.1": 1875, "2025.2": 1875 } },
-  { name: "1555-produits-pharmaceutiques", value: "produits pharmaceutiques", classification: "niveau", input: "'II.1'", minimums: { "2026.1": 2121.77 }, situation: { "salarié . convention collective . produits pharmaceutiques . date de calcul": "11/10/2026", "salarié . convention collective . produits pharmaceutiques . champ juridique": "'tous employeurs après extension'" } },
+  { name: "1555-produits-pharmaceutiques", value: "produits pharmaceutiques", classification: "niveau", input: "'II.1'", minimums: { "2026.1": 2121.77 }, situation: { "salarié . convention collective . produits pharmaceutiques . date de calcul": "11/10/2026", "salarié . convention collective . produits pharmaceutiques . adhérent d'une organisation signataire": "non" } },
   { name: "1586-industries-charcutieres", value: "industries charcutières", classification: "coefficient", input: 200, minimums: { "2026.1": 2130.2 } },
   { name: "1543-boyauderie", value: "boyauderie", classification: "coefficient", input: 200, minimums: { "2026.1": 2130.2 } },
   { name: "1821-cristal-verre-vitrail", value: "cristal verre vitrail", classification: "coefficient", input: 245, minimums: { "2026.2": 2185.59, "2026.3": 2185.59 } },
@@ -115,14 +115,14 @@ const models = [
   { name: "1597-batiment-ouvriers-plus-de-10", value: "bâtiment ouvriers plus de 10 salariés", classification: "coefficient", input: 150, minimums: { "2026.1": 1838.24 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . bâtiment ouvriers plus de 10 salariés . catégorie": "'ouvrier'", "salarié . convention collective . bâtiment ouvriers plus de 10 salariés . région": "'Nouvelle-Aquitaine'", "salarié . convention collective . bâtiment ouvriers plus de 10 salariés . date de calcul": "01/01/2026" } },
   { name: "2609-batiment-etam", value: "bâtiment ETAM", classification: "niveau", input: "'A'", minimums: { "2026.1": 1827.10 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . bâtiment ETAM . catégorie": "'ETAM'", "salarié . convention collective . bâtiment ETAM . région": "'Corse'", "salarié . convention collective . bâtiment ETAM . date de calcul": "01/04/2026" } },
   { name: "2609-batiment-etam", value: "bâtiment ETAM", classification: "niveau", input: "'A'", minimums: { "2026.2": 1847.16 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . bâtiment ETAM . catégorie": "'ETAM'", "salarié . convention collective . bâtiment ETAM . région": "'Occitanie'", "salarié . convention collective . bâtiment ETAM . date de calcul": "01/05/2026" } },
-  { name: "2420-batiment-cadres", value: "bâtiment cadres", classification: "coefficient", input: 60, minimums: { "2026.1": 2356 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . bâtiment cadres . date de calcul": "01/02/2026", "salarié . convention collective . bâtiment cadres . champ juridique": "'employeur signataire ou adhérent'", "salarié . contrat . statut cadre": "oui" } },
+  { name: "2420-batiment-cadres", value: "bâtiment cadres", classification: "coefficient", input: 60, minimums: { "2026.1": 2356 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . bâtiment cadres . date de calcul": "01/02/2026", "salarié . convention collective . bâtiment cadres . adhérent d'une organisation signataire": "oui", "salarié . contrat . statut cadre": "oui" } },
   { name: "3212-travaux-publics-cadres", value: "travaux publics cadres", classification: "position", input: "'A1'", minimums: { "2024.1": 33257 }, minimumRule: "salaire minimum annuel conventionnel", situation: { "salarié . convention collective . travaux publics cadres . date de calcul": "01/01/2024" } },
   { name: "0787-experts-comptables", value: "experts-comptables", classification: "coefficient", input: 180, minimums: { "2026.1": 22850.16 }, minimumRule: "minimum annuel", situation: { "salarié . convention collective . experts-comptables . indice 40 ordre validé": "non" } },
   { name: "0086-publicite", value: "publicité", classification: "niveau", input: "'4'", minimums: { "2025.3": 1957 }, situation: { "salarié . convention collective . publicité . catégorie": "'employés'" } },
   { name: "0184-imprimeries", value: "imprimeries de labeur et industries graphiques", classification: "groupe et échelon", input: "'IIIA'", minimums: { "2026.1": 2369 } },
   { name: "1431-optique-lunetterie-detail", value: "optique-lunetterie de détail", classification: "coefficient", input: "'K'", minimums: { "2024.1": 3700, "2024.2": 3700, "2024.3": 3700 }, situation: { "salarié . convention collective . optique-lunetterie de détail . classification": "'nouvelle'" } },
   { name: "3090-spectacle-vivant-prive", value: "spectacle vivant privé", classification: "catégorie administrative", input: "'cadres groupe 1'", minimums: { "2025.2": 3578.18, "2025.3": 3578.18 }, situation: { "salarié . convention collective . spectacle vivant privé . échelon": "'1'" } },
-  { name: "3221-agences-presse", value: "agences de presse", classification: "groupe", input: "'1'", minimums: { "2026.2": 1873.86 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . agences de presse . date de calcul": "11/10/2026", "salarié . convention collective . agences de presse . champ juridique": "'tous employeurs après extension'" } },
+  { name: "3221-agences-presse", value: "agences de presse", classification: "groupe", input: "'1'", minimums: { "2026.2": 1873.86 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . agences de presse . date de calcul": "11/10/2026", "salarié . convention collective . agences de presse . adhérent d'une organisation signataire": "non" } },
   { name: "3230-presse-information-specialisee", value: "presse information spécialisée", classification: "niveau", input: 1, minimums: { "2024.1": 1800, "2025.1": 1827 } },
   { name: "1909-organismes-tourisme", value: "organismes de tourisme", classification: "niveau", input: "'3.3'", minimums: { "2026.1": 4281.53, "2026.2": 4281.53 }, minimumRule: "salaire minimum conventionnel", situation: { "salarié . convention collective . organismes de tourisme . date de calcul": "11/10/2026" } },
   { name: "1316-tourisme-social-familial", value: "tourisme social et familial", classification: "niveau", input: "'G'", minimums: { "2026.1": 3294.5 }, situation: { "salarié . convention collective . tourisme social et familial . date de calcul": "01/05/2026" } },
@@ -132,7 +132,7 @@ const models = [
   { name: "3213-economistes-construction", value: "économistes de la construction et métreurs-vérificateurs", classification: "niveau", input: "'I'", minimums: { "2026.1": 4738.91 }, situation: { "salarié . convention collective . économistes de la construction et métreurs-vérificateurs . zone": "'national'" } },
   { name: "1480-journalistes", value: "journalistes", classification: "groupe", input: "'4'", minimums: { "2025.1": 2506.54 } },
   { name: "0275-transport-aerien-personnel-sol", value: "transport aérien personnel au sol", classification: "coefficient", input: 245, minimums: { "2025.2": 2086, "2025.3": 2096, "2025.4": 2105 } },
-  { name: "2931-activites-marches-financiers", value: "activités de marchés financiers", classification: "catégorie", input: "'III.B'", minimums: { "2026.1": 3575 }, situation: { "salarié . convention collective . activités de marchés financiers . date de calcul": "11/10/2026", "salarié . convention collective . activités de marchés financiers . champ juridique": "'employeur signataire ou adhérent'" } },
+  { name: "2931-activites-marches-financiers", value: "activités de marchés financiers", classification: "catégorie", input: "'III.B'", minimums: { "2026.1": 3575 }, situation: { "salarié . convention collective . activités de marchés financiers . date de calcul": "11/10/2026", "salarié . convention collective . activités de marchés financiers . adhérent d'une organisation signataire": "oui" } },
   { name: "1408-distribution-logistique-energies", value: "distribution logistique énergies", classification: "coefficient", input: 320, minimums: { "2025.1": 2768.68, "2025.2": 2768.68 } },
   { name: "2494-cooperation-maritime", value: "coopération maritime", classification: "niveau et échelon", input: "'3.2'", minimums: { "2026.1": 26273, "2026.2": 26273 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "0915-societes-expertises-evaluations", value: "sociétés d'expertises et d'évaluations", classification: "niveau", input: "'N 5'", minimums: { "2026.1": 27039 }, minimumRule: "salaire minimum annuel conventionnel" },
@@ -157,7 +157,7 @@ const models = [
   { name: "3097-production-cinematographique", value: "production cinématographique", classification: "niveau", input: 4, minimums: { "2026.1": 2113.53 } },
   { name: "1307-exploitation-cinematographique", value: "exploitation cinématographique", classification: "coefficient", input: 300, minimums: { "2025.1": 2203.92 } },
   { name: "2198-commerce-distance", value: "commerce à distance", classification: "niveau", input: "'G référent'", minimums: { "2026.1": 3627 } },
-  { name: "3203-structures-associatives-peche", value: "structures associatives de pêche de loisir et de protection du milieu aquatique", classification: "niveau et échelon", input: "'VI.3'", minimums: { "2026.1": 3355, "2026.2": 3355 } },
+  { name: "3203-structures-associatives-peche", value: "structures associatives de pêche de loisir et de protection du milieu aquatique", classification: "niveau et échelon", input: "'VI.3'", minimums: { "2026.1": 3355, "2026.2": 3355 }, situation: { "salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . adhérent d'une organisation signataire": "oui" } },
   { name: "2332-entreprises-architecture", value: "entreprises d'architecture", classification: "coefficient", input: 300, minimums: { "2025.1": 2739, "2025.2": 0, "2025.3": 2739, "2026.1": 2763 }, situation: { "salarié . convention collective . entreprises d'architecture . zone": "'zone 1'" } },
   { name: "3224-distribution-commerce-gros-papiers-cartons", value: "distribution commerce gros papiers cartons", classification: "niveau et échelon", input: "'III.2'", minimums: { "2025.1": 1961.8 } },
   { name: "3223-personnels-navigants-officiers", value: "personnels navigants officiers transport maritime", classification: "fonction et zone", input: "'capitaine ≥15000 UMS — long cours'", minimums: { "2025.1": 63049.92 }, minimumRule: "salaire minimum annuel conventionnel" },
@@ -190,7 +190,7 @@ const models = [
   { name: "3205-cooperatives-consommateurs", value: "coopératives de consommateurs", classification: "groupe", input: "'8a'", minimums: { "2026.1": 2511.04, "2026.2": 2518.57, "2026.3": 2531.16 } },
   { name: "1077-negoce-produits-du-sol-engrais", value: "négoce et industrie des produits du sol, engrais et produits connexes", classification: "coefficient", input: 350, minimums: { "2025.1": 2439.28 } },
   { name: "3255-boulangerie-industrielle", value: "boulangerie industrielle", classification: "niveau", input: "'L3'", minimums: { "2025.1": 4578.52, "2026.1": 4632.55 } },
-  { name: "0478-societes-financieres", value: "sociétés financières", classification: "coefficient", input: 400, minimums: { "2026.1": 2785.25 } },
+  { name: "0478-societes-financieres", value: "sociétés financières", classification: "coefficient", input: 400, minimums: { "2026.1": 2785.25 }, situation: { "salarié . convention collective . sociétés financières . adhérent d'une organisation signataire": "oui" } },
   { name: "3252-entreprises-creation-evenement", value: "entreprises au service de la création et de l'événement", classification: "classification", input: "'5'", minimums: { "2025.1": 2420, "2025.2": 2420, "2025.3": 2420, "2026.1": 2445 } },
 ] as const;
 
@@ -248,7 +248,9 @@ describe("compiled collective agreement models", () => {
           ...(model.name === "0112-industrie-laitiere" && versionNumber === "2026.2"
             ? { [`${namespace} . forfait annuel`]: "non" }
             : {}),
-          ...("situation" in model ? model.situation : {}),
+          ...Object.fromEntries(
+            Object.entries("situation" in model ? model.situation : {}).filter(([name]) => name in rules),
+          ),
         });
         const minimumRule = "minimumRule" in model ? model.minimumRule : "salaire minimum conventionnel";
         const amount = engine.evaluate(`${namespace} . ${minimumRule}`).nodeValue;
@@ -423,7 +425,7 @@ describe("compiled collective agreement models", () => {
       "salarié . convention collective": "'pâtes alimentaires sèches et couscous non préparé'",
       [`${namespace} . coefficient`]: 200,
       [`${namespace} . ancienneté en années`]: 6,
-      [`${namespace} . champ juridique`]: "'employeur signataire ou adhérent'",
+      [`${namespace} . adhérent d'une organisation signataire`]: "oui",
       "salarié . contrat . statut cadre": "non",
     });
     assert.equal(engine.evaluate(`${namespace} . salaire minimum horaire`).nodeValue, 12.7);
@@ -437,7 +439,7 @@ describe("compiled collective agreement models", () => {
     engine.setSituation({
       "salarié . convention collective": "'pâtes alimentaires sèches et couscous non préparé'",
       [`${namespace} . coefficient`]: 999,
-      [`${namespace} . champ juridique`]: "'employeur signataire ou adhérent'",
+      [`${namespace} . adhérent d'une organisation signataire`]: "oui",
     });
     assert.equal(engine.evaluate(`${namespace} . coefficient hors grille`).nodeValue, true);
   });

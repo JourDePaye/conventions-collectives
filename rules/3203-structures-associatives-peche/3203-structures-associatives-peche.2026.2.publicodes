@@ -1,5 +1,5 @@
 # Version 2026.2 (même validFrom que 2026.1, qu'elle remplace) : le minimum de l'avenant n° 16, non étendu,
-# ne s'applique qu'aux employeurs signataires ou adhérents (règle « champ juridique »).
+# ne s'applique qu'aux employeurs signataires ou adhérents (règle « adhérent d'une organisation signataire »).
 # Convention collective nationale des structures associatives de pêche de loisir et de protection du milieu aquatique du 22 juin 2013 (IDCC 3203).
 #
 # Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
@@ -14,8 +14,8 @@ sources:
     mensuelles pour 151,67 heures, de 1 855 € à 3 355 €.
   - >-
     L'avenant n° 16 est conclu pour une durée indéterminée et demeure un texte non étendu à la
-    date de modélisation : le champ juridique est donc limité aux employeurs signataires ou
-    adhérents ; l'application à d'autres employeurs n'est pas inventée par ce modèle.
+    date de modélisation : l'application est donc limitée aux employeurs adhérents d'une organisation signataire ;
+    l'application à d'autres employeurs n'est pas inventée par ce modèle.
   - >-
     Audit des effets de paie : l'avenant chiffré consulté fixe uniquement les minima mensuels.
     Aucun taux, plafond, forfait, prime, avantage, santé, prévoyance, formation ou AT/MP chiffré
@@ -31,15 +31,11 @@ salarié . convention collective . structures associatives de pêche de loisir e
   applicable si: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
   par défaut: "'non renseigné'"
 
-salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . champ juridique:
-  titre: Champ juridique
-  description: >-
-    L'avenant n° 16 n'est pas étendu : il n'est modélisé que pour les employeurs signataires ou adhérents.
+salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. L'accord n'étant pas étendu à la date de modélisation, un employeur non adhérent n'est pas lié.
   applicable si: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
-  une possibilité:
-    - "'employeur signataire ou adhérent'"
-    - "'autre employeur'"
-  par défaut: "'employeur signataire ou adhérent'"
+  par défaut: non
 
 salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . salaire minimum conventionnel:
   titre: Salaire minimum mensuel conventionnel
@@ -49,7 +45,7 @@ salarié . convention collective . structures associatives de pêche de loisir e
   applicable si: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
   unité: €/mois
   variations:
-    - si: champ juridique = 'employeur signataire ou adhérent'
+    - si: adhérent d'une organisation signataire = oui
       alors: grille * contrat . temps de travail . quotité
     - sinon: 0 €/mois
 

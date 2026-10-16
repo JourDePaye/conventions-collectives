@@ -12,8 +12,8 @@ sources:
     mensuelles pour 151,67 heures, de 1 855 € à 3 355 €.
   - >-
     L'avenant n° 16 est conclu pour une durée indéterminée et demeure un texte non étendu à la
-    date de modélisation : le champ juridique est donc limité aux employeurs signataires ou
-    adhérents ; l'application à d'autres employeurs n'est pas inventée par ce modèle.
+    date de modélisation : l'application est donc limitée aux employeurs adhérents d'une organisation signataire ;
+    l'application à d'autres employeurs n'est pas inventée par ce modèle.
   - >-
     Audit des effets de paie : l'avenant chiffré consulté fixe uniquement les minima mensuels.
     Aucun taux, plafond, forfait, prime, avantage, santé, prévoyance, formation ou AT/MP chiffré
@@ -29,11 +29,11 @@ salarié . convention collective . structures associatives de pêche de loisir e
   applicable si: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
   par défaut: "'non renseigné'"
 
-salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . champ juridique:
-  titre: Champ juridique
-  description: L'avenant n° 16 est modélisé dans son champ signataire ou adhérent, avant extension.
+salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. L'accord n'étant pas étendu à la date de modélisation, un employeur non adhérent n'est pas lié.
   applicable si: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
-  par défaut: "'employeur signataire ou adhérent'"
+  par défaut: non
 
 salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . salaire minimum conventionnel:
   titre: Salaire minimum mensuel conventionnel

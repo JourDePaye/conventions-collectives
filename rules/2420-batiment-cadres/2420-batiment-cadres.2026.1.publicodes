@@ -18,12 +18,11 @@ salarié . convention collective . bâtiment cadres . coefficient:
   question: Quel est le coefficient du cadre ?
   par défaut: 60
   unité: coefficient
-salarié . convention collective . bâtiment cadres . champ juridique:
+salarié . convention collective . bâtiment cadres . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. L'accord n'étant pas étendu à la date de modélisation, un employeur non adhérent n'est pas lié.
   question: L'employeur est-il signataire ou adhérent au texte non étendu ?
-  une possibilité:
-    - "'employeur signataire ou adhérent'"
-    - "'autre employeur'"
-  par défaut: "'employeur signataire ou adhérent'"
+  par défaut: non
 salarié . convention collective . bâtiment cadres . date de calcul:
   question: À quelle date le minimum mensuel doit-il être vérifié ?
   par défaut: 01/02/2026
@@ -31,7 +30,7 @@ salarié . convention collective . bâtiment cadres . grille mensuelle:
   applicable si:
     toutes ces conditions:
       - convention collective = 'bâtiment cadres'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
       - date de calcul >= 01/02/2026
       - date de calcul <= 31/12/2026
   unité: €/mois
@@ -91,14 +90,14 @@ salarié . convention collective . bâtiment cadres . champ hors couverture:
   applicable si:
     toutes ces conditions:
       - convention collective = 'bâtiment cadres'
-      - champ juridique = 'autre employeur'
+      - adhérent d'une organisation signataire = non
 salarié . convention collective . bâtiment cadres . calcul bloqué:
   applicable si: convention collective = 'bâtiment cadres'
   une de ces conditions:
     - coefficient hors grille
     - période hors couverture
     - champ hors couverture
-    - champ juridique = 'autre employeur'
+    - adhérent d'une organisation signataire = non
 salarié . convention collective . bâtiment cadres . salaire minimum conventionnel:
   applicable si:
     toutes ces conditions:

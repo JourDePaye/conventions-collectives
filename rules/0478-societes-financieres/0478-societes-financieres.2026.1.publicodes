@@ -19,14 +19,11 @@ salarié . convention collective . sociétés financières . coefficient:
   applicable si: convention collective = 'sociétés financières'
   par défaut: 0
 
-salarié . convention collective . sociétés financières . champ juridique:
-  titre: Champ juridique de l'accord salarial
-  description: L'accord du 7 mai 2026 est en vigueur non étendu ; il est modélisé pour les employeurs signataires ou adhérents. Aucune extension n'est modélisée.
+salarié . convention collective . sociétés financières . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. L'accord n'étant pas étendu à la date de modélisation, un employeur non adhérent n'est pas lié.
   applicable si: convention collective = 'sociétés financières'
-  une possibilité:
-    - "'employeur signataire ou adhérent'"
-    - "'autre employeur'"
-  par défaut: "'employeur signataire ou adhérent'"
+  par défaut: non
 
 salarié . convention collective . sociétés financières . nombre de mensualités:
   titre: Nombre de mensualités par année civile
@@ -40,7 +37,7 @@ salarié . convention collective . sociétés financières . grille annuelle:
   applicable si:
     toutes ces conditions:
       - convention collective = 'sociétés financières'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
   variations:
     - si: coefficient = 230
       alors: 22381
@@ -90,7 +87,7 @@ salarié . convention collective . sociétés financières . salaire minimum ann
   applicable si:
     toutes ces conditions:
       - convention collective = 'sociétés financières'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
       - grille annuelle > 0
   unité: €/an
   valeur: grille annuelle
@@ -101,7 +98,7 @@ salarié . convention collective . sociétés financières . salaire minimum con
   applicable si:
     toutes ces conditions:
       - convention collective = 'sociétés financières'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
       - grille annuelle > 0
   unité: €/mois
   arrondi: 2 décimales

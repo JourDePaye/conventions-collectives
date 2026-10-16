@@ -22,6 +22,7 @@ async function createEngine(classification = "ACT 6.1", situation: Record<string
     "salarié . convention collective": "'industries du bois'",
     [`${namespace} . classification`]: `'${classification}'`,
     "salarié . contrat . statut cadre": "non",
+    [`${namespace} . adhérent d'une organisation signataire`]: "oui",
     ...situation,
   });
   return engine;
@@ -48,7 +49,7 @@ describe("IDCC 158 — industries du bois 2026.1", () => {
 
   it("blocks employers outside the explicit scope", async () => {
     const otherEmployer = await createEngine("ACT 1", {
-      [`${namespace} . champ juridique`]: "'autre employeur'",
+      [`${namespace} . adhérent d'une organisation signataire`]: "non",
     });
     assert.ok(otherEmployer.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue == null);
   });

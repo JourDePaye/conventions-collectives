@@ -18,20 +18,18 @@ salarié . convention collective . sucreries . date de calcul:
   description: Date à laquelle l'application vérifie l'opposabilité de l'accord salarial.
   applicable si: convention collective = 'sucreries'
   par défaut: 01/01/1900
-salarié . convention collective . sucreries . champ juridique:
-  titre: Champ juridique de l'accord
-  description: Utiliser « employeur signataire ou adhérent » avant l'extension, ou « tous employeurs après extension » à compter du 27 juin 2026, date de publication de l'arrêté d'extension.
+salarié . convention collective . sucreries . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. Un employeur non adhérent est lié à compter de la publication de l'arrêté d'extension (voir « date de calcul » et « accord applicable »).
   applicable si: convention collective = 'sucreries'
-  par défaut: "'non renseigné'"
+  par défaut: non
 salarié . convention collective . sucreries . accord applicable:
   applicable si: convention collective = 'sucreries'
   une de ces conditions:
     - toutes ces conditions:
-        - champ juridique = 'employeur signataire ou adhérent'
+        - adhérent d'une organisation signataire = oui
         - date de calcul >= 01/04/2026
-    - toutes ces conditions:
-        - champ juridique = 'tous employeurs après extension'
-        - date de calcul >= 27/06/2026
+    - date de calcul >= 27/06/2026
 salarié . convention collective . sucreries . grille annuelle:
   titre: Salaire minimum annuel à temps plein, en euros
   description: Salaires minima annuels bruts de l'accord du 11 février 2026, applicables au 1er avril 2026.

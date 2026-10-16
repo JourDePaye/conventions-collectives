@@ -27,6 +27,7 @@ function set(coefficient: number, extra: Record<string, string | number> = {}) {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     [`${ns} . coefficient`]: coefficient,
+    [`${ns} . adhérent d'une organisation signataire`]: "oui",
     ...extra,
   });
 }
@@ -67,7 +68,7 @@ describe("IDCC 478 — 2026.1 minimum guaranteed remuneration", () => {
     }
   });
   it("gates the non-extended accord to signatory or adherent employers", () => {
-    set(230, { [`${ns} . champ juridique`]: "'autre employeur'" });
+    set(230, { [`${ns} . adhérent d'une organisation signataire`]: "non" });
     assert.equal(annualMinimum(), null);
     assert.equal(monthlyMinimum(), null);
   });

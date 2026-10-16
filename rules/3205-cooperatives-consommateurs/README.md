@@ -13,7 +13,7 @@ Chaque revalorisation des salaires minima est une version distincte, avec sa dat
 | `2026.2` | Avenant n° 933 du 16 avril 2026 | 1er mai 2026 | Arrêté du 6 juillet 2026, JORF du 10 juillet 2026, sous réserve du respect du SMIC |
 | `2026.3` | Avenant n° 934 du 18 juin 2026 | 1er juillet 2026 | Arrêté du 7 septembre 2026, JORF du 19 septembre 2026 |
 
-Les trois avenants sont étendus : aucune règle de champ juridique n'est nécessaire et chaque
+Les trois avenants sont étendus : aucune règle d'adhésion à une organisation signataire n'est nécessaire et chaque
 version s'applique à sa date d'effet. Les minima sont mensuels, pour 151,67 heures.
 
 ## Grille mensuelle 2026

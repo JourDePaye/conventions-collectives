@@ -26,7 +26,7 @@ function set(engine: Engine, values: Record<string, string | number> = {}) {
     "salarié . convention collective": "'transport aérien personnel au sol'",
     [`${ns} . coefficient`]: 245,
     [`${ns} . date de calcul`]: "01/11/2025",
-    [`${ns} . champ juridique`]: "'employeur signataire ou adhérent'",
+    [`${ns} . adhérent d'une organisation signataire`]: "oui",
     "salarié . contrat . statut cadre": "non",
     ...values,
   });

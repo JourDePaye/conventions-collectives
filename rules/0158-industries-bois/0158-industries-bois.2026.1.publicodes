@@ -25,14 +25,11 @@ salarié . convention collective . industries du bois . classification:
   applicable si: convention collective = 'industries du bois'
   par défaut: "'ACT 1'"
 
-salarié . convention collective . industries du bois . champ juridique:
-  titre: Champ juridique de l'avenant salarial
-  description: L'avenant est modélisé pour les employeurs signataires ou adhérents ; l'extension n'est pas présumée.
+salarié . convention collective . industries du bois . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord.
   applicable si: convention collective = 'industries du bois'
-  une possibilité:
-    - "'employeur signataire ou adhérent'"
-    - "'autre employeur'"
-  par défaut: "'employeur signataire ou adhérent'"
+  par défaut: non
 
 salarié . convention collective . industries du bois . grille mensuelle:
   titre: Salaire minimum mensuel conventionnel à temps plein
@@ -40,7 +37,7 @@ salarié . convention collective . industries du bois . grille mensuelle:
   applicable si:
     toutes ces conditions:
       - convention collective = 'industries du bois'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
   unité: €/mois
   variations:
     - si: classification = 'ouvrier 1 AB'
@@ -134,7 +131,7 @@ salarié . convention collective . industries du bois . champ hors couverture:
   applicable si:
     toutes ces conditions:
       - convention collective = 'industries du bois'
-      - champ juridique = 'autre employeur'
+      - adhérent d'une organisation signataire = non
 
 salarié . convention collective . industries du bois . calcul bloqué:
   titre: Calcul du minimum bloqué

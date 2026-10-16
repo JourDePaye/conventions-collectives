@@ -33,16 +33,11 @@ salarié . convention collective . industries du bois . classification:
   applicable si: convention collective = 'industries du bois'
   par défaut: "'ACT 1'"
 
-salarié . convention collective . industries du bois . champ juridique:
-  titre: Champ juridique de l'avenant salarial
-  description: >-
-    L'avenant n° 7 lie dès le 1er avril 2026 les employeurs signataires ou adhérents ; il lie les
-    autres employeurs à partir du 11 juillet 2026, date de publication de l'arrêté d'extension.
+salarié . convention collective . industries du bois . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. Un employeur non adhérent est lié à compter de la publication de l'arrêté d'extension (voir « date de calcul » et « accord applicable »).
   applicable si: convention collective = 'industries du bois'
-  une possibilité:
-    - "'employeur signataire ou adhérent'"
-    - "'autre employeur'"
-  par défaut: "'employeur signataire ou adhérent'"
+  par défaut: non
 
 salarié . convention collective . industries du bois . date de calcul:
   titre: Date de calcul
@@ -54,7 +49,7 @@ salarié . convention collective . industries du bois . accord applicable:
   titre: Avenant n° 7 applicable à l'employeur
   applicable si: convention collective = 'industries du bois'
   une de ces conditions:
-    - champ juridique = 'employeur signataire ou adhérent'
+    - adhérent d'une organisation signataire = oui
     - date de calcul >= 11/07/2026
 
 salarié . convention collective . industries du bois . grille mensuelle:

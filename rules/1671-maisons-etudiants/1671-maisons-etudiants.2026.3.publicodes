@@ -26,20 +26,20 @@ salarié . convention collective . maisons d'étudiants . date de calcul:
   applicable si: convention collective = 'maisons d'étudiants'
   par défaut: 01/01/1900
 
-salarié . convention collective . maisons d'étudiants . champ juridique:
-  titre: Champ juridique
-  description: Les avenants n° 75 et n° 76 s'appliquent aux employeurs adhérents aux organisations signataires dès le 1er janvier 2026 ; aux autres employeurs, l'avenant n° 75 (coefficients) s'applique à partir du 12 juillet 2026 (JORF du 11 juillet 2026) et l'avenant n° 76 (point à 68,80 €) à partir du 4 octobre 2026 (JORF du 3 octobre 2026).
+salarié . convention collective . maisons d'étudiants . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. Un employeur non adhérent est lié à compter de la publication de l'arrêté d'extension (voir « date de calcul » et « accord applicable »).
   applicable si: convention collective = 'maisons d'étudiants'
-  par défaut: "'tous employeurs après extension'"
+  par défaut: non
 
-salarié . convention collective . maisons d'étudiants . accord salarial applicable:
+salarié . convention collective . maisons d'étudiants . accord applicable:
   titre: Accord salarial applicable
   applicable si: convention collective = 'maisons d'étudiants'
   valeur:
     toutes ces conditions:
       - date de calcul >= 01/01/2026
       - une de ces conditions:
-          - champ juridique = 'employeur signataire ou adhérent'
+          - adhérent d'une organisation signataire = oui
           - date de calcul >= 12/07/2026
 
 salarié . convention collective . maisons d'étudiants . coefficient conventionnel:
@@ -95,7 +95,7 @@ salarié . convention collective . maisons d'étudiants . valeur annuelle du poi
   applicable si: convention collective = 'maisons d'étudiants'
   unité: €/an
   variations:
-    - si: champ juridique = 'employeur signataire ou adhérent'
+    - si: adhérent d'une organisation signataire = oui
       alors: 68.80 €/an
     - si: date de calcul >= 04/10/2026
       alors: 68.80 €/an
@@ -107,7 +107,7 @@ salarié . convention collective . maisons d'étudiants . salaire minimum annuel
   applicable si:
     toutes ces conditions:
       - convention collective = 'maisons d'étudiants'
-      - accord salarial applicable = oui
+      - accord applicable = oui
       - coefficient conventionnel > 0
   unité: €/an
   arrondi: 2 décimales

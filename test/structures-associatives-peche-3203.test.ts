@@ -24,6 +24,7 @@ async function engineFor(positionnement: string, quotité = 1, revision = "2026.
     [`${namespace} . niveau et échelon`]: `'${positionnement}'`,
     "salarié . contrat . statut cadre": "non",
     "salarié . contrat . temps de travail . quotité": `${quotité * 100}%`,
+    [`${namespace} . adhérent d'une organisation signataire`]: "oui",
     ...situation,
   });
   return { engine, version };
@@ -61,21 +62,26 @@ describe("IDCC 3203 — 2026.1 minimum salaries", () => {
 });
 
 describe("IDCC 3203 — 2026.2 legal scope of the non-extended avenant", () => {
-  const scope = `${namespace} . champ juridique`;
+  const scope = `${namespace} . adhérent d'une organisation signataire`;
 
-  it("keeps the minimum of the avenant n° 16 for a member employer, by default", async () => {
+  it("keeps the minimum of the avenant n° 16 for a member employer", async () => {
     const { engine } = await engineFor("VI.3", 1, "2026.2");
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 3355);
-    const explicit = await engineFor("VI.3", 1, "2026.2", { [scope]: "'employeur signataire ou adhérent'" });
+    const explicit = await engineFor("VI.3", 1, "2026.2", { [scope]: "oui" });
     assert.equal(explicit.engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 3355);
   });
 
+  it("gives no minimum to an employer that is not a member, by default", async () => {
+    const { engine } = await engineFor("VI.3", 1, "2026.2", { [scope]: "non" });
+    assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 0);
+  });
+
   it("gives no minimum to another employer, since the avenant is not extended", async () => {
-    const { engine } = await engineFor("VI.3", 1, "2026.2", { [scope]: "'autre employeur'" });
+    const { engine } = await engineFor("VI.3", 1, "2026.2", { [scope]: "non" });
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 0);
     // The classification check does not depend on the employer.
     assert.equal(engine.evaluate(`${namespace} . niveau hors grille`).nodeValue, false);
-    const unknown = await engineFor("VII.1", 1, "2026.2", { [scope]: "'autre employeur'" });
+    const unknown = await engineFor("VII.1", 1, "2026.2", { [scope]: "non" });
     assert.equal(unknown.engine.evaluate(`${namespace} . niveau hors grille`).nodeValue, true);
   });
 });

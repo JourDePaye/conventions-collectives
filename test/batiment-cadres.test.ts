@@ -26,7 +26,7 @@ function situation(engine: Engine, inputs: Record<string, string | number> = {})
     "dirigeant": "non",
     "salarié . convention collective": `'${value}'`,
     [`${namespace} . coefficient`]: 60,
-    [`${namespace} . champ juridique`]: "'employeur signataire ou adhérent'",
+    [`${namespace} . adhérent d'une organisation signataire`]: "oui",
     [`${namespace} . date de calcul`]: "01/02/2026",
     "salarié . contrat . statut cadre": "oui",
     "salarié . contrat . salaire brut": "4000 €/mois",
@@ -48,7 +48,7 @@ describe("IDCC 2420 — avenant n° 78 du 19 janvier 2026", () => {
 
   it("does not apply outside the signatory or adherent scope", async () => {
     const { engine } = await makeEngine();
-    situation(engine, { "champ juridique": "'autre employeur'" });
+    situation(engine, { "adhérent d'une organisation signataire": "non" });
     assert.ok(evaluate(engine, "salaire minimum conventionnel").nodeValue == null);
     assert.equal(evaluate(engine, "calcul bloqué").nodeValue, true);
   });

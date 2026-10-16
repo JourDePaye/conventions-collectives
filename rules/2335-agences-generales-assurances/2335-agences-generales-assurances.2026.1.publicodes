@@ -19,20 +19,18 @@ salarié . convention collective . agences générales assurances . date de calc
   description: Date à laquelle l'application vérifie l'opposabilité de l'avenant salarial.
   applicable si: convention collective = 'agences générales assurances'
   par défaut: 01/01/1900
-salarié . convention collective . agences générales assurances . champ juridique:
-  titre: Champ juridique de l'accord
-  description: Utiliser « employeur signataire ou adhérent » avant l'extension, ou « tous employeurs après extension » à compter du 19 mars 2026, date de publication de l'arrêté d'extension.
+salarié . convention collective . agences générales assurances . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. Un employeur non adhérent est lié à compter de la publication de l'arrêté d'extension (voir « date de calcul » et « accord applicable »).
   applicable si: convention collective = 'agences générales assurances'
-  par défaut: "'non renseigné'"
+  par défaut: non
 salarié . convention collective . agences générales assurances . accord applicable:
   applicable si: convention collective = 'agences générales assurances'
   une de ces conditions:
     - toutes ces conditions:
-        - champ juridique = 'employeur signataire ou adhérent'
+        - adhérent d'une organisation signataire = oui
         - date de calcul >= 01/01/2026
-    - toutes ces conditions:
-        - champ juridique = 'tous employeurs après extension'
-        - date de calcul >= 19/03/2026
+    - date de calcul >= 19/03/2026
 salarié . convention collective . agences générales assurances . grille annuelle:
   titre: Salaire minimum annuel à temps plein, en euros
   description: Salaires minima annuels bruts de l'avenant n° 6 du 11 décembre 2025, applicables au 1er janvier 2026.

@@ -25,21 +25,19 @@ salarié . convention collective . agences de presse . date de calcul:
   applicable si: convention collective = 'agences de presse'
   par défaut: 01/01/1900
 
-salarié . convention collective . agences de presse . champ juridique:
-  titre: Champ juridique de l'accord
-  description: Utiliser « employeur signataire ou adhérent » avant l'extension, ou « tous employeurs après extension » à compter du 4 septembre 2026.
+salarié . convention collective . agences de presse . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. Un employeur non adhérent est lié à compter de la publication de l'arrêté d'extension (voir « date de calcul » et « accord applicable »).
   applicable si: convention collective = 'agences de presse'
-  par défaut: "'non renseigné'"
+  par défaut: non
 
 salarié . convention collective . agences de presse . accord applicable:
   applicable si: convention collective = 'agences de presse'
   une de ces conditions:
     - toutes ces conditions:
-        - champ juridique = 'employeur signataire ou adhérent'
+        - adhérent d'une organisation signataire = oui
         - date de calcul >= 01/07/2026
-    - toutes ces conditions:
-        - champ juridique = 'tous employeurs après extension'
-        - date de calcul >= 04/09/2026
+    - date de calcul >= 04/09/2026
 
 salarié . convention collective . agences de presse . grille:
   titre: Salaire minimum mensuel à temps plein

@@ -18,11 +18,11 @@ async function makeEngine(revision = "2026.4") {
   return new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
 }
 
-function set(engine: Engine, level: string | undefined, quota = "100%", scope?: string) {
+function set(engine: Engine, level: string | undefined, quota = "100%", scope = "oui") {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     ...(level === undefined ? {} : { [`${ns} . niveau`]: `'${level}'` }),
-    ...(scope === undefined ? {} : { [`${ns} . champ juridique`]: `'${scope}'` }),
+    [`${ns} . adhérent d'une organisation signataire`]: scope,
     "salarié . contrat . temps de travail . quotité": quota,
   });
 }
@@ -75,10 +75,10 @@ describe("IDCC 1672 — 2026.4 (protocole du 10 juin 2026, non étendu)", () => 
 
   it("does not apply the non-extended protocole to another employer", async () => {
     const engine = await makeEngine();
-    set(engine, "3", "100%", "autre employeur");
+    set(engine, "3", "100%", "non");
     assert.equal(get(engine, "salaire minimum annuel conventionnel"), null);
     assert.equal(get(engine, "salaire minimum conventionnel"), null);
-    set(engine, "3", "100%", "employeur signataire ou adhérent");
+    set(engine, "3", "100%", "oui");
     assert.equal(get(engine, "salaire minimum annuel conventionnel"), 25580);
   });
 });

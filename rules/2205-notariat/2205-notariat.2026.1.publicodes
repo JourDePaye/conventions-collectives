@@ -27,14 +27,11 @@ salarié . convention collective . notariat . niveau:
     - "'C4'"
   par défaut: "'E'"
 
-salarié . convention collective . notariat . champ juridique:
-  titre: Champ juridique de l'avenant salarial
-  description: L'avenant n° 65 est modélisé pour les employeurs signataires ou adhérents ; aucune extension n'est modélisée.
+salarié . convention collective . notariat . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. L'accord n'étant pas étendu à la date de modélisation, un employeur non adhérent n'est pas lié.
   applicable si: convention collective = 'notariat'
-  une possibilité:
-    - "'employeur signataire ou adhérent'"
-    - "'autre employeur'"
-  par défaut: "'employeur signataire ou adhérent'"
+  par défaut: non
 
 salarié . convention collective . notariat . salaire minimum conventionnel:
   titre: Salaire minimum mensuel conventionnel
@@ -42,7 +39,7 @@ salarié . convention collective . notariat . salaire minimum conventionnel:
   applicable si:
     toutes ces conditions:
       - convention collective = 'notariat'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
   unité: €/mois
   produit:
     - grille
@@ -54,7 +51,7 @@ salarié . convention collective . notariat . grille:
   applicable si:
     toutes ces conditions:
       - convention collective = 'notariat'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
   unité: €/mois
   variations:
     - si: niveau = 'E'
@@ -89,10 +86,10 @@ salarié . convention collective . notariat . niveau hors grille:
     - niveau != 'C3'
     - niveau != 'C4'
 
-salarié . convention collective . notariat . période hors champ juridique:
+salarié . convention collective . notariat . employeur hors accord:
   titre: Employeur hors champ modélisé
   description: L'employeur n'est pas signataire ou adhérent de l'avenant salarial modélisé.
   applicable si:
     toutes ces conditions:
       - convention collective = 'notariat'
-      - champ juridique = 'autre employeur'
+      - adhérent d'une organisation signataire = non

@@ -6,9 +6,9 @@ La valeur Publicodes est `produits pharmaceutiques` et les règles sont sous `sa
 
 ## Périmètre juridique
 
-- Du **1er mars 2026** au **7 mai 2026 inclus**, le modèle accepte l'accord pour un `champ juridique` égal à `employeur signataire ou adhérent`.
-- À compter du **8 mai 2026**, date de publication de l'arrêté d'extension au Journal officiel, le modèle accepte `tous employeurs après extension`.
-- Aucun champ juridique ni aucune date ne sont supposés : sans valeurs explicites, le calcul reste inapplicable.
+- Du **1er mars 2026** au **7 mai 2026 inclus**, le modèle accepte l'accord pour un employeur dont `adhérent d'une organisation signataire` = oui.
+- À compter du **8 mai 2026**, date de publication de l'arrêté d'extension au Journal officiel, le modèle accepte tous les employeurs, adhérents ou non.
+- Aucune date n'est supposée (`date de calcul` vaut 1900 par défaut) et `adhérent d'une organisation signataire` vaut non par défaut : sans valeurs explicites, le calcul reste inapplicable.
 - Les apprentis, contrats de professionnalisation, classifications individuelles et éléments de rémunération à comparer ne sont pas déduits par ce modèle.
 
 ## Règles implémentées

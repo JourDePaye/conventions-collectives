@@ -16,14 +16,14 @@ rules["salarié . convention collective"] = { ...choice, "une possibilité": [..
 Object.assign(rules, extension);
 const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
 
-const ADHERENT = "employeur signataire ou adhérent";
+const ADHERENT = "oui";
 
 function minimum(classe: number, date: string, champ?: string, quota = "100%") {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     [`${namespace} . classe`]: classe,
     [`${namespace} . date de calcul`]: date,
-    ...(champ ? { [`${namespace} . champ juridique`]: `'${champ}'` } : {}),
+    ...(champ ? { [`${namespace} . adhérent d'une organisation signataire`]: champ } : {}),
     "salarié . contrat . temps de travail . quotité": quota,
   });
   return engine.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue;

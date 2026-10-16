@@ -17,7 +17,7 @@ La version `2025.1` (même date d'effet que `2025.2`) était erronée : elle app
 - `grille` donne le minimum hiérarchique mensuel brut à temps plein ; `salaire minimum conventionnel` applique une seule fois `salarié . contrat . temps de travail . quotité`.
 - `coefficient hors grille` vaut `oui` lorsque le coefficient n'est pas dans la grille ; le minimum est alors non applicable.
 - `indemnité de panier` expose séparément `7,40 €/jour` (article 2, au lieu de 7,10 €, à compter du 1er avril 2025) ; elle n'est pas ajoutée au salaire minimum.
-- Les règles `champ juridique` et `accord applicable` de `2025.1` n'existent plus : l'avenant étant étendu, aucune condition d'adhésion n'est posée.
+- Les règles `adhérent d'une organisation signataire` et `accord applicable` de `2025.1` n'existent plus : l'avenant étant étendu, aucune condition d'adhésion n'est posée.
 
 ## Limites
 

@@ -23,11 +23,11 @@ salarié . convention collective . pâtes alimentaires sèches et couscous non p
   applicable si: convention collective = 'pâtes alimentaires sèches et couscous non préparé'
   par défaut: 135
 
-salarié . convention collective . pâtes alimentaires sèches et couscous non préparé . champ juridique:
-  titre: Champ juridique de l'avenant
-  description: L'avenant est modélisé pour les employeurs signataires ou adhérents ; une extension n'est pas présumée.
+salarié . convention collective . pâtes alimentaires sèches et couscous non préparé . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord.
   applicable si: convention collective = 'pâtes alimentaires sèches et couscous non préparé'
-  par défaut: "'employeur signataire ou adhérent'"
+  par défaut: non
 
 salarié . convention collective . pâtes alimentaires sèches et couscous non préparé . salaire minimum horaire:
   titre: Salaire minimum horaire conventionnel
@@ -35,7 +35,7 @@ salarié . convention collective . pâtes alimentaires sèches et couscous non p
   applicable si:
     toutes ces conditions:
       - convention collective = 'pâtes alimentaires sèches et couscous non préparé'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
   variations:
     - si: coefficient = 135
       alors: 11.79 €/h
@@ -110,7 +110,7 @@ salarié . convention collective . pâtes alimentaires sèches et couscous non p
   applicable si:
     toutes ces conditions:
       - convention collective = 'pâtes alimentaires sèches et couscous non préparé'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
   valeur: salaire minimum horaire * 151.67 * contrat . temps de travail . quotité
 
 salarié . convention collective . pâtes alimentaires sèches et couscous non préparé . base prime ancienneté:
@@ -120,7 +120,7 @@ salarié . convention collective . pâtes alimentaires sèches et couscous non p
   applicable si:
     toutes ces conditions:
       - convention collective = 'pâtes alimentaires sèches et couscous non préparé'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
   variations:
     - si: coefficient = 135
       alors: 8.90 €/h
@@ -187,7 +187,7 @@ salarié . convention collective . pâtes alimentaires sèches et couscous non p
   applicable si:
     toutes ces conditions:
       - convention collective = 'pâtes alimentaires sèches et couscous non préparé'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
   valeur: base prime ancienneté * taux prime ancienneté
 
 salarié . convention collective . pâtes alimentaires sèches et couscous non préparé . taux prime ancienneté:
@@ -218,7 +218,7 @@ salarié . convention collective . pâtes alimentaires sèches et couscous non p
   applicable si:
     toutes ces conditions:
       - convention collective = 'pâtes alimentaires sèches et couscous non préparé'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
   valeur: 575 €/an
 
 salarié . convention collective . pâtes alimentaires sèches et couscous non préparé . indemnité journalière de poste:
@@ -227,7 +227,7 @@ salarié . convention collective . pâtes alimentaires sèches et couscous non p
   applicable si:
     toutes ces conditions:
       - convention collective = 'pâtes alimentaires sèches et couscous non préparé'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
   valeur: 5.20 €/jour
 
 salarié . convention collective . pâtes alimentaires sèches et couscous non préparé . panier de nuit:
@@ -236,7 +236,7 @@ salarié . convention collective . pâtes alimentaires sèches et couscous non p
   applicable si:
     toutes ces conditions:
       - convention collective = 'pâtes alimentaires sèches et couscous non préparé'
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
   valeur: 11 €/nuit
 
 salarié . convention collective . pâtes alimentaires sèches et couscous non préparé . coefficient hors grille:

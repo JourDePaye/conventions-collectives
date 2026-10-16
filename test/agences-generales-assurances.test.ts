@@ -25,7 +25,7 @@ function set(engine: Engine, inputs: Record<string, string | number> = {}) {
     "salarié . convention collective": "'agences générales assurances'",
     [`${ns} . classe`]: "'1'",
     [`${ns} . date de calcul`]: "11/10/2026",
-    [`${ns} . champ juridique`]: "'tous employeurs après extension'",
+    [`${ns} . adhérent d'une organisation signataire`]: "non",
     ...Object.fromEntries(Object.entries(inputs).map(([key, value]) => [key.includes(" . ") ? key : `${ns} . ${key}`, value])),
   });
 }
@@ -60,15 +60,14 @@ describe("IDCC 2335 — 2026 annual minimum salaries", () => {
 
 describe("IDCC 2335 — legal scope and effective date", () => {
   for (const [date, scope, expected] of [
-    ["31/12/2025", "employeur signataire ou adhérent", null],
-    ["01/01/2026", "employeur signataire ou adhérent", 23194],
-    ["18/03/2026", "tous employeurs après extension", null],
-    ["19/03/2026", "tous employeurs après extension", 23194],
-    ["11/10/2026", "non renseigné", null],
+    ["31/12/2025", "oui", null],
+    ["01/01/2026", "oui", 23194],
+    ["18/03/2026", "non", null],
+    ["19/03/2026", "non", 23194],
   ] as const) {
     it(`${date} with ${scope} has expected availability`, async () => {
       const engine = await makeEngine();
-      set(engine, { classe: "'1'", "date de calcul": date, "champ juridique": `'${scope}'` });
+      set(engine, { classe: "'1'", "date de calcul": date, "adhérent d'une organisation signataire": scope });
       assert.equal(get(engine, "salaire minimum annuel conventionnel").nodeValue, expected);
     });
   }

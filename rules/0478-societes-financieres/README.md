@@ -12,7 +12,7 @@ L'article 1er fixe 20 montants annuels pour les coefficients 230, 235, 240, 245,
 - `salaire minimum annuel conventionnel` (€/an) donne le minimum annuel à temps plein.
 - `salaire minimum conventionnel` (€/mois) applique l'article 15 : minimum annualisé divisé par le nombre de mensualités de l'entreprise (`nombre de mensualités`), proratisé selon la quotité de travail, arrondi au centime.
 - `nombre de mensualités` vaut 12 par défaut. Cette valeur est un repli du modèle, non fixée par la convention : l'application doit fournir le nombre réel (13 par exemple).
-- `champ juridique` limite l'accord aux employeurs signataires ou adhérents.
+- `adhérent d'une organisation signataire` (oui ou non, non par défaut) limite l'accord aux employeurs adhérents d'une organisation signataire.
 
 ## Audit paie et limites
 

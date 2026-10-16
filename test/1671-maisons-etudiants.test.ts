@@ -34,7 +34,7 @@ describe("IDCC 1671 maisons d'étudiants", () => {
       "salarié . convention collective": `'${value}'`,
       [`${namespace} . classe`]: 10,
       [`${namespace} . date de calcul`]: "01/01/2026",
-      [`${namespace} . champ juridique`]: "'employeur signataire ou adhérent'",
+      [`${namespace} . adhérent d'une organisation signataire`]: "oui",
       "salarié . contrat . temps de travail . quotité": "100%",
     });
     assert.equal(get(engine, "coefficient conventionnel").nodeValue, 410);
@@ -53,7 +53,7 @@ describe("IDCC 1671 maisons d'étudiants", () => {
       [`${namespace} . salaire brut annuel éligible au treizième mois`]: "28208 €/an",
       [`${namespace} . cotisation santé mensuelle conventionnelle`]: "100 €/mois",
     });
-    assert.equal(get(engine, "accord salarial applicable").nodeValue, true);
+    assert.equal(get(engine, "accord applicable").nodeValue, true);
     assert.equal(get(engine, "treizième mois annuel").nodeValue, 9402.67);
     assert.equal(get(engine, "prise en charge employeur santé").nodeValue, 65);
     assert.equal(get(engine, "part salarié santé").nodeValue, 35);

@@ -45,7 +45,7 @@ async function minimum(a: (typeof AGREEMENTS)[number], legalField: string, calcu
     "salarié . convention collective": `'${a.value}'`,
     "salarié . contrat . statut cadre": "non",
     [`${ns} . ${a.input.name}`]: a.input.value,
-    [`${ns} . champ juridique`]: `'${legalField}'`,
+    [`${ns} . adhérent d'une organisation signataire`]: legalField,
     [`${ns} . date de calcul`]: calculationDate,
   });
   const result = engine.evaluate(`${ns} . ${a.rule}`).nodeValue;
@@ -55,13 +55,13 @@ async function minimum(a: (typeof AGREEMENTS)[number], legalField: string, calcu
 for (const a of AGREEMENTS) {
   describe(`${a.model}.${a.version}: extension to non-member employers`, () => {
     it("applies to a member employer from the effective date", async () => {
-      assert.equal(await minimum(a, "employeur signataire ou adhérent", date(a.adherentFrom)), a.expected);
+      assert.equal(await minimum(a, "oui", date(a.adherentFrom)), a.expected);
     });
     it("does not apply to another employer the day before the extension is published", async () => {
-      assert.equal(await minimum(a, "autre employeur", dayBefore(a.extension)) ?? null, null);
+      assert.equal(await minimum(a, "non", dayBefore(a.extension)) ?? null, null);
     });
     it("applies to another employer from the day the extension is published", async () => {
-      assert.equal(await minimum(a, "autre employeur", date(a.extension)), a.expected);
+      assert.equal(await minimum(a, "non", date(a.extension)), a.expected);
     });
   });
 }

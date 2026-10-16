@@ -21,7 +21,7 @@ const engineFor = async (version: string, coefficient: number, seniority = 0, qu
     "salarié . convention collective": `'${value}'`,
     [`${namespace} . coefficient`]: coefficient,
     [`${namespace} . ancienneté en années`]: seniority,
-    [`${namespace} . champ juridique`]: "'employeur signataire ou adhérent'",
+    [`${namespace} . adhérent d'une organisation signataire`]: "oui",
     "salarié . contrat . temps de travail . quotité": quotient,
     "salarié . contrat . statut cadre": "non",
   });

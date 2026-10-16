@@ -27,17 +27,17 @@ salarié . convention collective . transport aérien personnel au sol . date de 
   applicable si: convention collective = 'transport aérien personnel au sol'
   par défaut: 01/01/1900
 
-salarié . convention collective . transport aérien personnel au sol . champ juridique:
-  titre: Champ juridique de l'accord salarial
-  description: L'avenant est modélisé pour les employeurs signataires ou adhérents ; une extension doit être vérifiée avant de l'appliquer à tous les employeurs.
+salarié . convention collective . transport aérien personnel au sol . adhérent d'une organisation signataire:
+  titre: Adhérent d'une organisation signataire
+  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. L'accord n'étant pas étendu à la date de modélisation, un employeur non adhérent n'est pas lié.
   applicable si: convention collective = 'transport aérien personnel au sol'
-  par défaut: "'non renseigné'"
+  par défaut: non
 
 salarié . convention collective . transport aérien personnel au sol . accord applicable:
   applicable si: convention collective = 'transport aérien personnel au sol'
   valeur:
     toutes ces conditions:
-      - champ juridique = 'employeur signataire ou adhérent'
+      - adhérent d'une organisation signataire = oui
       - date de calcul >= 01/04/2025
 
 salarié . convention collective . transport aérien personnel au sol . salaire minimum conventionnel:

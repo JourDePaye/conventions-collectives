@@ -17,12 +17,12 @@ Object.assign(rules, extension);
 const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
 
 const grid = { "I.A": 1854, "I.B": 2228, "II.A": 2689, "II.B": 2950, "III.A": 3071, "III.B": 3575, "III.C": 4389 } as const;
-function set(category: string, date = "11/10/2026", scope = "employeur signataire ou adhérent", quota = "100%") {
+function set(category: string, date = "11/10/2026", scope = "oui", quota = "100%") {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     [`${ns} . catégorie`]: `'${category}'`,
     [`${ns} . date de calcul`]: date,
-    [`${ns} . champ juridique`]: `'${scope}'`,
+    [`${ns} . adhérent d'une organisation signataire`]: scope,
     "salarié . contrat . temps de travail . quotité": quota,
   });
 }
@@ -41,15 +41,15 @@ describe("IDCC 2931 — 2026.1 salary minima", () => {
     });
   }
   it("prorates the monthly minimum for part-time work", () => {
-    set("III.C", "11/10/2026", "employeur signataire ou adhérent", "50%");
+    set("III.C", "11/10/2026", "oui", "50%");
     assert.equal(minimum(), 2194.5);
   });
   it("gates the non-extended agreement to signatory or adherent employers", () => {
-    set("I.A", "01/01/2026", "employeur signataire ou adhérent");
+    set("I.A", "01/01/2026", "oui");
     assert.equal(minimum(), 1854);
-    set("I.A", "31/12/2025", "employeur signataire ou adhérent");
+    set("I.A", "31/12/2025", "oui");
     assert.equal(minimum(), null);
-    set("I.A", "11/10/2026", "autre employeur");
+    set("I.A", "11/10/2026", "non");
     assert.equal(minimum(), null);
   });
   it("rejects categories outside the sourced grid and unrelated agreements", () => {

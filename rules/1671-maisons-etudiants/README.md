@@ -8,12 +8,12 @@ La valeur Publicodes est `maisons d'étudiants` et les règles sont sous `salari
 
 - `classe` accepte les classes 1 à 20 ; la grille associe chaque classe à son coefficient conventionnel ;
 - `valeur annuelle du point` vaut `68,80 €/an` (adhérents dès le 1er janvier 2026, tous employeurs à partir du 4 octobre 2026) et `67,78 €/an` pour les autres employeurs du 12 juillet au 3 octobre 2026 ;
-- `champ juridique` (`employeur signataire ou adhérent` ou `tous employeurs après extension`, défaut) et `date de calcul` (à fournir : sans date, le minimum est non applicable) pilotent ces dates ;
+- `adhérent d'une organisation signataire` (oui ou non, non par défaut) et `date de calcul` (à fournir : sans date, le minimum est non applicable) pilotent ces dates ;
 - `salaire minimum annuel conventionnel` calcule le minimum brut annuel à temps plein et le prorata selon la quotité ;
 - `salaire minimum mensuel indicatif` expose seulement l'équivalent de la garantie annuelle (`minimum annuel / 12`) ;
 - `treizième mois annuel` applique la montée en charge de l'avenant n° 74 : un tiers en 2026, deux tiers en 2027, puis la totalité à partir de 2028, sur une assiette annuelle fournie par l'application ;
 - `prise en charge employeur santé` et `part salarié santé` répartissent la cotisation totale externe selon la clé 65 % / 35 % de l'avenant n° 76 ;
-- les dates et le champ juridique sont bloqués explicitement ; une classe hors grille vaut zéro et est signalée.
+- les dates et l'adhésion sont bloquées explicitement ; une classe hors grille vaut zéro et est signalée.
 
 ## Audit explicite des rubriques de paie
 

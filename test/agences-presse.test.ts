@@ -17,12 +17,12 @@ Object.assign(rules, extension);
 const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
 
 const grid = { 1: 1873.86, 2: 1905.5, 3: 1929.1, 4: 1995.02, 5: 2142.63, 6: 2272.02, 7: 2500.03, 8: 2888.55, 9: 3260.89 } as const;
-function set(group: string, date = "11/10/2026", scope = "tous employeurs après extension", quota = "100%") {
+function set(group: string, date = "11/10/2026", scope = "non", quota = "100%") {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     [`${ns} . groupe`]: `'${group}'`,
     [`${ns} . date de calcul`]: date,
-    [`${ns} . champ juridique`]: `'${scope}'`,
+    [`${ns} . adhérent d'une organisation signataire`]: scope,
     "salarié . contrat . temps de travail . quotité": quota,
   });
 }
@@ -41,17 +41,17 @@ describe("IDCC 3221 — 2026.2 salary minima", () => {
     });
   }
   it("prorates the monthly minimum for part-time work", () => {
-    set("9", "11/10/2026", "tous employeurs après extension", "50%");
+    set("9", "11/10/2026", "non", "50%");
     assert.equal(minimum(), 1630.445);
   });
   it("gates the amendment by signatory and extension scope", () => {
-    set("1", "30/06/2026", "employeur signataire ou adhérent");
+    set("1", "30/06/2026", "oui");
     assert.equal(minimum(), null);
-    set("1", "01/07/2026", "employeur signataire ou adhérent");
+    set("1", "01/07/2026", "oui");
     assert.equal(minimum(), 1873.86);
-    set("1", "03/09/2026", "tous employeurs après extension");
+    set("1", "03/09/2026", "non");
     assert.equal(minimum(), null);
-    set("1", "04/09/2026", "tous employeurs après extension");
+    set("1", "04/09/2026", "non");
     assert.equal(minimum(), 1873.86);
   });
 
