@@ -1,0 +1,123 @@
+validFrom: 2026-06-01
+sources:
+  - >-
+    Avenant n° 39 du 25 novembre 2025 relatif à la classification et aux salaires minima,
+    articles 5.2.1 et 5.2.2, étendu par arrêté du 4 mai 2026, JORF du 8 mai 2026 ;
+    Légifrance, texte KALITEXT000053576956 et article KALIARTI000054119948.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054119948
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053576956
+    Version 2026.2 : les coefficients des 19 emplois-repères de la branche (article 5.1.4) sont la somme des points
+    des paliers (article 5.1.3 : savoir-faire 55/72/83/94/131/180 ; technicité insertion 51/53/68/72/77/130 ;
+    autonomie 65/71/78/84/108/123/180 ; coopération-encadrement 69/72/84/123/180), recalculée à partir du texte.
+    Le tableau des minima résultants (BOCC 2025/52 page 144, boc_20250052_0000_0021.pdf) n'a pas pu être lu
+    (PDF bloqué) : il est non vérifié, la formule de l'article 5.2.2 fait foi.
+  - >-
+    Convention collective nationale des ateliers et chantiers d'insertion du 31 mars 2011,
+    IDCC 3016, texte de base étendu ; article 4.4 : le salarié polyvalent relève du SMIC.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000027181040
+  - >-
+    Avenant n° 37 du 25 novembre 2025 relatif au régime de prévoyance, étendu par arrêté
+    du 18 mars 2026, JORF du 2 avril 2026 ; Légifrance, texte KALITEXT000053576911.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053576911
+  - >-
+    Accord du 25 novembre 2025 relatif aux frais de santé et avenant n° 1 du 20 février 2026,
+    textes non étendus au périmètre de la version ; Légifrance, KALIARTI000053576870.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000053576870
+---
+salarié . convention collective . ateliers et chantiers d'insertion:
+  titre: Ateliers et chantiers d'insertion (IDCC 3016)
+  valeur: convention collective = 'ateliers et chantiers d'insertion'
+
+salarié . convention collective . ateliers et chantiers d'insertion . coefficient:
+  titre: Coefficient de l'emploi-repère
+  description: >-
+    Coefficient de l'emploi-repère des salariés permanents relevant du titre V de la convention.
+    Les salariés polyvalents en parcours d'insertion relèvent du SMIC selon l'article 4.4 et ne
+    sont pas calculés par cette règle.
+  applicable si: convention collective = 'ateliers et chantiers d'insertion'
+  par défaut: 240
+
+salarié . convention collective . ateliers et chantiers d'insertion . valeur socle:
+  titre: Valeur socle conventionnelle
+  description: Valeur socle de 928 € prévue par l'article 5.2.2 à compter du 1er juin 2026.
+  applicable si: convention collective = 'ateliers et chantiers d'insertion'
+  unité: €/mois
+  valeur: 928 €/mois
+
+salarié . convention collective . ateliers et chantiers d'insertion . valeur du point:
+  titre: Valeur du point conventionnelle
+  description: Valeur du point de 4,04 € prévue par l'article 5.2.2 à compter du 1er juin 2026.
+  applicable si: convention collective = 'ateliers et chantiers d'insertion'
+  unité: €/mois
+  valeur: 4.04 €/mois
+
+salarié . convention collective . ateliers et chantiers d'insertion . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: >-
+    Minimum mensuel brut à temps plein calculé par valeur socle + coefficient × valeur du point,
+    puis proratisé selon la quotité de travail. Cette formule ne s'applique pas aux salariés
+    polyvalents du titre IV, dont le minimum légal est le SMIC.
+  applicable si: convention collective = 'ateliers et chantiers d'insertion'
+  unité: €/mois
+  produit:
+    - salaire minimum conventionnel . temps plein
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . ateliers et chantiers d'insertion . salaire minimum conventionnel . temps plein:
+  titre: Salaire minimum mensuel à temps plein
+  description: Valeur socle + coefficient × valeur du point, article 5.2.2.
+  applicable si: convention collective = 'ateliers et chantiers d'insertion'
+  unité: €/mois
+  valeur: valeur socle + coefficient * valeur du point
+
+salarié . convention collective . ateliers et chantiers d'insertion . coefficient hors grille:
+  titre: Coefficient absent de la grille des emplois-repères
+  description: >-
+    La grille 2026.2 est limitée aux coefficients des 19 emplois-repères définis par la branche
+    à l'article 5.1.4 (somme des points des paliers, article 5.1.3) : 240, 263, 274, 281, 297, 303, 312, 313, 322, 334, 393, 395, 400, 430, 434, 492, 494, 564 et 670.
+    Un emploi-repère créé par une structure peut avoir un autre coefficient ; il est alors signalé
+    hors grille et aucun coefficient intermédiaire n'est extrapolé.
+  applicable si: convention collective = 'ateliers et chantiers d'insertion'
+  toutes ces conditions:
+    - coefficient != 240
+    - coefficient != 263
+    - coefficient != 274
+    - coefficient != 281
+    - coefficient != 297
+    - coefficient != 303
+    - coefficient != 312
+    - coefficient != 313
+    - coefficient != 322
+    - coefficient != 334
+    - coefficient != 393
+    - coefficient != 395
+    - coefficient != 400
+    - coefficient != 430
+    - coefficient != 434
+    - coefficient != 492
+    - coefficient != 494
+    - coefficient != 564
+    - coefficient != 670
+salarié . convention collective . ateliers et chantiers d'insertion . audit paie:
+  titre: Audit conventionnel des rubriques de paie
+  description: >-
+    Audit explicite de l'avenant salarial, des accords et avenants dédiés et de leurs extensions.
+    Cotisations salarié/employeur : l'avenant n° 39 ne modifie pas de taux général de paie ;
+    aucune cotisation salariale ou patronale générique supplémentaire n'est ajoutée. Assiettes,
+    plafonds, tranches et forfaits : aucun paramètre général calculable n'est créé par l'avenant
+    salarial ; les bases restent celles de la paie et des régimes applicables. Santé : l'accord
+    du 25 novembre 2025 et son avenant du 20 février 2026 ont été recherchés, mais sont non
+    étendus à la date de cette version ; leurs garanties et tarifs ne sont donc pas imposés ici.
+    Prévoyance : l'avenant n° 37 étendu du 25 novembre 2025 a été recherché ; ses garanties,
+    catégories, assiettes et tarifs annexes nécessitent les données de régime et ne sont pas
+    injectés sans une modélisation dédiée. Retraite complémentaire : aucun taux de branche
+    autonome ajouté ; régimes légaux et conventionnels de droit commun restent externes.
+    Formation professionnelle : aucun taux exploitable n'est ajouté dans cette version. AT/MP :
+    le taux dépend de la notification à l'employeur et n'est pas calculable depuis l'IDCC seul.
+    Primes, indemnités, avantages en nature et frais : l'ancienneté, le diplôme, la délégation,
+    les frais et autres éléments contractuels ne sont pas automatiquement ajoutés à la grille.
+    Les seules règles calculées sont la formule salariale du titre V et la détection de coefficient
+    hors grille ; ces omissions documentées ne valent pas renonciation aux obligations légales ou
+    conventionnelles.
+  applicable si: convention collective = 'ateliers et chantiers d'insertion'
+  valeur: oui

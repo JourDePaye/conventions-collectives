@@ -1,6 +1,14 @@
 # Habitat et logement accompagnés — IDCC 2336
 
-La version `2025.1` prend effet le **1er janvier 2025** et couvre les montants calculables des textes salaires publiés sur Légifrance : l'accord n° 30 du 19 novembre 2024 pour les personnels PACT ARIM et l'avenant n° 66 du 19 novembre 2024 pour les structures FSJT.
+La version `2025.1` (historique) prend effet le **1er janvier 2025** et couvre les montants calculables des textes salaires publiés sur Légifrance : l'accord n° 30 du 19 novembre 2024 pour les personnels PACT ARIM et l'avenant n° 66 du 19 novembre 2024 pour les structures FSJT.
+
+## Version 2026.1
+
+La version `2026.1` prend effet le **1er janvier 2026** (article 8) et reprend l'**avenant n° 70 du 30 septembre 2025** (KALITEXT000054872078, étendu sous réserve du SMIC par arrêté du 6 juillet 2026, JORF du 10 juillet 2026). Il remplace l'accord n° 30 et l'avenant n° 66 (article 3). Pour les personnels PACT ARIM : valeur du point `2,00 €` (35 heures payées 35 heures) et `2,24 €` (35 heures payées 39 heures) ; partie fixe `887,28 €` et `979,33 €`. Les règles et clés sont celles de 2025.1 ; seuls les montants changent. Les valeurs FSJT (point socle `1,202 €`, tranche supérieure `1,179 €`) et le système HLA de l'avenant n° 67 (base `1 227,74 €`, point `2,05 €`) ne sont pas calculés.
+
+## Version 2025.1 : sources
+
+Les valeurs PACT ARIM de 2025.1 (point `1,99 €`/`2,22 €`, partie fixe `880,24 €`/`971,56 €`) proviennent de l'**accord n° 30 du 19 novembre 2024** (KALITEXT000051163225, étendu par arrêté du 2 avril 2025, JORF du 16 avril 2025) et non de l'avenant n° 66, qui ne concerne que le champ FSJT.
 
 ## Règles calculées
 
@@ -26,6 +34,8 @@ Ces omissions sont intentionnelles : aucun taux salarié/employeur, base, plafon
 
 ## Sources officielles
 
+- [Avenant n° 70 du 30 septembre 2025 — Légifrance](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054872078)
+- [Accord n° 30 du 19 novembre 2024 — Légifrance](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051163225)
 - [Avenant n° 66 du 19 novembre 2024 relatif à la négociation salariale annuelle obligatoire — Légifrance](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051163241)
-- [Convention collective nationale de l'habitat et du logement accompagnés — Légifrance](https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000049869842)
+- [Convention collective nationale de l'habitat et du logement accompagnés — Légifrance](https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635560)
 - Arrêté du 6 février 2025 portant extension de l'avenant n° 66, publié au Journal officiel du 14 février 2025 (référence indiquée sur le texte Légifrance).

@@ -1,0 +1,396 @@
+# Convention collective nationale des entreprises au service de la création et de l'événement du 27 juin 2024 (IDCC 3252).
+# It replaces IDCC 2717 (and 2519, 2397). The earlier "mannequins" model of IDCC 3252 was wrong.
+# Version 2025.1: convention in force on 1 April 2025; level 1 at 1 801 EUR; mannequin grid corrected by avenant n° 2, article 1.
+
+validFrom: 2025-04-01
+sources:
+  - >-
+    Convention collective nationale des entreprises au service de la création et de l'événement du 27 juin 2024 (IDCC 3252),
+    étendue par arrêté du 13 mars 2025 (JORF du 18 mars 2025), texte de base KALITEXT000050299244, conteneur KALICONT000051346072.
+    Entrée en vigueur (titre XI) le premier jour du mois suivant la parution de l'arrêté d'extension, soit le 1er avril 2025.
+    Titre VII : article 7.1 (10 niveaux, niveaux 6 et plus = cadres), article 7.3 (grille des niveaux, salaire mensuel minimum pour 35 heures
+    selon l'ancienneté sur le poste : moins de 3 ans, 3 ans et plus, 8 ans et plus), article 7.2 et annexes I à VI (mêmes montants par niveau).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000050299244
+  - >-
+    Avenant n° 2 du 22 janvier 2025 relatif à la négociation annuelle obligatoire sur les salaires des salariés mannequins, KALITEXT000051447565,
+    étendu par arrêté du 9 avril 2025 (JORF du 16 mai 2025, BO 2025-8), article 1er : remplacement des grilles 2024 erronées de l'article 3.4.2 de
+    l'annexe V (version de l'article en vigueur du 1er avril au 1er juin 2025, KALIARTI000051642228). Les montants des mannequins enfants (article 4.3.2)
+    sont ceux de la version en vigueur jusqu'au 1er juin 2025 (KALIARTI000050299633).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051447565
+  - >-
+    Avenant n° 1 du 7 novembre 2022 à l'accord national professionnel du 5 février 2013 relatif aux salaires minimaux du doublage
+    (ex-IDCC 2717, rattaché à l'IDCC 3252), étendu par arrêté du 2 janvier 2023 (JORF du 19 janvier 2023), KALITEXT000047046154,
+    en vigueur le 1er janvier 2023 (article 4). Annexe 1, artistes-interprètes : œuvres cinématographiques, 1re catégorie a) « De 1 à 6 lignes :
+    1/2 journée 1 rôle » 128,14 € (112,40 € au 1er janvier 2014) ; œuvres télévisuelles, 1re catégorie a) « 1/2 journée maximum 3 rôles »
+    121,73 € (106,78 € au 1er janvier 2014). Maintenu en vigueur par l'annexe I, article 6.1 de la convention du 27 juin 2024.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000047046154
+---
+salarié . convention collective . entreprises au service de la création et de l'événement:
+  titre: Entreprises au service de la création et de l'événement (IDCC 3252)
+  valeur: convention collective = 'entreprises au service de la création et de l'événement'
+
+salarié . convention collective . entreprises au service de la création et de l'événement . classification:
+  titre: Niveau de classification
+  description: Niveau 1 à 10 de la grille de l'article 7.3 (tronc commun et annexes I à VI), saisi sous forme de texte, par exemple '3' ou '10'.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . entreprises au service de la création et de l'événement . ancienneté cumulée sur le poste:
+  titre: Ancienneté cumulée dans l'entreprise et le même poste
+  description: Années de présence cumulées dans l'entreprise et le même poste, y compris les contrats antérieurs (articles 7.2 et 7.3). Détermine l'échelon de la grille (moins de 3 ans, 3 ans et plus, 8 ans et plus).
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . entreprises au service de la création et de l'événement . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut pour un temps plein de 35 heures, proratisé selon la quotité de travail. Vaut 0 €/mois si le niveau est absent de la grille.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . entreprises au service de la création et de l'événement . grille:
+  titre: Grille mensuelle à temps plein selon l'ancienneté sur le poste
+  description: Grille de l'article 7.3 du tronc commun, applicable aux grilles de fonctions de l'article 7.2 et des annexes I à VI.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €/mois
+  variations:
+    - si: ancienneté cumulée sur le poste >= 8 an
+      alors: grille 8 ans et plus
+    - si: ancienneté cumulée sur le poste >= 3 an
+      alors: grille 3 ans et plus
+    - sinon: grille moins de 3 ans
+
+salarié . convention collective . entreprises au service de la création et de l'événement . grille moins de 3 ans:
+  titre: Grille mensuelle, ancienneté sur le poste moins de 3 ans
+  description: Salaire mensuel minimum brut pour 35 heures (151,67 heures), selon le niveau. Vaut 0 €/mois si le niveau est absent de la grille.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €/mois
+  variations:
+    - si: classification = '1'
+      alors: 1801 €/mois
+    - si: classification = '2'
+      alors: 1851 €/mois
+    - si: classification = '3'
+      alors: 2007 €/mois
+    - si: classification = '4'
+      alors: 2222 €/mois
+    - si: classification = '5'
+      alors: 2420 €/mois
+    - si: classification = '6'
+      alors: 2535 €/mois
+    - si: classification = '7'
+      alors: 2712 €/mois
+    - si: classification = '8'
+      alors: 2937 €/mois
+    - si: classification = '9'
+      alors: 3163 €/mois
+    - si: classification = '10'
+      alors: 3377 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . entreprises au service de la création et de l'événement . grille 3 ans et plus:
+  titre: Grille mensuelle, ancienneté sur le poste 3 ans et plus
+  description: Salaire mensuel minimum brut pour 35 heures (151,67 heures), selon le niveau. Vaut 0 €/mois si le niveau est absent de la grille.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €/mois
+  variations:
+    - si: classification = '1'
+      alors: 1855 €/mois
+    - si: classification = '2'
+      alors: 1907 €/mois
+    - si: classification = '3'
+      alors: 2067 €/mois
+    - si: classification = '4'
+      alors: 2289 €/mois
+    - si: classification = '5'
+      alors: 2492 €/mois
+    - si: classification = '6'
+      alors: 2611 €/mois
+    - si: classification = '7'
+      alors: 2794 €/mois
+    - si: classification = '8'
+      alors: 3025 €/mois
+    - si: classification = '9'
+      alors: 3258 €/mois
+    - si: classification = '10'
+      alors: 3479 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . entreprises au service de la création et de l'événement . grille 8 ans et plus:
+  titre: Grille mensuelle, ancienneté sur le poste 8 ans et plus
+  description: Salaire mensuel minimum brut pour 35 heures (151,67 heures), selon le niveau. Vaut 0 €/mois si le niveau est absent de la grille.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €/mois
+  variations:
+    - si: classification = '1'
+      alors: 1945 €/mois
+    - si: classification = '2'
+      alors: 1999 €/mois
+    - si: classification = '3'
+      alors: 2168 €/mois
+    - si: classification = '4'
+      alors: 2400 €/mois
+    - si: classification = '5'
+      alors: 2613 €/mois
+    - si: classification = '6'
+      alors: 2738 €/mois
+    - si: classification = '7'
+      alors: 2929 €/mois
+    - si: classification = '8'
+      alors: 3172 €/mois
+    - si: classification = '9'
+      alors: 3416 €/mois
+    - si: classification = '10'
+      alors: 3648 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . entreprises au service de la création et de l'événement . classification hors grille:
+  titre: Niveau absent de la grille
+  description: Vrai lorsque le niveau saisi ne correspond à aucune ligne de la grille.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  toutes ces conditions:
+    - classification != '1'
+    - classification != '2'
+    - classification != '3'
+    - classification != '4'
+    - classification != '5'
+    - classification != '6'
+    - classification != '7'
+    - classification != '8'
+    - classification != '9'
+    - classification != '10'
+
+salarié . convention collective . entreprises au service de la création et de l'événement . audit paie:
+  titre: Audit des rubriques de paie
+  description: Seuls les salaires minimaux de la grille des niveaux, des mannequins et du doublage (demi-journée) sont modélisés ; les autres rubriques de paie de la convention ne sont pas auditées.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  valeur: non
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin:
+  titre: Mannequins (annexe V)
+  description: Salaires minimaux bruts des mannequins par prestation, hors congés payés de 10 % (article 3.4.2 et 4.3.2 de l'annexe V). Les salariés permanents des agences relèvent de la grille des niveaux.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . catégorie de prestation:
+  titre: Catégorie de prestation du mannequin adulte
+  description: Catégorie 1 à 4 de la grille des prestations 2° à 8° (mannequins de plus de seize ans), saisie sous forme de texte, par exemple '2'.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . catégorie hors grille:
+  titre: Catégorie de prestation absente de la grille
+  description: Vrai lorsque la catégorie saisie n'est pas 1, 2, 3 ou 4.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  toutes ces conditions:
+    - catégorie de prestation != '1'
+    - catégorie de prestation != '2'
+    - catégorie de prestation != '3'
+    - catégorie de prestation != '4'
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . salaire minimum horaire:
+  titre: Salaire minimum horaire du mannequin adulte
+  description: Minimum brut hors congés payés de 10 %, selon la catégorie de prestation. Vaut 0 si la catégorie est absente de la grille.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €/heure
+  variations:
+    - si: catégorie de prestation = '1'
+      alors: 110.3 €/heure
+    - si: catégorie de prestation = '2'
+      alors: 128.55 €/heure
+    - si: catégorie de prestation = '3'
+      alors: 169.3 €/heure
+    - si: catégorie de prestation = '4'
+      alors: 215.6 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . salaire minimum journalier:
+  titre: Salaire minimum journalier (5 à 8 heures) du mannequin adulte
+  description: Minimum brut hors congés payés de 10 %, selon la catégorie de prestation. Vaut 0 si la catégorie est absente de la grille.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €/jour
+  variations:
+    - si: catégorie de prestation = '1'
+      alors: 551.5 €/jour
+    - si: catégorie de prestation = '2'
+      alors: 642.75 €/jour
+    - si: catégorie de prestation = '3'
+      alors: 846.5 €/jour
+    - si: catégorie de prestation = '4'
+      alors: 1078 €/jour
+    - sinon: 0 €/jour
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . salaire minimum hebdomadaire 5 jours:
+  titre: Salaire minimum hebdomadaire pour 5 jours du mannequin adulte
+  description: Minimum brut hors congés payés de 10 %, selon la catégorie de prestation. Vaut 0 si la catégorie est absente de la grille.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €/semaine
+  variations:
+    - si: catégorie de prestation = '1'
+      alors: 2481.75 €/semaine
+    - si: catégorie de prestation = '2'
+      alors: 2892.35 €/semaine
+    - si: catégorie de prestation = '3'
+      alors: 3809.25 €/semaine
+    - si: catégorie de prestation = '4'
+      alors: 4851 €/semaine
+    - sinon: 0 €/semaine
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . salaire minimum hebdomadaire 6 jours:
+  titre: Salaire minimum hebdomadaire pour 6 jours du mannequin adulte
+  description: Minimum brut hors congés payés de 10 %, selon la catégorie de prestation. Vaut 0 si la catégorie est absente de la grille.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €/semaine
+  variations:
+    - si: catégorie de prestation = '1'
+      alors: 2812.65 €/semaine
+    - si: catégorie de prestation = '2'
+      alors: 3278 €/semaine
+    - si: catégorie de prestation = '3'
+      alors: 4317.15 €/semaine
+    - si: catégorie de prestation = '4'
+      alors: 5497.8 €/semaine
+    - sinon: 0 €/semaine
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . salaire minimum horaire d'essayage technique:
+  titre: Salaire minimum horaire pour les essayages techniques
+  description: Minimum brut hors congés payés de 10 %, indépendant de la catégorie du mannequin adulte (article 3.4.2 A de l'annexe V).
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  valeur: 80 €/heure
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . salaire minimum journalier d'essayage technique:
+  titre: Salaire minimum journalier pour les essayages techniques
+  description: Minimum brut hors congés payés de 10 %, indépendant de la catégorie du mannequin adulte (article 3.4.2 A de l'annexe V).
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  valeur: 400 €/jour
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . salaire minimum hebdomadaire d'essayage technique 5 jours:
+  titre: Salaire minimum hebdomadaire pour 5 jours pour les essayages techniques
+  description: Minimum brut hors congés payés de 10 %, indépendant de la catégorie du mannequin adulte (article 3.4.2 A de l'annexe V).
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  valeur: 1800 €/semaine
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . salaire minimum hebdomadaire d'essayage technique 6 jours:
+  titre: Salaire minimum hebdomadaire pour 6 jours pour les essayages techniques
+  description: Minimum brut hors congés payés de 10 %, indépendant de la catégorie du mannequin adulte (article 3.4.2 A de l'annexe V).
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  valeur: 2040 €/semaine
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . catégorie de presse rédactionnelle:
+  titre: Catégorie de presse rédactionnelle
+  description: Catégorie A à G de la grille des prises de vues pour la presse rédactionnelle (article 3.4.2 C de l'annexe V), saisie sous forme de texte, par exemple 'D'.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . catégorie de presse hors grille:
+  titre: Catégorie de presse rédactionnelle absente de la grille
+  description: Vrai lorsque la catégorie saisie n'est pas comprise entre A et G.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  toutes ces conditions:
+    - catégorie de presse rédactionnelle != 'A'
+    - catégorie de presse rédactionnelle != 'B'
+    - catégorie de presse rédactionnelle != 'C'
+    - catégorie de presse rédactionnelle != 'D'
+    - catégorie de presse rédactionnelle != 'E'
+    - catégorie de presse rédactionnelle != 'F'
+    - catégorie de presse rédactionnelle != 'G'
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . salaire minimum horaire de presse rédactionnelle:
+  titre: Salaire minimum horaire en presse rédactionnelle
+  description: Minimum brut hors congés payés de 10 %, selon la catégorie de presse. Vaut 0 si la catégorie est absente de la grille.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €/heure
+  variations:
+    - si: catégorie de presse rédactionnelle = 'A'
+      alors: 39.3 €/heure
+    - si: catégorie de presse rédactionnelle = 'B'
+      alors: 45.9 €/heure
+    - si: catégorie de presse rédactionnelle = 'C'
+      alors: 53.75 €/heure
+    - si: catégorie de presse rédactionnelle = 'D'
+      alors: 61.65 €/heure
+    - si: catégorie de presse rédactionnelle = 'E'
+      alors: 70.85 €/heure
+    - si: catégorie de presse rédactionnelle = 'F'
+      alors: 79.85 €/heure
+    - si: catégorie de presse rédactionnelle = 'G'
+      alors: 99.8 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . salaire minimum journalier de presse rédactionnelle:
+  titre: Salaire minimum journalier en presse rédactionnelle
+  description: Minimum brut hors congés payés de 10 %, selon la catégorie de presse. Vaut 0 si la catégorie est absente de la grille.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €/jour
+  variations:
+    - si: catégorie de presse rédactionnelle = 'A'
+      alors: 196.5 €/jour
+    - si: catégorie de presse rédactionnelle = 'B'
+      alors: 229.5 €/jour
+    - si: catégorie de presse rédactionnelle = 'C'
+      alors: 268.75 €/jour
+    - si: catégorie de presse rédactionnelle = 'D'
+      alors: 308.25 €/jour
+    - si: catégorie de presse rédactionnelle = 'E'
+      alors: 354.25 €/jour
+    - si: catégorie de presse rédactionnelle = 'F'
+      alors: 399.25 €/jour
+    - si: catégorie de presse rédactionnelle = 'G'
+      alors: 499 €/jour
+    - sinon: 0 €/jour
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . prestation du mannequin enfant:
+  titre: Prestation du mannequin enfant de moins de seize ans
+  description: Prestation de l'article 4.3.2 de l'annexe V, saisie sous forme de texte, par exemple 'catalogue VPC'.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . prestation enfant hors grille:
+  titre: Prestation du mannequin enfant absente de la grille
+  description: Vrai lorsque la prestation saisie ne figure pas dans la grille des mannequins enfants.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  toutes ces conditions:
+    - prestation du mannequin enfant != 'prise de vue, publicité ou défilé'
+    - prestation du mannequin enfant != 'catalogue VPC'
+    - prestation du mannequin enfant != 'presse rédactionnelle'
+    - prestation du mannequin enfant != 'tournage de film publicitaire'
+    - prestation du mannequin enfant != 'essayage technique'
+
+salarié . convention collective . entreprises au service de la création et de l'événement . mannequin . salaire minimum horaire enfant:
+  titre: Salaire minimum horaire du mannequin enfant
+  description: Minimum brut horaire selon la prestation (article 4.3.2 de l'annexe V). L'essayage préparatoire est à 50 % du minimum horaire de la catégorie de la prestation (non modélisé). Vaut 0 si la prestation est absente de la grille.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €/heure
+  variations:
+    - si: prestation du mannequin enfant = 'prise de vue, publicité ou défilé'
+      alors: 74.5 €/heure
+    - si: prestation du mannequin enfant = 'catalogue VPC'
+      alors: 64.8 €/heure
+    - si: prestation du mannequin enfant = 'presse rédactionnelle'
+      alors: 51.6 €/heure
+    - si: prestation du mannequin enfant = 'tournage de film publicitaire'
+      alors: 92.6 €/heure
+    - si: prestation du mannequin enfant = 'essayage technique'
+      alors: 64.8 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . entreprises au service de la création et de l'événement . doublage:
+  titre: Doublage (accord du 5 février 2013 modifié par l'avenant n° 1 du 7 novembre 2022)
+  description: Salaires minimaux des artistes-interprètes du doublage, maintenus en vigueur par l'annexe I, article 6.1. Seules les demi-journées de la première catégorie sont modélisées.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+
+salarié . convention collective . entreprises au service de la création et de l'événement . doublage . salaire minimum demi-journée cinéma un rôle:
+  titre: Doublage cinéma, 1/2 journée 1 rôle (1 à 6 lignes)
+  description: Minimum brut par demi-journée pour un rôle de 1 à 6 lignes dans une œuvre destinée à une première exploitation cinématographique, depuis le 1er janvier 2023 (aussi retenu pour le réenregistrement d'un artiste spécialement convoqué).
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €
+  valeur: 128.14 €
+
+salarié . convention collective . entreprises au service de la création et de l'événement . doublage . salaire minimum demi-journée audiovisuel trois rôles:
+  titre: Doublage audiovisuel, 1/2 journée maximum 3 rôles (1 à 6 lignes)
+  description: Minimum brut par demi-journée pour un à trois rôles de 1 à 6 lignes dans une œuvre destinée à une première exploitation télévisuelle, internet ou vidéo, depuis le 1er janvier 2023.
+  applicable si: convention collective = 'entreprises au service de la création et de l'événement'
+  unité: €
+  valeur: 121.73 €

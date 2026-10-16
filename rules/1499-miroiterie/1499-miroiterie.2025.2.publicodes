@@ -1,0 +1,197 @@
+# Convention collective nationale de la miroiterie, de la transformation et du négoce du verre (IDCC 1499).
+# Version 2025.2 : même accord du 26 mars 2025 et même date d'effet que 2025.1 ; corrige la prime de panier de nuit
+# (montant par poste fondé sur le SMP horaire, et non 2 882,77 €/mois) et réserve la prime d'ancienneté aux coefficients 140 à 330.
+validFrom: 2025-05-01
+sources:
+  - >-
+    Accord du 26 mars 2025 relatif aux salaires minima professionnels (SMP) au 1er mai 2025,
+    Légifrance, KALITEXT000051910288, conteneur KALICONT000005635180 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051910288?idConteneur=KALICONT000005635180
+  - >-
+    Étendu par arrêté du 13 juin 2025, JORF du 19 juin 2025.
+  - >-
+    Article 2 de l'accord (prime de panier de nuit portée à 1,6 fois le salaire professionnel du coefficient 140) et
+    article 29 de la convention collective (KALIARTI000005864135 : « une prime de panier d'un montant égal à une fois et
+    demie le salaire minimum professionnel du coefficient 140 », par poste de nuit dans les services travaillant en continu).
+    Non vérifié : l'accord écrit « salaire mensuel professionnel » ; le modèle lit le SMP horaire (1,6 x 11,88 = 19,008 €
+    par poste), la lecture mensuelle (2 882,77 € par poste) étant incohérente avec l'article 29.
+  - >-
+    Prime d'ancienneté horaire de l'annexe : 3 % (3 à 5 ans), 6 % (6 à 8), 9 % (9 à 11), 12 % (12 à 14), 15 % (plus de 15 ans),
+    pour les coefficients 140 à 330 seulement.
+---
+salarié . convention collective . miroiterie transformation négoce verre:
+  titre: Miroiterie, transformation et négoce du verre (IDCC 1499)
+  valeur: convention collective = 'miroiterie transformation négoce verre'
+
+salarié . convention collective . miroiterie transformation négoce verre . coefficient:
+  titre: Coefficient de classification
+  description: Coefficients 140 à 880 de la grille des salaires minima professionnels.
+  applicable si: convention collective = 'miroiterie transformation négoce verre'
+  par défaut: 140
+
+salarié . convention collective . miroiterie transformation négoce verre . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  description: Ancienneté utilisée pour la prime conventionnelle de 3 % à 15 %.
+  unité: années
+  applicable si: convention collective = 'miroiterie transformation négoce verre'
+  par défaut: 0 années
+
+salarié . convention collective . miroiterie transformation négoce verre . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'miroiterie transformation négoce verre'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . miroiterie transformation négoce verre . grille mensuelle:
+  titre: Grille mensuelle des salaires minima professionnels au 1er mai 2025
+  applicable si: convention collective = 'miroiterie transformation négoce verre'
+  unité: €/mois
+  variations:
+    - si: coefficient = 140
+      alors: 1801.73 €/mois
+    - si: coefficient = 150
+      alors: 1816.78 €/mois
+    - si: coefficient = 160
+      alors: 1822.90 €/mois
+    - si: coefficient = 170
+      alors: 1829.02 €/mois
+    - si: coefficient = 180
+      alors: 1835.13 €/mois
+    - si: coefficient = 200
+      alors: 1844.11 €/mois
+    - si: coefficient = 225
+      alors: 1891.77 €/mois
+    - si: coefficient = 250
+      alors: 1962.26 €/mois
+    - si: coefficient = 275
+      alors: 2020.84 €/mois
+    - si: coefficient = 300
+      alors: 2157.51 €/mois
+    - si: coefficient = 330
+      alors: 2316.84 €/mois
+    - si: coefficient = 370
+      alors: 2526.12 €/mois
+    - si: coefficient = 410
+      alors: 2743.81 €/mois
+    - si: coefficient = 460
+      alors: 3016.31 €/mois
+    - si: coefficient = 550
+      alors: 3510.27 €/mois
+    - si: coefficient = 660
+      alors: 4117.84 €/mois
+    - si: coefficient = 880
+      alors: 5340.49 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . miroiterie transformation négoce verre . salaire minimum horaire:
+  titre: Salaire minimum professionnel horaire
+  description: SMP horaire correspondant à la grille mensuelle sur 151,67 heures.
+  applicable si: convention collective = 'miroiterie transformation négoce verre'
+  unité: €/heure
+  produit:
+    - grille horaire
+    - 1
+
+salarié . convention collective . miroiterie transformation négoce verre . grille horaire:
+  titre: Grille horaire des salaires minima professionnels au 1er mai 2025
+  applicable si: convention collective = 'miroiterie transformation négoce verre'
+  unité: €/heure
+  variations:
+    - si: coefficient = 140
+      alors: 11.88 €/heure
+    - si: coefficient = 150
+      alors: 11.98 €/heure
+    - si: coefficient = 160
+      alors: 12.02 €/heure
+    - si: coefficient = 170
+      alors: 12.06 €/heure
+    - si: coefficient = 180
+      alors: 12.10 €/heure
+    - si: coefficient = 200
+      alors: 12.16 €/heure
+    - si: coefficient = 225
+      alors: 12.47 €/heure
+    - si: coefficient = 250
+      alors: 12.94 €/heure
+    - si: coefficient = 275
+      alors: 13.32 €/heure
+    - si: coefficient = 300
+      alors: 14.23 €/heure
+    - si: coefficient = 330
+      alors: 15.28 €/heure
+    - si: coefficient = 370
+      alors: 16.66 €/heure
+    - si: coefficient = 410
+      alors: 18.09 €/heure
+    - si: coefficient = 460
+      alors: 19.89 €/heure
+    - si: coefficient = 550
+      alors: 23.14 €/heure
+    - si: coefficient = 660
+      alors: 27.15 €/heure
+    - si: coefficient = 880
+      alors: 35.21 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . miroiterie transformation négoce verre . coefficient ouvrant droit à la prime:
+  titre: Coefficient ouvrant droit à la prime d'ancienneté
+  description: La grille publiée ne comporte de prime d'ancienneté que pour les coefficients 140 à 330 ; les coefficients 370 et supérieurs n'y ouvrent pas droit.
+  applicable si: convention collective = 'miroiterie transformation négoce verre'
+  une de ces conditions:
+    - coefficient = 140
+    - coefficient = 150
+    - coefficient = 160
+    - coefficient = 170
+    - coefficient = 180
+    - coefficient = 200
+    - coefficient = 225
+    - coefficient = 250
+    - coefficient = 275
+    - coefficient = 300
+    - coefficient = 330
+
+salarié . convention collective . miroiterie transformation négoce verre . prime ancienneté horaire:
+  titre: Prime d'ancienneté horaire
+  description: Montant horaire conventionnel de la prime selon l'ancienneté (3 %, 6 %, 9 %, 12 % et 15 % du SMP horaire) ; les coefficients 370 et supérieurs n'ont pas de prime.
+  applicable si: convention collective = 'miroiterie transformation négoce verre'
+  unité: €/heure
+  variations:
+    - si: coefficient ouvrant droit à la prime = non
+      alors: 0 €/heure
+    - si: ancienneté >= 15 années
+      alors: grille horaire * 15%
+    - si: ancienneté >= 12 années
+      alors: grille horaire * 12%
+    - si: ancienneté >= 9 années
+      alors: grille horaire * 9%
+    - si: ancienneté >= 6 années
+      alors: grille horaire * 6%
+    - si: ancienneté >= 3 années
+      alors: grille horaire * 3%
+    - sinon: 0 €/heure
+
+salarié . convention collective . miroiterie transformation négoce verre . smp horaire coefficient 140:
+  titre: SMP horaire du coefficient 140
+  description: Base de la prime de panier de nuit (article 29 de la convention collective, porté à 1,6 fois par l'accord du 26 mars 2025).
+  applicable si: convention collective = 'miroiterie transformation négoce verre'
+  unité: €/heure
+  valeur: 11.88 €/heure
+
+salarié . convention collective . miroiterie transformation négoce verre . prime de panier de nuit:
+  titre: Prime de panier de nuit
+  description: >-
+    Prime de panier par poste de nuit (article 29 de la convention collective, services travaillant en continu),
+    égale à 1,6 fois le SMP du coefficient 140 (accord du 26 mars 2025, à compter du 1er mai 2025). Le texte de
+    l'accord écrit « salaire mensuel professionnel » ; le modèle retient le SMP horaire, lecture de l'article 29
+    (montant par poste). Montant par poste de nuit, exposé séparément du minimum.
+  applicable si: convention collective = 'miroiterie transformation négoce verre'
+  unité: €
+  valeur: 1.6 * smp horaire coefficient 140 * 1 heure
+
+salarié . convention collective . miroiterie transformation négoce verre . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  applicable si: convention collective = 'miroiterie transformation négoce verre'
+  valeur: grille mensuelle = 0 €/mois

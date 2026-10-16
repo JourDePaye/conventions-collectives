@@ -90,3 +90,49 @@ describe("IDCC 1558 — industries céramiques — 2025.2", () => {
     assert.equal(unknown.evaluate(`${namespace} . niveau hors grille`).nodeValue, true);
   });
 });
+
+describe("IDCC 1558 — industries céramiques — 2026.1 (accord du 26 février 2026, point 1,26)", () => {
+  const monthly = [
+    ["NA-E1", 1831.26], ["NA-E2", 1838.82], ["NB-E1", 1848.9], ["NB-E2", 1861.5], ["NB-E3", 1874.1],
+    ["NC-E1", 1886.7], ["NC-E2", 1911.9], ["NC-E3", 1949.7], ["NC-E4", 2000.1], ["ND-E1", 2050.5],
+    ["ND-E2", 2113.5], ["ND-E3", 2176.5], ["ND-E4", 2239.5], ["NE-E1", 2315.1], ["NE-E2", 2390.7],
+    ["NE-E3", 2466.3], ["NE-E4", 2541.9], ["NF-E1", 2630.1], ["NF-E2", 2718.3], ["NF-E3", 2806.5],
+  ] as const;
+  const annual = [
+    ["NG-E1", 32619.6, 34902.97], ["NG-E2", 34736.4, 37167.95], ["H", 39423.6, 43365.96],
+    ["I", 47905.92, 52696.51], ["J", 59382, 65320.2],
+  ] as const;
+
+  it("starts on 1 January 2026", () => {
+    assert.equal(COMPILED_VERSIONS[name]?.find((item) => item.version === "2026.1")?.validFrom, "2026-01-01");
+  });
+
+  it("gives every monthly minimum of annexe I", async () => {
+    for (const [level, minimum] of monthly) {
+      const engine = await engineFor(level, "100%", "non", "non", "2026.1");
+      assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, minimum, level);
+      assert.equal(engine.evaluate(`${namespace} . niveau hors grille`).nodeValue, false, level);
+    }
+  });
+
+  it("gives every annual minimum of annexe II, with and without forfait jours", async () => {
+    for (const [level, minimum, forfait] of annual) {
+      const plain = await engineFor(level, "100%", "non", "non", "2026.1");
+      assert.equal(plain.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue, minimum, level);
+      const days = await engineFor(level, "100%", "oui", "non", "2026.1");
+      assert.equal(days.evaluate(`${namespace} . salaire minimum annuel conventionnel`).nodeValue, forfait, level);
+    }
+  });
+
+  it("prorates part time and keeps the panier at 16 euros", async () => {
+    const part = await engineFor("NC-E4", "50%", "non", "non", "2026.1");
+    assert.equal(part.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 1000.05);
+    const panier = await engineFor("NA-E1", "100%", "non", "oui", "2026.1");
+    assert.equal(panier.evaluate(`${namespace} . indemnité de panier`).nodeValue, 16);
+  });
+
+  it("rejects a classification absent from the grids", async () => {
+    const engine = await engineFor("ZZ-E9", "100%", "non", "non", "2026.1");
+    assert.equal(engine.evaluate(`${namespace} . niveau hors grille`).nodeValue, true);
+  });
+});

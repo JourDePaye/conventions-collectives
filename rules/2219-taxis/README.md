@@ -1,13 +1,29 @@
 # Taxis — IDCC 2219
 
-La version `2025.1` modélise l'accord du **20 juin 2025** relatif aux rémunérations minimales, applicable au **1er juin 2025** et étendu par arrêté du **9 octobre 2025**, publié au Journal officiel du **15 octobre 2025**.
+La version `2025.2` modélise l'accord du **20 juin 2025** relatif aux rémunérations minimales, applicable au **1er juin 2025** et étendu par arrêté du **9 octobre 2025**, publié au Journal officiel du **15 octobre 2025**. Elle remplace `2025.1` (même date d'effet), qui ne modélisait qu'une ligne sur onze.
 
 ## Périmètre modélisé
 
-- `classification` accepte `niveau 1 — conducteur débutant — titulaire carte professionnelle` ;
-- `salaire minimum conventionnel` expose le minimum mensuel brut de **1 837,86 €** et le prorata par la quotité de travail ;
-- les autres niveaux, personnels roulants non titulaires de la carte professionnelle, personnels non roulants, titulaires expérimentés et catégories cadres restent explicitement hors du périmètre de cette version ;
-- une classification absente de cette ligne retourne zéro et ne doit pas être interprétée comme une absence de droit conventionnel.
+Les onze lignes de l'accord, désignées par `classification` :
+
+| `classification` | Minimum mensuel (151,67 h) | Taux horaire |
+|---|---|---|
+| `niveau 1 — conducteur débutant — non titulaire carte professionnelle` (échelon 1) | 1 837,86 € | 12,11 € |
+| `niveau 2 — conducteur confirmé — non titulaire carte professionnelle` (échelon 1) | 1 853,34 € | 12,21 € |
+| `niveau 1 — conducteur débutant — titulaire carte professionnelle` (échelon 2) | 1 837,86 € | 12,11 € |
+| `niveau 2 — conducteur confirmé — titulaire carte professionnelle` (échelon 2) | 1 853,34 € | 12,21 € |
+| `niveau 3 — conducteur confirmé — titulaire carte professionnelle` (échelon 2) | 1 868,81 € | 12,32 € |
+| `non roulant — échelon I` | 1 870,09 € (calculé) | 12,33 € |
+| `non roulant — échelon II` | 1 879,19 € (calculé) | 12,39 € |
+| `non roulant — échelon III` | 1 923,18 € (calculé) | 12,68 € |
+| `non roulant — échelon IV` | 2 191,63 € (calculé) | 14,45 € |
+| `non roulant — échelon V` | 2 501,04 € (calculé) | 16,49 € |
+| `non roulant — échelon VI` | 2 816,51 € (calculé) | 18,57 € |
+
+- Clés ajoutées par rapport à `2025.1` : toutes sauf `niveau 1 — conducteur débutant — titulaire carte professionnelle`, conservée telle quelle. Nouvelle règle : `taux horaire minimum conventionnel` (€/heure).
+- `grille mensuelle` : montants publiés pour les personnels roulants ; pour les non roulants, l'article 4 ne publie qu'un taux horaire, le minimum mensuel est calculé par le modèle (taux horaire × 151,67 heures, arrondi au centime) et non repris du texte.
+- `salaire minimum conventionnel` applique la quotité de travail une seule fois au minimum mensuel.
+- Les niveaux et catégories non prévus par l'accord (par exemple le niveau 3 sans carte professionnelle) retournent `classification hors grille` = `oui` et un minimum nul, à ne pas interpréter comme une absence de droit conventionnel.
 
 ## Audit explicite des rubriques de paie
 

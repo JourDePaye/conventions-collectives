@@ -1,6 +1,10 @@
 # Industrie et services nautiques — IDCC 3236
 
-La version `2025.1` modélise l'avenant du **16 avril 2025** relatif aux salaires minima mensuels, applicable au **1er avril 2025** et étendu par arrêté du 19 juin 2025 publié au Journal officiel du 2 juillet 2025.
+La version `2025.2` (qui remplace `2025.1`, de même date d'effet) modélise l'avenant du **16 avril 2025** relatif aux salaires minima mensuels, applicable au **1er avril 2025** et étendu par arrêté du 19 juin 2025 publié au Journal officiel du 2 juillet 2025.
+
+## Correction par rapport à `2025.1`
+
+La version `2025.1` omettait le niveau II, échelon 3 (`II.3` = 1 888,21 €) : les échelons `III.1`, `III.2` et `III.3` étaient décalés d'une ligne vers le bas. La version `2025.2` reprend la grille de l'annexe : `II.3` 1 888,21 ; `III.1` 1 912,44 ; `III.2` 1 940,71 ; `III.3` 1 955,52. Seule clé ajoutée : `II.3`.
 
 ## Périmètre salarial
 

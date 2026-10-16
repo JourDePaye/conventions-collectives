@@ -1,0 +1,161 @@
+# Convention collective nationale de la boucherie, boucherie-charcuterie-traiteur, poissonnerie
+# (détail et gros), écailler, traiteur de la mer du 24 septembre 2024 (IDCC 3254).
+# Version 2026.2: avenant n° 13-B (boucherie, +1,5 %) et avenant n° 12-P (poissonnerie), tous deux du 10 juin 2026,
+# étendus par arrêté du 7 septembre 2026 (JORF du 19 septembre 2026). Article 4 des deux avenants: prise d'effet
+# le 1er jour du mois suivant la publication de l'arrêté d'extension, soit le 1er octobre 2026.
+# The poissonnerie grid (titre II de la partie V, coefficients 130 à 450) replaces the removed IDCC 1504 for
+# this agreement. It is selected by `coefficient`, the boucherie grid by `niveau`.
+validFrom: 2026-10-01
+sources:
+  - >-
+    Avenant n° 13-B du 10 juin 2026 relatif aux salaires (grille boucherie revalorisée de 1,5 %),
+    KALITEXT000054952088, étendu par arrêté du 7 septembre 2026 (JORF du 19 septembre 2026), BO 2026-29.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054952088
+  - >-
+    Avenant n° 12-P du 10 juin 2026 relatif à la modification de la grille des salaires (poissonnerie,
+    titre II de la partie V), KALITEXT000054952074, étendu par arrêté du 7 septembre 2026 (JORF du 19 septembre 2026), BO 2026-29.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054952074
+  - >-
+    Article 4 des avenants 13-B et 12-P: prise d'effet le 1er jour du mois suivant la publication de l'arrêté d'extension
+    au Journal officiel (19 septembre 2026), soit le 1er octobre 2026.
+  - >-
+    Convention collective nationale du 24 septembre 2024, étendue par arrêté du 29 septembre 2025 (JORF du 4 octobre 2025),
+    conteneur KALICONT000052370692.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000052370692
+---
+salarié . convention collective . boucherie poissonnerie:
+  titre: Boucherie-poissonnerie (IDCC 3254)
+  valeur: convention collective = 'boucherie poissonnerie'
+
+salarié . convention collective . boucherie poissonnerie . niveau:
+  titre: Niveau et échelon de classification (boucherie)
+  description: Niveau et échelon de la grille boucherie de l'avenant n° 13-B du 10 juin 2026 (I-A à VII-B).
+  applicable si: convention collective = 'boucherie poissonnerie'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . boucherie poissonnerie . coefficient:
+  titre: Coefficient de classification (poissonnerie)
+  description: >-
+    Coefficient de la grille poissonnerie de l'avenant n° 12-P du 10 juin 2026 (130 à 250 et 300 à 450).
+    À renseigner à la place du niveau pour un salarié de la poissonnerie.
+  applicable si: convention collective = 'boucherie poissonnerie'
+  par défaut: 0
+
+salarié . convention collective . boucherie poissonnerie . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'boucherie poissonnerie'
+  unité: €/mois
+  produit:
+    - grille applicable
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . boucherie poissonnerie . grille applicable:
+  titre: Minimum mensuel à temps plein, boucherie ou poissonnerie
+  unité: €/mois
+  variations:
+    - si: grille > 0 €/mois
+      alors: grille
+    - sinon: grille poissonnerie
+
+salarié . convention collective . boucherie poissonnerie . grille:
+  titre: Salaire minimum mensuel à temps plein (boucherie)
+  unité: €/mois
+  variations:
+    - si: niveau = 'I-A'
+      alors: 1968 €/mois
+    - si: niveau = 'I-B'
+      alors: 1989 €/mois
+    - si: niveau = 'II-A'
+      alors: 2013 €/mois
+    - si: niveau = 'II-B'
+      alors: 2033 €/mois
+    - si: niveau = 'II-C'
+      alors: 2068 €/mois
+    - si: niveau = 'III-A'
+      alors: 2192 €/mois
+    - si: niveau = 'III-B'
+      alors: 2241 €/mois
+    - si: niveau = 'III-C'
+      alors: 2328 €/mois
+    - si: niveau = 'IV-A'
+      alors: 2336 €/mois
+    - si: niveau = 'IV-B'
+      alors: 2407 €/mois
+    - si: niveau = 'IV-C'
+      alors: 2444 €/mois
+    - si: niveau = 'IV-D'
+      alors: 2563 €/mois
+    - si: niveau = 'V'
+      alors: 2782 €/mois
+    - si: niveau = 'VI-A'
+      alors: 3033 €/mois
+    - si: niveau = 'VI-B'
+      alors: 3054 €/mois
+    - si: niveau = 'VI-C'
+      alors: 3419 €/mois
+    - si: niveau = 'VII-A'
+      alors: 3893 €/mois
+    - si: niveau = 'VII-B'
+      alors: 3992 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . boucherie poissonnerie . grille poissonnerie:
+  titre: Salaire minimum mensuel à temps plein (poissonnerie)
+  unité: €/mois
+  variations:
+    - si: coefficient = 130
+      alors: 1897.02 €/mois
+    - si: coefficient = 135
+      alors: 1947.54 €/mois
+    - si: coefficient = 140
+      alors: 1969.37 €/mois
+    - si: coefficient = 145
+      alors: 1994.97 €/mois
+    - si: coefficient = 150
+      alors: 2020.15 €/mois
+    - si: coefficient = 160
+      alors: 2049.49 €/mois
+    - si: coefficient = 165
+      alors: 2079.53 €/mois
+    - si: coefficient = 170
+      alors: 2106.56 €/mois
+    - si: coefficient = 175
+      alors: 2135.19 €/mois
+    - si: coefficient = 180
+      alors: 2154.96 €/mois
+    - si: coefficient = 185
+      alors: 2192.97 €/mois
+    - si: coefficient = 190
+      alors: 2212.83 €/mois
+    - si: coefficient = 195
+      alors: 2251.42 €/mois
+    - si: coefficient = 200
+      alors: 2271.78 €/mois
+    - si: coefficient = 205
+      alors: 2311.45 €/mois
+    - si: coefficient = 210
+      alors: 2394.41 €/mois
+    - si: coefficient = 220
+      alors: 2421.08 €/mois
+    - si: coefficient = 230
+      alors: 2477.97 €/mois
+    - si: coefficient = 240
+      alors: 2521.78 €/mois
+    - si: coefficient = 250
+      alors: 2563.35 €/mois
+    - si: coefficient = 300
+      alors: 3139.15 €/mois
+    - si: coefficient = 350
+      alors: 3461.65 €/mois
+    - si: coefficient = 400
+      alors: 3784.06 €/mois
+    - si: coefficient = 450
+      alors: 4104.62 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . boucherie poissonnerie . niveau hors grille:
+  titre: Classification absente des grilles
+  description: Ni le niveau (boucherie) ni le coefficient (poissonnerie) ne correspondent à une ligne de la grille.
+  applicable si: convention collective = 'boucherie poissonnerie'
+  valeur: grille applicable = 0 €/mois

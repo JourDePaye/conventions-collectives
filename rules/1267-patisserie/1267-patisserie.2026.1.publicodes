@@ -1,78 +1,86 @@
-# Convention collective nationale de la pâtisserie du 30 juin 1983
-# (IDCC 1267, brochure 3210).
-#
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
-# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
-# correction passe par une nouvelle version.
+# Convention collective nationale de la pâtisserie du 30 juin 1983 (IDCC 1267).
+# Version 2026.1 : avenant n° 114 du 29 janvier 2026, grille nationale applicable au 1er janvier 2026, étendu par arrêté du 9 avril 2026.
 validFrom: 2026-01-01
 sources:
   - >-
-    Avenant n° 98 du 12 novembre 2025 relatif aux salaires minima conventionnels,
-    applicable au 1er janvier 2026, texte KALI KALITEXT000053970120 et article
-    KALIARTI000053970122.
-    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053970120
-    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000053970122
+    Avenant n° 114 du 29 janvier 2026 relatif au barème de la grille nationale des salaires au 1er janvier 2026 (article 37 de la convention) : annexe 1, salaires horaires et mensuels (151,67 heures) par coefficient, de 160 à 350 ; texte lu intégralement. Étendu par arrêté du 9 avril 2026, JORF du 17 avril 2026 (« en vigueur étendu »), BOCC 2026-9.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054066586
   - >-
-    Arrêté du 9 février 2026 portant extension d'un avenant à la convention collective
-    nationale de la pâtisserie, publié au Journal officiel du 18 février 2026,
-    JORFTEXT000053593452.
-    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053593452
+    Convention collective nationale de la pâtisserie du 30 juin 1983, IDCC 1267, étendue par arrêté du
+    29 décembre 1983 (JONC du 13 janvier 1984), conteneur officiel Légifrance KALICONT000005635611.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635611
   - >-
-    Convention collective nationale de la pâtisserie du 30 juin 1983, classification
-    des emplois et niveaux conventionnels.
-    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635883
+    Remarque : l'article 1er de l'avenant n° 114 annonce +1,2 % « pour les coefficients de 160 à 190 compris », mais l'annexe 1
+    donne aussi +1,2 % pour les coefficients 200 à 350 par rapport à l'avenant n° 112 (ex. 220 : 2 308,42 -> 2 336,12). Le modèle suit les
+    montants de l'annexe, qui fait foi pour la grille.
 ---
 salarié . convention collective . pâtisserie:
   titre: Pâtisserie (IDCC 1267)
   valeur: convention collective = 'pâtisserie'
 
-salarié . convention collective . pâtisserie . niveau:
-  titre: Niveau de classification
-  description: >-
-    Niveau conventionnel déterminé par la classification du poste. La grille des salaires
-    minima comporte les niveaux I à IX.
+salarié . convention collective . pâtisserie . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient de la grille nationale des salaires (160 à 350). Les coefficients 160 à 350 sont communs aux personnels de fabrication, de vente, des services administratifs, d'entretien et de livraison, qui n'en utilisent chacun qu'une partie ; le montant d'un coefficient est le même dans toutes les filières.
   applicable si: convention collective = 'pâtisserie'
-  par défaut: '''hors grille'''
+  par défaut: 0
 
 salarié . convention collective . pâtisserie . salaire minimum conventionnel:
   titre: Salaire minimum mensuel garanti
-  description: >-
-    Salaire brut mensuel minimum pour un temps plein, selon l'avenant n° 98 applicable au
-    1er janvier 2026, proratisé selon la quotité de travail. Les majorations, primes et
-    avantages qui ne sont pas inclus dans l'assiette conventionnelle ne sont pas ajoutés
-    automatiquement.
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail. Vaut 0 €/mois si le coefficient est absent de la grille.
   applicable si: convention collective = 'pâtisserie'
   unité: €/mois
-  arrondi: 2 décimales
-  valeur: grille mensuelle * contrat . temps de travail . quotité
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
 
-salarié . convention collective . pâtisserie . grille mensuelle:
-  titre: Salaire mensuel minimum à temps plein
+salarié . convention collective . pâtisserie . salaire minimum conventionnel . grille:
+  titre: Grille mensuelle nationale des salaires
+  description: Annexe 1 de l'avenant n° 114 du 29 janvier 2026, applicable à compter du 1er janvier 2026.
   applicable si: convention collective = 'pâtisserie'
   unité: €/mois
   variations:
-    - si: niveau = 'I'
-      alors: 1830 €/mois
-    - si: niveau = 'II'
-      alors: 1834 €/mois
-    - si: niveau = 'III'
-      alors: 1844 €/mois
-    - si: niveau = 'IV'
-      alors: 1863 €/mois
-    - si: niveau = 'V'
-      alors: 1915 €/mois
-    - si: niveau = 'VI'
-      alors: 1989 €/mois
-    - si: niveau = 'VII'
-      alors: 2071 €/mois
-    - si: niveau = 'VIII'
-      alors: 2186 €/mois
-    - si: niveau = 'IX'
-      alors: 2461 €/mois
+    - si: coefficient = 160
+      alors: 1863.37 €/mois
+    - si: coefficient = 165
+      alors: 1874.11 €/mois
+    - si: coefficient = 170
+      alors: 1895.6 €/mois
+    - si: coefficient = 175
+      alors: 1907.88 €/mois
+    - si: coefficient = 180
+      alors: 1929.37 €/mois
+    - si: coefficient = 185
+      alors: 1989.23 €/mois
+    - si: coefficient = 190
+      alors: 2035.28 €/mois
+    - si: coefficient = 200
+      alors: 2121.23 €/mois
+    - si: coefficient = 210
+      alors: 2230.21 €/mois
+    - si: coefficient = 220
+      alors: 2336.12 €/mois
+    - si: coefficient = 250
+      alors: 2652.31 €/mois
+    - si: coefficient = 270
+      alors: 2862.59 €/mois
+    - si: coefficient = 290
+      alors: 3077.48 €/mois
+    - si: coefficient = 310
+      alors: 3289.29 €/mois
+    - si: coefficient = 330
+      alors: 3502.64 €/mois
+    - si: coefficient = 350
+      alors: 3714.46 €/mois
     - sinon: 0 €/mois
 
-salarié . convention collective . pâtisserie . niveau hors grille:
-  titre: Niveau absent de la grille
-  description: Le niveau de classification n'existe pas dans la grille des salaires minima modélisée.
+salarié . convention collective . pâtisserie . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille nationale des salaires.
   applicable si: convention collective = 'pâtisserie'
-  valeur: grille mensuelle = 0 €/mois
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . pâtisserie . audit paie:
+  titre: Audit des rubriques de paie
+  description: Seule la grille nationale des salaires minima est modélisée ; aucun autre taux ou assiette conventionnelle n'est calculé par cette version.
+  applicable si: convention collective = 'pâtisserie'
+  valeur: non

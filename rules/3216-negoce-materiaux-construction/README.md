@@ -1,5 +1,15 @@
 # Négoce des matériaux de construction — IDCC 3216
 
+## Versions
+
+- [2025.1](3216-negoce-materiaux-construction.2025.1.publicodes) : 26 avril 2025, grille mensuelle de l'avenant du 21 janvier 2025 (coefficients 165 à 350).
+- [2025.2](3216-negoce-materiaux-construction.2025.2.publicodes) : même date d'effet (26 avril 2025), elle remplace 2025.1 : même grille mensuelle, plus les minima annuels des cadres (niveaux VI à IX, coefficients 350 à 750, article 3.2.5, VPA 93,80 €).
+- [2026.1](3216-negoce-materiaux-construction.2026.1.publicodes) : 1er mars 2026, avenant du 12 février 2026 (KALITEXT000054304021, BO 2026-13, étendu par arrêté du 4 mai 2026, JORF du 10 mai 2026) : grille mensuelle 165 à 350 (165 = 1 848,65 € … 350 = 2 549 €) et minima annuels des cadres (VPA 94,83 € : 350 = 33 190,50 € … 750 = 71 122,50 €).
+
+Règles à partir de 2025.2 : `coefficient` (non-cadres, 0 pour un cadre), `coefficient cadre` (0 pour un non-cadre), `salaire minimum conventionnel` (€/mois), `salaire minimum annuel conventionnel cadre` (€/an), `coefficient hors grille` (couvre les deux grilles). La prime d'ancienneté (article 2.3, inchangée) n'est pas modélisée.
+
+Le texte ci-dessous décrit la version 2025.1.
+
 La version [2025.1](3216-negoce-materiaux-construction.2025.1.publicodes) est applicable aux employeurs et salariés compris dans le champ de l'accord à compter du **26 avril 2025**, date de publication de l'arrêté d'extension de l'avenant du 21 janvier 2025. L'avenant prévoit une application conventionnelle au 1er janvier 2025 pour les entreprises relevant de son champ avant extension.
 
 La convention collective nationale des salariés du négoce des matériaux de construction du 8 décembre 2015 (brochure 3154) couvre notamment les entreprises du négoce des matériaux de construction relevant de l'IDCC 3216.

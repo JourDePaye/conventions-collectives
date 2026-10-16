@@ -1,0 +1,373 @@
+# Convention collective nationale de la branche ferroviaire du 31 mai 2016 (IDCC 3217).
+# Version 2026.1 : avenant du 17 décembre 2025 à l'accord du 6 décembre 2021, applicable au 1er janvier 2026.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Avenant du 17 décembre 2025 à l'accord du 6 décembre 2021 relatif aux classifications
+    et aux rémunérations, article 2 (grille au 1er janvier 2026 : 9 classes, 12 seuils
+    d'ancienneté, remplace le tableau de l'article 12 de l'accord du 6 décembre 2021) et
+    article 7 (applicable au 1er janvier 2026), Légifrance KALITEXT000053973515 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053973515
+    Étendu par arrêté du 16 mars 2026, JORF du 20 mars 2026.
+  - >-
+    Les articles 3 et 4 de l'avenant (indemnisation du travail de nuit : 4,80 € bruts par heure
+    pour les sédentaires et 4,34 € pour les roulants ; dimanches et jours fériés : 4,31 € bruts
+    par heure, à compter du 1er janvier 2026) ne sont pas modélisés.
+  - >-
+    Convention collective nationale de la branche ferroviaire du 31 mai 2016,
+    accord du 6 décembre 2021 relatif aux classifications et rémunérations,
+    Légifrance KALITEXT000045396776.
+---
+salarié . convention collective . branche ferroviaire:
+  titre: Branche ferroviaire (IDCC 3217)
+  valeur: convention collective = 'branche ferroviaire'
+  description: >-
+    Modèle borné au barème des rémunérations annuelles garanties au 1er janvier 2026,
+    par classe et seuil d'ancienneté ; la comparaison reste annuelle.
+
+salarié . convention collective . branche ferroviaire . classe:
+  titre: Classe de l'emploi
+  question: Quelle est la classe conventionnelle ?
+  unité: unité
+  applicable si: convention collective = 'branche ferroviaire'
+  par défaut: 0
+
+salarié . convention collective . branche ferroviaire . ancienneté:
+  titre: Ancienneté retenue pour le barème
+  description: Ancienneté en années révolues ; seuils conventionnels de 0 à 33 ans.
+  unité: année
+  applicable si: convention collective = 'branche ferroviaire'
+  par défaut: 0
+
+salarié . convention collective . branche ferroviaire . salaire minimum annuel conventionnel:
+  titre: Rémunération annuelle garantie conventionnelle
+  description: Minimum annuel brut garanti, proratisé selon la quotité de travail.
+  unité: €/an
+  applicable si: convention collective = 'branche ferroviaire'
+  produit:
+    - grille annuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . branche ferroviaire . grille annuelle:
+  titre: Barème annuel au 1er janvier 2026
+  unité: €/an
+  applicable si: convention collective = 'branche ferroviaire'
+  variations:
+    - si: classe = 1
+      alors: grille classe 1
+    - si: classe = 2
+      alors: grille classe 2
+    - si: classe = 3
+      alors: grille classe 3
+    - si: classe = 4
+      alors: grille classe 4
+    - si: classe = 5
+      alors: grille classe 5
+    - si: classe = 6
+      alors: grille classe 6
+    - si: classe = 7
+      alors: grille classe 7
+    - si: classe = 8
+      alors: grille classe 8
+    - si: classe = 9
+      alors: grille classe 9
+    - sinon: 0 €/an
+
+
+salarié . convention collective . branche ferroviaire . grille classe 1:
+  titre: Barème annuel de la classe 1
+  unité: €/an
+  variations:
+    - si: ancienneté >= 33
+      alors: 26670 €/an
+    - si: ancienneté >= 30
+      alors: 26276 €/an
+    - si: ancienneté >= 27
+      alors: 25887 €/an
+    - si: ancienneté >= 24
+      alors: 25505 €/an
+    - si: ancienneté >= 21
+      alors: 25128 €/an
+    - si: ancienneté >= 18
+      alors: 24757 €/an
+    - si: ancienneté >= 15
+      alors: 24391 €/an
+    - si: ancienneté >= 12
+      alors: 24030 €/an
+    - si: ancienneté >= 9
+      alors: 23675 €/an
+    - si: ancienneté >= 6
+      alors: 23325 €/an
+    - si: ancienneté >= 3
+      alors: 22981 €/an
+    - si: ancienneté >= 0
+      alors: 22641 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . branche ferroviaire . grille classe 2:
+  titre: Barème annuel de la classe 2
+  unité: €/an
+  variations:
+    - si: ancienneté >= 33
+      alors: 27249 €/an
+    - si: ancienneté >= 30
+      alors: 26847 €/an
+    - si: ancienneté >= 27
+      alors: 26450 €/an
+    - si: ancienneté >= 24
+      alors: 26059 €/an
+    - si: ancienneté >= 21
+      alors: 25674 €/an
+    - si: ancienneté >= 18
+      alors: 25295 €/an
+    - si: ancienneté >= 15
+      alors: 24921 €/an
+    - si: ancienneté >= 12
+      alors: 24553 €/an
+    - si: ancienneté >= 9
+      alors: 24190 €/an
+    - si: ancienneté >= 6
+      alors: 23832 €/an
+    - si: ancienneté >= 3
+      alors: 23480 €/an
+    - si: ancienneté >= 0
+      alors: 23133 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . branche ferroviaire . grille classe 3:
+  titre: Barème annuel de la classe 3
+  unité: €/an
+  variations:
+    - si: ancienneté >= 33
+      alors: 29259 €/an
+    - si: ancienneté >= 30
+      alors: 28827 €/an
+    - si: ancienneté >= 27
+      alors: 28401 €/an
+    - si: ancienneté >= 24
+      alors: 27981 €/an
+    - si: ancienneté >= 21
+      alors: 27567 €/an
+    - si: ancienneté >= 18
+      alors: 27160 €/an
+    - si: ancienneté >= 15
+      alors: 26759 €/an
+    - si: ancienneté >= 12
+      alors: 26363 €/an
+    - si: ancienneté >= 9
+      alors: 25974 €/an
+    - si: ancienneté >= 6
+      alors: 25590 €/an
+    - si: ancienneté >= 3
+      alors: 25212 €/an
+    - si: ancienneté >= 0
+      alors: 24839 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . branche ferroviaire . grille classe 4:
+  titre: Barème annuel de la classe 4
+  unité: €/an
+  variations:
+    - si: ancienneté >= 33
+      alors: 31293 €/an
+    - si: ancienneté >= 30
+      alors: 30831 €/an
+    - si: ancienneté >= 27
+      alors: 30375 €/an
+    - si: ancienneté >= 24
+      alors: 29926 €/an
+    - si: ancienneté >= 21
+      alors: 29484 €/an
+    - si: ancienneté >= 18
+      alors: 29048 €/an
+    - si: ancienneté >= 15
+      alors: 28619 €/an
+    - si: ancienneté >= 12
+      alors: 28196 €/an
+    - si: ancienneté >= 9
+      alors: 27779 €/an
+    - si: ancienneté >= 6
+      alors: 27369 €/an
+    - si: ancienneté >= 3
+      alors: 26964 €/an
+    - si: ancienneté >= 0
+      alors: 26566 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . branche ferroviaire . grille classe 5:
+  titre: Barème annuel de la classe 5
+  unité: €/an
+  variations:
+    - si: ancienneté >= 33
+      alors: 34106 €/an
+    - si: ancienneté >= 30
+      alors: 33602 €/an
+    - si: ancienneté >= 27
+      alors: 33106 €/an
+    - si: ancienneté >= 24
+      alors: 32616 €/an
+    - si: ancienneté >= 21
+      alors: 32134 €/an
+    - si: ancienneté >= 18
+      alors: 31660 €/an
+    - si: ancienneté >= 15
+      alors: 31192 €/an
+    - si: ancienneté >= 12
+      alors: 30731 €/an
+    - si: ancienneté >= 9
+      alors: 30277 €/an
+    - si: ancienneté >= 6
+      alors: 29829 €/an
+    - si: ancienneté >= 3
+      alors: 29388 €/an
+    - si: ancienneté >= 0
+      alors: 28954 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . branche ferroviaire . grille classe 6:
+  titre: Barème annuel de la classe 6
+  unité: €/an
+  variations:
+    - si: ancienneté >= 33
+      alors: 40202 €/an
+    - si: ancienneté >= 30
+      alors: 39608 €/an
+    - si: ancienneté >= 27
+      alors: 39023 €/an
+    - si: ancienneté >= 24
+      alors: 38446 €/an
+    - si: ancienneté >= 21
+      alors: 37878 €/an
+    - si: ancienneté >= 18
+      alors: 37318 €/an
+    - si: ancienneté >= 15
+      alors: 36767 €/an
+    - si: ancienneté >= 12
+      alors: 36223 €/an
+    - si: ancienneté >= 9
+      alors: 35688 €/an
+    - si: ancienneté >= 6
+      alors: 35161 €/an
+    - si: ancienneté >= 3
+      alors: 34641 €/an
+    - si: ancienneté >= 0
+      alors: 34129 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . branche ferroviaire . grille classe 7:
+  titre: Barème annuel de la classe 7
+  unité: €/an
+  variations:
+    - si: ancienneté >= 33
+      alors: 48408 €/an
+    - si: ancienneté >= 30
+      alors: 47692 €/an
+    - si: ancienneté >= 27
+      alors: 46988 €/an
+    - si: ancienneté >= 24
+      alors: 46293 €/an
+    - si: ancienneté >= 21
+      alors: 45609 €/an
+    - si: ancienneté >= 18
+      alors: 44935 €/an
+    - si: ancienneté >= 15
+      alors: 44271 €/an
+    - si: ancienneté >= 12
+      alors: 43617 €/an
+    - si: ancienneté >= 9
+      alors: 42972 €/an
+    - si: ancienneté >= 6
+      alors: 42337 €/an
+    - si: ancienneté >= 3
+      alors: 41711 €/an
+    - si: ancienneté >= 0
+      alors: 41095 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . branche ferroviaire . grille classe 8:
+  titre: Barème annuel de la classe 8
+  unité: €/an
+  variations:
+    - si: ancienneté >= 33
+      alors: 60306 €/an
+    - si: ancienneté >= 30
+      alors: 59415 €/an
+    - si: ancienneté >= 27
+      alors: 58537 €/an
+    - si: ancienneté >= 24
+      alors: 57672 €/an
+    - si: ancienneté >= 21
+      alors: 56820 €/an
+    - si: ancienneté >= 18
+      alors: 55980 €/an
+    - si: ancienneté >= 15
+      alors: 55153 €/an
+    - si: ancienneté >= 12
+      alors: 54338 €/an
+    - si: ancienneté >= 9
+      alors: 53535 €/an
+    - si: ancienneté >= 6
+      alors: 52743 €/an
+    - si: ancienneté >= 3
+      alors: 51964 €/an
+    - si: ancienneté >= 0
+      alors: 51196 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . branche ferroviaire . grille classe 9:
+  titre: Barème annuel de la classe 9
+  unité: €/an
+  variations:
+    - si: ancienneté >= 33
+      alors: 78296 €/an
+    - si: ancienneté >= 30
+      alors: 77139 €/an
+    - si: ancienneté >= 27
+      alors: 75999 €/an
+    - si: ancienneté >= 24
+      alors: 74876 €/an
+    - si: ancienneté >= 21
+      alors: 73769 €/an
+    - si: ancienneté >= 18
+      alors: 72679 €/an
+    - si: ancienneté >= 15
+      alors: 71605 €/an
+    - si: ancienneté >= 12
+      alors: 70547 €/an
+    - si: ancienneté >= 9
+      alors: 69504 €/an
+    - si: ancienneté >= 6
+      alors: 68477 €/an
+    - si: ancienneté >= 3
+      alors: 67465 €/an
+    - si: ancienneté >= 0
+      alors: 66468 €/an
+    - sinon: 0 €/an
+salarié . convention collective . branche ferroviaire . classe hors grille:
+  titre: Classe absente de la grille modélisée
+  applicable si: convention collective = 'branche ferroviaire'
+  toutes ces conditions:
+    - classe != 1
+    - classe != 2
+    - classe != 3
+    - classe != 4
+    - classe != 5
+    - classe != 6
+    - classe != 7
+    - classe != 8
+    - classe != 9
+
+salarié . convention collective . branche ferroviaire . audit paie:
+  titre: Audit explicite des rubriques conventionnelles de paie
+  description: >-
+    Les textes officiels de la branche, l'accord salarial et les textes dédiés ont été
+    recherchés pour les cotisations salarié et employeur, taux, assiettes, plafonds,
+    tranches, forfaits, santé, prévoyance, retraite complémentaire et supplémentaire,
+    formation, AT/MP, primes, indemnités, avantages en nature, exonérations et frais.
+    L'avenant du 17 décembre 2025 fixe le barème de rémunération annuelle garantie,
+    mais ne fournit pas de changement conventionnel générique, chiffré et calculable
+    pour ces rubriques. Aucun taux, base, plafond, tranche, forfait, exonération,
+    prime, avantage ou frais n'est inventé ou mis à zéro ; seuls les minima annuels
+    de rémunération sont calculés.
+  applicable si: convention collective = 'branche ferroviaire'
+  valeur: oui

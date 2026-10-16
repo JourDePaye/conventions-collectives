@@ -1,0 +1,178 @@
+# Convention collective nationale des entreprises d'installation sans fabrication de matériel aéraulique, thermique et frigorifique (IDCC 1412).
+#
+# Version 2026.2 (replaces 2026.1 for the same validFrom: annual grid read from the 1 607 h column, forfait-jours column added), fusionnée avec modele-social par @jourdepaye/payroll-core.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Avenant n° 77 du 26 mars 2026 relatif à la fixation des salaires minima dans la
+    convention collective nationale des entreprises d'installation sans fabrication de
+    matériel aéraulique, thermique et frigorifique (IDCC 1412), grille des coefficients
+    176 à 700, publié sur Légifrance.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054426537
+  - >-
+    Annexe de l'avenant n° 77 (grille au 1er janvier 2026 : colonnes salaire mensuel base
+    151,667 heures, forfait annuel heures base 1 607 heures, forfait annuel jours base 218 jours),
+    KALIARTI000054426545 ; lue dans le texte KALITEXT000054426537.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054426545
+  - >-
+    Arrêté du 11 juin 2026 portant extension des avenants n° 77 et n° 78, publié au
+    Journal officiel du 27 juin 2026, NOR TRST2615573A.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054322388
+  - >-
+    Avenant n° 78 du 26 mars 2026 relatif à la prime d'ancienneté, rendu obligatoire
+    dans le champ étendu par le même arrêté ; disposition documentée mais non calculée
+    dans cette version.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054426546
+---
+salarié . convention collective . installation aeraulique thermique frigorifique:
+  titre: Entreprises d'installation sans fabrication de matériel aéraulique, thermique et frigorifique (IDCC 1412)
+  valeur: convention collective = 'installation aeraulique thermique frigorifique'
+
+salarié . convention collective . installation aeraulique thermique frigorifique . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient de la grille de salaires minima de l'avenant n° 77.
+  applicable si: convention collective = 'installation aeraulique thermique frigorifique'
+  par défaut: 0
+
+salarié . convention collective . installation aeraulique thermique frigorifique . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail. Les coefficients absents de la grille valent 0.
+  applicable si: convention collective = 'installation aeraulique thermique frigorifique'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . installation aeraulique thermique frigorifique . grille mensuelle:
+  titre: Grille mensuelle des salaires minima 2026
+  applicable si: convention collective = 'installation aeraulique thermique frigorifique'
+  unité: €/mois
+  variations:
+    - si: coefficient = 176
+      alors: 1872 €/mois
+    - si: coefficient = 181
+      alors: 1881.09 €/mois
+    - si: coefficient = 186
+      alors: 1889.76 €/mois
+    - si: coefficient = 195
+      alors: 1898.44 €/mois
+    - si: coefficient = 205
+      alors: 1907.12 €/mois
+    - si: coefficient = 210
+      alors: 1915.80 €/mois
+    - si: coefficient = 225
+      alors: 1924.49 €/mois
+    - si: coefficient = 235
+      alors: 1960.94 €/mois
+    - si: coefficient = 245
+      alors: 2045.14 €/mois
+    - si: coefficient = 260
+      alors: 2143.20 €/mois
+    - si: coefficient = 280
+      alors: 2306.93 €/mois
+    - si: coefficient = 300
+      alors: 2471.98 €/mois
+    - si: coefficient = 320
+      alors: 2620.95 €/mois
+    - si: coefficient = 340
+      alors: 2783.35 €/mois
+    - si: coefficient = 365
+      alors: 2988.67 €/mois
+    - si: coefficient = 370
+      alors: 2613.98 €/mois
+    - si: coefficient = 375
+      alors: 2800.14 €/mois
+    - si: coefficient = 380
+      alors: 3000.79 €/mois
+    - si: coefficient = 390
+      alors: 3197.05 €/mois
+    - si: coefficient = 430
+      alors: 3564.51 €/mois
+    - si: coefficient = 460
+      alors: 3948.69 €/mois
+    - si: coefficient = 500
+      alors: 4396.26 €/mois
+    - si: coefficient = 600
+      alors: 4994.29 €/mois
+    - si: coefficient = 700
+      alors: 5921.07 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . installation aeraulique thermique frigorifique . salaire minimum annuel conventionnel:
+  titre: Salaire minimum annuel conventionnel
+  description: Rémunération annuelle brute prévue par l'avenant pour les coefficients relevant d'un forfait annuel en heures. Colonne « Forfait annuel heures, base 1 607 heures » de l'annexe (et non douze fois le mensuel). Elle reste exprimée en €/an et est proratisée selon la quotité de travail.
+  applicable si: convention collective = 'installation aeraulique thermique frigorifique'
+  unité: €/an
+  produit:
+    - grille annuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . installation aeraulique thermique frigorifique . salaire minimum annuel forfait jours conventionnel:
+  titre: Salaire minimum annuel conventionnel en forfait jours
+  description: Rémunération annuelle brute minimale pour un forfait annuel de 218 jours (coefficients 370 à 700). Elle reste exprimée en €/an et est proratisée selon la quotité de travail.
+  applicable si: convention collective = 'installation aeraulique thermique frigorifique'
+  unité: €/an
+  produit:
+    - grille forfait jours
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . installation aeraulique thermique frigorifique . grille annuelle:
+  titre: Grille annuelle des rémunérations minimales (forfait annuel en heures, base 1 607 heures)
+  description: Colonne « Forfait annuel heures, base 1 607 heures » de l'annexe de l'avenant n° 77, coefficients 370 à 700.
+  applicable si: convention collective = 'installation aeraulique thermique frigorifique'
+  unité: €/an
+  variations:
+    - si: coefficient = 370
+      alors: 31365.02 €/an
+    - si: coefficient = 375
+      alors: 33606.03 €/an
+    - si: coefficient = 380
+      alors: 36014.16 €/an
+    - si: coefficient = 390
+      alors: 38369.58 €/an
+    - si: coefficient = 430
+      alors: 42779.62 €/an
+    - si: coefficient = 460
+      alors: 47390.43 €/an
+    - si: coefficient = 500
+      alors: 52761.86 €/an
+    - si: coefficient = 600
+      alors: 59939.20 €/an
+    - si: coefficient = 700
+      alors: 71061.99 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . installation aeraulique thermique frigorifique . grille forfait jours:
+  titre: Grille annuelle des rémunérations minimales (forfait annuel en jours, base 218 jours)
+  description: Colonne « Forfait annuel jours, base 218 jours » de l'annexe de l'avenant n° 77, coefficients 370 à 700.
+  applicable si: convention collective = 'installation aeraulique thermique frigorifique'
+  unité: €/an
+  variations:
+    - si: coefficient = 370
+      alors: 35872.79 €/an
+    - si: coefficient = 375
+      alors: 38435.87 €/an
+    - si: coefficient = 380
+      alors: 41190.08 €/an
+    - si: coefficient = 390
+      alors: 43884.04 €/an
+    - si: coefficient = 430
+      alors: 48927.87 €/an
+    - si: coefficient = 460
+      alors: 54201.36 €/an
+    - si: coefficient = 500
+      alors: 60344.76 €/an
+    - si: coefficient = 600
+      alors: 68553.62 €/an
+    - si: coefficient = 700
+      alors: 81274.96 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . installation aeraulique thermique frigorifique . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  applicable si: convention collective = 'installation aeraulique thermique frigorifique'
+  valeur:
+    toutes ces conditions:
+      - grille mensuelle = 0 €/mois
+      - grille annuelle = 0 €/an
+      - grille forfait jours = 0 €/an

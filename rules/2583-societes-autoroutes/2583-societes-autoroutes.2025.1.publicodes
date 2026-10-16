@@ -1,0 +1,87 @@
+# Convention collective nationale des sociétés concessionnaires ou exploitantes
+# d'autoroutes ou d'ouvrages routiers du 27 juin 2006 (IDCC 2583, brochure 3336).
+# Version 2025.1 : accord collectif national de branche du 21 octobre 2025 relatif
+# aux rémunérations annuelles garanties (RAG) pour l'année 2025 (+1,8 %), étendu par
+# arrêté du 6 janvier 2026 publié au JORF du 17 janvier 2026.
+#
+# Choix de validFrom : la RAG est une garantie pour l'année civile et l'accord
+# s'applique rétroactivement au 1er janvier 2025 (article 6). La date de l'arrêté
+# d'extension ne sert donc pas de borne : la retenir ferait appliquer le barème 2024
+# pendant toute l'année 2025. La version 2024.1 (validFrom 2024-09-12) couvre
+# le reste de 2024. Le barème 2025 vaut pour les employeurs signataires dès le
+# 1er janvier 2025 et, après extension, pour tous les employeurs du champ.
+validFrom: 2025-01-01
+sources:
+  - >-
+    Accord du 21 octobre 2025 relatif aux montants des rémunérations annuelles garanties
+    pour l'année 2025 (barème 2024 revalorisé de 1,8 % pour les 16 classes, effet rétroactif
+    au 1er janvier 2025, articles 3 et 6, annexe), KALITEXT000053428773, étendu par arrêté
+    du 6 janvier 2026 (JORF du 17 janvier 2026).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053428773
+  - >-
+    Convention collective nationale des sociétés concessionnaires ou exploitantes
+    d'autoroutes ou d'ouvrages routiers du 27 juin 2006, IDCC 2583, conteneur
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000018977636
+---
+salarié . convention collective . sociétés autoroutes:
+  titre: Sociétés concessionnaires ou exploitantes d'autoroutes ou d'ouvrages routiers (IDCC 2583)
+  valeur: convention collective = 'sociétés autoroutes'
+
+salarié . convention collective . sociétés autoroutes . classe:
+  titre: Classe de classification
+  description: "Classe de rémunération annuelle garantie : A à P."
+  applicable si: convention collective = 'sociétés autoroutes'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . sociétés autoroutes . rémunération annuelle garantie:
+  titre: Rémunération annuelle garantie conventionnelle
+  description: Minimum annuel brut de l'accord 2025, pour un salarié à temps plein. La comparaison reste annuelle.
+  applicable si: convention collective = 'sociétés autoroutes'
+  unité: €/an
+  variations:
+    - si: classe = 'A'
+      alors: 22681 €/an
+    - si: classe = 'B'
+      alors: 23131 €/an
+    - si: classe = 'C'
+      alors: 24074 €/an
+    - si: classe = 'D'
+      alors: 25374 €/an
+    - si: classe = 'E'
+      alors: 26927 €/an
+    - si: classe = 'F'
+      alors: 28779 €/an
+    - si: classe = 'G'
+      alors: 30986 €/an
+    - si: classe = 'H'
+      alors: 33700 €/an
+    - si: classe = 'I'
+      alors: 36974 €/an
+    - si: classe = 'J'
+      alors: 40967 €/an
+    - si: classe = 'K'
+      alors: 45657 €/an
+    - si: classe = 'L'
+      alors: 51915 €/an
+    - si: classe = 'M'
+      alors: 56617 €/an
+    - si: classe = 'N'
+      alors: 62963 €/an
+    - si: classe = 'O'
+      alors: 69458 €/an
+    - si: classe = 'P'
+      alors: 75951 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . sociétés autoroutes . salaire minimum annuel conventionnel:
+  titre: Salaire minimum annuel conventionnel
+  description: Rémunération annuelle garantie proratisée selon la quotité de travail ; aucune conversion mensuelle n'est inventée.
+  applicable si: convention collective = 'sociétés autoroutes'
+  unité: €/an
+  valeur: rémunération annuelle garantie * contrat . temps de travail . quotité
+
+salarié . convention collective . sociétés autoroutes . classe hors grille:
+  titre: Classe absente de la grille
+  description: La classe fournie ne figure pas dans le barème 2025 modélisé.
+  applicable si: convention collective = 'sociétés autoroutes'
+  valeur: rémunération annuelle garantie = 0 €/an

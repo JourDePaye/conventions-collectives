@@ -1,0 +1,288 @@
+# Convention collective nationale des maisons à succursales de vente au détail d'habillement
+# du 30 juin 1972 (IDCC 675, brochure 3065).
+#
+# Version 2026.3, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Elle remplace la 2026.2 (même date d'effet) : primes d'ancienneté en montants fixes de l'article 1er,
+# A.2 et B.2, tranche de 20 ans, forfait jours calculé sur le minimum hors prime.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+validFrom: 2026-05-01
+sources:
+  - "Accord du 16 avril 2026 relatif aux salaires mensuels minima garantis, IDCC 675 (CCN des maisons à succursales de vente au détail d'habillement du 30 juin 1972, KALICONT000005635617), texte KALITEXT000054871910, BO 2026-21 : article 1er (A.1 et B.1 minima mensuels pour un temps complet, A.2 et B.2 primes d'ancienneté par catégorie et tranche de 3, 6, 9, 12, 15 et 20 ans, majoration d'au moins 15 % du forfait jours calculée hors prime d'ancienneté), article 4 (application au 1er mai 2026). https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054871910"
+  - "Arrêté du 6 juillet 2026 portant extension de l'accord, JORF du 10 juillet 2026, NOR TRST2616915A : extension sous réserve de l'application des dispositions réglementaires sur le SMIC ; l'article 4 ne s'applique aux employeurs non adhérents qu'au lendemain de la publication (11 juillet 2026) : réserve non modélisée."
+---
+salarié . convention collective . succursales habillement:
+  titre: Maisons à succursales de vente au détail d'habillement (IDCC 675)
+  valeur: convention collective = 'succursales habillement'
+
+salarié . convention collective . succursales habillement . niveau:
+  titre: Catégorie de classification
+  description: |
+    E1 à E4 pour les employés, AM1 et AM2 pour les agents de maîtrise, C1 à C3 pour les
+    cadres.
+  applicable si: convention collective = 'succursales habillement'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . succursales habillement . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum de la catégorie pour 151,67 heures, proratisé pour un temps
+    partiel. Vaut 0 €/mois si la catégorie n'existe pas dans la grille (voir « niveau hors
+    grille »).
+  applicable si: convention collective = 'succursales habillement'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . succursales habillement . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'accord du 16 avril 2026 (article 1er, A.1 et B.1), de 1 824 € (employé 1) à 3 044 € (cadre 3).
+  unité: €/mois
+  variations:
+    - si: niveau = 'E1'
+      alors: 1824 €/mois
+    - si: niveau = 'E2'
+      alors: 1837 €/mois
+    - si: niveau = 'E3'
+      alors: 1851 €/mois
+    - si: niveau = 'E4'
+      alors: 1900 €/mois
+    - si: niveau = 'AM1'
+      alors: 1981 €/mois
+    - si: niveau = 'AM2'
+      alors: 2058 €/mois
+    - si: niveau = 'C1'
+      alors: 2348 €/mois
+    - si: niveau = 'C2'
+      alors: 2581 €/mois
+    - si: niveau = 'C3'
+      alors: 3044 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . succursales habillement . montant prime d'ancienneté:
+  titre: Montant de la prime d'ancienneté à temps complet
+  description: |
+    Prime mensuelle d'ancienneté de l'article 1er (A.2 et B.2) pour un temps complet, par
+    catégorie et tranche d'ancienneté (3, 6, 9, 12, 15 et 20 ans). Montants fixes en euros.
+  applicable si: convention collective = 'succursales habillement'
+  unité: €/mois
+  variations:
+    - si: niveau = 'E1'
+      alors:
+        variations:
+          - si: salarié . ancienneté >= 20 an
+            alors: 204.56 €/mois
+          - si: salarié . ancienneté >= 15 an
+            alors: 153.57 €/mois
+          - si: salarié . ancienneté >= 12 an
+            alors: 122.80 €/mois
+          - si: salarié . ancienneté >= 9 an
+            alors: 92.06 €/mois
+          - si: salarié . ancienneté >= 6 an
+            alors: 61.52 €/mois
+          - si: salarié . ancienneté >= 3 an
+            alors: 30.76 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = 'E2'
+      alors:
+        variations:
+          - si: salarié . ancienneté >= 20 an
+            alors: 206.92 €/mois
+          - si: salarié . ancienneté >= 15 an
+            alors: 155.29 €/mois
+          - si: salarié . ancienneté >= 12 an
+            alors: 124.20 €/mois
+          - si: salarié . ancienneté >= 9 an
+            alors: 93.07 €/mois
+          - si: salarié . ancienneté >= 6 an
+            alors: 61.99 €/mois
+          - si: salarié . ancienneté >= 3 an
+            alors: 31.10 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = 'E3'
+      alors:
+        variations:
+          - si: salarié . ancienneté >= 20 an
+            alors: 213.33 €/mois
+          - si: salarié . ancienneté >= 15 an
+            alors: 160.20 €/mois
+          - si: salarié . ancienneté >= 12 an
+            alors: 128.04 €/mois
+          - si: salarié . ancienneté >= 9 an
+            alors: 96.09 €/mois
+          - si: salarié . ancienneté >= 6 an
+            alors: 64.13 €/mois
+          - si: salarié . ancienneté >= 3 an
+            alors: 31.96 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = 'E4'
+      alors:
+        variations:
+          - si: salarié . ancienneté >= 20 an
+            alors: 222.36 €/mois
+          - si: salarié . ancienneté >= 15 an
+            alors: 166.75 €/mois
+          - si: salarié . ancienneté >= 12 an
+            alors: 133.43 €/mois
+          - si: salarié . ancienneté >= 9 an
+            alors: 100.12 €/mois
+          - si: salarié . ancienneté >= 6 an
+            alors: 66.60 €/mois
+          - si: salarié . ancienneté >= 3 an
+            alors: 33.30 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = 'AM1'
+      alors:
+        variations:
+          - si: salarié . ancienneté >= 20 an
+            alors: 233.72 €/mois
+          - si: salarié . ancienneté >= 15 an
+            alors: 175.28 €/mois
+          - si: salarié . ancienneté >= 12 an
+            alors: 140.24 €/mois
+          - si: salarié . ancienneté >= 9 an
+            alors: 105.18 €/mois
+          - si: salarié . ancienneté >= 6 an
+            alors: 70.12 €/mois
+          - si: salarié . ancienneté >= 3 an
+            alors: 35.06 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = 'AM2'
+      alors:
+        variations:
+          - si: salarié . ancienneté >= 20 an
+            alors: 255.52 €/mois
+          - si: salarié . ancienneté >= 15 an
+            alors: 191.65 €/mois
+          - si: salarié . ancienneté >= 12 an
+            alors: 153.18 €/mois
+          - si: salarié . ancienneté >= 9 an
+            alors: 114.94 €/mois
+          - si: salarié . ancienneté >= 6 an
+            alors: 76.68 €/mois
+          - si: salarié . ancienneté >= 3 an
+            alors: 38.24 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = 'C1'
+      alors:
+        variations:
+          - si: salarié . ancienneté >= 20 an
+            alors: 293.71 €/mois
+          - si: salarié . ancienneté >= 15 an
+            alors: 220.23 €/mois
+          - si: salarié . ancienneté >= 12 an
+            alors: 176.14 €/mois
+          - si: salarié . ancienneté >= 9 an
+            alors: 132.07 €/mois
+          - si: salarié . ancienneté >= 6 an
+            alors: 88.13 €/mois
+          - si: salarié . ancienneté >= 3 an
+            alors: 44.09 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = 'C2'
+      alors:
+        variations:
+          - si: salarié . ancienneté >= 20 an
+            alors: 326.72 €/mois
+          - si: salarié . ancienneté >= 15 an
+            alors: 245.09 €/mois
+          - si: salarié . ancienneté >= 12 an
+            alors: 196.12 €/mois
+          - si: salarié . ancienneté >= 9 an
+            alors: 147.15 €/mois
+          - si: salarié . ancienneté >= 6 an
+            alors: 97.81 €/mois
+          - si: salarié . ancienneté >= 3 an
+            alors: 48.98 €/mois
+          - sinon: 0 €/mois
+    - si: niveau = 'C3'
+      alors:
+        variations:
+          - si: salarié . ancienneté >= 20 an
+            alors: 392.68 €/mois
+          - si: salarié . ancienneté >= 15 an
+            alors: 294.63 €/mois
+          - si: salarié . ancienneté >= 12 an
+            alors: 235.70 €/mois
+          - si: salarié . ancienneté >= 9 an
+            alors: 176.77 €/mois
+          - si: salarié . ancienneté >= 6 an
+            alors: 117.86 €/mois
+          - si: salarié . ancienneté >= 3 an
+            alors: 58.93 €/mois
+          - sinon: 0 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . succursales habillement . prime d'ancienneté:
+  titre: Prime d'ancienneté
+  description: |
+    Prime mensuelle d'ancienneté des employés et agents de maîtrise, proratisée selon la
+    quotité de travail. Pour les cadres (C1 à C3), la prime est incluse forfaitairement dans la
+    rémunération (article 1er, B.2) : aucune prime distincte n'est ajoutée (0 €/mois) ; le montant
+    sert seulement de seuil dans « salaire minimum avec prime d'ancienneté ».
+  applicable si: convention collective = 'succursales habillement'
+  unité: €/mois
+  remplace: rémunération . primes . ancienneté
+  variations:
+    - si: niveau = 'C1'
+      alors: 0 €/mois
+    - si: niveau = 'C2'
+      alors: 0 €/mois
+    - si: niveau = 'C3'
+      alors: 0 €/mois
+    - sinon:
+        produit:
+          - montant prime d'ancienneté
+          - contrat . temps de travail . quotité
+
+salarié . convention collective . succursales habillement . salaire minimum avec prime d'ancienneté:
+  titre: Rémunération minimale avec prime d'ancienneté
+  description: |
+    Minimum conventionnel augmenté de la prime d'ancienneté (proratisée). Pour les cadres, c'est
+    le seuil au-delà duquel la prime est réputée incluse dans la rémunération.
+  applicable si: convention collective = 'succursales habillement'
+  unité: €/mois
+  somme:
+    - salaire minimum conventionnel
+    - produit:
+        - montant prime d'ancienneté
+        - contrat . temps de travail . quotité
+
+salarié . convention collective . succursales habillement . forfait jours:
+  titre: Convention de forfait en jours
+  description: Le salarié est-il soumis à une convention individuelle de forfait en jours ?
+  applicable si: convention collective = 'succursales habillement'
+  par défaut: non
+
+salarié . convention collective . succursales habillement . salaire minimum annuel forfait jours:
+  titre: Salaire minimum annuel des cadres au forfait jours
+  description: |
+    Minimum mensuel de la catégorie cadre (hors prime d'ancienneté) majoré de 15 %, sur 12 mois,
+    pour un cadre en forfait annuel en jours (article 1er, B.1). Vaut 0 €/an hors catégories C1 à
+    C3 ou sans forfait jours. Non proratisé.
+  applicable si: convention collective = 'succursales habillement'
+  unité: €/an
+  variations:
+    - si: forfait jours
+      alors:
+        variations:
+          - si: niveau = 'C1'
+            alors: salaire minimum conventionnel . grille * 1.15
+          - si: niveau = 'C2'
+            alors: salaire minimum conventionnel . grille * 1.15
+          - si: niveau = 'C3'
+            alors: salaire minimum conventionnel . grille * 1.15
+          - sinon: 0 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . succursales habillement . niveau hors grille:
+  titre: Catégorie absente de la grille
+  description: La catégorie n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'succursales habillement'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois

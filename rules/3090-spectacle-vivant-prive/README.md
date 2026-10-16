@@ -1,6 +1,6 @@
 # Entreprises privées du spectacle vivant (IDCC 3090)
 
-Version `2025.2`, applicable au **1er septembre 2025**, fondée sur le dernier accord salarial officiel vérifié au **11 octobre 2026** et son extension. Cette révision corrige la grille technique publiée dans la version précédente.
+Version `2025.3`, applicable au **1er septembre 2025**, fondée sur le dernier accord salarial officiel vérifié au **11 octobre 2026** et son extension. La révision `2025.3` remplace `2025.2` (même date d'effet) et ajoute le niveau technique « Cadres groupe 3 » (conseiller(ière) technique), absent de `2025.2` ; `2025.1` et `2025.2` sont conservées pour l'historique.
 
 ## Périmètre juridique explicite
 
@@ -25,6 +25,7 @@ La catégorie et l'échelon doivent être renseignés tels qu'attribués par l'e
 | Catégorie | Minimum mensuel |
 |---|---:|
 | Cadres groupe 2 | 2 658,78 € |
+| Cadres groupe 3 | 2 361,50 € |
 | Agents de maîtrise | 2 115,80 € |
 | Employés qualifiés groupe 1 | 1 906,49 € |
 | Employés qualifiés groupe 2 | 1 821,56 € |

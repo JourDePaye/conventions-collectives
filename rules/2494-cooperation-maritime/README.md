@@ -1,6 +1,8 @@
 # Coopération maritime — IDCC 2494
 
-La version `2026.1` modélise l'accord du **31 mars 2026** relatif aux salaires minima conventionnels au 1er avril 2026. L'accord a été étendu par arrêté du **11 juin 2026**, publié au Journal officiel le **27 juin 2026** ; son application générale est donc modélisée à compter du **1er juillet 2026**.
+Les versions `2026.1` et `2026.2` modélisent l'accord du **31 mars 2026** relatif aux salaires minima conventionnels au 1er avril 2026. L'accord a été étendu par arrêté du **11 juin 2026**, publié au Journal officiel le **27 juin 2026** ; son application générale est donc modélisée à compter du **1er juillet 2026**.
+
+La version `2026.2` corrige la version `2026.1` (même date d'effet, la révision la plus haute l'emporte) : le niveau 7, échelon A, est de **37 220 €** par an selon l'article 2 de l'accord (et non 36 220 €). Les 14 autres montants sont inchangés.
 
 La valeur Publicodes est `coopération maritime` et les règles sont sous `salarié . convention collective . coopération maritime`.
 
@@ -19,7 +21,7 @@ L'accord salarial fixe une garantie annuelle et précise les éléments de rému
 ## Sources officielles
 
 - Convention collective nationale de la coopération maritime du 7 décembre 2004, IDCC 2494, conteneur KALI `KALICONT000018563634`.
-- Accord du 31 mars 2026 relatif aux salaires minima conventionnels au 1er avril 2026, publié dans les textes de la convention sur Légifrance.
+- Accord du 31 mars 2026 relatif aux salaires minima conventionnels au 1er avril 2026, `KALITEXT000054426738` (BO 2026-18), publié dans les textes de la convention sur Légifrance.
 - Arrêté du 11 juin 2026 portant extension de l'accord, publié au JORF du 27 juin 2026.
 
 ## Limites

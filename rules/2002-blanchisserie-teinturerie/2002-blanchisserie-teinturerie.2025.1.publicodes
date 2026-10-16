@@ -1,0 +1,102 @@
+# Convention collective nationale de la blanchisserie, laverie, location de linge, nettoyage à sec,
+# pressing et teinturerie du 17 novembre 1997 (IDCC 2002).
+#
+# Version 2025.1, barème applicable au 1er janvier 2025. Une version publiée ne se modifie plus (voir versions.lock.json) :
+# toute correction ou nouvelle grille passe par une nouvelle version.
+
+validFrom: 2025-01-01
+sources:
+  - "Avenant du 5 mars 2025 relatif aux barèmes conventionnels de salaires au 1er janvier 2025, article 1er : barème des salaires minima conventionnels, base 35 heures, à partir du 1er janvier 2025. Légifrance, KALITEXT000051694901, ouvert et lu. https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051694901"
+  - "Extension : arrêté du 19 mai 2025, JORF du 24 mai 2025 (BO 2025-15) ; signataires GEIST, FFPB et CMTE CFTC. Le texte est « en vigueur étendu » sur Légifrance : il s'applique à tous les employeurs et salariés du champ de la convention (conteneur KALICONT000005635491)."
+---
+salarié . convention collective . blanchisserie teinturerie:
+  titre: Blanchisserie, laverie, location de linge, nettoyage à sec, pressing et teinturerie (IDCC 2002)
+  valeur: convention collective = 'blanchisserie teinturerie'
+
+salarié . convention collective . blanchisserie teinturerie . classification:
+  titre: Coefficient ou catégorie de classification
+  description: |
+    Coefficient de la filière location de linge/blanchisseurs (1-1 à 6-1, par exemple 2-2 ou 5-1),
+    catégorie de la filière pressings/laveries (A1 à D2, par exemple B2 ou D1) ou coefficient des
+    cadres (7-1, 8-1, 9-1). Les employés ETAM des deux filières ont les coefficients 1-1, 2-1, 3-1 et 4-1.
+  applicable si: convention collective = 'blanchisserie teinturerie'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . blanchisserie teinturerie . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: |
+    Minimum mensuel brut base 35 heures (151,67 heures), proratisé selon la quotité de travail.
+    Vaut 0 €/mois si la classification est absente de la grille (voir « classification hors grille »).
+  applicable si: convention collective = 'blanchisserie teinturerie'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . blanchisserie teinturerie . salaire minimum conventionnel . grille:
+  titre: Grille mensuelle à temps plein
+  description: Barème de l'article 1er de l'avenant du 5 mars 2025 relatif aux barèmes conventionnels de salaires au 1er janvier 2025, base 35 heures.
+  unité: €/mois
+  variations:
+    - si: classification = '1-1'
+      alors: 1801.80 €/mois
+    - si: classification = '2-1'
+      alors: 1817.62 €/mois
+    - si: classification = '2-2'
+      alors: 1833.73 €/mois
+    - si: classification = '2-3'
+      alors: 1858.93 €/mois
+    - si: classification = '3-1'
+      alors: 1864.65 €/mois
+    - si: classification = '3-2'
+      alors: 1890.40 €/mois
+    - si: classification = '4-1'
+      alors: 1944.28 €/mois
+    - si: classification = 'A1'
+      alors: 1801.80 €/mois
+    - si: classification = 'A2'
+      alors: 1806.54 €/mois
+    - si: classification = 'A3'
+      alors: 1817.19 €/mois
+    - si: classification = 'B1'
+      alors: 1834.43 €/mois
+    - si: classification = 'B2'
+      alors: 1843.81 €/mois
+    - si: classification = 'B3'
+      alors: 1860.00 €/mois
+    - si: classification = 'C1'
+      alors: 1876.23 €/mois
+    - si: classification = '5-1'
+      alors: 1963.18 €/mois
+    - si: classification = '5-2'
+      alors: 2067.84 €/mois
+    - si: classification = '6-1'
+      alors: 2190.96 €/mois
+    - si: classification = 'C2'
+      alors: 1866.77 €/mois
+    - si: classification = 'C3'
+      alors: 1891.92 €/mois
+    - si: classification = 'D1'
+      alors: 2133.98 €/mois
+    - si: classification = 'D2'
+      alors: 2161.39 €/mois
+    - si: classification = '7-1'
+      alors: 2583.79 €/mois
+    - si: classification = '8-1'
+      alors: 3414.42 €/mois
+    - si: classification = '9-1'
+      alors: 3793.09 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . blanchisserie teinturerie . classification hors grille:
+  titre: Classification absente de la grille
+  description: Le coefficient ou la catégorie n'existe pas dans le barème des salaires minima conventionnels.
+  applicable si: convention collective = 'blanchisserie teinturerie'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . blanchisserie teinturerie . audit paie:
+  titre: Audit explicite des rubriques conventionnelles de paie
+  description: >-
+    Non réalisé : seuls les salaires minima de l'avenant sont modélisés. Les cotisations
+    conventionnelles, primes (ancienneté, etc.), indemnités et autres rubriques de la convention
+    n'ont pas été recherchées ni modélisées.
+  applicable si: convention collective = 'blanchisserie teinturerie'
+  valeur: non

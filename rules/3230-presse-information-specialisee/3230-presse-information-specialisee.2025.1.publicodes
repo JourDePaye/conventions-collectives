@@ -1,0 +1,158 @@
+# Convention collective nationale des employés, techniciens, agents de maîtrise et cadres de la presse d'information spécialisée du 27 décembre 2018 (IDCC 3230).
+# Version 2025.1 : protocole d'accord du 6 novembre 2025, grille applicable au 1er décembre 2025.
+validFrom: 2025-12-01
+sources:
+  - >-
+    Protocole d'accord du 6 novembre 2025 à l'accord du 17 septembre 2021 relatif aux classifications et minima
+    garantis (annexe III), IDCC 3230, KALITEXT000053497591, en vigueur étendu sur Légifrance : la nouvelle grille
+    entre en vigueur à compter du 1er décembre 2025 ; arrêté d'extension du 12 janvier 2026 publié au Journal
+    officiel du 17 janvier 2026 (date relevée dans l'audit, identifiant JORFTEXT non relu).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053497591
+  - >-
+    Convention collective nationale des employés, techniciens, agents de maîtrise et cadres de la presse
+    d'information spécialisée du 27 décembre 2018, Légifrance, KALICONT000038661444.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000038661444
+---
+salarié . convention collective . presse information spécialisée:
+  titre: Presse d'information spécialisée (IDCC 3230)
+  valeur: convention collective = 'presse information spécialisée'
+
+salarié . convention collective . presse information spécialisée . niveau:
+  titre: Niveau de classification
+  description: Niveau de l'emploi selon la grille étendue applicable au 1er décembre 2025.
+  applicable si: convention collective = 'presse information spécialisée'
+  par défaut: 1
+
+salarié . convention collective . presse information spécialisée . ancienneté dans l'entreprise:
+  titre: Ancienneté dans l'entreprise
+  description: Ancienneté retenue par la grille des minima garantis.
+  applicable si: convention collective = 'presse information spécialisée'
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . presse information spécialisée . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum garanti brut à temps plein pour 151,67 heures, augmenté selon l'ancienneté prévue par la grille et proratisé selon la quotité de travail.
+  applicable si: convention collective = 'presse information spécialisée'
+  unité: €/mois
+  produit:
+    - minimum garanti
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . presse information spécialisée . minimum garanti:
+  titre: Minimum garanti brut à temps plein
+  description: Grille étendue au 1er décembre 2025 ; les paliers d'ancienneté majorent le minimum de 2 %, 4 % ou 6 %.
+  applicable si: convention collective = 'presse information spécialisée'
+  unité: €/mois
+  variations:
+    - si: niveau = 1
+      alors:
+        variations:
+          - si: ancienneté dans l'entreprise >= 9 an
+            alors: 1937 €/mois
+          - si: ancienneté dans l'entreprise >= 6 an
+            alors: 1900 €/mois
+          - si: ancienneté dans l'entreprise >= 3 an
+            alors: 1863 €/mois
+          - sinon: 1827 €/mois
+    - si: niveau = 2
+      alors:
+        variations:
+          - si: ancienneté dans l'entreprise >= 9 an
+            alors: 1988 €/mois
+          - si: ancienneté dans l'entreprise >= 6 an
+            alors: 1950 €/mois
+          - si: ancienneté dans l'entreprise >= 3 an
+            alors: 1912 €/mois
+          - sinon: 1875 €/mois
+    - si: niveau = 3
+      alors:
+        variations:
+          - si: ancienneté dans l'entreprise >= 9 an
+            alors: 2093 €/mois
+          - si: ancienneté dans l'entreprise >= 6 an
+            alors: 2052 €/mois
+          - si: ancienneté dans l'entreprise >= 3 an
+            alors: 2014 €/mois
+          - sinon: 1974 €/mois
+    - si: niveau = 4
+      alors:
+        variations:
+          - si: ancienneté dans l'entreprise >= 9 an
+            alors: 2229 €/mois
+          - si: ancienneté dans l'entreprise >= 6 an
+            alors: 2186 €/mois
+          - si: ancienneté dans l'entreprise >= 3 an
+            alors: 2144 €/mois
+          - sinon: 2102 €/mois
+    - si: niveau = 5
+      alors:
+        variations:
+          - si: ancienneté dans l'entreprise >= 9 an
+            alors: 2486 €/mois
+          - si: ancienneté dans l'entreprise >= 6 an
+            alors: 2440 €/mois
+          - si: ancienneté dans l'entreprise >= 3 an
+            alors: 2393 €/mois
+          - sinon: 2347 €/mois
+    - si: niveau = 6
+      alors:
+        variations:
+          - si: ancienneté dans l'entreprise >= 9 an
+            alors: 2678 €/mois
+          - si: ancienneté dans l'entreprise >= 6 an
+            alors: 2628 €/mois
+          - si: ancienneté dans l'entreprise >= 3 an
+            alors: 2579 €/mois
+          - sinon: 2528 €/mois
+    - si: niveau = 7
+      alors:
+        variations:
+          - si: ancienneté dans l'entreprise >= 9 an
+            alors: 3063 €/mois
+          - si: ancienneté dans l'entreprise >= 6 an
+            alors: 3006 €/mois
+          - si: ancienneté dans l'entreprise >= 3 an
+            alors: 2949 €/mois
+          - sinon: 2889 €/mois
+    - si: niveau = 8
+      alors:
+        variations:
+          - si: ancienneté dans l'entreprise >= 9 an
+            alors: 3482 €/mois
+          - si: ancienneté dans l'entreprise >= 6 an
+            alors: 3417 €/mois
+          - si: ancienneté dans l'entreprise >= 3 an
+            alors: 3352 €/mois
+          - sinon: 3285 €/mois
+    - si: niveau = 9
+      alors:
+        variations:
+          - si: ancienneté dans l'entreprise >= 9 an
+            alors: 3742 €/mois
+          - si: ancienneté dans l'entreprise >= 6 an
+            alors: 3670 €/mois
+          - si: ancienneté dans l'entreprise >= 3 an
+            alors: 3600 €/mois
+          - sinon: 3529 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . presse information spécialisée . niveau hors grille:
+  titre: Niveau absent de la grille
+  applicable si: convention collective = 'presse information spécialisée'
+  valeur:
+    toutes ces conditions:
+      - minimum garanti = 0 €/mois
+
+salarié . convention collective . presse information spécialisée . audit paie:
+  titre: Audit des rubriques de paie
+  description: >-
+    L'accord et les textes de branche examinés fixent des minima garantis mensuels
+    et des majorations liées à l'ancienneté. Aucune modification conventionnelle
+    calculable et suffisamment paramétrée n'a été retenue pour les cotisations
+    salariales ou patronales, l'assiette, les plafonds ou tranches, les forfaits,
+    la santé, la prévoyance, la formation professionnelle, l'AT/MP, les primes,
+    indemnités, avantages en nature ou congés. Ces rubriques restent à traiter
+    par l'application avec les données et régimes applicables.
+  applicable si: convention collective = 'presse information spécialisée'
+  valeur: oui

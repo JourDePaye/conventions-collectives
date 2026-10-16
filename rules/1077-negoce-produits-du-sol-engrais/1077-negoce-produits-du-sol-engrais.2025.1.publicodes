@@ -1,0 +1,143 @@
+# Convention collective nationale des entreprises du négoce et de l'industrie des produits du sol, engrais et produits connexes
+# du 2 juillet 1980 (IDCC 1077).
+# Version 2025.1 : avenant n° 74 du 26 mars 2025 relatif aux salaires, étendu par arrêté du 2 juin 2025 (JORF du 12 juin 2025),
+# applicable à compter du 1er mars 2025 à l'ensemble des entreprises de la branche. Base 35 heures.
+
+validFrom: 2025-03-01
+sources:
+  - >-
+    Avenant n° 74 du 26 mars 2025 relatif aux salaires (IDCC 1077), articles 1 à 5 et annexe « Grille des salaires
+    applicable au 1er mars 2025 » (base 35 heures, coefficients 115 à 680), signé par FNA et PDTAOE avec FGA CFDT,
+    BOCC 2025-19. Applicable à compter du 1er mars 2025 à l'ensemble des entreprises de la branche.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051910263
+  - >-
+    Arrêté du 2 juin 2025 portant extension de l'avenant n° 74, publié au JORF du 12 juin 2025 (mention « Etendu par
+    arrêté du 2 juin 2025 JORF 12 juin 2025 » sur la page Légifrance du texte). Le texte du JORF n'a pas été ouvert ;
+    l'extension est lue sur la page Légifrance de l'avenant.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051910263
+  - >-
+    Convention collective nationale du 2 juillet 1980, conteneur Légifrance. L'avenant n° 74 est le dernier texte
+    « Salaires » listé (aucun texte salarial postérieur trouvé au 16 octobre 2026). L'accord du 3 juillet 2025
+    (Annexe I Classification, KALITEXT000052986152, étendu par arrêté du 6 février 2026, JORF du 12 février 2026) crée
+    une nouvelle classification par niveaux, mais son article VIII laisse jusqu'à deux ans après l'extension pour la
+    mise en conformité et maintient jusque-là la classification par coefficients de l'ancienne annexe I.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635910
+---
+salarié . convention collective . négoce et industrie des produits du sol, engrais et produits connexes:
+  titre: Négoce et industrie des produits du sol, engrais et produits connexes (IDCC 1077)
+  valeur: convention collective = 'négoce et industrie des produits du sol, engrais et produits connexes'
+
+salarié . convention collective . négoce et industrie des produits du sol, engrais et produits connexes . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient de l'ancienne annexe I (115 à 680), par exemple 220 ou 350. Le coefficient 115 est transitoire (deux mois après l'embauche).
+  applicable si: convention collective = 'négoce et industrie des produits du sol, engrais et produits connexes'
+  par défaut: 0
+
+salarié . convention collective . négoce et industrie des produits du sol, engrais et produits connexes . minimum mensuel à temps plein:
+  titre: Grille mensuelle des salaires conventionnels
+  description: Grille de l'annexe de l'avenant n° 74, base 35 heures (151,67 heures), applicable au 1er mars 2025. Vaut 0 €/mois si le coefficient est absent de la grille.
+  applicable si: convention collective = 'négoce et industrie des produits du sol, engrais et produits connexes'
+  unité: €/mois
+  variations:
+    - si: coefficient = 115
+      alors: 1834.95 €/mois
+    - si: coefficient = 120
+      alors: 1876.25 €/mois
+    - si: coefficient = 140
+      alors: 1882.54 €/mois
+    - si: coefficient = 155
+      alors: 1889.65 €/mois
+    - si: coefficient = 165
+      alors: 1897.6 €/mois
+    - si: coefficient = 180
+      alors: 1906.62 €/mois
+    - si: coefficient = 200
+      alors: 1916.71 €/mois
+    - si: coefficient = 220
+      alors: 1926.84 €/mois
+    - si: coefficient = 235
+      alors: 1968.78 €/mois
+    - si: coefficient = 240
+      alors: 1990.25 €/mois
+    - si: coefficient = 245
+      alors: 2011.72 €/mois
+    - si: coefficient = 250
+      alors: 2033.2 €/mois
+    - si: coefficient = 255
+      alors: 2054.65 €/mois
+    - si: coefficient = 260
+      alors: 2076.11 €/mois
+    - si: coefficient = 270
+      alors: 2119.06 €/mois
+    - si: coefficient = 275
+      alors: 2140.53 €/mois
+    - si: coefficient = 285
+      alors: 2183.47 €/mois
+    - si: coefficient = 290
+      alors: 2204.93 €/mois
+    - si: coefficient = 295
+      alors: 2226.39 €/mois
+    - si: coefficient = 305
+      alors: 2269.34 €/mois
+    - si: coefficient = 310
+      alors: 2290.8 €/mois
+    - si: coefficient = 315
+      alors: 2312.26 €/mois
+    - si: coefficient = 325
+      alors: 2355.22 €/mois
+    - si: coefficient = 335
+      alors: 2398.17 €/mois
+    - si: coefficient = 340
+      alors: 2419.6 €/mois
+    - si: coefficient = 350
+      alors: 2439.28 €/mois
+    - si: coefficient = 400
+      alors: 2651.93 €/mois
+    - si: coefficient = 425
+      alors: 2758.26 €/mois
+    - si: coefficient = 430
+      alors: 2779.53 €/mois
+    - si: coefficient = 450
+      alors: 2864.59 €/mois
+    - si: coefficient = 460
+      alors: 2907.12 €/mois
+    - si: coefficient = 470
+      alors: 2949.65 €/mois
+    - si: coefficient = 495
+      alors: 3055.97 €/mois
+    - si: coefficient = 520
+      alors: 3162.3 €/mois
+    - si: coefficient = 540
+      alors: 3247.38 €/mois
+    - si: coefficient = 560
+      alors: 3332.42 €/mois
+    - si: coefficient = 580
+      alors: 3417.49 €/mois
+    - si: coefficient = 600
+      alors: 3502.54 €/mois
+    - si: coefficient = 620
+      alors: 3587.6 €/mois
+    - si: coefficient = 680
+      alors: 3842.8 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . négoce et industrie des produits du sol, engrais et produits connexes . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient ne figure pas dans la grille de l'avenant n° 74.
+  applicable si: convention collective = 'négoce et industrie des produits du sol, engrais et produits connexes'
+  valeur: minimum mensuel à temps plein = 0 €/mois
+
+salarié . convention collective . négoce et industrie des produits du sol, engrais et produits connexes . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel pour 151,67 heures, proratisé une seule fois selon la quotité de travail. Vaut 0 €/mois si le coefficient est absent de la grille.
+  applicable si: convention collective = 'négoce et industrie des produits du sol, engrais et produits connexes'
+  unité: €/mois
+  produit:
+    - minimum mensuel à temps plein
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . négoce et industrie des produits du sol, engrais et produits connexes . audit paie:
+  titre: Audit des rubriques de paie
+  description: Seule la grille des salaires minima conventionnels est modélisée ; les autres rubriques conventionnelles (prime d'ancienneté, prévoyance, etc.) n'ont pas été auditées dans cette version.
+  applicable si: convention collective = 'négoce et industrie des produits du sol, engrais et produits connexes'
+  valeur: non

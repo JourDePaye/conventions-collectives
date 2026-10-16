@@ -1,0 +1,380 @@
+# Version 2026.4 : remplace 2026.2 (même date d'effet) avec les six colonnes d'ancienneté ; conserve la contribution formation de 2026.2.
+validFrom: 2026-07-01
+sources:
+  - >-
+    Avenant n° 100 du 3 mars 2026 relatif aux salaires minima au 1er avril 2026 (KALITEXT000054337506, BO 2026-16), article 2 : grille des salaires minima conventionnels en euros par coefficient et par tranche d'ancienneté (0 à 3 ans, 3 à 6, 6 à 9, 9 à 12, 12 à 15, plus de 15 ans), barème mensuel pour 151,67 heures, applicable à compter du 1er avril 2026. Étendu par arrêté du 20 mai 2026, JORF du 29 mai 2026. https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054337506
+  - Convention collective nationale des industries des jeux, jouets, articles de fêtes et ornements de Noël, articles de puériculture et voitures d'enfants, modélisme et industries connexes du 25 janvier 1991 (IDCC 1607, KALICONT000005635904), étendue par arrêté du 8 juillet 1991 (JORF du 19 juillet 1991).
+  - Arrêté du 20 mai 2026 portant extension de l'avenant n° 100, NOR TRST2612716A ; le champ étendu est couvert à compter du premier jour du mois suivant la publication.
+  - Avenant n° 97 du 16 décembre 2025 relatif à la contribution conventionnelle additionnelle à la formation professionnelle, applicable aux exercices 2025 à 2027 ; taux globaux de 0,60 % pour les entreprises de moins de 10 salariés, 1,10 % de 10 à 299 salariés et 1,20 % à partir de 300 salariés.
+  - Arrêté du 20 mai 2026 portant extension de l'avenant n° 97, publié au Journal officiel le 5 juin 2026, NOR TRST2612716A ; les dispositions sont rendues obligatoires à tous les employeurs et salariés du champ de l'IDCC 1607.
+  - Textes consultés sur Légifrance, convention collective IDCC 1607.
+---
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme:
+  titre: Industries de jeux, jouets, articles de fêtes et ornements de Noël, articles de puériculture, voitures d'enfants et modèles réduits (IDCC 1607)
+  valeur: convention collective = 'jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme'
+
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient figurant dans la grille de l'avenant n° 100.
+  applicable si: convention collective = 'jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme'
+  par défaut: 0
+
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme . ancienneté en années:
+  titre: Ancienneté retenue
+  description: |
+    Ancienneté en années, qui détermine la colonne de la grille : 0 à 3 ans (moins de 3 ans),
+    3 à 6, 6 à 9, 9 à 12, 12 à 15, plus de 15 ans. Une ancienneté de 3 ans exactement relève
+    de la colonne 3 à 6 ans.
+  applicable si: convention collective = 'jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme'
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel de la colonne d'ancienneté pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme . salaire minimum conventionnel . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Grille de l'article 2 de l'avenant n° 100 (coefficient et tranche d'ancienneté), pour 151,67 heures mensuelles.
+  unité: €/mois
+  variations:
+    - si: coefficient = 115
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 1957 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 1934 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 1911 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 1887 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 1864 €/mois
+          - sinon: 1841 €/mois
+    - si: coefficient = 118
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 1969 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 1945 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 1922 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 1899 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 1875 €/mois
+          - sinon: 1852 €/mois
+    - si: coefficient = 123
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 1983 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 1959 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 1935 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 1911 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 1887 €/mois
+          - sinon: 1863 €/mois
+    - si: coefficient = 130
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 2036 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 2011 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 1986 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 1961 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 1936 €/mois
+          - sinon: 1911 €/mois
+    - si: coefficient = 138
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 2052 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 2025 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 1999 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 1973 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 1947 €/mois
+          - sinon: 1921 €/mois
+    - si: coefficient = 143
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 2064 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 2037 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 2010 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 1983 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 1956 €/mois
+          - sinon: 1929 €/mois
+    - si: coefficient = 155
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 2085 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 2056 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 2028 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 1999 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 1971 €/mois
+          - sinon: 1942 €/mois
+    - si: coefficient = 170
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 2139 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 2109 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 2078 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 2048 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 2017 €/mois
+          - sinon: 1986 €/mois
+    - si: coefficient = 180
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 2205 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 2173 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 2141 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 2109 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 2077 €/mois
+          - sinon: 2045 €/mois
+    - si: coefficient = 190
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 2258 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 2225 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 2192 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 2158 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 2125 €/mois
+          - sinon: 2092 €/mois
+    - si: coefficient = 200
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 2328 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 2293 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 2258 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 2223 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 2189 €/mois
+          - sinon: 2154 €/mois
+    - si: coefficient = 212
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 2422 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 2386 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 2349 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 2313 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 2276 €/mois
+          - sinon: 2240 €/mois
+    - si: coefficient = 220
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 2473 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 2435 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 2398 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 2360 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 2322 €/mois
+          - sinon: 2285 €/mois
+    - si: coefficient = 255
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 2744 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 2702 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 2659 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 2617 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 2574 €/mois
+          - sinon: 2532 €/mois
+    - si: coefficient = 290
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 3019 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 2972 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 2925 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 2878 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 2830 €/mois
+          - sinon: 2783 €/mois
+    - si: coefficient = 310
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 3173 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 3123 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 3073 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 3023 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 2973 €/mois
+          - sinon: 2923 €/mois
+    - si: coefficient = 330
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 3317 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 3265 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 3212 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 3159 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 3106 €/mois
+          - sinon: 3054 €/mois
+    - si: coefficient = 370
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 3856 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 3797 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 3739 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 3681 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 3622 €/mois
+          - sinon: 3564 €/mois
+    - si: coefficient = 440
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 3973 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 3905 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 3837 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 3769 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 3701 €/mois
+          - sinon: 3633 €/mois
+    - si: coefficient = 480
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 4267 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 4194 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 4120 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 4046 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 3973 €/mois
+          - sinon: 3899 €/mois
+    - si: coefficient = 520
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 4566 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 4486 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 4407 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 4328 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 4249 €/mois
+          - sinon: 4170 €/mois
+    - si: coefficient = 560
+      alors:
+        variations:
+          - si: ancienneté en années >= 15 an
+            alors: 4865 €/mois
+          - si: ancienneté en années >= 12 an
+            alors: 4780 €/mois
+          - si: ancienneté en années >= 9 an
+            alors: 4695 €/mois
+          - si: ancienneté en années >= 6 an
+            alors: 4611 €/mois
+          - si: ancienneté en années >= 3 an
+            alors: 4526 €/mois
+          - sinon: 4441 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme . cotisations:
+  applicable si: convention collective = 'jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme'
+  valeur: oui
+
+salarié . convention collective . jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme . cotisations . formation professionnelle:
+  applicable si: convention collective = 'jeux jouets articles fêtes ornements noël puériculture voitures enfants modélisme'
+  remplace: salarié . cotisations . formation professionnelle
+  produit:
+    - cotisations . assiette
+    - variations:
+        - si: entreprise . salariés . effectif >= 300
+          alors: 1.20%
+        - si: entreprise . salariés . effectif >= 10
+          alors: 1.10%
+        - sinon: 0.60%
+  description: Contribution globale de formation professionnelle de la branche, incluant la contribution légale et la contribution conventionnelle additionnelle de l'avenant n° 97.
+  références:
+    Avenant n° 97 du 16 décembre 2025 relatif à la contribution conventionnelle additionnelle à la formation professionnelle: https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054040321
+    Arrêté du 20 mai 2026 portant extension: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054200590

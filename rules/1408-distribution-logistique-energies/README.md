@@ -1,6 +1,6 @@
-# Convention collective nationale de la distribution, de la logistique et des services de proximité (IDCC 1408).
+# Distribution, logistique et services des énergies de proximité (IDCC 1408)
 
-Le fichier [2025.1](1408-distribution-logistique-energies.2025.1.publicodes) entre en vigueur le **1er mai 2025** pour l'avenant salarial étendu du 27 mars 2025. La valeur Publicodes est `distribution logistique énergies`.
+Les fichiers [2025.1](1408-distribution-logistique-energies.2025.1.publicodes) et [2025.2](1408-distribution-logistique-energies.2025.2.publicodes) entrent en vigueur le **1er mai 2025** pour l'accord du **13 mars 2025** relatif à la revalorisation des salaires minima conventionnels au 1er mai 2025 (+ 2 %), étendu par arrêté du 27 mai 2025 (JORF du 31 mai 2025). La version `2025.2` remplace `2025.1` (même date d'effet) : la grille est identique, la prime d'ancienneté est corrigée. La valeur Publicodes est `distribution logistique énergies`.
 
 ## Grille salariale implémentée
 
@@ -27,7 +27,9 @@ Le minimum est proratisé une seule fois par `contrat . temps de travail . quoti
 
 ## Prime d'ancienneté
 
-La prime d'ancienneté est modélisée pour les coefficients de la grille auxquels l'avenant applique ce dispositif : 3 % après 3 ans, 6 % après 6 ans, 9 % après 9 ans, 12 % après 12 ans et 15 % après 15 ans. Elle est calculée sur le minimum conventionnel du coefficient, après proratisation du temps de travail, et ne remplace pas le salaire minimum.
+À partir de la version `2025.2`, la prime d'ancienneté suit l'annexe de l'accord, qui ne la publie que pour les **coefficients 200 à 320** : 3 % après 3 ans, 6 % après 6 ans, 9 % après 9 ans, 10 % après 10 ans, 11 % après 11 ans, 12 % après 12 ans, 13 % après 13 ans, 14 % après 14 ans et 15 % après 15 ans. Les coefficients 400 à 460 n'ouvrent pas droit à la prime (règle `coefficient ouvrant droit à la prime`, taux nul). La prime est calculée sur le minimum conventionnel du coefficient, après proratisation du temps de travail, et ne remplace pas le salaire minimum. Entre deux paliers, le dernier palier atteint est retenu (lecture du modèle, non précisée par le texte). Deux montants de l'annexe (coefficient 310 à 12 ans : 294,83 € ; coefficient 320 à 14 ans : 387,61 €) sont inférieurs d'un centime au taux appliqué au minimum publié (294,84 € et 387,62 €).
+
+La version `2025.1` ne connaissait que les paliers 3, 6, 9, 12 et 15 % et appliquait la prime à tous les coefficients ; elle est conservée pour les calculs passés mais remplacée par `2025.2`.
 
 ## Audit des rubriques de paie
 
@@ -37,6 +39,6 @@ Les autres primes, indemnités, frais, classifications détaillées et dispositi
 
 ## Sources officielles
 
-- Avenant n° 25 du 27 mars 2025 relatif aux salaires minima, Légifrance, KALITEXT000051787046.
-- Arrêté du 21 mai 2025 portant extension de l'avenant, publié au Journal officiel, texte officiel référencé par l'accord étendu.
-- Convention collective nationale de la distribution, de la logistique et des services de proximité du 12 juillet 2001, IDCC 1408, Légifrance.
+- Accord du 13 mars 2025 relatif à la revalorisation des salaires minima conventionnels au 1er mai 2025, Légifrance, KALITEXT000051787046 (conteneur KALICONT000005635427, BO 2025-16).
+- Étendu par arrêté du 27 mai 2025, JORF du 31 mai 2025.
+- Convention collective nationale et accords de branche des entreprises de la distribution, logistique et services des énergies de proximité du 20 décembre 1985, IDCC 1408, Légifrance.

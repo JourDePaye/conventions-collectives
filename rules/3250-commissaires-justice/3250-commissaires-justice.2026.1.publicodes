@@ -1,116 +1,174 @@
-# Convention collective nationale des commissaires de justice et sociétés de ventes volontaires du 16 novembre 2022 (IDCC 3250).
-#
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
-# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
-
-validFrom: 2026-01-01
+# Convention collective nationale des commissaires de justice et sociétés de ventes volontaires
+# du 16 novembre 2022 (IDCC 3250), étendue par arrêté du 10 juillet 2024.
+# Version 2026.1 : avenant n° 12 du 16 mars 2026, valeur de référence du point 8,87 € à compter du 1er avril 2026.
+validFrom: 2026-04-01
 sources:
   - >-
-    Avenant n° 12 du 9 décembre 2025 relatif aux salaires minima conventionnels pour l'année 2026,
-    Légifrance, texte KALIARTI000054177556, rattaché à la convention collective nationale des
-    commissaires de justice et sociétés de ventes volontaires (IDCC 3250).
+    Avenant n° 12 du 16 mars 2026 relatif aux salaires, étendu par arrêté du 18 mai 2026
+    (JORF du 29 mai 2026, BO 2026-14), KALITEXT000054177556. Article 1er : valeur de référence
+    8,87 € à compter du 1er avril 2026 ; annexe : grille des catégories I, II, II bis et III
+    (coefficients 214 à 542), minimum conventionnel pour 151,67 heures. La valeur complémentaire
+    (8,19 €, au-delà de 214 points) n'est pas restatée par l'avenant (les autres dispositions de l'article 41.1
+    restent inchangées) ; tous les montants publiés de la grille la vérifient.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054177556
   - >-
-    Convention collective nationale des commissaires de justice et sociétés de ventes volontaires
-    du 16 novembre 2022, Légifrance, texte KALITEXT000046771122, article 8 de l'avenant n° 12 :
-    entrée en vigueur au 1er janvier 2026 pour les entreprises relevant du champ de l'accord.
+    Avenant n° 8 du 19 décembre 2024 relatif aux salaires, étendu par arrêté du 15 mai 2025,
+    KALITEXT000051352624 : article 41.1 en vigueur (valeur complémentaire de 8,19 €).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051352624
   - >-
-    Grille de l'annexe de l'avenant n° 12 : minima mensuels bruts pour un temps plein de 151,67
-    heures, classés par catégorie et coefficient.
+    Convention collective nationale du 16 novembre 2022, étendue par arrêté du 10 juillet 2024 (JORF du 18 juillet 2024),
+    conteneur KALICONT000047802239.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000047212228
 ---
 salarié . convention collective . commissaires de justice et sociétés de ventes volontaires:
   titre: Commissaires de justice et sociétés de ventes volontaires (IDCC 3250)
   valeur: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
 
-salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . champ juridique:
-  titre: Champ juridique de l'accord salarial
-  description: L'avenant est modélisé pour les entreprises relevant de son champ d'application ; le statut signataire ou adhérent doit être confirmé par l'appelant.
-  applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
-  par défaut: "'non renseigné'"
-
-salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . catégorie et coefficient:
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . classification:
   titre: Catégorie et coefficient de classification
-  description: Catégorie et coefficient figurant dans la grille des minima mensuels 2026.
+  description: Catégorie (I, II, IIbis ou III) et coefficient de la grille, séparés par un tiret, par exemple II-296 ou III-470. Un même coefficient publié dans plusieurs catégories se saisit avec la catégorie de l'emploi.
   applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
   par défaut: "'non renseigné'"
 
 salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . salaire minimum conventionnel:
   titre: Salaire minimum mensuel conventionnel
-  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
-  applicable si:
-    toutes ces conditions:
-      - convention collective = 'commissaires de justice et sociétés de ventes volontaires'
-      - champ juridique = 'employeur signataire ou adhérent'
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail. Vaut 0 €/mois si la classification est absente de la grille.
+  applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
   unité: €/mois
-  valeur: grille * contrat . temps de travail . quotité
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
 
-salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . salaire minimum conventionnel . grille:
-  titre: Grille mensuelle à temps plein
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . grille:
+  titre: Grille mensuelle des minima conventionnels à temps plein
+  description: Grille de l'annexe de l'avenant n° 12 du 16 mars 2026, applicable à compter du 1er avril 2026 (214 × 8,87 € + (coefficient − 214) × 8,19 €).
+  applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
   unité: €/mois
   variations:
-    - si: catégorie et coefficient = 'I.1-215'
-      alors: 1801.80 €/mois
-    - si: catégorie et coefficient = 'I.2-230'
-      alors: 1805.50 €/mois
-    - si: catégorie et coefficient = 'I.3-245'
-      alors: 1816.10 €/mois
-    - si: catégorie et coefficient = 'I.4-260'
-      alors: 1825.78 €/mois
-    - si: catégorie et coefficient = 'II.1-275'
-      alors: 1831.80 €/mois
-    - si: catégorie et coefficient = 'II.2-283'
+    - si: classification = 'I-214'
+      alors: 1898.18 €/mois
+    - si: classification = 'I-215'
+      alors: 1906.37 €/mois
+    - si: classification = 'I-219'
+      alors: 1939.13 €/mois
+    - si: classification = 'I-223'
+      alors: 1971.89 €/mois
+    - si: classification = 'I-270'
+      alors: 2356.82 €/mois
+    - si: classification = 'I-283'
       alors: 2463.29 €/mois
-    - si: catégorie et coefficient = 'II.3-295'
-      alors: 2548.80 €/mois
-    - si: catégorie et coefficient = 'II.4-305'
-      alors: 2658.13 €/mois
-    - si: catégorie et coefficient = 'II.5-315'
-      alors: 2768.69 €/mois
-    - si: catégorie et coefficient = 'II.6-325'
-      alors: 2881.32 €/mois
-    - si: catégorie et coefficient = 'II.7-335'
-      alors: 2997.28 €/mois
-    - si: catégorie et coefficient = 'II.8-345'
-      alors: 3113.55 €/mois
-    - si: catégorie et coefficient = 'III.1-350'
-      alors: 3227.12 €/mois
-    - si: catégorie et coefficient = 'III.2-360'
-      alors: 3338.92 €/mois
-    - si: catégorie et coefficient = 'III.3-370'
-      alors: 3451.18 €/mois
-    - si: catégorie et coefficient = 'III.4-380'
-      alors: 3564.34 €/mois
-    - si: catégorie et coefficient = 'III.5-390'
-      alors: 3677.48 €/mois
-    - si: catégorie et coefficient = 'III.6-400'
-      alors: 3790.60 €/mois
-    - si: catégorie et coefficient = 'IV.1-410'
-      alors: 3903.74 €/mois
-    - si: catégorie et coefficient = 'IV.2-420'
-      alors: 4016.88 €/mois
-    - si: catégorie et coefficient = 'IV.3-430'
-      alors: 4130.03 €/mois
-    - si: catégorie et coefficient = 'IV.4-440'
-      alors: 4243.18 €/mois
-    - si: catégorie et coefficient = 'IV.5-450'
-      alors: 4356.32 €/mois
-    - si: catégorie et coefficient = 'IV.6-460'
-      alors: 4469.46 €/mois
-    - si: catégorie et coefficient = 'IV.7-470'
-      alors: 4582.61 €/mois
-    - si: catégorie et coefficient = 'IV.8-480'
-      alors: 4695.75 €/mois
-    - si: catégorie et coefficient = 'IV.9-490'
-      alors: 4808.90 €/mois
-    - si: catégorie et coefficient = 'IV.10-500'
-      alors: 4922.04 €/mois
-    - si: catégorie et coefficient = 'IV.11-510'
-      alors: 5035.19 €/mois
-    - si: catégorie et coefficient = 'IV.12-520'
-      alors: 5148.33 €/mois
+    - si: classification = 'I-299'
+      alors: 2594.33 €/mois
+    - si: classification = 'I-300'
+      alors: 2602.52 €/mois
+    - si: classification = 'I-302'
+      alors: 2618.9 €/mois
+    - si: classification = 'I-317'
+      alors: 2741.75 €/mois
+    - si: classification = 'I-331'
+      alors: 2856.41 €/mois
+    - si: classification = 'I-345'
+      alors: 2971.07 €/mois
+    - si: classification = 'I-360'
+      alors: 3093.92 €/mois
+    - si: classification = 'I-410'
+      alors: 3503.42 €/mois
+    - si: classification = 'II-214'
+      alors: 1898.18 €/mois
+    - si: classification = 'II-221'
+      alors: 1955.51 €/mois
+    - si: classification = 'II-231'
+      alors: 2037.41 €/mois
+    - si: classification = 'II-240'
+      alors: 2111.12 €/mois
+    - si: classification = 'II-246'
+      alors: 2160.26 €/mois
+    - si: classification = 'II-258'
+      alors: 2258.54 €/mois
+    - si: classification = 'II-250'
+      alors: 2193.02 €/mois
+    - si: classification = 'II-270'
+      alors: 2356.82 €/mois
+    - si: classification = 'II-296'
+      alors: 2569.76 €/mois
+    - si: classification = 'II-302'
+      alors: 2618.9 €/mois
+    - si: classification = 'II-315'
+      alors: 2725.37 €/mois
+    - si: classification = 'II-317'
+      alors: 2741.75 €/mois
+    - si: classification = 'II-365'
+      alors: 3134.87 €/mois
+    - si: classification = 'II-400'
+      alors: 3421.52 €/mois
+    - si: classification = 'II-447'
+      alors: 3806.45 €/mois
+    - si: classification = 'II-456'
+      alors: 3880.16 €/mois
+    - si: classification = 'IIbis-217'
+      alors: 1922.75 €/mois
+    - si: classification = 'IIbis-230'
+      alors: 2029.22 €/mois
+    - si: classification = 'III-393'
+      alors: 3364.19 €/mois
+    - si: classification = 'III-403'
+      alors: 3446.09 €/mois
+    - si: classification = 'III-441'
+      alors: 3757.31 €/mois
+    - si: classification = 'III-460'
+      alors: 3912.92 €/mois
+    - si: classification = 'III-542'
+      alors: 4584.5 €/mois
+    - si: classification = 'III-470'
+      alors: 3994.82 €/mois
     - sinon: 0 €/mois
 
-salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . catégorie et coefficient hors grille:
-  titre: Catégorie et coefficient absent de la grille
-  description: La combinaison catégorie-coefficient n'existe pas dans la grille des salaires minima 2026.
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . classification hors grille:
+  titre: Classification absente de la grille
+  description: Vrai lorsque la classification saisie ne correspond à aucune ligne publiée de la grille.
   applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
-  valeur: grille = 0 €/mois
+  toutes ces conditions:
+    - classification != 'I-214'
+    - classification != 'I-215'
+    - classification != 'I-219'
+    - classification != 'I-223'
+    - classification != 'I-270'
+    - classification != 'I-283'
+    - classification != 'I-299'
+    - classification != 'I-300'
+    - classification != 'I-302'
+    - classification != 'I-317'
+    - classification != 'I-331'
+    - classification != 'I-345'
+    - classification != 'I-360'
+    - classification != 'I-410'
+    - classification != 'II-214'
+    - classification != 'II-221'
+    - classification != 'II-231'
+    - classification != 'II-240'
+    - classification != 'II-246'
+    - classification != 'II-258'
+    - classification != 'II-250'
+    - classification != 'II-270'
+    - classification != 'II-296'
+    - classification != 'II-302'
+    - classification != 'II-315'
+    - classification != 'II-317'
+    - classification != 'II-365'
+    - classification != 'II-400'
+    - classification != 'II-447'
+    - classification != 'II-456'
+    - classification != 'IIbis-217'
+    - classification != 'IIbis-230'
+    - classification != 'III-393'
+    - classification != 'III-403'
+    - classification != 'III-441'
+    - classification != 'III-460'
+    - classification != 'III-542'
+    - classification != 'III-470'
+
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . audit paie:
+  titre: Audit des rubriques de paie
+  description: Seul le salaire minimum conventionnel de la grille est modélisé ; les autres rubriques de paie de la convention ne sont pas auditées.
+  applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
+  valeur: non

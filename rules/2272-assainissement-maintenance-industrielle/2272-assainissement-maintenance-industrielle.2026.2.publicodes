@@ -1,0 +1,89 @@
+# Convention collective nationale de l'assainissement et de la maintenance industrielle du 21 mai 2002
+# (IDCC 2272, brochure 3309).
+#
+# Version 2026.2 (remplace 2026.1 : montants du tableau publié repris tels quels),
+# fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+validFrom: 2026-04-01
+sources:
+  - Avenant n° 45 du 20 février 2026 relatif à la réévaluation des salaires minima
+    conventionnels au 1er avril 2026, article 1 (valeur du point de 4,632 €, partie fixe
+    de 1 052,484 €, exceptions 2026 pour les coefficients 170 et 185), texte KALI
+    KALITEXT000054303965 et articles KALIARTI000054303969 et KALIARTI000054303970.
+  - Arrêté du 5 mai 2026 portant extension d'un avenant à la convention collective
+    nationale de l'assainissement et de la maintenance industrielle (n° 2272), publié
+    au Journal officiel du 16 mai 2026, JORFTEXT000054104243.
+---
+salarié . convention collective . assainissement et maintenance industrielle:
+  titre: Assainissement et maintenance industrielle (IDCC 2272)
+  valeur: convention collective = 'assainissement et maintenance industrielle'
+
+salarié . convention collective . assainissement et maintenance industrielle . coefficient:
+  titre: Coefficient de classification
+  description: |
+    Coefficient de la classification des ouvriers, employés, techniciens, agents de maîtrise
+    et cadres. Les coefficients 260, 280, 430, 500 et 580 peuvent correspondre à plusieurs
+    catégories, mais leur minimum est identique dans la grille.
+  applicable si: convention collective = 'assainissement et maintenance industrielle'
+  par défaut: 0
+
+salarié . convention collective . assainissement et maintenance industrielle . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire brut mensuel minimum pour 151,67 heures, repris du tableau de l'avenant n° 45,
+    puis proratisé selon la quotité de travail. Les deux premiers coefficients bénéficient de
+    montants exceptionnels en 2026.
+  applicable si: convention collective = 'assainissement et maintenance industrielle'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille mensuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . assainissement et maintenance industrielle . grille mensuelle:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille applicable au 1er avril 2026 pour 151,67 heures, reprise du tableau publié à
+    l'article I de l'avenant n° 45 (le tableau est arrondi à partir d'une valeur du point non
+    arrondie : il ne se retrouve pas exactement avec 1 052,484 € + coefficient × 4,632 €).
+    Les coefficients 170 et 185 sont les montants exceptionnels de 2026. Pour les coefficients
+    760, 1 120 et 1 470 (cadres), le texte donne un montant annuel, divisé ici par 12.
+  applicable si: convention collective = 'assainissement et maintenance industrielle'
+  unité: €/mois
+  variations:
+    - si: coefficient = 170
+      alors: 1863.00 €/mois
+    - si: coefficient = 185
+      alors: 1913.63 €/mois
+    - si: coefficient = 200
+      alors: 1978.92 €/mois
+    - si: coefficient = 215
+      alors: 2048.40 €/mois
+    - si: coefficient = 230
+      alors: 2117.89 €/mois
+    - si: coefficient = 245
+      alors: 2187.37 €/mois
+    - si: coefficient = 260
+      alors: 2256.85 €/mois
+    - si: coefficient = 280
+      alors: 2349.50 €/mois
+    - si: coefficient = 320
+      alors: 2534.78 €/mois
+    - si: coefficient = 430
+      alors: 3044.32 €/mois
+    - si: coefficient = 500
+      alors: 3368.58 €/mois
+    - si: coefficient = 580
+      alors: 3739.15 €/mois
+    - si: coefficient = 760
+      alors: 54875.85 €/mois / 12
+    - si: coefficient = 1120
+      alors: 74886.40 €/mois / 12
+    - si: coefficient = 1470
+      alors: 94341.59 €/mois / 12
+    - sinon: 0 €/mois
+
+salarié . convention collective . assainissement et maintenance industrielle . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille des salaires minima modélisée.
+  applicable si: convention collective = 'assainissement et maintenance industrielle'
+  valeur: grille mensuelle = 0 €/mois

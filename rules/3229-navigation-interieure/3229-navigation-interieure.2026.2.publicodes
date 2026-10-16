@@ -1,0 +1,721 @@
+# Convention collective nationale du personnel des entreprises de transport en navigation intérieure du 20 décembre 2018 (IDCC 3229).
+# Version 2026.2 : protocole d'accord du 17 décembre 2025 relatif aux salaires minima conventionnels,
+# application à compter du 1er janvier 2026 (annexes salariales complètes), étendu par arrêté du 18 mai 2026.
+# Remplace la version 2026.1 (même date d'effet) qui ne couvrait que la ligne Matelot, coefficient 001.
+validFrom: 2026-01-01
+sources:
+  - >-
+    Protocole d'accord du 17 décembre 2025 relatif aux salaires minima conventionnels
+    (majoration de 1,0 % au 1er janvier 2026 pour toutes les classifications), Légifrance,
+    KALITEXT000054370921, conteneur KALICONT000043006530, BO 2026-15 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054370921
+  - >-
+    Annexes du protocole (huit tableaux, « Application à compter du 1er janvier 2026 ») : transport fluvial de
+    marchandises, flotte classique ; flotte exploitée en relève ; personnel sédentaire (ouvriers, employés,
+    agents de maîtrise, cadres) ; transport fluvial de passagers, personnel navigant technique, hôtellerie
+    restauration, ETAM et cadres. Ligne Matelot : KALIARTI000054370936.
+  - >-
+    Arrêté du 18 mai 2026 portant extension du protocole d'accord, publié au Journal officiel du 29 mai 2026 :
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054149359
+  - >-
+    Non vérifié : le tableau des cadres sédentaires ne publie que le premier et le dernier coefficient de chaque
+    position ; les coefficients intermédiaires ne sont pas modélisés (classification hors grille).
+---
+salarié . convention collective . navigation intérieure:
+  titre: Navigation intérieure (IDCC 3229)
+  valeur: convention collective = 'navigation intérieure'
+
+salarié . convention collective . navigation intérieure . classification:
+  titre: Classification et ancienneté de navigation
+  description: >-
+    Clé de classification de l'annexe salariale, voir le README (matelot flotte classique : « matelot — 0 à 3 ans » ;
+    autres lignes : « <tableau> — <emploi et coefficient> — <tranche d'ancienneté> »).
+  applicable si: convention collective = 'navigation intérieure'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . navigation intérieure . grille annuelle:
+  titre: Rémunération minimale annuelle garantie
+  description: >-
+    Barème brut annuel toutes primes incluses, hors primes de sujétions particulières (nuit, heures supplémentaires,
+    compensations liées à l'organisation du temps de travail) et primes à caractère annuel, au 1er janvier 2026.
+  applicable si: convention collective = 'navigation intérieure'
+  unité: €/an
+  variations:
+    - si: classification = 'matelot — 0 à 3 ans'
+      alors: 22889 €/an
+    - si: classification = 'matelot — 3 à 6 ans'
+      alors: 23576 €/an
+    - si: classification = 'matelot — 6 à 9 ans'
+      alors: 24262 €/an
+    - si: classification = 'matelot — 9 à 12 ans'
+      alors: 24949 €/an
+    - si: classification = 'matelot — 12 à 15 ans'
+      alors: 25636 €/an
+    - si: classification = 'matelot — au-delà de 15 ans'
+      alors: 26322 €/an
+    - si: classification = 'classique — matelot-timonier 004 — 0 à 3 ans'
+      alors: 23205 €/an
+    - si: classification = 'classique — matelot-timonier 004 — 3 à 6 ans'
+      alors: 23901 €/an
+    - si: classification = 'classique — matelot-timonier 004 — 6 à 9 ans'
+      alors: 24597 €/an
+    - si: classification = 'classique — matelot-timonier 004 — 9 à 12 ans'
+      alors: 25294 €/an
+    - si: classification = 'classique — matelot-timonier 004 — 12 à 15 ans'
+      alors: 25990 €/an
+    - si: classification = 'classique — matelot-timonier 004 — au-delà de 15 ans'
+      alors: 26686 €/an
+    - si: classification = 'classique — timonier-conducteur 010 — 0 à 3 ans'
+      alors: 23309 €/an
+    - si: classification = 'classique — timonier-conducteur 010 — 3 à 6 ans'
+      alors: 24008 €/an
+    - si: classification = 'classique — timonier-conducteur 010 — 6 à 9 ans'
+      alors: 24707 €/an
+    - si: classification = 'classique — timonier-conducteur 010 — 9 à 12 ans'
+      alors: 25407 €/an
+    - si: classification = 'classique — timonier-conducteur 010 — 12 à 15 ans'
+      alors: 26106 €/an
+    - si: classification = 'classique — timonier-conducteur 010 — au-delà de 15 ans'
+      alors: 26805 €/an
+    - si: classification = 'classique — capitaine 020 — 0 à 3 ans'
+      alors: 24563 €/an
+    - si: classification = 'classique — capitaine 020 — 3 à 6 ans'
+      alors: 25300 €/an
+    - si: classification = 'classique — capitaine 020 — 6 à 9 ans'
+      alors: 26037 €/an
+    - si: classification = 'classique — capitaine 020 — 9 à 12 ans'
+      alors: 26773 €/an
+    - si: classification = 'classique — capitaine 020 — 12 à 15 ans'
+      alors: 27510 €/an
+    - si: classification = 'classique — capitaine 020 — au-delà de 15 ans'
+      alors: 28247 €/an
+    - si: classification = 'classique — timonier-conducteur 011 — 0 à 3 ans'
+      alors: 24069 €/an
+    - si: classification = 'classique — timonier-conducteur 011 — 3 à 6 ans'
+      alors: 24791 €/an
+    - si: classification = 'classique — timonier-conducteur 011 — 6 à 9 ans'
+      alors: 25513 €/an
+    - si: classification = 'classique — timonier-conducteur 011 — 9 à 12 ans'
+      alors: 26235 €/an
+    - si: classification = 'classique — timonier-conducteur 011 — 12 à 15 ans'
+      alors: 26957 €/an
+    - si: classification = 'classique — timonier-conducteur 011 — au-delà de 15 ans'
+      alors: 27679 €/an
+    - si: classification = 'classique — capitaine 021 — 0 à 3 ans'
+      alors: 25303 €/an
+    - si: classification = 'classique — capitaine 021 — 3 à 6 ans'
+      alors: 26062 €/an
+    - si: classification = 'classique — capitaine 021 — 6 à 9 ans'
+      alors: 26822 €/an
+    - si: classification = 'classique — capitaine 021 — 9 à 12 ans'
+      alors: 27581 €/an
+    - si: classification = 'classique — capitaine 021 — 12 à 15 ans'
+      alors: 28340 €/an
+    - si: classification = 'classique — capitaine 021 — au-delà de 15 ans'
+      alors: 29099 €/an
+    - si: classification = 'classique — timonier-conducteur 012 — 0 à 3 ans'
+      alors: 24563 €/an
+    - si: classification = 'classique — timonier-conducteur 012 — 3 à 6 ans'
+      alors: 25300 €/an
+    - si: classification = 'classique — timonier-conducteur 012 — 6 à 9 ans'
+      alors: 26037 €/an
+    - si: classification = 'classique — timonier-conducteur 012 — 9 à 12 ans'
+      alors: 26773 €/an
+    - si: classification = 'classique — timonier-conducteur 012 — 12 à 15 ans'
+      alors: 27510 €/an
+    - si: classification = 'classique — timonier-conducteur 012 — au-delà de 15 ans'
+      alors: 28247 €/an
+    - si: classification = 'classique — capitaine 022 — 0 à 3 ans'
+      alors: 27155 €/an
+    - si: classification = 'classique — capitaine 022 — 3 à 6 ans'
+      alors: 27969 €/an
+    - si: classification = 'classique — capitaine 022 — 6 à 9 ans'
+      alors: 28784 €/an
+    - si: classification = 'classique — capitaine 022 — 9 à 12 ans'
+      alors: 29599 €/an
+    - si: classification = 'classique — capitaine 022 — 12 à 15 ans'
+      alors: 30413 €/an
+    - si: classification = 'classique — capitaine 022 — au-delà de 15 ans'
+      alors: 31228 €/an
+    - si: classification = 'classique — timonier-conducteur 013 — 0 à 3 ans'
+      alors: 25797 €/an
+    - si: classification = 'classique — timonier-conducteur 013 — 3 à 6 ans'
+      alors: 26571 €/an
+    - si: classification = 'classique — timonier-conducteur 013 — 6 à 9 ans'
+      alors: 27345 €/an
+    - si: classification = 'classique — timonier-conducteur 013 — 9 à 12 ans'
+      alors: 28119 €/an
+    - si: classification = 'classique — timonier-conducteur 013 — 12 à 15 ans'
+      alors: 28893 €/an
+    - si: classification = 'classique — timonier-conducteur 013 — au-delà de 15 ans'
+      alors: 29667 €/an
+    - si: classification = 'classique — capitaine 023 — 0 à 3 ans'
+      alors: 29623 €/an
+    - si: classification = 'classique — capitaine 023 — 3 à 6 ans'
+      alors: 30512 €/an
+    - si: classification = 'classique — capitaine 023 — 6 à 9 ans'
+      alors: 31401 €/an
+    - si: classification = 'classique — capitaine 023 — 9 à 12 ans'
+      alors: 32290 €/an
+    - si: classification = 'classique — capitaine 023 — 12 à 15 ans'
+      alors: 33178 €/an
+    - si: classification = 'classique — capitaine 023 — au-delà de 15 ans'
+      alors: 34067 €/an
+    - si: classification = 'relève — matelot débutant 100 — 0 à 3 ans'
+      alors: 22889 €/an
+    - si: classification = 'relève — matelot niveau 1 101 — 0 à 3 ans'
+      alors: 23106 €/an
+    - si: classification = 'relève — matelot niveau 1 101 — 3 à 6 ans'
+      alors: 23799 €/an
+    - si: classification = 'relève — matelot niveau 1 101 — 6 à 9 ans'
+      alors: 24493 €/an
+    - si: classification = 'relève — matelot niveau 1 101 — 9 à 12 ans'
+      alors: 25186 €/an
+    - si: classification = 'relève — matelot niveau 2 102 — 0 à 3 ans'
+      alors: 23205 €/an
+    - si: classification = 'relève — matelot niveau 2 102 — 3 à 6 ans'
+      alors: 23901 €/an
+    - si: classification = 'relève — matelot niveau 2 102 — 6 à 9 ans'
+      alors: 24597 €/an
+    - si: classification = 'relève — matelot niveau 2 102 — 9 à 12 ans'
+      alors: 25294 €/an
+    - si: classification = 'relève — matelot niveau 2 102 — 12 à 15 ans'
+      alors: 25990 €/an
+    - si: classification = 'relève — matelot niveau 2 102 — au-delà de 15 ans'
+      alors: 26686 €/an
+    - si: classification = 'relève — maître matelot 104 — 0 à 3 ans'
+      alors: 23452 €/an
+    - si: classification = 'relève — maître matelot 104 — 3 à 6 ans'
+      alors: 24155 €/an
+    - si: classification = 'relève — maître matelot 104 — 6 à 9 ans'
+      alors: 24859 €/an
+    - si: classification = 'relève — maître matelot 104 — 9 à 12 ans'
+      alors: 25563 €/an
+    - si: classification = 'relève — maître matelot 104 — 12 à 15 ans'
+      alors: 26266 €/an
+    - si: classification = 'relève — maître matelot 104 — au-delà de 15 ans'
+      alors: 26970 €/an
+    - si: classification = 'relève — matelot garde moteur 104 — 0 à 3 ans'
+      alors: 23452 €/an
+    - si: classification = 'relève — matelot garde moteur 104 — 3 à 6 ans'
+      alors: 24155 €/an
+    - si: classification = 'relève — matelot garde moteur 104 — 6 à 9 ans'
+      alors: 24859 €/an
+    - si: classification = 'relève — matelot garde moteur 104 — 9 à 12 ans'
+      alors: 25563 €/an
+    - si: classification = 'relève — matelot garde moteur 104 — 12 à 15 ans'
+      alors: 26266 €/an
+    - si: classification = 'relève — matelot garde moteur 104 — au-delà de 15 ans'
+      alors: 26970 €/an
+    - si: classification = 'relève — matelot-timonier 104 — 0 à 3 ans'
+      alors: 23452 €/an
+    - si: classification = 'relève — matelot-timonier 104 — 3 à 6 ans'
+      alors: 24155 €/an
+    - si: classification = 'relève — matelot-timonier 104 — 6 à 9 ans'
+      alors: 24859 €/an
+    - si: classification = 'relève — matelot-timonier 104 — 9 à 12 ans'
+      alors: 25563 €/an
+    - si: classification = 'relève — matelot-timonier 104 — 12 à 15 ans'
+      alors: 26266 €/an
+    - si: classification = 'relève — matelot-timonier 104 — au-delà de 15 ans'
+      alors: 26970 €/an
+    - si: classification = 'relève — mécanicien 106 — 0 à 3 ans'
+      alors: 24452 €/an
+    - si: classification = 'relève — mécanicien 106 — 3 à 6 ans'
+      alors: 25186 €/an
+    - si: classification = 'relève — mécanicien 106 — 6 à 9 ans'
+      alors: 25919 €/an
+    - si: classification = 'relève — mécanicien 106 — 9 à 12 ans'
+      alors: 26653 €/an
+    - si: classification = 'relève — mécanicien 106 — 12 à 15 ans'
+      alors: 27387 €/an
+    - si: classification = 'relève — mécanicien 106 — au-delà de 15 ans'
+      alors: 28120 €/an
+    - si: classification = 'relève — timonier-conducteur 106 — 0 à 3 ans'
+      alors: 24563 €/an
+    - si: classification = 'relève — timonier-conducteur 106 — 3 à 6 ans'
+      alors: 25300 €/an
+    - si: classification = 'relève — timonier-conducteur 106 — 6 à 9 ans'
+      alors: 26037 €/an
+    - si: classification = 'relève — timonier-conducteur 106 — 9 à 12 ans'
+      alors: 26773 €/an
+    - si: classification = 'relève — timonier-conducteur 106 — 12 à 15 ans'
+      alors: 27510 €/an
+    - si: classification = 'relève — timonier-conducteur 106 — au-delà de 15 ans'
+      alors: 28247 €/an
+    - si: classification = 'relève — maître mécanicien 108 — 0 à 3 ans'
+      alors: 26112 €/an
+    - si: classification = 'relève — maître mécanicien 108 — 3 à 6 ans'
+      alors: 26895 €/an
+    - si: classification = 'relève — maître mécanicien 108 — 6 à 9 ans'
+      alors: 27679 €/an
+    - si: classification = 'relève — maître mécanicien 108 — 9 à 12 ans'
+      alors: 28462 €/an
+    - si: classification = 'relève — maître mécanicien 108 — 12 à 15 ans'
+      alors: 29245 €/an
+    - si: classification = 'relève — maître mécanicien 108 — au-delà de 15 ans'
+      alors: 30029 €/an
+    - si: classification = 'relève — second capitaine 110 — 0 à 3 ans'
+      alors: 27155 €/an
+    - si: classification = 'relève — second capitaine 110 — 3 à 6 ans'
+      alors: 27969 €/an
+    - si: classification = 'relève — second capitaine 110 — 6 à 9 ans'
+      alors: 28784 €/an
+    - si: classification = 'relève — second capitaine 110 — 9 à 12 ans'
+      alors: 29599 €/an
+    - si: classification = 'relève — second capitaine 110 — 12 à 15 ans'
+      alors: 30413 €/an
+    - si: classification = 'relève — second capitaine 110 — au-delà de 15 ans'
+      alors: 31228 €/an
+    - si: classification = 'relève — 1er capitaine 112 — 0 à 3 ans'
+      alors: 30302 €/an
+    - si: classification = 'relève — 1er capitaine 112 — 3 à 6 ans'
+      alors: 31211 €/an
+    - si: classification = 'relève — 1er capitaine 112 — 6 à 9 ans'
+      alors: 32120 €/an
+    - si: classification = 'relève — 1er capitaine 112 — 9 à 12 ans'
+      alors: 33030 €/an
+    - si: classification = 'relève — 1er capitaine 112 — 12 à 15 ans'
+      alors: 33939 €/an
+    - si: classification = 'relève — 1er capitaine 112 — au-delà de 15 ans'
+      alors: 34848 €/an
+    - si: classification = 'relève — 1er capitaine responsable de bord 114 — 0 à 3 ans'
+      alors: 30426 €/an
+    - si: classification = 'relève — 1er capitaine responsable de bord 114 — 3 à 6 ans'
+      alors: 31339 €/an
+    - si: classification = 'relève — 1er capitaine responsable de bord 114 — 6 à 9 ans'
+      alors: 32251 €/an
+    - si: classification = 'relève — 1er capitaine responsable de bord 114 — 9 à 12 ans'
+      alors: 33164 €/an
+    - si: classification = 'relève — 1er capitaine responsable de bord 114 — 12 à 15 ans'
+      alors: 34077 €/an
+    - si: classification = 'relève — 1er capitaine responsable de bord 114 — au-delà de 15 ans'
+      alors: 34990 €/an
+    - si: classification = 'relève — mécanicien 107 — 0 à 3 ans'
+      alors: 24576 €/an
+    - si: classification = 'relève — mécanicien 107 — 3 à 6 ans'
+      alors: 25313 €/an
+    - si: classification = 'relève — mécanicien 107 — 6 à 9 ans'
+      alors: 26050 €/an
+    - si: classification = 'relève — mécanicien 107 — 9 à 12 ans'
+      alors: 26787 €/an
+    - si: classification = 'relève — mécanicien 107 — 12 à 15 ans'
+      alors: 27525 €/an
+    - si: classification = 'relève — mécanicien 107 — au-delà de 15 ans'
+      alors: 28262 €/an
+    - si: classification = 'relève — timonier-conducteur 107 — 0 à 3 ans'
+      alors: 24686 €/an
+    - si: classification = 'relève — timonier-conducteur 107 — 3 à 6 ans'
+      alors: 25427 €/an
+    - si: classification = 'relève — timonier-conducteur 107 — 6 à 9 ans'
+      alors: 26167 €/an
+    - si: classification = 'relève — timonier-conducteur 107 — 9 à 12 ans'
+      alors: 26908 €/an
+    - si: classification = 'relève — timonier-conducteur 107 — 12 à 15 ans'
+      alors: 27649 €/an
+    - si: classification = 'relève — timonier-conducteur 107 — au-delà de 15 ans'
+      alors: 28389 €/an
+    - si: classification = 'relève — maître mécanicien 109 — 0 à 3 ans'
+      alors: 26235 €/an
+    - si: classification = 'relève — maître mécanicien 109 — 3 à 6 ans'
+      alors: 27022 €/an
+    - si: classification = 'relève — maître mécanicien 109 — 6 à 9 ans'
+      alors: 27809 €/an
+    - si: classification = 'relève — maître mécanicien 109 — 9 à 12 ans'
+      alors: 28596 €/an
+    - si: classification = 'relève — maître mécanicien 109 — 12 à 15 ans'
+      alors: 29384 €/an
+    - si: classification = 'relève — maître mécanicien 109 — au-delà de 15 ans'
+      alors: 30171 €/an
+    - si: classification = 'relève — second capitaine 111 — 0 à 3 ans'
+      alors: 27895 €/an
+    - si: classification = 'relève — second capitaine 111 — 3 à 6 ans'
+      alors: 28732 €/an
+    - si: classification = 'relève — second capitaine 111 — 6 à 9 ans'
+      alors: 29569 €/an
+    - si: classification = 'relève — second capitaine 111 — 9 à 12 ans'
+      alors: 30406 €/an
+    - si: classification = 'relève — second capitaine 111 — 12 à 15 ans'
+      alors: 31243 €/an
+    - si: classification = 'relève — second capitaine 111 — au-delà de 15 ans'
+      alors: 32080 €/an
+    - si: classification = 'relève — 1er capitaine 113 — 0 à 3 ans'
+      alors: 31164 €/an
+    - si: classification = 'relève — 1er capitaine 113 — 3 à 6 ans'
+      alors: 32099 €/an
+    - si: classification = 'relève — 1er capitaine 113 — 6 à 9 ans'
+      alors: 33034 €/an
+    - si: classification = 'relève — 1er capitaine 113 — 9 à 12 ans'
+      alors: 33969 €/an
+    - si: classification = 'relève — 1er capitaine 113 — 12 à 15 ans'
+      alors: 34904 €/an
+    - si: classification = 'relève — 1er capitaine 113 — au-delà de 15 ans'
+      alors: 35838 €/an
+    - si: classification = 'relève — 1er capitaine responsable de bord 115 — 0 à 3 ans'
+      alors: 31287 €/an
+    - si: classification = 'relève — 1er capitaine responsable de bord 115 — 3 à 6 ans'
+      alors: 32226 €/an
+    - si: classification = 'relève — 1er capitaine responsable de bord 115 — 6 à 9 ans'
+      alors: 33165 €/an
+    - si: classification = 'relève — 1er capitaine responsable de bord 115 — 9 à 12 ans'
+      alors: 34103 €/an
+    - si: classification = 'relève — 1er capitaine responsable de bord 115 — 12 à 15 ans'
+      alors: 35042 €/an
+    - si: classification = 'relève — 1er capitaine responsable de bord 115 — au-delà de 15 ans'
+      alors: 35980 €/an
+    - si: classification = 'relève — commandant 117 — 0 à 3 ans'
+      alors: 34612 €/an
+    - si: classification = 'relève — commandant 117 — 3 à 6 ans'
+      alors: 35651 €/an
+    - si: classification = 'relève — commandant 117 — 6 à 9 ans'
+      alors: 36689 €/an
+    - si: classification = 'relève — commandant 117 — 9 à 12 ans'
+      alors: 37727 €/an
+    - si: classification = 'relève — commandant 117 — 12 à 15 ans'
+      alors: 38766 €/an
+    - si: classification = 'relève — commandant 117 — au-delà de 15 ans'
+      alors: 39804 €/an
+    - si: classification = 'sédentaire ouvrier — niveau I — 1er échelon'
+      alors: 22070 €/an
+    - si: classification = 'sédentaire ouvrier — niveau I — 2e échelon'
+      alors: 22253 €/an
+    - si: classification = 'sédentaire ouvrier — niveau I — 3e échelon'
+      alors: 22498 €/an
+    - si: classification = 'sédentaire ouvrier — niveau II — 1er échelon'
+      alors: 22583 €/an
+    - si: classification = 'sédentaire ouvrier — niveau II — 2e échelon'
+      alors: 22947 €/an
+    - si: classification = 'sédentaire ouvrier — niveau II — 3e échelon'
+      alors: 23379 €/an
+    - si: classification = 'sédentaire ouvrier — niveau III — 1er échelon'
+      alors: 23561 €/an
+    - si: classification = 'sédentaire ouvrier — niveau III — 2e échelon'
+      alors: 24107 €/an
+    - si: classification = 'sédentaire ouvrier — niveau III — 3e échelon'
+      alors: 24970 €/an
+    - si: classification = 'sédentaire ouvrier — niveau IV — 1er échelon'
+      alors: 25237 €/an
+    - si: classification = 'sédentaire ouvrier — niveau IV — 2e échelon'
+      alors: 27103 €/an
+    - si: classification = 'sédentaire ouvrier — niveau IV — 3e échelon'
+      alors: 28421 €/an
+    - si: classification = 'sédentaire ouvrier — niveau V — 1er échelon'
+      alors: 28687 €/an
+    - si: classification = 'sédentaire ouvrier — niveau V — 2e échelon'
+      alors: 29502 €/an
+    - si: classification = 'sédentaire ouvrier — niveau V — 3e échelon'
+      alors: 30933 €/an
+    - si: classification = 'sédentaire employé — niveau I — 1er échelon'
+      alors: 22070 €/an
+    - si: classification = 'sédentaire employé — niveau I — 2e échelon'
+      alors: 22192 €/an
+    - si: classification = 'sédentaire employé — niveau I — 3e échelon'
+      alors: 22376 €/an
+    - si: classification = 'sédentaire employé — niveau II — 1er échelon'
+      alors: 22621 €/an
+    - si: classification = 'sédentaire employé — niveau II — 2e échelon'
+      alors: 22705 €/an
+    - si: classification = 'sédentaire employé — niveau II — 3e échelon'
+      alors: 23069 €/an
+    - si: classification = 'sédentaire employé — niveau III — 1er échelon'
+      alors: 23494 €/an
+    - si: classification = 'sédentaire employé — niveau III — 2e échelon'
+      alors: 24100 €/an
+    - si: classification = 'sédentaire employé — niveau III — 3e échelon'
+      alors: 24970 €/an
+    - si: classification = 'sédentaire employé — niveau IV — 1er échelon'
+      alors: 25237 €/an
+    - si: classification = 'sédentaire employé — niveau IV — 2e échelon'
+      alors: 26036 €/an
+    - si: classification = 'sédentaire employé — niveau IV — 3e échelon'
+      alors: 27103 €/an
+    - si: classification = 'sédentaire employé — niveau V — 1er échelon'
+      alors: 27368 €/an
+    - si: classification = 'sédentaire employé — niveau V — 2e échelon'
+      alors: 28421 €/an
+    - si: classification = 'sédentaire employé — niveau V — 3e échelon'
+      alors: 29502 €/an
+    - si: classification = 'sédentaire agent de maîtrise — niveau I — 1er échelon'
+      alors: 27341 €/an
+    - si: classification = 'sédentaire agent de maîtrise — niveau I — 3e échelon'
+      alors: 28393 €/an
+    - si: classification = 'sédentaire agent de maîtrise — niveau I — 4e échelon'
+      alors: 29472 €/an
+    - si: classification = 'sédentaire agent de maîtrise — niveau II — 1er échelon'
+      alors: 29738 €/an
+    - si: classification = 'sédentaire agent de maîtrise — niveau II — 2e échelon'
+      alors: 30804 €/an
+    - si: classification = 'sédentaire agent de maîtrise — niveau II — 3e échelon'
+      alors: 30972 €/an
+    - si: classification = 'sédentaire agent de maîtrise — niveau III — 1er échelon'
+      alors: 31182 €/an
+    - si: classification = 'sédentaire agent de maîtrise — niveau III — 2e échelon'
+      alors: 32331 €/an
+    - si: classification = 'sédentaire agent de maîtrise — niveau III — 3e échelon'
+      alors: 33803 €/an
+    - si: classification = 'sédentaire cadre — position I — coefficient 111'
+      alors: 29709 €/an
+    - si: classification = 'sédentaire cadre — position I — coefficient 132'
+      alors: 33769 €/an
+    - si: classification = 'sédentaire cadre — position II — coefficient 133'
+      alors: 35001 €/an
+    - si: classification = 'sédentaire cadre — position II — coefficient 155'
+      alors: 40812 €/an
+    - si: classification = 'sédentaire cadre — position III — coefficient 156'
+      alors: 41161 €/an
+    - si: classification = 'sédentaire cadre — position III — coefficient 175'
+      alors: 46173 €/an
+    - si: classification = 'sédentaire cadre — position III B — coefficient 176'
+      alors: 46482 €/an
+    - si: classification = 'sédentaire cadre — position III B — coefficient 207'
+      alors: 57402 €/an
+    - si: classification = 'sédentaire cadre — position III C — coefficient 208'
+      alors: 57682 €/an
+    - si: classification = 'sédentaire cadre — position III C — coefficient 255'
+      alors: 72886 €/an
+    - si: classification = 'passagers technique 1.00 — matelot — sans ancienneté'
+      alors: 22287 €/an
+    - si: classification = 'passagers technique 1.00 — matelot — plus de 3 ans'
+      alors: 22463 €/an
+    - si: classification = 'passagers technique 1.00 — matelot — plus de 6 ans'
+      alors: 22682 €/an
+    - si: classification = 'passagers technique 1.00 — matelot — plus de 9 ans'
+      alors: 23120 €/an
+    - si: classification = 'passagers technique 1.00 — matelot agent de sécurité — sans ancienneté'
+      alors: 22408 €/an
+    - si: classification = 'passagers technique 1.00 — matelot agent de sécurité — plus de 3 ans'
+      alors: 22507 €/an
+    - si: classification = 'passagers technique 1.00 — matelot agent de sécurité — plus de 6 ans'
+      alors: 22726 €/an
+    - si: classification = 'passagers technique 1.00 — matelot agent de sécurité — plus de 9 ans'
+      alors: 23164 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 2 (moins de 35 m) — sans ancienneté'
+      alors: 22549 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 2 (moins de 35 m) — plus de 3 ans'
+      alors: 22728 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 2 (moins de 35 m) — plus de 6 ans'
+      alors: 22950 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 2 (moins de 35 m) — plus de 9 ans'
+      alors: 23392 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 1 (plus de 35 m) 3e type de voyages et de voies — sans ancienneté'
+      alors: 22618 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 1 (plus de 35 m) 3e type de voyages et de voies — plus de 3 ans'
+      alors: 23026 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 1 (plus de 35 m) 3e type de voyages et de voies — plus de 6 ans'
+      alors: 23477 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 1 (plus de 35 m) 3e type de voyages et de voies — plus de 9 ans'
+      alors: 23930 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 1 (plus de 35 m) 2e type de voyages et de voies — sans ancienneté'
+      alors: 24627 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 1 (plus de 35 m) 2e type de voyages et de voies — plus de 3 ans'
+      alors: 25070 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 1 (plus de 35 m) 2e type de voyages et de voies — plus de 6 ans'
+      alors: 25563 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 1 (plus de 35 m) 2e type de voyages et de voies — plus de 9 ans'
+      alors: 26055 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 1 (plus de 35 m) 1er type de voyages et de voies — sans ancienneté'
+      alors: 25807 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 1 (plus de 35 m) 1er type de voyages et de voies — plus de 3 ans'
+      alors: 26272 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 1 (plus de 35 m) 1er type de voyages et de voies — plus de 6 ans'
+      alors: 26788 €/an
+    - si: classification = 'passagers technique 1.00 — capitaine classe 1 (plus de 35 m) 1er type de voyages et de voies — plus de 9 ans'
+      alors: 27304 €/an
+    - si: classification = 'passagers technique 2.00 — matelot — sans ancienneté'
+      alors: 22287 €/an
+    - si: classification = 'passagers technique 2.00 — matelot — plus de 3 ans'
+      alors: 22463 €/an
+    - si: classification = 'passagers technique 2.00 — matelot — plus de 6 ans'
+      alors: 22682 €/an
+    - si: classification = 'passagers technique 2.00 — matelot — plus de 9 ans'
+      alors: 23120 €/an
+    - si: classification = 'passagers technique 2.00 — matelot agent de sécurité — sans ancienneté'
+      alors: 22408 €/an
+    - si: classification = 'passagers technique 2.00 — matelot agent de sécurité — plus de 3 ans'
+      alors: 22507 €/an
+    - si: classification = 'passagers technique 2.00 — matelot agent de sécurité — plus de 6 ans'
+      alors: 22726 €/an
+    - si: classification = 'passagers technique 2.00 — matelot agent de sécurité — plus de 9 ans'
+      alors: 23164 €/an
+    - si: classification = 'passagers technique 2.00 — timonier exploitation diurne — sans ancienneté'
+      alors: 22531 €/an
+    - si: classification = 'passagers technique 2.00 — timonier exploitation diurne — plus de 3 ans'
+      alors: 22669 €/an
+    - si: classification = 'passagers technique 2.00 — timonier exploitation diurne — plus de 6 ans'
+      alors: 22891 €/an
+    - si: classification = 'passagers technique 2.00 — timonier exploitation diurne — plus de 9 ans'
+      alors: 23331 €/an
+    - si: classification = 'passagers technique 2.00 — timonier autres types d’exploitation — sans ancienneté'
+      alors: 22653 €/an
+    - si: classification = 'passagers technique 2.00 — timonier autres types d’exploitation — plus de 3 ans'
+      alors: 22728 €/an
+    - si: classification = 'passagers technique 2.00 — timonier autres types d’exploitation — plus de 6 ans'
+      alors: 22950 €/an
+    - si: classification = 'passagers technique 2.00 — timonier autres types d’exploitation — plus de 9 ans'
+      alors: 23392 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 2 (moins de 35 m) — sans ancienneté'
+      alors: 22776 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 2 (moins de 35 m) — plus de 3 ans'
+      alors: 22956 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 2 (moins de 35 m) — plus de 6 ans'
+      alors: 23186 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 2 (moins de 35 m) — plus de 9 ans'
+      alors: 23632 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 35 m 3e type — sans ancienneté'
+      alors: 22796 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 35 m 3e type — plus de 3 ans'
+      alors: 23206 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 35 m 3e type — plus de 6 ans'
+      alors: 23662 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 35 m 3e type — plus de 9 ans'
+      alors: 24118 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 35 m 1er et 2e type — sans ancienneté'
+      alors: 28144 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 35 m 1er et 2e type — plus de 3 ans'
+      alors: 28651 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 35 m 1er et 2e type — plus de 6 ans'
+      alors: 29214 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 35 m 1er et 2e type — plus de 9 ans'
+      alors: 29777 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 55 m 3e type — sans ancienneté'
+      alors: 23771 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 55 m 3e type — plus de 3 ans'
+      alors: 24199 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 55 m 3e type — plus de 6 ans'
+      alors: 24674 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 55 m 3e type — plus de 9 ans'
+      alors: 25149 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 55 m 1er et 2e type — sans ancienneté'
+      alors: 31258 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 55 m 1er et 2e type — plus de 3 ans'
+      alors: 31821 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 55 m 1er et 2e type — plus de 6 ans'
+      alors: 32447 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 exploitation diurne plus de 55 m 1er et 2e type — plus de 9 ans'
+      alors: 33071 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 autres exploitations plus de 35 m — sans ancienneté'
+      alors: 35759 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 autres exploitations plus de 35 m — plus de 3 ans'
+      alors: 36403 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 autres exploitations plus de 35 m — plus de 6 ans'
+      alors: 37118 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 autres exploitations plus de 35 m — plus de 9 ans'
+      alors: 37833 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 autres exploitations plus de 55 m — sans ancienneté'
+      alors: 36503 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 autres exploitations plus de 55 m — plus de 3 ans'
+      alors: 37161 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 autres exploitations plus de 55 m — plus de 6 ans'
+      alors: 37890 €/an
+    - si: classification = 'passagers technique 2.00 — capitaine classe 1 autres exploitations plus de 55 m — plus de 9 ans'
+      alors: 38620 €/an
+    - si: classification = 'passagers hôtellerie restauration — chef de cabine — sans ancienneté'
+      alors: 22578 €/an
+    - si: classification = 'passagers hôtellerie restauration — chef de cabine — plus de 3 ans'
+      alors: 22761 €/an
+    - si: classification = 'passagers hôtellerie restauration — chef de cabine — plus de 6 ans'
+      alors: 23209 €/an
+    - si: classification = 'passagers hôtellerie restauration — chef de cabine — plus de 9 ans'
+      alors: 23656 €/an
+    - si: classification = 'passagers hôtellerie restauration — maître d’hôtel — sans ancienneté'
+      alors: 24639 €/an
+    - si: classification = 'passagers hôtellerie restauration — maître d’hôtel — plus de 3 ans'
+      alors: 25083 €/an
+    - si: classification = 'passagers hôtellerie restauration — maître d’hôtel — plus de 6 ans'
+      alors: 25577 €/an
+    - si: classification = 'passagers hôtellerie restauration — maître d’hôtel — plus de 9 ans'
+      alors: 26069 €/an
+    - si: classification = 'passagers hôtellerie restauration — assistant du directeur ou du commissaire de bord — sans ancienneté'
+      alors: 27250 €/an
+    - si: classification = 'passagers hôtellerie restauration — assistant du directeur ou du commissaire de bord — plus de 3 ans'
+      alors: 27740 €/an
+    - si: classification = 'passagers hôtellerie restauration — assistant du directeur ou du commissaire de bord — plus de 6 ans'
+      alors: 28285 €/an
+    - si: classification = 'passagers hôtellerie restauration — assistant du directeur ou du commissaire de bord — plus de 9 ans'
+      alors: 28829 €/an
+    - si: classification = 'passagers hôtellerie restauration — chef de cuisine — sans ancienneté'
+      alors: 31598 €/an
+    - si: classification = 'passagers hôtellerie restauration — chef de cuisine — plus de 3 ans'
+      alors: 32167 €/an
+    - si: classification = 'passagers hôtellerie restauration — chef de cuisine — plus de 6 ans'
+      alors: 32799 €/an
+    - si: classification = 'passagers hôtellerie restauration — chef de cuisine — plus de 9 ans'
+      alors: 33431 €/an
+    - si: classification = 'passagers hôtellerie restauration — directeur ou commissaire de bord — sans ancienneté'
+      alors: 34786 €/an
+    - si: classification = 'passagers hôtellerie restauration — directeur ou commissaire de bord — plus de 3 ans'
+      alors: 35412 €/an
+    - si: classification = 'passagers hôtellerie restauration — directeur ou commissaire de bord — plus de 6 ans'
+      alors: 36108 €/an
+    - si: classification = 'passagers hôtellerie restauration — directeur ou commissaire de bord — plus de 9 ans'
+      alors: 36803 €/an
+    - si: classification = 'passagers ETAM et cadres — employé niveau I (débutant, 6 mois de pratique) — sans ancienneté'
+      alors: 22287 €/an
+    - si: classification = 'passagers ETAM et cadres — employé niveau II — sans ancienneté'
+      alors: 23135 €/an
+    - si: classification = 'passagers ETAM et cadres — employé niveau II — plus de 3 ans'
+      alors: 23482 €/an
+    - si: classification = 'passagers ETAM et cadres — employé niveau II — plus de 6 ans'
+      alors: 23829 €/an
+    - si: classification = 'passagers ETAM et cadres — employé niveau II — plus de 9 ans'
+      alors: 24176 €/an
+    - si: classification = 'passagers ETAM et cadres — employé niveau III — sans ancienneté'
+      alors: 26865 €/an
+    - si: classification = 'passagers ETAM et cadres — employé niveau III — plus de 3 ans'
+      alors: 27268 €/an
+    - si: classification = 'passagers ETAM et cadres — employé niveau III — plus de 6 ans'
+      alors: 27670 €/an
+    - si: classification = 'passagers ETAM et cadres — employé niveau III — plus de 9 ans'
+      alors: 28073 €/an
+    - si: classification = 'passagers ETAM et cadres — agent de maîtrise niveau IV maîtrise — sans ancienneté'
+      alors: 28126 €/an
+    - si: classification = 'passagers ETAM et cadres — agent de maîtrise niveau IV maîtrise — plus de 3 ans'
+      alors: 28549 €/an
+    - si: classification = 'passagers ETAM et cadres — agent de maîtrise niveau IV maîtrise — plus de 6 ans'
+      alors: 28970 €/an
+    - si: classification = 'passagers ETAM et cadres — agent de maîtrise niveau IV maîtrise — plus de 9 ans'
+      alors: 29392 €/an
+    - si: classification = 'passagers ETAM et cadres — agent de maîtrise niveau V haute-maîtrise — sans ancienneté'
+      alors: 32151 €/an
+    - si: classification = 'passagers ETAM et cadres — agent de maîtrise niveau V haute-maîtrise — plus de 3 ans'
+      alors: 32633 €/an
+    - si: classification = 'passagers ETAM et cadres — agent de maîtrise niveau V haute-maîtrise — plus de 6 ans'
+      alors: 33115 €/an
+    - si: classification = 'passagers ETAM et cadres — agent de maîtrise niveau V haute-maîtrise — plus de 9 ans'
+      alors: 33599 €/an
+    - si: classification = 'passagers ETAM et cadres — cadre niveau VI — sans ancienneté'
+      alors: 34208 €/an
+    - si: classification = 'passagers ETAM et cadres — cadre niveau VI — plus de 3 ans'
+      alors: 34721 €/an
+    - si: classification = 'passagers ETAM et cadres — cadre niveau VI — plus de 6 ans'
+      alors: 35234 €/an
+    - si: classification = 'passagers ETAM et cadres — cadre niveau VI — plus de 9 ans'
+      alors: 35747 €/an
+    - si: classification = 'passagers ETAM et cadres — cadre supérieur niveau VII — sans ancienneté'
+      alors: 58601 €/an
+    - si: classification = 'passagers ETAM et cadres — cadre supérieur niveau VII — plus de 3 ans'
+      alors: 59480 €/an
+    - si: classification = 'passagers ETAM et cadres — cadre supérieur niveau VII — plus de 6 ans'
+      alors: 60360 €/an
+    - si: classification = 'passagers ETAM et cadres — cadre supérieur niveau VII — plus de 9 ans'
+      alors: 61238 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . navigation intérieure . salaire minimum annuel conventionnel:
+  titre: Rémunération minimale annuelle conventionnelle
+  description: Minimum annuel brut proratisé selon la quotité de travail.
+  applicable si: convention collective = 'navigation intérieure'
+  unité: €/an
+  valeur: grille annuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . navigation intérieure . classification hors grille:
+  titre: Classification absente de la grille
+  description: La clé de classification n'existe pas dans les annexes du protocole du 17 décembre 2025.
+  applicable si: convention collective = 'navigation intérieure'
+  valeur: grille annuelle = 0 €/an
+
+salarié . convention collective . navigation intérieure . audit paie:
+  titre: Audit des rubriques de paie
+  description: Recherche explicite des cotisations salarié/employeur, taux, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais ; aucun taux conventionnel générique n'est calculé par cette version.
+  applicable si: convention collective = 'navigation intérieure'
+  valeur: non

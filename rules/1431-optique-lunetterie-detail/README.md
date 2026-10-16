@@ -1,6 +1,6 @@
 # Optique-lunetterie de détail (IDCC 1431)
 
-Version `2024.2`, applicable au **1er janvier 2024**, retains the salary grid from the agreement of 14 September 2023 and adds the extended non-cadre pension plan correction from the 14 March 2024 amendment. The salary agreement took effect on 1 January 2024 and was extended by arrêté of 11 December 2023, published in the Journal officiel on 14 December 2023.
+Version `2024.3`, applicable au **1er janvier 2024**, retains the salary grid from the agreement of 14 September 2023 adds the extended non-cadre pension plan correction from the 14 March 2024 amendment, and (revision `2024.3`, replacing `2024.2` with the same effective date) adds the missing non-health-professional levels 1.1 to 3.6 of the new classification. The salary agreement took effect on 1 January 2024 and was extended by arrêté of 11 December 2023, published in the Journal officiel on 14 December 2023.
 
 ## Classification et salaires minima
 
@@ -34,7 +34,7 @@ Les minima mensuels bruts à temps plein (151,67 heures) sont :
 | 350 | 3 115 € |
 | 380 | 3 400 € |
 
-### Classification de l'avenant n° 8 — « Minimas 2 », professionnels de santé
+### Classification de l'avenant n° 8 — « Minimas 2 », professionnels de santé (`nouvelle`, niveaux A à K)
 
 | Niveau | Minimum mensuel |
 |:---:|---:|
@@ -49,6 +49,27 @@ Les minima mensuels bruts à temps plein (151,67 heures) sont :
 | I | 3 000 € |
 | J | 3 400 € |
 | K | 3 700 € |
+
+### Classification de l'avenant n° 8 — « Minimas 2 », non professionnels de santé (`nouvelle`, niveaux 1.1 à 3.6)
+
+| Niveau | Minimum mensuel |
+|:---:|---:|
+| 1.1 | 1 830 € |
+| 1.2 | 1 850 € |
+| 1.3 | 1 870 € |
+| 1.4 | 1 900 € |
+| 1.5 | 1 930 € |
+| 1.6 | 1 950 € |
+| 2.1 | 2 000 € |
+| 2.2 | 2 050 € |
+| 2.3 | 2 100 € |
+| 2.4 | 2 150 € |
+| 3.1 | 2 250 € |
+| 3.2 | 2 315 € |
+| 3.3 | 2 455 € |
+| 3.4 | 2 850 € |
+| 3.5 | 3 115 € |
+| 3.6 | 3 400 € |
 
 Le minimum exposé est proratisé selon `salarié . contrat . temps de travail . quotité` et arrondi à deux décimales. Les minima légaux (notamment le SMIC) et les situations particulières doivent faire l'objet d'une comparaison séparée par l'application consommatrice.
 

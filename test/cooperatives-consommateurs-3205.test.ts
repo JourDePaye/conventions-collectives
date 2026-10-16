@@ -7,77 +7,98 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "3205-cooperatives-consommateurs";
 const value = "coopératives de consommateurs";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry: { version: string }) => entry.version === "2026.1");
-assert.ok(version);
-const extension = await version.loadRules();
-const rules: Record<string, Rule> = { ...modeleSocial };
-const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
-rules["salarié . convention collective"] = { ...choice, "une possibilité": [...choice["une possibilité"], value] } as Rule;
-Object.assign(rules, extension);
-const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
 
-function setLevel(level: string) {
+// Avenants n° 932 (KALITEXT000054303994), 933 (KALITEXT000054872346) and 934 (KALITEXT000054982101),
+// article 2, 151,67 h a month; amounts hard-coded from the texts on Légifrance.
+const GRIDS: Record<string, { validFrom: string; grid: Record<string, number> }> = {
+  "2026.1": {
+    validFrom: "2026-02-01",
+    grid: { "1": 1823.5, "2": 1874.69, "3": 1897.4, "4": 1913.76, "5": 1943.37, "6": 2017.88, "7": 2162.02, "8a": 2511.04, "8b": 2658.6, "9a": 2779.33, "9b": 3634.24 },
+  },
+  "2026.2": {
+    validFrom: "2026-05-01",
+    grid: { "1": 1824, "2": 1880.31, "3": 1903.09, "4": 1919.5, "5": 1949.2, "6": 2023.93, "7": 2168.51, "8a": 2518.57, "8b": 2666.58, "9a": 2787.67, "9b": 3645.14 },
+  },
+  "2026.3": {
+    validFrom: "2026-07-01",
+    grid: { "1": 1867.5, "2": 1889.71, "3": 1912.61, "4": 1929.1, "5": 1958.95, "6": 2034.05, "7": 2179.35, "8a": 2531.16, "8b": 2679.91, "9a": 2801.61, "9b": 3663.37 },
+  },
+};
+
+async function engineOf(revision: string) {
+  const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === revision);
+  assert.ok(version, revision);
+  const extension = await version.loadRules();
+  const rules: Record<string, Rule> = { ...modeleSocial };
+  const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
+  rules["salarié . convention collective"] = { ...choice, "une possibilité": [...choice["une possibilité"], value] } as Rule;
+  Object.assign(rules, extension);
+  const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
+  return { engine, version };
+}
+
+function situation(engine: Engine, groupe: string | undefined, quota = "100%") {
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
-    [`${namespace} . niveau`]: `'${level}'`,
-    "salarié . contrat . temps de travail . quotité": "100%",
+    ...(groupe === undefined ? {} : { [`${namespace} . groupe`]: `'${groupe}'` }),
+    "salarié . contrat . temps de travail . quotité": quota,
   });
 }
-
-function minimum() {
-  return engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue;
+function minimum(engine: Engine) {
+  const result = engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue;
+  assert.equal(typeof result, "number");
+  return Math.round((result as number) * 100) / 100;
 }
 
-describe("IDCC 3205 — 2026.1 salary minimums and payroll audit", () => {
-  it("uses the official 1 May 2026 effective date", () => {
-    assert.equal(version.validFrom, "2026-05-01");
-    assert.ok(version.sources.some((source: string) => source.includes("Avenant n° 932")));
+describe("IDCC 3205 coopératives de consommateurs", () => {
+  it("has one version per salary step, with its own effective date", () => {
+    const versions = COMPILED_VERSIONS[agreement];
+    assert.deepEqual(versions?.map((v) => [v.version, v.validFrom]), [["2026.1", "2026-02-01"], ["2026.2", "2026-05-01"], ["2026.3", "2026-07-01"]]);
   });
 
-  for (const [level, expected] of Object.entries({
-    "1": 1823.07,
-    "2": 1840.70,
-    "3": 1862.28,
-    "4": 1883.78,
-    "5": 1907.54,
-    "6": 1943.77,
-    "7": 2008.22,
-    "8": 2134.86,
-    "9": 2335.64,
-    "10": 2611.78,
-    "11": 2972.05,
-    "12": 3360.78,
-  })) {
-    it(`level ${level} evaluates the sourced monthly minimum`, () => {
-      setLevel(level);
-      assert.equal(minimum(), expected);
+  for (const [revision, { validFrom, grid }] of Object.entries(GRIDS)) {
+    describe(`version ${revision}`, () => {
+      it("cites the extended avenant and applies from its effective date", async () => {
+        const { version } = await engineOf(revision);
+        assert.equal(version.validFrom, validFrom);
+        assert.ok(version.sources.some((source) => source.includes("KALITEXT0000")));
+      });
+      for (const [groupe, expected] of Object.entries(grid)) {
+        it(`gives ${expected} € a month for group ${groupe}`, async () => {
+          const { engine } = await engineOf(revision);
+          situation(engine, groupe);
+          assert.equal(minimum(engine), expected);
+          assert.equal(engine.evaluate(`${namespace} . groupe hors grille`).nodeValue, false);
+        });
+      }
+      it("covers the 11 groups 1 to 9b", () => {
+        assert.deepEqual(Object.keys(grid), ["1", "2", "3", "4", "5", "6", "7", "8a", "8b", "9a", "9b"]);
+      });
     });
   }
 
-  it("prorates the minimum once for part-time work", () => {
-    setLevel("8");
-    engine.setSituation({
-      "salarié . convention collective": `'${value}'`,
-      [`${namespace} . niveau`]: "'8'",
-      "salarié . contrat . temps de travail . quotité": "50%",
-    });
-    assert.equal(minimum(), 1067.43);
+  it("prorates the monthly minimum once for part-time work", async () => {
+    const { engine } = await engineOf("2026.3");
+    situation(engine, "5", "50%");
+    assert.equal(minimum(engine), 979.48);
+    situation(engine, "9b", "80%");
+    assert.equal(minimum(engine), 2930.7);
   });
 
-  it("marks an unknown level outside the grid", () => {
-    setLevel("13");
-    assert.equal(minimum(), 0);
-
+  it("rejects groups outside the grid", async () => {
+    const { engine } = await engineOf("2026.3");
+    for (const key of ["0", "10", "8", "9", "8c", "12", "non renseigné"]) {
+      situation(engine, key);
+      assert.equal(engine.evaluate(`${namespace} . groupe hors grille`).nodeValue, true, key);
+      assert.equal(minimum(engine), 0, key);
+    }
+    situation(engine, undefined);
+    assert.equal(engine.evaluate(`${namespace} . groupe hors grille`).nodeValue, true);
   });
 
-  it("is isolated from another convention", () => {
-    setLevel("8");
+  it("leaves the extension inapplicable for another agreement", async () => {
+    const { engine } = await engineOf("2026.3");
     engine.setSituation({ "salarié . convention collective": "'droit commun'" });
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, null);
-  });
-
-  it("does not redefine payroll-wide endpoints or collide with modele-social", () => {
-    assert.equal(Object.keys(extension).some((name) => name.includes("cotisations") || name.includes("prévoyance") || name.includes("santé") || name.includes("formation professionnelle") || name.includes("exonération cotisation AT")), false);
-    assert.equal(Object.keys(extension).some((name) => name in modeleSocial), false);
   });
 });

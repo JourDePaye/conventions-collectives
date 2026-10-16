@@ -1,0 +1,119 @@
+# Convention collective nationale de l'industrie pharmaceutique (IDCC 176).
+# Version 2026.2 : accord du 13 novembre 2025 (articles 1 et 3), minima au 1er janvier 2026.
+# Replaces 2026.1 (same validFrom): adds the article 3 grid for employees with at least 18 months of seniority in groups 1A to 2B.
+validFrom: 2026-01-01
+sources:
+  - "Accord du 13 novembre 2025 relatif aux salaires minima conventionnels au 1er janvier 2026, KALITEXT000053721378, étendu par arrêté du 16 février 2026 (JORF du 24 février 2026), entrée en vigueur le 1er janvier 2026 (article 7) : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053721378"
+  - "Article 1 (grille de base y = 1 762,45 + 9,36 x points, 20 groupes), KALIARTI000053721382 : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000053721382"
+  - "Article 3 (grille différenciée à partir de 18 mois d'ancienneté pour les groupes 1A à 2B : 1A/1B 1 844,57, 1C/2A 1 863,36, 2B 1 900,95 ; autres groupes inchangés), lu dans le texte KALITEXT000053721378 ; l'identifiant de l'article n'a pas été relevé."
+---
+salarié . convention collective . industrie pharmaceutique:
+  titre: Industrie pharmaceutique (IDCC 176)
+  valeur: convention collective = 'industrie pharmaceutique'
+salarié . convention collective . industrie pharmaceutique . groupe:
+  titre: Groupe et niveau de classification
+  description: Groupe et niveau de classification fourni par l'application, de 1A/1B à 11.
+  applicable si: convention collective = 'industrie pharmaceutique'
+  par défaut: "'non renseigné'"
+salarié . convention collective . industrie pharmaceutique . salaire minimum de la grille article 1:
+  titre: Salaire minimum de la grille de l'article 1 pour 151,67 heures
+  description: Grille de base de l'article 1, applicable à tous les salariés quelle que soit l'ancienneté.
+  unité: €/mois
+  applicable si: convention collective = 'industrie pharmaceutique'
+  variations:
+    - si: groupe = '1A'
+      alors: 1837.34 €/mois
+    - si: groupe = '1B'
+      alors: 1837.34 €/mois
+    - si: groupe = '1C'
+      alors: 1856.06 €/mois
+    - si: groupe = '2A'
+      alors: 1856.06 €/mois
+    - si: groupe = '2B'
+      alors: 1893.51 €/mois
+    - si: groupe = '2C'
+      alors: 1977.76 €/mois
+    - si: groupe = '3A'
+      alors: 1977.76 €/mois
+    - si: groupe = '3B'
+      alors: 2024.57 €/mois
+    - si: groupe = '3C'
+      alors: 2193.07 €/mois
+    - si: groupe = '4A'
+      alors: 2193.07 €/mois
+    - si: groupe = '4B'
+      alors: 2267.96 €/mois
+    - si: groupe = '4C'
+      alors: 2483.27 €/mois
+    - si: groupe = '5A'
+      alors: 2483.27 €/mois
+    - si: groupe = '5B'
+      alors: 2586.24 €/mois
+    - si: groupe = '5C'
+      alors: 2867.08 €/mois
+    - si: groupe = '6A'
+      alors: 2867.08 €/mois
+    - si: groupe = '6B'
+      alors: 2998.14 €/mois
+    - si: groupe = '6C'
+      alors: 3344.51 €/mois
+    - si: groupe = '7A'
+      alors: 3475.57 €/mois
+    - si: groupe = '7B'
+      alors: 4065.33 €/mois
+    - si: groupe = '8A'
+      alors: 4196.39 €/mois
+    - si: groupe = '8B'
+      alors: 4898.49 €/mois
+    - si: groupe = '9A'
+      alors: 5029.55 €/mois
+    - si: groupe = '9B'
+      alors: 5862.70 €/mois
+    - si: groupe = '10'
+      alors: 6386.93 €/mois
+    - si: groupe = '11'
+      alors: 6911.17 €/mois
+    - sinon: 0 €/mois
+salarié . convention collective . industrie pharmaceutique . ancienneté en mois:
+  titre: Ancienneté dans l'entreprise
+  description: Nombre de mois d'ancienneté du salarié, utilisé pour la grille différenciée de l'article 3 (au moins 18 mois, groupes 1A à 2B).
+  applicable si: convention collective = 'industrie pharmaceutique'
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . industrie pharmaceutique . salaire minimum de la grille:
+  titre: Salaire minimum conventionnel pour 151,67 heures
+  description: |
+    Minimum mensuel de l'article 1, ou de l'article 3 pour les groupes 1A à 2B à partir de
+    18 mois d'ancienneté. Vaut 0 pour un groupe absent de la grille.
+  unité: €/mois
+  applicable si: convention collective = 'industrie pharmaceutique'
+  variations:
+    - si: ancienneté en mois >= 18 mois
+      alors:
+        variations:
+          - si: groupe = '1A'
+            alors: 1844.57 €/mois
+          - si: groupe = '1B'
+            alors: 1844.57 €/mois
+          - si: groupe = '1C'
+            alors: 1863.36 €/mois
+          - si: groupe = '2A'
+            alors: 1863.36 €/mois
+          - si: groupe = '2B'
+            alors: 1900.95 €/mois
+          - sinon: salaire minimum de la grille article 1
+    - sinon: salaire minimum de la grille article 1
+
+salarié . convention collective . industrie pharmaceutique . groupe hors grille:
+  applicable si: convention collective = 'industrie pharmaceutique'
+  valeur: salaire minimum de la grille article 1 = 0 €/mois
+salarié . convention collective . industrie pharmaceutique . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail. La convention fixe les minima à partir du 1er janvier 2026.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'industrie pharmaceutique'
+      - groupe hors grille = non
+  unité: €/mois
+  valeur: salaire minimum de la grille * contrat . temps de travail . quotité

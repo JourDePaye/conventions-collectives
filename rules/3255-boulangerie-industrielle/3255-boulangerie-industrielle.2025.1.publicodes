@@ -1,37 +1,41 @@
-# Convention collective nationale des activités industrielles de boulangerie et pâtisserie et des professionnels de l'œuf du 1er octobre 2024 (IDCC 3255).
-# Version 2025.1 : grille des salaires minima conventionnels mensuels au 1er février 2025.
-validFrom: 2025-02-01
+# Convention collective nationale des activités industrielles de boulangerie et pâtisserie
+# et des professionnels de l'œuf du 1er octobre 2024 (IDCC 3255, KALICONT000051160618).
+# Version 2025.1 : article 21 applicable au 1er décembre 2025, montants au 1er février 2025 (grille de transposition et deux grilles sectorielles).
+
+validFrom: 2025-12-01
 sources:
-  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000052299903
-  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000051160618
+  - Convention collective nationale du 1er octobre 2024 (IDCC 3255), étendue par arrêté du 20 novembre 2025 (JORF du 27 novembre 2025) ; entrée en vigueur le 1er décembre 2025 (article relatif à la date d'entrée en vigueur), qui se substitue aux conventions 1747 et 2075. Texte de base KALITEXT000051150351, conteneur KALICONT000051160618.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051150351?idConteneur=KALICONT000051160618
+  - "Article 21 « Salaires minima conventionnels », version en vigueur du 1er décembre 2025 au 28 février 2026 (issue de l'avenant du 16 janvier 2025, étendu par arrêté du 9 avril 2025, JORF du 24 avril 2025, KALITEXT000051537768) : grille de transposition harmonisée (niveaux A à M) au 1er février 2025, grille sectorielle boulangerie-pâtisserie (OE1 à CA5) et grille sectorielle des œufs (niveaux I à IX, échelons 1 à 3), les deux dernières pour les entreprises n'ayant pas encore déployé la nouvelle classification. Les montants sont identiques à ceux de l'avenant. https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051150351 https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051537768"
+  - "Le montant annuel sur 13 mois de la grille des œufs et la rémunération annuelle garantie ne sont pas modélisés (le texte indique que les entreprises du secteur des œufs ne négocieront plus de RAG)."
 ---
 salarié . convention collective . boulangerie industrielle:
   titre: Activités industrielles de boulangerie et pâtisserie et professionnels de l'œuf (IDCC 3255)
   valeur: convention collective = 'boulangerie industrielle'
+
 salarié . convention collective . boulangerie industrielle . niveau:
   titre: Niveau et échelon de classification
-  description: Niveau et échelon de la classification conventionnelle, sous la forme A1 à E3. La classification est fournie par l'application.
+  description: Niveau et échelon de la grille de transposition (A1 à M, par exemple C2, I ou M), degré de la grille sectorielle boulangerie-pâtisserie (OE1 à OE7, TAM1 à TAM5, CA1 à CA5) ou niveau et échelon de la grille sectorielle des œufs (I-1 à IX-3).
   applicable si: convention collective = 'boulangerie industrielle'
   par défaut: "'non renseigné'"
+
 salarié . convention collective . boulangerie industrielle . salaire minimum conventionnel:
   titre: Salaire minimum mensuel conventionnel
-  description: Salaire minimum conventionnel brut mensuel pour 151,67 heures, proratisé selon la quotité de travail.
-  applicable si:
-    toutes ces conditions:
-      - convention collective = 'boulangerie industrielle'
-      - grille > 0 €/mois
+  description: Salaire minimum conventionnel brut mensuel pour 151,67 heures, proratisé selon la quotité de travail. Vaut 0 €/mois si la classification est absente de la grille.
+  applicable si: convention collective = 'boulangerie industrielle'
   unité: €/mois
   produit:
     - grille
     - contrat . temps de travail . quotité
+
 salarié . convention collective . boulangerie industrielle . salaire minimum conventionnel . grille:
   titre: Salaire mensuel minimum à temps plein
-  description: Grille de l'article 21 de la convention collective, applicable au 1er février 2025 pour 151,67 heures mensuelles.
+  description: Grille de transposition harmonisée (niveaux A1 à M), grille sectorielle boulangerie-pâtisserie (OE1 à CA5) et grille sectorielle des œufs (I-1 à IX-3), article 21 de la convention, montants au 1er février 2025 pour 151,67 heures mensuelles.
   applicable si: convention collective = 'boulangerie industrielle'
   unité: €/mois
   variations:
     - si: niveau = 'A1'
-      alors: 1804.80 €/mois
+      alors: 1804.8 €/mois
     - si: niveau = 'A2'
       alors: 1814.33 €/mois
     - si: niveau = 'B1'
@@ -56,9 +60,144 @@ salarié . convention collective . boulangerie industrielle . salaire minimum co
       alors: 2020.64 €/mois
     - si: niveau = 'E3'
       alors: 2074.18 €/mois
+    - si: niveau = 'F1'
+      alors: 2201.48 €/mois
+    - si: niveau = 'F2'
+      alors: 2222.39 €/mois
+    - si: niveau = 'F3'
+      alors: 2253.51 €/mois
+    - si: niveau = 'G1'
+      alors: 2299.58 €/mois
+    - si: niveau = 'G2'
+      alors: 2342.12 €/mois
+    - si: niveau = 'G3'
+      alors: 2412.38 €/mois
+    - si: niveau = 'H1'
+      alors: 2544.01 €/mois
+    - si: niveau = 'H2'
+      alors: 2610.15 €/mois
+    - si: niveau = 'H3'
+      alors: 2718.47 €/mois
+    - si: niveau = 'I'
+      alors: 2891.3 €/mois
+    - si: niveau = 'J1'
+      alors: 3070.81 €/mois
+    - si: niveau = 'J2'
+      alors: 3175.22 €/mois
+    - si: niveau = 'J3'
+      alors: 3280.0 €/mois
+    - si: niveau = 'K1'
+      alors: 3461.53 €/mois
+    - si: niveau = 'K2'
+      alors: 3648.45 €/mois
+    - si: niveau = 'K3'
+      alors: 3834.52 €/mois
+    - si: niveau = 'L1'
+      alors: 4019.73 €/mois
+    - si: niveau = 'L2'
+      alors: 4276.99 €/mois
+    - si: niveau = 'L3'
+      alors: 4578.52 €/mois
+    - si: niveau = 'M'
+      alors: 5161.52 €/mois
+    - si: niveau = 'OE1'
+      alors: 1814.33 €/mois
+    - si: niveau = 'OE2'
+      alors: 1825.01 €/mois
+    - si: niveau = 'OE3'
+      alors: 1839.61 €/mois
+    - si: niveau = 'OE4'
+      alors: 1872.23 €/mois
+    - si: niveau = 'OE5'
+      alors: 1917.72 €/mois
+    - si: niveau = 'OE6'
+      alors: 1988.82 €/mois
+    - si: niveau = 'OE7'
+      alors: 2074.18 €/mois
+    - si: niveau = 'TAM1'
+      alors: 2201.48 €/mois
+    - si: niveau = 'TAM2'
+      alors: 2342.12 €/mois
+    - si: niveau = 'TAM3'
+      alors: 2544.01 €/mois
+    - si: niveau = 'TAM4'
+      alors: 2718.47 €/mois
+    - si: niveau = 'TAM5'
+      alors: 2891.3 €/mois
+    - si: niveau = 'CA1'
+      alors: 3070.81 €/mois
+    - si: niveau = 'CA2'
+      alors: 3461.53 €/mois
+    - si: niveau = 'CA3'
+      alors: 4019.73 €/mois
+    - si: niveau = 'CA4'
+      alors: 4578.52 €/mois
+    - si: niveau = 'CA5'
+      alors: 5161.52 €/mois
+    - si: niveau = 'I-1'
+      alors: 1804.8 €/mois
+    - si: niveau = 'I-2'
+      alors: 1814.33 €/mois
+    - si: niveau = 'I-3'
+      alors: 1826.65 €/mois
+    - si: niveau = 'II-1'
+      alors: 1835.95 €/mois
+    - si: niveau = 'II-2'
+      alors: 1845.24 €/mois
+    - si: niveau = 'II-3'
+      alors: 1854.54 €/mois
+    - si: niveau = 'III-1'
+      alors: 1864.86 €/mois
+    - si: niveau = 'III-2'
+      alors: 1875.19 €/mois
+    - si: niveau = 'III-3'
+      alors: 1885.52 €/mois
+    - si: niveau = 'IV-1'
+      alors: 1901.01 €/mois
+    - si: niveau = 'IV-2'
+      alors: 1916.5 €/mois
+    - si: niveau = 'IV-3'
+      alors: 1931.99 €/mois
+    - si: niveau = 'V-1'
+      alors: 2019.85 €/mois
+    - si: niveau = 'V-2'
+      alors: 2055.62 €/mois
+    - si: niveau = 'V-3'
+      alors: 2091.39 €/mois
+    - si: niveau = 'VI-1'
+      alors: 2164.08 €/mois
+    - si: niveau = 'VI-2'
+      alors: 2222.5 €/mois
+    - si: niveau = 'VI-3'
+      alors: 2282.51 €/mois
+    - si: niveau = 'VII-1'
+      alors: 2470.01 €/mois
+    - si: niveau = 'VII-2'
+      alors: 2617.39 €/mois
+    - si: niveau = 'VII-3'
+      alors: 2764.76 €/mois
+    - si: niveau = 'VIII-1'
+      alors: 3060.72 €/mois
+    - si: niveau = 'VIII-2'
+      alors: 3356.67 €/mois
+    - si: niveau = 'VIII-3'
+      alors: 3788.11 €/mois
+    - si: niveau = 'IX-1'
+      alors: 4502.43 €/mois
+    - si: niveau = 'IX-2'
+      alors: 4932.68 €/mois
+    - si: niveau = 'IX-3'
+      alors: 5485.35 €/mois
     - sinon: 0 €/mois
+
 salarié . convention collective . boulangerie industrielle . niveau hors grille:
   titre: Niveau absent de la grille
-  description: Le niveau et échelon n'existe pas dans la grille des salaires minima.
+  description: Le niveau ou l'échelon n'existe pas dans la grille des salaires minima conventionnels.
   applicable si: convention collective = 'boulangerie industrielle'
   valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . boulangerie industrielle . audit paie:
+  titre: Audit des rubriques de paie
+  description: Cette version ne modélise que les salaires minima conventionnels ; aucune cotisation, prime ni indemnité conventionnelle n'est calculée.
+  applicable si: convention collective = 'boulangerie industrielle'
+  valeur: non

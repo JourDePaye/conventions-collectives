@@ -35,3 +35,14 @@ Cette version est donc limitée aux minima salariaux et n'altère aucun endpoint
 ## Tests
 
 `test/boucherie-poissonnerie.test.ts` vérifie la date et les sources, la grille, la proratisation, les classifications hors grille et l'isolation pour une autre convention.
+
+## Version `2026.2` (1er octobre 2026)
+
+La version `2026.2` applique, à compter du 1er octobre 2026 (premier jour du mois suivant la publication au JORF du 19 septembre 2026 de l'arrêté d'extension du 7 septembre 2026) :
+
+- l'avenant n° 13-B du 10 juin 2026 ([KALITEXT000054952088](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054952088)) : grille boucherie revalorisée de 1,5 % (de 1 968 € pour `I-A` à 3 992 € pour `VII-B`) ;
+- l'avenant n° 12-P du 10 juin 2026 ([KALITEXT000054952074](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054952074)) : grille poissonnerie (titre II de la partie V), 24 coefficients de 130 (1 897,02 €) à 450 (4 104,62 €), reprise de l'ancienne convention de la poissonnerie (IDCC 1504, désormais incluse dans l'IDCC 3254).
+
+La grille boucherie se lit avec `niveau` (`I-A` à `VII-B`), la grille poissonnerie avec `coefficient` (130 à 250 et 300 à 450). `grille applicable` retient la grille renseignée et `niveau hors grille` est vrai si aucune des deux ne correspond (minimum 0 €/mois). Les grilles poissonnerie antérieures au 1er octobre 2026 (avenants 6-P et 8-P) ne sont pas modélisées.
+
+Test : `test/boucherie-poissonnerie-2026-2.test.ts`.

@@ -37,7 +37,7 @@ describe("IDCC 1408 — 2025.1 minimum salaries", () => {
   it("cites the extended salary agreement", () => {
     assert.equal(version.validFrom, "2025-05-01");
     assert.ok(version.sources.some((source) => source.includes("KALITEXT000051787046")));
-    assert.ok(version.sources.some((source) => source.includes("Arrêté du 21 mai 2025")));
+    assert.ok(version.sources.some((source) => source.includes("arrêté du 27 mai 2025")));
   });
   for (const [coefficient, monthly] of Object.entries(MONTHLY)) {
     it(`${coefficient}: ${monthly} € a month`, () => {

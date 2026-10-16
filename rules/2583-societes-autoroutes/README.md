@@ -1,8 +1,16 @@
 # Sociétés concessionnaires ou exploitantes d'autoroutes ou d'ouvrages routiers — IDCC 2583
 
-La version `2024.1` modélise l'accord collectif national de branche du **19 juin 2024** relatif aux rémunérations annuelles garanties pour l'année 2024. L'accord prend effet rétroactivement au **1er janvier 2024** et a été étendu par arrêté du **4 septembre 2024**, publié au Journal officiel le **12 septembre 2024**. La version est datée du 12 septembre 2024, date à laquelle le barème est opposable à l'ensemble du champ étendu.
+La version `2024.1` (12 septembre 2024) modélise l'accord collectif national de branche du **19 juin 2024** relatif aux rémunérations annuelles garanties pour l'année 2024. L'accord prend effet rétroactivement au **1er janvier 2024** et a été étendu par arrêté du **4 septembre 2024**, publié au Journal officiel le **12 septembre 2024**. La version est datée du 12 septembre 2024, date à laquelle le barème est opposable à l'ensemble du champ étendu.
 
 La valeur Publicodes est `sociétés autoroutes` et les règles sont sous `salarié . convention collective . sociétés autoroutes`.
+
+## Version 2025.1
+
+La version `2025.1` modélise l'accord du **21 octobre 2025** relatif aux rémunérations annuelles garanties pour l'année **2025** (KALITEXT000053428773) : barème 2024 revalorisé de 1,8 % pour les 16 classes, de 22 681 € (classe A) à 75 951 € (classe P). L'accord prend effet rétroactivement au 1er janvier 2025 (article 6) et a été étendu par arrêté du 6 janvier 2026, publié au JORF du 17 janvier 2026.
+
+**Choix de `validFrom` : 2025-01-01.** La RAG est une garantie pour l'année civile, comparée sur l'année. Dater la version de l'arrêté d'extension (17 janvier 2026) ferait appliquer le barème 2024 pendant toute l'année 2025, ce qui est faux. La version 2024.1, datée de son extension (12 septembre 2024), reste inchangée et couvre la fin de 2024. Les règles et les clés (`classe` A à P) sont identiques à celles de 2024.1 ; seuls les montants changent.
+
+Aucun barème 2026 n'est publié à la date de rédaction : la version 2025.1 reste en vigueur pour les périodes ultérieures tant qu'un nouvel accord n'est pas modélisé.
 
 ## Règles implémentées
 

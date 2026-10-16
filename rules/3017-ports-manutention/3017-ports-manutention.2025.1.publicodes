@@ -1,0 +1,1017 @@
+# Convention collective nationale unifiée ports et manutention du 15 avril 2011 (IDCC 3017).
+# Version 2025.1 : Avenant n° 19 du 16 janvier 2025, grilles de l'annexe applicables au 1er janvier 2025 (revalorisation de 2 %).
+# Remplace la version précédente pour les périodes concernées ; les trois grilles du texte sont
+# modélisées en entier (établissements portuaires, autres salariés de la manutention, ouvriers
+# dockers titulaires d'au moins deux CQP), à tous les paliers d'ancienneté de 0 à 33 ans.
+validFrom: 2025-01-01
+sources:
+  - >-
+    Avenant n° 19 du 16 janvier 2025 relatif aux salaires minimaux conventionnels garantis, NAO 2025, texte KALITEXT000052455596 (BO 2025-38), étendu par arrêté du 21 octobre 2025 (JORF du 30 octobre 2025) sous la même réserve sur l'égalité professionnelle. Article 5 : applicable à compter du 1er janvier 2025 (revalorisation uniforme de 2 %). Annexe : trois grilles de SBMH, de 0 à 33 ans d'ancienneté.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000052455596
+  - >-
+    Conteneur officiel de la convention collective nationale unifiée ports et
+    manutention, IDCC 3017, KALICONT000029142476.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000029142476
+---
+salarié . convention collective . ports et manutention:
+  titre: Ports et manutention (IDCC 3017)
+  valeur: convention collective = 'ports et manutention'
+
+salarié . convention collective . ports et manutention . grille de salaires:
+  titre: Grille de salaires applicable
+  description: >-
+    Grille de SBMH applicable au salarié : « établissements portuaires » (salariés
+    des établissements portuaires, ports de commerce et de pêche), « autres salariés »
+    (autres salariés du compartiment manutention) ou « ouvriers dockers CQP » (ouvriers
+    de la filière exploitation titulaires d'au moins deux CQP d'ouvrier docker).
+  applicable si: convention collective = 'ports et manutention'
+  par défaut: "'établissements portuaires'"
+
+salarié . convention collective . ports et manutention . classification:
+  titre: Classification
+  description: >-
+    Niveau et échelon dans la grille choisie : B ; C1, C2, C3 ; D1, D2 ; AM1, AM2, AM3 ;
+    « Cadres 1 » à « Cadres 4 ». Toutes les positions n'existent pas dans toutes les
+    grilles : « autres salariés » compte B, C1 à C3, D1, D2, AM1, AM2 et Cadres 1 à 3 ;
+    « ouvriers dockers CQP » compte B, C1 à C3, D1, D2, AM1 et AM2 ;
+    « établissements portuaires » compte en plus AM3 et Cadres 4 (montant unique).
+    Le niveau A est supprimé : son minimum est celui du niveau B.
+  applicable si: convention collective = 'ports et manutention'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . ports et manutention . ancienneté dans la classification:
+  titre: Ancienneté dans la classification
+  description: Années révolues d'ancienneté utilisées pour sélectionner le palier SBMH.
+  unité: année
+  applicable si: convention collective = 'ports et manutention'
+  par défaut: 0 année
+
+salarié . convention collective . ports et manutention . palier d'ancienneté:
+  titre: Palier d'ancienneté de la grille
+  description: >-
+    Numéro du palier de la grille : 0 sans ancienneté, 1 après 3 ans, 2 après 6 ans, et
+    ainsi de suite jusqu'à 11 après 33 ans (palier maximal).
+  applicable si: convention collective = 'ports et manutention'
+  variations:
+    - si: ancienneté dans la classification >= 33 années
+      alors: 11
+    - si: ancienneté dans la classification >= 30 années
+      alors: 10
+    - si: ancienneté dans la classification >= 27 années
+      alors: 9
+    - si: ancienneté dans la classification >= 24 années
+      alors: 8
+    - si: ancienneté dans la classification >= 21 années
+      alors: 7
+    - si: ancienneté dans la classification >= 18 années
+      alors: 6
+    - si: ancienneté dans la classification >= 15 années
+      alors: 5
+    - si: ancienneté dans la classification >= 12 années
+      alors: 4
+    - si: ancienneté dans la classification >= 9 années
+      alors: 3
+    - si: ancienneté dans la classification >= 6 années
+      alors: 2
+    - si: ancienneté dans la classification >= 3 années
+      alors: 1
+    - sinon: 0
+
+salarié . convention collective . ports et manutention . salaire minimum conventionnel:
+  titre: Salaire brut mensuel minimum hiérarchique
+  description: >-
+    SBMH mensuel de la grille, de la classification et du palier d'ancienneté du salarié
+    (palier plafonné à 33 ans), proratisé par la quotité de travail. Vaut 0 €/mois si la
+    combinaison grille et classification n'existe pas (voir « classification hors grille »).
+  applicable si: convention collective = 'ports et manutention'
+  unité: €/mois
+  produit:
+    - salaire minimum conventionnel . grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . ports et manutention . salaire minimum conventionnel . grille:
+  titre: SBMH mensuel à temps plein
+  unité: €/mois
+  variations:
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'B'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 2634 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2572 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2511 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2448 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2387 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2325 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2263 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2200 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2139 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2077 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2015 €/mois
+          - sinon: 1952 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'C1'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 2773 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2700 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2628 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2555 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2484 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2410 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2336 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2263 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2190 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2118 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2044 €/mois
+          - sinon: 1972 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'C2'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 2840 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2764 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2686 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2610 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2534 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2457 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2381 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2307 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2228 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2153 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2077 €/mois
+          - sinon: 2000 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'C3'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 2939 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2858 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2777 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2694 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2600 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2513 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2436 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2358 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2281 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2205 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2128 €/mois
+          - sinon: 2050 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'D1'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 3033 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2948 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2863 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2777 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2694 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2608 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2523 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2438 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2354 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2268 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2183 €/mois
+          - sinon: 2098 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'D2'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 3093 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 3007 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2921 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2835 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2750 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2663 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2578 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2492 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2406 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2319 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2234 €/mois
+          - sinon: 2148 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'AM1'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 3572 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 3452 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 3331 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 3211 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 3132 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2998 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2874 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2727 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2608 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2487 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2366 €/mois
+          - sinon: 2245 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'AM2'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 4275 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 4126 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 3977 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 3830 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 3680 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 3530 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 3383 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 3233 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 3084 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2936 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2786 €/mois
+          - sinon: 2637 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'AM3'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 4615 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 4441 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 4266 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 4094 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 3919 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 3745 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 3570 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 3395 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 3221 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 3046 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2871 €/mois
+          - sinon: 2698 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'Cadres 1'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 6668 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 6368 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 6068 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 5768 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 5470 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 5170 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 4869 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 4571 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 4272 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 3969 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 3670 €/mois
+          - sinon: 3372 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'Cadres 2'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 7299 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 6993 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 6687 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 6383 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 6077 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 5770 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 5465 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 5156 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 4851 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 4545 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 4238 €/mois
+          - sinon: 3933 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'Cadres 3'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 8092 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 7755 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 7417 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 7079 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 6743 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 6404 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 6066 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 5729 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 5393 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 5054 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 4716 €/mois
+          - sinon: 4379 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'établissements portuaires'
+          - classification = 'Cadres 4'
+      alors: 6068 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'autres salariés'
+          - classification = 'B'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 2275 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2237 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2201 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2163 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2125 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2087 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2045 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2009 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 1969 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 1931 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 1893 €/mois
+          - sinon: 1865 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'autres salariés'
+          - classification = 'C1'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 2631 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2564 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2497 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2432 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2366 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2299 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2231 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2164 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2099 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2032 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 1965 €/mois
+          - sinon: 1900 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'autres salariés'
+          - classification = 'C2'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 2742 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2673 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2603 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2535 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2465 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2395 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2327 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2255 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2187 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2118 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2048 €/mois
+          - sinon: 1979 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'autres salariés'
+          - classification = 'C3'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 2923 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2849 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2776 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2701 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2626 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2553 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2478 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2405 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2330 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2255 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2182 €/mois
+          - sinon: 2105 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'autres salariés'
+          - classification = 'D1'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 3083 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 3005 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2927 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2847 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2770 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2693 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2614 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2535 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2457 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2378 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2302 €/mois
+          - sinon: 2222 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'autres salariés'
+          - classification = 'D2'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 3262 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 3179 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 3097 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 3013 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2931 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2847 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2766 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2682 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2599 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2518 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2433 €/mois
+          - sinon: 2352 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'autres salariés'
+          - classification = 'AM1'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 3675 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 3582 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 3489 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 3395 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 3303 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 3209 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 3116 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 3023 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2929 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2835 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2742 €/mois
+          - sinon: 2649 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'autres salariés'
+          - classification = 'AM2'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 3906 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 3807 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 3707 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 3607 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 3509 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 3408 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 3308 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 3208 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 3110 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 3011 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2911 €/mois
+          - sinon: 2811 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'autres salariés'
+          - classification = 'Cadres 1'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 3963 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 3862 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 3761 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 3659 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 3560 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 3458 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 3356 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 3255 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 3155 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 3054 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2953 €/mois
+          - sinon: 2852 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'autres salariés'
+          - classification = 'Cadres 2'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 4287 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 4178 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 4069 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 3961 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 3851 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 3742 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 3634 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 3524 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 3415 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 3308 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 3198 €/mois
+          - sinon: 3089 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'autres salariés'
+          - classification = 'Cadres 3'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 5145 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 5014 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 4883 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 4755 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 4624 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 4490 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 4362 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 4231 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 4100 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 3969 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 3837 €/mois
+          - sinon: 3707 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'ouvriers dockers CQP'
+          - classification = 'B'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 2533 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2474 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2415 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2355 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2296 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2238 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2178 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2119 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2059 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2000 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 1941 €/mois
+          - sinon: 1882 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'ouvriers dockers CQP'
+          - classification = 'C1'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 2728 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2658 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2588 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2518 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2447 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2377 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2308 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2238 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2167 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2097 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2028 €/mois
+          - sinon: 1958 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'ouvriers dockers CQP'
+          - classification = 'C2'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 2903 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2829 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2754 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2679 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2605 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2532 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2456 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2383 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2309 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2236 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2159 €/mois
+          - sinon: 2086 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'ouvriers dockers CQP'
+          - classification = 'C3'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 3075 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 2997 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 2920 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2841 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2764 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2684 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2607 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2529 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2449 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2372 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2295 €/mois
+          - sinon: 2216 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'ouvriers dockers CQP'
+          - classification = 'D1'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 3214 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 3136 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 3059 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 2980 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 2903 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2824 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2747 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2669 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2591 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2513 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2435 €/mois
+          - sinon: 2357 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'ouvriers dockers CQP'
+          - classification = 'D2'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 3389 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 3307 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 3224 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 3142 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 3060 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 2979 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 2897 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 2814 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 2732 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 2651 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2567 €/mois
+          - sinon: 2487 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'ouvriers dockers CQP'
+          - classification = 'AM1'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 3796 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 3707 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 3619 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 3530 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 3442 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 3355 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 3266 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 3178 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 3089 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 3000 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 2912 €/mois
+          - sinon: 2823 €/mois
+    - si:
+        toutes ces conditions:
+          - grille de salaires = 'ouvriers dockers CQP'
+          - classification = 'AM2'
+      alors:
+        variations:
+          - si: palier d'ancienneté >= 11
+            alors: 4028 €/mois
+          - si: palier d'ancienneté >= 10
+            alors: 3934 €/mois
+          - si: palier d'ancienneté >= 9
+            alors: 3841 €/mois
+          - si: palier d'ancienneté >= 8
+            alors: 3747 €/mois
+          - si: palier d'ancienneté >= 7
+            alors: 3653 €/mois
+          - si: palier d'ancienneté >= 6
+            alors: 3560 €/mois
+          - si: palier d'ancienneté >= 5
+            alors: 3464 €/mois
+          - si: palier d'ancienneté >= 4
+            alors: 3371 €/mois
+          - si: palier d'ancienneté >= 3
+            alors: 3276 €/mois
+          - si: palier d'ancienneté >= 2
+            alors: 3183 €/mois
+          - si: palier d'ancienneté >= 1
+            alors: 3089 €/mois
+          - sinon: 2995 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . ports et manutention . classification hors grille:
+  titre: Classification absente de la grille
+  description: >-
+    Vrai si la combinaison grille de salaires et classification n'existe pas dans le
+    texte (par exemple « Cadres 4 » hors de la grille des établissements portuaires).
+  applicable si: convention collective = 'ports et manutention'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . ports et manutention . audit paie:
+  titre: Audit des rubriques conventionnelles de paie
+  description: >-
+    Les avenants salariaux fixent des salaires bruts minima hiérarchiques et les paliers
+    d'ancienneté. Les rubriques de cotisations, prévoyance, retraite, formation, primes,
+    indemnités, avantages et frais ne sont pas modélisées ici et restent externes.
+  applicable si: convention collective = 'ports et manutention'
+  valeur: oui

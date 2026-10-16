@@ -1,0 +1,168 @@
+# Convention collective nationale des commissaires de justice et sociétés de ventes volontaires
+# du 16 novembre 2022 (IDCC 3250), étendue par arrêté du 10 juillet 2024.
+# Version 2025.1 : avenant n° 8 du 19 décembre 2024, valeur de référence du point 8,65 € à compter du 1er janvier 2025.
+validFrom: 2025-01-01
+sources:
+  - >-
+    Avenant n° 8 du 19 décembre 2024 relatif aux salaires, étendu par arrêté du 15 mai 2025
+    (JORF du 7 juin 2025), KALITEXT000051352624. Article 1er : valeur de référence 8,65 €
+    (214 premiers points) et valeur complémentaire 8,19 € (au-delà), à compter du 1er janvier 2025 ;
+    annexe : grille des catégories I, II, II bis et III (coefficients 214 à 542), minimum conventionnel pour 151,67 heures.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051352624
+  - >-
+    Convention collective nationale du 16 novembre 2022, étendue par arrêté du 10 juillet 2024 (JORF du 18 juillet 2024),
+    conteneur KALICONT000047802239, article 41.1 (méthode de calcul du salaire minimum conventionnel).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000047212228
+---
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires:
+  titre: Commissaires de justice et sociétés de ventes volontaires (IDCC 3250)
+  valeur: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
+
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . classification:
+  titre: Catégorie et coefficient de classification
+  description: Catégorie (I, II, IIbis ou III) et coefficient de la grille, séparés par un tiret, par exemple II-296 ou III-470. Un même coefficient publié dans plusieurs catégories se saisit avec la catégorie de l'emploi.
+  applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail. Vaut 0 €/mois si la classification est absente de la grille.
+  applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . grille:
+  titre: Grille mensuelle des minima conventionnels à temps plein
+  description: Grille de l'annexe de l'avenant n° 8 du 19 décembre 2024, applicable à compter du 1er janvier 2025 (214 × 8,65 € + (coefficient − 214) × 8,19 €).
+  applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
+  unité: €/mois
+  variations:
+    - si: classification = 'I-214'
+      alors: 1851.1 €/mois
+    - si: classification = 'I-215'
+      alors: 1859.29 €/mois
+    - si: classification = 'I-219'
+      alors: 1892.05 €/mois
+    - si: classification = 'I-223'
+      alors: 1924.81 €/mois
+    - si: classification = 'I-270'
+      alors: 2309.74 €/mois
+    - si: classification = 'I-283'
+      alors: 2416.21 €/mois
+    - si: classification = 'I-299'
+      alors: 2547.25 €/mois
+    - si: classification = 'I-300'
+      alors: 2555.44 €/mois
+    - si: classification = 'I-302'
+      alors: 2571.82 €/mois
+    - si: classification = 'I-317'
+      alors: 2694.67 €/mois
+    - si: classification = 'I-331'
+      alors: 2809.33 €/mois
+    - si: classification = 'I-345'
+      alors: 2923.99 €/mois
+    - si: classification = 'I-360'
+      alors: 3046.84 €/mois
+    - si: classification = 'I-410'
+      alors: 3456.34 €/mois
+    - si: classification = 'II-214'
+      alors: 1851.1 €/mois
+    - si: classification = 'II-221'
+      alors: 1908.43 €/mois
+    - si: classification = 'II-231'
+      alors: 1990.33 €/mois
+    - si: classification = 'II-240'
+      alors: 2064.04 €/mois
+    - si: classification = 'II-246'
+      alors: 2113.18 €/mois
+    - si: classification = 'II-258'
+      alors: 2211.46 €/mois
+    - si: classification = 'II-250'
+      alors: 2145.94 €/mois
+    - si: classification = 'II-270'
+      alors: 2309.74 €/mois
+    - si: classification = 'II-296'
+      alors: 2522.68 €/mois
+    - si: classification = 'II-302'
+      alors: 2571.82 €/mois
+    - si: classification = 'II-315'
+      alors: 2678.29 €/mois
+    - si: classification = 'II-317'
+      alors: 2694.67 €/mois
+    - si: classification = 'II-365'
+      alors: 3087.79 €/mois
+    - si: classification = 'II-400'
+      alors: 3374.44 €/mois
+    - si: classification = 'II-447'
+      alors: 3759.37 €/mois
+    - si: classification = 'II-456'
+      alors: 3833.08 €/mois
+    - si: classification = 'IIbis-217'
+      alors: 1875.67 €/mois
+    - si: classification = 'IIbis-230'
+      alors: 1982.14 €/mois
+    - si: classification = 'III-393'
+      alors: 3317.11 €/mois
+    - si: classification = 'III-403'
+      alors: 3399.01 €/mois
+    - si: classification = 'III-441'
+      alors: 3710.23 €/mois
+    - si: classification = 'III-460'
+      alors: 3865.84 €/mois
+    - si: classification = 'III-542'
+      alors: 4537.42 €/mois
+    - si: classification = 'III-470'
+      alors: 3947.74 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . classification hors grille:
+  titre: Classification absente de la grille
+  description: Vrai lorsque la classification saisie ne correspond à aucune ligne publiée de la grille.
+  applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
+  toutes ces conditions:
+    - classification != 'I-214'
+    - classification != 'I-215'
+    - classification != 'I-219'
+    - classification != 'I-223'
+    - classification != 'I-270'
+    - classification != 'I-283'
+    - classification != 'I-299'
+    - classification != 'I-300'
+    - classification != 'I-302'
+    - classification != 'I-317'
+    - classification != 'I-331'
+    - classification != 'I-345'
+    - classification != 'I-360'
+    - classification != 'I-410'
+    - classification != 'II-214'
+    - classification != 'II-221'
+    - classification != 'II-231'
+    - classification != 'II-240'
+    - classification != 'II-246'
+    - classification != 'II-258'
+    - classification != 'II-250'
+    - classification != 'II-270'
+    - classification != 'II-296'
+    - classification != 'II-302'
+    - classification != 'II-315'
+    - classification != 'II-317'
+    - classification != 'II-365'
+    - classification != 'II-400'
+    - classification != 'II-447'
+    - classification != 'II-456'
+    - classification != 'IIbis-217'
+    - classification != 'IIbis-230'
+    - classification != 'III-393'
+    - classification != 'III-403'
+    - classification != 'III-441'
+    - classification != 'III-460'
+    - classification != 'III-542'
+    - classification != 'III-470'
+
+salarié . convention collective . commissaires de justice et sociétés de ventes volontaires . audit paie:
+  titre: Audit des rubriques de paie
+  description: Seul le salaire minimum conventionnel de la grille est modélisé ; les autres rubriques de paie de la convention ne sont pas auditées.
+  applicable si: convention collective = 'commissaires de justice et sociétés de ventes volontaires'
+  valeur: non

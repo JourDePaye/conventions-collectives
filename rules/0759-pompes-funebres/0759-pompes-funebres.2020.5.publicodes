@@ -1,0 +1,117 @@
+# Version 2020.5 : révision de 2020.4 ; le niveau I (position 1) a les paliers d'ancienneté du texte
+# (1 550 à l'embauche, 1 800 à 25 ans) au lieu d'un montant fixe. Même date d'effet : remplace 2020.4.
+validFrom: '2020-01-01'
+sources:
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635490
+  - >-
+    Accord du 13 février 2020 relatif aux salaires pour l'année 2020 (KALITEXT000042131973), annexe
+    « Salaires mensuels minimaux conventionnels au 1er janvier 2020 », niveau I.1 : 1 550 / 1 593 / 1 613
+    / 1 655 / 1 704 / 1 747 / 1 800 € à l'embauche, 3, 5, 10, 15, 20 et 25 ans. Accord étendu par arrêté du
+    25 janvier 2021 (JORF du 3 février 2021), sous réserve du SMIC.
+---
+salarié . convention collective . pompes funèbres:
+  titre: Entreprises de pompes funèbres (IDCC 759)
+  valeur: convention collective = 'pompes funèbres'
+
+salarié . convention collective . pompes funèbres . niveau:
+  titre: Niveau de classification
+  description: Niveau conventionnel attribué par l'employeur (I à VII).
+  applicable si: convention collective = 'pompes funèbres'
+  par défaut: '''I'''
+
+salarié . convention collective . pompes funèbres . position:
+  titre: Position de classification
+  description: Position conventionnelle attribuée par l'employeur.
+  applicable si: convention collective = 'pompes funèbres'
+  par défaut: 0
+  plancher: 0
+
+salarié . convention collective . pompes funèbres . ancienneté dans l'emploi:
+  titre: Ancienneté dans l'emploi
+  description: Ancienneté révolue dans l'emploi, en années, utilisée par la grille.
+  applicable si: convention collective = 'pompes funèbres'
+  par défaut: 0
+  plancher: 0
+
+salarié . convention collective . pompes funèbres . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel mensuel
+  description: |
+    Minimum mensuel brut à temps plein selon le niveau, la position et l'ancienneté dans l'emploi.
+    La grille est celle de l'annexe du texte salarial applicable à la date d'effet de la version (voir les sources).
+    Les primes d'ancienneté, heures supplémentaires, remboursements de frais et primes d'assiduité ne sont
+    pas intégrés dans la comparaison conventionnelle ; le modèle calcule uniquement le minimum de grille.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'pompes funèbres'
+      - position > 0
+      - salaire minimum conventionnel temps plein > 0 €/mois
+  unité: €/mois
+  valeur: salaire minimum conventionnel temps plein * contrat . temps de travail . quotité
+
+salarié . convention collective . pompes funèbres . salaire minimum conventionnel temps plein:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'pompes funèbres'
+      - position > 0
+  unité: €/mois
+  variations:
+    - si:
+        toutes ces conditions:
+          - niveau = 'I'
+          - position = 1
+      alors: 1550 €/mois + (ancienneté dans l'emploi >= 3) * 43 €/mois + (ancienneté dans l'emploi >= 5) * 20 €/mois + (ancienneté dans l'emploi >= 10) * 42 €/mois + (ancienneté dans l'emploi >= 15) * 49 €/mois + (ancienneté dans l'emploi >= 20) * 43 €/mois + (ancienneté dans l'emploi >= 25) * 53 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'II'
+          - position = 1
+      alors: 1573 €/mois + (ancienneté dans l'emploi >= 3) * 48 €/mois + (ancienneté dans l'emploi >= 5) * 18 €/mois + (ancienneté dans l'emploi >= 10) * 37 €/mois + (ancienneté dans l'emploi >= 15) * 52 €/mois + (ancienneté dans l'emploi >= 20) * 43 €/mois + (ancienneté dans l'emploi >= 25) * 52 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'II'
+          - position = 2
+      alors: 1589 €/mois + (ancienneté dans l'emploi >= 3) * 56 €/mois + (ancienneté dans l'emploi >= 5) * 10 €/mois + (ancienneté dans l'emploi >= 10) * 43 €/mois + (ancienneté dans l'emploi >= 15) * 52 €/mois + (ancienneté dans l'emploi >= 20) * 45 €/mois + (ancienneté dans l'emploi >= 25) * 53 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'III'
+          - position = 1
+      alors: 1612 €/mois + (ancienneté dans l'emploi >= 3) * 49 €/mois + (ancienneté dans l'emploi >= 5) * 11 €/mois + (ancienneté dans l'emploi >= 10) * 43 €/mois + (ancienneté dans l'emploi >= 15) * 53 €/mois + (ancienneté dans l'emploi >= 20) * 44 €/mois + (ancienneté dans l'emploi >= 25) * 55 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'III'
+          - position = 2
+      alors: 1628 €/mois + (ancienneté dans l'emploi >= 3) * 42 €/mois + (ancienneté dans l'emploi >= 5) * 11 €/mois + (ancienneté dans l'emploi >= 10) * 43 €/mois + (ancienneté dans l'emploi >= 15) * 53 €/mois + (ancienneté dans l'emploi >= 20) * 44 €/mois + (ancienneté dans l'emploi >= 25) * 56 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'IV'
+          - position = 1
+      alors: 1703 €/mois + (ancienneté dans l'emploi >= 3) * 26 €/mois + (ancienneté dans l'emploi >= 5) * 25 €/mois + (ancienneté dans l'emploi >= 10) * 31 €/mois + (ancienneté dans l'emploi >= 15) * 63 €/mois + (ancienneté dans l'emploi >= 20) * 46 €/mois + (ancienneté dans l'emploi >= 25) * 57 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'IV'
+          - position = 2
+      alors: 1759 €/mois + (ancienneté dans l'emploi >= 3) * 28 €/mois + (ancienneté dans l'emploi >= 5) * 25 €/mois + (ancienneté dans l'emploi >= 10) * 32 €/mois + (ancienneté dans l'emploi >= 15) * 64 €/mois + (ancienneté dans l'emploi >= 20) * 48 €/mois + (ancienneté dans l'emploi >= 25) * 59 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'V'
+          - position = 1
+      alors: 2184 €/mois + (ancienneté dans l'emploi >= 3) * 17 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'V'
+          - position = 2
+      alors: 2340 €/mois + (ancienneté dans l'emploi >= 3) * 19 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'VI'
+          - position = 1
+      alors: 2600 €/mois + (ancienneté dans l'emploi >= 3) * 21 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'VI'
+          - position = 2
+      alors: 3078 €/mois + (ancienneté dans l'emploi >= 3) * 25 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'VII'
+          - position = 1
+      alors: 3819 €/mois + (ancienneté dans l'emploi >= 3) * 30 €/mois

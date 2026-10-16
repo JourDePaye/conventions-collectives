@@ -1,0 +1,132 @@
+# Convention collective nationale des taxis du 11 septembre 2001 (IDCC 2219).
+# Version 2025.2 : accord du 20 juin 2025 relatif aux rémunérations minimales,
+# applicable au 1er juin 2025 et étendu par arrêté du 9 octobre 2025.
+# Replaces 2025.1 (same validFrom), which modelled only one of the eleven lines of the accord.
+validFrom: 2025-06-01
+sources:
+  - >-
+    Accord du 20 juin 2025 relatif aux rémunérations minimales des personnels (BO 2025-36),
+    article 1 (applicable à partir du 1er juin 2025), article 2 (échelon 1, personnels roulants
+    non titulaires de la carte professionnelle : niveau 1 et niveau 2), article 3 (échelon 2,
+    personnels roulants titulaires de la carte professionnelle : niveaux 1 à 3), article 4
+    (personnels non roulants, échelons I à VI, taux horaire seul). Les montants mensuels des
+    articles 2 et 3 sont ceux du texte (151,67 heures) ; l'article 4 ne publie qu'un taux horaire,
+    le minimum mensuel des non roulants est le taux horaire multiplié par 151,67 heures, arrondi
+    au centime (calcul du modèle, non publié dans le texte).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000052447745
+  - >-
+    Arrêté du 9 octobre 2025 portant extension de l'accord conclu dans le cadre de la convention
+    collective nationale des taxis (IDCC 2219), publié au Journal officiel du 15 octobre 2025 :
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052391450
+  - >-
+    Convention collective nationale des taxis du 11 septembre 2001, conteneur Légifrance
+    KALICONT000021125058 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000021125058
+---
+salarié . convention collective . taxis:
+  titre: Taxis (IDCC 2219)
+  valeur: convention collective = 'taxis'
+
+salarié . convention collective . taxis . classification:
+  titre: Classification taxi
+  description: >-
+    Une des onze lignes de l'accord du 20 juin 2025. Personnels roulants : « niveau 1 — conducteur débutant »,
+    « niveau 2 — conducteur confirmé » ou « niveau 3 — conducteur confirmé », suivi de « — titulaire carte
+    professionnelle » (échelon 2) ou « — non titulaire carte professionnelle » (échelon 1 ; niveaux 1 et 2
+    seulement). Personnels non roulants : « non roulant — échelon I » à « non roulant — échelon VI ».
+  applicable si: convention collective = 'taxis'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . taxis . taux horaire minimum conventionnel:
+  titre: Taux horaire minimum conventionnel
+  description: Taux horaire minimal brut de la classification, publié dans l'accord du 20 juin 2025 (non proratisé).
+  applicable si: convention collective = 'taxis'
+  unité: €/heure
+  variations:
+    - si: classification = 'niveau 1 — conducteur débutant — titulaire carte professionnelle'
+      alors: 12.11 €/heure
+    - si: classification = 'niveau 1 — conducteur débutant — non titulaire carte professionnelle'
+      alors: 12.11 €/heure
+    - si: classification = 'niveau 2 — conducteur confirmé — non titulaire carte professionnelle'
+      alors: 12.21 €/heure
+    - si: classification = 'niveau 2 — conducteur confirmé — titulaire carte professionnelle'
+      alors: 12.21 €/heure
+    - si: classification = 'niveau 3 — conducteur confirmé — titulaire carte professionnelle'
+      alors: 12.32 €/heure
+    - si: classification = 'non roulant — échelon I'
+      alors: 12.33 €/heure
+    - si: classification = 'non roulant — échelon II'
+      alors: 12.39 €/heure
+    - si: classification = 'non roulant — échelon III'
+      alors: 12.68 €/heure
+    - si: classification = 'non roulant — échelon IV'
+      alors: 14.45 €/heure
+    - si: classification = 'non roulant — échelon V'
+      alors: 16.49 €/heure
+    - si: classification = 'non roulant — échelon VI'
+      alors: 18.57 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . taxis . grille mensuelle:
+  titre: Minimum mensuel conventionnel des taxis à temps plein
+  description: >-
+    Minimum mensuel brut pour 151,67 heures. Personnels roulants : montant publié (articles 2 et 3). Personnels non
+    roulants : taux horaire de l'article 4 multiplié par 151,67 heures, arrondi au centime (le texte ne publie pas
+    de montant mensuel).
+  applicable si: convention collective = 'taxis'
+  unité: €/mois
+  variations:
+    - si: classification = 'niveau 1 — conducteur débutant — titulaire carte professionnelle'
+      alors: 1837.86 €/mois
+    - si: classification = 'niveau 1 — conducteur débutant — non titulaire carte professionnelle'
+      alors: 1837.86 €/mois
+    - si: classification = 'niveau 2 — conducteur confirmé — non titulaire carte professionnelle'
+      alors: 1853.34 €/mois
+    - si: classification = 'niveau 2 — conducteur confirmé — titulaire carte professionnelle'
+      alors: 1853.34 €/mois
+    - si: classification = 'niveau 3 — conducteur confirmé — titulaire carte professionnelle'
+      alors: 1868.81 €/mois
+    - si: classification = 'non roulant — échelon I'
+      alors:
+        valeur: taux horaire minimum conventionnel * 151.67 heures/mois
+        arrondi: 2 décimales
+    - si: classification = 'non roulant — échelon II'
+      alors:
+        valeur: taux horaire minimum conventionnel * 151.67 heures/mois
+        arrondi: 2 décimales
+    - si: classification = 'non roulant — échelon III'
+      alors:
+        valeur: taux horaire minimum conventionnel * 151.67 heures/mois
+        arrondi: 2 décimales
+    - si: classification = 'non roulant — échelon IV'
+      alors:
+        valeur: taux horaire minimum conventionnel * 151.67 heures/mois
+        arrondi: 2 décimales
+    - si: classification = 'non roulant — échelon V'
+      alors:
+        valeur: taux horaire minimum conventionnel * 151.67 heures/mois
+        arrondi: 2 décimales
+    - si: classification = 'non roulant — échelon VI'
+      alors:
+        valeur: taux horaire minimum conventionnel * 151.67 heures/mois
+        arrondi: 2 décimales
+    - sinon: 0 €/mois
+
+salarié . convention collective . taxis . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut proratisé selon la quotité de travail.
+  applicable si: convention collective = 'taxis'
+  unité: €/mois
+  valeur: grille mensuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . taxis . classification hors grille:
+  titre: Classification absente de l'accord
+  description: La classification fournie n'est aucune des onze lignes de l'accord du 20 juin 2025.
+  applicable si: convention collective = 'taxis'
+  valeur: grille mensuelle = 0 €/mois
+
+salarié . convention collective . taxis . audit paie:
+  titre: Audit des rubriques de paie
+  description: Recherche explicite des cotisations salarié/employeur, taux, assiettes, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation, AT/MP, primes, avantages et frais dans l'accord salarial, la convention et les textes dédiés ; aucun taux conventionnel générique calculable n'est ajouté par cette version.
+  applicable si: convention collective = 'taxis'
+  valeur: non

@@ -1,5 +1,15 @@
 # Convention collective nationale des gardiens, concierges et employés d'immeubles — IDCC 1043
 
+## Modèle 2026.1
+
+- **Texte salarial :** avenant n° 115 du 20 janvier 2026 relatif aux salaires 2026 (KALITEXT000054091896, BO 2026-10), étendu par arrêté du 10 avril 2026 (JORF du 17 avril 2026).
+- **Date d'effet modélisée :** 1er mai 2026, premier jour du mois suivant la parution de l'arrêté d'extension (article 6).
+- **Catégorie A :** `((coefficient hiérarchique × 1,65) + 920 €) × heures contractuelles / 151,67`.
+- **Catégorie B :** `((coefficient hiérarchique × 1,79) + 920 €) × unités de valeur / 10 000`.
+- **Avantages en nature :** électricité 0,1952 € le kWh ; logement à 3,593 €/m² (catégorie 1), 2,837 €/m² (catégorie 2) ou 2,095 €/m² (catégorie 3), surface plafonnée à 60 m². Ces montants sont définis à compter du 1er janvier 2026 par l'article 4 mais appliqués ici à partir de la date d'entrée en vigueur de l'avenant. La valeur minimale de 79,70 € (fixée par l'Urssaf) n'est pas appliquée automatiquement.
+- **Prime de tri sélectif :** non modifiée par l'avenant n° 115, reprise de la version 2025.1 (1,40 € par lot, minimum 28 €, maximum 224 €).
+- Mêmes règles et mêmes clés que 2025.1. Hors modèle : prime VAE (article 5) et évolution de la répartition de la cotisation santé (simple projet d'avenant).
+
 ## Modèle 2025.1
 
 - **Texte salarial :** avenant n° 110 du 17 janvier 2025 relatif aux salaires 2025.

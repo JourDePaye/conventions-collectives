@@ -1,0 +1,102 @@
+# Convention collective nationale du personnel au sol des entreprises de transport aérien — IDCC 0275
+# Brochure 3177. Version 2025.4, avenant n° 100 du 2 avril 2025 relatif aux salaires, grille du 1er novembre 2025.
+# Step of 1 November 2025 (+0.5 % on the first level of the grid in force on 1 September 2025; the text says 1 November 2025 or the date of the next Smic increase decree, modelled at 1 November 2025).
+validFrom: 2025-11-01
+sources:
+  - >-
+    Avenant n° 100 du 2 avril 2025 relatif aux salaires pour l'année 2025 (article 1 : trois grilles
+    au 1er avril, 1er septembre et 1er novembre 2025 ; article 2 : panier 7,40 € ; article 7 : application
+    aux non-adhérents un jour franc après la publication de l'arrêté d'extension).
+    Étendu par arrêté du 2 juin 2025, JORF du 27 juin 2025.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051909575
+  - >-
+    Convention collective nationale du personnel au sol des entreprises de transport aérien du
+    22 mai 1959, conteneur Légifrance KALICONT000005635872 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635872
+---
+salarié . convention collective . transport aérien personnel au sol:
+  titre: Personnel au sol des entreprises de transport aérien (IDCC 0275)
+  valeur: convention collective = 'transport aérien personnel au sol'
+
+salarié . convention collective . transport aérien personnel au sol . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient de la classification conventionnelle. La classification est fournie par l'application et n'est pas déduite de l'intitulé du poste.
+  applicable si: convention collective = 'transport aérien personnel au sol'
+  par défaut: 0
+
+salarié . convention collective . transport aérien personnel au sol . date de calcul:
+  titre: Date de calcul
+  description: Date de la période de paie. Le palier de la grille est choisi par la version en vigueur à cette date (validFrom), cette règle n'est plus lue par le calcul.
+  applicable si: convention collective = 'transport aérien personnel au sol'
+  par défaut: 01/01/1900
+
+salarié . convention collective . transport aérien personnel au sol . salaire minimum conventionnel:
+  titre: Salaire minimum hiérarchique mensuel
+  description: >-
+    Salaire minimum hiérarchique mensuel brut à temps plein de l'avenant n° 100 (grille du 1er novembre 2025), selon le coefficient, proratisé selon la quotité de travail. L'avenant est étendu : la grille s'applique à tous les employeurs du champ.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'transport aérien personnel au sol'
+      - coefficient hors grille = non
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . transport aérien personnel au sol . grille:
+  titre: Minimum mensuel à temps plein
+  unité: €/mois
+  variations:
+    - si: coefficient = 160
+      alors: 1845 €/mois
+    - si: coefficient = 165
+      alors: 1855 €/mois
+    - si: coefficient = 175
+      alors: 1865 €/mois
+    - si: coefficient = 185
+      alors: 1885 €/mois
+    - si: coefficient = 190
+      alors: 1895 €/mois
+    - si: coefficient = 195
+      alors: 1915 €/mois
+    - si: coefficient = 200
+      alors: 1925 €/mois
+    - si: coefficient = 220
+      alors: 1965 €/mois
+    - si: coefficient = 235
+      alors: 2075 €/mois
+    - si: coefficient = 245
+      alors: 2105 €/mois
+    - si: coefficient = 260
+      alors: 2205 €/mois
+    - si: coefficient = 270
+      alors: 2275 €/mois
+    - si: coefficient = 290
+      alors: 2425 €/mois
+    - si: coefficient = 295
+      alors: 2445 €/mois
+    - si: coefficient = 300
+      alors: 2645 €/mois
+    - si: coefficient = 360
+      alors: 2985 €/mois
+    - si: coefficient = 420
+      alors: 3435 €/mois
+    - si: coefficient = 510
+      alors: 4115 €/mois
+    - si: coefficient = 600
+      alors: 4795 €/mois
+    - si: coefficient = 750
+      alors: 5925 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . transport aérien personnel au sol . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient fourni n'est pas l'un des coefficients de la grille salariale de l'avenant n° 100.
+  applicable si: convention collective = 'transport aérien personnel au sol'
+  valeur: grille = 0 €/mois
+
+salarié . convention collective . transport aérien personnel au sol . indemnité de panier:
+  titre: Indemnité conventionnelle de panier
+  description: Montant fixé par l'avenant n° 100 à compter du 1er avril 2025 (7,10 € auparavant). Cette indemnité est exposée séparément et n'est pas ajoutée au salaire minimum hiérarchique.
+  applicable si: convention collective = 'transport aérien personnel au sol'
+  valeur: 7.40 €/jour

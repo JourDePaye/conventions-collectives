@@ -1,14 +1,15 @@
 # Entreprises d'installation sans fabrication de matériel aéraulique, thermique et frigorifique — IDCC 1412
 
-Le fichier [2026.1](1412-installation-aeraulique-thermique-frigorifique.2026.1.publicodes) est applicable au 1er janvier 2026. Il reprend l'avenant n° 77 du 26 mars 2026 relatif aux salaires minima, étendu par arrêté du 11 juin 2026 publié au Journal officiel du 27 juin 2026 (NOR TRST2615573A). Les références officielles figurent dans les métadonnées du fichier source.
+Le fichier [2026.2](1412-installation-aeraulique-thermique-frigorifique.2026.2.publicodes) est applicable au 1er janvier 2026 et remplace la révision 2026.1 (même date d'effet), dont la grille annuelle était le mensuel multiplié par douze au lieu de la colonne « forfait annuel heures, base 1 607 heures » de l'annexe, et sans la colonne « forfait annuel jours, base 218 jours ». Il reprend l'avenant n° 77 du 26 mars 2026 relatif aux salaires minima, étendu par arrêté du 11 juin 2026 publié au Journal officiel du 27 juin 2026 (NOR TRST2615573A). Les références officielles figurent dans les métadonnées du fichier source.
 
 La valeur Publicodes est `installation aeraulique thermique frigorifique` ; les règles sont sous `salarié . convention collective . installation aeraulique thermique frigorifique`.
 
 ## Règles implémentées
 
-- `coefficient` reçoit les 19 coefficients publiés par l'avenant n° 77, des niveaux I à VII.
+- `coefficient` reçoit les 24 coefficients publiés par l'avenant n° 77, des niveaux I à VII.
 - `salaire minimum conventionnel` donne le minimum mensuel brut à temps plein sur la base de 151,667 heures, proratisé une seule fois par la quotité de travail.
-- `salaire minimum annuel conventionnel` expose les rémunérations annuelles des coefficients 370 à 700 lorsque l'avenant fournit une valeur pour un forfait annuel en heures ; cette valeur reste exprimée en €/an.
+- `salaire minimum annuel conventionnel` expose les rémunérations annuelles des coefficients 370 à 700 de la colonne « forfait annuel heures, base 1 607 heures » ; cette valeur reste exprimée en €/an et est proratisée par la quotité.
+- `salaire minimum annuel forfait jours conventionnel` expose la colonne « forfait annuel jours, base 218 jours » (coefficients 370 à 700), en €/an, proratisée par la quotité.
 - `coefficient hors grille` signale une classification absente et retourne 0 pour les grilles concernées.
 
 ## Audit paie et limites

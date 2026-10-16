@@ -1,0 +1,119 @@
+# Convention collective nationale des salariés du négoce des matériaux de construction du 8 décembre 2015
+# (IDCC 3216, brochure 3154).
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+# Avenant du 12 février 2026, date d'effet propre du texte (1er mars 2026), étendu le 10 mai 2026.
+validFrom: 2026-03-01
+sources:
+  - "Avenant du 12 février 2026 relatif aux minima conventionnels, article 2 (articles 2.2 et 3.2.5 de la CCN : minima mensuels des coefficients 165 à 350, minima annuels des cadres niveaux VI à IX coefficients 350 à 750, VPA = 94,83) et article 4 (entrée en vigueur au 1er mars 2026), texte KALI KALITEXT000054304021 : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054304021 (BO 2026-13, étendu par arrêté du 4 mai 2026, JORF du 10 mai 2026, à l'exclusion des entreprises d'importation de bois relevant de la convention du travail mécanique du bois, des scieries, du négoce et de l'importation des bois)."
+  - "Article 2.3 de la CCN (prime d'ancienneté) : le barème demeure inchangé au 1er mars 2026 selon l'avenant du 12 février 2026 ; il n'est pas modélisé."
+---
+salarié . convention collective . négoce des matériaux de construction:
+  titre: Négoce des matériaux de construction (IDCC 3216)
+  valeur: convention collective = 'négoce des matériaux de construction'
+
+salarié . convention collective . négoce des matériaux de construction . coefficient:
+  titre: Coefficient de classification (ouvriers, employés, techniciens, agents de maîtrise)
+  description: Coefficients 165, 170, 180, 195, 210, 225, 245, 250, 270, 290, 310, 330 ou 350 de la grille mensuelle (article 2.2). Laisser à 0 pour un cadre.
+  applicable si: convention collective = 'négoce des matériaux de construction'
+  par défaut: 0
+
+salarié . convention collective . négoce des matériaux de construction . coefficient cadre:
+  titre: Coefficient de classification des cadres
+  description: Coefficients 350, 380, 410, 450, 490, 550, 600, 650, 680 ou 750 de la grille annuelle des cadres, niveaux VI à IX (article 3.2.5). Laisser à 0 pour un non-cadre.
+  applicable si: convention collective = 'négoce des matériaux de construction'
+  par défaut: 0
+
+salarié . convention collective . négoce des matériaux de construction . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: Salaire minimum mensuel conventionnel des ouvriers, employés, techniciens et agents de maîtrise pour la durée légale du travail, proratisé selon la quotité de travail. Le Smic légal reste applicable lorsqu'il est supérieur.
+  applicable si: convention collective = 'négoce des matériaux de construction'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . négoce des matériaux de construction . grille:
+  titre: Salaire minimum conventionnel à temps plein
+  description: Grille de l'avenant du 12 février 2026, applicable au 1er mars 2026 (article 2.2).
+  applicable si: convention collective = 'négoce des matériaux de construction'
+  unité: €/mois
+  variations:
+    - si: coefficient = 165
+      alors: 1848.65 €/mois
+    - si: coefficient = 170
+      alors: 1856.00 €/mois
+    - si: coefficient = 180
+      alors: 1869.00 €/mois
+    - si: coefficient = 195
+      alors: 1929.00 €/mois
+    - si: coefficient = 210
+      alors: 1989.00 €/mois
+    - si: coefficient = 225
+      alors: 2049.00 €/mois
+    - si: coefficient = 245
+      alors: 2129.00 €/mois
+    - si: coefficient = 250
+      alors: 2149.00 €/mois
+    - si: coefficient = 270
+      alors: 2229.00 €/mois
+    - si: coefficient = 290
+      alors: 2309.00 €/mois
+    - si: coefficient = 310
+      alors: 2389.00 €/mois
+    - si: coefficient = 330
+      alors: 2469.00 €/mois
+    - si: coefficient = 350
+      alors: 2549.00 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . négoce des matériaux de construction . salaire minimum annuel conventionnel cadre:
+  titre: Salaire minimum annuel conventionnel des cadres
+  description: Salaire minimum annuel conventionnel des cadres (niveaux VI à IX) pour la durée légale du travail, proratisé selon la quotité de travail. Le Smic légal reste applicable lorsqu'il est supérieur.
+  applicable si: convention collective = 'négoce des matériaux de construction'
+  unité: €/an
+  produit:
+    - grille cadre
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . négoce des matériaux de construction . grille cadre:
+  titre: Salaire minimum annuel des cadres à temps plein
+  description: Grille de l'avenant du 12 février 2026, applicable au 1er mars 2026 (article 3.2.5), valeur du point annuel VPA 94,83 €.
+  applicable si: convention collective = 'négoce des matériaux de construction'
+  unité: €/an
+  variations:
+    - si: coefficient cadre = 350
+      alors: 33190.50 €/an
+    - si: coefficient cadre = 380
+      alors: 36035.40 €/an
+    - si: coefficient cadre = 410
+      alors: 38880.30 €/an
+    - si: coefficient cadre = 450
+      alors: 42673.50 €/an
+    - si: coefficient cadre = 490
+      alors: 46466.70 €/an
+    - si: coefficient cadre = 550
+      alors: 52156.50 €/an
+    - si: coefficient cadre = 600
+      alors: 56898 €/an
+    - si: coefficient cadre = 650
+      alors: 61639.50 €/an
+    - si: coefficient cadre = 680
+      alors: 64484.40 €/an
+    - si: coefficient cadre = 750
+      alors: 71122.50 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . négoce des matériaux de construction . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille mensuelle (non-cadre) ni, pour un cadre, dans la grille annuelle.
+  applicable si: convention collective = 'négoce des matériaux de construction'
+  valeur:
+    une de ces conditions:
+      - toutes ces conditions:
+          - coefficient cadre = 0
+          - grille = 0 €/mois
+      - toutes ces conditions:
+          - coefficient cadre > 0
+          - grille cadre = 0 €/an

@@ -1,13 +1,14 @@
 # Maisons d'étudiants — IDCC 1671
 
-La version `2026.2` modélise les avenants n° 75 et n° 76 du **9 décembre 2025** de la convention collective nationale des maisons d'étudiants (IDCC 1671). La grille de classification et la valeur du point sont applicables au **1er janvier 2026** aux employeurs signataires ou adhérents ; l'accord a été étendu par arrêté du **3 juillet 2026**, avec effet général au **1er juillet 2026**.
+La version `2026.3` (qui remplace `2026.2`, même date `2026-01-01`) modélise l'avenant n° 75 du **9 décembre 2025** (annexe 1 : grille des 20 classes et coefficients minima, inchangés depuis l'avenant n° 70 de 2023), l'avenant n° 76 du **9 décembre 2025** (NAO : point à 68,80 € au lieu de 67,78 €, santé à 65 % employeur) et l'avenant n° 74 du **15 décembre 2025** (treizième mois). Les trois entrent en vigueur « sans attendre leur extension » (1er janvier 2026 pour 75 et 76, 1er juillet 2026 pour 74), donc pour les employeurs adhérents aux organisations signataires. Pour les autres employeurs, l'application commence avec le Journal officiel : arrêté du 3 juillet 2026 (JORF du **11 juillet 2026**) pour les avenants n° 75 et n° 74, soit à partir du **12 juillet 2026** ; arrêté du 23 septembre 2026 (JORF du **3 octobre 2026**) pour l'avenant n° 76, soit à partir du **4 octobre 2026**. Entre le 12 juillet et le 3 octobre 2026, ces employeurs restent donc à la valeur de point de 67,78 € (avenant n° 73, texte non relu). Avant le 12 juillet 2026, la grille n'est pas modélisée pour eux (elle date de l'avenant n° 70, non modélisé).
 
 La valeur Publicodes est `maisons d'étudiants` et les règles sont sous `salarié . convention collective . maisons d'étudiants`.
 
 ## Règles implémentées
 
 - `classe` accepte les classes 1 à 20 ; la grille associe chaque classe à son coefficient conventionnel ;
-- `valeur annuelle du point` est fixée à `68,80 €/an` ;
+- `valeur annuelle du point` vaut `68,80 €/an` (adhérents dès le 1er janvier 2026, tous employeurs à partir du 4 octobre 2026) et `67,78 €/an` pour les autres employeurs du 12 juillet au 3 octobre 2026 ;
+- `champ juridique` (`employeur signataire ou adhérent` ou `tous employeurs après extension`, défaut) et `date de calcul` (à fournir : sans date, le minimum est non applicable) pilotent ces dates ;
 - `salaire minimum annuel conventionnel` calcule le minimum brut annuel à temps plein et le prorata selon la quotité ;
 - `salaire minimum mensuel indicatif` expose seulement l'équivalent de la garantie annuelle (`minimum annuel / 12`) ;
 - `treizième mois annuel` applique la montée en charge de l'avenant n° 74 : un tiers en 2026, deux tiers en 2027, puis la totalité à partir de 2028, sur une assiette annuelle fournie par l'application ;
@@ -29,11 +30,11 @@ L'audit a porté sur l'avenant salarial et les textes dédiés de protection soc
 
 ## Sources officielles
 
-- Avenant n° 75 du 9 décembre 2025 relatif à la classification et aux salaires, IDCC 1671, KALIARTI `KALIARTI000054454212`.
-- Avenant n° 76 du 9 décembre 2025 relatif à la valeur du point et aux frais de santé, KALITEXT `KALITEXT000054454229`.
-- Avenant n° 74 du 9 décembre 2025 relatif au treizième mois, KALITEXT `KALITEXT000054454208`.
+- Avenant n° 75 du 9 décembre 2025 (annexes 1 et 2, classification et coefficients minima), KALITEXT `KALITEXT000054454208`, étendu par arrêté du 3 juillet 2026 (JORF du 11 juillet 2026).
+- Avenant n° 76 du 9 décembre 2025 (NAO : valeur du point, santé), KALITEXT `KALITEXT000054454222`, étendu par arrêté du 23 septembre 2026 (JORF du 3 octobre 2026).
+- Avenant n° 74 du 15 décembre 2025 (treizième mois), KALITEXT `KALITEXT000054454229`, étendu par arrêté du 3 juillet 2026 (JORF du 11 juillet 2026).
 - Avenant n° 72 du 17 avril 2025 relatif à la prévoyance, KALITEXT `KALITEXT000051314781`.
-- Convention collective nationale des maisons d'étudiants, conteneur `KALICONT000005635917`, et arrêté d'extension du 3 juillet 2026.
+- Convention collective nationale des maisons d'étudiants, conteneur `KALICONT000005635917`, et arrêtés d'extension ci-dessus.
 
 ## Limites
 

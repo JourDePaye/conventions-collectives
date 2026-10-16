@@ -1,13 +1,13 @@
 # Espaces de loisirs, d'attractions et culturels — IDCC 1790
 
-La version `2026.1` modélise l'avenant n° **76 du 13 mars 2026** relatif aux rémunérations conventionnelles. Il a été étendu par arrêté du **6 juillet 2026**, publié au Journal officiel ; la version est datée de cette extension.
+L'avenant n° **76 du 13 mars 2026** relatif aux rémunérations conventionnelles s'applique au **1er avril 2026** (article 3) ; il a été étendu par arrêté du **6 juillet 2026** (JORF du 10 juillet 2026), sous réserve du SMIC. Les versions `2026.2` (1er avril 2026) et `2026.3` (6 juillet 2026, même grille) portent la grille de l'avenant n° 76. La version `2026.1` reprenait par erreur la grille du 1er mars 2025 (avenant n° 73) : elle est remplacée, et `2026.3` n'existe que pour la supplanter à partir de sa date d'effet (6 juillet 2026).
 
 La valeur Publicodes est `espaces loisirs` et les règles sont sous `salarié . convention collective . espaces loisirs`.
 
 ## Règles implémentées
 
 - `niveau`, `échelon` et `coefficient` reçoivent la classification contractuelle ;
-- `rémunération minimale` expose les minima mensuels bruts de la grille 2026.1 pour 151,67 heures ;
+- `rémunération minimale` expose les minima mensuels bruts de la grille de l'avenant n° 76 (1er avril 2026) pour 151,67 heures ;
 - `salaire minimum conventionnel` applique uniquement le prorata de `contrat . temps de travail . quotité` ;
 - `classification hors grille` signale les couples niveau/coefficient non publiés et laisse l'endpoint minimum à zéro.
 

@@ -1,0 +1,93 @@
+# Convention collective nationale des entreprises d'architecture du 27 février 2003 (IDCC 2332).
+# Version 2026.1: accord Rhône-Alpes du 3 février 2026 relatif aux salaires et à la valeur du point, étendu par arrêté
+# du 20 mai 2026 (JORF du 29 mai 2026): applicable le premier jour du mois suivant, soit le 1er juin 2026.
+# Only Rhône-Alpes is modelled. The 2025 euro floors (1 945 / 1 892) are not repeated by the 2026 accord: floor = 0.
+validFrom: 2026-06-01
+sources:
+  - >-
+    Accord Rhône-Alpes du 3 février 2026 relatif aux salaires et à la valeur du point (zone 1: 9,21 €; zone 2: 9,10 €),
+    KALITEXT000054337579, étendu par arrêté du 20 mai 2026 (JORF du 29 mai 2026), BO 2026-16. Article 1er: application à compter du premier jour
+    du mois suivant la publication de l'arrêté d'extension, soit le 1er juin 2026; article 3: aucun salaire inférieur au Smic.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054337579
+  - >-
+    Convention collective nationale des entreprises d'architecture du 27 février 2003, étendue par arrêté du
+    6 janvier 2004, conteneur KALICONT000005635365.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635365
+---
+salarié . convention collective . entreprises d'architecture:
+  titre: Entreprises d'architecture (IDCC 2332)
+  valeur: convention collective = 'entreprises d'architecture'
+
+salarié . convention collective . entreprises d'architecture . coefficient:
+  titre: Coefficient hiérarchique
+  description: >-
+    Coefficient hiérarchique de l'emploi selon la classification de la branche.
+    L'application appelante doit fournir le coefficient effectivement attribué.
+  applicable si: convention collective = 'entreprises d'architecture'
+  par défaut: 0
+
+salarié . convention collective . entreprises d'architecture . zone:
+  titre: Zone Rhône-Alpes
+  description: Zone territoriale de l'accord régional modélisé.
+  applicable si: convention collective = 'entreprises d'architecture'
+  par défaut: "'zone 1'"
+
+salarié . convention collective . entreprises d'architecture . valeur du point:
+  titre: Valeur du point Rhône-Alpes
+  description: Valeur du point de l'accord régional du 3 février 2026.
+  applicable si: convention collective = 'entreprises d'architecture'
+  unité: €/point
+  variations:
+    - si: zone = 'zone 1'
+      alors: 9.21 €/point
+    - si: zone = 'zone 2'
+      alors: 9.10 €/point
+    - sinon: 0 €/point
+
+salarié . convention collective . entreprises d'architecture . minimum mensuel de la grille:
+  titre: Minimum mensuel à temps plein
+  description: >-
+    Minimum mensuel brut pour 35 heures, calculé par multiplication du coefficient
+    hiérarchique par la valeur du point. L'accord du 3 février 2026 ne fixe aucun
+    plancher en euros (article 3 : aucun salaire inférieur au Smic) ; le plancher vaut donc 0.
+  applicable si: convention collective = 'entreprises d'architecture'
+  unité: €/mois
+  variations:
+    - si: coefficient * valeur du point < plancher mensuel
+      alors: plancher mensuel
+    - sinon: coefficient * valeur du point
+
+salarié . convention collective . entreprises d'architecture . plancher mensuel:
+  titre: Plancher mensuel Rhône-Alpes (aucun depuis l'accord du 3 février 2026)
+  applicable si: convention collective = 'entreprises d'architecture'
+  unité: €/mois
+  variations:
+    - si: zone = 'zone 1'
+      alors: 0 €/mois
+    - si: zone = 'zone 2'
+      alors: 0 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . entreprises d'architecture . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: Minimum mensuel brut proratisé selon la quotité de travail.
+  applicable si: convention collective = 'entreprises d'architecture'
+  unité: €/mois
+  produit:
+    - minimum mensuel de la grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . entreprises d'architecture . zone hors accord:
+  titre: Zone absente de l'accord
+  applicable si: convention collective = 'entreprises d'architecture'
+  valeur: valeur du point = 0 €/point
+
+salarié . convention collective . entreprises d'architecture . audit paie:
+  titre: Éléments de rémunération non automatisés
+  description: >-
+    L'accord régional fixe la valeur du point. Les
+    primes, indemnités, avantages, santé, prévoyance, formation professionnelle
+    et AT/MP restent hors de ce modèle lorsqu'ils dépendent d'autres textes ou
+    d'entrées propres au salarié.
+  applicable si: convention collective = 'entreprises d'architecture'
+  valeur: non

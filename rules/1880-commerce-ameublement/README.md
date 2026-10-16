@@ -1,23 +1,49 @@
-# Commerce de l'ameublement — IDCC 1880
+# Négoce de l'ameublement — IDCC 1880
 
-Le fichier [2026.1](1880-commerce-ameublement.2026.1.publicodes) entre en vigueur le 1er juin 2026 pour le champ général. Il est fondé sur l'accord du 16 octobre 2025 relatif aux salaires minima conventionnels, applicable au 1er janvier 2026, référencé dans les métadonnées par son texte KALI officiel.
+Modèle `1880-commerce-ameublement`, version `2026.1`, espace de noms
+`salarié . convention collective . commerce de l'ameublement`.
 
-La valeur Publicodes est `commerce de l'ameublement` ; les règles sont sous `salarié . convention collective . commerce de l'ameublement`.
+Convention collective nationale du négoce de l'ameublement du 31 mai 1995
+(intitulé Légifrance).
 
-## Règles implémentées
+## Périmètre
 
-- `niveau` reçoit les niveaux employés `1` à `5` ; sa valeur par défaut est `non renseigné`.
-- `salaire minimum conventionnel . grille` donne les minima mensuels à temps plein : 1 823 €, 1 834 €, 1 845 €, 1 857 € et 1 871 € pour les niveaux 1 à 5.
-- `salaire minimum conventionnel` applique la quotité de travail du contrat ; le montant ne doit donc pas être proratisé une seconde fois.
-- `niveau hors grille` vaut vrai lorsque le niveau saisi n'est pas l'un des cinq niveaux modélisés.
+La version `2026.1` couvre la grille des salaires minima mensuels de l'accord du
+19 mars 2026 (article 1er), sur la base de 151,67 heures : 9 groupes, 23 positions.
 
-## Limites
+**Date d'effet.** L'article 2 applique la grille à compter du **1er mai 2026** pour
+les adhérents de la CNEF, et à compter de l'extension pour les entreprises non
+adhérentes. L'accord est étendu par arrêté du 11 juin 2026 (JORF du 27 juin 2026),
+sous réserve de l'application des dispositions relatives au SMIC. `validFrom` est
+le 1er mai 2026 ; pour un employeur non adhérent, la grille ne s'impose qu'à partir
+du 28 juin 2026.
 
-- L'accord publié fournit également des éléments de classification et de rémunération pour d'autres catégories. Cette première version ne modélise que la grille mensuelle des niveaux employés 1 à 5, dont les montants sont directement exploitables avec les entrées standard de `modele-social` ; les catégories agents de maîtrise et cadres restent explicitement hors périmètre.
-- Les primes, majorations, garanties annuelles, frais de santé, prévoyance et autres éléments conventionnels ne sont pas modélisés.
-- La version est bornée au champ général à compter du 1er juin 2026 ; l'application antérieure aux employeurs signataires ou adhérents n'est pas exposée par cette version.
+## Grille mensuelle 2026
+
+Clé de classification (`niveau`) : `groupe.niveau`, le groupe 1 (niveau unique) se note `1`.
+
+| Groupe | Niveau 1 | Niveau 2 | Niveau 3 |
+|---|---:|---:|---:|
+| 1 (niveau unique, clé `1`) | 1 830 € | | |
+| 2 | 1 835 € | 1 839 € | 1 845 € |
+| 3 | 1 863 € | 1 885 € | 1 916 € |
+| 4 | 1 956 € | 1 986 € | 2 016 € |
+| 5 | 2 098 € | 2 139 € | 2 244 € |
+| 6 | 2 395 € | 2 468 € | 2 541 € |
+| 7 | 2 725 € | 3 129 € | 3 354 € |
+| 8 | 3 545 € | 3 862 € | |
+| 9 | 4 507 € | 4 970 € | |
+
+Le `salaire minimum conventionnel` est proratisé une seule fois par la quotité de
+travail. Une classification absente de la grille est signalée par `niveau hors grille`
+et donne un minimum nul.
 
 ## Sources officielles
 
-- Accord du 16 octobre 2025 relatif aux salaires minima conventionnels, texte KALI `KALITEXT000054426659`, Légifrance.
-- Les références et l'URL du texte officiel figurent également dans l'en-tête du fichier `.publicodes`.
+- [Légifrance — accord du 19 mars 2026 relatif aux salaires minima pour l'année 2026](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054426659)
+
+## Limites
+
+Seule la grille des minima est modélisée. Les primes, indemnités et autres dispositions
+de la convention ne le sont pas. Les contrôles SMIC (l'extension est prononcée sous
+réserve) et le choix de la version applicable restent à la charge de l'application.

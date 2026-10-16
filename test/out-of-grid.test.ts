@@ -35,9 +35,7 @@ const SELF_REFERENCING = new Set([
   "0993-prothesistes-dentaires.2026.1",
   "1606-bricolage.2025.1",
   "3013-librairie.2026.1",
-  "3205-cooperatives-consommateurs.2026.1",
   "3243-quincaillerie.2026.1",
-  "3250-commissaires-justice.2026.1",
 ]);
 
 describe("rules of every released version", () => {
@@ -69,18 +67,7 @@ const FIXED: {
   { model: "0993-prothesistes-dentaires", version: "2026.2", rule: "niveau hors grille", input: "niveau", valid: "'PHQ1'", invalid: ["'PHQ9'", "'non renseigné'"] },
   { model: "1606-bricolage", version: "2025.2", rule: "coefficient hors grille", input: "coefficient", valid: 250, invalid: [0, 251] },
   { model: "3013-librairie", version: "2026.2", rule: "niveau hors grille", input: "niveau", valid: "'8'", invalid: ["'99'", "'non renseigné'"] },
-  { model: "3205-cooperatives-consommateurs", version: "2026.2", rule: "niveau hors grille", input: "niveau", valid: "'8'", invalid: ["'99'", "'non renseigné'"] },
   { model: "3243-quincaillerie", version: "2026.2", rule: "niveau et échelon hors grille", input: "niveau et échelon", valid: "'VI.3'", invalid: ["'VI.9'", "'non renseigné'"] },
-  {
-    model: "3250-commissaires-justice",
-    version: "2026.2",
-    rule: "catégorie et coefficient hors grille",
-    input: "catégorie et coefficient",
-    valid: "'II.2-283'",
-    invalid: ["'II.2-999'", "'non renseigné'"],
-    situation: { "champ juridique": "'employeur signataire ou adhérent'" },
-  },
-  { model: "3255-boulangerie-industrielle", version: "2026.2", rule: "niveau hors grille", input: "niveau", valid: "'E3'", invalid: ["'E9'", "'non renseigné'"] },
   { model: "1512-promotion-immobiliere", version: "2026.3", rule: "coefficient hors grille", input: "coefficient", valid: 100, invalid: [0, 101, 900] },
   { model: "0897-services-prevention-sante-travail-interentreprises", version: "2026.2", rule: "classe hors grille", input: "classe", valid: "'M'", invalid: ["'N'", "'non renseigné'"] },
   // Palier 1 starts at coefficient 9 and palier 12 covers 400 and above.
@@ -88,6 +75,24 @@ const FIXED: {
   // Executives' coefficients only have an annual guarantee, and are in the grid.
   { model: "0489-industries-cartonnage", version: "2025.4", rule: "classification hors grille", input: "coefficient", valid: 600, invalid: [0, 999] },
   { model: "1558-industries-ceramiques", version: "2025.2", rule: "niveau hors grille", input: "classification", valid: "'J'", invalid: ["'ZZ-E9'", "'non renseigné'"] },
+  { model: "1267-patisserie", version: "2026.1", rule: "coefficient hors grille", input: "coefficient", valid: 220, invalid: [0, 195, 351] },
+  { model: "1513-eaux-embouteillees-boissons-bieres", version: "2026.1", rule: "classification hors grille", input: "classification", valid: "'7-1'", invalid: ["'9-1'", "'non renseigné'"] },
+  { model: "1880-commerce-ameublement", version: "2026.1", rule: "niveau hors grille", input: "niveau", valid: "'5.2'", invalid: ["'9.3'", "'non renseigné'"] },
+  { model: "0200-exploitations-frigorifiques", version: "2026.1", rule: "coefficient hors grille", input: "coefficient", valid: 305, invalid: [0, 130, 706] },
+  { model: "3250-commissaires-justice", version: "2026.1", rule: "classification hors grille", input: "classification", valid: "'II-296'", invalid: ["'II-999'", "'non renseigné'"] },
+  { model: "2002-blanchisserie-teinturerie", version: "2026.1", rule: "classification hors grille", input: "classification", valid: "'5-1'", invalid: ["'10-1'", "'non renseigné'"] },
+  { model: "3205-cooperatives-consommateurs", version: "2026.3", rule: "groupe hors grille", input: "groupe", valid: "'8a'", invalid: ["'8'", "'non renseigné'"] },
+  { model: "1077-negoce-produits-du-sol-engrais", version: "2025.1", rule: "coefficient hors grille", input: "coefficient", valid: 350, invalid: [0, 130, 681] },
+  { model: "3255-boulangerie-industrielle", version: "2026.1", rule: "niveau hors grille", input: "niveau", valid: "'L3'", invalid: ["'OE1'", "'non renseigné'"] },
+  { model: "0478-societes-financieres", version: "2026.1", rule: "coefficient hors grille", input: "coefficient", valid: 400, invalid: [0, 260, 1000] },
+  { model: "3252-entreprises-creation-evenement", version: "2026.1", rule: "classification hors grille", input: "classification", valid: "'5'", invalid: ["'1'", "'11'", "'non renseigné'"] },
+  { model: "0275-transport-aerien-personnel-sol", version: "2025.4", rule: "coefficient hors grille", input: "coefficient", valid: 750, invalid: [0, 161, 999] },
+  { model: "3236-industrie-services-nautiques", version: "2025.2", rule: "niveau et échelon hors grille", input: "niveau et échelon", valid: "'II.3'", invalid: ["'VIII.1'", "'non renseigné'"] },
+  { model: "2219-taxis", version: "2025.2", rule: "classification hors grille", input: "classification", valid: "'non roulant — échelon VI'", invalid: ["'non roulant — échelon VII'", "'niveau 3 — conducteur confirmé — non titulaire carte professionnelle'", "'non renseigné'"] },
+  { model: "1557-commerce-articles-sports-loisirs", version: "2025.2", rule: "classification hors grille", input: "classification", valid: "'250'", invalid: ["'135'", "'O5'", "'non renseignée'"] },
+  { model: "3016-ateliers-chantiers-insertion", version: "2026.2", rule: "coefficient hors grille", input: "coefficient", valid: 313, invalid: [0, 260, 300, 671] },
+  { model: "3013-librairie", version: "2026.3", rule: "niveau hors grille", input: "niveau", valid: "'8'", invalid: ["'99'", "'non renseigné'"] },
+  { model: "1558-industries-ceramiques", version: "2026.1", rule: "niveau hors grille", input: "classification", valid: "'J'", invalid: ["'ZZ-E9'", "'non renseigné'"] },
 ];
 
 describe("out-of-grid rules fixed by a new revision", () => {

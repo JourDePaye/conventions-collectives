@@ -1,0 +1,149 @@
+validFrom: '2025-09-01'
+sources:
+  - "Avenant du 21 juillet 2025 relatif aux salaires minimaux applicables au 1er septembre 2025 (IDCC 3090, étendu par arrêté du 17 février 2026, JORF du 24 février 2026, BO 2026-2; entrée en vigueur le 1er septembre 2025 par dérogation à l'article 16.2), clauses communes, grilles emplois techniques et administratifs: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053721738"
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000053721742
+  - https://echanges.dila.gouv.fr/OPENDATA/KALI/
+---
+salarié . convention collective . spectacle vivant privé:
+  titre: Entreprises privées du spectacle vivant (IDCC 3090)
+  valeur: convention collective = 'spectacle vivant privé'
+
+salarié . convention collective . spectacle vivant privé . catégorie administrative:
+  titre: Catégorie administrative ou commerciale
+  description: Catégorie conventionnelle effectivement attribuée au salarié permanent. Le modèle couvre les catégories et échelons de la grille administrative et commerciale de l'accord salarial vérifié ; il ne déduit pas la catégorie du poste.
+  applicable si: convention collective = 'spectacle vivant privé'
+  par défaut: "'non renseignée'"
+
+salarié . convention collective . spectacle vivant privé . catégorie technique:
+  titre: Catégorie technique
+  description: Catégorie conventionnelle effectivement attribuée au salarié permanent technique. Cette règle ne couvre pas les artistes, les salariés intermittents, ni les annexes spécifiques du spectacle vivant.
+  applicable si: convention collective = 'spectacle vivant privé'
+  par défaut: "'non renseignée'"
+
+salarié . convention collective . spectacle vivant privé . échelon:
+  titre: Échelon administratif ou commercial
+  description: Échelon conventionnel de la catégorie administrative ou commerciale, de 1 à 5 selon la catégorie.
+  applicable si: convention collective = 'spectacle vivant privé'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . spectacle vivant privé . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel mensuel
+  description: Minimum mensuel brut à temps plein pour les salariés permanents administratifs, commerciaux et techniques du périmètre couvert, proratisé selon la quotité de travail. Les primes, majorations, indemnités, treizième mois, prévoyance, santé et rémunérations des artistes ou intermittents ne sont pas calculés.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'spectacle vivant privé'
+      - grille mensuelle > 0 €/mois
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille mensuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . spectacle vivant privé . grille mensuelle:
+  titre: Grille mensuelle couverte
+  applicable si: convention collective = 'spectacle vivant privé'
+  unité: €/mois
+  variations:
+    - si: catégorie administrative = 'cadres groupe 1'
+      alors: 3578.18 €/mois
+    - si: catégorie administrative = 'cadres groupe 2'
+      alors:
+        variations:
+          - si: échelon = '1'
+            alors: 2833.28 €/mois
+          - si: échelon = '2'
+            alors: 2950.14 €/mois
+          - si: échelon = '3'
+            alors: 3067.04 €/mois
+          - si: échelon = '4'
+            alors: 3183.92 €/mois
+          - si: échelon = '5'
+            alors: 3300.81 €/mois
+          - sinon: 0 €/mois
+    - si: catégorie administrative = 'cadres groupe 3'
+      alors:
+        variations:
+          - si: échelon = '1'
+            alors: 2485.24 €/mois
+          - si: échelon = '2'
+            alors: 2602.15 €/mois
+          - si: échelon = '3'
+            alors: 2719.02 €/mois
+          - si: échelon = '4'
+            alors: 2835.90 €/mois
+          - si: échelon = '5'
+            alors: 2952.77 €/mois
+          - sinon: 0 €/mois
+    - si: catégorie administrative = 'agents de maîtrise'
+      alors:
+        variations:
+          - si: échelon = '1'
+            alors: 2099.10 €/mois
+          - si: échelon = '2'
+            alors: 2175.07 €/mois
+          - si: échelon = '3'
+            alors: 2256.89 €/mois
+          - si: échelon = '4'
+            alors: 2323.53 €/mois
+          - si: échelon = '5'
+            alors: 2391.32 €/mois
+          - sinon: 0 €/mois
+    - si: catégorie administrative = 'employés qualifiés groupe 1'
+      alors:
+        variations:
+          - si: échelon = '1'
+            alors: 1906.82 €/mois
+          - si: échelon = '2'
+            alors: 1954.08 €/mois
+          - si: échelon = '3'
+            alors: 2010.45 €/mois
+          - si: échelon = '4'
+            alors: 2059.12 €/mois
+          - si: échelon = '5'
+            alors: 2119.90 €/mois
+          - sinon: 0 €/mois
+    - si: catégorie administrative = 'employés qualifiés groupe 2'
+      alors:
+        variations:
+          - si: échelon = '1'
+            alors: 1805.12 €/mois
+          - si: échelon = '2'
+            alors: 1834.57 €/mois
+          - si: échelon = '3'
+            alors: 1886.62 €/mois
+          - si: échelon = '4'
+            alors: 1888.86 €/mois
+          - si: échelon = '5'
+            alors: 1922.01 €/mois
+          - sinon: 0 €/mois
+    - si: catégorie administrative = 'employés'
+      alors:
+        variations:
+          - si: échelon = '1'
+            alors: 1801.80 €/mois
+          - si: échelon = '2'
+            alors: 1805.14 €/mois
+          - si: échelon = '3'
+            alors: 1811.07 €/mois
+          - si: échelon = '4'
+            alors: 1816.99 €/mois
+          - si: échelon = '5'
+            alors: 1822.90 €/mois
+          - sinon: 0 €/mois
+    - si: catégorie technique = 'cadres groupe 2'
+      alors: 2658.78 €/mois
+    - si: catégorie technique = 'cadres groupe 3'
+      alors: 2361.50 €/mois
+    - si: catégorie technique = 'agents de maîtrise'
+      alors: 2115.80 €/mois
+    - si: catégorie technique = 'employés qualifiés groupe 1'
+      alors: 1906.49 €/mois
+    - si: catégorie technique = 'employés qualifiés groupe 2'
+      alors: 1821.56 €/mois
+    - si: catégorie technique = 'employés'
+      alors: 1801.80 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . spectacle vivant privé . classification hors grille:
+  titre: Classification hors grille
+  description: La catégorie, l'échelon ou la population de travail n'est pas couverte par le périmètre explicite de cette version.
+  applicable si: convention collective = 'spectacle vivant privé'
+  valeur: grille mensuelle = 0 €/mois

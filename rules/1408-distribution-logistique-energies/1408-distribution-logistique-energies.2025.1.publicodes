@@ -1,18 +1,19 @@
-# Convention collective nationale de la distribution, de la logistique et des services de proximité (IDCC 1408).
-# Version 2025.1, avenant n° 25 du 27 mars 2025 étendu.
+# Convention collective nationale et accords de branche des entreprises de la distribution, logistique et services des énergies de proximité (IDCC 1408).
+# Version 2025.1, accord du 13 mars 2025 relatif à la revalorisation des salaires minima conventionnels au 1er mai 2025, étendu.
 # A released version is immutable: later corrections require a new version.
 
 validFrom: 2025-05-01
 sources:
   - >-
-    Avenant n° 25 du 27 mars 2025 relatif aux salaires minima,
-    Légifrance, KALITEXT000051787046.
+    Accord du 13 mars 2025 relatif à la revalorisation des salaires minima conventionnels au 1er mai 2025
+    (+ 2 % sur tous les coefficients ; article 5 : application au 1er mai 2025 pour les adhérents des
+    organisations signataires, au plus tard à la date d'extension pour les autres), Légifrance,
+    KALITEXT000051787046, conteneur KALICONT000005635427, BO 2025-16.
   - >-
-    Arrêté du 21 mai 2025 portant extension de l'avenant, publié au Journal officiel,
-    texte officiel référencé par l'accord étendu.
+    Étendu par arrêté du 27 mai 2025, JORF du 31 mai 2025.
   - >-
     Grille des minima mensuels bruts des coefficients 200 à 460 et prime d'ancienneté
-    selon l'ancienneté conventionnelle.
+    selon l'ancienneté conventionnelle (annexe de l'accord).
 ---
 salarié . convention collective . distribution logistique énergies:
   titre: Distribution, logistique et services de proximité (IDCC 1408)

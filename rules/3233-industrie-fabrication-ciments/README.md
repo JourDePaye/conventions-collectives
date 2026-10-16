@@ -1,6 +1,6 @@
 # Industrie de la fabrication des ciments — IDCC 3233
 
-Le fichier [2026.1](3233-industrie-fabrication-ciments.2026.1.publicodes) est applicable à tous les employeurs et salariés compris dans le champ de la convention à compter du 9 juillet 2026, date de publication de son arrêté d’extension. Il reprend l’avenant du 16 avril 2026 relatif aux salaires minima garantis 2026, dont les montants sont fixés pour l’année 2026.
+Le fichier [2026.2](3233-industrie-fabrication-ciments.2026.2.publicodes) est applicable à compter du 1er janvier 2026 : l’article 4.2 de l’avenant du 16 avril 2026 relatif aux salaires minima garantis 2026 prévoit qu’il « prend effet rétroactivement à compter du 1er janvier 2026 ». Le fichier [2026.1](3233-industrie-fabrication-ciments.2026.1.publicodes), publié avec la date du 9 juillet 2026 (JORF de l’arrêté d’extension), porte la même grille ; il est conservé car une version publiée ne change jamais, et la version 2026.2 couvre la période du 1er janvier au 8 juillet 2026.
 
 La convention collective nationale de l’industrie de la fabrication des ciments du 2 octobre 2019 couvre les entreprises relevant de l’IDCC 3233.
 
@@ -12,7 +12,7 @@ La convention collective nationale de l’industrie de la fabrication des ciment
 - `salaire minimum annuel conventionnel` donne le SMAG annuel des ouvriers et ETAM ou le SAB annuel des ingénieurs et cadres, proratisé selon la quotité de travail.
 - `coefficient hors grille` vaut vrai pour un coefficient absent de la grille de la catégorie ; les minima retournent alors `0`.
 
-## Grille 2026.1
+## Grille 2026.1 et 2026.2 (identiques)
 
 ### Ouvriers et ETAM
 

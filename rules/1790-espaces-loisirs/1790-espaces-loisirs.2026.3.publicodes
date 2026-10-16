@@ -1,0 +1,96 @@
+# Convention collective nationale des espaces de loisirs, d'attractions et culturels du 5 janvier 1994 (IDCC 1790, brochure 3275).
+# Version 2026.3 : avenant n° 76 du 13 mars 2026 relatif aux rémunérations conventionnelles, au 1er avril 2026.
+# Same grid as 2026.2 : this revision only supersedes 2026.1, whose validFrom (2026-07-06) is later than 2026.2's.
+validFrom: 2026-07-06
+sources:
+  - >-
+    Avenant n° 76 du 13 mars 2026 relatif aux rémunérations conventionnelles,
+    convention collective IDCC 1790, Légifrance, KALITEXT000054871990 : article 1er (grille des
+    rémunérations minimales mensuelles au 1er avril 2026, niveaux I à VIII, 151,67 heures) et
+    article 3 (application au 1er avril 2026, sous réserve de l'absence d'opposition majoritaire).
+    Étendu par arrêté du 6 juillet 2026 (JORF du 10 juillet 2026), sous réserve de l'application des
+    dispositions réglementaires portant fixation du SMIC.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054871990
+  - >-
+    Article 1er de l'avenant n° 76, grille des rémunérations minimales,
+    Légifrance.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000054871994
+  - >-
+    Arrêté du 6 juillet 2026 portant extension de l'avenant n° 76,
+    Journal officiel, JORFTEXT000054408839.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054408839
+  - >-
+    Les montants de la version 2026.1 (anciennement publiés sous l'avenant n° 76) étaient ceux de la
+    grille du 1er mars 2025 (avenant n° 73, KALITEXT000051537805) ; cette révision les remplace.
+---
+salarié . convention collective . espaces loisirs:
+  titre: Espaces de loisirs, d'attractions et culturels (IDCC 1790)
+  valeur: convention collective = 'espaces loisirs'
+
+salarié . convention collective . espaces loisirs . niveau:
+  titre: Niveau de classification
+  description: Niveau I à VIII de la grille des rémunérations minimales.
+  applicable si: convention collective = 'espaces loisirs'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . espaces loisirs . échelon:
+  titre: Échelon de classification
+  description: Échelon de la classification lorsqu'il est prévu par le niveau.
+  applicable si: convention collective = 'espaces loisirs'
+  par défaut: 1
+
+salarié . convention collective . espaces loisirs . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient conventionnel correspondant au niveau et à l'échelon.
+  applicable si: convention collective = 'espaces loisirs'
+  par défaut: 0
+
+salarié . convention collective . espaces loisirs . rémunération minimale:
+  titre: Rémunération minimale conventionnelle
+  description: Minimum mensuel brut pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'espaces loisirs'
+  unité: €/mois
+  variations:
+    - si: coefficient = 150
+      alors: 1851.85 €/mois
+    - si: coefficient = 154
+      alors: 1870.90 €/mois
+    - si: coefficient = 158
+      alors: 1875.13 €/mois
+    - si: coefficient = 175
+      alors: 1882.13 €/mois
+    - si: coefficient = 181
+      alors: 1900.08 €/mois
+    - si: coefficient = 187
+      alors: 1915.91 €/mois
+    - si: coefficient = 200
+      alors: 1932.26 €/mois
+    - si: coefficient = 215
+      alors: 1963.85 €/mois
+    - si: coefficient = 220
+      alors: 1979.64 €/mois
+    - si: coefficient = 250
+      alors: 2210.90 €/mois
+    - si: coefficient = 280
+      alors: 2471.61 €/mois
+    - si: coefficient = 300
+      alors: 2579.03 €/mois
+    - si: coefficient = 360
+      alors: 3026.42 €/mois
+    - si: coefficient = 430
+      alors: 3653.19 €/mois
+    - si: coefficient = 520
+      alors: 4406.15 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . espaces loisirs . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: Rémunération minimale mensuelle proratisée selon la quotité de travail.
+  applicable si: convention collective = 'espaces loisirs'
+  unité: €/mois
+  valeur: rémunération minimale * contrat . temps de travail . quotité
+
+salarié . convention collective . espaces loisirs . classification hors grille:
+  titre: Classification absente de la grille
+  applicable si: convention collective = 'espaces loisirs'
+  valeur: rémunération minimale = 0 €/mois

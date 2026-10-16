@@ -1,0 +1,292 @@
+# Convention collective nationale des entreprises de désinfection, désinsectisation, dératisation (3D) du 1er septembre 1991 (IDCC 1605)
+# Version 2026.2 : accord salarial du 17 décembre 2025, étendu le 9 mars 2026, grille complète.
+# Remplace la 2026.1 (même date d'effet) qui ne modélisait que les niveaux 1 à 4 du groupe 1 : elle
+# ajoute les niveaux 5 à 8 (groupe 2), les niveaux 9 à 12 (groupe 3, cadres) et la prime d'ancienneté.
+validFrom: 2026-03-18
+sources:
+  - >-
+    Accord du 17 décembre 2025 relatif à la revalorisation salariale pour l'année 2026
+    (PROSANE ; FS CFDT, UNSA FCS, FNST CGT, SNES CFE-CGC, CFTC chimie ; BO 2026-6),
+    KALITEXT000054040312, conteneur KALICONT000005635437. Annexe 1 : minima mensuels de la
+    colonne « NAO janvier 2026 » pour 151,67 heures, niveaux 1 à 4 (groupe 1) 1 837,13 / 1 892,13 /
+    1 947,13 / 2 002,13 €, niveaux 5 à 8 (groupe 2) 2 112,13 / 2 255,26 / 2 517,53 / 2 690,80 €,
+    niveaux 9 à 12 (groupe 3) 2 911,45 / 3 729,93 / 5 337,11 / 6 119,03 € ; primes d'ancienneté
+    mensuelles en euros des niveaux 2 à 8 par tranche (2 ans, 3-6, 6-9, 9-12, 12-15, 15-20 et plus de
+    20 ans), « pas de prime d'ancienneté pour les cadres », « sans objet » au niveau 1. Point 5 :
+    applicable à la date de l'extension ; point 6 : en cas d'extension tardive, les adhérents PROSANE
+    l'appliquent au plus tard le 1er avril 2026 ; point 3 : prime panier de 10,10 à 10,30 € (non modélisée).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054040312?idConteneur=KALICONT000005635437
+  - >-
+    Arrêté du 9 mars 2026 portant extension de l'accord, publié au Journal officiel
+    du 18 mars 2026, JORFTEXT000053685524.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053685524
+  - >-
+    Article 30 de la convention collective (KALIARTI000005778104) : prime d'ancienneté des salariés
+    non cadres, calculée sur les appointements minima de la classification et sur la base de l'horaire
+    pratiqué (taux de 3 % à 15 % après 3 à 15 ans) ; l'annexe 1 de l'accord de 2026 donne les montants en
+    euros, avec en plus une tranche à 2 ans (2 %) et une tranche au-delà de 20 ans (18 %). Article 27
+    (KALIARTI000049394963) : définition de l'ancienneté dans l'entreprise. Les bornes exactes des
+    tranches de l'annexe (« 2 ans », « 3-6 ans », « 15-20 ans », « > 20 ans ») ne sont pas définies par
+    le texte : lecture retenue, de 2 à moins de 3 ans, de 3 à moins de 6 ans, ..., de 15 à 20 ans
+    inclus, plus de 20 ans.
+  - >-
+    Les recherches du conteneur officiel IDCC 1605 portent aussi sur les textes dédiés
+    prévoyance/retraite, santé, formation professionnelle, AT/MP et contributions ;
+    aucune cotisation générique supplémentaire calculable avec les seules entrées
+    de ce modèle n'est ajoutée.
+---
+salarié . convention collective . désinfection désinsectisation dératisation:
+  titre: Entreprises de désinfection, désinsectisation, dératisation (3D) (IDCC 1605)
+  valeur: convention collective = 'désinfection désinsectisation dératisation'
+
+salarié . convention collective . désinfection désinsectisation dératisation . niveau:
+  titre: Niveau de classification
+  description: >-
+    Niveau de 1 à 12 de l'annexe 1 de l'accord, groupe 1 (ouvriers et employés) niveaux 1 à 4, groupe 2 niveaux 5 à 8, groupe 3 (cadres) niveaux 9 à 12.
+  applicable si: convention collective = 'désinfection désinsectisation dératisation'
+  par défaut: 0
+
+salarié . convention collective . désinfection désinsectisation dératisation . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: >-
+    Minimum mensuel brut du niveau 1 à 12 pour 151,67 heures, proratisé selon la quotité de travail. Vaut 0 €/mois si le niveau est absent de la grille.
+  applicable si: convention collective = 'désinfection désinsectisation dératisation'
+  unité: €/mois
+  produit:
+    - salaire minimum conventionnel . temps plein
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . désinfection désinsectisation dératisation . salaire minimum conventionnel . temps plein:
+  titre: Salaire minimum mensuel à temps plein
+  unité: €/mois
+  arrondi: 2 décimales
+  variations:
+    - si: niveau = 1
+      alors: 1837.13 €/mois
+    - si: niveau = 2
+      alors: 1892.13 €/mois
+    - si: niveau = 3
+      alors: 1947.13 €/mois
+    - si: niveau = 4
+      alors: 2002.13 €/mois
+    - si: niveau = 5
+      alors: 2112.13 €/mois
+    - si: niveau = 6
+      alors: 2255.26 €/mois
+    - si: niveau = 7
+      alors: 2517.53 €/mois
+    - si: niveau = 8
+      alors: 2690.8 €/mois
+    - si: niveau = 9
+      alors: 2911.45 €/mois
+    - si: niveau = 10
+      alors: 3729.93 €/mois
+    - si: niveau = 11
+      alors: 5337.11 €/mois
+    - si: niveau = 12
+      alors: 6119.03 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . désinfection désinsectisation dératisation . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille de l'annexe 1 de l'accord (niveaux 1 à 12).
+  applicable si: convention collective = 'désinfection désinsectisation dératisation'
+  toutes ces conditions:
+    - niveau != 1
+    - niveau != 2
+    - niveau != 3
+    - niveau != 4
+    - niveau != 5
+    - niveau != 6
+    - niveau != 7
+    - niveau != 8
+    - niveau != 9
+    - niveau != 10
+    - niveau != 11
+    - niveau != 12
+
+salarié . convention collective . désinfection désinsectisation dératisation . tranche d'ancienneté:
+  titre: Tranche d'ancienneté de la prime
+  description: >-
+    Tranche de l'annexe 1 de l'accord de 2026 selon l'ancienneté dans l'entreprise
+    (salarié . ancienneté). Lecture des bornes : de 2 à moins de 3 ans, de 3 à moins de 6 ans,
+    de 6 à moins de 9 ans, de 9 à moins de 12 ans, de 12 à moins de 15 ans, de 15 à 20 ans
+    inclus, plus de 20 ans. Moins de 2 ans : aucune prime.
+  applicable si: convention collective = 'désinfection désinsectisation dératisation'
+  variations:
+    - si: salarié . ancienneté > 20 an
+      alors: "'plus de 20 ans'"
+    - si: salarié . ancienneté >= 15 an
+      alors: "'de 15 ans à 20 ans'"
+    - si: salarié . ancienneté >= 12 an
+      alors: "'de 12 ans à moins de 15 ans'"
+    - si: salarié . ancienneté >= 9 an
+      alors: "'de 9 ans à moins de 12 ans'"
+    - si: salarié . ancienneté >= 6 an
+      alors: "'de 6 ans à moins de 9 ans'"
+    - si: salarié . ancienneté >= 3 an
+      alors: "'de 3 ans à moins de 6 ans'"
+    - si: salarié . ancienneté >= 2 an
+      alors: "'de 2 ans à moins de 3 ans'"
+    - sinon: "'moins de 2 ans'"
+
+salarié . convention collective . désinfection désinsectisation dératisation . prime d'ancienneté:
+  titre: Prime d'ancienneté
+  description: >-
+    Prime mensuelle des salariés non cadres (niveaux 2 à 8), montants en euros de l'annexe 1 de
+    l'accord du 17 décembre 2025 selon le niveau et la tranche d'ancienneté, proratisée selon la
+    quotité de travail (article 30 : base de l'horaire pratiqué). Aucune prime au niveau 1 (sans
+    objet) ni pour les cadres (niveaux 9 à 12).
+  applicable si: convention collective = 'désinfection désinsectisation dératisation'
+  unité: €/mois
+  arrondi: 2 décimales
+  produit:
+    - prime d'ancienneté . temps plein
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . désinfection désinsectisation dératisation . prime d'ancienneté . temps plein:
+  titre: Prime d'ancienneté à temps plein
+  unité: €/mois
+  variations:
+    - si: tranche d'ancienneté = 'de 2 ans à moins de 3 ans'
+      alors:
+        variations:
+          - si: niveau = 2
+            alors: 37.84 €/mois
+          - si: niveau = 3
+            alors: 38.94 €/mois
+          - si: niveau = 4
+            alors: 40.04 €/mois
+          - si: niveau = 5
+            alors: 42.24 €/mois
+          - si: niveau = 6
+            alors: 45.11 €/mois
+          - si: niveau = 7
+            alors: 50.35 €/mois
+          - si: niveau = 8
+            alors: 53.82 €/mois
+          - sinon: 0 €/mois
+    - si: tranche d'ancienneté = 'de 3 ans à moins de 6 ans'
+      alors:
+        variations:
+          - si: niveau = 2
+            alors: 56.76 €/mois
+          - si: niveau = 3
+            alors: 58.41 €/mois
+          - si: niveau = 4
+            alors: 60.06 €/mois
+          - si: niveau = 5
+            alors: 63.36 €/mois
+          - si: niveau = 6
+            alors: 67.66 €/mois
+          - si: niveau = 7
+            alors: 75.53 €/mois
+          - si: niveau = 8
+            alors: 80.72 €/mois
+          - sinon: 0 €/mois
+    - si: tranche d'ancienneté = 'de 6 ans à moins de 9 ans'
+      alors:
+        variations:
+          - si: niveau = 2
+            alors: 113.53 €/mois
+          - si: niveau = 3
+            alors: 116.83 €/mois
+          - si: niveau = 4
+            alors: 120.13 €/mois
+          - si: niveau = 5
+            alors: 126.73 €/mois
+          - si: niveau = 6
+            alors: 135.32 €/mois
+          - si: niveau = 7
+            alors: 151.05 €/mois
+          - si: niveau = 8
+            alors: 161.45 €/mois
+          - sinon: 0 €/mois
+    - si: tranche d'ancienneté = 'de 9 ans à moins de 12 ans'
+      alors:
+        variations:
+          - si: niveau = 2
+            alors: 170.29 €/mois
+          - si: niveau = 3
+            alors: 175.24 €/mois
+          - si: niveau = 4
+            alors: 180.19 €/mois
+          - si: niveau = 5
+            alors: 190.09 €/mois
+          - si: niveau = 6
+            alors: 202.97 €/mois
+          - si: niveau = 7
+            alors: 226.58 €/mois
+          - si: niveau = 8
+            alors: 242.17 €/mois
+          - sinon: 0 €/mois
+    - si: tranche d'ancienneté = 'de 12 ans à moins de 15 ans'
+      alors:
+        variations:
+          - si: niveau = 2
+            alors: 227.06 €/mois
+          - si: niveau = 3
+            alors: 233.66 €/mois
+          - si: niveau = 4
+            alors: 240.26 €/mois
+          - si: niveau = 5
+            alors: 253.46 €/mois
+          - si: niveau = 6
+            alors: 270.63 €/mois
+          - si: niveau = 7
+            alors: 302.1 €/mois
+          - si: niveau = 8
+            alors: 322.9 €/mois
+          - sinon: 0 €/mois
+    - si: tranche d'ancienneté = 'de 15 ans à 20 ans'
+      alors:
+        variations:
+          - si: niveau = 2
+            alors: 283.82 €/mois
+          - si: niveau = 3
+            alors: 292.07 €/mois
+          - si: niveau = 4
+            alors: 300.32 €/mois
+          - si: niveau = 5
+            alors: 316.82 €/mois
+          - si: niveau = 6
+            alors: 338.29 €/mois
+          - si: niveau = 7
+            alors: 377.63 €/mois
+          - si: niveau = 8
+            alors: 403.62 €/mois
+          - sinon: 0 €/mois
+    - si: tranche d'ancienneté = 'plus de 20 ans'
+      alors:
+        variations:
+          - si: niveau = 2
+            alors: 340.58 €/mois
+          - si: niveau = 3
+            alors: 350.48 €/mois
+          - si: niveau = 4
+            alors: 360.38 €/mois
+          - si: niveau = 5
+            alors: 380.18 €/mois
+          - si: niveau = 6
+            alors: 405.95 €/mois
+          - si: niveau = 7
+            alors: 453.15 €/mois
+          - si: niveau = 8
+            alors: 484.34 €/mois
+          - sinon: 0 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . désinfection désinsectisation dératisation . audit paie:
+  titre: Éléments conventionnels modélisés et non automatisés
+  description: >-
+    L'accord salarial 2026 modifie les minima mensuels, les primes d'ancienneté associées, la prime
+    panier (de 10,10 à 10,30 €) et le barème des indemnités de départ à la retraite (annexe 2).
+    Le présent modèle calcule les minima des douze niveaux et la prime d'ancienneté des niveaux 2 à 8.
+    La prime panier indexée sur le plafond Urssaf, l'indemnité de départ à la retraite, les
+    déplacements, indemnités, majorations, avantages en nature et frais restent externes. Les textes
+    dédiés de la branche relatifs aux cotisations salarié/employeur ont été recherchés pour les bases,
+    taux, plafonds, tranches, forfaits, santé, prévoyance, retraite, formation professionnelle
+    et AT/MP : aucune règle générique calculable avec les entrées du modèle ne justifie une
+    substitution ; ces rubriques ne sont donc ni remplacées par zéro ni redéfinies.
+  applicable si: convention collective = 'désinfection désinsectisation dératisation'
+  valeur: oui

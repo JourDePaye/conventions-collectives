@@ -1,0 +1,117 @@
+# Convention collective nationale des activités de production des eaux embouteillées et
+# boissons rafraîchissantes sans alcool et de bière du 1er septembre 2010 (IDCC 1513).
+# Version 2026.1, grille de l'avenant n° 46 du 3 février 2026, applicable au 1er février 2026.
+
+validFrom: 2026-02-01
+sources:
+  - Avenant n° 46 du 3 février 2026 relatif aux salaires minima conventionnels à compter du 1er février 2026
+    (BO 2026-10), signé par ABF, MEMN, SBSA et CFTC CSFV, FGA CFDT, FGTA FO. Texte étendu par arrêté du
+    10 avril 2026, JORF du 17 avril 2026, en vigueur étendu.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054091953
+  - Article 1er de l'avenant n° 46, grille des salaires minima conventionnels garantis pour un horaire de
+    35 heures (ouvriers et employés, techniciens et agents de maîtrise, cadres), revalorisation de 1,20 %.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054091957
+  - Convention collective nationale du 1er septembre 2010 (conteneur KALICONT000005635411), étendue par
+    arrêté du 30 mai 2012, JORF du 6 juin 2012.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635411
+  - "Non vérifié : l'article 8 de l'avenant rend le texte applicable aux entreprises non adhérentes un jour franc après la publication de l'arrêté d'extension (JORF du 17 avril 2026) ; cette version retient le 1er février 2026, date d'effet stipulée par le préambule de l'avenant, qui remplace l'accord précédent à cette date. Le texte ne mentionne pas 151,67 heures : les montants sont des minima mensuels garantis pour un horaire de 35 heures."
+---
+salarié . convention collective . eaux embouteillées boissons sans alcool et bière:
+  titre: Eaux embouteillées, boissons rafraîchissantes sans alcool et bière (IDCC 1513)
+  valeur: convention collective = 'eaux embouteillées boissons sans alcool et bière'
+
+salarié . convention collective . eaux embouteillées boissons sans alcool et bière . classification:
+  titre: Niveau et échelon de classification
+  description: |
+    Au format « <niveau>-<échelon> ». Ouvriers et employés : 1-1 à 1-3, 2-1 à 2-3, 3-1 à 3-3, 4-1 et 4-2.
+    Techniciens et agents de maîtrise : 4-10 et 4-20, 5-10, 5-20 et 5-30, 6-10, 6-20 et 6-30.
+    Cadres : 6-2 et 6-3, 7-1 à 7-3, 8-1 à 8-3.
+  applicable si: convention collective = 'eaux embouteillées boissons sans alcool et bière'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . eaux embouteillées boissons sans alcool et bière . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire minimum conventionnel garanti du niveau et de l'échelon pour 35 heures par semaine,
+    proratisé selon la quotité de travail. Vaut 0 €/mois si la classification est absente de la grille
+    (voir « classification hors grille »).
+  applicable si: convention collective = 'eaux embouteillées boissons sans alcool et bière'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . eaux embouteillées boissons sans alcool et bière . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'article 1er de l'avenant n° 46 du 3 février 2026, de 1 839,80 € (ouvriers et employés,
+    niveau 1, échelon 1) à 5 180,31 € (cadres, niveau 8, échelon 3).
+  unité: €/mois
+  variations:
+    - si: classification = '1-1'
+      alors: 1839.80 €/mois
+    - si: classification = '1-2'
+      alors: 1848.39 €/mois
+    - si: classification = '1-3'
+      alors: 1901.31 €/mois
+    - si: classification = '2-1'
+      alors: 1952.39 €/mois
+    - si: classification = '2-2'
+      alors: 2003.91 €/mois
+    - si: classification = '2-3'
+      alors: 2055.35 €/mois
+    - si: classification = '3-1'
+      alors: 2124.22 €/mois
+    - si: classification = '3-2'
+      alors: 2174.82 €/mois
+    - si: classification = '3-3'
+      alors: 2227.84 €/mois
+    - si: classification = '4-1'
+      alors: 2366.10 €/mois
+    - si: classification = '4-2'
+      alors: 2435.18 €/mois
+    - si: classification = '4-10'
+      alors: 2366.10 €/mois
+    - si: classification = '4-20'
+      alors: 2435.18 €/mois
+    - si: classification = '5-10'
+      alors: 2607.79 €/mois
+    - si: classification = '5-20'
+      alors: 2676.92 €/mois
+    - si: classification = '5-30'
+      alors: 2746.04 €/mois
+    - si: classification = '6-10'
+      alors: 2918.55 €/mois
+    - si: classification = '6-20'
+      alors: 3056.73 €/mois
+    - si: classification = '6-30'
+      alors: 3264.75 €/mois
+    - si: classification = '6-2'
+      alors: 3056.73 €/mois
+    - si: classification = '6-3'
+      alors: 3264.75 €/mois
+    - si: classification = '7-1'
+      alors: 3505.55 €/mois
+    - si: classification = '7-2'
+      alors: 3747.26 €/mois
+    - si: classification = '7-3'
+      alors: 3988.95 €/mois
+    - si: classification = '8-1'
+      alors: 4299.70 €/mois
+    - si: classification = '8-2'
+      alors: 4610.49 €/mois
+    - si: classification = '8-3'
+      alors: 5180.31 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . eaux embouteillées boissons sans alcool et bière . classification hors grille:
+  titre: Classification absente de la grille
+  description: Le niveau et l'échelon n'existent pas dans la grille des salaires minima conventionnels.
+  applicable si: convention collective = 'eaux embouteillées boissons sans alcool et bière'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . eaux embouteillées boissons sans alcool et bière . audit paie:
+  titre: Audit de paie de la convention collective
+  description: Seule la grille des salaires minima conventionnels est modélisée ; aucun taux ni prime conventionnels (ancienneté, prévoyance, etc.) n'est calculé par cette version.
+  applicable si: convention collective = 'eaux embouteillées boissons sans alcool et bière'
+  valeur: non

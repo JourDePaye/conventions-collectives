@@ -1,13 +1,25 @@
 # Industries chimiques — IDCC 44
 
-Le fichier [2026.2](0044-industries-chimiques.2026.2.publicodes) couvre le minimum santé de branche à compter du 1er septembre 2025 et conserve le barème salarial applicable au 1er janvier 2026. Il est fondé sur l'avenant n° 4 du 2 septembre 2025 relatif au régime de frais de santé, étendu par arrêté du 9 décembre 2025 (JORF du 26 décembre 2025), ainsi que sur l'accord du 3 décembre 2025 relatif aux salaires minima. La valeur Publicodes est `industries chimiques` ; les règles sont sous `salarié . convention collective . industries chimiques`.
+Trois fichiers se succèdent selon la date de la paie (la version retenue est celle de la plus récente date d'effet antérieure ou égale, puis la révision la plus haute) :
 
-La convention collective nationale des industries chimiques et connexes du 30 décembre 1952 (brochure 3108) calcule ses minima à partir de deux paramètres, le salaire de référence (1 848,69 €) et la valeur de référence par point (8,84 €), revalorisés de 1,2 % en 2026. Le minimum d’un coefficient K est : (salaire de référence + (K − 100) × valeur de référence) × coefficient de calcul.
+| Fichier | À compter du | Barème | Santé |
+|---|---|---|---|
+| [2025.1](0044-industries-chimiques.2025.1.publicodes) | 1er janvier 2025 | accord du 9 décembre 2024 (130 : 1 855,01 € ; 880 : 7 675,85 €) | non |
+| [2026.3](0044-industries-chimiques.2026.3.publicodes) | 1er septembre 2025 | accord du 9 décembre 2024 | avenant n° 4 du 2 septembre 2025 |
+| [2026.4](0044-industries-chimiques.2026.4.publicodes) | 1er janvier 2026 | accord du 3 décembre 2025 (130 : 1 877,13 € ; 880 : 7 764,57 €) | avenant n° 4 du 2 septembre 2025 |
+
+Les fichiers `2026.1` (barème 2026 sans règles santé) et `2026.2` (barème 2026 daté à tort du 1er septembre 2025) sont conservés pour les paies déjà calculées mais sont remplacés par `2026.4` et `2026.3` pour les mêmes dates d'effet. Les règles et les clés (`coefficient`, `santé 2025`) sont identiques dans les cinq révisions.
+
+L'avenant n° 4 du 2 septembre 2025 (étendu par arrêté du 9 décembre 2025, JORF du 26 décembre 2025, KALITEXT000053041327) fixe le minimum de frais de santé ; les accords salariaux sont KALITEXT000051294779 (étendu par arrêté du 25 février 2025, JORF du 18 mars 2025) et KALITEXT000053721357 (étendu par arrêté du 16 février 2026, JORF du 24 février 2026).
+
+La valeur Publicodes est `industries chimiques` ; les règles sont sous `salarié . convention collective . industries chimiques`.
+
+La convention collective nationale des industries chimiques et connexes du 30 décembre 1952 (brochure 3108) calcule ses minima à partir de deux paramètres, le salaire de référence (1 848,69 €) et la valeur de référence par point (8,84 €), revalorisés de 1,6 % en 2025 puis de 1,2 % en 2026 (1 826,77 € et 8,74 € en 2025). Le minimum d’un coefficient K est : (salaire de référence + (K − 100) × valeur de référence) × coefficient de calcul.
 
 ## Règles implémentées
 
 - `coefficient` reçoit le coefficient hiérarchique : 130, 140, 150, 160, 175, 190, 205, 225, 235, 250, 275, 300, 325, 350, 360, 400, 460, 480, 510, 550, 660, 770 ou 880 (défaut : 0).
-- `salaire minimum conventionnel . grille` donne le salaire mensuel minimum des 23 coefficients, pour 35 heures par semaine (151,67 heures), de 1 877,13 € (130) à 7 764,57 € (880).
+- `salaire minimum conventionnel . grille` donne le salaire mensuel minimum des 23 coefficients, pour 35 heures par semaine (151,67 heures), de 1 855,01 € (130) à 7 675,85 € (880) en 2025 et de 1 877,13 € (130) à 7 764,57 € (880) à compter du 1er janvier 2026.
 - `salaire minimum conventionnel` multiplie la grille par `salarié . contrat . temps de travail . quotité` de `modele-social`. Le montant ne doit donc pas être proratisé une seconde fois. Par exemple, le coefficient 250 vaut 2 244,51 €/mois à temps complet et 1 122,255 €/mois à mi-temps.
 - `coefficient hors grille` signale un coefficient absent des 23 positions. La grille retourne alors `0 €/mois` et l’application doit traiter l’anomalie.
 
@@ -22,7 +34,7 @@ L'audit des autres rubriques ne justifie pas d'automatisation supplémentaire so
 Sources officielles examinées : [avenant santé](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053041327/?idConteneur=KALICONT000005635613), [arrêté d'extension](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053167638), [accord salaires](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053721357), ainsi que les textes IDCC 44 relatifs à la formation professionnelle et à la prévoyance listés dans la convention.
 
 
-- Le texte de l’accord n’a pas été lu : les 23 montants viennent de deux pages de synthèse concordantes (juristique.org et lofficieldesmetiers.fr) et ont été vérifiés avec la formule ci-dessus. Les pages donnent deux valeurs différentes du salaire de référence (1 848,89 € et 1 848,69 €) : seule 1 848,69 € reproduit les montants du barème. Le numéro de texte et le NOR de l’arrêté ne sont pas vérifiés.
+- Les 23 montants de chaque barème ont été lus dans le texte des accords sur Légifrance et recoupés avec la formule ci-dessus (2025 : salaire de référence 1 826,77 € et valeur de référence 8,74 € ; 2026 : 1 848,69 € et 8,84 €).
 - Le barème vaut pour 35 heures par semaine. Les barèmes pour d’autres durées du travail, en particulier celui des 38 heures évoqué par les pages consultées, ne sont pas modélisés.
 - La prime d’ancienneté (3 % après 3 ans, puis 3 % tous les 3 ans jusqu’à 15 %), les primes de poste et les autres éléments de la convention ne sont pas modélisés. Le minimum retenu est le barème, hors prime d’ancienneté.
-- Les grilles antérieures au 1er janvier 2026 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
+- Les grilles antérieures au 1er janvier 2025 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.

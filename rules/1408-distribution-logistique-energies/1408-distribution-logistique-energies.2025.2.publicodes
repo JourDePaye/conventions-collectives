@@ -1,0 +1,138 @@
+# Convention collective nationale et accords de branche des entreprises de la distribution, logistique et services des énergies de proximité (IDCC 1408).
+# Version 2025.2 : même accord du 13 mars 2025 et même date d'effet que 2025.1 ; corrige la prime d'ancienneté
+# (paliers de 10, 11, 13 et 14 % ajoutés, aucune prime pour les coefficients 400 à 460).
+
+validFrom: 2025-05-01
+sources:
+  - >-
+    Accord du 13 mars 2025 relatif à la revalorisation des salaires minima conventionnels au 1er mai 2025
+    (+ 2 % sur tous les coefficients ; article 5 : application au 1er mai 2025 pour les adhérents des
+    organisations signataires, au plus tard à la date d'extension pour les autres), Légifrance,
+    KALITEXT000051787046, conteneur KALICONT000005635427, BO 2025-16 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051787046
+  - >-
+    Étendu par arrêté du 27 mai 2025, JORF du 31 mai 2025.
+  - >-
+    Annexe « Salaires minima conventionnels et primes d'ancienneté applicables au 1er mai 2025 » : la prime
+    d'ancienneté est publiée pour les coefficients 200 à 320 seulement, à 3 % (3 ans), 6 % (6 ans), 9 % (9 ans),
+    10 % (10 ans), 11 % (11 ans), 12 % (12 ans), 13 % (13 ans), 14 % (14 ans) et 15 % (15 ans) du minimum mensuel.
+    Non vérifié : le texte ne dit pas si le taux s'applique par année révolue entre deux paliers ; le modèle
+    retient le dernier palier atteint.
+---
+salarié . convention collective . distribution logistique énergies:
+  titre: Distribution, logistique et services de proximité (IDCC 1408)
+  valeur: convention collective = 'distribution logistique énergies'
+
+salarié . convention collective . distribution logistique énergies . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient de la grille des minima mensuels.
+  applicable si: convention collective = 'distribution logistique énergies'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . distribution logistique énergies . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . distribution logistique énergies . grille:
+  titre: Grille mensuelle 2025
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: €/mois
+  variations:
+    - si: coefficient = 200
+      alors: 1852.12 €/mois
+    - si: coefficient = 210
+      alors: 1858.37 €/mois
+    - si: coefficient = 220
+      alors: 1867.80 €/mois
+    - si: coefficient = 230
+      alors: 1882.42 €/mois
+    - si: coefficient = 240
+      alors: 1911.42 €/mois
+    - si: coefficient = 250
+      alors: 1989.36 €/mois
+    - si: coefficient = 300
+      alors: 2145.22 €/mois
+    - si: coefficient = 310
+      alors: 2456.96 €/mois
+    - si: coefficient = 320
+      alors: 2768.68 €/mois
+    - si: coefficient = 400
+      alors: 2846.62 €/mois
+    - si: coefficient = 410
+      alors: 3158.36 €/mois
+    - si: coefficient = 420
+      alors: 3781.82 €/mois
+    - si: coefficient = 430
+      alors: 4405.29 €/mois
+    - si: coefficient = 440
+      alors: 5184.63 €/mois
+    - si: coefficient = 450
+      alors: 6119.83 €/mois
+    - si: coefficient = 460
+      alors: 7522.62 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . distribution logistique énergies . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille des minima 2025.
+  applicable si: convention collective = 'distribution logistique énergies'
+  valeur: grille = 0 €/mois
+
+salarié . convention collective . distribution logistique énergies . ancienneté:
+  titre: Ancienneté conventionnelle
+  description: Ancienneté ouvrant droit à la prime d'ancienneté.
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: années
+  par défaut: 0 années
+
+salarié . convention collective . distribution logistique énergies . prime d'ancienneté:
+  titre: Prime mensuelle d'ancienneté
+  description: Prime calculée sur le salaire minimum conventionnel après proratisation.
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: €/mois
+  valeur: salaire minimum conventionnel * taux prime d'ancienneté
+
+salarié . convention collective . distribution logistique énergies . coefficient ouvrant droit à la prime:
+  titre: Coefficient ouvrant droit à la prime d'ancienneté
+  description: L'annexe ne publie la prime d'ancienneté que pour les coefficients 200 à 320 ; les coefficients 400 à 460 n'y ouvrent pas droit.
+  applicable si: convention collective = 'distribution logistique énergies'
+  une de ces conditions:
+    - coefficient = 200
+    - coefficient = 210
+    - coefficient = 220
+    - coefficient = 230
+    - coefficient = 240
+    - coefficient = 250
+    - coefficient = 300
+    - coefficient = 310
+    - coefficient = 320
+
+salarié . convention collective . distribution logistique énergies . taux prime d'ancienneté:
+  titre: Taux de prime d'ancienneté
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: '%'
+  variations:
+    - si: coefficient ouvrant droit à la prime = non
+      alors: 0%
+    - si: ancienneté >= 15 années
+      alors: 15%
+    - si: ancienneté >= 14 années
+      alors: 14%
+    - si: ancienneté >= 13 années
+      alors: 13%
+    - si: ancienneté >= 12 années
+      alors: 12%
+    - si: ancienneté >= 11 années
+      alors: 11%
+    - si: ancienneté >= 10 années
+      alors: 10%
+    - si: ancienneté >= 9 années
+      alors: 9%
+    - si: ancienneté >= 6 années
+      alors: 6%
+    - si: ancienneté >= 3 années
+      alors: 3%
+    - sinon: 0%
