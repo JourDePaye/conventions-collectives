@@ -17,7 +17,7 @@ const models = [
   { name: "0043-import-export", value: "import-export", classification: "coefficient", input: "'C16'", minimums: { "2026.1": 3564 } },
   { name: "0044-industries-chimiques", value: "industries chimiques", classification: "coefficient", input: 250, minimums: { "2025.1": 2218.4, "2026.2": 2244.51, "2026.3": 2218.4, "2026.4": 2244.51 } },
   { name: "0045-caoutchouc", value: "caoutchouc", classification: "coefficient", input: 225, minimums: { "2025.1": 1949.84 } },
-  { name: "0158-industries-bois", value: "industries du bois", classification: "classification", input: "'ACT 6.1'", minimums: { "2026.1": 2448 }, situation: { "salarié . convention collective . industries du bois . champ juridique": "'employeur signataire ou adhérent'" } },
+  { name: "0158-industries-bois", value: "industries du bois", classification: "classification", input: "'ACT 6.1'", minimums: { "2026.1": 2448, "2026.2": 2448 }, situation: { "salarié . convention collective . industries du bois . champ juridique": "'employeur signataire ou adhérent'" } },
   { name: "0176-industrie-pharmaceutique", value: "industrie pharmaceutique", classification: "groupe", input: "'6C'", minimums: { "2026.1": 3344.51, "2026.2": 3344.51 } },
   { name: "0112-industrie-laitiere", value: "industrie laitière", classification: "niveau", input: "'7.2'", minimums: { "2026.1": 2235.92, "2026.2": 2235.92 } },
   { name: "0675-succursales-habillement", value: "succursales habillement", classification: "niveau", input: "'E4'", minimums: { "2026.1": 1900, "2026.2": 1900, "2026.3": 1900 } },

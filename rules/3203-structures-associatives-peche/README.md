@@ -5,7 +5,7 @@ Le fichier [2026.1](3203-structures-associatives-peche.2026.1.publicodes) entre 
 ## Sources officielles
 
 - [Convention collective et textes salaires IDCC 3203 sur Légifrance](https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000029100418)
-- [Texte publié de l’avenant n° 16](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000049150737)
+- [Texte publié de l’avenant n° 16](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054802134)
 
 L’avenant est pris dans son champ signataire ou adhérent, avant extension. Le modèle ne présume pas d’une extension ultérieure.
 

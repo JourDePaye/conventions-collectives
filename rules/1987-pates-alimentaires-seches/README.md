@@ -4,6 +4,8 @@ La version `2024.2` reprend l’avenant n° 2024-01 du 22 février 2024, applica
 
 La version `2024.3` (même date d'effet que 2024.2, qu'elle remplace) et la version `2026.2` (même date d'effet que 2026.1, qu'elle remplace) corrigent la base de la prime d'ancienneté : l'article 1er des deux textes fixe un barème horaire distinct de celui des minima (coefficients 135 à 340 ; par exemple coefficient 135 : 8,90 €/h en 2024 et 9,33 €/h en 2026, contre 11,79 et 12,08 €/h de minimum). Les taux de 3 à 15 % s'appliquent à ce barème. Il n'existe pas de base au-delà du coefficient 340 : la prime est alors nulle.
 
+La version `2026.3` (même date d'effet que 2026.2, qu'elle remplace) modélise l'**extension** de l'accord du 5 mars 2026 : l'arrêté du 20 mai 2026 (JORF n° 0124 du 29 mai 2026, `JORFTEXT000054149468`, effet à la date de publication) le rend obligatoire pour tous les employeurs du champ. Un employeur signataire ou adhérent reste couvert dès le 1er janvier 2026 ; pour `champ juridique` = `autre employeur`, la règle `accord applicable` n'est vraie qu'à partir de la `date de calcul` du 29 mai 2026 (par défaut 1900, donc non couvert).
+
 La version `2026.1` reprend l'accord du **5 mars 2026** (Légifrance `KALITEXT000054337523`, étendu par arrêté du 20 mai 2026 publié au Journal officiel du 29 mai 2026) : nouveaux minima horaires au **1er janvier 2026**, prime de vacances portée à 600 € au 31 mai 2026 ; l'indemnité journalière de poste (5,20 €), le panier de nuit (11 €) et les taux de prime d'ancienneté sont inchangés. Le texte ne vise que le « petit champ » (ancien IDCC 1987, aujourd'hui rattaché à l'IDCC 3109).
 
 ## Règles
@@ -20,4 +22,4 @@ Les textes officiels de l’IDCC 1987 et l’avenant n° 2024-01 ont été exami
 ## Sources officielles
 
 - Avenant n° 2024-01 du 22 février 2024 relatif aux salaires minima horaires, primes d’ancienneté, prime de vacances et indemnités, IDCC 1987, Bulletin officiel des conventions collectives 2024.
-- Recherche Légifrance/KALI des textes et arrêtés d’extension de l’IDCC 1987 ; aucun arrêté d’extension de cet avenant n’est retenu dans cette version.
+- Recherche Légifrance/KALI des textes et arrêtés d’extension de l’IDCC 1987 ; l'arrêté d'extension de l'accord du 5 mars 2026 est modélisé à partir de la version 2026.3 (aucun arrêté d'extension de l'avenant n° 2024-01 n'est retenu).
