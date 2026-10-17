@@ -28,6 +28,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
     "2026.3": "2026-05-29", // arrêté du 20 mai 2026, JORFTEXT000054149468
   },
   "2335-agences-generales-assurances": {
+    "2025.1": "2025-05-10", // avenant n° 5, JORFTEXT000051576272
     "2026.1": "2026-03-19", // avenant n° 6, JORF du 19 mars 2026
     "2026.2": "2026-09-19", // avenant n° 7, JORFTEXT000054860951
   },
