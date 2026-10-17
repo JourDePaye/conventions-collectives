@@ -75,3 +75,79 @@ describe("IDCC 1405 — 2026.1 minimum salaries", () => {
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, null);
   });
 });
+
+// Version 2026.2: the main grid's levels carry their category as in the avenant n° 33
+// (KALITEXT000054370669), and the grid of the annex « Légumes frais prêt à l'emploi » of the
+// avenant n° 14 (KALITEXT000054337310) is added.
+describe("IDCC 1405 — 2026.2 (avenants n° 33 and n° 14)", async () => {
+  const revised = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
+  assert.ok(revised);
+  const revisedRules: Record<string, Rule> = { ...rules, ...(await revised.loadRules()) };
+  const revisedEngine = new Engine(revisedRules, { logger: { log() {}, warn() {}, error() {} } });
+  const evaluate = (secteur: string | undefined, niveau: string, rule = "salaire minimum conventionnel", quota = "100%") => {
+    revisedEngine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      ...(secteur === undefined ? {} : { [`${namespace} . secteur`]: `'${secteur}'` }),
+      [`${namespace} . niveau`]: `'${niveau}'`,
+      "salarié . contrat . temps de travail . quotité": quota,
+    });
+    return revisedEngine.evaluate(`${namespace} . ${rule}`).nodeValue;
+  };
+
+  it("applies from 1 April 2026, to every employer from the extension on 29 May 2026", () => {
+    assert.equal(revised.validFrom, "2026-04-01");
+    assert.equal(revised.extension, "2026-05-29");
+  });
+
+  it("evaluates the main grid by category and level", () => {
+    for (const [niveau, expected] of [
+      ["ouvrier/employé I", 1823.03],
+      ["ouvrier/employé I bis", 1847.55],
+      ["ouvrier/employé II", 1862.82],
+      ["ouvrier/employé III", 1876.24],
+      ["ouvrier/employé IV", 1943.32],
+      ["ouvrier/employé V", 1964.92],
+      ["technicien/AM I", 2218.88],
+      ["technicien/AM II", 2394.32],
+      ["cadre I", 3449.23],
+      ["cadre de direction II", 4076.54],
+    ] as const) {
+      assert.equal(evaluate("fruits et légumes", niveau), expected, niveau);
+    }
+  });
+
+  it("evaluates the grid of the annex « Légumes frais prêt à l'emploi » by level and step", () => {
+    for (const [niveau, expected] of [
+      ["I.1", 1832.03],
+      ["I.3", 1837.06],
+      ["II.1", 1840.2],
+      ["III.3", 1866.42],
+      ["IV.2", 1892.63],
+      ["V.3", 1966.03],
+      ["VI.1", 2007.97],
+      ["VII.3", 2343.51],
+      ["VIII.1", 2469.33],
+      ["IX.2", 2726.23],
+      ["X.1", 2888.75],
+      ["XI.2", 3145.65],
+    ] as const) {
+      assert.equal(evaluate("légumes frais prêt à l’emploi", niveau), expected, niveau);
+    }
+  });
+
+  it("prorates the minimum once for part-time work", () => {
+    assert.equal(evaluate("légumes frais prêt à l’emploi", "IV.2", undefined, "50%"), 946.315);
+  });
+
+  it("reports a level of the other grid, an unknown level and a missing grid as out of the grid", () => {
+    for (const [secteur, niveau] of [
+      ["fruits et légumes", "VI"],
+      ["fruits et légumes", "IV.2"],
+      ["légumes frais prêt à l’emploi", "ouvrier/employé I"],
+      ["légumes frais prêt à l’emploi", "XI.3"],
+      [undefined, "ouvrier/employé I"],
+    ] as const) {
+      assert.equal(evaluate(secteur, niveau, "niveau hors grille"), true, `${secteur}/${niveau}`);
+    }
+  });
+});

@@ -1,0 +1,165 @@
+# Convention collective nationale des entreprises d'expédition et d'exportation de fruits et légumes
+# du 17 décembre 1985 (IDCC 1405).
+# Version 2026.2 : même date d'effet que 2026.1, qu'elle remplace. Les niveaux de la grille principale
+# portent leur catégorie comme dans l'avenant n° 33 (2026.1 les numérotait VI à IX), et la grille de
+# l'annexe « Légumes frais prêt à l'emploi » (avenant n° 14) est ajoutée.
+validFrom: 2026-04-01
+extension: 2026-05-29
+sources:
+  - >-
+    Avenant n° 33 du 4 mars 2026 relatif à la grille des salaires au 1er avril 2026, IDCC 1405, BO 2026-15,
+    annexe (grille conventionnelle pour l'horaire légal de 35 heures par semaine, applicable au 1er avril
+    2026) : ouvrier/employé I = 1 823,03 €, I bis = 1 847,55 €, II = 1 862,82 €, III = 1 876,24 €,
+    IV = 1 943,32 €, V = 1 964,92 € ; technicien/AM I = 2 218,88 €, II = 2 394,32 € ; cadre I = 3 449,23 € ;
+    cadre de direction II = 4 076,54 €.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054370669
+  - >-
+    Avenant n° 14 du 4 mars 2026 relatif à la grille des salaires de l'annexe particulière « Légumes frais
+    prêt à l'emploi », IDCC 1405, BO 2026-16, annexe (grille pour l'horaire légal de 35 heures par semaine,
+    applicable au 1er avril 2026) : niveaux I à V (ouvrier/employé), VI (technicien), VII (agent de
+    maîtrise), VIII à XI (cadre), par échelon.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054337310
+  - >-
+    Arrêté du 19 mai 2026 portant extension des avenants n° 33 et n° 14 (JORF n° 0124 du 29 mai 2026,
+    JORFTEXT000054149405) : article 1er, stipulations rendues obligatoires pour tous les employeurs et
+    salariés du champ de la convention ; article 2, l'extension prend effet à compter de la date de
+    publication.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054149405
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635142
+---
+salarié . convention collective . expédition exportation fruits légumes:
+  titre: Entreprises d'expédition et d'exportation de fruits et légumes (IDCC 1405)
+  valeur: convention collective = 'expédition exportation fruits légumes'
+
+salarié . convention collective . expédition exportation fruits légumes . secteur:
+  titre: Grille applicable
+  description: >-
+    Grille de la convention (« fruits et légumes », avenant n° 33) ou de l'annexe particulière
+    « légumes frais prêt à l'emploi » (avenant n° 14).
+  applicable si: convention collective = 'expédition exportation fruits légumes'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . expédition exportation fruits légumes . niveau:
+  titre: Niveau de classification
+  description: >-
+    Grille « fruits et légumes » : catégorie et niveau de l'avenant n° 33 (ouvrier/employé I, I bis, II à V ;
+    technicien/AM I et II ; cadre I ; cadre de direction II). Grille « légumes frais prêt à l'emploi » :
+    niveau et échelon de l'avenant n° 14, de I.1 à XI.2.
+  applicable si: convention collective = 'expédition exportation fruits légumes'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . expédition exportation fruits légumes . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel pour 151,67 heures, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'expédition exportation fruits légumes'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . expédition exportation fruits légumes . salaire minimum conventionnel . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Grilles des avenants n° 33 et n° 14, applicables au 1er avril 2026.
+  unité: €/mois
+  variations:
+    - si: secteur = 'fruits et légumes'
+      alors: grille . fruits et légumes
+    - si: secteur = 'légumes frais prêt à l’emploi'
+      alors: grille . annexe légumes frais
+    - sinon: 0 €/mois
+
+salarié . convention collective . expédition exportation fruits légumes . salaire minimum conventionnel . grille . fruits et légumes:
+  unité: €/mois
+  variations:
+    - si: niveau = 'ouvrier/employé I'
+      alors: 1823.03 €/mois
+    - si: niveau = 'ouvrier/employé I bis'
+      alors: 1847.55 €/mois
+    - si: niveau = 'ouvrier/employé II'
+      alors: 1862.82 €/mois
+    - si: niveau = 'ouvrier/employé III'
+      alors: 1876.24 €/mois
+    - si: niveau = 'ouvrier/employé IV'
+      alors: 1943.32 €/mois
+    - si: niveau = 'ouvrier/employé V'
+      alors: 1964.92 €/mois
+    - si: niveau = 'technicien/AM I'
+      alors: 2218.88 €/mois
+    - si: niveau = 'technicien/AM II'
+      alors: 2394.32 €/mois
+    - si: niveau = 'cadre I'
+      alors: 3449.23 €/mois
+    - si: niveau = 'cadre de direction II'
+      alors: 4076.54 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . expédition exportation fruits légumes . salaire minimum conventionnel . grille . annexe légumes frais:
+  unité: €/mois
+  variations:
+    - si: niveau = 'I.1'
+      alors: 1832.03 €/mois
+    - si: niveau = 'I.2'
+      alors: 1833.91 €/mois
+    - si: niveau = 'I.3'
+      alors: 1837.06 €/mois
+    - si: niveau = 'II.1'
+      alors: 1840.20 €/mois
+    - si: niveau = 'II.2'
+      alors: 1843.35 €/mois
+    - si: niveau = 'II.3'
+      alors: 1845.45 €/mois
+    - si: niveau = 'III.1'
+      alors: 1855.93 €/mois
+    - si: niveau = 'III.2'
+      alors: 1861.17 €/mois
+    - si: niveau = 'III.3'
+      alors: 1866.42 €/mois
+    - si: niveau = 'IV.1'
+      alors: 1882.14 €/mois
+    - si: niveau = 'IV.2'
+      alors: 1892.63 €/mois
+    - si: niveau = 'IV.3'
+      alors: 1908.36 €/mois
+    - si: niveau = 'V.1'
+      alors: 1924.09 €/mois
+    - si: niveau = 'V.2'
+      alors: 1945.06 €/mois
+    - si: niveau = 'V.3'
+      alors: 1966.03 €/mois
+    - si: niveau = 'VI.1'
+      alors: 2007.97 €/mois
+    - si: niveau = 'VI.2'
+      alors: 2039.43 €/mois
+    - si: niveau = 'VI.3'
+      alors: 2070.88 €/mois
+    - si: niveau = 'VII.1'
+      alors: 2154.77 €/mois
+    - si: niveau = 'VII.2'
+      alors: 2238.65 €/mois
+    - si: niveau = 'VII.3'
+      alors: 2343.51 €/mois
+    - si: niveau = 'VIII.1'
+      alors: 2469.33 €/mois
+    - si: niveau = 'VIII.2'
+      alors: 2511.27 €/mois
+    - si: niveau = 'VIII.3'
+      alors: 2584.67 €/mois
+    - si: niveau = 'IX.1'
+      alors: 2679.04 €/mois
+    - si: niveau = 'IX.2'
+      alors: 2726.23 €/mois
+    - si: niveau = 'X.1'
+      alors: 2888.75 €/mois
+    - si: niveau = 'X.2'
+      alors: 2935.94 €/mois
+    - si: niveau = 'XI.1'
+      alors: 3098.46 €/mois
+    - si: niveau = 'XI.2'
+      alors: 3145.65 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . expédition exportation fruits légumes . niveau hors grille:
+  titre: Classification absente de la grille
+  description: Le niveau n'existe pas dans la grille choisie, ou la grille n'est pas renseignée.
+  applicable si: convention collective = 'expédition exportation fruits légumes'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois

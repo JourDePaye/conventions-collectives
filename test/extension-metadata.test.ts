@@ -17,6 +17,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
     "2025.3": "2025-06-29",
     "2025.4": "2025-06-29",
   },
+  "1405-expedition-exportation-fruits-legumes": { "2026.2": "2026-05-29" }, // JORFTEXT000054149405
   "1555-produits-pharmaceutiques": { "2026.1": "2026-05-08" }, // JORF du 8 mai 2026
   "1671-maisons-etudiants": {
     "2025.1": "2025-04-09", // avenant n° 73, JORF du 9 avril 2025
