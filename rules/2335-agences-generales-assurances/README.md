@@ -2,6 +2,8 @@
 
 La version `2026.1` modélise l'avenant n° 6 du **11 décembre 2025** relatif aux salaires minima annuels bruts au **1er janvier 2026**. La grille comporte les classes 1 à 6 et la classe 5 bis.
 
+La version `2026.2` modélise l'avenant n° 7 du **27 mai 2026** (`KALITEXT000054982041`) : après la hausse du SMIC du 1er juin 2026, la classe 1 passe de 23 194 € à **23 524 €** (+ 1,4 %) au **1er juin 2026** ; les autres classes sont inchangées. Il est étendu par arrêté du 7 septembre 2026 (JORF n° 0219 du **19 septembre 2026**, `JORFTEXT000054860951`, effet à la date de publication) : `extension: 2026-09-19`.
+
 La valeur Publicodes est `agences générales assurances` et les règles sont sous `salarié . convention collective . agences générales assurances`.
 
 ## Périmètre juridique
@@ -20,6 +22,7 @@ La valeur Publicodes est `agences générales assurances` et les règles sont so
 ## Sources officielles
 
 - Avenant n° 6 du 11 décembre 2025 relatif aux salaires minima au 1er janvier 2026, texte KALI `KALITEXT000054040577`.
+- Avenant n° 7 du 27 mai 2026 relatif aux salaires minima au 1er juin 2026, texte KALI `KALITEXT000054982041`, étendu par arrêté du 7 septembre 2026 (JORF du 19 septembre 2026).
 - Convention collective nationale du personnel des agences générales d'assurances, IDCC 2335, conteneur KALI `KALICONT000005635361`, qui indique l'extension par arrêté du 13 mars 2026 publié au Journal officiel le 19 mars 2026.
 
 ## Limites

@@ -7,8 +7,8 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const id = "2335-agences-generales-assurances";
 const ns = "salarié . convention collective . agences générales assurances";
 
-async function makeEngine() {
-  const version = COMPILED_VERSIONS[id]?.find((v) => v.version === "2026.1");
+async function makeEngine(revision = "2026.1") {
+  const version = COMPILED_VERSIONS[id]?.find((v) => v.version === revision);
   assert.ok(version, "IDCC 2335 must be exported");
   const extension = await version.loadRules();
   const rules: Record<string, Rule> = { ...modeleSocial };
@@ -63,5 +63,23 @@ describe("IDCC 2335 — annual endpoint", () => {
     const result = get(engine, "salaire minimum annuel conventionnel");
     assert.equal(result.nodeValue, 44383);
     assert.equal(result.unit?.denominators?.includes("an"), true);
+  });
+});
+
+// Avenant n° 7 du 27 mai 2026: class 1 raised by 1.4 % from 1 June 2026, the other classes unchanged.
+describe("IDCC 2335 — 2026.2 (avenant n° 7)", () => {
+  const june = { ...annual, "1": 23524 };
+  for (const [classe, amount] of Object.entries(june)) {
+    it(`class ${classe} annual minimum is ${amount} euros`, async () => {
+      const engine = await makeEngine("2026.2");
+      set(engine, { classe: `'${classe}'` });
+      assert.equal(get(engine, "salaire minimum annuel conventionnel").nodeValue, amount);
+    });
+  }
+
+  it("applies from 1 June 2026, to every employer from the extension on 19 September 2026", () => {
+    const version = COMPILED_VERSIONS[id]?.find((v) => v.version === "2026.2");
+    assert.equal(version?.validFrom, "2026-06-01");
+    assert.equal(version?.extension, "2026-09-19");
   });
 });
