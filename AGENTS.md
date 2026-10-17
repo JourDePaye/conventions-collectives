@@ -6,7 +6,7 @@ Versioned publicodes extensions to modele-social, consumed by JourDePaye.
 - Write identifiers, code comments, and commit messages in English. Publicodes rule names and legal references stay in French.
 - Sources live in `rules/<idcc>-<French-agreement-name>/<idcc>-<French-agreement-name>.<year>.<revision>.publicodes`.
 - Each source has a metadata document (`validFrom`, `sources`) followed by a rules document.
-- Released versions in `rules/versions.lock.json` are immutable and must never be removed. Add a new version for any rule correction.
+- Released versions in `rules/versions.lock.json` are immutable and must never be removed. Add a new version for any rule correction. Exception while JDP is in beta (see the workspace `AGENTS.md`): with the user's explicit go, published revisions may be renamed or rewritten in place, and their lock entries regenerated.
 - Preserve the historical hash algorithm: SHA-256 of `JSON.stringify({ validFrom, rules })`, truncated to 16 hex characters.
 - Never redefine a modele-social rule: use `remplace` or `rend non applicable`. Keep agreement rules under their French namespace and guard them with `applicable si`.
 - No dependency on payroll-core. Keep payroll period selection, CaseValue mapping, and payroll calculation in JourDePaye.
