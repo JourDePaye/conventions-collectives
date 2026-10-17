@@ -1,0 +1,665 @@
+# Convention collective nationale des industries de carrières et matériaux de construction (IDCC 3249).
+# Version 2026.3 : les douze accords régionaux du début de 2026 relatifs aux salaires minimaux des
+# ouvriers et ETAM, tous en vigueur au 1er janvier 2026 et étendus (publication des arrêtés entre le
+# 8 mai et le 10 juillet 2026). Remplace 2026.2 (même date d'effet), qui ne modélisait que l'Île-de-France.
+# Chaque accord exclut la fabrication d'éléments en béton et d'éléments préfabriqués en béton pour la
+# construction (code 2361.Z), régie par l'accord national d'harmonisation du 11 avril 2024 (article 1er).
+validFrom: 2026-01-01
+sources:
+  - >-
+    Auvergne-Rhône-Alpes, accord du 20 mars 2026 relatif aux salaires minimaux des ouvriers et ETAM, IDCC 3249,
+    KALITEXT000054825928, BO 2026-22, étendu par arrêté du 6 juillet 2026 (JORF du 10 juillet 2026). Article 2 : départements
+    01, 03, 07, 15, 26, 38, 42, 43, 63, 69, 73, 74 ; article 3 : 1.1 = 1 876 € ; 1.2 = 1 885 € ; 2.1 = 1 896 € ; 2.2 = 1 918 € ; 2.3 = 1 971 € ; 3.1 = 1 982 € ; 3.2 = 2 014 € ; 3.3 = 2 071 € ; 4.1 = 2 081 € ; 4.2 = 2 114 € ; 4.3 = 2 186 € ; 5.1 = 2 188 € ; 5.2 = 2 254 € ; 5.3 = 2 405 € ; 6.1 = 2 447 € ; 6.2 = 2 536 € ; 6.3 = 2 733 € ; 7.1 = 2 784 € ; 7.2 = 2 948 € ; 7.3 = 3 207 € ; article 5 : entrée en vigueur le 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054825928
+  - >-
+    Bourgogne-Franche-Comté, accord du 11 mars 2026 relatif aux salaires minimaux des ouvriers et ETAM, IDCC 3249,
+    KALITEXT000054454616, BO 2026-17, étendu par arrêté du 11 juin 2026 (JORF du 27 juin 2026). Article 2 : départements
+    21, 25, 39, 58, 70, 71, 89, 90 ; article 3 : 1.1 = 1 836 € ; 1.2 = 1 879 € ; 2.1 = 1 897 € ; 2.2 = 1 930 € ; 2.3 = 1 974 € ; 3.1 = 1 986 € ; 3.2 = 2 025 € ; 3.3 = 2 067 € ; 4.1 = 2 081 € ; 4.2 = 2 122 € ; 4.3 = 2 178 € ; 5.1 = 2 188 € ; 5.2 = 2 262 € ; 5.3 = 2 394 € ; 6.1 = 2 435 € ; 6.2 = 2 536 € ; 6.3 = 2 711 € ; 7.1 = 2 766 € ; 7.2 = 2 940 € ; 7.3 = 3 169 € ; article 5 : entrée en vigueur le 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054454616
+  - >-
+    Bretagne, accord du 3 mars 2026 relatif aux salaires minimaux des ouvriers et ETAM, IDCC 3249,
+    KALITEXT000054802237, BO 2026-19, étendu par arrêté du 11 juin 2026 (JORF du 27 juin 2026). Article 2 : départements
+    22, 29, 35, 56 ; article 3 : 1.1 = 1 852 € ; 1.2 = 1 861 € ; 2.1 = 1 865 € ; 2.2 = 1 893 € ; 2.3 = 1 943 € ; 3.1 = 1 963 € ; 3.2 = 1 983 € ; 3.3 = 2 039 € ; 4.1 = 2 048 € ; 4.2 = 2 082 € ; 4.3 = 2 148 € ; 5.1 = 2 159 € ; 5.2 = 2 222 € ; 5.3 = 2 371 € ; 6.1 = 2 409 € ; 6.2 = 2 500 € ; 6.3 = 2 691 € ; 7.1 = 2 744 € ; 7.2 = 2 905 € ; 7.3 = 3 157 € ; article 5 : entrée en vigueur le 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054802237
+  - >-
+    Centre-Val de Loire, accord du 24 février 2026 relatif aux salaires minimaux des ouvriers et ETAM, IDCC 3249,
+    KALITEXT000054371003, BO 2026-15, étendu par arrêté du 21 mai 2026 (JORF du 29 mai 2026). Article 2 : départements
+    18, 28, 36, 37, 41, 45 ; article 3 : 1.1 = 1 825 € ; 1.2 = 1 867 € ; 2.1 = 1 874 € ; 2.2 = 1 896 € ; 2.3 = 1 949 € ; 3.1 = 1 963 € ; 3.2 = 1 988 € ; 3.3 = 2 043 € ; 4.1 = 2 059 € ; 4.2 = 2 088 € ; 4.3 = 2 157 € ; 5.1 = 2 170 € ; 5.2 = 2 231 € ; 5.3 = 2 377 € ; 6.1 = 2 423 € ; 6.2 = 2 511 € ; 6.3 = 2 701 € ; 7.1 = 2 761 € ; 7.2 = 2 920 € ; 7.3 = 3 168 € ; article 5 : entrée en vigueur le 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054371003
+  - >-
+    Grand Est, accord du 19 février 2026 relatif aux salaires minimaux des ouvriers et ETAM, IDCC 3249,
+    KALITEXT000054262441, BO 2026-12, étendu par arrêté du 5 mai 2026 (JORF du 8 mai 2026). Article 2 : départements
+    08, 10, 51, 52, 54, 55, 57, 67, 68, 88 ; article 3 : 1.1 = 1 839 € ; 1.2 = 1 877 € ; 2.1 = 1 884 € ; 2.2 = 1 913 € ; 2.3 = 1 955 € ; 3.1 = 1 963 € ; 3.2 = 2 006 € ; 3.3 = 2 047 € ; 4.1 = 2 058 € ; 4.2 = 2 108 € ; 4.3 = 2 164 € ; 5.1 = 2 171 € ; 5.2 = 2 254 € ; 5.3 = 2 387 € ; 6.1 = 2 431 € ; 6.2 = 2 539 € ; 6.3 = 2 718 € ; 7.1 = 2 770 € ; 7.2 = 2 955 € ; 7.3 = 3 191 € ; article 5 : entrée en vigueur le 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054262441
+  - >-
+    Hauts-de-France, accord du 16 mars 2026 relatif aux salaires minimaux des ouvriers et ETAM, IDCC 3249,
+    KALITEXT000054337826, BO 2026-16, étendu par arrêté du 21 mai 2026 (JORF du 29 mai 2026). Article 2 : départements
+    02, 59, 60, 62, 80 ; article 3 : 1.1 = 1 856 € ; 1.2 = 1 872 € ; 2.1 = 1 874 € ; 2.2 = 1 915 € ; 2.3 = 1 951 € ; 3.1 = 1 960 € ; 3.2 = 1 991 € ; 3.3 = 2 046 € ; 4.1 = 2 056 € ; 4.2 = 2 092 € ; 4.3 = 2 159 € ; 5.1 = 2 165 € ; 5.2 = 2 236 € ; 5.3 = 2 380 € ; 6.1 = 2 422 € ; 6.2 = 2 517 € ; 6.3 = 2 708 € ; 7.1 = 2 761 € ; 7.2 = 2 929 € ; 7.3 = 3 179 € ; article 5 : entrée en vigueur le 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054337826
+  - >-
+    Île-de-France, accord du 19 mars 2026 relatif aux salaires minimaux des ouvriers et ETAM, IDCC 3249,
+    KALITEXT000054337807, BO 2026-16, étendu par arrêté du 21 mai 2026 (JORF du 29 mai 2026). Article 2 : départements
+    75, 77, 78, 91, 92, 93, 94, 95 ; article 3 : 1.1 = 1 840 € ; 1.2 = 1 866 € ; 2.1 = 1 874 € ; 2.2 = 1 903 € ; 2.3 = 1 957 € ; 3.1 = 1 969 € ; 3.2 = 2 000 € ; 3.3 = 2 060 € ; 4.1 = 2 069 € ; 4.2 = 2 104 € ; 4.3 = 2 178 € ; 5.1 = 2 187 € ; 5.2 = 2 252 € ; 5.3 = 2 409 € ; 6.1 = 2 451 € ; 6.2 = 2 546 € ; 6.3 = 2 748 € ; 7.1 = 2 814 € ; 7.2 = 2 975 € ; 7.3 = 3 240 € ; article 5 : entrée en vigueur le 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054337807
+  - >-
+    Normandie, accord du 6 février 2026 relatif aux salaires minimaux des ouvriers et ETAM, IDCC 3249,
+    KALITEXT000054304128, BO 2026-13, étendu par arrêté du 5 mai 2026 (JORF du 8 mai 2026). Article 2 : départements
+    14, 27, 50, 61, 76 ; article 3 : 1.1 = 1 828 € ; 1.2 = 1 843 € ; 2.1 = 1 862 € ; 2.2 = 1 879 € ; 2.3 = 1 918 € ; 3.1 = 1 928 € ; 3.2 = 1 949 € ; 3.3 = 1 995 € ; 4.1 = 2 020 € ; 4.2 = 2 059 € ; 4.3 = 2 118 € ; 5.1 = 2 133 € ; 5.2 = 2 207 € ; 5.3 = 2 342 € ; 6.1 = 2 355 € ; 6.2 = 2 485 € ; 6.3 = 2 666 € ; 7.1 = 2 695 € ; 7.2 = 2 903 € ; 7.3 = 3 142 € ; article 5 : entrée en vigueur le 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054304128
+  - >-
+    Nouvelle-Aquitaine, accord du 12 mars 2026 relatif aux salaires minimaux des ouvriers et ETAM, IDCC 3249,
+    KALITEXT000054337788, BO 2026-16, étendu par arrêté du 21 mai 2026 (JORF du 29 mai 2026). Article 2 : départements
+    16, 17, 19, 23, 24, 33, 40, 47, 64, 79, 86, 87 ; article 3 : 1.1 = 1 832 € ; 1.2 = 1 850 € ; 2.1 = 1 864 € ; 2.2 = 1 886 € ; 2.3 = 1 936 € ; 3.1 = 1 950 € ; 3.2 = 1 980 € ; 3.3 = 2 030 € ; 4.1 = 2 044 € ; 4.2 = 2 077 € ; 4.3 = 2 143 € ; 5.1 = 2 158 € ; 5.2 = 2 223 € ; 5.3 = 2 370 € ; 6.1 = 2 418 € ; 6.2 = 2 512 € ; 6.3 = 2 699 € ; 7.1 = 2 767 € ; 7.2 = 2 932 € ; 7.3 = 3 191 € ; article 5 : entrée en vigueur le 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054337788
+  - >-
+    Occitanie, accord du 13 mars 2026 relatif aux salaires minimaux des ouvriers et ETAM, IDCC 3249,
+    KALITEXT000054454633, BO 2026-17, étendu par arrêté du 11 juin 2026 (JORF du 27 juin 2026). Article 2 : départements
+    09, 11, 12, 30, 31, 32, 34, 46, 48, 65, 66, 81, 82 ; article 3 : 1.1 = 1 862 € ; 1.2 = 1 886 € ; 2.1 = 1 894 € ; 2.2 = 1 923 € ; 2.3 = 1 980 € ; 3.1 = 1 989 € ; 3.2 = 2 020 € ; 3.3 = 2 080 € ; 4.1 = 2 090 € ; 4.2 = 2 127 € ; 4.3 = 2 201 € ; 5.1 = 2 206 € ; 5.2 = 2 274 € ; 5.3 = 2 399 € ; 6.1 = 2 439 € ; 6.2 = 2 533 € ; 6.3 = 2 735 € ; 7.1 = 2 791 € ; 7.2 = 2 959 € ; 7.3 = 3 223 € ; article 5 : entrée en vigueur le 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054454633
+  - >-
+    Pays de la Loire, accord du 17 février 2026 relatif aux salaires minimaux des ouvriers et ETAM, IDCC 3249,
+    KALITEXT000054304146, BO 2026-13, étendu par arrêté du 5 mai 2026 (JORF du 8 mai 2026). Article 2 : départements
+    44, 49, 53, 72, 85 ; article 3 : 1.1 = 1 855 € ; 1.2 = 1 861 € ; 2.1 = 1 878 € ; 2.2 = 1 900 € ; 2.3 = 1 951 € ; 3.1 = 1 967 € ; 3.2 = 1 994 € ; 3.3 = 2 048 € ; 4.1 = 2 063 € ; 4.2 = 2 093 € ; 4.3 = 2 164 € ; 5.1 = 2 174 € ; 5.2 = 2 237 € ; 5.3 = 2 385 € ; 6.1 = 2 431 € ; 6.2 = 2 516 € ; 6.3 = 2 710 € ; 7.1 = 2 769 € ; 7.2 = 3 043 € ; 7.3 = 3 169 € ; article 5 : entrée en vigueur le 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054304146
+  - >-
+    Sud PACA et Corse, accord du 11 mars 2026 relatif aux salaires minimaux des ouvriers et ETAM, IDCC 3249,
+    KALITEXT000054802256, BO 2026-19, étendu par arrêté du 11 juin 2026 (JORF du 27 juin 2026). Article 2 : départements
+    04, 05, 06, 13, 83, 84 et Corse ; article 3 : 1.1 = 1 863 € ; 1.2 = 1 926 € ; 2.1 = 1 933 € ; 2.2 = 1 962 € ; 2.3 = 2 018 € ; 3.1 = 2 027 € ; 3.2 = 2 058 € ; 3.3 = 2 116 € ; 4.1 = 2 128 € ; 4.2 = 2 160 € ; 4.3 = 2 234 € ; 5.1 = 2 241 € ; 5.2 = 2 308 € ; 5.3 = 2 465 € ; 6.1 = 2 501 € ; 6.2 = 2 597 € ; 6.3 = 2 797 € ; 7.1 = 2 851 € ; 7.2 = 3 021 € ; 7.3 = 3 283 € ; article 5 : entrée en vigueur le 1er janvier 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054802256
+  - >-
+    Convention collective nationale des industries de carrières et matériaux de construction du
+    6 juillet 2022, étendue par arrêté du 24 septembre 2024 (JORF du 17 novembre 2024), container
+    KALICONT000050551393 ; article 16.1 : base de 35 heures par semaine ou 151,67 heures par mois.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000050551393
+---
+salarié . convention collective . carrières et matériaux de construction:
+  titre: Industries de carrières et matériaux de construction (IDCC 3249)
+  valeur: convention collective = 'carrières et matériaux de construction'
+
+salarié . convention collective . carrières et matériaux de construction . niveau et échelon:
+  titre: Niveau et échelon de classification
+  description: Niveaux 1 à 7 de la grille ouvriers et ETAM, échelons 1 et 2 pour le niveau 1 et 1 à 3 pour les niveaux 2 à 7 (par exemple 1.2 ou 7.3).
+  applicable si: convention collective = 'carrières et matériaux de construction'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . carrières et matériaux de construction . région:
+  titre: Région de l'accord de salaires
+  description: >-
+    Région de l'établissement, au sens de l'article 2 de chaque accord régional (« Sud PACA et
+    Corse » réunit les départements 04, 05, 06, 13, 83, 84 et la Corse). « hors champ » pour un
+    établissement d'un département qu'aucun accord régional ne vise (outre-mer).
+  applicable si: convention collective = 'carrières et matériaux de construction'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . carrières et matériaux de construction . région couverte:
+  titre: Région couverte par un accord de salaires
+  applicable si: convention collective = 'carrières et matériaux de construction'
+  une de ces conditions:
+    - région = 'Auvergne-Rhône-Alpes'
+    - région = 'Bourgogne-Franche-Comté'
+    - région = 'Bretagne'
+    - région = 'Centre-Val de Loire'
+    - région = 'Grand Est'
+    - région = 'Hauts-de-France'
+    - région = 'Île-de-France'
+    - région = 'Normandie'
+    - région = 'Nouvelle-Aquitaine'
+    - région = 'Occitanie'
+    - région = 'Pays de la Loire'
+    - région = 'Sud PACA et Corse'
+
+salarié . convention collective . carrières et matériaux de construction . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à 151,67 heures de la grille régionale, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'carrières et matériaux de construction'
+      - grille > 0 €/mois
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . carrières et matériaux de construction . grille:
+  titre: Grille mensuelle régionale 2026 (article 3 de chaque accord)
+  applicable si: convention collective = 'carrières et matériaux de construction'
+  unité: €/mois
+  variations:
+    - si: région = 'Auvergne-Rhône-Alpes'
+      alors:
+        variations:
+          - si: niveau et échelon = '1.1'
+            alors: 1876 €/mois
+          - si: niveau et échelon = '1.2'
+            alors: 1885 €/mois
+          - si: niveau et échelon = '2.1'
+            alors: 1896 €/mois
+          - si: niveau et échelon = '2.2'
+            alors: 1918 €/mois
+          - si: niveau et échelon = '2.3'
+            alors: 1971 €/mois
+          - si: niveau et échelon = '3.1'
+            alors: 1982 €/mois
+          - si: niveau et échelon = '3.2'
+            alors: 2014 €/mois
+          - si: niveau et échelon = '3.3'
+            alors: 2071 €/mois
+          - si: niveau et échelon = '4.1'
+            alors: 2081 €/mois
+          - si: niveau et échelon = '4.2'
+            alors: 2114 €/mois
+          - si: niveau et échelon = '4.3'
+            alors: 2186 €/mois
+          - si: niveau et échelon = '5.1'
+            alors: 2188 €/mois
+          - si: niveau et échelon = '5.2'
+            alors: 2254 €/mois
+          - si: niveau et échelon = '5.3'
+            alors: 2405 €/mois
+          - si: niveau et échelon = '6.1'
+            alors: 2447 €/mois
+          - si: niveau et échelon = '6.2'
+            alors: 2536 €/mois
+          - si: niveau et échelon = '6.3'
+            alors: 2733 €/mois
+          - si: niveau et échelon = '7.1'
+            alors: 2784 €/mois
+          - si: niveau et échelon = '7.2'
+            alors: 2948 €/mois
+          - si: niveau et échelon = '7.3'
+            alors: 3207 €/mois
+          - sinon: 0 €/mois
+    - si: région = 'Bourgogne-Franche-Comté'
+      alors:
+        variations:
+          - si: niveau et échelon = '1.1'
+            alors: 1836 €/mois
+          - si: niveau et échelon = '1.2'
+            alors: 1879 €/mois
+          - si: niveau et échelon = '2.1'
+            alors: 1897 €/mois
+          - si: niveau et échelon = '2.2'
+            alors: 1930 €/mois
+          - si: niveau et échelon = '2.3'
+            alors: 1974 €/mois
+          - si: niveau et échelon = '3.1'
+            alors: 1986 €/mois
+          - si: niveau et échelon = '3.2'
+            alors: 2025 €/mois
+          - si: niveau et échelon = '3.3'
+            alors: 2067 €/mois
+          - si: niveau et échelon = '4.1'
+            alors: 2081 €/mois
+          - si: niveau et échelon = '4.2'
+            alors: 2122 €/mois
+          - si: niveau et échelon = '4.3'
+            alors: 2178 €/mois
+          - si: niveau et échelon = '5.1'
+            alors: 2188 €/mois
+          - si: niveau et échelon = '5.2'
+            alors: 2262 €/mois
+          - si: niveau et échelon = '5.3'
+            alors: 2394 €/mois
+          - si: niveau et échelon = '6.1'
+            alors: 2435 €/mois
+          - si: niveau et échelon = '6.2'
+            alors: 2536 €/mois
+          - si: niveau et échelon = '6.3'
+            alors: 2711 €/mois
+          - si: niveau et échelon = '7.1'
+            alors: 2766 €/mois
+          - si: niveau et échelon = '7.2'
+            alors: 2940 €/mois
+          - si: niveau et échelon = '7.3'
+            alors: 3169 €/mois
+          - sinon: 0 €/mois
+    - si: région = 'Bretagne'
+      alors:
+        variations:
+          - si: niveau et échelon = '1.1'
+            alors: 1852 €/mois
+          - si: niveau et échelon = '1.2'
+            alors: 1861 €/mois
+          - si: niveau et échelon = '2.1'
+            alors: 1865 €/mois
+          - si: niveau et échelon = '2.2'
+            alors: 1893 €/mois
+          - si: niveau et échelon = '2.3'
+            alors: 1943 €/mois
+          - si: niveau et échelon = '3.1'
+            alors: 1963 €/mois
+          - si: niveau et échelon = '3.2'
+            alors: 1983 €/mois
+          - si: niveau et échelon = '3.3'
+            alors: 2039 €/mois
+          - si: niveau et échelon = '4.1'
+            alors: 2048 €/mois
+          - si: niveau et échelon = '4.2'
+            alors: 2082 €/mois
+          - si: niveau et échelon = '4.3'
+            alors: 2148 €/mois
+          - si: niveau et échelon = '5.1'
+            alors: 2159 €/mois
+          - si: niveau et échelon = '5.2'
+            alors: 2222 €/mois
+          - si: niveau et échelon = '5.3'
+            alors: 2371 €/mois
+          - si: niveau et échelon = '6.1'
+            alors: 2409 €/mois
+          - si: niveau et échelon = '6.2'
+            alors: 2500 €/mois
+          - si: niveau et échelon = '6.3'
+            alors: 2691 €/mois
+          - si: niveau et échelon = '7.1'
+            alors: 2744 €/mois
+          - si: niveau et échelon = '7.2'
+            alors: 2905 €/mois
+          - si: niveau et échelon = '7.3'
+            alors: 3157 €/mois
+          - sinon: 0 €/mois
+    - si: région = 'Centre-Val de Loire'
+      alors:
+        variations:
+          - si: niveau et échelon = '1.1'
+            alors: 1825 €/mois
+          - si: niveau et échelon = '1.2'
+            alors: 1867 €/mois
+          - si: niveau et échelon = '2.1'
+            alors: 1874 €/mois
+          - si: niveau et échelon = '2.2'
+            alors: 1896 €/mois
+          - si: niveau et échelon = '2.3'
+            alors: 1949 €/mois
+          - si: niveau et échelon = '3.1'
+            alors: 1963 €/mois
+          - si: niveau et échelon = '3.2'
+            alors: 1988 €/mois
+          - si: niveau et échelon = '3.3'
+            alors: 2043 €/mois
+          - si: niveau et échelon = '4.1'
+            alors: 2059 €/mois
+          - si: niveau et échelon = '4.2'
+            alors: 2088 €/mois
+          - si: niveau et échelon = '4.3'
+            alors: 2157 €/mois
+          - si: niveau et échelon = '5.1'
+            alors: 2170 €/mois
+          - si: niveau et échelon = '5.2'
+            alors: 2231 €/mois
+          - si: niveau et échelon = '5.3'
+            alors: 2377 €/mois
+          - si: niveau et échelon = '6.1'
+            alors: 2423 €/mois
+          - si: niveau et échelon = '6.2'
+            alors: 2511 €/mois
+          - si: niveau et échelon = '6.3'
+            alors: 2701 €/mois
+          - si: niveau et échelon = '7.1'
+            alors: 2761 €/mois
+          - si: niveau et échelon = '7.2'
+            alors: 2920 €/mois
+          - si: niveau et échelon = '7.3'
+            alors: 3168 €/mois
+          - sinon: 0 €/mois
+    - si: région = 'Grand Est'
+      alors:
+        variations:
+          - si: niveau et échelon = '1.1'
+            alors: 1839 €/mois
+          - si: niveau et échelon = '1.2'
+            alors: 1877 €/mois
+          - si: niveau et échelon = '2.1'
+            alors: 1884 €/mois
+          - si: niveau et échelon = '2.2'
+            alors: 1913 €/mois
+          - si: niveau et échelon = '2.3'
+            alors: 1955 €/mois
+          - si: niveau et échelon = '3.1'
+            alors: 1963 €/mois
+          - si: niveau et échelon = '3.2'
+            alors: 2006 €/mois
+          - si: niveau et échelon = '3.3'
+            alors: 2047 €/mois
+          - si: niveau et échelon = '4.1'
+            alors: 2058 €/mois
+          - si: niveau et échelon = '4.2'
+            alors: 2108 €/mois
+          - si: niveau et échelon = '4.3'
+            alors: 2164 €/mois
+          - si: niveau et échelon = '5.1'
+            alors: 2171 €/mois
+          - si: niveau et échelon = '5.2'
+            alors: 2254 €/mois
+          - si: niveau et échelon = '5.3'
+            alors: 2387 €/mois
+          - si: niveau et échelon = '6.1'
+            alors: 2431 €/mois
+          - si: niveau et échelon = '6.2'
+            alors: 2539 €/mois
+          - si: niveau et échelon = '6.3'
+            alors: 2718 €/mois
+          - si: niveau et échelon = '7.1'
+            alors: 2770 €/mois
+          - si: niveau et échelon = '7.2'
+            alors: 2955 €/mois
+          - si: niveau et échelon = '7.3'
+            alors: 3191 €/mois
+          - sinon: 0 €/mois
+    - si: région = 'Hauts-de-France'
+      alors:
+        variations:
+          - si: niveau et échelon = '1.1'
+            alors: 1856 €/mois
+          - si: niveau et échelon = '1.2'
+            alors: 1872 €/mois
+          - si: niveau et échelon = '2.1'
+            alors: 1874 €/mois
+          - si: niveau et échelon = '2.2'
+            alors: 1915 €/mois
+          - si: niveau et échelon = '2.3'
+            alors: 1951 €/mois
+          - si: niveau et échelon = '3.1'
+            alors: 1960 €/mois
+          - si: niveau et échelon = '3.2'
+            alors: 1991 €/mois
+          - si: niveau et échelon = '3.3'
+            alors: 2046 €/mois
+          - si: niveau et échelon = '4.1'
+            alors: 2056 €/mois
+          - si: niveau et échelon = '4.2'
+            alors: 2092 €/mois
+          - si: niveau et échelon = '4.3'
+            alors: 2159 €/mois
+          - si: niveau et échelon = '5.1'
+            alors: 2165 €/mois
+          - si: niveau et échelon = '5.2'
+            alors: 2236 €/mois
+          - si: niveau et échelon = '5.3'
+            alors: 2380 €/mois
+          - si: niveau et échelon = '6.1'
+            alors: 2422 €/mois
+          - si: niveau et échelon = '6.2'
+            alors: 2517 €/mois
+          - si: niveau et échelon = '6.3'
+            alors: 2708 €/mois
+          - si: niveau et échelon = '7.1'
+            alors: 2761 €/mois
+          - si: niveau et échelon = '7.2'
+            alors: 2929 €/mois
+          - si: niveau et échelon = '7.3'
+            alors: 3179 €/mois
+          - sinon: 0 €/mois
+    - si: région = 'Île-de-France'
+      alors:
+        variations:
+          - si: niveau et échelon = '1.1'
+            alors: 1840 €/mois
+          - si: niveau et échelon = '1.2'
+            alors: 1866 €/mois
+          - si: niveau et échelon = '2.1'
+            alors: 1874 €/mois
+          - si: niveau et échelon = '2.2'
+            alors: 1903 €/mois
+          - si: niveau et échelon = '2.3'
+            alors: 1957 €/mois
+          - si: niveau et échelon = '3.1'
+            alors: 1969 €/mois
+          - si: niveau et échelon = '3.2'
+            alors: 2000 €/mois
+          - si: niveau et échelon = '3.3'
+            alors: 2060 €/mois
+          - si: niveau et échelon = '4.1'
+            alors: 2069 €/mois
+          - si: niveau et échelon = '4.2'
+            alors: 2104 €/mois
+          - si: niveau et échelon = '4.3'
+            alors: 2178 €/mois
+          - si: niveau et échelon = '5.1'
+            alors: 2187 €/mois
+          - si: niveau et échelon = '5.2'
+            alors: 2252 €/mois
+          - si: niveau et échelon = '5.3'
+            alors: 2409 €/mois
+          - si: niveau et échelon = '6.1'
+            alors: 2451 €/mois
+          - si: niveau et échelon = '6.2'
+            alors: 2546 €/mois
+          - si: niveau et échelon = '6.3'
+            alors: 2748 €/mois
+          - si: niveau et échelon = '7.1'
+            alors: 2814 €/mois
+          - si: niveau et échelon = '7.2'
+            alors: 2975 €/mois
+          - si: niveau et échelon = '7.3'
+            alors: 3240 €/mois
+          - sinon: 0 €/mois
+    - si: région = 'Normandie'
+      alors:
+        variations:
+          - si: niveau et échelon = '1.1'
+            alors: 1828 €/mois
+          - si: niveau et échelon = '1.2'
+            alors: 1843 €/mois
+          - si: niveau et échelon = '2.1'
+            alors: 1862 €/mois
+          - si: niveau et échelon = '2.2'
+            alors: 1879 €/mois
+          - si: niveau et échelon = '2.3'
+            alors: 1918 €/mois
+          - si: niveau et échelon = '3.1'
+            alors: 1928 €/mois
+          - si: niveau et échelon = '3.2'
+            alors: 1949 €/mois
+          - si: niveau et échelon = '3.3'
+            alors: 1995 €/mois
+          - si: niveau et échelon = '4.1'
+            alors: 2020 €/mois
+          - si: niveau et échelon = '4.2'
+            alors: 2059 €/mois
+          - si: niveau et échelon = '4.3'
+            alors: 2118 €/mois
+          - si: niveau et échelon = '5.1'
+            alors: 2133 €/mois
+          - si: niveau et échelon = '5.2'
+            alors: 2207 €/mois
+          - si: niveau et échelon = '5.3'
+            alors: 2342 €/mois
+          - si: niveau et échelon = '6.1'
+            alors: 2355 €/mois
+          - si: niveau et échelon = '6.2'
+            alors: 2485 €/mois
+          - si: niveau et échelon = '6.3'
+            alors: 2666 €/mois
+          - si: niveau et échelon = '7.1'
+            alors: 2695 €/mois
+          - si: niveau et échelon = '7.2'
+            alors: 2903 €/mois
+          - si: niveau et échelon = '7.3'
+            alors: 3142 €/mois
+          - sinon: 0 €/mois
+    - si: région = 'Nouvelle-Aquitaine'
+      alors:
+        variations:
+          - si: niveau et échelon = '1.1'
+            alors: 1832 €/mois
+          - si: niveau et échelon = '1.2'
+            alors: 1850 €/mois
+          - si: niveau et échelon = '2.1'
+            alors: 1864 €/mois
+          - si: niveau et échelon = '2.2'
+            alors: 1886 €/mois
+          - si: niveau et échelon = '2.3'
+            alors: 1936 €/mois
+          - si: niveau et échelon = '3.1'
+            alors: 1950 €/mois
+          - si: niveau et échelon = '3.2'
+            alors: 1980 €/mois
+          - si: niveau et échelon = '3.3'
+            alors: 2030 €/mois
+          - si: niveau et échelon = '4.1'
+            alors: 2044 €/mois
+          - si: niveau et échelon = '4.2'
+            alors: 2077 €/mois
+          - si: niveau et échelon = '4.3'
+            alors: 2143 €/mois
+          - si: niveau et échelon = '5.1'
+            alors: 2158 €/mois
+          - si: niveau et échelon = '5.2'
+            alors: 2223 €/mois
+          - si: niveau et échelon = '5.3'
+            alors: 2370 €/mois
+          - si: niveau et échelon = '6.1'
+            alors: 2418 €/mois
+          - si: niveau et échelon = '6.2'
+            alors: 2512 €/mois
+          - si: niveau et échelon = '6.3'
+            alors: 2699 €/mois
+          - si: niveau et échelon = '7.1'
+            alors: 2767 €/mois
+          - si: niveau et échelon = '7.2'
+            alors: 2932 €/mois
+          - si: niveau et échelon = '7.3'
+            alors: 3191 €/mois
+          - sinon: 0 €/mois
+    - si: région = 'Occitanie'
+      alors:
+        variations:
+          - si: niveau et échelon = '1.1'
+            alors: 1862 €/mois
+          - si: niveau et échelon = '1.2'
+            alors: 1886 €/mois
+          - si: niveau et échelon = '2.1'
+            alors: 1894 €/mois
+          - si: niveau et échelon = '2.2'
+            alors: 1923 €/mois
+          - si: niveau et échelon = '2.3'
+            alors: 1980 €/mois
+          - si: niveau et échelon = '3.1'
+            alors: 1989 €/mois
+          - si: niveau et échelon = '3.2'
+            alors: 2020 €/mois
+          - si: niveau et échelon = '3.3'
+            alors: 2080 €/mois
+          - si: niveau et échelon = '4.1'
+            alors: 2090 €/mois
+          - si: niveau et échelon = '4.2'
+            alors: 2127 €/mois
+          - si: niveau et échelon = '4.3'
+            alors: 2201 €/mois
+          - si: niveau et échelon = '5.1'
+            alors: 2206 €/mois
+          - si: niveau et échelon = '5.2'
+            alors: 2274 €/mois
+          - si: niveau et échelon = '5.3'
+            alors: 2399 €/mois
+          - si: niveau et échelon = '6.1'
+            alors: 2439 €/mois
+          - si: niveau et échelon = '6.2'
+            alors: 2533 €/mois
+          - si: niveau et échelon = '6.3'
+            alors: 2735 €/mois
+          - si: niveau et échelon = '7.1'
+            alors: 2791 €/mois
+          - si: niveau et échelon = '7.2'
+            alors: 2959 €/mois
+          - si: niveau et échelon = '7.3'
+            alors: 3223 €/mois
+          - sinon: 0 €/mois
+    - si: région = 'Pays de la Loire'
+      alors:
+        variations:
+          - si: niveau et échelon = '1.1'
+            alors: 1855 €/mois
+          - si: niveau et échelon = '1.2'
+            alors: 1861 €/mois
+          - si: niveau et échelon = '2.1'
+            alors: 1878 €/mois
+          - si: niveau et échelon = '2.2'
+            alors: 1900 €/mois
+          - si: niveau et échelon = '2.3'
+            alors: 1951 €/mois
+          - si: niveau et échelon = '3.1'
+            alors: 1967 €/mois
+          - si: niveau et échelon = '3.2'
+            alors: 1994 €/mois
+          - si: niveau et échelon = '3.3'
+            alors: 2048 €/mois
+          - si: niveau et échelon = '4.1'
+            alors: 2063 €/mois
+          - si: niveau et échelon = '4.2'
+            alors: 2093 €/mois
+          - si: niveau et échelon = '4.3'
+            alors: 2164 €/mois
+          - si: niveau et échelon = '5.1'
+            alors: 2174 €/mois
+          - si: niveau et échelon = '5.2'
+            alors: 2237 €/mois
+          - si: niveau et échelon = '5.3'
+            alors: 2385 €/mois
+          - si: niveau et échelon = '6.1'
+            alors: 2431 €/mois
+          - si: niveau et échelon = '6.2'
+            alors: 2516 €/mois
+          - si: niveau et échelon = '6.3'
+            alors: 2710 €/mois
+          - si: niveau et échelon = '7.1'
+            alors: 2769 €/mois
+          - si: niveau et échelon = '7.2'
+            alors: 3043 €/mois
+          - si: niveau et échelon = '7.3'
+            alors: 3169 €/mois
+          - sinon: 0 €/mois
+    - si: région = 'Sud PACA et Corse'
+      alors:
+        variations:
+          - si: niveau et échelon = '1.1'
+            alors: 1863 €/mois
+          - si: niveau et échelon = '1.2'
+            alors: 1926 €/mois
+          - si: niveau et échelon = '2.1'
+            alors: 1933 €/mois
+          - si: niveau et échelon = '2.2'
+            alors: 1962 €/mois
+          - si: niveau et échelon = '2.3'
+            alors: 2018 €/mois
+          - si: niveau et échelon = '3.1'
+            alors: 2027 €/mois
+          - si: niveau et échelon = '3.2'
+            alors: 2058 €/mois
+          - si: niveau et échelon = '3.3'
+            alors: 2116 €/mois
+          - si: niveau et échelon = '4.1'
+            alors: 2128 €/mois
+          - si: niveau et échelon = '4.2'
+            alors: 2160 €/mois
+          - si: niveau et échelon = '4.3'
+            alors: 2234 €/mois
+          - si: niveau et échelon = '5.1'
+            alors: 2241 €/mois
+          - si: niveau et échelon = '5.2'
+            alors: 2308 €/mois
+          - si: niveau et échelon = '5.3'
+            alors: 2465 €/mois
+          - si: niveau et échelon = '6.1'
+            alors: 2501 €/mois
+          - si: niveau et échelon = '6.2'
+            alors: 2597 €/mois
+          - si: niveau et échelon = '6.3'
+            alors: 2797 €/mois
+          - si: niveau et échelon = '7.1'
+            alors: 2851 €/mois
+          - si: niveau et échelon = '7.2'
+            alors: 3021 €/mois
+          - si: niveau et échelon = '7.3'
+            alors: 3283 €/mois
+          - sinon: 0 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . carrières et matériaux de construction . niveau et échelon hors grille:
+  titre: Niveau et échelon absent de la grille
+  description: Le niveau et l'échelon n'existent pas dans la grille de la région, qui est couverte par un accord.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'carrières et matériaux de construction'
+      - région couverte
+  valeur: grille = 0 €/mois
