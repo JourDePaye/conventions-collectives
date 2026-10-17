@@ -6,7 +6,7 @@ La version `2026.1` modélise l'avenant n° 65 du 19 février 2026 relatif aux s
 
 - `niveau` accepte les niveaux E, T1, T2, T3, C1, C2, C3 et C4.
 - `salaire minimum conventionnel` applique les minima mensuels de l'avenant n° 65 et la quotité de travail.
-- L'accord est limité aux employeurs adhérents d'une organisation signataire (`adhérent d'une organisation signataire` = oui, non par défaut) ; les autres employeurs et les niveaux hors grille sont non applicables.
+- L'accord est limité aux employeurs adhérents d'une organisation signataire (aucune métadonnée `extension` : JourDePaye ne charge pas cette version pour les autres) ; les niveaux hors grille sont non applicables.
 
 ## Audit paie et limites
 

@@ -5,6 +5,7 @@
 # adhérents, et à tous les employeurs du champ à partir du 11 juillet 2026, date de publication de
 # l'arrêté d'extension du 7 juillet 2026.
 validFrom: 2026-04-01
+extension: 2026-07-11
 sources:
   - >-
     Avenant n° 7 du 19 février 2026 à l'accord du 10 septembre 2019 relatif
@@ -33,32 +34,12 @@ salarié . convention collective . industries du bois . classification:
   applicable si: convention collective = 'industries du bois'
   par défaut: "'ACT 1'"
 
-salarié . convention collective . industries du bois . adhérent d'une organisation signataire:
-  titre: Adhérent d'une organisation signataire
-  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. Un employeur non adhérent est lié à compter de la publication de l'arrêté d'extension (voir « date de calcul » et « accord applicable »).
-  applicable si: convention collective = 'industries du bois'
-  par défaut: non
-
-salarié . convention collective . industries du bois . date de calcul:
-  titre: Date de calcul
-  description: Date utilisée pour appliquer l'extension de l'avenant n° 7 aux employeurs non adhérents.
-  applicable si: convention collective = 'industries du bois'
-  par défaut: 01/01/1900
-
-salarié . convention collective . industries du bois . accord applicable:
-  titre: Avenant n° 7 applicable à l'employeur
-  applicable si: convention collective = 'industries du bois'
-  une de ces conditions:
-    - adhérent d'une organisation signataire = oui
-    - date de calcul >= 11/07/2026
-
 salarié . convention collective . industries du bois . grille mensuelle:
   titre: Salaire minimum mensuel conventionnel à temps plein
   description: Grilles de l'annexe I de l'avenant n° 7, pour 151,67 heures, applicables au 1er avril 2026.
   applicable si:
     toutes ces conditions:
       - convention collective = 'industries du bois'
-      - accord applicable = oui
   unité: €/mois
   variations:
     - si: classification = 'ouvrier 1 AB'
@@ -147,16 +128,8 @@ salarié . convention collective . industries du bois . classification hors gril
   applicable si: convention collective = 'industries du bois'
   valeur: grille mensuelle = 0 €/mois
 
-salarié . convention collective . industries du bois . champ hors couverture:
-  titre: Employeur hors champ de l'avenant
-  applicable si:
-    toutes ces conditions:
-      - convention collective = 'industries du bois'
-      - accord applicable = non
-
 salarié . convention collective . industries du bois . calcul bloqué:
   titre: Calcul du minimum bloqué
   applicable si: convention collective = 'industries du bois'
   une de ces conditions:
     - classification hors grille
-    - champ hors couverture

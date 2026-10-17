@@ -7,8 +7,8 @@
 # par erreur le barème 2025 (22 230 € à 60 690 €) : même validFrom, révision supérieure.
 #
 # Le protocole est « en vigueur non étendu » : il lie les employeurs signataires (FFA) ou
-# adhérents, pas les autres. La règle « adhérent d'une organisation signataire » le reflète ; sans extension, les
-# minima sont non applicables pour un employeur non adhérent.
+# adhérents, pas les autres : JourDePaye ne charge cette version que pour un employeur adhérent
+# (pas de métadonnée `extension`).
 
 # Date d'application du protocole : « à effet du 1er janvier 2026 » (article 1er).
 validFrom: 2026-01-01
@@ -35,12 +35,6 @@ salarié . convention collective . sociétés assurances . niveau:
   applicable si: convention collective = 'sociétés assurances'
   par défaut: "'non renseigné'"
 
-salarié . convention collective . sociétés assurances . adhérent d'une organisation signataire:
-  titre: Adhérent d'une organisation signataire
-  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. L'accord n'étant pas étendu à la date de modélisation, un employeur non adhérent n'est pas lié.
-  applicable si: convention collective = 'sociétés assurances'
-  par défaut: non
-
 salarié . convention collective . sociétés assurances . salaire minimum conventionnel:
   titre: Équivalent mensuel indicatif de la rémunération minimale annuelle
   description: |
@@ -52,7 +46,6 @@ salarié . convention collective . sociétés assurances . salaire minimum conve
   applicable si:
     toutes ces conditions:
       - convention collective = 'sociétés assurances'
-      - adhérent d'une organisation signataire = oui
   unité: €/mois
   arrondi: 2 décimales
   valeur: grille annuelle / 12 * contrat . temps de travail . quotité
@@ -64,7 +57,6 @@ salarié . convention collective . sociétés assurances . salaire minimum annue
   applicable si:
     toutes ces conditions:
       - convention collective = 'sociétés assurances'
-      - adhérent d'une organisation signataire = oui
   unité: €/an
   arrondi: 2 décimales
   valeur: salaire minimum conventionnel . grille annuelle * contrat . temps de travail . quotité

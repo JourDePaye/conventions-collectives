@@ -1,6 +1,7 @@
 # Convention collective nationale des sucreries, sucreries-distilleries et raffineries de sucre (IDCC 2728).
 # Version 2026.2 : avenant n° 17 du 7 avril 2026 relatif aux rémunérations minimales annuelles garanties au 1er avril 2026.
 validFrom: 2026-04-01
+extension: 2026-06-27
 sources:
   - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054802118
   - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635183
@@ -13,23 +14,6 @@ salarié . convention collective . sucreries . classe:
   description: Classes et groupes de la grille de l'accord salarial. La classe est fournie par l'application et n'est pas déduite de l'intitulé du poste.
   applicable si: convention collective = 'sucreries'
   par défaut: "'non renseigné'"
-salarié . convention collective . sucreries . date de calcul:
-  titre: Date de calcul
-  description: Date à laquelle l'application vérifie l'opposabilité de l'accord salarial.
-  applicable si: convention collective = 'sucreries'
-  par défaut: 01/01/1900
-salarié . convention collective . sucreries . adhérent d'une organisation signataire:
-  titre: Adhérent d'une organisation signataire
-  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. Un employeur non adhérent est lié à compter de la publication de l'arrêté d'extension (voir « date de calcul » et « accord applicable »).
-  applicable si: convention collective = 'sucreries'
-  par défaut: non
-salarié . convention collective . sucreries . accord applicable:
-  applicable si: convention collective = 'sucreries'
-  une de ces conditions:
-    - toutes ces conditions:
-        - adhérent d'une organisation signataire = oui
-        - date de calcul >= 01/04/2026
-    - date de calcul >= 27/06/2026
 salarié . convention collective . sucreries . grille annuelle:
   titre: Salaire minimum annuel à temps plein, en euros
   description: Rémunérations minimales annuelles garanties de l'avenant n° 17 du 7 avril 2026, applicables au 1er avril 2026.
@@ -90,7 +74,6 @@ salarié . convention collective . sucreries . rémunération spécifique:
   applicable si:
     toutes ces conditions:
       - convention collective = 'sucreries'
-      - accord applicable = oui
   unité: €/an
   variations:
     - si:
@@ -144,7 +127,6 @@ salarié . convention collective . sucreries . prime de vacances:
   applicable si:
     toutes ces conditions:
       - convention collective = 'sucreries'
-      - accord applicable = oui
   unité: €
   valeur: 520.26 €
 
@@ -154,7 +136,6 @@ salarié . convention collective . sucreries . salaire minimum annuel convention
   applicable si:
     toutes ces conditions:
       - convention collective = 'sucreries'
-      - accord applicable = oui
       - grille annuelle > 0 €/an
   unité: €/an
   valeur: grille annuelle

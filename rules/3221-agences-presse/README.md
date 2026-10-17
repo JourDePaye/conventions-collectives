@@ -4,7 +4,7 @@
 
 - **Convention :** convention collective nationale des employés, techniciens et cadres des agences de presse du 7 avril 2017. Elle a remplacé la convention du 1er juin 1998 ; aucun numéro de brochure n'est indiqué pour l'IDCC 3221.
 - **Texte salarial :** avenant n° 10 du 1er juin 2026 relatif aux salaires minima.
-- **Date d'effet modélisée :** 1er juillet 2026 pour les employeurs signataires ou adhérents.
+- **Date d'effet modélisée :** 1er juillet 2026 pour les employeurs signataires ou adhérents ; `extension: 2026-09-04` pour les autres.
 - **Extension :** arrêté du 29 août 2026, publié au Journal officiel le 4 septembre 2026 ; le modèle est opposable à tous les employeurs à compter de cette date.
 - **Grille :** neuf salaires minima mensuels, groupes 1 à 9, pour 151,67 heures.
 - **Proratisation :** le minimum est multiplié par la quotité de travail.

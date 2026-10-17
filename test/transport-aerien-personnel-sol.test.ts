@@ -7,8 +7,8 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const id = "0275-transport-aerien-personnel-sol";
 const ns = "salarié . convention collective . transport aérien personnel au sol";
 
-async function makeEngine() {
-  const version = COMPILED_VERSIONS[id]?.find((v) => v.version === "2025.1");
+async function makeEngine(revision = "2025.4") {
+  const version = COMPILED_VERSIONS[id]?.find((v) => v.version === revision);
   assert.ok(version, "IDCC 275 must be exported");
   const extension = await version.loadRules();
   const rules: Record<string, Rule> = { ...modeleSocial };
@@ -25,8 +25,6 @@ function set(engine: Engine, values: Record<string, string | number> = {}) {
   engine.setSituation({
     "salarié . convention collective": "'transport aérien personnel au sol'",
     [`${ns} . coefficient`]: 245,
-    [`${ns} . date de calcul`]: "01/11/2025",
-    [`${ns} . adhérent d'une organisation signataire`]: "oui",
     "salarié . contrat . statut cadre": "non",
     ...values,
   });
@@ -42,15 +40,9 @@ describe("IDCC 275 — transport aérien personnel au sol", () => {
   });
 
   it("applies the September grid at its effective date", async () => {
-    const engine = await makeEngine();
-    set(engine, { [`${ns} . date de calcul`]: "01/09/2025", [`${ns} . coefficient`]: 245 });
+    const engine = await makeEngine("2025.3");
+    set(engine, { [`${ns} . coefficient`]: 245 });
     assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, 2096);
-  });
-
-  it("rejects dates before the extended agreement's effective date", async () => {
-    const engine = await makeEngine();
-    set(engine, { [`${ns} . date de calcul`]: "31/03/2025" });
-    assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, null);
   });
 
   it("reports an unknown coefficient instead of inventing a minimum", async () => {

@@ -8,8 +8,8 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const value = "maisons d'étudiants";
 const namespace = `salarié . convention collective . ${value}`;
 
-async function makeEngine() {
-  const version = COMPILED_VERSIONS["1671-maisons-etudiants"]?.find((v) => v.version === "2026.2");
+async function makeEngine(revision = "2026.3") {
+  const version = COMPILED_VERSIONS["1671-maisons-etudiants"]?.find((v) => v.version === revision);
   assert.ok(version);
   const extension = await version.loadRules();
   const rules: Record<string, Rule> = { ...modeleSocial };
@@ -33,8 +33,6 @@ describe("IDCC 1671 maisons d'étudiants", () => {
     engine.setSituation({
       "salarié . convention collective": `'${value}'`,
       [`${namespace} . classe`]: 10,
-      [`${namespace} . date de calcul`]: "01/01/2026",
-      [`${namespace} . adhérent d'une organisation signataire`]: "oui",
       "salarié . contrat . temps de travail . quotité": "100%",
     });
     assert.equal(get(engine, "coefficient conventionnel").nodeValue, 410);
@@ -43,17 +41,15 @@ describe("IDCC 1671 maisons d'étudiants", () => {
     assert.equal(get(engine, "salaire minimum mensuel indicatif").nodeValue, 2350.67);
   });
 
-  it("applies extension, thirteenth-month ramp-up and health split", async () => {
+  it("applies thirteenth-month ramp-up and health split", async () => {
     const engine = await makeEngine();
     engine.setSituation({
       "salarié . convention collective": `'${value}'`,
       [`${namespace} . classe`]: 10,
-      [`${namespace} . date de calcul`]: "01/07/2026",
       [`${namespace} . année du treizième mois`]: 2026,
       [`${namespace} . salaire brut annuel éligible au treizième mois`]: "28208 €/an",
       [`${namespace} . cotisation santé mensuelle conventionnelle`]: "100 €/mois",
     });
-    assert.equal(get(engine, "accord applicable").nodeValue, true);
     assert.equal(get(engine, "treizième mois annuel").nodeValue, 9402.67);
     assert.equal(get(engine, "prise en charge employeur santé").nodeValue, 65);
     assert.equal(get(engine, "part salarié santé").nodeValue, 35);
@@ -64,7 +60,6 @@ describe("IDCC 1671 maisons d'étudiants", () => {
     engine.setSituation({
       "salarié . convention collective": `'${value}'`,
       [`${namespace} . classe`]: 21,
-      [`${namespace} . date de calcul`]: "01/07/2026",
     });
     assert.equal(get(engine, "classe hors grille").nodeValue, true);
     assert.equal(get(engine, "salaire minimum annuel conventionnel").nodeValue, null);
@@ -74,5 +69,6 @@ describe("IDCC 1671 maisons d'étudiants", () => {
   it("keeps the generated lock entry for this single model version", () => {
     const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
     assert.ok(lock["1671-maisons-etudiants.2026.2"]);
+    assert.ok(lock["1671-maisons-etudiants.2026.3"]);
   });
 });

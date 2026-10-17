@@ -84,7 +84,7 @@ const FIXED: {
   { model: "3205-cooperatives-consommateurs", version: "2026.3", rule: "groupe hors grille", input: "groupe", valid: "'8a'", invalid: ["'8'", "'non renseigné'"] },
   { model: "1077-negoce-produits-du-sol-engrais", version: "2025.1", rule: "coefficient hors grille", input: "coefficient", valid: 350, invalid: [0, 130, 681] },
   { model: "3255-boulangerie-industrielle", version: "2026.1", rule: "niveau hors grille", input: "niveau", valid: "'L3'", invalid: ["'OE1'", "'non renseigné'"] },
-  { model: "0478-societes-financieres", version: "2026.1", rule: "coefficient hors grille", input: "coefficient", valid: 400, invalid: [0, 260, 1000], situation: { "adhérent d'une organisation signataire": "oui" } },
+  { model: "0478-societes-financieres", version: "2026.1", rule: "coefficient hors grille", input: "coefficient", valid: 400, invalid: [0, 260, 1000] },
   { model: "3252-entreprises-creation-evenement", version: "2026.1", rule: "classification hors grille", input: "classification", valid: "'5'", invalid: ["'1'", "'11'", "'non renseigné'"] },
   { model: "0275-transport-aerien-personnel-sol", version: "2025.4", rule: "coefficient hors grille", input: "coefficient", valid: 750, invalid: [0, 161, 999] },
   { model: "3236-industrie-services-nautiques", version: "2025.2", rule: "niveau et échelon hors grille", input: "niveau et échelon", valid: "'II.3'", invalid: ["'VIII.1'", "'non renseigné'"] },

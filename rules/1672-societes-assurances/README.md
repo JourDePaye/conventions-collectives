@@ -4,9 +4,9 @@ Le fichier [2026.3](1672-societes-assurances.2026.3.publicodes) entre en vigueur
 
 ## Version 2026.4 (correction)
 
-Les versions `2026.1` et `2026.3` portaient par erreur le barème **2025** (22 230 € à 60 690 €) alors qu'elles citaient le protocole du 10 juin 2026. La version `2026.4`, de même date d'effet (1er janvier 2026) et donc prioritaire, reprend le barème lu dans l'annexe du protocole (KALITEXT000054887698) : classes 1 à 7 = 22 680, 24 120, 25 580, 30 140, 35 430, 45 030, 60 940 €.
+Les révisions `2026.1` et `2026.3` (supprimées) portaient par erreur le barème **2025** (22 230 € à 60 690 €) alors qu'elles citaient le protocole du 10 juin 2026. La version `2026.4`, de même date d'effet (1er janvier 2026) et donc prioritaire, reprend le barème lu dans l'annexe du protocole (KALITEXT000054887698) : classes 1 à 7 = 22 680, 24 120, 25 580, 30 140, 35 430, 45 030, 60 940 €.
 
-Le protocole est « en vigueur non étendu » : la règle `adhérent d'une organisation signataire` (oui ou non, non par défaut) rend les minima non applicables pour un employeur non lié. Clés, unités et noms de règles sont ceux de 2026.3, plus `adhérent d'une organisation signataire`. Le barème 2025 (protocole du 16 juin 2025, KALITEXT000052226828) n'est pas modélisé en version propre.
+Le protocole est « en vigueur non étendu » : la version n'a pas de métadonnée `extension` : JourDePaye ne la charge que pour un employeur adhérent. Clés, unités et noms de règles sont ceux de l'ancienne 2026.3. Le barème 2025 (protocole du 16 juin 2025, KALITEXT000052226828) n'est pas modélisé en version propre.
 
 La convention collective nationale des sociétés d’assurances du 27 mai 1992 (brochure 3265) fixe une rémunération minimale annuelle par classe, de 1 à 4 pour les non-cadres et de 5 à 7 pour les cadres. Le personnel commercial et les inspecteurs relèvent d’autres conventions de la branche.
 

@@ -56,12 +56,11 @@ const UPDATES: Update[] = [
   },
   {
     model: "1987-pates-alimentaires-seches",
-    version: "2026.1",
+    version: "2026.3",
     validFrom: "2026-01-01",
     value: "pâtes alimentaires sèches et couscous non préparé",
     input: "coefficient",
     rule: "salaire minimum horaire",
-    situation: { "adhérent d'une organisation signataire": "oui" },
     source: "KALITEXT000054337523",
     grid: {
       135: 12.08, 140: 12.17, 145: 12.2, 150: 12.22, 155: 12.29, 160: 12.33, 165: 12.38, 170: 12.5,
@@ -390,11 +389,11 @@ for (const update of UPDATES) {
   });
 }
 
-describe("IDCC 1987 2026.1: prime de vacances", () => {
+describe("IDCC 1987 2026.3: prime de vacances", () => {
   it("is 600 € per year from the accord of 5 March 2026", async () => {
     const { engine } = await engineOf(UPDATES[2]!);
     const namespace = "salarié . convention collective . pâtes alimentaires sèches et couscous non préparé";
-    engine.setSituation({ "salarié . convention collective": `'${UPDATES[2]!.value}'`, [`${namespace} . coefficient`]: 135, [`${namespace} . adhérent d'une organisation signataire`]: "oui" });
+    engine.setSituation({ "salarié . convention collective": `'${UPDATES[2]!.value}'`, [`${namespace} . coefficient`]: 135 });
     assert.equal(engine.evaluate(`${namespace} . prime vacances`).nodeValue, 600);
     assert.equal(engine.evaluate(`${namespace} . indemnité journalière de poste`).nodeValue, 5.2);
     assert.equal(engine.evaluate(`${namespace} . panier de nuit`).nodeValue, 11);

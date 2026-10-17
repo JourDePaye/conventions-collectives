@@ -24,7 +24,6 @@ async function makeEngine() {
     dirigeant: "non",
     "salarié . convention collective": "'notariat'",
     [`${ns} . niveau`]: "'E'",
-    [`${ns} . adhérent d'une organisation signataire`]: "oui",
     "salarié . contrat . temps de travail . quotité": "100%",
   });
   return engine;
@@ -35,7 +34,6 @@ const baseSituation = {
   salarié: "oui",
   dirigeant: "non",
   "salarié . convention collective": "'notariat'",
-  [`${ns} . adhérent d'une organisation signataire`]: "oui",
   "salarié . contrat . temps de travail . quotité": "100%",
 };
 
@@ -56,11 +54,6 @@ describe("IDCC 2205 — notariat, minima au 1er mars 2026", () => {
     assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, 0);
   });
 
-  it("does not apply the signatory-only amendment to another employer", async () => {
-    const engine = await makeEngine();
-    engine.setSituation({ [`${ns} . adhérent d'une organisation signataire`]: "non" });
-    assert.equal(get(engine, "salaire minimum conventionnel").nodeValue, null);
-  });
 
   it("is isolated from an unrelated collective agreement", async () => {
     const engine = await makeEngine();

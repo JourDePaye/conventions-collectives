@@ -26,7 +26,6 @@ function situation(engine: Engine, inputs: Record<string, string | number> = {})
     "dirigeant": "non",
     "salarié . convention collective": `'${value}'`,
     [`${namespace} . coefficient`]: 60,
-    [`${namespace} . adhérent d'une organisation signataire`]: "oui",
     [`${namespace} . date de calcul`]: "01/02/2026",
     "salarié . contrat . statut cadre": "oui",
     "salarié . contrat . salaire brut": "4000 €/mois",
@@ -45,13 +44,6 @@ describe("IDCC 2420 — avenant n° 78 du 19 janvier 2026", () => {
       assert.deepEqual(evaluate(engine, "salaire minimum conventionnel").unit, { numerators: ["€"], denominators: ["mois"] });
     });
   }
-
-  it("does not apply outside the signatory or adherent scope", async () => {
-    const { engine } = await makeEngine();
-    situation(engine, { "adhérent d'une organisation signataire": "non" });
-    assert.ok(evaluate(engine, "salaire minimum conventionnel").nodeValue == null);
-    assert.equal(evaluate(engine, "calcul bloqué").nodeValue, true);
-  });
 
   it("does not apply before 1 February 2026 or after the sourced period", async () => {
     const { engine } = await makeEngine();

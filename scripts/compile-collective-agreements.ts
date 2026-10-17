@@ -14,7 +14,14 @@ const OUTPUT_DIR = join("src", "compiled");
 const FILE_NAME = /^(\d{4}-[a-z][a-z0-9-]*)\.(\d{4}\.\d+)\.publicodes$/;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
-type Version = { name: string; version: string; validFrom: string; contentHash: string; sources: string[] };
+type Version = {
+  name: string;
+  version: string;
+  validFrom: string;
+  extension?: string;
+  contentHash: string;
+  sources: string[];
+};
 
 const lock: Record<string, string> = existsSync(LOCK_FILE)
   ? JSON.parse(readFileSync(LOCK_FILE, "utf8"))
@@ -50,6 +57,14 @@ for (const file of readdirSync(SOURCE_DIR, { recursive: true, withFileTypes: tru
       Number.isNaN(Date.parse(validFrom)) || new Date(validFrom).toISOString().slice(0, 10) !== validFrom) {
     throw new Error(`${file}: validFrom must be a YYYY-MM-DD date`);
   }
+  // Date from which the version also binds the employers outside a signatory organisation (the
+  // publication of its extension order; they are bound from the later of that date and validFrom).
+  // Absent: the version binds only those employers.
+  const extension = (metadata as { extension?: unknown } | null)?.extension;
+  if (extension !== undefined && (typeof extension !== "string" || !ISO_DATE.test(extension) ||
+      Number.isNaN(Date.parse(extension)) || new Date(extension).toISOString().slice(0, 10) !== extension)) {
+    throw new Error(`${file}: extension must be a YYYY-MM-DD date`);
+  }
   const sources = (metadata as { sources?: unknown } | null)?.sources;
   if (!Array.isArray(sources) || sources.length === 0 ||
       !sources.every((source) => typeof source === "string" && source.trim().length > 0)) {
@@ -75,7 +90,7 @@ for (const file of readdirSync(SOURCE_DIR, { recursive: true, withFileTypes: tru
   }
 
   writeFileSync(join(OUTPUT_DIR, `${key}.json`), `${JSON.stringify(rules, null, 2)}\n`);
-  versions.push({ name, version, validFrom, contentHash, sources });
+  versions.push({ name, version, validFrom, ...(extension !== undefined && { extension }), contentHash, sources });
   console.log(`Compiled ${file} (${Object.keys(rules).length} rules)`);
 }
 
@@ -97,6 +112,7 @@ const entries = [...byAgreement].map(
         (v) =>
           `    {\n      version: ${JSON.stringify(v.version)},\n` +
           `      validFrom: ${JSON.stringify(v.validFrom)},\n` +
+          (v.extension === undefined ? "" : `      extension: ${JSON.stringify(v.extension)},\n`) +
           `      contentHash: ${JSON.stringify(v.contentHash)},\n` +
           `      sources: ${JSON.stringify(v.sources)},\n` +
           `      loadRules: async () =>\n` +

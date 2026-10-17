@@ -3,6 +3,7 @@
 # Version 2026.1 : accord du 28 janvier 2026 relatif aux rémunérations minimales
 # conventionnelles au 1er mars 2026.
 validFrom: 2026-03-01
+extension: 2026-05-08
 sources:
   - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054262136
   - https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054048732
@@ -16,23 +17,6 @@ salarié . convention collective . produits pharmaceutiques . niveau:
   description: Niveau I.1 à II.7 pour les rémunérations minimales mensuelles garanties, ou III.1 à III.10 pour les rémunérations annuelles garanties. Le classement est fourni par l'application et n'est pas déduit de l'intitulé du poste.
   applicable si: convention collective = 'produits pharmaceutiques'
   par défaut: "'non renseigné'"
-salarié . convention collective . produits pharmaceutiques . date de calcul:
-  titre: Date de calcul
-  description: Date à laquelle l'application vérifie l'opposabilité de l'accord.
-  applicable si: convention collective = 'produits pharmaceutiques'
-  par défaut: 01/01/1900
-salarié . convention collective . produits pharmaceutiques . adhérent d'une organisation signataire:
-  titre: Adhérent d'une organisation signataire
-  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. Un employeur non adhérent est lié à compter de la publication de l'arrêté d'extension (voir « date de calcul » et « accord applicable »).
-  applicable si: convention collective = 'produits pharmaceutiques'
-  par défaut: non
-salarié . convention collective . produits pharmaceutiques . accord applicable:
-  applicable si: convention collective = 'produits pharmaceutiques'
-  une de ces conditions:
-    - toutes ces conditions:
-        - adhérent d'une organisation signataire = oui
-        - date de calcul >= 01/03/2026
-    - date de calcul >= 08/05/2026
 salarié . convention collective . produits pharmaceutiques . grille mensuelle:
   applicable si: convention collective = 'produits pharmaceutiques'
   unité: €/mois
@@ -99,7 +83,6 @@ salarié . convention collective . produits pharmaceutiques . calcul bloqué:
   applicable si: convention collective = 'produits pharmaceutiques'
   valeur:
     une de ces conditions:
-      - accord applicable = non
       - niveau hors grille
 salarié . convention collective . produits pharmaceutiques . salaire minimum conventionnel:
   titre: Rémunération minimale mensuelle garantie

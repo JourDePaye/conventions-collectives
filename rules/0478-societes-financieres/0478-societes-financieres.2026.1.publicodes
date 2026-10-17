@@ -19,12 +19,6 @@ salarié . convention collective . sociétés financières . coefficient:
   applicable si: convention collective = 'sociétés financières'
   par défaut: 0
 
-salarié . convention collective . sociétés financières . adhérent d'une organisation signataire:
-  titre: Adhérent d'une organisation signataire
-  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. L'accord n'étant pas étendu à la date de modélisation, un employeur non adhérent n'est pas lié.
-  applicable si: convention collective = 'sociétés financières'
-  par défaut: non
-
 salarié . convention collective . sociétés financières . nombre de mensualités:
   titre: Nombre de mensualités par année civile
   description: Nombre de mensualités versées dans l'entreprise (12, 13, etc.). L'article 15 divise le minimum annualisé par ce nombre. Par défaut 12 en l'absence d'information (valeur de repli du modèle, non fixée par la convention).
@@ -37,7 +31,6 @@ salarié . convention collective . sociétés financières . grille annuelle:
   applicable si:
     toutes ces conditions:
       - convention collective = 'sociétés financières'
-      - adhérent d'une organisation signataire = oui
   variations:
     - si: coefficient = 230
       alors: 22381
@@ -87,7 +80,6 @@ salarié . convention collective . sociétés financières . salaire minimum ann
   applicable si:
     toutes ces conditions:
       - convention collective = 'sociétés financières'
-      - adhérent d'une organisation signataire = oui
       - grille annuelle > 0
   unité: €/an
   valeur: grille annuelle
@@ -98,7 +90,6 @@ salarié . convention collective . sociétés financières . salaire minimum con
   applicable si:
     toutes ces conditions:
       - convention collective = 'sociétés financières'
-      - adhérent d'une organisation signataire = oui
       - grille annuelle > 0
   unité: €/mois
   arrondi: 2 décimales

@@ -27,19 +27,12 @@ salarié . convention collective . notariat . niveau:
     - "'C4'"
   par défaut: "'E'"
 
-salarié . convention collective . notariat . adhérent d'une organisation signataire:
-  titre: Adhérent d'une organisation signataire
-  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. L'accord n'étant pas étendu à la date de modélisation, un employeur non adhérent n'est pas lié.
-  applicable si: convention collective = 'notariat'
-  par défaut: non
-
 salarié . convention collective . notariat . salaire minimum conventionnel:
   titre: Salaire minimum mensuel conventionnel
   description: Minimum mensuel brut pour 35 heures, arrondi à l'euro supérieur selon l'avenant n° 65, proratisé selon la quotité de travail.
   applicable si:
     toutes ces conditions:
       - convention collective = 'notariat'
-      - adhérent d'une organisation signataire = oui
   unité: €/mois
   produit:
     - grille
@@ -51,7 +44,6 @@ salarié . convention collective . notariat . grille:
   applicable si:
     toutes ces conditions:
       - convention collective = 'notariat'
-      - adhérent d'une organisation signataire = oui
   unité: €/mois
   variations:
     - si: niveau = 'E'
@@ -86,10 +78,3 @@ salarié . convention collective . notariat . niveau hors grille:
     - niveau != 'C3'
     - niveau != 'C4'
 
-salarié . convention collective . notariat . employeur hors accord:
-  titre: Employeur hors champ modélisé
-  description: L'employeur n'est pas signataire ou adhérent de l'avenant salarial modélisé.
-  applicable si:
-    toutes ces conditions:
-      - convention collective = 'notariat'
-      - adhérent d'une organisation signataire = non

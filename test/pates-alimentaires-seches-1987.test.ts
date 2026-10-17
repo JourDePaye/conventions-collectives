@@ -21,7 +21,6 @@ const engineFor = async (version: string, coefficient: number, seniority = 0, qu
     "salarié . convention collective": `'${value}'`,
     [`${namespace} . coefficient`]: coefficient,
     [`${namespace} . ancienneté en années`]: seniority,
-    [`${namespace} . adhérent d'une organisation signataire`]: "oui",
     "salarié . contrat . temps de travail . quotité": quotient,
     "salarié . contrat . statut cadre": "non",
   });
@@ -31,7 +30,7 @@ const num = (engine: Engine, rule: string) => Math.round((engine.evaluate(`${nam
 
 // Hard-coded from article 1 (prime d'ancienneté base table) and article 2 (minima) of each text.
 const cases = [
-  { version: "2026.2", base: { 135: 9.33, 200: 10.45, 340: 15.61 }, minimum: { 135: 12.08, 200: 13.02, 340: 19.45, 600: 31.49 }, vacances: 600 },
+  { version: "2026.3", base: { 135: 9.33, 200: 10.45, 340: 15.61 }, minimum: { 135: 12.08, 200: 13.02, 340: 19.45, 600: 31.49 }, vacances: 600 },
   { version: "2024.3", base: { 135: 8.9, 200: 9.98, 340: 14.9 }, minimum: { 135: 11.79, 200: 12.7, 340: 18.98, 600: 30.73 }, vacances: 575 },
 ] as const;
 

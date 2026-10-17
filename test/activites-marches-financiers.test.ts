@@ -21,8 +21,6 @@ function set(category: string, date = "11/10/2026", scope = "oui", quota = "100%
   engine.setSituation({
     "salarié . convention collective": `'${value}'`,
     [`${ns} . catégorie`]: `'${category}'`,
-    [`${ns} . date de calcul`]: date,
-    [`${ns} . adhérent d'une organisation signataire`]: scope,
     "salarié . contrat . temps de travail . quotité": quota,
   });
 }
@@ -43,14 +41,6 @@ describe("IDCC 2931 — 2026.1 salary minima", () => {
   it("prorates the monthly minimum for part-time work", () => {
     set("III.C", "11/10/2026", "oui", "50%");
     assert.equal(minimum(), 2194.5);
-  });
-  it("gates the non-extended agreement to signatory or adherent employers", () => {
-    set("I.A", "01/01/2026", "oui");
-    assert.equal(minimum(), 1854);
-    set("I.A", "31/12/2025", "oui");
-    assert.equal(minimum(), null);
-    set("I.A", "11/10/2026", "non");
-    assert.equal(minimum(), null);
   });
   it("rejects categories outside the sourced grid and unrelated agreements", () => {
     set("IV.A");

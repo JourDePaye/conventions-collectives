@@ -1,5 +1,5 @@
-# Version 2026.2 (même validFrom que 2026.1, qu'elle remplace) : le minimum de l'avenant n° 16, non étendu,
-# ne s'applique qu'aux employeurs signataires ou adhérents (règle « adhérent d'une organisation signataire »).
+# Le minimum de l'avenant n° 16, non étendu, ne lie que les employeurs signataires ou adhérents :
+# JourDePaye ne charge cette version que pour un employeur adhérent (pas de métadonnée `extension`).
 # Convention collective nationale des structures associatives de pêche de loisir et de protection du milieu aquatique du 22 juin 2013 (IDCC 3203).
 #
 # Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
@@ -31,23 +31,14 @@ salarié . convention collective . structures associatives de pêche de loisir e
   applicable si: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
   par défaut: "'non renseigné'"
 
-salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . adhérent d'une organisation signataire:
-  titre: Adhérent d'une organisation signataire
-  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. L'accord n'étant pas étendu à la date de modélisation, un employeur non adhérent n'est pas lié.
-  applicable si: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
-  par défaut: non
-
 salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . salaire minimum conventionnel:
   titre: Salaire minimum mensuel conventionnel
   description: >-
     Minimum mensuel brut à temps plein pour 151,67 heures, proratisé selon la quotité de travail.
-    Vaut 0 €/mois pour un employeur qui n'est ni signataire ni adhérent, l'avenant n'étant pas étendu.
+    Ne s'applique qu'aux employeurs adhérents d'une organisation signataire, l'avenant n'étant pas étendu.
   applicable si: convention collective = 'structures associatives de pêche de loisir et de protection du milieu aquatique'
   unité: €/mois
-  variations:
-    - si: adhérent d'une organisation signataire = oui
-      alors: grille * contrat . temps de travail . quotité
-    - sinon: 0 €/mois
+  valeur: grille * contrat . temps de travail . quotité
 
 salarié . convention collective . structures associatives de pêche de loisir et de protection du milieu aquatique . salaire minimum conventionnel . grille:
   titre: Grille mensuelle à temps plein

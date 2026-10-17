@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const namespace = "salarié . convention collective . industries du bois";
 
 async function createEngine(classification = "ACT 6.1", situation: Record<string, string> = {}) {
-  const version = COMPILED_VERSIONS["0158-industries-bois"]?.find((item) => item.version === "2026.1");
+  const version = COMPILED_VERSIONS["0158-industries-bois"]?.find((item) => item.version === "2026.2");
   assert.ok(version);
   const extension = await version.loadRules();
   const rules: Record<string, Rule> = { ...modeleSocial };
@@ -22,13 +22,12 @@ async function createEngine(classification = "ACT 6.1", situation: Record<string
     "salarié . convention collective": "'industries du bois'",
     [`${namespace} . classification`]: `'${classification}'`,
     "salarié . contrat . statut cadre": "non",
-    [`${namespace} . adhérent d'une organisation signataire`]: "oui",
     ...situation,
   });
   return engine;
 }
 
-describe("IDCC 158 — industries du bois 2026.1", () => {
+describe("IDCC 158 — industries du bois 2026.2", () => {
   it("evaluates the sourced ACT 6.1 minimum", async () => {
     const engine = await createEngine();
     assert.equal(engine.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue, 2448);
@@ -45,12 +44,5 @@ describe("IDCC 158 — industries du bois 2026.1", () => {
     const engine = await createEngine("tannerie I");
     assert.equal(engine.evaluate(`${namespace} . classification hors grille`).nodeValue, true);
     assert.equal(engine.evaluate(`${namespace} . calcul bloqué`).nodeValue, true);
-  });
-
-  it("blocks employers outside the explicit scope", async () => {
-    const otherEmployer = await createEngine("ACT 1", {
-      [`${namespace} . adhérent d'une organisation signataire`]: "non",
-    });
-    assert.ok(otherEmployer.evaluate(`${namespace} . salaire minimum conventionnel`).nodeValue == null);
   });
 });

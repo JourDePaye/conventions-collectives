@@ -2,6 +2,7 @@
 # Version 2026.1 : avenant n° 6 du 11 décembre 2025 relatif aux salaires minima
 # annuels au 1er janvier 2026.
 validFrom: 2026-01-01
+extension: 2026-03-19
 sources:
   - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054040577
   - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635361
@@ -14,23 +15,6 @@ salarié . convention collective . agences générales assurances . classe:
   description: Classes 1 à 6, dont la classe 5 bis, selon l'annexe 1 de l'avenant salarial. La classe est fournie par l'application et n'est pas déduite de l'intitulé du poste.
   applicable si: convention collective = 'agences générales assurances'
   par défaut: "'non renseigné'"
-salarié . convention collective . agences générales assurances . date de calcul:
-  titre: Date de calcul
-  description: Date à laquelle l'application vérifie l'opposabilité de l'avenant salarial.
-  applicable si: convention collective = 'agences générales assurances'
-  par défaut: 01/01/1900
-salarié . convention collective . agences générales assurances . adhérent d'une organisation signataire:
-  titre: Adhérent d'une organisation signataire
-  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. Un employeur non adhérent est lié à compter de la publication de l'arrêté d'extension (voir « date de calcul » et « accord applicable »).
-  applicable si: convention collective = 'agences générales assurances'
-  par défaut: non
-salarié . convention collective . agences générales assurances . accord applicable:
-  applicable si: convention collective = 'agences générales assurances'
-  une de ces conditions:
-    - toutes ces conditions:
-        - adhérent d'une organisation signataire = oui
-        - date de calcul >= 01/01/2026
-    - date de calcul >= 19/03/2026
 salarié . convention collective . agences générales assurances . grille annuelle:
   titre: Salaire minimum annuel à temps plein, en euros
   description: Salaires minima annuels bruts de l'avenant n° 6 du 11 décembre 2025, applicables au 1er janvier 2026.
@@ -58,7 +42,6 @@ salarié . convention collective . agences générales assurances . salaire mini
   applicable si:
     toutes ces conditions:
       - convention collective = 'agences générales assurances'
-      - accord applicable = oui
       - grille annuelle > 0 €/an
   unité: €/an
   valeur: grille annuelle

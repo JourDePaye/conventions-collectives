@@ -13,11 +13,10 @@ La version `2025.1` (même date d'effet que `2025.2`) était erronée : elle app
 ## Règles calculées
 
 - `coefficient` est le coefficient de classification fourni par l'application (160, 165, 175, 185, 190, 195, 200, 220, 235, 245, 260, 270, 290, 295, 300, 360, 420, 510, 600, 750).
-- `date de calcul` est conservée pour compatibilité ; le palier est choisi par la version en vigueur à la date de paie, la règle n'est plus lue.
 - `grille` donne le minimum hiérarchique mensuel brut à temps plein ; `salaire minimum conventionnel` applique une seule fois `salarié . contrat . temps de travail . quotité`.
 - `coefficient hors grille` vaut `oui` lorsque le coefficient n'est pas dans la grille ; le minimum est alors non applicable.
 - `indemnité de panier` expose séparément `7,40 €/jour` (article 2, au lieu de 7,10 €, à compter du 1er avril 2025) ; elle n'est pas ajoutée au salaire minimum.
-- Les règles `adhérent d'une organisation signataire` et `accord applicable` de `2025.1` n'existent plus : l'avenant étant étendu, aucune condition d'adhésion n'est posée.
+- Les révisions `2025.2` à `2025.4` portent `extension: 2025-06-29` (arrêté du 2 juin 2025, JORF du 27 juin 2025 ; article 7 : application aux non-adhérents un jour franc après la publication). La révision `2025.1`, qui portait les règles d'adhésion, est supprimée.
 
 ## Limites
 

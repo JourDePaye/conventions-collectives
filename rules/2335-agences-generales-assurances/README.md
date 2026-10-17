@@ -6,9 +6,9 @@ La valeur Publicodes est `agences générales assurances` et les règles sont so
 
 ## Périmètre juridique
 
-- À compter du **1er janvier 2026**, le modèle accepte l'avenant pour un employeur dont `adhérent d'une organisation signataire` = oui.
+- À compter du **1er janvier 2026**, la version lie les employeurs adhérents d'une organisation signataire.
 - À compter du **19 mars 2026**, date de publication de l'arrêté d'extension indiqué par Légifrance, le modèle accepte tous les employeurs, adhérents ou non.
-- Aucune date n'est supposée (`date de calcul` vaut 1900 par défaut) et `adhérent d'une organisation signataire` vaut non par défaut : sans valeurs explicites, le calcul reste inapplicable.
+- Métadonnée `extension: 2026-03-19` ; plus aucune entrée d'adhésion ni de date dans les règles.
 - La classe de classification est fournie par l'application. Le modèle ne la déduit pas du poste et ne couvre pas les catégories hors de la grille.
 
 ## Règles implémentées

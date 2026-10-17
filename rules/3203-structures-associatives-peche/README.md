@@ -15,7 +15,7 @@ L’avenant est pris dans son champ signataire ou adhérent, avant extension. Le
 - `salaire minimum conventionnel . grille` donne le minimum mensuel brut à temps plein (151,67 heures), de 1 855 € à 3 355 €.
 - `salaire minimum conventionnel` prorate la grille selon la quotité de travail.
 - `niveau hors grille` signale les positionnements absents et la grille retourne alors `0 €/mois`.
-- `adhérent d'une organisation signataire` (oui ou non, non par défaut) : à partir de la version `2026.2` (même date d'effet que 2026.1, qu'elle remplace), le minimum n'est applicable qu'aux employeurs adhérents d'une organisation signataire ; pour un employeur non adhérent, l'avenant n'étant pas étendu, le minimum vaut 0 €/mois (aucun minimum n’est dû au titre de l’avenant). La version 2026.1 ne faisait que documenter ce périmètre sans le faire respecter.
+- L'avenant n'étant pas étendu, `2026.2` (qui remplace `2026.1`, supprimée) n'a pas de métadonnée `extension` : JourDePaye ne la charge que pour un employeur adhérent d'une organisation signataire, les autres n'ont aucun minimum au titre de l'avenant.
 
 ## Audit des effets de paie
 

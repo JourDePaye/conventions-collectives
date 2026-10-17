@@ -2,6 +2,7 @@
 # Brochure 3177. Version 2025.2, avenant n° 100 du 2 avril 2025 relatif aux salaires, grille du 1er avril 2025.
 # Replaces 2025.1, which applied the 1 November 2025 amounts from 1 April 2025 to coefficients 160-235 and 360-750 and limited the grid to signatory employers (the avenant was extended by arrêté of 2 June 2025).
 validFrom: 2025-04-01
+extension: 2025-06-29
 sources:
   - >-
     Avenant n° 100 du 2 avril 2025 relatif aux salaires pour l'année 2025 (article 1 : trois grilles
@@ -23,12 +24,6 @@ salarié . convention collective . transport aérien personnel au sol . coeffici
   description: Coefficient de la classification conventionnelle. La classification est fournie par l'application et n'est pas déduite de l'intitulé du poste.
   applicable si: convention collective = 'transport aérien personnel au sol'
   par défaut: 0
-
-salarié . convention collective . transport aérien personnel au sol . date de calcul:
-  titre: Date de calcul
-  description: Date de la période de paie. Le palier de la grille est choisi par la version en vigueur à cette date (validFrom), cette règle n'est plus lue par le calcul.
-  applicable si: convention collective = 'transport aérien personnel au sol'
-  par défaut: 01/01/1900
 
 salarié . convention collective . transport aérien personnel au sol . salaire minimum conventionnel:
   titre: Salaire minimum hiérarchique mensuel

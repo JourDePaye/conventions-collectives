@@ -4,6 +4,7 @@
 # L'accord s'applique aux employeurs signataires ou adhérents au 1er juillet 2026,
 # puis à tous les employeurs à compter de l'extension publiée le 4 septembre 2026.
 validFrom: 2026-07-01
+extension: 2026-09-04
 sources:
   - "Avenant n° 10 du 1er juin 2026 relatif aux salaires minima, publié au Bulletin officiel des conventions collectives 2026/26, texte officiel DILA : https://www.legifrance.gouv.fr/download/pdf/bocc?id=boc_20260026_0000_0009.pdf&isForGlobalBocc=false"
   - "Article 6.4 de la convention collective : prime d'ancienneté mensuelle calculée sur le salaire minimum conventionnel garanti ; texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000046565704"
@@ -19,33 +20,12 @@ salarié . convention collective . agences de presse . groupe:
   applicable si: convention collective = 'agences de presse'
   par défaut: "'non renseigné'"
 
-salarié . convention collective . agences de presse . date de calcul:
-  titre: Date de calcul
-  description: Date à laquelle l'application vérifie l'opposabilité de l'avenant salarial.
-  applicable si: convention collective = 'agences de presse'
-  par défaut: 01/01/1900
-
-salarié . convention collective . agences de presse . adhérent d'une organisation signataire:
-  titre: Adhérent d'une organisation signataire
-  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. Un employeur non adhérent est lié à compter de la publication de l'arrêté d'extension (voir « date de calcul » et « accord applicable »).
-  applicable si: convention collective = 'agences de presse'
-  par défaut: non
-
-salarié . convention collective . agences de presse . accord applicable:
-  applicable si: convention collective = 'agences de presse'
-  une de ces conditions:
-    - toutes ces conditions:
-        - adhérent d'une organisation signataire = oui
-        - date de calcul >= 01/07/2026
-    - date de calcul >= 04/09/2026
-
 salarié . convention collective . agences de presse . grille:
   titre: Salaire minimum mensuel à temps plein
   description: Grille mensuelle de l'avenant n° 10 du 1er juin 2026, en euros pour 151,67 heures.
   applicable si:
     toutes ces conditions:
       - convention collective = 'agences de presse'
-      - accord applicable = oui
   unité: €/mois
   variations:
     - si: groupe = '1'
@@ -74,7 +54,6 @@ salarié . convention collective . agences de presse . salaire minimum conventio
   applicable si:
     toutes ces conditions:
       - convention collective = 'agences de presse'
-      - accord applicable = oui
       - grille > 0 €/mois
   unité: €/mois
   produit:

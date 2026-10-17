@@ -18,30 +18,12 @@ salarié . convention collective . activités de marchés financiers . catégori
   applicable si: convention collective = 'activités de marchés financiers'
   par défaut: "'non renseigné'"
 
-salarié . convention collective . activités de marchés financiers . adhérent d'une organisation signataire:
-  titre: Adhérent d'une organisation signataire
-  description: Vaut oui si l'employeur est adhérent d'une organisation patronale signataire de l'accord. L'accord n'étant pas étendu à la date de modélisation, un employeur non adhérent n'est pas lié.
-  applicable si: convention collective = 'activités de marchés financiers'
-  par défaut: non
-
-salarié . convention collective . activités de marchés financiers . date de calcul:
-  titre: Date de vérification du minimum
-  applicable si: convention collective = 'activités de marchés financiers'
-  par défaut: 01/01/1900
-
-salarié . convention collective . activités de marchés financiers . accord applicable:
-  applicable si: convention collective = 'activités de marchés financiers'
-  toutes ces conditions:
-    - adhérent d'une organisation signataire = oui
-    - date de calcul >= 01/01/2026
-
 salarié . convention collective . activités de marchés financiers . grille:
   titre: Salaire minimum mensuel à temps plein
   description: Barème mensuel des salaires minima hiérarchiques de l'accord du 9 décembre 2025, pour un temps plein.
   applicable si:
     toutes ces conditions:
       - convention collective = 'activités de marchés financiers'
-      - accord applicable = oui
   unité: €/mois
   variations:
     - si: catégorie = 'I.A'
@@ -66,7 +48,6 @@ salarié . convention collective . activités de marchés financiers . salaire m
   applicable si:
     toutes ces conditions:
       - convention collective = 'activités de marchés financiers'
-      - accord applicable = oui
       - grille > 0 €/mois
   unité: €/mois
   produit:
@@ -84,4 +65,3 @@ salarié . convention collective . activités de marchés financiers . calcul bl
   applicable si: convention collective = 'activités de marchés financiers'
   une de ces conditions:
     - catégorie hors grille
-    - accord applicable = non
