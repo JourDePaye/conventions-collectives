@@ -1,8 +1,8 @@
 # Convention collective nationale des maisons d'étudiants du 27 mai 1992 (IDCC 1671).
 # Version 2026.2 : avenant n° 75 du 9 décembre 2025 relatif à la classification et aux salaires,
-# avenant n° 76 du 9 décembre 2025 relatif à la valeur du point et à la complémentaire santé.
+# sans l'avenant n° 76 (point à 67,78 €, part employeur santé à 60 %), et avenant n° 74 (treizième mois).
 validFrom: 2026-01-01
-extension: 2026-07-12
+extension: 2026-07-11
 sources:
   - https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000054454212
   - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054454222
@@ -141,10 +141,10 @@ salarié . convention collective . maisons d'étudiants . cotisation santé mens
 
 salarié . convention collective . maisons d'étudiants . prise en charge employeur santé:
   titre: Prise en charge employeur santé
-  description: Part employeur portée à 65 % à compter du 1er janvier 2026.
+  description: Part employeur de 60 % (article 11.1 créé par l'avenant n° 71) ; les 65 % de l'avenant n° 76 sont dans la version 2026.3.
   applicable si: convention collective = 'maisons d'étudiants'
   unité: €/mois
-  valeur: cotisation santé mensuelle conventionnelle * 65%
+  valeur: cotisation santé mensuelle conventionnelle * 60%
 
 salarié . convention collective . maisons d'étudiants . part salarié santé:
   titre: Part salarié santé

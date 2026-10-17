@@ -1,0 +1,136 @@
+# Convention collective nationale des maisons d'étudiants du 27 mai 1992 (IDCC 1671).
+# Version 2025.1 : coefficients de l'avenant n° 70 (au 1er janvier 2023, étendu au JORF du
+# 12 octobre 2023) et point annuel à 67,78 € au 1er janvier 2025 (avenant n° 73, étendu au JORF
+# du 9 avril 2025). Elle reste la grille des employeurs non adhérents d'une organisation
+# signataire jusqu'à l'extension de l'avenant n° 75 (JORF du 11 juillet 2026).
+validFrom: 2025-01-01
+extension: 2025-04-09
+sources:
+  - >-
+    Avenant n° 73 du 11 décembre 2024 relatif aux négociations annuelles obligatoires, article 1er
+    (valeur annuelle du point portée de 66,45 € à 67,78 € au 1er janvier 2025), étendu par arrêté
+    du 21 mars 2025 (JORF n° 0085 du 9 avril 2025, JORFTEXT000051439764, article 2 : effet à la
+    date de publication).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051314792
+  - >-
+    Avenant n° 70 du 1er décembre 2022 relatif aux négociations annuelles obligatoires, article 2
+    (grille des coefficients à compter du 1er janvier 2023 : classes 1 à 20, coefficients 333 à
+    677), étendu par arrêté du 18 septembre 2023 (JORF n° 0237 du 12 octobre 2023,
+    JORFTEXT000048193558).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000047618299
+  - >-
+    Avenant n° 71 du 12 décembre 2023, article 3 (article 11.1 : prise en charge employeur de la
+    complémentaire santé à 60 % au 1er janvier 2024), étendu par arrêté du 13 décembre 2024
+    (JORF du 24 décembre 2024).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000049495970
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635917
+---
+salarié . convention collective . maisons d'étudiants:
+  titre: Maisons d'étudiants (IDCC 1671)
+  valeur: convention collective = 'maisons d'étudiants'
+
+salarié . convention collective . maisons d'étudiants . classe:
+  titre: Classe de classification
+  description: Classe 1 à 20 de l'annexe 1 « Classification » d'avant l'avenant n° 75 ; coefficients de l'avenant n° 70.
+  applicable si: convention collective = 'maisons d'étudiants'
+  par défaut: 0
+
+salarié . convention collective . maisons d'étudiants . coefficient conventionnel:
+  titre: Coefficient conventionnel minimum
+  description: Coefficient minimum correspondant à la classe fournie.
+  applicable si: convention collective = 'maisons d'étudiants'
+  variations:
+    - si: classe = 1
+      alors: 333
+    - si: classe = 2
+      alors: 340
+    - si: classe = 3
+      alors: 347
+    - si: classe = 4
+      alors: 356
+    - si: classe = 5
+      alors: 365
+    - si: classe = 6
+      alors: 373
+    - si: classe = 7
+      alors: 381
+    - si: classe = 8
+      alors: 390
+    - si: classe = 9
+      alors: 400
+    - si: classe = 10
+      alors: 410
+    - si: classe = 11
+      alors: 420
+    - si: classe = 12
+      alors: 431
+    - si: classe = 13
+      alors: 459
+    - si: classe = 14
+      alors: 469
+    - si: classe = 15
+      alors: 499
+    - si: classe = 16
+      alors: 529
+    - si: classe = 17
+      alors: 559
+    - si: classe = 18
+      alors: 587
+    - si: classe = 19
+      alors: 627
+    - si: classe = 20
+      alors: 677
+    - sinon: 0
+
+salarié . convention collective . maisons d'étudiants . valeur annuelle du point:
+  titre: Valeur annuelle du point conventionnel
+  description: Valeur portée de 66,45 € à 67,78 € au 1er janvier 2025 par l'avenant n° 73.
+  applicable si: convention collective = 'maisons d'étudiants'
+  unité: €/an
+  valeur: 67.78 €/an
+
+salarié . convention collective . maisons d'étudiants . salaire minimum annuel conventionnel:
+  titre: Salaire minimum annuel conventionnel
+  description: Minimum brut annuel à temps plein, en euros par an, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'maisons d'étudiants'
+      - coefficient conventionnel > 0
+  unité: €/an
+  arrondi: 2 décimales
+  valeur: coefficient conventionnel * valeur annuelle du point * contrat . temps de travail . quotité
+
+salarié . convention collective . maisons d'étudiants . salaire minimum mensuel indicatif:
+  titre: Salaire minimum mensuel indicatif
+  description: Équivalent indicatif du minimum annuel, sans transformer la garantie annuelle en nouvelle obligation mensuelle.
+  applicable si: convention collective = 'maisons d'étudiants'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: salaire minimum annuel conventionnel
+
+salarié . convention collective . maisons d'étudiants . classe hors grille:
+  titre: Classe absente de la grille
+  description: La classe fournie n'est pas comprise entre 1 et 20.
+  applicable si: convention collective = 'maisons d'étudiants'
+  valeur: coefficient conventionnel = 0
+
+salarié . convention collective . maisons d'étudiants . cotisation santé mensuelle conventionnelle:
+  titre: Cotisation santé mensuelle conventionnelle
+  description: Montant total externe de la cotisation de complémentaire santé ; le taux ou forfait de l'organisme assureur n'est pas déduit ici.
+  applicable si: convention collective = 'maisons d'étudiants'
+  unité: €/mois
+  par défaut: 0 €/mois
+
+salarié . convention collective . maisons d'étudiants . prise en charge employeur santé:
+  titre: Prise en charge employeur santé
+  description: Part employeur de 60 % depuis le 1er janvier 2024 (article 11.1 créé par l'avenant n° 71).
+  applicable si: convention collective = 'maisons d'étudiants'
+  unité: €/mois
+  valeur: cotisation santé mensuelle conventionnelle * 60%
+
+salarié . convention collective . maisons d'étudiants . part salarié santé:
+  titre: Part salarié santé
+  description: Solde de la cotisation après prise en charge employeur conventionnelle.
+  applicable si: convention collective = 'maisons d'étudiants'
+  unité: €/mois
+  valeur: cotisation santé mensuelle conventionnelle - prise en charge employeur santé

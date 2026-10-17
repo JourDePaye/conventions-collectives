@@ -1,18 +1,26 @@
 # Maisons d'étudiants — IDCC 1671
 
-La version `2026.3` (qui remplace `2026.2`, même date `2026-01-01`) modélise l'avenant n° 75 du **9 décembre 2025** (annexe 1 : grille des 20 classes et coefficients minima, inchangés depuis l'avenant n° 70 de 2023), l'avenant n° 76 du **9 décembre 2025** (NAO : point à 68,80 € au lieu de 67,78 €, santé à 65 % employeur) et l'avenant n° 74 du **15 décembre 2025** (treizième mois). Les trois entrent en vigueur « sans attendre leur extension » (1er janvier 2026 pour 75 et 76, 1er juillet 2026 pour 74), donc pour les employeurs adhérents aux organisations signataires. Pour les autres employeurs, l'application commence avec le Journal officiel : arrêté du 3 juillet 2026 (JORF du **11 juillet 2026**) pour les avenants n° 75 et n° 74, soit à partir du **12 juillet 2026** ; arrêté du 23 septembre 2026 (JORF du **3 octobre 2026**) pour l'avenant n° 76, soit à partir du **4 octobre 2026**. Entre le 12 juillet et le 3 octobre 2026, ces employeurs restent donc à la valeur de point de 67,78 € (avenant n° 73, texte non relu). Avant le 12 juillet 2026, la grille n'est pas modélisée pour eux (elle date de l'avenant n° 70, non modélisé).
+La version `2026.3` modélise l'avenant n° 75 du **9 décembre 2025** (annexe 1 : grille des 20 classes et coefficients minima, inchangés depuis l'avenant n° 70 de 2022), l'avenant n° 76 du **9 décembre 2025** (NAO : point à 68,80 € au lieu de 67,78 €, santé à 65 % employeur) et l'avenant n° 74 du **15 décembre 2025** (treizième mois). Les trois entrent en vigueur « sans attendre leur extension » (1er janvier 2026 pour 75 et 76, 1er juillet 2026 pour 74), donc pour les employeurs adhérents aux organisations signataires. Pour les autres employeurs, l'application commence à la publication au Journal officiel (article 2 des arrêtés : effet à la date de publication) : arrêté du 3 juillet 2026 (JORF n° 0161 du **11 juillet 2026**) pour les avenants n° 75 et n° 74 ; arrêté du 23 septembre 2026 (JORF n° 0231 du **3 octobre 2026**) pour l'avenant n° 76.
+
+Les versions, du point de vue d'un employeur non adhérent :
+
+- `2025.1` (`extension: 2025-04-09`) : coefficients de l'avenant n° 70 (au 1er janvier 2023, étendu au JORF du 12 octobre 2023), point à 67,78 € (avenant n° 73, étendu au JORF du 9 avril 2025), santé à 60 % employeur (avenant n° 71). Pas de treizième mois.
+- `2026.2` (`extension: 2026-07-11`) : avenants n° 75 et n° 74 sans l'avenant n° 76, soit le point à 67,78 € et la santé à 60 %, avec le treizième mois.
+- `2026.3` (`extension: 2026-10-03`) : les trois avenants.
+
+Un employeur adhérent a `2026.3` dès le 1er janvier 2026. Le minimum par classe est le même en `2025.1` et `2026.2`, la grille de l'avenant n° 75 reprenant les coefficients de l'avenant n° 70.
 
 La valeur Publicodes est `maisons d'étudiants` et les règles sont sous `salarié . convention collective . maisons d'étudiants`.
 
 ## Règles implémentées
 
 - `classe` accepte les classes 1 à 20 ; la grille associe chaque classe à son coefficient conventionnel ;
-- `valeur annuelle du point` vaut `68,80 €/an` (adhérents dès le 1er janvier 2026, tous employeurs à partir du 4 octobre 2026) et `67,78 €/an` pour les autres employeurs du 12 juillet au 3 octobre 2026 ;
-- `2026.3` porte `extension: 2026-10-04` (avenant n° 76) et `2026.2` (avenant n° 75, point à 67,78 €) `extension: 2026-07-12` : JourDePaye choisit la version selon l'adhésion de l'employeur, les règles n'ont plus d'entrée d'adhésion ni de date ;
+- `valeur annuelle du point` vaut `68,80 €/an` en `2026.3` et `67,78 €/an` en `2025.1` et `2026.2` ;
+- JourDePaye choisit la version selon l'adhésion de l'employeur, les règles n'ont plus d'entrée d'adhésion ni de date ;
 - `salaire minimum annuel conventionnel` calcule le minimum brut annuel à temps plein et le prorata selon la quotité ;
 - `salaire minimum mensuel indicatif` expose seulement l'équivalent de la garantie annuelle (`minimum annuel / 12`) ;
 - `treizième mois annuel` applique la montée en charge de l'avenant n° 74 : un tiers en 2026, deux tiers en 2027, puis la totalité à partir de 2028, sur une assiette annuelle fournie par l'application ;
-- `prise en charge employeur santé` et `part salarié santé` répartissent la cotisation totale externe selon la clé 65 % / 35 % de l'avenant n° 76 ;
+- `prise en charge employeur santé` et `part salarié santé` répartissent la cotisation totale externe selon la clé 65 % / 35 % de l'avenant n° 76 (`2026.3`) ou 60 % / 40 % de l'avenant n° 71 (`2025.1`, `2026.2`) ;
 - les dates et l'adhésion sont bloquées explicitement ; une classe hors grille vaut zéro et est signalée.
 
 ## Audit explicite des rubriques de paie
@@ -33,7 +41,10 @@ L'audit a porté sur l'avenant salarial et les textes dédiés de protection soc
 - Avenant n° 75 du 9 décembre 2025 (annexes 1 et 2, classification et coefficients minima), KALITEXT `KALITEXT000054454208`, étendu par arrêté du 3 juillet 2026 (JORF du 11 juillet 2026).
 - Avenant n° 76 du 9 décembre 2025 (NAO : valeur du point, santé), KALITEXT `KALITEXT000054454222`, étendu par arrêté du 23 septembre 2026 (JORF du 3 octobre 2026).
 - Avenant n° 74 du 15 décembre 2025 (treizième mois), KALITEXT `KALITEXT000054454229`, étendu par arrêté du 3 juillet 2026 (JORF du 11 juillet 2026).
-- Avenant n° 72 du 17 avril 2025 relatif à la prévoyance, KALITEXT `KALITEXT000051314781`.
+- Avenant n° 73 du 11 décembre 2024 (point à 67,78 €), KALITEXT `KALITEXT000051314792`, étendu par arrêté du 21 mars 2025 (JORF du 9 avril 2025).
+- Avenant n° 71 du 12 décembre 2023 (santé à 60 %), KALITEXT `KALITEXT000049495970`, étendu par arrêté du 13 décembre 2024 (JORF du 24 décembre 2024).
+- Avenant n° 70 du 1er décembre 2022 (coefficients au 1er janvier 2023), KALITEXT `KALITEXT000047618299`, étendu par arrêté du 18 septembre 2023 (JORF du 12 octobre 2023).
+- Avenant n° 72 du 14 novembre 2024 relatif à la prévoyance, KALITEXT `KALITEXT000051314781`.
 - Convention collective nationale des maisons d'étudiants, conteneur `KALICONT000005635917`, et arrêtés d'extension ci-dessus.
 
 ## Limites

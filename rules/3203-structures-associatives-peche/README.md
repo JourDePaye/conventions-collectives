@@ -1,6 +1,6 @@
 # Structures associatives de pêche de loisir et de protection du milieu aquatique — IDCC 3203
 
-Le fichier [2026.1](3203-structures-associatives-peche.2026.1.publicodes) entre en vigueur le **1er janvier 2026**. Il modélise l’avenant n° 16 du 17 décembre 2025 relatif aux salaires minima conventionnels.
+Le fichier [2026.2](3203-structures-associatives-peche.2026.2.publicodes) entre en vigueur le **1er janvier 2026**. Il modélise l’avenant n° 16 du 17 décembre 2025 relatif aux salaires minima conventionnels.
 
 ## Sources officielles
 
@@ -15,7 +15,7 @@ L’avenant est pris dans son champ signataire ou adhérent, avant extension. Le
 - `salaire minimum conventionnel . grille` donne le minimum mensuel brut à temps plein (151,67 heures), de 1 855 € à 3 355 €.
 - `salaire minimum conventionnel` prorate la grille selon la quotité de travail.
 - `niveau hors grille` signale les positionnements absents et la grille retourne alors `0 €/mois`.
-- L'avenant n'étant pas étendu, `2026.2` (qui remplace `2026.1`, supprimée) n'a pas de métadonnée `extension` : JourDePaye ne la charge que pour un employeur adhérent d'une organisation signataire, les autres n'ont aucun minimum au titre de l'avenant.
+- L'avenant n'étant pas étendu, `2026.2` (qui remplace `2026.1`, supprimée) n'a pas de métadonnée `extension` : JourDePaye ne la charge que pour un employeur adhérent d'une organisation signataire, les autres n'ont aucun minimum au titre de l'avenant. Aucun avenant de salaires antérieur n'est étendu non plus (avenants n° 13 à 15 « en vigueur non étendu » sur Légifrance) : pour un non-adhérent, le SMIC s'applique.
 
 ## Audit des effets de paie
 

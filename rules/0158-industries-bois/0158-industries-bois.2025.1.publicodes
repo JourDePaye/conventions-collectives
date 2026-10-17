@@ -1,0 +1,135 @@
+# Convention collective nationale des industries du bois et de l'importation des bois
+# du 28 novembre 1955 (IDCC 158, brochure 3041).
+# Version 2025.1 : avenant n° 6 du 28 novembre 2024 à l'accord du 10 septembre 2019, applicable au
+# 1er janvier 2025 pour les employeurs adhérents d'une organisation signataire, et à tous les
+# employeurs du champ à partir du 2 mai 2025, date de publication de l'arrêté d'extension du
+# 25 avril 2025. Elle reste la grille des non-adhérents jusqu'à l'extension de l'avenant n° 7.
+validFrom: 2025-01-01
+extension: 2025-05-02
+sources:
+  - >-
+    Avenant n° 6 du 28 novembre 2024 à l'accord du 10 septembre 2019 relatif
+    aux classifications et aux salaires minimaux, IDCC 158, BO 2025-8 : article 2 (salaires
+    minimaux en annexe), article 5 (entrée en vigueur le 1er janvier 2025) et annexe 1 (grilles
+    ouvriers, ACT, AM et cadres pour 151,67 heures, à compter du 1er janvier 2025).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051447603
+  - >-
+    Convention collective nationale des industries du bois et de l'importation des bois du
+    28 novembre 1955, IDCC 158, publiée sur Légifrance.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635186
+  - >-
+    Arrêté du 25 avril 2025 portant extension de l'avenant n° 6 (JORF n° 0103 du 2 mai 2025,
+    JORFTEXT000051540518) : article 1er, stipulations rendues obligatoires pour tous les employeurs
+    et salariés du champ de l'accord du 10 septembre 2019 ; article 2, l'extension prend effet à
+    compter de la date de publication.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051540518
+---
+salarié . convention collective . industries du bois:
+  titre: Industries du bois et de l'importation des bois (IDCC 158)
+  valeur: convention collective = 'industries du bois'
+
+salarié . convention collective . industries du bois . classification:
+  titre: Classification conventionnelle
+  description: Classification de l'accord du 10 septembre 2019, par exemple ACT 6.1, AM 2.2 ou C 4.
+  applicable si: convention collective = 'industries du bois'
+  par défaut: "'ACT 1'"
+
+salarié . convention collective . industries du bois . grille mensuelle:
+  titre: Salaire minimum mensuel conventionnel à temps plein
+  description: Grilles de l'annexe 1 de l'avenant n° 6, pour 151,67 heures, applicables au 1er janvier 2025.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'industries du bois'
+  unité: €/mois
+  variations:
+    - si: classification = 'ouvrier 1 AB'
+      alors: 1802 €/mois
+    - si: classification = 'ouvrier 2.1 C'
+      alors: 1808 €/mois
+    - si: classification = 'ouvrier 2.2 D'
+      alors: 1810 €/mois
+    - si: classification = 'ouvrier 3.1 E'
+      alors: 1819 €/mois
+    - si: classification = 'ouvrier 3.2 F'
+      alors: 1832 €/mois
+    - si: classification = 'ouvrier 3.3 G'
+      alors: 1863 €/mois
+    - si: classification = 'ouvrier 4.1 H'
+      alors: 1879 €/mois
+    - si: classification = 'ouvrier 4.2 I'
+      alors: 1992 €/mois
+    - si: classification = 'ouvrier 4.3 J'
+      alors: 2189 €/mois
+    - si: classification = 'ACT 1'
+      alors: 1802 €/mois
+    - si: classification = 'ACT 2.1'
+      alors: 1810 €/mois
+    - si: classification = 'ACT 2.2'
+      alors: 1826 €/mois
+    - si: classification = 'ACT 3.1'
+      alors: 1863 €/mois
+    - si: classification = 'ACT 3.2'
+      alors: 1879 €/mois
+    - si: classification = 'ACT 4'
+      alors: 1992 €/mois
+    - si: classification = 'ACT 5.1'
+      alors: 2119 €/mois
+    - si: classification = 'ACT 5.2'
+      alors: 2242 €/mois
+    - si: classification = 'ACT 6.1'
+      alors: 2424 €/mois
+    - si: classification = 'ACT 6.2'
+      alors: 2616 €/mois
+    - si: classification = 'ACT 7.1'
+      alors: 2940 €/mois
+    - si: classification = 'ACT 7.2'
+      alors: 3272 €/mois
+    - si: classification = 'AM 1'
+      alors: 2119 €/mois
+    - si: classification = 'AM 2.1'
+      alors: 2348 €/mois
+    - si: classification = 'AM 2.2'
+      alors: 2616 €/mois
+    - si: classification = 'AM 3.1'
+      alors: 2940 €/mois
+    - si: classification = 'AM 3.2'
+      alors: 3272 €/mois
+    - si: classification = 'C 1'
+      alors: 2675 €/mois
+    - si: classification = 'C 2'
+      alors: 3204 €/mois
+    - si: classification = 'C 3'
+      alors: 3602 €/mois
+    - si: classification = 'C 4'
+      alors: 3871 €/mois
+    - si: classification = 'C 5'
+      alors: 4004 €/mois
+    - si: classification = 'C 6'
+      alors: 4206 €/mois
+    - si: classification = 'C 7'
+      alors: 4473 €/mois
+    - si: classification = 'C 8'
+      alors: 4808 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industries du bois . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'industries du bois'
+      - calcul bloqué = non
+  unité: €/mois
+  valeur: grille mensuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . industries du bois . classification hors grille:
+  titre: Classification absente de la grille
+  description: La classification ne figure pas dans les grilles modélisées de l'avenant n° 6.
+  applicable si: convention collective = 'industries du bois'
+  valeur: grille mensuelle = 0 €/mois
+
+salarié . convention collective . industries du bois . calcul bloqué:
+  titre: Calcul du minimum bloqué
+  applicable si: convention collective = 'industries du bois'
+  une de ces conditions:
+    - classification hors grille

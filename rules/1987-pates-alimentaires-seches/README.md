@@ -2,7 +2,7 @@
 
 Les versions `2024.3` et `2026.3` appliquent la base de la prime d'ancienneté : l'article 1er des deux textes fixe un barème horaire distinct de celui des minima (coefficients 135 à 340 ; par exemple coefficient 135 : 8,90 €/h en 2024 et 9,33 €/h en 2026, contre 11,79 et 12,08 €/h de minimum). Les taux de 3 à 15 % s'appliquent à ce barème. Il n'existe pas de base au-delà du coefficient 340 : la prime est alors nulle.
 
-La version `2024.3` reprend l’avenant n° 2024-01 du 22 février 2024 (applicable au 1er février 2024 pour les montants horaires, prime de vacances au 31 mai 2024), étendu par arrêté du 21 mai 2024 (JORF du 1er juin 2024) : `extension: 2024-06-01`, en supposant un effet à la date de publication (à confirmer sur l’arrêté).
+La version `2024.3` reprend l’avenant n° 2024-01 du 22 février 2024 (applicable au 1er février 2024 pour les montants horaires, prime de vacances au 31 mai 2024), étendu par arrêté du 21 mai 2024 (JORF n° 0126 du 1er juin 2024, `JORFTEXT000049630689`, article 2 : effet à la date de publication) : `extension: 2024-06-01`.
 
 La version `2026.3` modélise l'accord du 5 mars 2026 et son **extension** : l'arrêté du 20 mai 2026 (JORF n° 0124 du 29 mai 2026, `JORFTEXT000054149468`, effet à la date de publication) le rend obligatoire pour tous les employeurs du champ (`extension: 2026-05-29`). Les employeurs adhérents l'appliquent dès le 1er janvier 2026, les autres à partir du 29 mai 2026.
 
@@ -22,4 +22,4 @@ Les textes officiels de l’IDCC 1987 et l’avenant n° 2024-01 ont été exami
 ## Sources officielles
 
 - Avenant n° 2024-01 du 22 février 2024 relatif aux salaires minima horaires, primes d’ancienneté, prime de vacances et indemnités, IDCC 1987, Bulletin officiel des conventions collectives 2024.
-- Recherche Légifrance/KALI des textes et arrêtés d’extension de l’IDCC 1987 ; l'arrêté d'extension de l'accord du 5 mars 2026 est modélisé à partir de la version 2026.3 (aucun arrêté d'extension de l'avenant n° 2024-01 n'est retenu).
+- Recherche Légifrance/KALI des textes et arrêtés d’extension de l’IDCC 1987 ; l'arrêté d'extension de l'accord du 5 mars 2026 est modélisé à partir de la version 2026.3 et celui de l'avenant n° 2024-01 (arrêté du 21 mai 2024) à partir de la version 2024.3.

@@ -7,7 +7,10 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 // the note says otherwise). A version that is not listed has no extension order: it binds only
 // the employers of a signatory organisation.
 const EXTENSIONS: Record<string, Record<string, string>> = {
-  "0158-industries-bois": { "2026.2": "2026-07-11" }, // arrêté du 7 juillet 2026, JORFTEXT000054415943
+  "0158-industries-bois": {
+    "2025.1": "2025-05-02", // avenant n° 6, arrêté du 25 avril 2025, JORFTEXT000051540518
+    "2026.2": "2026-07-11", // avenant n° 7, arrêté du 7 juillet 2026, JORFTEXT000054415943
+  },
   "0275-transport-aerien-personnel-sol": {
     // arrêté du 2 juin 2025, JORF du 27 juin 2025; article 7: a clear day after the publication
     "2025.2": "2025-06-29",
@@ -16,11 +19,12 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   },
   "1555-produits-pharmaceutiques": { "2026.1": "2026-05-08" }, // JORF du 8 mai 2026
   "1671-maisons-etudiants": {
-    "2026.2": "2026-07-12", // avenant n° 75, JORF du 11 juillet 2026
-    "2026.3": "2026-10-04", // avenant n° 76, JORF du 3 octobre 2026
+    "2025.1": "2025-04-09", // avenant n° 73, JORF du 9 avril 2025
+    "2026.2": "2026-07-11", // avenants n° 74 and 75, JORF du 11 juillet 2026
+    "2026.3": "2026-10-03", // avenant n° 76, JORF du 3 octobre 2026
   },
   "1987-pates-alimentaires-seches": {
-    "2024.3": "2024-06-01", // arrêté du 21 mai 2024, JORF du 1er juin 2024
+    "2024.3": "2024-06-01", // arrêté du 21 mai 2024, JORFTEXT000049630689
     "2026.3": "2026-05-29", // arrêté du 20 mai 2026, JORFTEXT000054149468
   },
   "2335-agences-generales-assurances": { "2026.1": "2026-03-19" },

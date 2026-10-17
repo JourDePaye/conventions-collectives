@@ -68,7 +68,37 @@ describe("IDCC 1671 maisons d'étudiants", () => {
 
   it("keeps the generated lock entry for this single model version", () => {
     const lock = JSON.parse(readFileSync(new URL("../rules/versions.lock.json", import.meta.url), "utf8")) as Record<string, string>;
+    assert.ok(lock["1671-maisons-etudiants.2025.1"]);
     assert.ok(lock["1671-maisons-etudiants.2026.2"]);
     assert.ok(lock["1671-maisons-etudiants.2026.3"]);
+  });
+});
+
+// Before avenant n° 76: coefficients of avenant n° 70 (unchanged by avenant n° 75), point at
+// 67,78 € (avenant n° 73) and the employer health share at 60 % (avenant n° 71).
+describe("IDCC 1671 — versions binding non-members before avenant n° 76", () => {
+  for (const revision of ["2025.1", "2026.2"]) {
+    it(`${revision}: classes 1, 10 and 20 at 333, 410 and 677 x 67,78 €`, async () => {
+      const engine = await makeEngine(revision);
+      for (const [classe, minimum] of [[1, 22570.74], [10, 27789.8], [20, 45887.06]]) {
+        engine.setSituation({ "salarié . convention collective": `'${value}'`, [`${namespace} . classe`]: classe });
+        assert.equal(get(engine, "salaire minimum annuel conventionnel").nodeValue, minimum);
+      }
+    });
+
+    it(`${revision}: the employer pays 60 % of the health contribution`, async () => {
+      const engine = await makeEngine(revision);
+      engine.setSituation({
+        "salarié . convention collective": `'${value}'`,
+        [`${namespace} . cotisation santé mensuelle conventionnelle`]: "100 €/mois",
+      });
+      assert.equal(get(engine, "prise en charge employeur santé").nodeValue, 60);
+      assert.equal(get(engine, "part salarié santé").nodeValue, 40);
+    });
+  }
+
+  it("2025.1 has no thirteenth month (avenant n° 74 is in force from 2026)", async () => {
+    const engine = await makeEngine("2025.1");
+    assert.equal(Object.keys(engine.getParsedRules()).some((name) => name.includes("treizième mois")), false);
   });
 });

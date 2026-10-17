@@ -1,6 +1,6 @@
 # Vins, cidres, jus de fruits, sirops, spiritueux et liqueurs de France — IDCC 493
 
-Le fichier [2026.1](493-vins-cidres-spiritueux.2026.1.publicodes) entre en vigueur le 1er février 2026. Il modélise l'accord du 10 décembre 2025 relatif aux salaires minima conventionnels pour l'année 2026, étendu par arrêté du 20 février 2026, cité dans les métadonnées de la source officielle.
+Le fichier [2026.1](0493-vins-cidres-spiritueux.2026.1.publicodes) entre en vigueur le 1er février 2026. Il modélise l'accord du 10 décembre 2025 relatif aux salaires minima conventionnels pour l'année 2026, étendu par arrêté du 20 février 2026, cité dans les métadonnées de la source officielle.
 
 La valeur Publicodes est `vins cidres spiritueux` ; les règles sont sous `salarié . convention collective . vins cidres spiritueux`.
 
