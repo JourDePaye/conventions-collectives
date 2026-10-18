@@ -26,4 +26,4 @@ L'accord salarial fixe une garantie annuelle et précise les éléments de rému
 
 ## Limites
 
-La version couvre la grille étendue à compter du 1er juillet 2026. L'avenant ultérieur du 8 juillet 2026, publié et étendu après cette grille, fera l'objet d'une version distincte lorsqu'il sera ajouté ; la version publiée ici reste immuable.
+La version couvre la grille étendue à compter du 1er juillet 2026 ; les entreprises adhérentes aux organisations signataires y étaient tenues dès le 1er avril 2026, ce qui n'est pas modélisé. Au 18 octobre 2026, Légifrance ne publie aucun texte de salaires postérieur à l'accord du 31 mars 2026 (une version précédente de ce README citait à tort un avenant du 8 juillet 2026).

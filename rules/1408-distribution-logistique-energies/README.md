@@ -2,26 +2,30 @@
 
 Les fichiers [2025.1](1408-distribution-logistique-energies.2025.1.publicodes) et [2025.2](1408-distribution-logistique-energies.2025.2.publicodes) entrent en vigueur le **1er mai 2025** pour l'accord du **13 mars 2025** relatif à la revalorisation des salaires minima conventionnels au 1er mai 2025 (+ 2 %), étendu par arrêté du 27 mai 2025 (JORF du 31 mai 2025). La version `2025.2` remplace `2025.1` (même date d'effet) : la grille est identique, la prime d'ancienneté est corrigée. La valeur Publicodes est `distribution logistique énergies`.
 
+La version [2025.3](1408-distribution-logistique-energies.2025.3.publicodes) reprend les règles de `2025.2` et déclare la publication de l'arrêté d'extension (`extension: 2025-05-31`), à partir de laquelle l'accord de 2025 lie aussi les entreprises non adhérentes aux organisations signataires.
+
+La version [2026.1](1408-distribution-logistique-energies.2026.1.publicodes) entre en vigueur le **1er mai 2026** pour l'accord du **3 avril 2026** (+ 1 % sur l'ensemble des coefficients, KALITEXT000054801796). Il n'est pas étendu au 18 octobre 2026 : selon son article 6, il s'applique aux entreprises adhérentes aux organisations signataires à compter du 1er mai 2026, et aux autres au plus tard à la date d'extension. Les entreprises non adhérentes restent donc soumises à l'accord de 2025 (`2025.3`). Les règles et les taux de prime d'ancienneté sont ceux de `2025.2`.
+
 ## Grille salariale implémentée
 
-| Coefficient | Minimum mensuel brut |
-|---:|---:|
-| 200 | 1 852,12 € |
-| 210 | 1 858,37 € |
-| 220 | 1 867,80 € |
-| 230 | 1 882,42 € |
-| 240 | 1 911,42 € |
-| 250 | 1 989,36 € |
-| 300 | 2 145,22 € |
-| 310 | 2 456,96 € |
-| 320 | 2 768,68 € |
-| 400 | 2 846,62 € |
-| 410 | 3 158,36 € |
-| 420 | 3 781,82 € |
-| 430 | 4 405,29 € |
-| 440 | 5 184,63 € |
-| 450 | 6 119,83 € |
-| 460 | 7 522,62 € |
+| Coefficient | 1er mai 2025 | 1er mai 2026 |
+|---:|---:|---:|
+| 200 | 1 852,12 € | 1 870,64 € |
+| 210 | 1 858,37 € | 1 876,95 € |
+| 220 | 1 867,80 € | 1 886,48 € |
+| 230 | 1 882,42 € | 1 901,24 € |
+| 240 | 1 911,42 € | 1 930,53 € |
+| 250 | 1 989,36 € | 2 009,25 € |
+| 300 | 2 145,22 € | 2 166,67 € |
+| 310 | 2 456,96 € | 2 481,53 € |
+| 320 | 2 768,68 € | 2 796,37 € |
+| 400 | 2 846,62 € | 2 875,09 € |
+| 410 | 3 158,36 € | 3 189,94 € |
+| 420 | 3 781,82 € | 3 819,64 € |
+| 430 | 4 405,29 € | 4 449,34 € |
+| 440 | 5 184,63 € | 5 236,48 € |
+| 450 | 6 119,83 € | 6 181,03 € |
+| 460 | 7 522,62 € | 7 597,85 € |
 
 Le minimum est proratisé une seule fois par `contrat . temps de travail . quotité`. Un coefficient absent est signalé par `coefficient hors grille` et retourne zéro.
 
@@ -41,4 +45,5 @@ Les autres primes, indemnités, frais, classifications détaillées et dispositi
 
 - Accord du 13 mars 2025 relatif à la revalorisation des salaires minima conventionnels au 1er mai 2025, Légifrance, KALITEXT000051787046 (conteneur KALICONT000005635427, BO 2025-16).
 - Étendu par arrêté du 27 mai 2025, JORF du 31 mai 2025.
+- Accord du 3 avril 2026 relatif à la revalorisation des salaires minima conventionnels et à la création de certains avantages conventionnels supplémentaires au 1er mai 2026, Légifrance, KALITEXT000054801796 (non étendu).
 - Convention collective nationale et accords de branche des entreprises de la distribution, logistique et services des énergies de proximité du 20 décembre 1985, IDCC 1408, Légifrance.

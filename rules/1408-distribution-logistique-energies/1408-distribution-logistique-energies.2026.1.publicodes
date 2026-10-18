@@ -1,0 +1,141 @@
+# Convention collective nationale et accords de branche des entreprises de la distribution, logistique et services des énergies de proximité (IDCC 1408).
+# Version 2026.1 : accord du 3 avril 2026 (+ 1 % sur l'ensemble des coefficients), grille au 1er mai 2026 ;
+# mêmes règles et mêmes taux de prime d'ancienneté que 2025.2. Non étendu : il ne lie que les entreprises
+# adhérentes aux organisations signataires (pas de champ « extension »).
+validFrom: 2026-05-01
+sources:
+  - >-
+    Accord du 3 avril 2026 relatif à la revalorisation des salaires minima conventionnels et à la création de
+    certains avantages conventionnels supplémentaires au 1er mai 2026, IDCC 1408, Légifrance,
+    KALITEXT000054801796 (conteneur KALICONT000005635427) : article 3 (+ 1 % sur l'ensemble des coefficients
+    de la grille) ; article 6 (mise en œuvre à compter du 1er mai 2026 pour les entreprises adhérentes aux
+    organisations signataires, au plus tard à la date d'extension pour les autres) ; annexe « Salaires minima
+    conventionnels et primes d'ancienneté applicables au 1er mai 2026 » : 200 = 1 870,64 €, 210 = 1 876,95 €,
+    220 = 1 886,48 €, 230 = 1 901,24 €, 240 = 1 930,53 €, 250 = 2 009,25 €, 300 = 2 166,67 €,
+    310 = 2 481,53 €, 320 = 2 796,37 €, 400 = 2 875,09 €, 410 = 3 189,94 €, 420 = 3 819,64 €,
+    430 = 4 449,34 €, 440 = 5 236,48 €, 450 = 6 181,03 €, 460 = 7 597,85 € ; prime d'ancienneté publiée pour
+    les coefficients 200 à 320 seulement, à 3 % (3 ans), 6 %, 9 %, 10 %, 11 %, 12 %, 13 %, 14 % et 15 % (15 ans).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054801796
+  - >-
+    Non étendu au 18 octobre 2026 (Légifrance : « en vigueur non étendu »).
+  - >-
+    Non vérifié : le texte ne dit pas si le taux s'applique par année révolue entre deux paliers ; le modèle
+    retient le dernier palier atteint.
+---
+salarié . convention collective . distribution logistique énergies:
+  titre: Distribution, logistique et services de proximité (IDCC 1408)
+  valeur: convention collective = 'distribution logistique énergies'
+
+salarié . convention collective . distribution logistique énergies . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient de la grille des minima mensuels.
+  applicable si: convention collective = 'distribution logistique énergies'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . distribution logistique énergies . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . distribution logistique énergies . grille:
+  titre: Grille mensuelle 2026
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: €/mois
+  variations:
+    - si: coefficient = 200
+      alors: 1870.64 €/mois
+    - si: coefficient = 210
+      alors: 1876.95 €/mois
+    - si: coefficient = 220
+      alors: 1886.48 €/mois
+    - si: coefficient = 230
+      alors: 1901.24 €/mois
+    - si: coefficient = 240
+      alors: 1930.53 €/mois
+    - si: coefficient = 250
+      alors: 2009.25 €/mois
+    - si: coefficient = 300
+      alors: 2166.67 €/mois
+    - si: coefficient = 310
+      alors: 2481.53 €/mois
+    - si: coefficient = 320
+      alors: 2796.37 €/mois
+    - si: coefficient = 400
+      alors: 2875.09 €/mois
+    - si: coefficient = 410
+      alors: 3189.94 €/mois
+    - si: coefficient = 420
+      alors: 3819.64 €/mois
+    - si: coefficient = 430
+      alors: 4449.34 €/mois
+    - si: coefficient = 440
+      alors: 5236.48 €/mois
+    - si: coefficient = 450
+      alors: 6181.03 €/mois
+    - si: coefficient = 460
+      alors: 7597.85 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . distribution logistique énergies . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille des minima 2026.
+  applicable si: convention collective = 'distribution logistique énergies'
+  valeur: grille = 0 €/mois
+
+salarié . convention collective . distribution logistique énergies . ancienneté:
+  titre: Ancienneté conventionnelle
+  description: Ancienneté ouvrant droit à la prime d'ancienneté.
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: années
+  par défaut: 0 années
+
+salarié . convention collective . distribution logistique énergies . prime d'ancienneté:
+  titre: Prime mensuelle d'ancienneté
+  description: Prime calculée sur le salaire minimum conventionnel après proratisation.
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: €/mois
+  valeur: salaire minimum conventionnel * taux prime d'ancienneté
+
+salarié . convention collective . distribution logistique énergies . coefficient ouvrant droit à la prime:
+  titre: Coefficient ouvrant droit à la prime d'ancienneté
+  description: L'annexe ne publie la prime d'ancienneté que pour les coefficients 200 à 320 ; les coefficients 400 à 460 n'y ouvrent pas droit.
+  applicable si: convention collective = 'distribution logistique énergies'
+  une de ces conditions:
+    - coefficient = 200
+    - coefficient = 210
+    - coefficient = 220
+    - coefficient = 230
+    - coefficient = 240
+    - coefficient = 250
+    - coefficient = 300
+    - coefficient = 310
+    - coefficient = 320
+
+salarié . convention collective . distribution logistique énergies . taux prime d'ancienneté:
+  titre: Taux de prime d'ancienneté
+  applicable si: convention collective = 'distribution logistique énergies'
+  unité: '%'
+  variations:
+    - si: coefficient ouvrant droit à la prime = non
+      alors: 0%
+    - si: ancienneté >= 15 années
+      alors: 15%
+    - si: ancienneté >= 14 années
+      alors: 14%
+    - si: ancienneté >= 13 années
+      alors: 13%
+    - si: ancienneté >= 12 années
+      alors: 12%
+    - si: ancienneté >= 11 années
+      alors: 11%
+    - si: ancienneté >= 10 années
+      alors: 10%
+    - si: ancienneté >= 9 années
+      alors: 9%
+    - si: ancienneté >= 6 années
+      alors: 6%
+    - si: ancienneté >= 3 années
+      alors: 3%
+    - sinon: 0%

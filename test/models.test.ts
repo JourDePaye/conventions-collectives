@@ -133,7 +133,7 @@ const models = [
   { name: "1480-journalistes", value: "journalistes", classification: "groupe", input: "'4'", minimums: { "2025.1": 2506.54 } },
   { name: "0275-transport-aerien-personnel-sol", value: "transport aérien personnel au sol", classification: "coefficient", input: 245, minimums: { "2025.2": 2086, "2025.3": 2096, "2025.4": 2105 } },
   { name: "2931-activites-marches-financiers", value: "activités de marchés financiers", classification: "catégorie", input: "'III.B'", minimums: { "2026.1": 3575 } },
-  { name: "1408-distribution-logistique-energies", value: "distribution logistique énergies", classification: "coefficient", input: 320, minimums: { "2025.1": 2768.68, "2025.2": 2768.68 } },
+  { name: "1408-distribution-logistique-energies", value: "distribution logistique énergies", classification: "coefficient", input: 320, minimums: { "2025.1": 2768.68, "2025.2": 2768.68, "2025.3": 2768.68, "2026.1": 2796.37 } },
   { name: "2494-cooperation-maritime", value: "coopération maritime", classification: "niveau et échelon", input: "'3.2'", minimums: { "2026.1": 26273, "2026.2": 26273 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "0915-societes-expertises-evaluations", value: "sociétés d'expertises et d'évaluations", classification: "niveau", input: "'N 5'", minimums: { "2026.1": 27039 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "0500-commerces-gros-habillement", value: "commerces de gros habillement", classification: "classification", input: "'employés IV B'", minimums: { "2024.1": 1900 } },
