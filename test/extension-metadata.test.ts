@@ -48,7 +48,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   "3221-agences-presse": { "2026.2": "2026-09-04" },
   // accords du 2 et du 30 juin 2023, arrêté du 22 septembre 2025, JORFTEXT000052353580 (JORF du
   // 4 octobre 2025); articles 8 and 9: first day of the following month
-  "3242-presse-regions": { "2023.3": "2025-11-01", "2023.4": "2025-11-01" },
+  "3242-presse-regions": { "2023.3": "2025-11-01", "2023.4": "2025-11-01", "2023.5": "2025-11-01" },
 };
 
 // Agreements whose latest accord is in force but not extended (as of October 2026).

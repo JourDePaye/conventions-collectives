@@ -1,0 +1,345 @@
+# Convention collective nationale de la presse quotidienne et hebdomadaire en régions du
+# 9 août 2021 (IDCC 3242).
+#
+# Version 2024.3, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Remplace 2024.2 (même validFrom) : la majoration d'ancienneté des employés de la presse
+# hebdomadaire régionale devient une prime d'ancienneté versée en plus du salaire de base, et non
+# plus une majoration du minimum ; ajoute celles de la presse quotidienne départementale.
+
+# Date d'application de l'avenant n° 1 du 15 novembre 2024 (nouvelle classification et nouveau
+# barème des employés de la presse hebdomadaire régionale). L'avenant n'est pas étendu : il ne
+# lie que les adhérents de l'organisation signataire, sans date d'extension.
+validFrom: 2024-12-01
+sources:
+  - >-
+    Avenant n° 1 du 15 novembre 2024 relatif à la révision de l'article 1.1 « Classification et
+    salaires minima » de l'annexe 1 « Dispositions applicables à la presse hebdomadaire
+    régionale », BOCC 2025-5, non étendu, KALITEXT000051352524 : 6 groupes d'emplois, salaire
+    mensuel minimum de 1 900 € (G1) à 2 250 € (G6), majoré d'une prime d'ancienneté de 5 % après
+    5 ans et de 10 % après 10 ans de présence dans l'entreprise (article 2), entrée en vigueur le
+    1er décembre 2024 (article 8). Le SMPG est supprimé à cette date.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051352524
+  - >-
+    Accord du 30 juin 2023 relatif aux salaires minima, BOCC 2023-43, KALITEXT000048558839 :
+    s'applique exclusivement aux entreprises de presse quotidienne régionale (article 1er) ;
+    minima mensuels des ouvriers, des 6 échelons des employés et des 8 sous-groupes des cadres
+    (annexe) au 1er juillet 2023 pour les adhérents de l'organisation signataire, au premier jour
+    du mois suivant la publication de l'arrêté d'extension pour les autres (article 8).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000048558839
+  - >-
+    Accord du 2 juin 2023 relatif aux salaires minima, BOCC 2023-29, KALITEXT000048052775 :
+    s'applique exclusivement aux entreprises de presse hebdomadaire régionale (article 1er) ;
+    minima mensuels des employés par coefficient (400 à 520, base 35 heures hebdomadaires) et
+    des cadres (coefficients 158 à 210), au 1er juin 2023 pour les adhérents, au premier jour du
+    mois suivant la publication de l'arrêté d'extension pour les autres (article 9). Note [1] de
+    la grille des employés : le salaire des coefficients 400 à 428 ne peut être inférieur au
+    SMPG de 1 834,60 €. https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000048052775
+  - >-
+    Arrêté du 22 septembre 2025 portant extension des deux accords, NOR TSST2523047A, JORF du
+    4 octobre 2025, JORFTEXT000052353580 : les accords lient les autres employeurs à compter du
+    1er novembre 2025.
+  - >-
+    Annexe 3 « Dispositions applicables à la presse quotidienne départementale » de la convention
+    du 9 août 2021 (KALISCTA000044340086), en vigueur le 1er janvier 2022, étendue par le même
+    arrêté du 22 septembre 2025 (sous réserve du SMIC) : salaire minimum garanti des ouvriers
+    (1 462,33 € de jour, 1 681,72 € de nuit, article 1.1), barème des employés par coefficient
+    (article 2.1), barèmes des cadres administratifs subalternes et supérieurs et des groupes
+    d'emplois I à IV (article 3.1, « application : 1er novembre 2017 »).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000044340086
+  - >-
+    Primes d'ancienneté de la presse quotidienne départementale, annexe 3 de la convention :
+    employés, 3 % après 3 ans de présence à 18 % après 18 ans, « calculée sur le salaire minimum
+    de leur catégorie » (article 2.2) ; cadres administratifs, de 3 % à 20 % après 20 ans, sur
+    « le salaire de leur catégorie définie au barème » (article 3.2.1).
+  - >-
+    Convention collective nationale de la presse quotidienne et hebdomadaire en régions du
+    9 août 2021, IDCC 3242, texte officiel KALITEXT000044339983 : les salaires minima sont
+    fixés par forme de presse (article 5.6).
+---
+salarié . convention collective . presse en régions:
+  titre: Presse quotidienne et hebdomadaire en régions (IDCC 3242)
+  valeur: convention collective = 'presse en régions'
+
+salarié . convention collective . presse en régions . forme de presse:
+  titre: Forme de presse
+  description: |
+    Les salaires minima sont fixés par forme de presse : « quotidienne régionale » (PQR),
+    « hebdomadaire régionale » (PHR) ou « quotidienne départementale » (PQD).
+  applicable si: convention collective = 'presse en régions'
+  par défaut: "'quotidienne régionale'"
+
+salarié . convention collective . presse en régions . niveau:
+  titre: Catégorie, échelon, groupe ou coefficient
+  description: |
+    Presse quotidienne régionale : O pour les ouvriers, E1 à E6 pour les échelons des employés,
+    C1.1, C1.2, C2.1, C2.2, C3.1, C3.2, C4.1 et C4.2 pour les sous-groupes des cadres.
+    Presse quotidienne départementale : O ou O nuit pour les ouvriers, coefficient des employés
+    (100 à 160), cadre subalterne A à C, cadre supérieur A ou B, C1.1 à C4.2 pour les groupes I à
+    IV. Presse hebdomadaire régionale : groupe des employés G1 à G6, ou coefficient des cadres (158, 170, 190, 210).
+  applicable si: convention collective = 'presse en régions'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . presse en régions . ancienneté dans l'entreprise:
+  titre: Ancienneté dans l'entreprise
+  description: |
+    Temps de présence dans l'entreprise, qui fixe le taux de la prime d'ancienneté.
+  applicable si: convention collective = 'presse en régions'
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . presse en régions . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Minimum mensuel de la classification dans la grille de la forme de presse, proratisé pour
+    un temps partiel. Vaut 0 €/mois si la classification n'existe pas dans cette grille (voir
+    « niveau hors grille »).
+  applicable si: convention collective = 'presse en régions'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . presse en régions . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  unité: €/mois
+  variations:
+    - si: forme de presse = 'hebdomadaire régionale'
+      alors: hebdomadaire régionale
+    - si: forme de presse = 'quotidienne départementale'
+      alors: quotidienne départementale
+    - sinon: quotidienne régionale
+
+salarié . convention collective . presse en régions . salaire minimum conventionnel . grille . quotidienne régionale:
+  titre: Grille de la presse quotidienne régionale
+  description: |
+    Grille de l'accord du 30 juin 2023, de 1 782,18 € (ouvriers et employés des échelons 1 et 2)
+    à 3 640,40 € (cadres, groupe IV, coefficient 195).
+  unité: €/mois
+  variations:
+    - si: niveau = 'O'
+      alors: 1782.18 €/mois
+    - si: niveau = 'E1'
+      alors: 1782.18 €/mois
+    - si: niveau = 'E2'
+      alors: 1782.18 €/mois
+    - si: niveau = 'E3'
+      alors: 1796.48 €/mois
+    - si: niveau = 'E4'
+      alors: 1821.60 €/mois
+    - si: niveau = 'E5'
+      alors: 1878.55 €/mois
+    - si: niveau = 'E6'
+      alors: 2003.20 €/mois
+    - si: niveau = 'C1.1'
+      alors: 1866.87 €/mois
+    - si: niveau = 'C1.2'
+      alors: 2053.56 €/mois
+    - si: niveau = 'C2.1'
+      alors: 2240.24 €/mois
+    - si: niveau = 'C2.2'
+      alors: 2520.28 €/mois
+    - si: niveau = 'C3.1'
+      alors: 2800.30 €/mois
+    - si: niveau = 'C3.2'
+      alors: 3080.33 €/mois
+    - si: niveau = 'C4.1'
+      alors: 3360.36 €/mois
+    - si: niveau = 'C4.2'
+      alors: 3640.40 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . presse en régions . salaire minimum conventionnel . grille . hebdomadaire régionale:
+  titre: Grille de la presse hebdomadaire régionale
+  description: |
+    Employés : groupes G1 à G6 de l'avenant n° 1 du 15 novembre 2024, de 1 900 € à 2 250 € (la
+    prime d'ancienneté s'y ajoute). Cadres : grille de l'accord du 2 juin 2023, de 2 148,64 €
+    (coefficient 158) à 2 855,79 € (coefficient 210).
+  unité: €/mois
+  variations:
+    - si: niveau = 'G1'
+      alors: 1900 €/mois
+    - si: niveau = 'G2'
+      alors: 1940 €/mois
+    - si: niveau = 'G3'
+      alors: 1980 €/mois
+    - si: niveau = 'G4'
+      alors: 2020 €/mois
+    - si: niveau = 'G5'
+      alors: 2100 €/mois
+    - si: niveau = 'G6'
+      alors: 2250 €/mois
+    - si: niveau = '158'
+      alors: 2148.64 €/mois
+    - si: niveau = '170'
+      alors: 2311.83 €/mois
+    - si: niveau = '190'
+      alors: 2583.81 €/mois
+    - si: niveau = '210'
+      alors: 2855.79 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . presse en régions . salaire minimum conventionnel . grille . quotidienne départementale:
+  titre: Grille de la presse quotidienne départementale
+  description: |
+    Annexe 3 de la convention : ouvriers (salaire minimum garanti de jour ou de nuit), employés
+    par coefficient (100 à 160), cadres administratifs subalternes (A, B, C) et supérieurs (A, B),
+    cadres des groupes I à IV (sous-groupes I 1 à IV 2, coefficients 100 à 195).
+  unité: €/mois
+  variations:
+    - si: niveau = 'O'
+      alors: 1462.33 €/mois
+    - si: niveau = 'O nuit'
+      alors: 1681.72 €/mois
+    - si: niveau = '100'
+      alors: 1036.01 €/mois
+    - si: niveau = '108'
+      alors: 1118.86 €/mois
+    - si: niveau = '112'
+      alors: 1161.46 €/mois
+    - si: niveau = '116'
+      alors: 1201.76 €/mois
+    - si: niveau = '120'
+      alors: 1243.18 €/mois
+    - si: niveau = '124'
+      alors: 1284.64 €/mois
+    - si: niveau = '130'
+      alors: 1346.80 €/mois
+    - si: niveau = '140'
+      alors: 1450.38 €/mois
+    - si: niveau = '150'
+      alors: 1553.99 €/mois
+    - si: niveau = '160'
+      alors: 1657.54 €/mois
+    - si: niveau = 'cadre subalterne A'
+      alors: 1333.15 €/mois
+    - si: niveau = 'cadre subalterne B'
+      alors: 1585.83 €/mois
+    - si: niveau = 'cadre subalterne C'
+      alors: 1839.76 €/mois
+    - si: niveau = 'cadre supérieur A'
+      alors: 2373.02 €/mois
+    - si: niveau = 'cadre supérieur B'
+      alors: 2852.98 €/mois
+    - si: niveau = 'C1.1'
+      alors: 1839.28 €/mois
+    - si: niveau = 'C1.2'
+      alors: 2023.21 €/mois
+    - si: niveau = 'C2.1'
+      alors: 2207.13 €/mois
+    - si: niveau = 'C2.2'
+      alors: 2483.03 €/mois
+    - si: niveau = 'C3.1'
+      alors: 2758.92 €/mois
+    - si: niveau = 'C3.2'
+      alors: 3034.81 €/mois
+    - si: niveau = 'C4.1'
+      alors: 3310.70 €/mois
+    - si: niveau = 'C4.2'
+      alors: 3586.60 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . presse en régions . prime d'ancienneté:
+  titre: Prime d'ancienneté
+  description: |
+    Prime mensuelle d'ancienneté, en pourcentage du salaire minimum de la classification
+    (proratisé selon la quotité de travail), versée en plus du salaire de base.
+  applicable si: convention collective = 'presse en régions'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: salaire minimum conventionnel * taux de prime d'ancienneté
+
+salarié . convention collective . presse en régions . taux de prime d'ancienneté:
+  titre: Taux de la prime d'ancienneté
+  description: |
+    Selon le temps de présence dans l'entreprise. Presse quotidienne départementale : employés de
+    3 % (3 ans) à 18 % (18 ans), cadres administratifs de 3 % à 20 % (20 ans). Presse hebdomadaire régionale : employés des groupes G1 à G6, 5 % (5 ans) et 10 % (10 ans).
+  applicable si: convention collective = 'presse en régions'
+  unité: '%'
+  variations:
+    - si:
+        toutes ces conditions:
+          - forme de presse = 'quotidienne départementale'
+          - une de ces conditions:
+              - niveau = '100'
+              - niveau = '108'
+              - niveau = '112'
+              - niveau = '116'
+              - niveau = '120'
+              - niveau = '124'
+              - niveau = '130'
+              - niveau = '140'
+              - niveau = '150'
+              - niveau = '160'
+      alors:
+        variations:
+          - si: ancienneté dans l'entreprise >= 18 an
+            alors: 18%
+          - si: ancienneté dans l'entreprise >= 15 an
+            alors: 15%
+          - si: ancienneté dans l'entreprise >= 12 an
+            alors: 12%
+          - si: ancienneté dans l'entreprise >= 9 an
+            alors: 9%
+          - si: ancienneté dans l'entreprise >= 6 an
+            alors: 6%
+          - si: ancienneté dans l'entreprise >= 3 an
+            alors: 3%
+          - sinon: 0%
+    - si:
+        toutes ces conditions:
+          - forme de presse = 'quotidienne départementale'
+          - une de ces conditions:
+              - niveau = 'cadre subalterne A'
+              - niveau = 'cadre subalterne B'
+              - niveau = 'cadre subalterne C'
+              - niveau = 'cadre supérieur A'
+              - niveau = 'cadre supérieur B'
+      alors:
+        variations:
+          - si: ancienneté dans l'entreprise >= 20 an
+            alors: 20%
+          - si: ancienneté dans l'entreprise >= 18 an
+            alors: 18%
+          - si: ancienneté dans l'entreprise >= 15 an
+            alors: 15%
+          - si: ancienneté dans l'entreprise >= 12 an
+            alors: 12%
+          - si: ancienneté dans l'entreprise >= 9 an
+            alors: 9%
+          - si: ancienneté dans l'entreprise >= 6 an
+            alors: 6%
+          - si: ancienneté dans l'entreprise >= 3 an
+            alors: 3%
+          - sinon: 0%
+    - si:
+        toutes ces conditions:
+          - forme de presse = 'hebdomadaire régionale'
+          - une de ces conditions:
+              - niveau = 'G1'
+              - niveau = 'G2'
+              - niveau = 'G3'
+              - niveau = 'G4'
+              - niveau = 'G5'
+              - niveau = 'G6'
+      alors:
+        variations:
+          - si: ancienneté dans l'entreprise >= 10 an
+            alors: 10%
+          - si: ancienneté dans l'entreprise >= 5 an
+            alors: 5%
+          - sinon: 0%
+    - sinon: 0%
+
+salarié . convention collective . presse en régions . niveau hors grille:
+  titre: Classification absente de la grille
+  description: La classification n'existe pas dans la grille de la forme de presse.
+  applicable si: convention collective = 'presse en régions'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour une classification inconnue.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois

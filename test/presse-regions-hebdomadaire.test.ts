@@ -198,3 +198,68 @@ for (const [versionName, previous] of [["2023.4", "2023.3"], ["2024.2", "2024.1"
     });
   });
 }
+
+/** The seniority bonus of the version, in euros a month. */
+function bonus(engine: Engine, level: string, form: string, seniority: number, quota?: string) {
+  evaluate(engine, level, { form, seniority, ...(quota === undefined ? {} : { quota }) });
+  const amount = engine.evaluate(`${namespace} . prime d'ancienneté`).nodeValue;
+  assert.equal(typeof amount, "number");
+  return amount as number;
+}
+
+for (const versionName of ["2023.5", "2024.3"] as const) {
+  describe(`IDCC 3242 — ${versionName}, seniority bonus of the departmental daily press`, async () => {
+    const { engine } = await engineOf(versionName);
+
+    it("pays the employees 3 % of their minimum after 3 years, up to 18 % after 18 years", () => {
+      // Coefficient 160: 1 657,54 €.
+      for (const [seniority, rate] of [[2, 0], [3, 3], [8, 6], [9, 9], [12, 12], [15, 15], [18, 18], [30, 18]] as const) {
+        assert.equal(bonus(engine, "160", DEPARTMENTAL_FORM, seniority), Math.round(1657.54 * rate) / 100, `${seniority} years`);
+      }
+    });
+
+    it("pays the administrative executives up to 20 % after 20 years", () => {
+      // Cadre supérieur B: 2 852,98 €.
+      assert.equal(bonus(engine, "cadre supérieur B", DEPARTMENTAL_FORM, 19), Math.round(2852.98 * 18) / 100);
+      assert.equal(bonus(engine, "cadre supérieur B", DEPARTMENTAL_FORM, 20), Math.round(2852.98 * 20) / 100);
+    });
+
+    it("pays no bonus to the workers, the groups I to IV and the daily press", () => {
+      for (const [level, form] of [["O", DEPARTMENTAL_FORM], ["C4.2", DEPARTMENTAL_FORM], ["E6", "quotidienne régionale"], ["C4.2", "quotidienne régionale"]]) {
+        assert.equal(bonus(engine, level!, form!, 25), 0, level);
+      }
+    });
+
+    it("prorates the bonus with the minimum for part-time work", () => {
+      assert.equal(bonus(engine, "160", DEPARTMENTAL_FORM, 18, "50%"), Math.round(828.77 * 18) / 100);
+    });
+  });
+}
+
+describe("IDCC 3242 — 2024.3, seniority bonus of the weekly press employees", async () => {
+  const { engine } = await engineOf("2024.3");
+
+  it("no longer increases the minimum with the seniority", () => {
+    for (const [group, monthly] of Object.entries(WEEKLY_EMPLOYEES_2024)) {
+      assert.deepEqual(evaluate(engine, group, { form: WEEKLY, seniority: 12 }), { amount: monthly, outOfGrid: false }, group);
+    }
+  });
+
+  it("pays 5 % of the group's minimum after 5 years and 10 % after 10 years", () => {
+    for (const [group, monthly] of Object.entries(WEEKLY_EMPLOYEES_2024)) {
+      assert.equal(bonus(engine, group, WEEKLY, 4), 0, group);
+      assert.equal(bonus(engine, group, WEEKLY, 5), Math.round(monthly * 5) / 100, group);
+      assert.equal(bonus(engine, group, WEEKLY, 10), Math.round(monthly * 10) / 100, group);
+    }
+    for (const level of Object.keys(WEEKLY_EXECUTIVES)) assert.equal(bonus(engine, level, WEEKLY, 12), 0, level);
+  });
+});
+
+describe("IDCC 3242 — 2023.5, no bonus for the weekly press employees of 2023", async () => {
+  const { engine } = await engineOf("2023.5");
+  it("pays no bonus on the coefficients of the accord of 2 June 2023", () => {
+    for (const level of [...Object.keys(WEEKLY_EMPLOYEES_2023), ...Object.keys(WEEKLY_EXECUTIVES)]) {
+      assert.equal(bonus(engine, level, WEEKLY, 12), 0, level);
+    }
+  });
+});

@@ -29,7 +29,7 @@ const models = [
   { name: "1266-restauration-collective", value: "restauration collective", classification: "niveau", input: "'III'", minimums: { "2025.1": 1835.17 } },
   { name: "1261-acteurs-lien-social-familial", value: "acteurs du lien social et familial", classification: "points de pesée", input: 100, minimums: { "2026.1": 2375 } },
   { name: "1351-prevention-securite", value: "prévention et sécurité", classification: "coefficient", input: 120, minimums: { "2026.1": 1883.85, "2026.3": 1883.85, "2026.4": 1883.85 } },
-  { name: "3242-presse-regions", value: "presse en régions", classification: "niveau", input: "'E5'", minimums: { "2023.2": 1878.55, "2023.3": 1878.55, "2023.4": 1878.55, "2024.1": 1878.55, "2024.2": 1878.55 } },
+  { name: "3242-presse-regions", value: "presse en régions", classification: "niveau", input: "'E5'", minimums: { "2023.2": 1878.55, "2023.3": 1878.55, "2023.4": 1878.55, "2023.5": 1878.55, "2024.1": 1878.55, "2024.2": 1878.55, "2024.3": 1878.55 } },
   { name: "3243-quincaillerie", value: "quincaillerie fournitures industrielles fers métaux équipement maison", classification: "niveau et échelon", input: "'VI.3'", minimums: { "2026.1": 2351, "2026.2": 2351 } },
   { name: "3245-operateurs-voyages-guides", value: "opérateurs voyages et guides", classification: "groupe", input: "'E'", minimums: { "2025.1": 2162.07 } },
   { name: "3228-groupement-armateurs-passages-eau", value: "groupement armateurs passages eau", classification: "fonction", input: "'matelots matelots légers'", minimums: { "2022.1": 1606.01, "2022.2": 1606.01, "2023.1": 1731.94, "2024.1": 1801.22, "2025.1": 1826.25, "2026.1": 1847.8 } },
