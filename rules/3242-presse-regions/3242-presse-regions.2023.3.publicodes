@@ -1,0 +1,168 @@
+# Convention collective nationale de la presse quotidienne et hebdomadaire en régions du
+# 9 août 2021 (IDCC 3242).
+#
+# Version 2023.3, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Remplace 2023.2 (même validFrom), qui n'avait que la grille de la presse quotidienne
+# régionale : ajoute celle de la presse hebdomadaire régionale (accord du 2 juin 2023, applicable
+# au 1er juin 2023, couvert ici à partir du 1er juillet 2023) et la date d'extension des deux
+# accords, qui lient les autres employeurs à compter du 1er novembre 2025.
+validFrom: 2023-07-01
+extension: 2025-11-01
+sources:
+  - >-
+    Accord du 30 juin 2023 relatif aux salaires minima, BOCC 2023-43, KALITEXT000048558839 :
+    s'applique exclusivement aux entreprises de presse quotidienne régionale (article 1er) ;
+    minima mensuels des ouvriers, des 6 échelons des employés et des 8 sous-groupes des cadres
+    (annexe) au 1er juillet 2023 pour les adhérents de l'organisation signataire, au premier jour
+    du mois suivant la publication de l'arrêté d'extension pour les autres (article 8).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000048558839
+  - >-
+    Accord du 2 juin 2023 relatif aux salaires minima, BOCC 2023-29, KALITEXT000048052775 :
+    s'applique exclusivement aux entreprises de presse hebdomadaire régionale (article 1er) ;
+    minima mensuels des employés par coefficient (400 à 520, base 35 heures hebdomadaires) et
+    des cadres (coefficients 158 à 210), au 1er juin 2023 pour les adhérents, au premier jour du
+    mois suivant la publication de l'arrêté d'extension pour les autres (article 9). Note [1] de
+    la grille des employés : le salaire des coefficients 400 à 428 ne peut être inférieur au
+    SMPG de 1 834,60 €. https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000048052775
+  - >-
+    Arrêté du 22 septembre 2025 portant extension des deux accords, NOR TSST2523047A, JORF du
+    4 octobre 2025, JORFTEXT000052353580 : les accords lient les autres employeurs à compter du
+    1er novembre 2025.
+  - >-
+    Convention collective nationale de la presse quotidienne et hebdomadaire en régions du
+    9 août 2021, IDCC 3242, texte officiel KALITEXT000044339983 : les salaires minima sont
+    fixés par forme de presse (article 5.6).
+---
+salarié . convention collective . presse en régions:
+  titre: Presse quotidienne et hebdomadaire en régions (IDCC 3242)
+  valeur: convention collective = 'presse en régions'
+
+salarié . convention collective . presse en régions . forme de presse:
+  titre: Forme de presse
+  description: |
+    Les salaires minima sont fixés par forme de presse : « quotidienne régionale » (PQR) ou
+    « hebdomadaire régionale » (PHR).
+  applicable si: convention collective = 'presse en régions'
+  par défaut: "'quotidienne régionale'"
+
+salarié . convention collective . presse en régions . niveau:
+  titre: Catégorie, échelon, groupe ou coefficient
+  description: |
+    Presse quotidienne régionale : O pour les ouvriers, E1 à E6 pour les échelons des employés,
+    C1.1, C1.2, C2.1, C2.2, C3.1, C3.2, C4.1 et C4.2 pour les sous-groupes des cadres.
+    Presse hebdomadaire régionale : coefficient des employés de 400 à 520 (400, 407, 414, 421, 428, 435, 447, 462, 480, 500, 520) ou des cadres (158, 170, 190, 210).
+  applicable si: convention collective = 'presse en régions'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . presse en régions . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Minimum mensuel de la classification dans la grille de la forme de presse, proratisé pour
+    un temps partiel. Vaut 0 €/mois si la classification n'existe pas dans cette grille (voir
+    « niveau hors grille »).
+  applicable si: convention collective = 'presse en régions'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . presse en régions . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  unité: €/mois
+  variations:
+    - si: forme de presse = 'hebdomadaire régionale'
+      alors: hebdomadaire régionale
+    - sinon: quotidienne régionale
+
+salarié . convention collective . presse en régions . salaire minimum conventionnel . grille . quotidienne régionale:
+  titre: Grille de la presse quotidienne régionale
+  description: |
+    Grille de l'accord du 30 juin 2023, de 1 782,18 € (ouvriers et employés des échelons 1 et 2)
+    à 3 640,40 € (cadres, groupe IV, coefficient 195).
+  unité: €/mois
+  variations:
+    - si: niveau = 'O'
+      alors: 1782.18 €/mois
+    - si: niveau = 'E1'
+      alors: 1782.18 €/mois
+    - si: niveau = 'E2'
+      alors: 1782.18 €/mois
+    - si: niveau = 'E3'
+      alors: 1796.48 €/mois
+    - si: niveau = 'E4'
+      alors: 1821.60 €/mois
+    - si: niveau = 'E5'
+      alors: 1878.55 €/mois
+    - si: niveau = 'E6'
+      alors: 2003.20 €/mois
+    - si: niveau = 'C1.1'
+      alors: 1866.87 €/mois
+    - si: niveau = 'C1.2'
+      alors: 2053.56 €/mois
+    - si: niveau = 'C2.1'
+      alors: 2240.24 €/mois
+    - si: niveau = 'C2.2'
+      alors: 2520.28 €/mois
+    - si: niveau = 'C3.1'
+      alors: 2800.30 €/mois
+    - si: niveau = 'C3.2'
+      alors: 3080.33 €/mois
+    - si: niveau = 'C4.1'
+      alors: 3360.36 €/mois
+    - si: niveau = 'C4.2'
+      alors: 3640.40 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . presse en régions . salaire minimum conventionnel . grille . hebdomadaire régionale:
+  titre: Grille de la presse hebdomadaire régionale
+  description: |
+    Grille de l'accord du 2 juin 2023 : employés de 1 834,60 € (coefficients 400 à 428, SMPG)
+    à 2 155,40 € (coefficient 520), cadres de 2 148,64 € (coefficient 158) à 2 855,79 €
+    (coefficient 210).
+  unité: €/mois
+  variations:
+    - si: niveau = '400'
+      alors: 1834.60 €/mois
+    - si: niveau = '407'
+      alors: 1834.60 €/mois
+    - si: niveau = '414'
+      alors: 1834.60 €/mois
+    - si: niveau = '421'
+      alors: 1834.60 €/mois
+    - si: niveau = '428'
+      alors: 1834.60 €/mois
+    - si: niveau = '435'
+      alors: 1803.08 €/mois
+    - si: niveau = '447'
+      alors: 1852.82 €/mois
+    - si: niveau = '462'
+      alors: 1914.99 €/mois
+    - si: niveau = '480'
+      alors: 1989.60 €/mois
+    - si: niveau = '500'
+      alors: 2072.50 €/mois
+    - si: niveau = '520'
+      alors: 2155.40 €/mois
+    - si: niveau = '158'
+      alors: 2148.64 €/mois
+    - si: niveau = '170'
+      alors: 2311.83 €/mois
+    - si: niveau = '190'
+      alors: 2583.81 €/mois
+    - si: niveau = '210'
+      alors: 2855.79 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . presse en régions . niveau hors grille:
+  titre: Classification absente de la grille
+  description: La classification n'existe pas dans la grille de la forme de presse.
+  applicable si: convention collective = 'presse en régions'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour une classification inconnue.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois

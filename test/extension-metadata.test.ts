@@ -7,6 +7,12 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 // the note says otherwise). A version that is not listed has no extension order: it binds only
 // the employers of a signatory organisation.
 const EXTENSIONS: Record<string, Record<string, string>> = {
+  "0018-industries-textiles": {
+    // accord du 15 janvier 2026, JORFTEXT000053907664 (the accord of the artificial textiles
+    // sector, JORF du 19 mars 2026, is extended earlier)
+    "2026.2": "2026-04-17",
+    "2026.3": "2026-09-04", // accord du 17 juin 2026, JORFTEXT000054794573
+  },
   "0158-industries-bois": {
     "2025.1": "2025-05-02", // avenant n° 6, arrêté du 25 avril 2025, JORFTEXT000051540518
     "2026.2": "2026-07-11", // avenant n° 7, arrêté du 7 juillet 2026, JORFTEXT000054415943
@@ -40,6 +46,9 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   },
   "2728-sucreries": { "2026.2": "2026-06-27" },
   "3221-agences-presse": { "2026.2": "2026-09-04" },
+  // accords du 2 et du 30 juin 2023, arrêté du 22 septembre 2025, JORFTEXT000052353580 (JORF du
+  // 4 octobre 2025); articles 8 and 9: first day of the following month
+  "3242-presse-regions": { "2023.3": "2025-11-01" },
 };
 
 // Agreements whose latest accord is in force but not extended (as of October 2026).

@@ -1,0 +1,182 @@
+# Convention collective nationale de l'industrie textile du 1er février 1951 (IDCC 18,
+# brochure 3106).
+#
+# Version 2026.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'application des deux accords de janvier 2026 : le barème de l'industrie textile et
+# celui du secteur des textiles artificiels et synthétiques. Extension : publication de
+# l'arrêté qui étend l'accord du 15 janvier 2026 (JORF du 17 avril 2026), la plus tardive des
+# deux (l'accord du secteur artificiel est étendu depuis le JORF du 19 mars 2026).
+validFrom: 2026-01-01
+extension: 2026-04-17
+sources:
+  - >-
+    Accord du 15 janvier 2026 relatif aux salaires minima mensuels au 1er janvier 2026,
+    BO 2026-8 : barème des 21 positions des niveaux 1 à 6 et des positions I à IV, base de
+    152,25 heures pour 35 heures par semaine (article 1er), en vigueur le 1er janvier 2026
+    (article 6). Étendu par arrêté du 2 avril 2026 (JORF du 17 avril 2026,
+    JORFTEXT000053907664). https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054161832
+  - >-
+    Accord du 12 janvier 2026 relatif aux salaires minima (secteur des textiles artificiels et
+    synthétiques et produits assimilés), applicable au 1er janvier 2026, BO 2026-7 : barème
+    mensuel des 21 coefficients de 210 à 800, base de 152,19 heures pour 35 heures par semaine
+    (article 1er). Les classifications de la convention du 6 juin 1996 sont maintenues jusqu'au
+    31 décembre 2026. Étendu par arrêté du 17 mars 2026 (JORF du 19 mars 2026,
+    JORFTEXT000053701332). https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053973002
+---
+salarié . convention collective . industries textiles:
+  titre: Industries textiles (IDCC 18)
+  valeur: convention collective = 'industries textiles'
+
+salarié . convention collective . industries textiles . secteur:
+  titre: Secteur de la grille
+  description: |
+    « industrie textile » (barème de la convention du 1er février 1951) ou « textiles
+    artificiels et synthétiques » (entreprises qui relevaient de la convention du 6 juin 1996,
+    dont les classifications sont maintenues jusqu'au 31 décembre 2026).
+  applicable si: convention collective = 'industries textiles'
+  par défaut: "'industrie textile'"
+
+salarié . convention collective . industries textiles . niveau:
+  titre: Niveau et échelon, ou coefficient
+  description: |
+    Industrie textile : niveau 1 (1), niveaux 2 à 6 avec leur échelon de 1 à 3 (2.1 à 6.3),
+    position I avec son échelon de 1 ou 2 (I.1, I.2), positions II, III et IV (II, III, IV).
+    Textiles artificiels et synthétiques : coefficient de 210 à 800 (210, 225… 450, 500, 600,
+    700, 800).
+  applicable si: convention collective = 'industries textiles'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . industries textiles . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum du niveau ou du coefficient pour 35 heures par semaine, proratisé
+    pour un temps partiel. Vaut 0 €/mois si la classification n'existe pas dans la grille du
+    secteur (voir « niveau hors grille »).
+  applicable si: convention collective = 'industries textiles'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . industries textiles . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  unité: €/mois
+  variations:
+    - si: secteur = 'textiles artificiels et synthétiques'
+      alors: textiles artificiels
+    - sinon: industrie textile
+
+salarié . convention collective . industries textiles . salaire minimum conventionnel . grille . industrie textile:
+  titre: Grille de l'industrie textile
+  description: |
+    Barème de l'accord du 15 janvier 2026, de 1 853 € (niveau 1) à 4 911 € (position IV).
+  unité: €/mois
+  variations:
+    - si: niveau = '1'
+      alors: 1853 €/mois
+    - si: niveau = '2.1'
+      alors: 1856 €/mois
+    - si: niveau = '2.2'
+      alors: 1861 €/mois
+    - si: niveau = '2.3'
+      alors: 1869 €/mois
+    - si: niveau = '3.1'
+      alors: 1870 €/mois
+    - si: niveau = '3.2'
+      alors: 1874 €/mois
+    - si: niveau = '3.3'
+      alors: 1885 €/mois
+    - si: niveau = '4.1'
+      alors: 1887 €/mois
+    - si: niveau = '4.2'
+      alors: 1949 €/mois
+    - si: niveau = '4.3'
+      alors: 2031 €/mois
+    - si: niveau = '5.1'
+      alors: 2038 €/mois
+    - si: niveau = '5.2'
+      alors: 2092 €/mois
+    - si: niveau = '5.3'
+      alors: 2239 €/mois
+    - si: niveau = '6.1'
+      alors: 2250 €/mois
+    - si: niveau = '6.2'
+      alors: 2363 €/mois
+    - si: niveau = '6.3'
+      alors: 2553 €/mois
+    - si: niveau = 'I.1'
+      alors: 2558 €/mois
+    - si: niveau = 'I.2'
+      alors: 2854 €/mois
+    - si: niveau = 'II'
+      alors: 3444 €/mois
+    - si: niveau = 'III'
+      alors: 4179 €/mois
+    - si: niveau = 'IV'
+      alors: 4911 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industries textiles . salaire minimum conventionnel . grille . textiles artificiels:
+  titre: Grille des textiles artificiels et synthétiques
+  description: |
+    Barème de l'accord du 12 janvier 2026, de 1 857 € (coefficient 210) à 6 780 €
+    (coefficient 800).
+  unité: €/mois
+  variations:
+    - si: niveau = '210'
+      alors: 1857 €/mois
+    - si: niveau = '225'
+      alors: 1863 €/mois
+    - si: niveau = '240'
+      alors: 1868 €/mois
+    - si: niveau = '255'
+      alors: 1878 €/mois
+    - si: niveau = '270'
+      alors: 1888 €/mois
+    - si: niveau = '285'
+      alors: 1900 €/mois
+    - si: niveau = '300'
+      alors: 1912 €/mois
+    - si: niveau = '315'
+      alors: 1922 €/mois
+    - si: niveau = '330'
+      alors: 1932 €/mois
+    - si: niveau = '345'
+      alors: 2034 €/mois
+    - si: niveau = '360'
+      alors: 2170 €/mois
+    - si: niveau = '375'
+      alors: 2305 €/mois
+    - si: niveau = '390'
+      alors: 2437 €/mois
+    - si: niveau = '405'
+      alors: 2626 €/mois
+    - si: niveau = '420'
+      alors: 2765 €/mois
+    - si: niveau = '435'
+      alors: 2955 €/mois
+    - si: niveau = '450'
+      alors: 3145 €/mois
+    - si: niveau = '500'
+      alors: 3522 €/mois
+    - si: niveau = '600'
+      alors: 4390 €/mois
+    - si: niveau = '700'
+      alors: 5475 €/mois
+    - si: niveau = '800'
+      alors: 6780 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . industries textiles . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: La classification n'existe pas dans la grille du secteur.
+  applicable si: convention collective = 'industries textiles'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour une classification inconnue.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois

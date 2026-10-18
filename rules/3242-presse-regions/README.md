@@ -1,24 +1,39 @@
 # Presse quotidienne et hebdomadaire en régions — IDCC 3242
 
-Le fichier [2023.2](3242-presse-regions.2023.2.publicodes) entre en vigueur le 1er juillet 2023. Il est fondé sur l’accord du 30 juin 2023 relatif aux salaires minima (KALITEXT000048558839), étendu par arrêté du 22 septembre 2025 (NOR TSST2523047A, JORFTEXT000052353580, JORF du 4 octobre 2025), cités dans ses métadonnées. La valeur Publicodes est `presse en régions` ; les règles sont sous `salarié . convention collective . presse en régions`.
+La convention collective nationale de la presse quotidienne et hebdomadaire en régions du 9 août 2021 (KALITEXT000044339983) fixe les salaires minima par forme de presse (article 5.6). Le paquet modélise la presse quotidienne régionale (PQR) et la presse hebdomadaire régionale (PHR). La valeur Publicodes est `presse en régions` ; les règles sont sous `salarié . convention collective . presse en régions`.
 
-La convention collective nationale de la presse quotidienne et hebdomadaire en régions du 9 août 2021 fixe des salaires minima propres à chaque famille de presse (quotidienne régionale, quotidienne départementale, hebdomadaire régionale). Cette version ne reprend que la grille de l’accord du 30 juin 2023, qui concerne la presse quotidienne régionale d’après des pages de synthèse.
+## Versions
+
+| Version | Date d’effet | Extension | Contenu |
+|---|---|---|---|
+| [2023.1](3242-presse-regions.2023.1.publicodes), [2023.2](3242-presse-regions.2023.2.publicodes) | 1er juillet 2023 | — | Grille de la PQR seulement. Remplacées par 2023.3. |
+| [2023.3](3242-presse-regions.2023.3.publicodes) | 1er juillet 2023 | 1er novembre 2025 | PQR : accord du 30 juin 2023 (KALITEXT000048558839). PHR : accord du 2 juin 2023 (KALITEXT000048052775). |
+| [2024.1](3242-presse-regions.2024.1.publicodes) | 1er décembre 2024 | — (non étendu) | Employés de la PHR : avenant n° 1 du 15 novembre 2024 (KALITEXT000051352524). Le reste est inchangé. |
+
+Les deux accords de 2023 ont été étendus par arrêté du 22 septembre 2025 (JORF du 4 octobre 2025, JORFTEXT000052353580). Ils s’appliquent aux adhérents de l’organisation signataire (SPHR) à leur date d’effet, aux autres employeurs le premier jour du mois suivant la publication de l’arrêté, soit le 1er novembre 2025. L’avenant n° 1 n’est pas étendu : il ne lie que les adhérents.
 
 ## Règles implémentées
 
-- `niveau` reçoit `O` (ouvriers), `E1` à `E6` (échelons des employés) ou `C1.1`, `C1.2`, `C2.1`, `C2.2`, `C3.1`, `C3.2`, `C4.1`, `C4.2` (sous-groupes des cadres, groupes I à IV) (défaut : `non renseigné`).
-- `salaire minimum conventionnel . grille` donne le minimum mensuel des 15 positions : 1 782,18 € pour les ouvriers et les employés des échelons 1 et 2, de 1 796,48 € (échelon 3) à 2 003,20 € (échelon 6) pour les employés, de 1 866,87 € (groupe I, coefficient 100) à 3 640,40 € (groupe IV, coefficient 195) pour les cadres.
-- `salaire minimum conventionnel` multiplie la grille par `salarié . contrat . temps de travail . quotité` de `modele-social`. Le montant ne doit donc pas être proratisé une seconde fois. Par exemple, l’échelon 5 des employés vaut 1 878,55 €/mois à temps complet et 939,28 €/mois à mi-temps.
-- `niveau hors grille` signale une position absente des 15 positions. La grille retourne alors `0 €/mois` et l’application doit traiter l’anomalie.
+- `forme de presse` : `quotidienne régionale` (défaut) ou `hebdomadaire régionale`.
+- `niveau` reçoit :
+  - PQR : `O` (ouvriers), `E1` à `E6` (échelons des employés), `C1.1`, `C1.2`, `C2.1`, `C2.2`, `C3.1`, `C3.2`, `C4.1`, `C4.2` (sous-groupes des cadres) ;
+  - PHR, version 2023.3 : coefficient des employés (`400`, `407`, `414`, `421`, `428`, `435`, `447`, `462`, `480`, `500`, `520`) ou des cadres (`158`, `170`, `190`, `210`) ;
+  - PHR, version 2024.1 : groupe des employés `G1` à `G6`, ou coefficient des cadres.
+- `salaire minimum conventionnel . grille` donne le minimum mensuel de la classification dans la grille de la forme de presse :
+  - PQR : de 1 782,18 € (ouvriers, employés des échelons 1 et 2) à 3 640,40 € (cadres, coefficient 195) ;
+  - PHR, employés en 2023 : 1 834,60 € (SMPG) pour les coefficients 400 à 428, puis de 1 803,08 € (435) à 2 155,40 € (520) ;
+  - PHR, employés à partir du 1er décembre 2024 : de 1 900 € (G1) à 2 250 € (G6), majorés de 5 % après 5 ans et de 10 % après 10 ans de présence dans l’entreprise (`ancienneté dans l’entreprise`, en années) ;
+  - PHR, cadres : de 2 148,64 € (coefficient 158) à 2 855,79 € (coefficient 210).
+- `salaire minimum conventionnel` multiplie la grille par `salarié . contrat . temps de travail . quotité` de `modele-social`. Le montant ne doit donc pas être proratisé une seconde fois.
+- `niveau hors grille` signale une classification absente de la grille de la forme de presse. La grille retourne alors `0 €/mois` et l’application doit traiter l’anomalie.
 
-Les ouvriers et les employés des échelons 1 à 4 (de 1 782,18 € à 1 821,60 €) sont inférieurs au SMIC mensuel de 1 867,02 € en vigueur depuis juin 2026 : l’application doit retenir le plus élevé des deux montants.
+Plusieurs minima sont inférieurs au SMIC mensuel en vigueur depuis juin 2026 (1 867,02 €) : l’application doit retenir le plus élevé des deux montants.
 
 ## Limites
 
-- **Famille de presse.** Les pages de synthèse rattachent l’accord du 30 juin 2023 à la presse quotidienne régionale, mais un résumé de la page Légifrance cite l’organisation d’employeurs de la presse hebdomadaire régionale parmi les signataires. Cette famille n’a pas pu être confirmée sur le texte.
-- **Familles non couvertes.** Les barèmes de la presse hebdomadaire régionale (accord du 2 juin 2023, dont une page donne des minima d’employés de 1 900 € à 2 250 € sans autre source), de la presse quotidienne départementale et des journalistes ne sont pas repris. Un employeur de ces familles est contrôlé avec une grille qui n’est pas la sienne.
-- Les tableaux ont été lus sur Légifrance ; les montants des cadres vérifient un point de 18,6687 € par point de coefficient, à un centime près. La base horaire n’est pas précisée dans les pages consultées.
-- La date d’opposabilité de l’accord selon le statut de l’employeur n’est pas modélisée.
-- Aucun accord de salaires postérieur à celui du 30 juin 2023 n’a été trouvé pour cette famille, sans que son absence soit établie.
-- Les primes, la prévoyance et les autres éléments de la convention ne sont pas modélisés.
-- Les grilles antérieures au 1er juillet 2023 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
+- **SMPG de la PHR.** Dans la grille des employés de 2023, la note [1] est appelée sur les coefficients 400 à 435, mais son texte limite le SMPG de 1 834,60 € aux coefficients 400 à 428 : le coefficient 435 garde son montant de 1 803,08 €.
+- **Ancienneté.** L’avenant n° 1 compte la présence dans l’entreprise ; l’application peut y inclure une ancienneté reprise à l’embauche.
+- La PHR de juin 2023 (accord applicable au 1er juin) n’est couverte qu’à partir du 1er juillet 2023, date d’effet de la première version.
+- Les barèmes de la presse quotidienne départementale et des journalistes ne sont pas repris : un employeur de ces familles n’a pas de grille dans ce paquet.
+- Aucun accord de salaires postérieur à ceux de 2023 n’a été trouvé pour la PQR, ni pour les cadres de la PHR.
+- Les primes (hors majoration d’ancienneté des employés de la PHR), la prévoyance et les autres éléments de la convention ne sont pas modélisés. Les grilles antérieures au 1er juillet 2023 ne le sont pas non plus.
