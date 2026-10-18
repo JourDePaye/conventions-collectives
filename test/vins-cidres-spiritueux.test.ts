@@ -7,7 +7,7 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 const agreement = "0493-vins-cidres-spiritueux";
 const value = "vins cidres spiritueux";
 const namespace = `salarié . convention collective . ${value}`;
-const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+const version = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.2");
 assert.ok(version);
 const extension = await version.loadRules();
 const rules: Record<string, Rule> = { ...modeleSocial };
@@ -61,12 +61,14 @@ function outOfGrid() {
   return engine.evaluate(`${namespace} . position hors grille`).nodeValue;
 }
 
-describe("IDCC 493 — 2026.1 minimum salaries", () => {
-  it("is in force from 1 February 2026 and cites the accord and extension order", () => {
+describe("IDCC 493 — 2026.2 minimum salaries (avenant n° 31)", () => {
+  it("is in force from 1 February 2026, binds non-members from 1 June 2026 and cites the avenant n° 31", () => {
     assert.equal(version.validFrom, "2026-02-01");
-    assert.ok(version.sources.some((source) => source.includes("Accord du 10 décembre 2025")));
-    assert.ok(version.sources.some((source) => source.includes("Arrêté du 4 mai 2026")));
-    assert.ok(version.sources.some((source) => source.includes("TRST2605158A")));
+    assert.equal(version.extension, "2026-06-01");
+    assert.ok(version.sources.some((source) => source.includes("KALITEXT000054253980")));
+    assert.ok(version.sources.some((source) => source.includes("JORFTEXT000054048652")));
+    const first = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.1");
+    assert.equal(first?.validFrom, version.validFrom);
   });
 
   it("contains the 21 coefficients of the 2026 salary grid", () => {

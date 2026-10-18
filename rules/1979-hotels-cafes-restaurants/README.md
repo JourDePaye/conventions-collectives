@@ -10,3 +10,7 @@ Le fichier [2024.1](1979-hotels-cafes-restaurants.2024.1.publicodes) entre en vi
 - `niveau hors grille` repère une classification absente de la grille. Le taux est alors `0 €/heure` ; l’application doit traiter cette anomalie.
 
 Le fichier ajoute les minima à HCR ; les autres règles HCR déjà définies dans `modele-social` restent distinctes. Il ne calcule pas les repas, heures supplémentaires ou autres éléments de rémunération à partir de cette grille. Les références juridiques détaillées figurent dans les métadonnées du fichier Publicodes.
+
+## Sources à vérifier
+
+Les métadonnées de la version `2024.1` mentionnent « un avenant n° 36 du 4 juin 2026 » qui revaloriserait la grille sans être étendu. Au 18 octobre 2026, Légifrance ne publie ni ce texte ni d'arrêté l'étendant : le dernier avenant de salaires publié est l'avenant n° 33 du 19 juin 2024, modélisé ici (l'avenant n° 35 du 27 février 2025 ne porte que sur le salaire des apprentis). Cette mention n'a donc pas pu être vérifiée.
