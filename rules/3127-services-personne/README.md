@@ -2,6 +2,10 @@
 
 Ce répertoire contient le modèle Publicodes de la convention collective nationale des entreprises de services à la personne du 20 septembre 2012 (IDCC 3127).
 
+## Version `2024.2`
+
+Remplace 2024.1 (même date d'effet) : `heures ouvrant droit à la prime d'ancienneté` vaut par défaut `salarié . temps de travail` (temps de travail du contrat et heures supplémentaires ou complémentaires du mois), au lieu de 0, et la prime est arrondie au centime (avenant du 29 mars 2022, KALITEXT000046100203).
+
 ## Version `2024.1`
 
 La version est applicable à compter du **20 juin 2024**, date de publication de l'arrêté d'extension du **14 juin 2024** relatif à l'avenant n° 11 du 22 janvier 2024. La grille ne s'applique pas à Mayotte.

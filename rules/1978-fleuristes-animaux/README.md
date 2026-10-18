@@ -37,7 +37,7 @@ effective, avec proratisation selon la quotité de travail.
 - [Légifrance — accord du 10 mars 2026 relatif aux salaires minima](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054554019)
 - [Légifrance — article 1 et grille salariale](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054554022)
 - [Légifrance — arrêté d'extension du 17 juillet 2026](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054451384)
-- [Légifrance — article 9.2 et prime d'ancienneté](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043234395)
+- [Légifrance — article 9.2 et prime d'ancienneté](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043234490)
 
 ## Limites
 

@@ -44,7 +44,7 @@ const models = [
   { name: "2335-agences-generales-assurances", value: "agences générales assurances", classification: "classe", input: "'1'", minimums: { "2025.1": 22784, "2026.1": 23194, "2026.2": 23524 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "1760-jardineries-graineteries", value: "jardineries graineteries", classification: "classification", input: "'4.2'", minimums: { "2026.1": 1980 } },
   { name: "2264-hospitalisation-privee", value: "hospitalisation privée", classification: "coefficient", input: 300, minimums: { "2023.3": 2178 } },
-  { name: "2511-sport", value: "sport", classification: "groupe", input: "'3'", minimums: { "2026.1": 1997.87 } },
+  { name: "2511-sport", value: "sport", classification: "groupe", input: "'3'", minimums: { "2026.1": 1997.87, "2026.2": 1997.87 } },
   { name: "1512-promotion-immobiliere", value: "promotion immobilière", classification: "coefficient", input: 100, minimums: { "2026.1": 1885, "2026.3": 1885 } },
   { name: "2336-habitat-logement-accompagnes", value: "habitat logement accompagnés", classification: "coefficient", input: 500, minimums: { "2025.1": 1875.24, "2026.1": 1887.28 } },
   { name: "1922-radiodiffusion", value: "radiodiffusion", classification: "indice", input: 200, minimums: { "2025.1": 2632 }, situation: { "salarié . convention collective . radiodiffusion . indice": 200 } },
@@ -56,13 +56,13 @@ const models = [
   { name: "2596-coiffure", value: "coiffure", classification: "niveau", input: "'T2.1'", minimums: { "2026.1": 1869, "2026.2": 1869 } },
   { name: "2941-aide-soins-domicile", value: "aide et soins à domicile", classification: "niveau", input: "'TAM.1.1'", minimums: { "2026.1": 2157.98 } },
   { name: "3043-entreprises-proprete", value: "propreté", classification: "niveau", input: "'ASP-A'", minimums: { "2026.1": 1898.91 } },
-  { name: "3127-services-personne", value: "services à la personne", classification: "emploi-repère", input: "'jardinage'", minimums: { "2024.1": 1771.51 } },
+  { name: "3127-services-personne", value: "services à la personne", classification: "emploi-repère", input: "'jardinage'", minimums: { "2024.1": 1771.51, "2024.2": 1771.51 } },
   { name: "2098-prestataires-tertiaire", value: "prestataires tertiaires", classification: "coefficient", input: 120, minimums: { "2026.1": 1823.03, "2026.2": 1867.02 } },
   { name: "1388-industrie-petrole", value: "industrie pétrole", classification: "coefficient", input: 200, minimums: { "2026.1": 2213.92, "2026.2": 2213.92 } },
   { name: "1411-fabrication-ameublement", value: "fabrication ameublement", classification: "niveau", input: "'AP52'", minimums: { "2026.1": 2117 } },
   { name: "1404-maintenance-distribution-location", value: "maintenance distribution location", classification: "niveau", input: "'B40'", minimums: { "2026.1": 2509.2 } },
   { name: "1405-expedition-exportation-fruits-legumes", value: "expédition exportation fruits légumes", classification: "niveau", input: "'III'", minimums: { "2026.1": 1876.24 }, situation: { "salarié . convention collective . expédition exportation fruits légumes . secteur": "'fruits et légumes'" } },
-  { name: "1483-commerce-detail-habillement-textiles", value: "commerce de détail habillement", classification: "niveau", input: "'3'", minimums: { "2026.1": 1843 } },
+  { name: "1483-commerce-detail-habillement-textiles", value: "commerce de détail habillement", classification: "niveau", input: "'3'", minimums: { "2026.1": 1843, "2026.3": 1843 } },
   { name: "1517-commerce-detail-non-alimentaire", value: "commerce de détail non alimentaire", classification: "niveau", input: "'5'", minimums: { "2026.1": 1967 } },
   { name: "1619-cabinets-dentaires", value: "cabinets dentaires", classification: "niveau", input: "'assistant-dentaire'", minimums: { "2026.1": 2112.76 } },
   { name: "0993-prothesistes-dentaires", value: "prothésistes dentaires", classification: "niveau", input: "'PHQ1'", minimums: { "2026.1": 2293, "2026.2": 2293 } },
@@ -231,7 +231,7 @@ describe("compiled collective agreement models", () => {
             `${namespace} . exonération cotisation AT`,
           ]);
           // Only Sport 2026.1 may remove obsolete structural declarations.
-          const allowed = model.name === "2511-sport" && versionNumber === "2026.1" && sportStructuralOverrides.has(name);
+          const allowed = model.name === "2511-sport" && (versionNumber === "2026.1" || versionNumber === "2026.2") && sportStructuralOverrides.has(name);
           assert.ok(!(name in rules) || allowed, `Duplicate modele-social rule: ${name}`);
         }
         const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };

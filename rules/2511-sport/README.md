@@ -28,6 +28,7 @@ Préfixe : `salarié . convention collective . sport` ; choix de convention : `'
 - `groupe` : chaîne `'1'` à `'8'`. Une valeur absente/inconnue active `groupe hors grille` ; le consommateur doit refuser cette classification, et non considérer le résultat de zéro comme un minimum valide.
 - `périodes de 24 mois d'ancienneté` : nombre entier de périodes **complètes**, par défaut zéro.
 - `ancienneté groupe 1 au moins 3 ans` : booléen, par défaut `non`. Ne s'applique qu'au groupe 1 actuel.
+- Version `2026.2` (même date d'effet, remplace 2026.1) : ces deux entrées se déduisent de `ancienneté dans l'entreprise` (années complètes) ; les périodes se comptent depuis l'embauche, au plus depuis l'extension de la convention (arrêté du 21 novembre 2006, article 9.2.3.1), sans décompter les absences qui ne sont pas du travail effectif.
 - `salarié relevant du chapitre XII` : booléen, par défaut `non`. Saisir `oui` pour les sportifs/entraîneurs professionnels ; cela désactive les minima et la prime du chapitre IX ainsi que la prévoyance du chapitre X. Le régime propre au chapitre XII reste à implémenter.
 - Quotité et temps partiel : utiliser les entrées standard de `modele-social`, notamment `salarié . contrat . temps de travail . temps partiel` et `. heures par semaine`.
 

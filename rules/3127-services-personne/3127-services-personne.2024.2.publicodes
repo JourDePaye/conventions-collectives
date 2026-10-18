@@ -1,0 +1,210 @@
+# Version 2024.2 : remplace 2024.1 (même validFrom) ; les heures ouvrant droit à la prime
+# d'ancienneté valent par défaut le temps de travail du mois.
+# Convention collective nationale des entreprises de services à la personne du 20 septembre 2012
+# (IDCC 3127).
+validFrom: 2024-06-20
+sources:
+  - >-
+    Convention collective nationale des entreprises de services à la personne du 20 septembre 2012
+    (IDCC 3127).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000027084096
+  - >-
+    Avenant n° 11 du 22 janvier 2024 relatif aux salaires minima conventionnels bruts, article 2,
+    étendu par arrêté du 14 juin 2024 publié au JORF du 20 juin 2024. Applicable hors Mayotte.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000049731128
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000049747175
+  - >-
+    Accord relatif à la prime d'ancienneté et à l'indemnité kilométrique.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000046100203
+  - >-
+    Dispositions relatives au travail du dimanche et des jours fériés.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000027029040
+  - >-
+    Dispositions relatives au travail de nuit, à la présence de nuit et au repos compensateur.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000045430100
+  - >-
+    Avenant relatif à la garde d'enfants de plus de trois enfants.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000041879842
+  - >-
+    Avenant du 29 mars 2022 relatif à la prime d'ancienneté (KALITEXT000046100203), article 1er :
+    5 centimes par heure de travail effectif ou assimilée après 2 ans d'ancienneté dans
+    l'entreprise, 15 centimes après 5 ans, 25 centimes après 10 ans, sur une ligne spécifique du
+    bulletin. Version 2024.2 : remplace 2024.1 (même validFrom), dont les heures ouvrant droit à la
+    prime valaient 0 par défaut ; elles valent ici le temps de travail du mois.
+---
+salarié . convention collective . services à la personne:
+  titre: Entreprises de services à la personne (IDCC 3127)
+  valeur: convention collective = 'services à la personne'
+
+salarié . convention collective . services à la personne . emploi-repère:
+  titre: Emploi-repère
+  description: >-
+    Emploi-repère principal exercé. Lorsque plusieurs emplois-repères sont exercés, l'application
+    doit retenir l'emploi prédominant ou traiter les emplois distinctement conformément à la
+    convention.
+  applicable si: convention collective = 'services à la personne'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . services à la personne . taux horaire de la grille:
+  applicable si: convention collective = 'services à la personne'
+  unité: €/heure
+  variations:
+    - si: emploi-repère = 'jardinage'
+      alors: 11.68 €/heure
+    - si: emploi-repère = 'bricolage'
+      alors: 11.68 €/heure
+    - si: emploi-repère = 'auxiliaire-vie-1'
+      alors: 11.68 €/heure
+    - si: emploi-repère = 'garde-enfants-1'
+      alors: 11.68 €/heure
+    - si: emploi-repère = 'assistant-menager-1'
+      alors: 11.68 €/heure
+    - si: emploi-repère = 'garde-enfants-2'
+      alors: 11.77 €/heure
+    - si: emploi-repère = 'assistant-menager-2'
+      alors: 11.77 €/heure
+    - si: emploi-repère = 'auxiliaire-vie-2'
+      alors: 11.85 €/heure
+    - si: emploi-repère = 'garde-enfants-3'
+      alors: 11.85 €/heure
+    - si: emploi-repère = 'auxiliaire-vie-3'
+      alors: 12.11 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . services à la personne . salaire minimum conventionnel . grille:
+  titre: Salaire minimum conventionnel à temps plein
+  applicable si: convention collective = 'services à la personne'
+  unité: €/mois
+  valeur: taux horaire de la grille * 151.67 heure/mois
+
+salarié . convention collective . services à la personne . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: >-
+    Minimum horaire conventionnel converti sur 151,67 heures mensuelles et proratisé une seule fois
+    selon la quotité de travail. La prime d'ancienneté reste distincte du minimum de base.
+  applicable si: convention collective = 'services à la personne'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . services à la personne . taux horaire minimum conventionnel:
+  applicable si: convention collective = 'services à la personne'
+  unité: €/heure
+  valeur: taux horaire de la grille
+
+salarié . convention collective . services à la personne . emploi-repère hors grille:
+  applicable si: convention collective = 'services à la personne'
+  valeur: taux horaire de la grille = 0 €/heure
+
+salarié . convention collective . services à la personne . ancienneté:
+  description: Ancienneté continue dans l'entreprise pour la prime conventionnelle.
+  applicable si: convention collective = 'services à la personne'
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . services à la personne . taux horaire de la prime d'ancienneté:
+  applicable si: convention collective = 'services à la personne'
+  unité: €/heure
+  variations:
+    - si: ancienneté >= 10 an
+      alors: 0.25 €/heure
+    - si: ancienneté >= 5 an
+      alors: 0.15 €/heure
+    - si: ancienneté >= 2 an
+      alors: 0.05 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . services à la personne . heures ouvrant droit à la prime d'ancienneté:
+  description: |
+    Heures de travail effectif ou assimilées ouvrant droit à la prime d'ancienneté du mois : par
+    défaut, le temps de travail du contrat et les heures supplémentaires ou complémentaires du mois.
+  applicable si: convention collective = 'services à la personne'
+  unité: heure/mois
+  par défaut: salarié . temps de travail
+
+salarié . convention collective . services à la personne . prime d'ancienneté:
+  description: Prime d'ancienneté distincte à faire figurer sur une ligne séparée du bulletin de paie.
+  applicable si: convention collective = 'services à la personne'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: taux horaire de la prime d'ancienneté * heures ouvrant droit à la prime d'ancienneté
+
+salarié . convention collective . services à la personne . taux horaire contractuel:
+  description: Taux horaire réellement versé au salarié ; à défaut, taux horaire minimum conventionnel.
+  applicable si: convention collective = 'services à la personne'
+  unité: €/heure
+  par défaut: taux horaire minimum conventionnel
+
+salarié . convention collective . services à la personne . heures de garde de plus de trois enfants:
+  description: Heures de garde au domicile de plus de trois enfants ouvrant droit à la majoration de 10 %.
+  applicable si: convention collective = 'services à la personne'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . services à la personne . prime de garde de plus de trois enfants:
+  applicable si: convention collective = 'services à la personne'
+  unité: €/mois
+  valeur: taux horaire contractuel * heures de garde de plus de trois enfants * 10%
+
+salarié . convention collective . services à la personne . heures de nuit ouvrant droit à majoration:
+  description: >-
+    Heures de travail effectif de nuit ouvrant droit à 5 %, en excluant les heures déjà majorées
+    au titre du dimanche lorsque cette majoration est plus favorable.
+  applicable si: convention collective = 'services à la personne'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . services à la personne . majoration de nuit:
+  applicable si: convention collective = 'services à la personne'
+  unité: €/mois
+  valeur: taux horaire contractuel * heures de nuit ouvrant droit à majoration * 5%
+
+salarié . convention collective . services à la personne . salarié de nuit:
+  description: >-
+    Oui si le salarié accomplit au moins trois heures de nuit au moins deux fois par semaine ou
+    270 heures de nuit sur douze mois consécutifs.
+  applicable si: convention collective = 'services à la personne'
+  par défaut: non
+
+salarié . convention collective . services à la personne . repos compensateur de nuit:
+  applicable si: convention collective = 'services à la personne'
+  unité: heure/mois
+  variations:
+    - si: salarié de nuit
+      alors: heures de nuit ouvrant droit à majoration * 5%
+    - sinon: 0 heure/mois
+
+salarié . convention collective . services à la personne . heures dimanche ou férié ordinaire ouvrant droit à majoration:
+  description: >-
+    Heures du dimanche ou d'un jour férié ordinaire ouvrant droit à 10 %. Une même heure travaillée
+    le dimanche et un jour férié ordinaire ne doit être comptée qu'une seule fois.
+  applicable si: convention collective = 'services à la personne'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . services à la personne . majoration dimanche et férié ordinaire:
+  applicable si: convention collective = 'services à la personne'
+  unité: €/mois
+  valeur: taux horaire contractuel * heures dimanche ou férié ordinaire ouvrant droit à majoration * 10%
+
+salarié . convention collective . services à la personne . heures du 1er mai ou du 25 décembre:
+  applicable si: convention collective = 'services à la personne'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . services à la personne . majoration du 1er mai et du 25 décembre:
+  applicable si: convention collective = 'services à la personne'
+  unité: €/mois
+  valeur: taux horaire contractuel * heures du 1er mai ou du 25 décembre
+
+salarié . convention collective . services à la personne . kilomètres professionnels avec véhicule personnel:
+  description: Kilomètres de déplacements professionnels avec le véhicule personnel ouvrant droit au minimum conventionnel.
+  applicable si: convention collective = 'services à la personne'
+  unité: km/mois
+  par défaut: 0 km/mois
+
+salarié . convention collective . services à la personne . indemnité kilométrique conventionnelle:
+  applicable si: convention collective = 'services à la personne'
+  unité: €/mois
+  valeur: kilomètres professionnels avec véhicule personnel * 0.35 €/km
