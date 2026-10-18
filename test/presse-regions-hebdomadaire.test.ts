@@ -3,6 +3,8 @@
  * 2023, KALITEXT000048558839) and the one of the regional weekly press, chosen by `forme de
  * presse`: accord of 2 June 2023 (KALITEXT000048052775), then, for the employees, avenant n° 1
  * of 15 November 2024 (KALITEXT000051352524, not extended), with its seniority increase.
+ * Versions 2023.4 and 2024.2 add the regional departmental daily press, whose grid is in annex 3
+ * of the agreement (KALISCTA000044340086).
  */
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
@@ -148,3 +150,51 @@ describe("IDCC 3242 — 2024.1, employees of the weekly press from 1 December 20
     }
   });
 });
+
+/** Annex 3 of the agreement, regional departmental daily press. */
+const DEPARTMENTAL: Record<string, number> = {
+  "O": 1462.33, "O nuit": 1681.72,
+  "100": 1036.01, "108": 1118.86, "112": 1161.46, "116": 1201.76, "120": 1243.18, "124": 1284.64,
+  "130": 1346.8, "140": 1450.38, "150": 1553.99, "160": 1657.54,
+  "cadre subalterne A": 1333.15, "cadre subalterne B": 1585.83, "cadre subalterne C": 1839.76,
+  "cadre supérieur A": 2373.02, "cadre supérieur B": 2852.98,
+  "C1.1": 1839.28, "C1.2": 2023.21, "C2.1": 2207.13, "C2.2": 2483.03, "C3.1": 2758.92,
+  "C3.2": 3034.81, "C4.1": 3310.7, "C4.2": 3586.6,
+};
+const DEPARTMENTAL_FORM = "quotidienne départementale";
+
+for (const [versionName, previous] of [["2023.4", "2023.3"], ["2024.2", "2024.1"]] as const) {
+  describe(`IDCC 3242 — ${versionName}, the departmental daily press added to ${previous}`, async () => {
+    const { version, engine } = await engineOf(versionName);
+    const { engine: previousEngine } = await engineOf(previous);
+    // Only the versions of the avenant n° 1 take the seniority.
+    const seniority = versionName === "2024.2" ? { seniority: 12 } : {};
+
+    it("keeps the dates and cites annex 3", () => {
+      const before = COMPILED_VERSIONS[agreement]!.find((entry) => entry.version === previous)!;
+      assert.equal(version.validFrom, before.validFrom);
+      assert.equal(version.extension, before.extension);
+      assert.ok(version.sources.some((source) => source.includes("KALISCTA000044340086")));
+    });
+
+    it("applies the grid of annex 3", () => {
+      assert.equal(Object.keys(DEPARTMENTAL).length, 25);
+      for (const [level, monthly] of Object.entries(DEPARTMENTAL)) {
+        assert.deepEqual(evaluate(engine, level, { form: DEPARTMENTAL_FORM, ...seniority }), { amount: monthly, outOfGrid: false }, level);
+      }
+      for (const level of ["E5", "G1", "400", "158", "cadre subalterne D", "non renseigné"]) {
+        assert.equal(evaluate(engine, level, { form: DEPARTMENTAL_FORM }).outOfGrid, true, level);
+      }
+    });
+
+    it("gives the same minimums as before to the other forms of press", () => {
+      const options = [{}, { form: WEEKLY }, { form: WEEKLY, ...seniority }];
+      const levels = [...Object.keys(DAILY), ...Object.keys(WEEKLY_EMPLOYEES_2023), ...Object.keys(WEEKLY_EXECUTIVES), "G3", "X"];
+      for (const option of options) {
+        for (const level of levels) {
+          assert.deepEqual(evaluate(engine, level, option), evaluate(previousEngine, level, option), `${level} ${JSON.stringify(option)}`);
+        }
+      }
+    });
+  });
+}
