@@ -64,7 +64,9 @@ jobs:
           if (process.env.GITHUB_REF_TYPE === "tag") {
             assert.equal(process.env.GITHUB_REF_NAME, `v${pkg.version}`);
           }
-          const distTag = pkg.version.includes("-") ? "next" : "latest";
+          // While the package is in beta, its releases are tagged vX.Y.Z-beta and published as
+          // the latest version; any other prerelease goes to next.
+          const distTag = !pkg.version.includes("-") || /-beta(\.\d+)?$/.test(pkg.version) ? "latest" : "next";
           appendFileSync(process.env.GITHUB_OUTPUT,
             `version=${pkg.version}\ndist_tag=${distTag}\n`);
           JS

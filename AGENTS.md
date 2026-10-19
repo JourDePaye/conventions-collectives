@@ -11,3 +11,4 @@ Versioned publicodes extensions to modele-social, consumed by JourDePaye.
 - Never redefine a modele-social rule: use `remplace` or `rend non applicable`. Keep agreement rules under their French namespace and guard them with `applicable si`.
 - No dependency on payroll-core. Keep payroll period selection, CaseValue mapping, and payroll calculation in JourDePaye.
 - Generated JSON and the version index live in `src/compiled/` and are not committed. Build before packing; consumers install the compiled package.
+- A Git tag `v*` publishes the package to npm (`.github/workflows/publish.yml`). While in beta, tag `vYYYY.MM.N-beta` (e.g. `v2026.11.12-beta`): the workflow publishes `-beta` versions under the npm dist-tag `latest`, any other prerelease under `next`. Drop the suffix once out of beta.

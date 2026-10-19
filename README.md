@@ -4,6 +4,8 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
+> **Bêta.** Le package est en cours de constitution : tant que dure la bêta, une version déjà publiée (version de modèle ou version npm) peut encore être corrigée ou réécrite. Les versions npm portent le suffixe `-beta` (par exemple `2026.11.12-beta`).
+
 **Cent quatre-vingt-dix conventions** sont actuellement représentées, avec **trois cent soixante-treize versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
 **Les contributions sont les bienvenues !** Vous pouvez proposer une nouvelle convention, enrichir une convention existante, ajouter des tests, améliorer les références aux textes ou la documentation.
@@ -302,7 +304,13 @@ Dans JourDePaye, `payroll-core` conserve le catalogue métier, la sélection de 
 
 ## Utiliser le package
 
-Le package n’est pas encore publié sur le registre npm. Il peut être installé depuis le dépôt public ; pour une installation reproductible, remplacez `<commit>` par le hash complet du commit choisi :
+Le package est publié sur le registre npm, en bêta :
+
+```sh
+npm install conventions-collectives
+```
+
+Chaque étiquette Git `v*` publie une version : `v2026.11.12-beta` publie `2026.11.12-beta` sous l’étiquette npm `latest`. Une plage comme `^2026.11.12-beta` n’inclut pas les versions bêta suivantes : épinglez une version exacte. Le package peut aussi être installé depuis le dépôt public ; pour une installation reproductible, remplacez `<commit>` par le hash complet du commit choisi :
 
 ```sh
 npm install "git+https://github.com/JourDePaye/conventions-collectives.git#<commit>"
