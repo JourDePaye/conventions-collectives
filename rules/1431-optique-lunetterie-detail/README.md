@@ -2,6 +2,8 @@
 
 Version `2024.3`, applicable au **1er janvier 2024**, retains the salary grid from the agreement of 14 September 2023 adds the extended non-cadre pension plan correction from the 14 March 2024 amendment, and (revision `2024.3`, replacing `2024.2` with the same effective date) adds the missing non-health-professional levels 1.1 to 3.6 of the new classification. The salary agreement took effect on 1 January 2024 and was extended by arrêté of 11 December 2023, published in the Journal officiel on 14 December 2023.
 
+**Non modélisé** : l'accord du 9 juillet 2026 relatif aux salaires minima, étendu par arrêté du 12 octobre 2026 (JORF du 15 octobre 2026, JORFTEXT000054983839), sous une réserve portant sur le champ territorial de l'accord et non sur ses montants. Il est publié au BOCC n° 2026/36, qui n'était pas en ligne au 19 octobre 2026, et ne figure pas dans KALI : sa grille sera ajoutée dans une nouvelle version dès qu'elle pourra être lue. KALI ne contient aucun accord de salaires entre celui du 14 septembre 2023 et celui-ci.
+
 ## Classification et salaires minima
 
 Le modèle demande la classification effectivement attribuée et le coefficient correspondant. La valeur `ancienne` désigne la classification actuelle par coefficients numériques ; la valeur `nouvelle` désigne la classification de l'avenant n° 8 du 7 avril 2022. Le modèle ne déduit pas la classification d'un diplôme ou de l'intitulé du poste.

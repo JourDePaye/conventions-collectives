@@ -2,6 +2,8 @@
 
 Le fichier [2025.1](3224-distribution-commerce-gros-papiers-cartons.2025.1.publicodes) reprend l'avenant n° 12 du 6 mars 2025 relatif aux salaires et minima conventionnels, applicable au 1er mars 2025 et étendu par arrêté du 21 juillet 2025 publié au Journal officiel du 1er août 2025.
 
+**Non modélisé** : l'avenant n° 13 du 17 juin 2026 relatif aux salaires, étendu par arrêté du 12 octobre 2026 (JORF du 15 octobre 2026, JORFTEXT000054983850). Il est publié au BOCC n° 2026/36, qui n'était pas en ligne au 19 octobre 2026, et ne figure pas dans KALI : sa grille sera ajoutée dans une nouvelle version dès qu'elle pourra être lue.
+
 La valeur Publicodes est `distribution commerce gros papiers cartons` ; les règles sont sous `salarié . convention collective . distribution commerce gros papiers cartons`.
 
 ## Règles implémentées
