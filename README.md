@@ -4,7 +4,7 @@ L’objectif de ce projet est de mettre à disposition **l’ensemble des conven
 
 Le dépôt contient les modèles de conventions collectives, leurs références juridiques, leur compilateur et leurs tests. Il produit le package [`conventions-collectives`](https://www.npmjs.com/package/conventions-collectives), utilisé notamment par JourDePaye pour compléter les règles de [`modele-social`](https://www.npmjs.com/package/modele-social).
 
-> **Bêta.** Le package est en cours de constitution : tant que dure la bêta, une version déjà publiée (version de modèle ou version npm) peut encore être corrigée ou réécrite. Les versions npm portent le suffixe `-beta` (par exemple `2026.11.12-beta`).
+> **Bêta.** Le package est en cours de constitution : tant que dure la bêta, une version déjà publiée (version de modèle ou version npm) peut encore être corrigée ou réécrite. Les versions npm portent le suffixe `-beta` (par exemple `2026.10.1-beta`), où `2026.10` est l’année et le mois de publication.
 
 **Cent quatre-vingt-dix conventions** sont actuellement représentées, avec **trois cent soixante-treize versions de modèles**. Leur couverture porte sur les salaires minima, la classification nécessaire à leur calcul et certains compléments de rémunération ; la présence d’une convention ne signifie pas que toutes ses dispositions sont déjà modélisées. Elles sont regroupées par thème, puis classées par numéro IDCC.
 
@@ -310,7 +310,7 @@ Le package est publié sur le registre npm, en bêta :
 npm install conventions-collectives
 ```
 
-Chaque étiquette Git `v*` publie une version : `v2026.11.12-beta` publie `2026.11.12-beta` sous l’étiquette npm `latest`. Une plage comme `^2026.11.12-beta` n’inclut pas les versions bêta suivantes : épinglez une version exacte. Le package peut aussi être installé depuis le dépôt public ; pour une installation reproductible, remplacez `<commit>` par le hash complet du commit choisi :
+Chaque étiquette Git `v*` publie une version : `v2026.10.1-beta` publie `2026.10.1-beta` sous l’étiquette npm `latest`. Une plage comme `^2026.10.1-beta` n’inclut pas les versions bêta suivantes : épinglez une version exacte. Les versions `2026.11.0` à `2026.11.12-beta`, numérotées par erreur avec le mois de novembre, sont dépréciées : elles restent supérieures aux versions `2026.10.x-beta` dans l’ordre de npm, mais l’étiquette `latest` désigne toujours la dernière version publiée. Le package peut aussi être installé depuis le dépôt public ; pour une installation reproductible, remplacez `<commit>` par le hash complet du commit choisi :
 
 ```sh
 npm install "git+https://github.com/JourDePaye/conventions-collectives.git#<commit>"
