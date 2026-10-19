@@ -1,7 +1,7 @@
 /**
  * Revisions that give the seniority bonus apart from the minimum, so that it is paid in addition to
  * the base salary:
- * - IDCC 1483, 2026.3 and 2026.4: avenant n° 29 (KALITEXT000053914115), article 2, a fixed amount
+ * - IDCC 1483, 2026.3, 2026.4 and 2026.5: avenant n° 29 (KALITEXT000053914115), article 2, a fixed amount
  *   by category and seniority, prorated by working time, no longer in the minimum;
  * - IDCC 2511, 2026.2 and 2026.3: article 9.2.3 (KALIARTI000047394518), 1 % of the group 3 minimum
  *   (1 997,87 €) per complete period of 24 months since the hire date or the extension of
@@ -35,7 +35,7 @@ const round = (value: unknown) => {
 
 describe("IDCC 1483 — seniority bonus apart from the minimum", async () => {
   const namespace = "salarié . convention collective . commerce de détail habillement";
-  for (const version of ["2026.3", "2026.4"]) {
+  for (const version of ["2026.3", "2026.4", "2026.5"]) {
     const { found, engine } = await engineOf("1483-commerce-detail-habillement-textiles", "commerce de détail habillement", version);
     const evaluate = (level: string, hireDate: string, extra: Record<string, string> = {}) => {
       engine.setSituation({

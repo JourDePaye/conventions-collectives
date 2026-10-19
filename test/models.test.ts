@@ -62,7 +62,7 @@ const models = [
   { name: "1411-fabrication-ameublement", value: "fabrication ameublement", classification: "niveau", input: "'AP52'", minimums: { "2026.1": 2117 } },
   { name: "1404-maintenance-distribution-location", value: "maintenance distribution location", classification: "niveau", input: "'B40'", minimums: { "2026.1": 2509.2 } },
   { name: "1405-expedition-exportation-fruits-legumes", value: "expédition exportation fruits légumes", classification: "niveau", input: "'III'", minimums: { "2026.1": 1876.24 }, situation: { "salarié . convention collective . expédition exportation fruits légumes . secteur": "'fruits et légumes'" } },
-  { name: "1483-commerce-detail-habillement-textiles", value: "commerce de détail habillement", classification: "niveau", input: "'3'", minimums: { "2026.1": 1843, "2026.3": 1843 } },
+  { name: "1483-commerce-detail-habillement-textiles", value: "commerce de détail habillement", classification: "niveau", input: "'3'", minimums: { "2026.1": 1843, "2026.3": 1843, "2026.5": 1843 } },
   { name: "1517-commerce-detail-non-alimentaire", value: "commerce de détail non alimentaire", classification: "niveau", input: "'5'", minimums: { "2026.1": 1967 } },
   { name: "1619-cabinets-dentaires", value: "cabinets dentaires", classification: "niveau", input: "'assistant-dentaire'", minimums: { "2026.1": 2112.76 } },
   { name: "0993-prothesistes-dentaires", value: "prothésistes dentaires", classification: "niveau", input: "'PHQ1'", minimums: { "2026.1": 2293, "2026.2": 2293 } },
