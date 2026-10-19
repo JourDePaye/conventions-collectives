@@ -44,7 +44,7 @@ const models = [
   { name: "2335-agences-generales-assurances", value: "agences générales assurances", classification: "classe", input: "'1'", minimums: { "2025.1": 22784, "2026.1": 23194, "2026.2": 23524 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "1760-jardineries-graineteries", value: "jardineries graineteries", classification: "classification", input: "'4.2'", minimums: { "2026.1": 1980 } },
   { name: "2264-hospitalisation-privee", value: "hospitalisation privée", classification: "coefficient", input: 300, minimums: { "2023.3": 2178 } },
-  { name: "2511-sport", value: "sport", classification: "groupe", input: "'3'", minimums: { "2026.1": 1997.87, "2026.2": 1997.87 } },
+  { name: "2511-sport", value: "sport", classification: "groupe", input: "'3'", minimums: { "2026.1": 1997.87, "2026.2": 1997.87, "2026.3": 1997.87 } },
   { name: "1512-promotion-immobiliere", value: "promotion immobilière", classification: "coefficient", input: 100, minimums: { "2026.1": 1885, "2026.3": 1885 } },
   { name: "2336-habitat-logement-accompagnes", value: "habitat logement accompagnés", classification: "coefficient", input: 500, minimums: { "2025.1": 1875.24, "2026.1": 1887.28 } },
   { name: "1922-radiodiffusion", value: "radiodiffusion", classification: "indice", input: 200, minimums: { "2025.1": 2632 }, situation: { "salarié . convention collective . radiodiffusion . indice": 200 } },

@@ -29,6 +29,7 @@ Préfixe : `salarié . convention collective . sport` ; choix de convention : `'
 - `périodes de 24 mois d'ancienneté` : nombre entier de périodes **complètes**, par défaut zéro.
 - `ancienneté groupe 1 au moins 3 ans` : booléen, par défaut `non`. Ne s'applique qu'au groupe 1 actuel.
 - Version `2026.2` (même date d'effet, remplace 2026.1) : ces deux entrées se déduisent de `ancienneté dans l'entreprise` (années complètes) ; les périodes se comptent depuis l'embauche, au plus depuis l'extension de la convention (arrêté du 21 novembre 2006, article 9.2.3.1), sans décompter les absences qui ne sont pas du travail effectif.
+- Version `2026.3` (même date d'effet, remplace 2026.2) : mêmes montants et mêmes entrées, sans redéfinir de règle de `modele-social` (voir « Exceptions structurelles »). Le supplément de formation se saisit dans `formation professionnelle 2025 . supplément conventionnel validé`.
 - `salarié relevant du chapitre XII` : booléen, par défaut `non`. Saisir `oui` pour les sportifs/entraîneurs professionnels ; cela désactive les minima et la prime du chapitre IX ainsi que la prévoyance du chapitre X. Le régime propre au chapitre XII reste à implémenter.
 - Quotité et temps partiel : utiliser les entrées standard de `modele-social`, notamment `salarié . contrat . temps de travail . temps partiel` et `. heures par semaine`.
 
@@ -52,7 +53,9 @@ La fusion avec `modele-social@11.1.0` doit accepter exactement ces **quatre** cl
 3. `salarié . convention collective . sport . exonération cotisation AT` : retirer le `rend non applicable` structurel qui exonérait automatiquement tous les salariés Sport.
 4. `salarié . convention collective . sport . cotisations . assiette forfaitaire` : retirer le remplacement automatique de l'assiette ordinaire fondé uniquement sur une rémunération faible.
 
-Ces exceptions sont autorisées par nom exact et version exacte dans `test/models.test.ts`. Toutes les autres collisions restent interdites ; aucune règle standard hors du namespace Sport n'est redéfinie. La santé, la franchise, le paritarisme et les autres neutralisations utilisent `remplace` ou `rend non applicable`. Des tests différentiels vérifient que les contributions hors Sport restent identiques au modèle de base.
+Ces exceptions sont autorisées par nom exact, pour les versions `2026.1` et `2026.2` seulement, dans `test/models.test.ts`.
+
+La version `2026.3` n'en a plus besoin : une application qui refuse toute collision (comme JourDePaye) peut la fusionner. Elle rend non applicable toute la branche `salarié . convention collective . sport . cotisations` de `modele-social` : une règle rendue non applicable garde ses propres `remplace`, mais ses descendants sont désactivés avec elle. Elle définit à la place, sous de nouveaux noms, la prévoyance (`prévoyance 2025 . part employeur` et `. part salarié`), le montant de santé (`santé 2025 . montant`), la formation (`formation professionnelle 2025`, avec son supplément) et l'ajout du paritarisme au total employeur (`cotisations employeur avec paritarisme`). Elle refuse l'exonération AT en remplaçant `refus exonération cotisation AT` par `oui`. Les règles désactivées avec la branche (`cotisations . franchise`, `cotisations . financement du paritarisme`, `cotisations . assiette forfaitaire`) sont non applicables. `test/sport.test.ts` vérifie les mêmes montants sur `2026.1` et `2026.3`. Toutes les autres collisions restent interdites ; aucune règle standard hors du namespace Sport n'est redéfinie. La santé, la franchise, le paritarisme et les autres neutralisations utilisent `remplace` ou `rend non applicable`. Des tests différentiels vérifient que les contributions hors Sport restent identiques au modèle de base.
 
 ## Audit de l'héritage et limites explicites
 
@@ -65,7 +68,7 @@ Ces exceptions sont autorisées par nom exact et version exacte dans `test/model
 | Exonération AT automatique | Supprimée ; AT/MP ordinaire rétablie | Régimes particuliers d'exonération et conditions d'éligibilité |
 | Base forfaitaire et franchise sportive automatiques | Base forfaitaire désactivée ; franchise égale à zéro | Régimes Urssaf réservés à certaines structures et fonctions, plafonds/manifestations, cumul et éligibilité |
 
-**Zéro par défaut ne signifie pas absence d'obligation.** Pour la formation, renseigner `cotisations . formation professionnelle . supplément conventionnel validé` après validation externe : ce montant non négatif est ajouté à la contribution légale et au total employeur. Pour le paritarisme, fournir `allocation mensuelle paritarisme validée` après calcul annuel externe : le lien de remplacement vers le total employeur est conservé et testé.
+**Zéro par défaut ne signifie pas absence d'obligation.** Pour la formation, renseigner `cotisations . formation professionnelle . supplément conventionnel validé` (`formation professionnelle 2025 . supplément conventionnel validé` en `2026.3`) après validation externe : ce montant non négatif est ajouté à la contribution légale et au total employeur. Pour le paritarisme, fournir `allocation mensuelle paritarisme validée` après calcul annuel externe : le lien de remplacement vers le total employeur est conservé et testé.
 
 Le paritarisme historique de 0,06 % est obsolète : l'avenant n° 180 l'a porté à 0,08 % ; l'avenant n° 214 fixe 0,09 % pour la collecte 2027 assise sur la masse salariale 2026. Une allocation mensuelle par salarié ne permet pas à elle seule de reproduire une obligation annuelle par entreprise et son minimum de versement. Le modèle n'invente donc pas cette allocation.
 

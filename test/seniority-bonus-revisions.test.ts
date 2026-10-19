@@ -3,7 +3,7 @@
  * the base salary:
  * - IDCC 1483, 2026.3 and 2026.4: avenant n° 29 (KALITEXT000053914115), article 2, a fixed amount
  *   by category and seniority, prorated by working time, no longer in the minimum;
- * - IDCC 2511, 2026.2: article 9.2.3 (KALIARTI000047394518), 1 % of the group 3 minimum
+ * - IDCC 2511, 2026.2 and 2026.3: article 9.2.3 (KALIARTI000047394518), 1 % of the group 3 minimum
  *   (1 997,87 €) per complete period of 24 months since the hire date or the extension of
  *   21 November 2006, plus 5 % for group 1 after 3 years, up to 15 %;
  * - IDCC 3127, 2024.2: avenant of 29 March 2022 (KALITEXT000046100203), 0,05 €, 0,15 € or 0,25 €
@@ -77,40 +77,42 @@ describe("IDCC 1483 — seniority bonus apart from the minimum", async () => {
   }
 });
 
-describe("IDCC 2511 — 2026.2, periods of 24 months from the seniority", async () => {
-  const namespace = "salarié . convention collective . sport";
-  const { engine } = await engineOf("2511-sport", "sport", "2026.2");
-  const bonus = (group: string, years: number, date = "01/10/2026") => {
-    engine.setSituation({
-      date,
-      "salarié . convention collective": "'sport'",
-      [`${namespace} . groupe`]: `'${group}'`,
-      [`${namespace} . ancienneté dans l'entreprise`]: `${years} an`,
+for (const version of ["2026.2", "2026.3"]) {
+  describe(`IDCC 2511 — ${version}, periods of 24 months from the seniority`, async () => {
+    const namespace = "salarié . convention collective . sport";
+    const { engine } = await engineOf("2511-sport", "sport", version);
+    const bonus = (group: string, years: number, date = "01/10/2026") => {
+      engine.setSituation({
+        date,
+        "salarié . convention collective": "'sport'",
+        [`${namespace} . groupe`]: `'${group}'`,
+        [`${namespace} . ancienneté dans l'entreprise`]: `${years} an`,
+      });
+      return round(engine.evaluate(`${namespace} . prime d'ancienneté`).nodeValue);
+    };
+
+    it("pays 1 % of 1 997,87 € per complete period of 24 months", () => {
+      assert.equal(bonus("3", 1), 0);
+      assert.equal(bonus("3", 2), round(1997.87 * 0.01));
+      assert.equal(bonus("3", 9), round(1997.87 * 0.04));
     });
-    return round(engine.evaluate(`${namespace} . prime d'ancienneté`).nodeValue);
-  };
 
-  it("pays 1 % of 1 997,87 € per complete period of 24 months", () => {
-    assert.equal(bonus("3", 1), 0);
-    assert.equal(bonus("3", 2), round(1997.87 * 0.01));
-    assert.equal(bonus("3", 9), round(1997.87 * 0.04));
-  });
+    it("adds 5 % for group 1 after 3 years", () => {
+      assert.equal(bonus("1", 3), round(1997.87 * 0.06));
+    });
 
-  it("adds 5 % for group 1 after 3 years", () => {
-    assert.equal(bonus("1", 3), round(1997.87 * 0.06));
-  });
+    it("counts the periods from the extension of 21 November 2006 at most", () => {
+      // 19 complete years on 1 October 2026, 20 on 1 December 2026.
+      assert.equal(bonus("3", 30), round(1997.87 * 0.09));
+      assert.equal(bonus("3", 30, "01/12/2026"), round(1997.87 * 0.1));
+      assert.equal(bonus("1", 30, "01/12/2026"), round(1997.87 * 0.15));
+    });
 
-  it("counts the periods from the extension of 21 November 2006 at most", () => {
-    // 19 complete years on 1 October 2026, 20 on 1 December 2026.
-    assert.equal(bonus("3", 30), round(1997.87 * 0.09));
-    assert.equal(bonus("3", 30, "01/12/2026"), round(1997.87 * 0.1));
-    assert.equal(bonus("1", 30, "01/12/2026"), round(1997.87 * 0.15));
+    it("pays no bonus to groups 7 and 8", () => {
+      assert.equal(bonus("7", 10), 0);
+    });
   });
-
-  it("pays no bonus to groups 7 and 8", () => {
-    assert.equal(bonus("7", 10), 0);
-  });
-});
+}
 
 describe("IDCC 3127 — 2024.2, hourly bonus on the hours of the month", async () => {
   const namespace = "salarié . convention collective . services à la personne";
