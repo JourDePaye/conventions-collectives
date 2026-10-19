@@ -30,6 +30,13 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   // accord du 13 mars 2025, arrêté du 27 mai 2025, JORF du 31 mai 2025; the accord of 3 April 2026 (2026.1) is not extended
   "1408-distribution-logistique-energies": { "2025.3": "2025-05-31" },
   "1555-produits-pharmaceutiques": { "2026.1": "2026-05-08" }, // JORF du 8 mai 2026
+  // The shared building version: each regional grid applies from the publication of its own
+  // extension order (in its rules), and it has no grid of the cadres, whose accord of 2026 is not
+  // extended.
+  "1596-batiment-ouvriers-petites-entreprises": { "2026.4": "2020-01-01" },
+  "1597-batiment-ouvriers-plus-de-10": { "2026.4": "2020-01-01" },
+  "2420-batiment-cadres": { "2026.4": "2020-01-01" },
+  "2609-batiment-etam": { "2026.4": "2020-01-01" },
   "1671-maisons-etudiants": {
     "2025.1": "2025-04-09", // avenant n° 73, JORF du 9 avril 2025
     "2026.2": "2026-07-11", // avenants n° 74 and 75, JORF du 11 juillet 2026
@@ -56,7 +63,6 @@ const NOT_EXTENDED = [
   "0478-societes-financieres",
   "1672-societes-assurances",
   "2205-notariat",
-  "2420-batiment-cadres",
   "2931-activites-marches-financiers",
   "3203-structures-associatives-peche",
 ];

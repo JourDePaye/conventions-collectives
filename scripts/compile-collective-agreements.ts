@@ -1,5 +1,7 @@
 /**
- * Compiles rules/<idcc>-<agreement>/<idcc>-<idcc>-<agreement>.<year>.<revision>.publicodes.
+ * Compiles rules/<idcc>-<agreement>/<idcc>-<agreement>.<year>.<revision>.publicodes, and the
+ * shared files rules/commun/<name>/<name>.<year>.<revision>.publicodes, whose metadata lists the
+ * agreements (`agreements`) that publish the same version.
  * Rule hashes retain the original JourDePaye algorithm for historical payroll results.
  * The browser and server load compiled JSON without a YAML parser.
  */
@@ -12,6 +14,9 @@ const SOURCE_DIR = "rules";
 const LOCK_FILE = join(SOURCE_DIR, "versions.lock.json");
 const OUTPUT_DIR = join("src", "compiled");
 const FILE_NAME = /^(\d{4}-[a-z][a-z0-9-]*)\.(\d{4}\.\d+)\.publicodes$/;
+const SHARED_DIR = join(SOURCE_DIR, "commun");
+const SHARED_FILE_NAME = /^([a-z][a-z0-9-]*)\.(\d{4}\.\d+)\.publicodes$/;
+const AGREEMENT_NAME = /^\d{4}-[a-z][a-z0-9-]*$/;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 type Version = {
@@ -35,14 +40,20 @@ for (const file of readdirSync(SOURCE_DIR, { recursive: true, withFileTypes: tru
   .filter((entry) => entry.isFile() && entry.name.endsWith(".publicodes"))
   .map((entry) => join(entry.parentPath, entry.name))
   .sort()) {
-  const match = FILE_NAME.exec(basename(file));
+  const shared = file.startsWith(`${SHARED_DIR}/`);
+  const match = (shared ? SHARED_FILE_NAME : FILE_NAME).exec(basename(file));
   if (!match) {
-    throw new Error(`${file}: expected <idcc>-<agreement>.<year>.<revision>.publicodes`);
+    throw new Error(
+      shared
+        ? `${file}: expected <name>.<year>.<revision>.publicodes`
+        : `${file}: expected <idcc>-<agreement>.<year>.<revision>.publicodes`,
+    );
   }
-  const [, name, version] = match as unknown as [string, string, string];
+  const [, fileName, version] = match as unknown as [string, string, string];
 
-  if (dirname(file) !== join(SOURCE_DIR, name)) {
-    throw new Error(`${file}: expected the rules/${name}/ directory`);
+  const directory = shared ? join(SHARED_DIR, fileName) : join(SOURCE_DIR, fileName);
+  if (dirname(file) !== directory) {
+    throw new Error(`${file}: expected the ${directory}/ directory`);
   }
   const documents = parseAllDocuments(readFileSync(file, "utf8"));
   if (!Array.isArray(documents) || documents.length !== 2) {
@@ -73,25 +84,40 @@ for (const file of readdirSync(SOURCE_DIR, { recursive: true, withFileTypes: tru
   if (typeof rules !== "object" || rules === null || Array.isArray(rules)) {
     throw new Error(`${file}: expected a mapping of publicodes rules`);
   }
+  // A shared file publishes the same version under each agreement it lists.
+  const agreements = (metadata as { agreements?: unknown } | null)?.agreements;
+  if (!shared && agreements !== undefined) {
+    throw new Error(`${file}: only a shared file of ${SHARED_DIR}/ lists agreements`);
+  }
+  if (shared && (!Array.isArray(agreements) || agreements.length === 0 ||
+      !agreements.every((a) => typeof a === "string" && AGREEMENT_NAME.test(a) && existsSync(join(SOURCE_DIR, a))))) {
+    throw new Error(`${file}: agreements must list the <idcc>-<agreement> directories of rules/ that publish it`);
+  }
+  const names = shared ? (agreements as string[]) : [fileName];
 
   const contentHash = createHash("sha256")
     .update(JSON.stringify({ validFrom, rules }))
     .digest("hex")
     .slice(0, 16);
-  const key = `${name}.${version}`;
-  if (lock[key] === undefined) {
-    lock[key] = contentHash;
-    console.log(`Locked new version ${key}`);
-  } else if (lock[key] !== contentHash) {
-    throw new Error(
-      `${file}: version ${version} is released and must not change ` +
-        `(hash ${lock[key]}, now ${contentHash}). Create a new version instead.`,
-    );
-  }
+  for (const name of names) {
+    const key = `${name}.${version}`;
+    if (versions.some((v) => v.name === name && v.version === version)) {
+      throw new Error(`${file}: version ${key} is already defined by another file`);
+    }
+    if (lock[key] === undefined) {
+      lock[key] = contentHash;
+      console.log(`Locked new version ${key}`);
+    } else if (lock[key] !== contentHash) {
+      throw new Error(
+        `${file}: version ${key} is released and must not change ` +
+          `(hash ${lock[key]}, now ${contentHash}). Create a new version instead.`,
+      );
+    }
 
-  writeFileSync(join(OUTPUT_DIR, `${key}.json`), `${JSON.stringify(rules, null, 2)}\n`);
-  versions.push({ name, version, validFrom, ...(extension !== undefined && { extension }), contentHash, sources });
-  console.log(`Compiled ${file} (${Object.keys(rules).length} rules)`);
+    writeFileSync(join(OUTPUT_DIR, `${key}.json`), `${JSON.stringify(rules, null, 2)}\n`);
+    versions.push({ name, version, validFrom, ...(extension !== undefined && { extension }), contentHash, sources });
+  }
+  console.log(`Compiled ${file} (${Object.keys(rules).length} rules${shared ? `, for ${names.join(", ")}` : ""})`);
 }
 
 const present = new Set(versions.map((v) => `${v.name}.${v.version}`));

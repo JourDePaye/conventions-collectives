@@ -138,12 +138,14 @@ Cent quatre-vingt-dix conventions sont actuellement représentées, avec trois c
 
 ### BÂTIMENT & TRAVAUX PUBLICS
 
+Les quatre conventions du bâtiment (1596, 1597, 2609 et 2420) partagent la version `2026.4`, publiée depuis le [fichier commun](rules/commun/batiment/README.md) `rules/commun/batiment/batiment.2026.4.publicodes`. Elle complète et corrige la convention du bâtiment de modele-social (`salarié . convention collective . BTP`) pour toute l'entreprise : taux de la cotisation congés payés CIBTP par caisse et par date, cotisation chômage intempéries (0,68 % ou 0,13 % du salaire plafonné), prévoyance des cadres (RNPC) comptée une seule fois, et grilles régionales des ouvriers et des ETAM à partir de la publication de leur arrêté d'extension. Leurs versions antérieures ne sont plus utilisées.
+
 | Convention | IDCC | Versions et dates d’effet | Règles présentes |
 |---|---|---|---|
-| [Bâtiment — ouvriers des entreprises jusqu'à 10 salariés](rules/1596-batiment-ouvriers-petites-entreprises/README.md) | 1596 | `2026.1` : 1er mai 2026 | Grille mensuelle explicitement limitée au Centre-Val de Loire (7 coefficients), bornes de date et de catégorie ; congés payés CIBTP, chômage intempéries, OPPBTP et RNPC cadre isolés dans le namespace ; aucune extrapolation nationale |
-| [Bâtiment — ouvriers des entreprises de plus de 10 salariés](rules/1597-batiment-ouvriers-plus-de-10/README.md) | 1597 | `2026.1` : 1er janvier 2026 ; `2026.3` : 1er avril 2026 | Grille mensuelle explicitement limitée à la Nouvelle-Aquitaine (7 coefficients), bornes de date et de catégorie ; CIBTP désormais conditionné à la caisse déclarée, chômage intempéries, OPPBTP et RNPC cadre isolés dans le namespace ; aucune extrapolation nationale |
-| [Bâtiment — ETAM](rules/2609-batiment-etam/README.md) | 2609 | `2026.1` : 1er avril 2026 ; `2026.2` : 1er mai 2026 | Grilles mensuelles Corse et Occitanie (8 niveaux A à H), bornes de date, région et catégorie ; cotisations CIBTP, chômage intempéries plafonné au PMSS et OPPBTP isolés dans le namespace ; aucune correction RNPC cadre ni extrapolation nationale |
-| [Bâtiment — cadres](rules/2420-batiment-cadres/README.md) | 2420 | `2026.1` : 1er février 2026, avenant non étendu | Grille mensuelle de 14 coefficients pour 39 heures, limitée aux employeurs signataires ou adhérents ; correction RNPC cadre BTP isolée (TA employeur 1,50 %, TB 2,40 % partagé) ; CIBTP, intempéries et OPPBTP non calculés |
+| [Bâtiment — ouvriers des entreprises jusqu'à 10 salariés](rules/1596-batiment-ouvriers-petites-entreprises/README.md) | 1596 | `2026.4` (commune, voir ci-dessous) ; `2026.1`, `2026.2` plus utilisées | Grille des ouvriers jusqu'à 10 salariés en Centre-Val de Loire (7 coefficients) à partir de l'extension du 4 août 2026 |
+| [Bâtiment — ouvriers des entreprises de plus de 10 salariés](rules/1597-batiment-ouvriers-plus-de-10/README.md) | 1597 | `2026.4` (commune, voir ci-dessous) ; `2026.1`, `2026.3` plus utilisées | Grille des ouvriers de plus de 10 salariés en Nouvelle-Aquitaine (7 coefficients) à partir de l'extension du 17 janvier 2026 |
+| [Bâtiment — ETAM](rules/2609-batiment-etam/README.md) | 2609 | `2026.4` (commune, voir ci-dessous) ; `2026.1`, `2026.2` plus utilisées | Grilles des ETAM de Corse (à partir du 6 juin 2026) et d'Occitanie (à partir du 29 mai 2026), niveaux A à H |
+| [Bâtiment — cadres](rules/2420-batiment-cadres/README.md) | 2420 | `2026.4` (commune, voir ci-dessous) ; `2026.1` plus utilisée | Aucune grille : l'avenant n° 78 du 19 janvier 2026 n'est pas étendu ; prévoyance des cadres (RNPC) de la version commune |
 | [Travaux publics — ouvriers](rules/1702-travaux-publics-ouvriers/README.md) | 1702 | `2026.3` : 1er janvier 2026, barèmes régionaux ouverts jusqu'au 4 septembre 2026 | Sept coefficients, dix barèmes annuels régionaux (63 cellules automatiques, 7 Pays de la Loire sous confirmation), sans conversion mensuelle ; dates/champ bloquants, prorata et comparaison annuelle validés, prime de vacances et congés d’ancienneté ; prévoyance employeur 1,72 % plafonnée à 3 PMSS ; caisses CIBTP/intempéries et OPPBTP hors couverture |
 | [Travaux publics — ETAM](rules/2614-travaux-publics-etam/README.md) | 2614 | `2026.1` : 17 avril 2026 | Grille annuelle Île-de-France des niveaux A à H, minimums forfait-jours F à H, bornes de région/date/catégorie ; CIBTP, chômage intempéries et OPPBTP isolés dans le namespace ; aucune correction RNPC cadre ni extrapolation nationale |
 | [Travaux publics — cadres](rules/3212-travaux-publics-cadres/README.md) | 3212 | `2024.1` : 1er janvier 2024 | Neuf minima annuels A1 à C2, grilles annuelles et forfait-jours distinctes ; correction RNPC cadre BTP isolée ; pas de conversion mensuelle ni de taux CIBTP/intempéries/OPPBTP inventés |
@@ -259,6 +261,8 @@ Les références des accords et de leurs arrêtés d’extension figurent dans l
 ## Organisation du dépôt
 
 Les répertoires suivent le format `<idcc>-<nom-français-de-la-convention>` et les fichiers le format `<idcc>-<nom>.année.révision.publicodes`. Les noms de chemins utilisent des minuscules et des tirets, sans accents.
+
+Une version commune à plusieurs conventions vit dans `rules/commun/<nom>/<nom>.année.révision.publicodes` : ses métadonnées listent les conventions qui la publient (`agreements`), et la compilation la publie sous chacune, comme si chaque répertoire avait le fichier. Une convention ne peut pas avoir à la fois son propre fichier et un fichier commun pour la même version. Exemple : le bâtiment (`rules/commun/batiment/`).
 
 ## Fonctionnement
 

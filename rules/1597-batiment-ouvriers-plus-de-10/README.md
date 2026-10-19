@@ -1,5 +1,21 @@
 # Bâtiment — ouvriers des entreprises de plus de 10 salariés (IDCC 1597)
 
+## Version en vigueur : `2026.4`, commune aux quatre conventions du bâtiment
+
+La version `2026.4` est publiée à l'identique pour les IDCC 1596, 1597, 2609 et 2420, depuis le
+fichier commun [`rules/commun/batiment/batiment.2026.4.publicodes`](../commun/batiment/batiment.2026.4.publicodes)
+(voir son [README](../commun/batiment/README.md)). Elle complète et corrige la convention du bâtiment
+de modele-social (`salarié . convention collective . BTP`), qui couvre à la fois les ouvriers, les
+ETAM et les cadres : taux de la cotisation congés payés CIBTP par caisse et par date, cotisation
+chômage intempéries, prévoyance des cadres (RNPC) comptée une seule fois, et grilles régionales des
+ouvriers et des ETAM à partir de la publication de leur arrêté d'extension.
+
+**Les versions `2026.1` et `2026.3` ci-dessous ne sont plus utilisées** : elles calculaient leurs cotisations
+dans un espace de noms à part, sans remplacer celles de modele-social. Elles restent publiées pour
+l'historique ; un consommateur qui choisit la version par date doit partir de `2026.4`.
+
+## Versions antérieures, plus utilisées
+
 Modèle `1597-batiment-ouvriers-plus-de-10`, version `2026.3`, espace de noms
 `salarié . convention collective . bâtiment ouvriers plus de 10 salariés`.
 

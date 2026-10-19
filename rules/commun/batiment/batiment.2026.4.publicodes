@@ -1,0 +1,509 @@
+# Bâtiment : ouvriers des entreprises occupant jusqu'à 10 salariés (IDCC 1596) et plus de 10
+# salariés (IDCC 1597), ETAM (IDCC 2609) et cadres (IDCC 2420).
+#
+# Fichier commun : la même version est publiée pour les quatre conventions (`agreements`).
+# modele-social n'a qu'une convention du bâtiment (`salarié . convention collective . BTP`, avec
+# ses catégories ouvrier, ETAM et cadre) : ce modèle la complète et la corrige, sans redéfinir ses
+# règles (`remplace`), pour toute l'entreprise, quel que soit l'IDCC déclaré.
+#
+# - Cotisation congés payés CIBTP : taux de chaque caisse à la date de la période.
+# - Cotisation chômage intempéries : absente de modele-social, ajoutée aux cotisations employeur.
+# - Prévoyance des cadres (RNPC) : les 1,50 % de la tranche A valent cotisation de prévoyance des
+#   cadres (modele-social l'ajoutait à celle du droit commun) ; pas de tranche C optionnelle.
+# - Salaires minima : les grilles régionales vérifiées sur Légifrance, à partir de la date à
+#   laquelle elles lient toutes les entreprises (publication de l'arrêté d'extension, ou date
+#   d'effet si elle est postérieure). Ailleurs, aucun minimum conventionnel (`grille applicable`
+#   vaut non) : seul le SMIC s'impose. Les cadres (2420) n'ont pas de grille : l'avenant de 2026
+#   n'est pas étendu.
+#
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes.
+
+# Les taux et les grilles sont datés dans les règles : la version couvre aussi les périodes
+# antérieures, avec les taux de modele-social avant 2026.
+validFrom: 2020-01-01
+# Chaque grille ne s'applique qu'à partir de la publication de son arrêté d'extension : la
+# version lie toutes les entreprises.
+extension: 2020-01-01
+agreements:
+  - 1596-batiment-ouvriers-petites-entreprises
+  - 1597-batiment-ouvriers-plus-de-10
+  - 2609-batiment-etam
+  - 2420-batiment-cadres
+sources:
+  - >-
+    Taux de la cotisation congés payés fixés par le conseil d'administration de chaque caisse
+    (article D. 3141-29 du code du travail), lus le 19 octobre 2026 sur les sites des caisses
+    CIBTP : Île-de-France 19,70 % puis 20,20 % au 1er avril 2026 (flash info de mars 2026 et page
+    des taux d'avril 2026) ; Nord-Ouest 20,70 % au 1er janvier 2026 (au lieu de 19,70 %) et
+    22,85 % au 1er novembre 2026 ; Grand-Ouest 19,70 % au 1er avril 2023 (au lieu de 19,95 %),
+    20,70 % au 1er janvier 2026 et 21,95 % au 1er novembre 2026 ; Centre 20,70 % au 1er janvier
+    2026 (+ 0,5 point, lettre Repères 2026) ; Grand Est 20,35 % au 1er janvier 2026 (+ 0,5 point,
+    synthèse des taux au 1er janvier 2026) ; Rhône-Alpes Auvergne 20,30 % au 1er avril 2026
+    (lettre Repères 2026 : pas de hausse au 1er janvier) ; Méditerranée 19,60 % (pas de hausse en
+    2026, lettre Repères 2026) ; Sud-Ouest 19,70 % puis 20,20 % au 1er avril 2026 (+ 0,5 point).
+    Avant 2026, les taux de modele-social 11.1.0, sauf Grand-Ouest.
+    https://www.cibtp-idf.fr/media/ile-de-france/adhesion-cotisation/Page_des_taux_avril_2026.pdf
+    https://www.cibtp-no.fr/entreprise/declarations-cotisations/cotisations-conges-payes
+    https://www.cibtp-grandouest.fr/entreprise/cotisation-conge
+    https://www.cibtp-centre.fr/entreprise/declarations-cotisations/cotisations-conges-payes
+    https://www.cibtp-grandest.fr/media/grand-est/adhesion-cotisation/Synthese_des_taux_1er_janvier_2026.pdf
+    https://www.cibtp-raa.fr/entreprise/declarations-cotisations/cotisations-conges-payes
+    https://www.cibtp-mediterranee.fr/entreprise/declarations-cotisations/cotisations-conges-payes
+    https://www.cibtp-sud-ouest.fr/entreprise/declarations-cotisations/evolution-du-taux-de-cotisation-conges
+  - >-
+    Cotisation chômage intempéries : articles D. 5424-7 (activités assujetties, d'après la
+    nomenclature des activités économiques de 1959), D. 5424-36 (assiette : salaires soumis aux
+    cotisations de sécurité sociale, après un abattement annuel par entreprise d'au moins
+    8 000 fois le SMIC horaire), D. 5424-37 (un taux pour les entreprises du gros œuvre et des
+    travaux publics, un autre pour les autres, selon l'activité principale), D. 5424-39
+    (répartition par arrêté) et D. 5424-40 (taux et abattement fixés chaque année par arrêté) du
+    code du travail. Taux de la campagne du 1er avril 2026 au 31 mars 2027, appelés par toutes les
+    caisses CIBTP sur les salaires plafonnés à la sécurité sociale : 0,68 % pour le gros œuvre et
+    les travaux publics, 0,13 % pour le second œuvre, après un abattement de 96 168 € ; les mêmes
+    taux depuis la campagne 2022-2023. L'arrêté de la campagne 2026-2027 n'a pas été trouvé sur
+    Légifrance.
+    https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000018496472
+    https://www.cibtp-centre.fr/entreprise/chomage-intemperies/champ-dapplication
+    https://www.cibtp-raa.fr/entreprise/declarations-cotisations/cotisations-chomage-intemperies
+  - >-
+    PRO BTP, notice « Chiffres, taux et assiettes 2026 » : régime national de prévoyance des cadres
+    (RNPC), 1,50 % de la tranche A à la charge de l'employeur, tel que défini par l'ANI du
+    17 novembre 2017 (la cotisation de prévoyance des cadres), et 2,40 % de la tranche B (1 à
+    4 plafonds), répartie au niveau de l'entreprise ; la tranche C (3,60 %) est une option.
+    https://www.probtp.com/files/live/sites/probtp/files/media/pdf/PRO/declarations/notice-entreprise-assiette-taux.pdf
+  - >-
+    IDCC 1596, Centre-Val de Loire : avenant du 10 avril 2026 relatif aux salaires au 1er mai
+    2026 (article 2, barème des salaires minimaux des ouvriers, coefficients 150 à 270 : 1 823 €,
+    1 863 €, 1 907 €, 2 056 €, 2 175 €, 2 293 € et 2 412 €), étendu par arrêté du 28 juillet 2026
+    (JORF du 4 août 2026). KALITEXT000054936694.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054936694
+  - >-
+    IDCC 1597, Nouvelle-Aquitaine : accord du 22 octobre 2025 relatif aux salaires (article 2,
+    barème des salaires minimaux des ouvriers à compter du 1er janvier 2026, coefficients 150 à
+    270 : 1 838,24 €, 1 862,51 €, 1 912,56 €, 2 073,33 €, 2 229,55 €, 2 399,42 € et 2 560,19 €),
+    étendu par arrêté du 13 janvier 2026 (JORF du 17 janvier 2026). KALITEXT000053497377.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053497377
+  - >-
+    IDCC 2609, Corse : accord du 15 décembre 2025 relatif aux salaires à compter du 1er avril 2026
+    (article 1er, salaires mensuels minimaux des ETAM, niveaux A à H : 1 827,10 €, 1 870,60 €,
+    1 957,61 €, 2 117,12 €, 2 328,77 €, 2 655,83 €, 2 959,16 € et 3 231,05 €), étendu par arrêté
+    du 20 mai 2026 (JORF du 6 juin 2026). KALITEXT000054092314.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054092314
+  - >-
+    IDCC 2609, Occitanie : accord du 13 février 2026 relatif aux salaires (article 2, salaires
+    mensuels minimaux des ETAM à compter du 1er mai 2026, niveaux A à H : 1 847,16 €,
+    1 936,54 €, 2 061,72 €, 2 256,45 €, 2 462,01 €, 2 902,48 €, 3 176,04 € et 3 497,50 €), étendu
+    par arrêté du 19 mai 2026 (JORF du 29 mai 2026). KALITEXT000054337649.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054337649
+  - >-
+    IDCC 2420 : l'avenant de 2026 relatif aux salaires des cadres n'est pas étendu ; aucune grille
+    des cadres dans cette version.
+---
+salarié . convention collective . BTP . région:
+  titre: Région de l'établissement
+  description: |
+    Région de l'établissement, qui choisit la grille régionale des ouvriers et des ETAM. Sans
+    région, ou hors des régions métropolitaines, aucune grille ne s'applique.
+  question: Dans quelle région l'établissement est-il situé ?
+  une possibilité:
+    - auvergne rhône alpes
+    - bourgogne franche comté
+    - bretagne
+    - centre val de loire
+    - corse
+    - grand est
+    - hauts de france
+    - île de france
+    - normandie
+    - nouvelle aquitaine
+    - occitanie
+    - pays de la loire
+    - PACA
+    - non renseignée
+  par défaut: "'non renseignée'"
+  avec:
+    auvergne rhône alpes:
+      titre: Auvergne-Rhône-Alpes
+    bourgogne franche comté:
+      titre: Bourgogne-Franche-Comté
+    bretagne:
+      titre: Bretagne
+    centre val de loire:
+      titre: Centre-Val de Loire
+    corse:
+      titre: Corse
+    grand est:
+      titre: Grand Est
+    hauts de france:
+      titre: Hauts-de-France
+    île de france:
+      titre: Île-de-France
+    normandie:
+      titre: Normandie
+    nouvelle aquitaine:
+      titre: Nouvelle-Aquitaine
+    occitanie:
+      titre: Occitanie
+    pays de la loire:
+      titre: Pays de la Loire
+    PACA:
+      titre: Provence-Alpes-Côte d'Azur
+    non renseignée:
+      titre: Non renseignée ou hors métropole
+
+salarié . convention collective . BTP . classification:
+  titre: Classification
+  description: |
+    Coefficient de l'ouvrier (150, 170, 185, 210, 230, 250 ou 270) ou niveau de l'ETAM (A à H).
+  par défaut: "'non renseignée'"
+
+salarié . convention collective . BTP . jusqu'à 10 salariés:
+  titre: Entreprise occupant jusqu'à 10 salariés
+  description: |
+    Les ouvriers d'une entreprise occupant jusqu'à 10 salariés relèvent de l'IDCC 1596, ceux des
+    autres de l'IDCC 1597.
+  valeur: entreprise . salariés . effectif <= 10 employé
+
+salarié . convention collective . BTP . grille . ouvriers jusqu'à 10 salariés Centre-Val de Loire:
+  titre: Ouvriers des entreprises jusqu'à 10 salariés, Centre-Val de Loire
+  description: |
+    Avenant du 10 avril 2026 (IDCC 1596), applicable au 1er mai 2026, étendu par arrêté publié au
+    JORF du 4 août 2026, pour 35 heures par semaine.
+  unité: €/mois
+  variations:
+    - si: classification = '150'
+      alors: 1823 €/mois
+    - si: classification = '170'
+      alors: 1863 €/mois
+    - si: classification = '185'
+      alors: 1907 €/mois
+    - si: classification = '210'
+      alors: 2056 €/mois
+    - si: classification = '230'
+      alors: 2175 €/mois
+    - si: classification = '250'
+      alors: 2293 €/mois
+    - si: classification = '270'
+      alors: 2412 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . BTP . grille . ouvriers jusqu'à 10 salariés Centre-Val de Loire . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - jusqu'à 10 salariés
+    - région = 'centre val de loire'
+    - date >= 04/08/2026
+
+salarié . convention collective . BTP . grille . ouvriers plus de 10 salariés Nouvelle-Aquitaine:
+  titre: Ouvriers des entreprises de plus de 10 salariés, Nouvelle-Aquitaine
+  description: |
+    Accord du 22 octobre 2025 (IDCC 1597), applicable au 1er janvier 2026, étendu par arrêté
+    publié au JORF du 17 janvier 2026, pour 35 heures par semaine.
+  unité: €/mois
+  variations:
+    - si: classification = '150'
+      alors: 1838.24 €/mois
+    - si: classification = '170'
+      alors: 1862.51 €/mois
+    - si: classification = '185'
+      alors: 1912.56 €/mois
+    - si: classification = '210'
+      alors: 2073.33 €/mois
+    - si: classification = '230'
+      alors: 2229.55 €/mois
+    - si: classification = '250'
+      alors: 2399.42 €/mois
+    - si: classification = '270'
+      alors: 2560.19 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . BTP . grille . ouvriers plus de 10 salariés Nouvelle-Aquitaine . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - jusqu'à 10 salariés = non
+    - région = 'nouvelle aquitaine'
+    - date >= 17/01/2026
+
+salarié . convention collective . BTP . grille . ETAM Corse:
+  titre: ETAM, Corse
+  description: |
+    Accord du 15 décembre 2025 (IDCC 2609), applicable au 1er avril 2026, étendu par arrêté
+    publié au JORF du 6 juin 2026, pour 35 heures par semaine.
+  unité: €/mois
+  variations:
+    - si: classification = 'A'
+      alors: 1827.10 €/mois
+    - si: classification = 'B'
+      alors: 1870.60 €/mois
+    - si: classification = 'C'
+      alors: 1957.61 €/mois
+    - si: classification = 'D'
+      alors: 2117.12 €/mois
+    - si: classification = 'E'
+      alors: 2328.77 €/mois
+    - si: classification = 'F'
+      alors: 2655.83 €/mois
+    - si: classification = 'G'
+      alors: 2959.16 €/mois
+    - si: classification = 'H'
+      alors: 3231.05 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . BTP . grille . ETAM Corse . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - région = 'corse'
+    - date >= 06/06/2026
+
+salarié . convention collective . BTP . grille . ETAM Occitanie:
+  titre: ETAM, Occitanie
+  description: |
+    Accord du 13 février 2026 (IDCC 2609), applicable au 1er mai 2026, étendu par arrêté publié
+    au JORF du 29 mai 2026, pour 35 heures par semaine.
+  unité: €/mois
+  variations:
+    - si: classification = 'A'
+      alors: 1847.16 €/mois
+    - si: classification = 'B'
+      alors: 1936.54 €/mois
+    - si: classification = 'C'
+      alors: 2061.72 €/mois
+    - si: classification = 'D'
+      alors: 2256.45 €/mois
+    - si: classification = 'E'
+      alors: 2462.01 €/mois
+    - si: classification = 'F'
+      alors: 2902.48 €/mois
+    - si: classification = 'G'
+      alors: 3176.04 €/mois
+    - si: classification = 'H'
+      alors: 3497.50 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . BTP . grille . ETAM Occitanie . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - région = 'occitanie'
+    - date >= 29/05/2026
+
+salarié . convention collective . BTP . grille applicable:
+  titre: Une grille régionale s'applique
+  description: |
+    Une grille de la catégorie, de la région et, pour les ouvriers, de la taille de l'entreprise
+    lie l'entreprise à la date de la période. Sinon, aucun minimum conventionnel : seul le SMIC
+    s'impose, et la classification n'est pas contrôlée.
+  une de ces conditions:
+    - grille . ouvriers jusqu'à 10 salariés Centre-Val de Loire . en vigueur
+    - grille . ouvriers plus de 10 salariés Nouvelle-Aquitaine . en vigueur
+    - grille . ETAM Corse . en vigueur
+    - grille . ETAM Occitanie . en vigueur
+
+salarié . convention collective . BTP . grille:
+  titre: Salaire minimum mensuel de la grille, à temps complet
+  description: Vaut 0 €/mois sans grille applicable, ou pour une classification absente de la grille.
+  unité: €/mois
+  variations:
+    - si: grille . ouvriers jusqu'à 10 salariés Centre-Val de Loire . en vigueur
+      alors: grille . ouvriers jusqu'à 10 salariés Centre-Val de Loire
+    - si: grille . ouvriers plus de 10 salariés Nouvelle-Aquitaine . en vigueur
+      alors: grille . ouvriers plus de 10 salariés Nouvelle-Aquitaine
+    - si: grille . ETAM Corse . en vigueur
+      alors: grille . ETAM Corse
+    - si: grille . ETAM Occitanie . en vigueur
+      alors: grille . ETAM Occitanie
+    - sinon: 0 €/mois
+
+salarié . convention collective . BTP . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: |
+    Minimum de la grille régionale, proratisé selon la quotité de travail. Vaut 0 €/mois sans
+    grille applicable (voir « grille applicable »).
+  unité: €/mois
+  produit:
+    - grille
+    - salarié . contrat . temps de travail . quotité
+
+salarié . convention collective . BTP . classification hors grille:
+  titre: Classification absente de la grille
+  description: Une grille s'applique, mais la classification n'y figure pas.
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre d'évaluation :
+  # la grille vaut donc 0 €/mois pour une classification inconnue.
+  toutes ces conditions:
+    - grille applicable
+    - grille = 0 €/mois
+
+salarié . convention collective . BTP . cotisation congés payés:
+  titre: Cotisation congés payés CIBTP
+  description: |
+    Remplace la règle « congés intempéries » de modele-social, qui ne contient que cette
+    cotisation : taux de la caisse de rattachement à la date de la période.
+  remplace: salarié . convention collective . BTP . congés intempéries
+  unité: €/mois
+  produit:
+    - salarié . cotisations . assiette
+    - taux
+
+salarié . convention collective . BTP . cotisation congés payés . taux:
+  titre: Taux de la cotisation congés payés
+  unité: '%'
+  variations:
+    - si: salarié . convention collective . BTP . congés intempéries . caisse de rattachement = 'idf'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors: 20.20%
+          - si: date >= 01/01/2026
+            alors: 19.70%
+          - sinon: 19.80%
+    - si: salarié . convention collective . BTP . congés intempéries . caisse de rattachement = 'nord ouest'
+      alors:
+        variations:
+          - si: date >= 01/11/2026
+            alors: 22.85%
+          - si: date >= 01/01/2026
+            alors: 20.70%
+          - sinon: 19.95%
+    - si: salarié . convention collective . BTP . congés intempéries . caisse de rattachement = 'grand ouest'
+      alors:
+        variations:
+          - si: date >= 01/11/2026
+            alors: 21.95%
+          - si: date >= 01/01/2026
+            alors: 20.70%
+          - si: date >= 01/04/2023
+            alors: 19.70%
+          - sinon: 19.95%
+    - si: salarié . convention collective . BTP . congés intempéries . caisse de rattachement = 'centre ouest'
+      alors:
+        variations:
+          - si: date >= 01/01/2026
+            alors: 20.70%
+          - sinon: 20.30%
+    - si: salarié . convention collective . BTP . congés intempéries . caisse de rattachement = 'centre'
+      alors:
+        variations:
+          - si: date >= 01/01/2026
+            alors: 20.70%
+          - sinon: 20.40%
+    - si: salarié . convention collective . BTP . congés intempéries . caisse de rattachement = 'grand est'
+      alors:
+        variations:
+          - si: date >= 01/01/2026
+            alors: 20.35%
+          - sinon: 20.00%
+    - si: salarié . convention collective . BTP . congés intempéries . caisse de rattachement = 'rhône alpes auvergne'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors: 20.30%
+          - sinon: 19.80%
+    - si: salarié . convention collective . BTP . congés intempéries . caisse de rattachement = 'méditerranée'
+      alors: 19.60%
+    - si: salarié . convention collective . BTP . congés intempéries . caisse de rattachement = 'sud ouest'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors: 20.20%
+          - si: date >= 01/01/2026
+            alors: 19.70%
+          - sinon: 19.90%
+
+salarié . convention collective . BTP . chômage intempéries:
+  titre: Cotisation chômage intempéries
+  description: |
+    Cotisation patronale versée à la caisse CIBTP, qui indemnise les salariés lorsque les
+    intempéries arrêtent les chantiers. Assise sur le salaire plafonné à la sécurité sociale, à
+    un taux qui dépend de la catégorie d'affiliation de l'entreprise. Elle n'est due qu'au-delà
+    d'un abattement annuel par entreprise, qu'une paie ne peut pas calculer : « sous
+    l'abattement » l'annule.
+  unité: €/mois
+  produit:
+    - valeur: salarié . cotisations . assiette
+      plafond: salarié . temps de travail . plafond sécurité sociale
+    - taux
+
+salarié . convention collective . BTP . chômage intempéries . catégorie:
+  titre: Catégorie d'affiliation au régime chômage intempéries
+  question: Dans quelle catégorie la caisse CIBTP a-t-elle affilié l'entreprise ?
+  une possibilité:
+    - gros œuvre et travaux publics
+    - second œuvre
+    - non assujettie
+  par défaut: "'non assujettie'"
+  avec:
+    gros œuvre et travaux publics:
+      titre: Gros œuvre et travaux publics
+    second œuvre:
+      titre: Second œuvre
+    non assujettie:
+      titre: Activité non assujettie au régime
+
+salarié . convention collective . BTP . chômage intempéries . sous l'abattement:
+  titre: Masse salariale sous l'abattement annuel
+  description: |
+    Les salaires plafonnés de l'entreprise depuis le début de la campagne (1er avril) ne
+    dépassent pas l'abattement annuel : la cotisation n'est pas appelée.
+  par défaut: non
+
+salarié . convention collective . BTP . chômage intempéries . taux:
+  titre: Taux de la cotisation chômage intempéries
+  unité: '%'
+  variations:
+    - si: sous l'abattement
+      alors: 0%
+    - si: catégorie = 'gros œuvre et travaux publics'
+      alors: 0.68%
+    - si: catégorie = 'second œuvre'
+      alors: 0.13%
+    - sinon: 0%
+
+salarié . convention collective . BTP . OPPBTP et chômage intempéries:
+  titre: OPPBTP et cotisation chômage intempéries
+  description: Ajoute la cotisation chômage intempéries aux cotisations employeur du bâtiment.
+  remplace:
+    références à: salarié . convention collective . BTP . OPPBTP
+    dans: salarié . convention collective . BTP . cotisations employeur
+  unité: €/mois
+  somme:
+    - salarié . convention collective . BTP . OPPBTP
+    - salarié . convention collective . BTP . chômage intempéries
+
+salarié . convention collective . BTP . catégorie . cadre . prévoyance RNPC:
+  titre: Prévoyance des cadres du bâtiment (RNPC)
+  description: |
+    La cotisation de 1,50 % sur la tranche A, à la charge de l'employeur, vaut cotisation
+    obligatoire de prévoyance des cadres : elle remplace celle du droit commun. La cotisation de
+    2,40 % sur la tranche B est répartie par l'entreprise (à parts égales ici). La tranche C est
+    une garantie optionnelle, non prise en compte.
+  rend non applicable: salarié . cotisations . prévoyances . employeur . cadres
+  somme:
+    - employeur
+    - salarié
+  avec:
+    employeur:
+      remplace:
+        références à: salarié . cotisations . prévoyances . conventionnelle . employeur
+        priorité: 1
+      barème:
+        assiette: salarié . contrat . salaire brut
+        multiplicateur: plafond sécurité sociale
+        tranches:
+          - taux: 1.50%
+            plafond: 1
+          - taux: 50% * 2.40%
+            plafond: 4
+    salarié:
+      remplace:
+        références à: salarié . cotisations . prévoyances . conventionnelle . salarié
+        priorité: 1
+      barème:
+        assiette: salarié . contrat . salaire brut
+        multiplicateur: plafond sécurité sociale
+        tranches:
+          - taux: 0%
+            plafond: 1
+          - taux: 50% * 2.40%
+            plafond: 4
