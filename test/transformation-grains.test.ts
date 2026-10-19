@@ -107,3 +107,62 @@ describe("IDCC 1930 — 2026.3 minimum salaries and seniority premium", () => {
     assert.equal(engine.evaluate(`${namespace} . niveau hors grille`).nodeValue, null);
   });
 });
+
+describe("IDCC 1930 — 2026.4 seniority premium by company scheme and individual amount", async () => {
+  const revision = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.4");
+  assert.ok(revision);
+  const revisionRules: Record<string, Rule> = { ...rules };
+  for (const name of Object.keys(extension)) delete revisionRules[name];
+  Object.assign(revisionRules, await revision.loadRules());
+  const revisionEngine = new Engine(revisionRules, { logger: { log() {}, warn() {}, error() {} } });
+
+  // Level IV (2 157,51 €), hired on 1 January 2020: 6 years of seniority on 1 October 2026.
+  const premium = (extra: Record<string, string> = {}) => {
+    revisionEngine.setSituation({
+      date: "01/10/2026",
+      "salarié . convention collective": `'${value}'`,
+      "salarié . contrat . date d'embauche": "01/01/2020",
+      [`${namespace} . niveau`]: "'IV'",
+      ...extra,
+    });
+    return revisionEngine.evaluate(`${namespace} . prime d'ancienneté`).nodeValue;
+  };
+  const scale = { [`${namespace} . régime de prime d'ancienneté`]: "'barème'" };
+  const individual = (amount: string) => ({
+    [`${namespace} . prime d'ancienneté individuelle`]: "oui",
+    [`${namespace} . prime d'ancienneté individuelle . montant`]: amount,
+  });
+
+  it("keeps the validity date and the sources of 2026.3", () => {
+    assert.equal(revision.validFrom, "2026-06-01");
+    assert.deepEqual(revision.sources, version.sources);
+  });
+
+  it("pays the article 40 rate of the REMM with the company scheme « barème »", () => {
+    assert.equal(premium(scale), 43.15);
+    assert.equal(premium({ ...scale, "salarié . contrat . temps de travail . quotité": "50%" }), 21.58);
+  });
+
+  it("counts the seniority entered for the company, taken over seniority included", () => {
+    assert.equal(premium({ ...scale, [`${namespace} . ancienneté dans l'entreprise`]: "12 an" }), 86.3);
+    assert.equal(premium({ ...scale, [`${namespace} . ancienneté dans l'entreprise`]: "2 an" }), 0);
+  });
+
+  it("pays nothing with the scheme « aucune prime » or without a scheme", () => {
+    assert.equal(premium({ [`${namespace} . régime de prime d'ancienneté`]: "'aucune prime'" }), 0);
+    assert.equal(premium(), 0);
+  });
+
+  it("pays the individual amount instead of the company scheme, without proration", () => {
+    assert.equal(premium({ ...scale, ...individual("42 €/mois") }), 42);
+    assert.equal(premium({ ...scale, ...individual("0 €/mois") }), 0);
+    assert.equal(
+      premium({
+        [`${namespace} . régime de prime d'ancienneté`]: "'aucune prime'",
+        ...individual("42 €/mois"),
+        "salarié . contrat . temps de travail . quotité": "50%",
+      }),
+      42,
+    );
+  });
+});

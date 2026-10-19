@@ -1,6 +1,6 @@
 # Métiers de la transformation des grains — IDCC 1930
 
-Le fichier [2026.1](1930-transformation-grains.2026.1.publicodes) est applicable au 1er février 2026. Le fichier [2026.3](1930-transformation-grains.2026.3.publicodes) est applicable au 1er juin 2026 et ajoute la prime d’ancienneté de l’avenant n° 31 du 9 février 2026. Les avenants n° 30 et n° 31 ont été étendus par arrêté du 4 mai 2026 publié au Journal officiel du 10 mai 2026.
+Le fichier [2026.1](1930-transformation-grains.2026.1.publicodes) est applicable au 1er février 2026. Le fichier [2026.3](1930-transformation-grains.2026.3.publicodes) est applicable au 1er juin 2026 et ajoute la prime d’ancienneté de l’avenant n° 31 du 9 février 2026. Le fichier [2026.4](1930-transformation-grains.2026.4.publicodes), à la même date d’effet, la remplace : la prime dépend du régime de l’entreprise et d’un éventuel montant individuel du salarié, et l’ancienneté peut être saisie. Les avenants n° 30 et n° 31 ont été étendus par arrêté du 4 mai 2026 publié au Journal officiel du 10 mai 2026.
 
 La convention collective nationale des métiers de la transformation des grains du 9 novembre 2016 (brochure 3060) couvre les entreprises relevant de l’IDCC 1930.
 
@@ -9,7 +9,9 @@ La convention collective nationale des métiers de la transformation des grains 
 - `niveau` reçoit `I` à `V`, `VI.1`, `VI.2`, `VII`, `VIII` ou `IX`.
 - `salaire minimum conventionnel` donne la rémunération mensuelle minimum pour 35 heures (151,67 heures), proratisée selon la quotité de travail.
 - `niveau hors grille` vaut vrai pour une combinaison absente de la grille ; le salaire retourné est alors `0 €/mois`.
-- `prime d'ancienneté` calcule 1 %, 2 %, 3 % ou 4 % de la REMM selon 3, 6, 9 ou 12 ans d’ancienneté, proratisée selon la quotité. Elle nécessite l’entrée `bénéficie de la prime d'ancienneté` à `oui` car l’avenant prévoit des cas où la prime peut ne pas être attribuée.
+- `prime d'ancienneté` calcule 1 %, 2 %, 3 % ou 4 % de la REMM selon 3, 6, 9 ou 12 ans d’ancienneté, proratisée selon la quotité.
+  - 2026.3 : elle nécessite l’entrée `bénéficie de la prime d'ancienneté` à `oui`.
+  - 2026.4 : l’article 40 accorde la prime « quand elle existe » ; les primes atteintes à la réduction du temps de travail peuvent être maintenues individuellement sans plus évoluer, et les salariés qui n’en bénéficiaient pas, comme les nouveaux embauchés, peuvent en être exclus. L’entrée d’entreprise `régime de prime d'ancienneté` vaut `'barème'` (le taux ci-dessus) ou `'aucune prime'` ; non renseignée, la prime vaut 0 €/mois. L’entrée salarié `prime d'ancienneté individuelle` (`oui`) et son `montant` en €/mois, non proratisé, remplacent le régime de l’entreprise : une prime figée, ou 0 €/mois pour un salarié exclu. `ancienneté dans l'entreprise` vaut par défaut l’ancienneté depuis l’embauche et peut recevoir l’ancienneté reprise.
 
 ## Grille 2026.1
 
