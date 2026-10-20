@@ -44,7 +44,7 @@ Les identifiants KALITEXT et les arrêtés d'extension sont dans les sources de 
 ## Limites
 
 - Seule la grille du dernier accord étendu de chaque région est modélisée, à partir de son extension : avant, aucune grille, alors que l'accord étendu précédent liait les entreprises. Un nouvel accord régional, une fois étendu, entre dans une nouvelle version commune, après lecture de son texte et de son arrêté d'extension sur Légifrance.
-- Les accords régionaux de 2025 des ETAM d'Île-de-France sont rattachés à l'IDCC 2609 ; la convention régionale des ETAM de la région parisienne (IDCC 2707) a son propre modèle.
+- Les accords de salaires des ETAM d'Île-de-France sont rattachés à l'IDCC 2609 depuis l'avenant n° 10 du 4 décembre 2018 ; le modèle de la convention régionale (IDCC 2707, avenant n° 9 de 2017) n'est plus utilisé.
 - Pays de la Loire, ouvriers : le tableau de l'accord du 7 novembre 2025 diffère de quelques centimes de la partie fixe et des valeurs de point du même article (par exemple 1 832,17 € pour le coefficient 150, contre 164 + 150 × 11,120 = 1 832 €) ; la version reprend le tableau.
 - Les grilles s'appliquent aux entreprises adhérentes d'une organisation signataire dès la date d'effet de l'accord ; la version ne les contrôle qu'à partir de l'extension.
 - L'arrêté fixant les taux de la cotisation chômage intempéries de la campagne 2026-2027 n'a pas été trouvé sur Légifrance : les taux sont ceux que toutes les caisses CIBTP appellent.

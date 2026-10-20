@@ -1,5 +1,15 @@
 # Bâtiment — ETAM Île-de-France (IDCC 2707)
 
+**Modèle plus utilisé.** Les accords de salaires des ETAM du bâtiment d'Île-de-France sont rattachés
+à la convention nationale des ETAM (IDCC 2609) depuis l'avenant n° 10 du 4 décembre 2018
+(Île-de-France hors Seine-et-Marne, [KALITEXT000038632356](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000038632356)) ;
+le dernier est l'accord du 5 novembre 2025, pour toute la région
+([KALITEXT000053504320](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053504320)), repris
+dans la version commune du bâtiment (`2026.5`, voir [rules/commun/batiment](../commun/batiment/README.md)).
+L'avenant n° 9 du 5 décembre 2017 ci-dessous est le dernier texte de salaires rattaché à l'IDCC 2707
+sur Légifrance, et le référentiel des conventions du ministère du Travail renvoie l'IDCC 2707 vers
+2609. Les versions `2018.1` et `2018.2` restent publiées pour l'historique.
+
 La version `2018.2` reprend l'accord salarial officiel applicable au **1er janvier 2018** pour les employés, techniciens et agents de maîtrise du bâtiment de la région parisienne. La révision `2018.2` remplace `2018.1` (même date d'effet) : `2018.1` avait des montants erronés pour les niveaux B à G et omettait le niveau H ; elle est conservée telle quelle pour l'historique. Il s'agit d'un modèle historique borné à ce périmètre : il ne fabrique pas de grille nationale, ne couvre pas les cadres et n'extrapole pas les années postérieures.
 
 ## Règles implémentées
