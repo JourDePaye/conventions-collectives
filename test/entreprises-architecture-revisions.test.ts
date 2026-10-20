@@ -36,6 +36,7 @@ describe("IDCC 2332 — revision dates", () => {
     assert.equal(dates["2025.2"], "2025-02-11");
     assert.equal(dates["2025.3"], "2025-06-01");
     assert.equal(dates["2026.1"], "2026-06-01");
+    assert.equal(dates["2026.2"], "2026-01-01");
   });
 });
 

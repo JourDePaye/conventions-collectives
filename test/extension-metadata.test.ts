@@ -37,11 +37,14 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   "1597-batiment-ouvriers-plus-de-10": { "2026.4": "2020-01-01", "2026.5": "2020-01-01", "2026.6": "2020-01-01" },
   "2420-batiment-cadres": { "2026.4": "2020-01-01", "2026.5": "2020-01-01", "2026.6": "2020-01-01" },
   "2609-batiment-etam": { "2026.4": "2020-01-01", "2026.5": "2020-01-01", "2026.6": "2020-01-01" },
-  // The shared public works version: each regional grid applies from the publication of its own
-  // extension order (in its rules).
+  // 2332: every territorial accord applies from the month after the publication of its own
+  // extension order, in its rules.
+  "2332-entreprises-architecture": { "2026.2": "2026-01-01" },
   // 3213: the version starts in 2026 and the grid applies from the effective date of its
   // extended accord (11 July 2026), in its rules.
   "3213-economistes-construction": { "2026.2": "2026-01-01" },
+  // The shared public works version: each regional grid applies from the publication of its own
+  // extension order (in its rules).
   "1702-travaux-publics-ouvriers": { "2026.4": "2026-01-01", "2026.5": "2026-01-01" },
   "2614-travaux-publics-etam": { "2026.4": "2026-01-01", "2026.5": "2026-01-01" },
   "3212-travaux-publics-cadres": { "2026.4": "2026-01-01", "2026.5": "2026-01-01" },

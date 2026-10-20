@@ -1,0 +1,844 @@
+# Convention collective nationale des entreprises d'architecture du 27 février 2003 (IDCC 2332).
+# Version 2026.2: the point values of every territory (article XV.5.1 of the CCN) in 2026, each from the
+# first day of the month after the publication of its accord's extension order (article XV.5.2.1): the
+# accord in force on 1 January 2026, then the accord negotiated for 2026. It replaces 2026.1 (Rhône-Alpes
+# only) from 1 January 2026. Mayotte has no accord: its minimum is 0 (SMIC).
+validFrom: 2026-01-01
+extension: 2026-01-01
+sources:
+  - >-
+    Convention collective nationale des entreprises d'architecture du 27 février 2003, étendue par arrêté du
+    6 janvier 2004 (KALICONT000005635365) : article V.1.10, grilles de classification (coefficients 200 à 600,
+    trois par niveau, de 20 en 20) ; articles V.2.1 et V.2.2, salaire minimum égal au coefficient multiplié par
+    la valeur du point du territoire pour 35 heures ; article XV.5.1, périmètre de chaque commission
+    territoriale paritaire ; article XV.5.2.1, la valeur de point prend effet le premier jour du mois suivant
+    l'extension de l'accord.
+  - >-
+    PACA Accord du 10 décembre 2024 relatif à la valeur du point, KALITEXT000051314944, étendu par arrêté du 17 mars 2025 (JORF du 29 mars 2025).
+  - >-
+    Guyane Accord du 30 décembre 2024 relatif à la valeur du point, KALITEXT000051447403, étendu par arrêté du 10 avril 2025 (JORF du 26 avril 2025).
+  - >-
+    Martinique Accord du 31 décembre 2024 relatif à la valeur du point, KALITEXT000051447415, étendu par arrêté du 10 avril 2025 (JORF du 26 avril 2025).
+  - >-
+    Guadeloupe Accord du 2 janvier 2025 relatif à la valeur du point, KALITEXT000051447427, étendu par arrêté du 10 avril 2025 (JORF du 26 avril 2025).
+  - >-
+    Limousin Accord du 10 janvier 2025 relatif à la valeur du point, KALITEXT000051447439, étendu par arrêté du 10 avril 2025 (JORF du 26 avril 2025).
+  - >-
+    Aquitaine Accord du 16 janvier 2025 relatif à la valeur du point, KALITEXT000051493719, étendu par arrêté du 10 avril 2025 (JORF du 26 avril 2025).
+  - >-
+    Auvergne Accord du 20 janvier 2025 relatif à la valeur du point, KALITEXT000051493731, étendu par arrêté du 10 avril 2025 (JORF du 26 avril 2025).
+  - >-
+    Corse Accord du 20 janvier 2025 relatif à la valeur du point, KALITEXT000051493743, étendu par arrêté du 10 avril 2025 (JORF du 26 avril 2025).
+  - >-
+    Poitou-Charentes Accord du 13 janvier 2025 relatif aux salaires 2025, KALITEXT000051537885, étendu par arrêté du 10 avril 2025 (JORF du 26 avril 2025).
+  - >-
+    Basse-Normandie Accord du 21 janvier 2025 relatif à la valeur du point, KALITEXT000051580326, étendu par arrêté du 27 mai 2025 (JORF du 28 mai 2025).
+  - >-
+    Haute-Normandie Accord du 21 janvier 2025 relatif à la valeur du point, KALITEXT000051580338, étendu par arrêté du 27 mai 2025 (JORF du 28 mai 2025).
+  - >-
+    Bourgogne Accord du 29 janvier 2025 relatif à la valeur du point, KALITEXT000051580350, étendu par arrêté du 27 mai 2025 (JORF du 28 mai 2025).
+  - >-
+    Midi-Pyrénées Accord du 28 janvier 2025 relatif à la valeur du point, KALITEXT000051580362, étendu par arrêté du 27 mai 2025 (JORF du 28 mai 2025).
+  - >-
+    Île-de-France Accord du 29 janvier 2025 relatif à la valeur du point, KALITEXT000051580377, étendu par arrêté du 27 mai 2025 (JORF du 28 mai 2025).
+  - >-
+    Lorraine Accord du 7 février 2025 relatif à la valeur du point, KALITEXT000051580389, étendu par arrêté du 27 mai 2025 (JORF du 28 mai 2025).
+  - >-
+    Languedoc-Roussillon Accord du 10 février 2025 relatif à la valeur du point, KALITEXT000051580401, étendu par arrêté du 27 mai 2025 (JORF du 28 mai 2025).
+  - >-
+    Rhône-Alpes Accord du 11 février 2025 relatif à la valeur du point, KALITEXT000051580413, étendu par arrêté du 27 mai 2025 (JORF du 28 mai 2025).
+  - >-
+    Pays de la Loire Accord du 12 février 2025 relatif à la valeur du point, KALITEXT000051580425, étendu par arrêté du 27 mai 2025 (JORF du 28 mai 2025).
+  - >-
+    Picardie Accord du 21 février 2025 relatif à la valeur du point pour l'année 2025, KALITEXT000051694306, étendu par arrêté du 27 mai 2025 (JORF du 28 mai 2025).
+  - >-
+    La Réunion Accord du 14 mars 2025 relatif à la valeur du point, KALITEXT000051694932, étendu par arrêté du 20 mai 2025 (JORF du 24 mai 2025).
+  - >-
+    Champagne-Ardenne Accord du 27 février 2025 relatif à la valeur du point, KALITEXT000051834752, étendu par arrêté du 20 mai 2025 (JORF du 24 mai 2025).
+  - >-
+    Centre Accord du 28 février 2025 relatif à la valeur du point, KALITEXT000051834764, étendu par arrêté du 20 mai 2025 (JORF du 24 mai 2025).
+  - >-
+    Alsace Accord du 27 mars 2025 relatif à la valeur du point, KALITEXT000051947571, étendu par arrêté du 1er juillet 2025 (JORF du 5 juillet 2025).
+  - >-
+    Nord-Pas-de-Calais Accord du 27 mars 2025 relatif à la valeur du point, KALITEXT000051947583, étendu par arrêté du 1er juillet 2025 (JORF du 5 juillet 2025).
+  - >-
+    Bretagne Accord du 27 mars 2025 relatif à la valeur du point, KALITEXT000051947595, étendu par arrêté du 1er juillet 2025 (JORF du 5 juillet 2025).
+  - >-
+    Lorraine Accord du 7 novembre 2025 relatif aux salaires, KALITEXT000053973379, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Nord-Pas-de-Calais Accord du 20 novembre 2025 relatif aux salaires, KALITEXT000053973391, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Midi-Pyrénées Accord du 25 novembre 2025 relatif aux salaires, KALITEXT000053973403, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Haute-Normandie Accord du 2 décembre 2025 relatif aux salaires, KALITEXT000053973415, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Basse-Normandie Accord du 2 décembre 2025 relatif aux salaires, KALITEXT000053973427, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Limousin Accord du 3 décembre 2025 relatif aux salaires, KALITEXT000053973439, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Pays de la Loire Accord du 12 décembre 2025 relatif aux salaires, KALITEXT000053973451, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Languedoc Roussillon Accord du 8 janvier 2026 relatif aux salaires, KALITEXT000053973463, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Alsace Accord du 24 novembre 2025 relatif à la valeur du point, KALITEXT000054040493, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Île-de-France Accord du 26 novembre 2025 relatif à la valeur du point, KALITEXT000054040505, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Champagne-Ardenne Accord du 28 novembre 2025 relatif à la valeur du point, KALITEXT000054040517, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Aquitaine Accord du 1er décembre 2025 relatif à la valeur du point, KALITEXT000054040529, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Bourgogne Accord du 8 décembre 2025 relatif à la valeur du point, KALITEXT000054040541, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Auvergne Accord du 10 décembre 2025 relatif à la valeur du point, KALITEXT000054040553, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Centre - Val-de-Loire Accord du 16 décembre 2025 relatif à la valeur du point, KALITEXT000054040565, étendu par arrêté du 18 mars 2026 (JORF du 28 mars 2026).
+  - >-
+    Corse Accord du 14 novembre 2025 relatif à la valeur du point, KALITEXT000054066688, étendu par arrêté du 8 avril 2026 (JORF du 17 avril 2026).
+  - >-
+    Franche-Comté Accord du 9 décembre 2025 relatif à la valeur du point, KALITEXT000054066700, étendu par arrêté du 8 avril 2026 (JORF du 17 avril 2026).
+  - >-
+    PACA Accord du 7 janvier 2026 relatif à la valeur du point, KALITEXT000054066712, étendu par arrêté du 8 avril 2026 (JORF du 17 avril 2026).
+  - >-
+    Picardie Accord du 14 janvier 2026 relatif à la valeur du point pour l'année 2026, KALITEXT000054066726, étendu par arrêté du 8 avril 2026 (JORF du 17 avril 2026).
+  - >-
+    Poitou-Charentes Accord du 21 janvier 2026 relatif à la valeur du point, KALITEXT000054066738, étendu par arrêté du 8 avril 2026 (JORF du 17 avril 2026).
+  - >-
+    Rhône-Alpes Accord du 3 février 2026 relatif aux salaires et à la valeur du point, KALITEXT000054337579, étendu par arrêté du 20 mai 2026 (JORF du 29 mai 2026).
+  - >-
+    Bretagne Accord du 10 février 2026 relatif aux salaires et à la valeur du point, KALITEXT000054337591, étendu par arrêté du 20 mai 2026 (JORF du 29 mai 2026).
+  - >-
+    Guyane Accord du 19 février 2026 relatif à la valeur du point, KALITEXT000054872003, étendu par arrêté du 6 juillet 2026 (JORF du 9 juillet 2026).
+  - >-
+    Martinique Accord du 20 février 2026 relatif à la valeur du point, KALITEXT000054872015, étendu par arrêté du 6 juillet 2026 (JORF du 9 juillet 2026).
+  - >-
+    Guadeloupe Accord du 23 février 2026 relatif à la valeur du point, KALITEXT000054872027, étendu par arrêté du 6 juillet 2026 (JORF du 9 juillet 2026).
+  - >-
+    La Réunion Accord du 16 mars 2026 relatif à la valeur du point, KALITEXT000054872039, étendu par arrêté du 6 juillet 2026 (JORF du 9 juillet 2026).
+  - >-
+    Franche-Comté Accord du 28 novembre 2023 relatif à la valeur du point, KALITEXT000048994203, étendu par arrêté du 12 février 2024 (JORF du 16 février 2024).
+---
+salarié . convention collective . entreprises d'architecture:
+  titre: Entreprises d'architecture (IDCC 2332)
+  valeur: convention collective = 'entreprises d'architecture'
+
+salarié . convention collective . entreprises d'architecture . département:
+  titre: Département de l'établissement
+  description: >-
+    Les deux premiers chiffres du code postal de l'établissement, ou les trois premiers outre-mer
+    (971 à 976) ; la Corse est 20, 2A ou 2B. Il désigne la commission territoriale paritaire dont la
+    valeur du point s'applique (article XV.5.1 de la CCN).
+  applicable si: convention collective = 'entreprises d'architecture'
+  type: texte
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . entreprises d'architecture . Toulouse Métropole:
+  titre: Établissement dans Toulouse Métropole
+  description: >-
+    Oui lorsque l'établissement se trouve dans une commune de Toulouse Métropole (zone CUTM des
+    accords Midi-Pyrénées).
+  applicable si: territoire = 'Midi-Pyrénées'
+  par défaut: non
+
+salarié . convention collective . entreprises d'architecture . territoire:
+  titre: Commission territoriale paritaire
+  description: Territoire de l'article XV.5.1 de la CCN, d'après le département ; « hors territoire » sans département connu.
+  applicable si: convention collective = 'entreprises d'architecture'
+  variations:
+    - si:
+        une de ces conditions:
+          - département = '67'
+          - département = '68'
+      alors: "'Alsace'"
+    - si:
+        une de ces conditions:
+          - département = '24'
+          - département = '33'
+          - département = '40'
+          - département = '47'
+          - département = '64'
+      alors: "'Aquitaine'"
+    - si:
+        une de ces conditions:
+          - département = '03'
+          - département = '15'
+          - département = '43'
+          - département = '63'
+      alors: "'Auvergne'"
+    - si:
+        une de ces conditions:
+          - département = '14'
+          - département = '50'
+          - département = '61'
+      alors: "'Basse-Normandie'"
+    - si:
+        une de ces conditions:
+          - département = '21'
+          - département = '58'
+          - département = '71'
+          - département = '89'
+      alors: "'Bourgogne'"
+    - si:
+        une de ces conditions:
+          - département = '22'
+          - département = '29'
+          - département = '35'
+          - département = '56'
+      alors: "'Bretagne'"
+    - si:
+        une de ces conditions:
+          - département = '18'
+          - département = '28'
+          - département = '36'
+          - département = '37'
+          - département = '41'
+          - département = '45'
+      alors: "'Centre-Val de Loire'"
+    - si:
+        une de ces conditions:
+          - département = '08'
+          - département = '10'
+          - département = '51'
+          - département = '52'
+      alors: "'Champagne-Ardenne'"
+    - si:
+        une de ces conditions:
+          - département = '20'
+          - département = '2A'
+          - département = '2B'
+      alors: "'Corse'"
+    - si:
+        une de ces conditions:
+          - département = '25'
+          - département = '39'
+          - département = '70'
+          - département = '90'
+      alors: "'Franche-Comté'"
+    - si:
+        une de ces conditions:
+          - département = '971'
+      alors: "'Guadeloupe'"
+    - si:
+        une de ces conditions:
+          - département = '973'
+      alors: "'Guyane'"
+    - si:
+        une de ces conditions:
+          - département = '27'
+          - département = '76'
+      alors: "'Haute-Normandie'"
+    - si:
+        une de ces conditions:
+          - département = '75'
+          - département = '77'
+          - département = '78'
+          - département = '91'
+          - département = '92'
+          - département = '93'
+          - département = '94'
+          - département = '95'
+      alors: "'Île-de-France'"
+    - si:
+        une de ces conditions:
+          - département = '11'
+          - département = '30'
+          - département = '34'
+          - département = '48'
+          - département = '66'
+      alors: "'Languedoc-Roussillon'"
+    - si:
+        une de ces conditions:
+          - département = '19'
+          - département = '23'
+          - département = '87'
+      alors: "'Limousin'"
+    - si:
+        une de ces conditions:
+          - département = '54'
+          - département = '55'
+          - département = '57'
+          - département = '88'
+      alors: "'Lorraine'"
+    - si:
+        une de ces conditions:
+          - département = '972'
+      alors: "'Martinique'"
+    - si:
+        une de ces conditions:
+          - département = '976'
+      alors: "'Mayotte'"
+    - si:
+        une de ces conditions:
+          - département = '09'
+          - département = '12'
+          - département = '31'
+          - département = '32'
+          - département = '46'
+          - département = '65'
+          - département = '81'
+          - département = '82'
+      alors: "'Midi-Pyrénées'"
+    - si:
+        une de ces conditions:
+          - département = '59'
+          - département = '62'
+      alors: "'Nord-Pas-de-Calais'"
+    - si:
+        une de ces conditions:
+          - département = '44'
+          - département = '49'
+          - département = '53'
+          - département = '72'
+          - département = '85'
+      alors: "'Pays de la Loire'"
+    - si:
+        une de ces conditions:
+          - département = '02'
+          - département = '60'
+          - département = '80'
+      alors: "'Picardie'"
+    - si:
+        une de ces conditions:
+          - département = '16'
+          - département = '17'
+          - département = '79'
+          - département = '86'
+      alors: "'Poitou-Charentes'"
+    - si:
+        une de ces conditions:
+          - département = '04'
+          - département = '05'
+          - département = '06'
+          - département = '13'
+          - département = '83'
+          - département = '84'
+      alors: "'Provence-Alpes-Côte d'Azur'"
+    - si:
+        une de ces conditions:
+          - département = '974'
+      alors: "'La Réunion'"
+    - si:
+        une de ces conditions:
+          - département = '01'
+          - département = '07'
+          - département = '26'
+          - département = '38'
+          - département = '42'
+          - département = '69'
+          - département = '73'
+          - département = '74'
+      alors: "'Rhône-Alpes'"
+    - sinon: "'hors territoire'"
+
+salarié . convention collective . entreprises d'architecture . zone:
+  titre: Zone du territoire
+  description: >-
+    Zone 1 ou 2 en Île-de-France (zone 1 : 75, 92, 93, 94) et en Rhône-Alpes (zone 1 : 01, 38, 69, 73,
+    74 ; zone 2 : 07, 26, 42), CUTM ou hors CUTM en Midi-Pyrénées, aucune ailleurs.
+  applicable si: convention collective = 'entreprises d'architecture'
+  variations:
+    - si: territoire = 'Île-de-France'
+      alors:
+        variations:
+          - si:
+              une de ces conditions:
+                - département = '75'
+                - département = '92'
+                - département = '93'
+                - département = '94'
+            alors: "'zone 1'"
+          - sinon: "'zone 2'"
+    - si: territoire = 'Rhône-Alpes'
+      alors:
+        variations:
+          - si:
+              une de ces conditions:
+                - département = '01'
+                - département = '38'
+                - département = '69'
+                - département = '73'
+                - département = '74'
+            alors: "'zone 1'"
+          - sinon: "'zone 2'"
+    - si: territoire = 'Midi-Pyrénées'
+      alors:
+        variations:
+          - si: Toulouse Métropole
+            alors: "'CUTM'"
+          - sinon: "'hors CUTM'"
+    - sinon: "'aucune'"
+
+salarié . convention collective . entreprises d'architecture . coefficient:
+  titre: Coefficient hiérarchique
+  description: Coefficient de la grille de classification (article V.1.10 de la CCN), de 200 à 600 de 20 en 20.
+  applicable si: convention collective = 'entreprises d'architecture'
+  par défaut: 0
+
+salarié . convention collective . entreprises d'architecture . valeur du point:
+  titre: Valeur du point du territoire
+  applicable si: convention collective = 'entreprises d'architecture'
+  unité: €/point
+  variations:
+    - si: territoire = 'Alsace'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              9.09 €/point
+          - sinon:
+              9 €/point
+    - si: territoire = 'Aquitaine'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              9.28 €/point
+          - sinon:
+              9.19 €/point
+    - si: territoire = 'Auvergne'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              9.2 €/point
+          - sinon:
+              9.11 €/point
+    - si: territoire = 'Basse-Normandie'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              variations:
+                - si: coefficient <= 300
+                  alors: 9.34 €/point
+                - sinon: 9.14 €/point
+          - sinon:
+              variations:
+                - si: coefficient <= 300
+                  alors: 9.25 €/point
+                - sinon: 9.03 €/point
+    - si: territoire = 'Bourgogne'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              9.21 €/point
+          - sinon:
+              9.12 €/point
+    - si: territoire = 'Bretagne'
+      alors:
+        variations:
+          - si: date >= 01/06/2026
+            alors:
+              variations:
+                - si: coefficient <= 380
+                  alors: 9.18 €/point
+                - sinon: 8.95 €/point
+          - sinon:
+              variations:
+                - si: coefficient <= 280
+                  alors: 9.13 €/point
+                - si: coefficient <= 380
+                  alors: 9 €/point
+                - sinon: 8.88 €/point
+    - si: territoire = 'Centre-Val de Loire'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              9.13 €/point
+          - sinon:
+              9.04 €/point
+    - si: territoire = 'Champagne-Ardenne'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              9.05 €/point
+          - sinon:
+              8.96 €/point
+    - si: territoire = 'Corse'
+      alors:
+        variations:
+          - si: date >= 01/05/2026
+            alors:
+              9.21 €/point
+          - sinon:
+              9.13 €/point
+    - si: territoire = 'Franche-Comté'
+      alors:
+        variations:
+          - si: date >= 01/05/2026
+            alors:
+              9.18 €/point
+          - sinon:
+              9 €/point
+    - si: territoire = 'Guadeloupe'
+      alors:
+        variations:
+          - si: date >= 01/08/2026
+            alors:
+              variations:
+                - si: coefficient <= 280
+                  alors: 9.14 €/point
+                - si: coefficient <= 380
+                  alors: 9.03 €/point
+                - sinon: 8.93 €/point
+          - sinon:
+              variations:
+                - si: coefficient <= 280
+                  alors: 9.05 €/point
+                - si: coefficient <= 380
+                  alors: 8.94 €/point
+                - sinon: 8.84 €/point
+    - si: territoire = 'Guyane'
+      alors:
+        variations:
+          - si: date >= 01/08/2026
+            alors:
+              variations:
+                - si: coefficient <= 280
+                  alors: 9.11 €/point
+                - si: coefficient <= 380
+                  alors: 8.99 €/point
+                - sinon: 8.89 €/point
+          - sinon:
+              variations:
+                - si: coefficient <= 280
+                  alors: 9.02 €/point
+                - si: coefficient <= 380
+                  alors: 8.9 €/point
+                - sinon: 8.8 €/point
+    - si: territoire = 'Haute-Normandie'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              variations:
+                - si: coefficient <= 300
+                  alors: 9.34 €/point
+                - sinon: 9.14 €/point
+          - sinon:
+              variations:
+                - si: coefficient <= 300
+                  alors: 9.25 €/point
+                - sinon: 9.03 €/point
+    - si: territoire = 'Île-de-France'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              variations:
+                - si: zone = 'zone 1'
+                  alors:
+                    variations:
+                      - si: coefficient <= 280
+                        alors: 9.95 €/point
+                      - si: coefficient <= 380
+                        alors: 9.77 €/point
+                      - sinon: 9.59 €/point
+                - si: zone = 'zone 2'
+                  alors:
+                    variations:
+                      - si: coefficient <= 280
+                        alors: 9.85 €/point
+                      - si: coefficient <= 380
+                        alors: 9.68 €/point
+                      - sinon: 9.49 €/point
+                - sinon: 0 €/point
+          - sinon:
+              variations:
+                - si: zone = 'zone 1'
+                  alors:
+                    variations:
+                      - si: coefficient <= 280
+                        alors: 9.82 €/point
+                      - si: coefficient <= 380
+                        alors: 9.66 €/point
+                      - sinon: 9.5 €/point
+                - si: zone = 'zone 2'
+                  alors:
+                    variations:
+                      - si: coefficient <= 280
+                        alors: 9.72 €/point
+                      - si: coefficient <= 380
+                        alors: 9.57 €/point
+                      - sinon: 9.41 €/point
+                - sinon: 0 €/point
+    - si: territoire = 'Languedoc-Roussillon'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              variations:
+                - si: coefficient <= 300
+                  alors: 9.18 €/point
+                - sinon: 8.94 €/point
+          - sinon:
+              variations:
+                - si: coefficient <= 300
+                  alors: 9.07 €/point
+                - sinon: 8.85 €/point
+    - si: territoire = 'Limousin'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              9.48 €/point
+          - sinon:
+              9.39 €/point
+    - si: territoire = 'Lorraine'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              9.15 €/point
+          - sinon:
+              9.05 €/point
+    - si: territoire = 'Martinique'
+      alors:
+        variations:
+          - si: date >= 01/08/2026
+            alors:
+              variations:
+                - si: coefficient <= 280
+                  alors: 9.14 €/point
+                - si: coefficient <= 380
+                  alors: 9.03 €/point
+                - sinon: 8.93 €/point
+          - sinon:
+              variations:
+                - si: coefficient <= 280
+                  alors: 9.05 €/point
+                - si: coefficient <= 380
+                  alors: 8.94 €/point
+                - sinon: 8.84 €/point
+    - si: territoire = 'Midi-Pyrénées'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              variations:
+                - si: zone = 'CUTM'
+                  alors:
+                    variations:
+                      - si: coefficient <= 320
+                        alors: 9.27 €/point
+                      - sinon: 9.04 €/point
+                - si: zone = 'hors CUTM'
+                  alors:
+                    variations:
+                      - si: coefficient <= 320
+                        alors: 9.24 €/point
+                      - sinon: 8.99 €/point
+                - sinon: 0 €/point
+          - sinon:
+              variations:
+                - si: zone = 'CUTM'
+                  alors:
+                    variations:
+                      - si: coefficient <= 320
+                        alors: 9.2 €/point
+                      - sinon: 8.97 €/point
+                - si: zone = 'hors CUTM'
+                  alors:
+                    variations:
+                      - si: coefficient <= 320
+                        alors: 9.1 €/point
+                      - sinon: 8.86 €/point
+                - sinon: 0 €/point
+    - si: territoire = 'Nord-Pas-de-Calais'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              9.07 €/point
+          - sinon:
+              8.98 €/point
+    - si: territoire = 'Pays de la Loire'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              variations:
+                - si: coefficient <= 380
+                  alors: 9.28 €/point
+                - sinon: 9.06 €/point
+          - sinon:
+              variations:
+                - si: coefficient <= 380
+                  alors: 9.19 €/point
+                - sinon: 8.96 €/point
+    - si: territoire = 'Picardie'
+      alors:
+        variations:
+          - si: date >= 01/05/2026
+            alors:
+              8.94 €/point
+          - sinon:
+              8.85 €/point
+    - si: territoire = 'Poitou-Charentes'
+      alors:
+        variations:
+          - si: date >= 01/05/2026
+            alors:
+              variations:
+                - si: coefficient <= 360
+                  alors: 9.12 €/point
+                - sinon: 9.1 €/point
+          - sinon:
+              variations:
+                - si: coefficient <= 360
+                  alors: 9.01 €/point
+                - sinon: 8.95 €/point
+    - si: territoire = 'Provence-Alpes-Côte d'Azur'
+      alors:
+        variations:
+          - si: date >= 01/05/2026
+            alors:
+              9.19 €/point
+          - sinon:
+              9.1 €/point
+    - si: territoire = 'La Réunion'
+      alors:
+        variations:
+          - si: date >= 01/08/2026
+            alors:
+              8.84 €/point
+          - sinon:
+              8.76 €/point
+    - si: territoire = 'Rhône-Alpes'
+      alors:
+        variations:
+          - si: date >= 01/06/2026
+            alors:
+              variations:
+                - si: zone = 'zone 1'
+                  alors: 9.21 €/point
+                - si: zone = 'zone 2'
+                  alors: 9.1 €/point
+                - sinon: 0 €/point
+          - sinon:
+              variations:
+                - si: zone = 'zone 1'
+                  alors: 9.13 €/point
+                - si: zone = 'zone 2'
+                  alors: 9.02 €/point
+                - sinon: 0 €/point
+    - sinon: 0 €/point
+
+salarié . convention collective . entreprises d'architecture . plancher mensuel:
+  titre: Salaire minimum mensuel du territoire
+  applicable si: convention collective = 'entreprises d'architecture'
+  unité: €/mois
+  variations:
+    - si: territoire = 'Alsace'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              1890 €/mois
+          - sinon:
+              1850 €/mois
+    - si: territoire = 'Champagne-Ardenne'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              1950 €/mois
+          - sinon:
+              1900 €/mois
+    - si: territoire = 'Nord-Pas-de-Calais'
+      alors:
+        variations:
+          - si: date >= 01/04/2026
+            alors:
+              1880 €/mois
+          - sinon:
+              1860 €/mois
+    - si: territoire = 'Picardie'
+      alors:
+        variations:
+          - si: date >= 01/05/2026
+            alors:
+              1923 €/mois
+          - sinon:
+              1900 €/mois
+    - si: territoire = 'Rhône-Alpes'
+      alors:
+        variations:
+          - si: date >= 01/06/2026
+            alors:
+              0 €/mois
+          - sinon:
+              variations:
+                - si: zone = 'zone 1'
+                  alors: 1945 €/mois
+                - si: zone = 'zone 2'
+                  alors: 1892 €/mois
+                - sinon: 0 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . entreprises d'architecture . grille applicable:
+  titre: Un accord territorial fixe la valeur du point
+  applicable si: convention collective = 'entreprises d'architecture'
+  valeur: valeur du point > 0 €/point
+
+salarié . convention collective . entreprises d'architecture . coefficient hors grille:
+  titre: Coefficient absent de la grille de classification
+  description: Un accord territorial s'applique, mais le coefficient n'est pas l'un de ceux de la grille (200 à 600, de 20 en 20).
+  applicable si: convention collective = 'entreprises d'architecture'
+  toutes ces conditions:
+    - grille applicable
+
+    - coefficient != 200
+    - coefficient != 220
+    - coefficient != 240
+    - coefficient != 260
+    - coefficient != 280
+    - coefficient != 300
+    - coefficient != 320
+    - coefficient != 340
+    - coefficient != 360
+    - coefficient != 380
+    - coefficient != 400
+    - coefficient != 420
+    - coefficient != 440
+    - coefficient != 460
+    - coefficient != 480
+    - coefficient != 500
+    - coefficient != 520
+    - coefficient != 540
+    - coefficient != 560
+    - coefficient != 580
+    - coefficient != 600
+
+salarié . convention collective . entreprises d'architecture . minimum mensuel de la grille:
+  titre: Minimum mensuel à temps plein
+  description: >-
+    Coefficient multiplié par la valeur du point du territoire, pour 35 heures par semaine (article
+    V.2.1), sans être inférieur au salaire minimum du territoire quand son accord en fixe un ; 0 sans
+    accord territorial.
+  applicable si: convention collective = 'entreprises d'architecture'
+  unité: €/mois
+  variations:
+    - si: grille applicable = non
+      alors: 0 €/mois
+    - si: coefficient * valeur du point < plancher mensuel
+      alors: plancher mensuel
+    - sinon: coefficient * valeur du point
+
+salarié . convention collective . entreprises d'architecture . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: Minimum mensuel brut proratisé selon la quotité de travail.
+  applicable si: convention collective = 'entreprises d'architecture'
+  unité: €/mois
+  produit:
+    - minimum mensuel de la grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . entreprises d'architecture . zone hors accord:
+  titre: Aucun accord territorial
+  description: Le territoire n'a pas d'accord sur la valeur du point (Mayotte), ou le département est inconnu.
+  applicable si: convention collective = 'entreprises d'architecture'
+  valeur: grille applicable = non
