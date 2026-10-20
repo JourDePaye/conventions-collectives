@@ -1,10 +1,11 @@
 # Bâtiment — ETAM (IDCC 2609)
 
-## Version en vigueur : `2026.5`, commune aux quatre conventions du bâtiment
+## Version en vigueur : `2026.6`, commune aux quatre conventions du bâtiment
 
-Les versions `2026.4` et `2026.5` sont publiées à l'identique pour les IDCC 1596, 1597, 2609 et
-2420, depuis les fichiers communs de [`rules/commun/batiment`](../commun/batiment/) (voir leur
-[README](../commun/batiment/README.md)) ; `2026.5`, de même date d'effet, l'emporte. Elle complète et corrige la convention du bâtiment
+Les versions `2026.4`, `2026.5` et `2026.6` sont publiées à l'identique pour les IDCC 1596, 1597,
+2609 et 2420, depuis les fichiers communs de [`rules/commun/batiment`](../commun/batiment/) (voir leur
+[README](../commun/batiment/README.md)) ; `2026.6`, de même date d'effet, l'emporte et ajoute les
+indemnités de petits déplacements des ouvriers. Elle complète et corrige la convention du bâtiment
 de modele-social (`salarié . convention collective . BTP`), qui couvre à la fois les ouvriers, les
 ETAM et les cadres : taux de la cotisation congés payés CIBTP par caisse et par date, cotisation
 chômage intempéries, prévoyance des cadres (RNPC) comptée une seule fois, et grilles régionales des

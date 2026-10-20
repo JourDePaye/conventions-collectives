@@ -1,9 +1,10 @@
 # Bâtiment — fichier commun aux IDCC 1596, 1597, 2609 et 2420
 
-Les fichiers [2026.4](batiment.2026.4.publicodes) et [2026.5](batiment.2026.5.publicodes) sont publiés à l'identique comme versions `2026.4` et `2026.5` des quatre conventions du bâtiment : ouvriers des entreprises occupant jusqu'à 10 salariés ([1596](../../1596-batiment-ouvriers-petites-entreprises/README.md)) et plus de 10 salariés ([1597](../../1597-batiment-ouvriers-plus-de-10/README.md)), ETAM ([2609](../../2609-batiment-etam/README.md)) et cadres ([2420](../../2420-batiment-cadres/README.md)). Leurs métadonnées listent ces conventions (`agreements`) ; `versions.lock.json` a une entrée par convention, avec la même empreinte.
+Les fichiers [2026.4](batiment.2026.4.publicodes), [2026.5](batiment.2026.5.publicodes) et [2026.6](batiment.2026.6.publicodes) sont publiés à l'identique comme versions `2026.4`, `2026.5` et `2026.6` des quatre conventions du bâtiment : ouvriers des entreprises occupant jusqu'à 10 salariés ([1596](../../1596-batiment-ouvriers-petites-entreprises/README.md)) et plus de 10 salariés ([1597](../../1597-batiment-ouvriers-plus-de-10/README.md)), ETAM ([2609](../../2609-batiment-etam/README.md)) et cadres ([2420](../../2420-batiment-cadres/README.md)). Leurs métadonnées listent ces conventions (`agreements`) ; `versions.lock.json` a une entrée par convention, avec la même empreinte.
 
 - `2026.4` : les corrections de modele-social et quatre grilles régionales.
-- `2026.5` (même `validFrom`, elle l'emporte) : les mêmes corrections et la grille du dernier accord régional étendu de chaque région, pour les ouvriers et les ETAM ; la grille des ouvriers de Nouvelle-Aquitaine s'applique aussi aux entreprises jusqu'à 10 salariés (l'accord du 22 octobre 2025 vise les IDCC 1596 et 1597), alors que `2026.4` la réservait aux entreprises de plus de 10 salariés.
+- `2026.6` (même `validFrom`, elle l'emporte) : la `2026.5` et les indemnités de petits déplacements des ouvriers (voir plus bas).
+- `2026.5` : les mêmes corrections et la grille du dernier accord régional étendu de chaque région, pour les ouvriers et les ETAM ; la grille des ouvriers de Nouvelle-Aquitaine s'applique aussi aux entreprises jusqu'à 10 salariés (l'accord du 22 octobre 2025 vise les IDCC 1596 et 1597), alors que `2026.4` la réservait aux entreprises de plus de 10 salariés.
 
 modele-social n'a qu'une convention du bâtiment, `salarié . convention collective . BTP` (valeur `BTP`), avec ses catégories `ouvrier`, `etam` et `cadre` : une entreprise y relève d'une seule convention, alors que ses salariés relèvent de l'une ou l'autre des quatre selon leur catégorie. La version commune complète et corrige cette convention pour toute l'entreprise, quel que soit l'IDCC déclaré, sans redéfinir de règle de modele-social.
 
@@ -40,6 +41,63 @@ Les identifiants KALITEXT et les arrêtés d'extension sont dans les sources de 
 
 - `grille applicable` dit si une grille de la catégorie, de la région et (pour les ouvriers) de la taille de l'entreprise lie l'entreprise à la date de la période. `salaire minimum conventionnel` multiplie la grille par la quotité de travail ; il vaut 0 €/mois sans grille applicable, et seul le SMIC s'impose alors. `classification hors grille` signale une classification absente de la grille qui s'applique ; sans grille, aucune classification n'est contrôlée.
 - Les cadres (2420) n'ont pas de grille : l'avenant n° 78 du 19 janvier 2026 n'est pas étendu, et une version commune ne peut pas réserver une seule de ses grilles aux adhérents d'une organisation signataire.
+
+## Petits déplacements (version `2026.6`)
+
+La version `2026.6` ajoute le régime des petits déplacements des ouvriers (titre VIII, chapitre 1er, des conventions collectives nationales des ouvriers du 8 octobre 1990) : pour chaque jour de chantier, une indemnité de trajet et une indemnité de transport selon la zone concentrique du chantier autour du siège, de l'agence ou du bureau, et une indemnité de repas.
+
+- Entrées : `petits déplacements . département` (numéro du département de l'entreprise, `20` pour la Corse), `jours zone 1A` à `jours zone 7` (jours de chantier du mois dans chaque zone, telle que le barème du territoire la définit) et `repas` (indemnités de repas du mois). Les ETAM et les cadres du bâtiment n'en bénéficient pas : `saisie hors barème` signale des jours ou des repas saisis sans barème, pour un salarié qui n'en bénéficie pas, ou dans une zone que le barème n'a pas.
+- Barèmes : celui du département de l'entreprise, à partir de la publication de l'arrêté d'extension (ou de la date d'effet si elle est postérieure), et depuis le 1er janvier 2026 (le barème en vigueur au début de 2026, puis son successeur). Le Centre-Val de Loire a un barème pour chaque convention des ouvriers (jusqu'à 10 salariés, plus de 10 salariés) ; dans le Rhône, la zone 1 est celle du tableau A (entreprise de la métropole de Lyon), les zones 1A et 1B celles du tableau B.
+- Traitement social : l'indemnité de trajet compense une sujétion, c'est un élément de salaire (soumis à cotisations et imposable), compté parmi les primes conventionnelles de modele-social (`primes . activité . conventionnelles`). L'indemnité de transport et l'indemnité de repas sont des frais professionnels, ajoutés à ceux de modele-social et exonérés dans les limites du BOSS (§§ 1940 et 1960) : pour le transport, la moitié du barème kilométrique d'un véhicule de 4 CV pour la distance aller et retour jusqu'à la limite extérieure de la zone (au moins 100 km au-delà de 50 km) ; pour le repas, 10,40 € en 2026. La part au-delà entre dans le brut. L'exonération suppose que l'employeur ne pratique pas la déduction forfaitaire spécifique.
+
+| Barème | Départements | Période | Repas | Zones |
+|---|---|---|---|---|
+| Île-de-France hors Seine-et-Marne, accord du 7 novembre 2024 | 75, 78, 91, 92, 93, 94, 95 | du 01/01/2026 au 05/02/2026 (exclu) | 11,60 € | 1, 2, 3, 4, 5, 6 |
+| Seine-et-Marne, accord du 7 novembre 2024 | 77 | du 01/01/2026 au 05/02/2026 (exclu) | 11,60 € | 1, 2, 3, 4, 5, 6 |
+| Île-de-France, accord du 5 novembre 2025 | 75, 77, 78, 91, 92, 93, 94, 95 | du 05/02/2026 | 11,85 € | 1, 2, 3, 4, 5, 6 |
+| Bretagne, accord du 3 décembre 2024 | 22, 29, 35, 56 | du 01/01/2026 au 05/02/2026 (exclu) | 12,14 € | 1A, 1B, 2, 3, 4, 5 |
+| Bretagne, accord du 27 novembre 2025 | 22, 29, 35, 56 | du 05/02/2026 | 12,30 € | 1A, 1B, 2, 3, 4, 5 |
+| Hauts-de-France, accord du 25 novembre 2024 | 02, 59, 60, 62, 80 | du 01/01/2026 au 28/03/2026 (exclu) | 14,00 € | 1, 2, 3, 4, 5 |
+| Hauts-de-France, accord du 1er décembre 2025 | 02, 59, 60, 62, 80 | du 28/03/2026 | 14,00 € | 1, 2, 3, 4, 5 |
+| Normandie, accord du 22 janvier 2025 | 14, 27, 50, 61, 76 | du 01/01/2026 au 10/05/2026 (exclu) | 12,00 € | 1, 2, 3, 4, 5 |
+| Normandie, accord du 10 février 2026 | 14, 27, 50, 61, 76 | du 10/05/2026 | 12,50 € | 1, 2, 3, 4, 5 |
+| Grand Est (Alsace), accord du 16 janvier 2025 | 67, 68 | du 01/01/2026 | 11,80 € | 1, 2, 3, 4, 5 |
+| Grand Est (Lorraine), accord du 16 janvier 2025 | 54, 55, 57, 88 | du 01/01/2026 | 11,80 € | 1, 2, 3, 4, 5 |
+| Grand Est (Champagne-Ardenne), accord du 16 janvier 2025 | 08, 10, 51, 52 | du 01/01/2026 | 11,80 € | 1, 2, 3, 4, 5 |
+| Centre-Val de Loire (plus de 10 salariés), avenant du 3 février 2025 | 18, 28, 36, 37, 41, 45 | du 01/01/2026 au 10/07/2026 (exclu) | 11,00 € | 1A, 1B, 2, 3, 4, 5 |
+| Centre-Val de Loire (plus de 10 salariés), avenant du 10 avril 2026 | 18, 28, 36, 37, 41, 45 | du 10/07/2026 | 11,17 € | 1A, 1B, 2, 3, 4, 5 |
+| Centre-Val de Loire (jusqu'à 10 salariés), avenant du 3 février 2025 | 18, 28, 36, 37, 41, 45 | du 01/01/2026 au 04/08/2026 (exclu) | 11,00 € | 1A, 1B, 2, 3, 4, 5 |
+| Centre-Val de Loire (jusqu'à 10 salariés), avenant du 10 avril 2026 | 18, 28, 36, 37, 41, 45 | du 04/08/2026 | 11,17 € | 1A, 1B, 2, 3, 4, 5 |
+| Bourgogne-Franche-Comté, accord du 18 mars 2024 | 21, 25, 39, 58, 70, 71, 89, 90 | du 01/01/2026 au 04/09/2026 (exclu) | 11,44 € | 1, 2, 3, 4, 5 |
+| Bourgogne-Franche-Comté, accord du 30 avril 2026 (2026) | 21, 25, 39, 58, 70, 71, 89, 90 | du 04/09/2026 au 01/01/2027 (exclu) | 11,61 € | 1, 2, 3, 4, 5 |
+| Bourgogne-Franche-Comté, accord du 30 avril 2026 (2027) | 21, 25, 39, 58, 70, 71, 89, 90 | du 01/01/2027 | 11,67 € | 1, 2, 3, 4, 5 |
+| Pays de la Loire, accord du 10 octobre 2023 | 44, 49, 53, 72, 85 | du 01/01/2026 au 01/03/2026 (exclu) | 11,50 € | 1A, 1B, 2, 3, 4, 5, 6, 7 |
+| Pays de la Loire, accord du 7 novembre 2025 | 44, 49, 53, 72, 85 | du 01/03/2026 | 12,00 € | 1A, 1B, 2, 3, 4, 5, 6, 7 |
+| Nouvelle-Aquitaine, accord du 20 juin 2023 | 16, 17, 19, 23, 24, 33, 40, 47, 64, 79, 86, 87 | du 01/01/2026 au 17/01/2026 (exclu) | 10,80 € | 1A, 1B, 2, 3, 4, 5 |
+| Nouvelle-Aquitaine, accord du 22 octobre 2025 | 16, 17, 19, 23, 24, 33, 40, 47, 64, 79, 86, 87 | du 17/01/2026 | 11,20 € | 1A, 1B, 2, 3, 4, 5 |
+| Occitanie, accord du 16 février 2024 | 09, 11, 12, 30, 31, 32, 34, 46, 48, 65, 66, 81, 82 | du 01/01/2026 au 29/05/2026 (exclu) | 13,00 € | 1A, 1B, 2, 3, 4, 5 |
+| Occitanie, accord du 13 février 2026 | 09, 11, 12, 30, 31, 32, 34, 46, 48, 65, 66, 81, 82 | du 29/05/2026 | 13,20 € | 1A, 1B, 2, 3, 4, 5 |
+| Provence-Alpes-Côte d'Azur, accord du 30 septembre 2024 | 04, 05, 06, 13, 83, 84 | du 01/01/2026 | 12,20 € | 1, 2, 3, 4, 5 |
+| Corse, accord régional du 2 juin 2023 | 20 | du 01/01/2026 au 06/06/2026 (exclu) | 10,50 € | 1, 2, 3, 4, 5, 6, 7 |
+| Corse, accord du 15 décembre 2025 | 20 | du 06/06/2026 | 11,00 € | 1, 2, 3, 4, 5, 6, 7 |
+| Allier, Cantal, Haute-Loire et Puy-de-Dôme, accord du 12 mars 2024 | 03, 15, 43, 63 | du 01/01/2026 au 29/05/2026 (exclu) | 11,65 € | 1A, 1B, 2, 3, 4, 5 |
+| Allier, Cantal, Haute-Loire et Puy-de-Dôme, accord du 10 février 2026 | 03, 15, 43, 63 | du 29/05/2026 | 12,00 € | 1A, 1B, 2, 3, 4, 5 |
+| Ain, accord du 14 février 2024 | 01 | du 01/01/2026 au 08/05/2026 (exclu) | 11,71 € | 1A, 1B, 2, 3, 4, 5 |
+| Ain, accord du 21 janvier 2026 | 01 | du 08/05/2026 | 12,06 € | 1A, 1B, 2, 3, 4, 5 |
+| Loire, accord du 18 décembre 2023 | 42 | du 01/01/2026 au 29/05/2026 (exclu) | 11,76 € | 1A, 1B, 2, 3, 4, 5 |
+| Loire, accord du 15 janvier 2026 | 42 | du 29/05/2026 | 12,11 € | 1A, 1B, 2, 3, 4, 5 |
+| Savoie, accord du 12 décembre 2024 | 73 | du 01/01/2026 au 24/02/2026 (exclu) | 12,03 € | 1, 2, 3, 4, 5 |
+| Savoie, accord du 16 décembre 2025 | 73 | du 24/02/2026 | 12,25 € | 1, 2, 3, 4, 5 |
+| Haute-Savoie, accord du 30 janvier 2024 | 74 | du 01/01/2026 au 20/03/2026 (exclu) | 12,63 € | 1A, 1B, 2, 3, 4, 5 |
+| Haute-Savoie, accord du 16 décembre 2025 | 74 | du 20/03/2026 | 12,88 € | 1A, 1B, 2, 3, 4, 5 |
+| Isère, accord du 11 décembre 2023 | 38 | du 01/01/2026 au 19/03/2026 (exclu) | 11,82 € | 1A, 1B, 2, 3, 4, 5 |
+| Isère, accord du 15 décembre 2025 | 38 | du 19/03/2026 | 12,06 € | 1A, 1B, 2, 3, 4, 5 |
+| Drôme-Ardèche, accord du 18 décembre 2024 | 07, 26 | du 01/01/2026 au 29/05/2026 (exclu) | 11,82 € | 1A, 1B, 2, 3, 4, 5 |
+| Drôme-Ardèche, accord du 10 décembre 2025 | 07, 26 | du 29/05/2026 | 12,00 € | 1A, 1B, 2, 3, 4, 5 |
+| Rhône, accord du 3 décembre 2024 | 69 | du 01/01/2026 au 06/03/2026 (exclu) | 12,05 € | 1, 1A, 1B, 2, 3, 4, 5 |
+| Rhône, accord du 1er décembre 2025 | 69 | du 06/03/2026 | 12,35 € | 1, 1A, 1B, 2, 3, 4, 5 |
+
+Limites : la majoration de 25 % des indemnités de transport et de trajet pour les chantiers des communes de montagne de l'Ain n'est pas appliquée ; en Savoie et en Isère, la zone se détermine sur la distance routière réelle (c'est l'entrée de la zone qui en tient compte) ; la footnote bretonne sur la zone 1A (repas présumé pris à la résidence) relève de la saisie des repas. Les limites d'exonération de 2027 seront reprises dans une nouvelle version.
 
 ## Limites
 

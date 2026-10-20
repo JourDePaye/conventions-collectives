@@ -33,15 +33,15 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   // The shared building version: each regional grid applies from the publication of its own
   // extension order (in its rules), and it has no grid of the cadres, whose accord of 2026 is not
   // extended.
-  "1596-batiment-ouvriers-petites-entreprises": { "2026.4": "2020-01-01", "2026.5": "2020-01-01" },
-  "1597-batiment-ouvriers-plus-de-10": { "2026.4": "2020-01-01", "2026.5": "2020-01-01" },
-  "2420-batiment-cadres": { "2026.4": "2020-01-01", "2026.5": "2020-01-01" },
-  "2609-batiment-etam": { "2026.4": "2020-01-01", "2026.5": "2020-01-01" },
+  "1596-batiment-ouvriers-petites-entreprises": { "2026.4": "2020-01-01", "2026.5": "2020-01-01", "2026.6": "2020-01-01" },
+  "1597-batiment-ouvriers-plus-de-10": { "2026.4": "2020-01-01", "2026.5": "2020-01-01", "2026.6": "2020-01-01" },
+  "2420-batiment-cadres": { "2026.4": "2020-01-01", "2026.5": "2020-01-01", "2026.6": "2020-01-01" },
+  "2609-batiment-etam": { "2026.4": "2020-01-01", "2026.5": "2020-01-01", "2026.6": "2020-01-01" },
   // The shared public works version: each regional grid applies from the publication of its own
   // extension order (in its rules).
-  "1702-travaux-publics-ouvriers": { "2026.4": "2026-01-01" },
-  "2614-travaux-publics-etam": { "2026.4": "2026-01-01" },
-  "3212-travaux-publics-cadres": { "2026.4": "2026-01-01" },
+  "1702-travaux-publics-ouvriers": { "2026.4": "2026-01-01", "2026.5": "2026-01-01" },
+  "2614-travaux-publics-etam": { "2026.4": "2026-01-01", "2026.5": "2026-01-01" },
+  "3212-travaux-publics-cadres": { "2026.4": "2026-01-01", "2026.5": "2026-01-01" },
   "1671-maisons-etudiants": {
     "2025.1": "2025-04-09", // avenant n° 73, JORF du 9 avril 2025
     "2026.2": "2026-07-11", // avenants n° 74 and 75, JORF du 11 juillet 2026

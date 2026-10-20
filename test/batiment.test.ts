@@ -64,24 +64,24 @@ const amount = (rule: string, situation: Situation = {}) => {
 const percentOf = (base: number, rate: number) => Math.round(base * rate) / 100;
 
 describe("building agreements — one shared version", () => {
-  it("publishes the same versions 2026.4 and 2026.5 for the four agreements, 2026.5 their newest", () => {
+  it("publishes the same versions 2026.4 to 2026.6 for the four agreements, 2026.6 their newest", () => {
     // Sorted by effective date, they come first (2020): a consumer selects 2026.4 as the first
     // version to use, and leaves the older revisions of each agreement aside.
     const revision = (v: { version: string }) => Number(v.version.split(".")[1]);
-    const published = AGREEMENTS.map((name) => {
-      const versions = COMPILED_VERSIONS[name]!;
-      const found = versions.find((v) => v.version === VERSION);
-      assert.ok(found, name);
-      assert.ok(versions.every((v) => v === found || revision(v) < revision(found)), name);
-      return found;
-    });
-    for (const found of published) {
-      assert.equal(found.contentHash, published[0]!.contentHash);
-      assert.equal(found.validFrom, "2020-01-01");
-      assert.deepEqual(found.sources, published[0]!.sources);
+    for (const shared of ["2026.4", "2026.5", "2026.6"]) {
+      const published = AGREEMENTS.map((name) => {
+        const found = COMPILED_VERSIONS[name]!.find((v) => v.version === shared);
+        assert.ok(found, `${name} ${shared}`);
+        return found;
+      });
+      for (const found of published) {
+        assert.equal(found.contentHash, published[0]!.contentHash);
+        assert.equal(found.validFrom, "2020-01-01");
+        assert.deepEqual(found.sources, published[0]!.sources);
+      }
     }
     for (const name of AGREEMENTS) {
-      assert.ok(COMPILED_VERSIONS[name]!.some((v) => v.version === "2026.4"), name);
+      assert.ok(COMPILED_VERSIONS[name]!.every((v) => revision(v) <= 6), name);
     }
   });
 });

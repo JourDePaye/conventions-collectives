@@ -48,18 +48,21 @@ const amount = (rule: string, situation: Situation = {}) => {
 const percentOf = (base: number, rate: number) => Math.round(base * rate) / 100;
 
 describe("public works agreements — one shared version", () => {
-  it("publishes the same version 2026.4 for the three agreements, their newest revision", () => {
+  it("publishes the same versions 2026.4 and 2026.5 for the three agreements, 2026.5 their newest", () => {
     const revision = (v: { version: string }) => Number(v.version.split(".")[1]);
-    const published = AGREEMENTS.map((name) => {
-      const versions = COMPILED_VERSIONS[name]!;
-      const found = versions.find((v) => v.version === VERSION);
-      assert.ok(found, name);
-      assert.ok(versions.every((v) => v === found || v.version.startsWith("2024.") || revision(v) < revision(found)), name);
-      return found;
-    });
-    for (const found of published) {
-      assert.equal(found.contentHash, published[0]!.contentHash);
-      assert.equal(found.validFrom, "2026-01-01");
+    for (const shared of ["2026.4", "2026.5"]) {
+      const published = AGREEMENTS.map((name) => {
+        const found = COMPILED_VERSIONS[name]!.find((v) => v.version === shared);
+        assert.ok(found, `${name} ${shared}`);
+        return found;
+      });
+      for (const found of published) {
+        assert.equal(found.contentHash, published[0]!.contentHash);
+        assert.equal(found.validFrom, "2026-01-01");
+      }
+    }
+    for (const name of AGREEMENTS) {
+      assert.ok(COMPILED_VERSIONS[name]!.every((v) => v.version.startsWith("2024.") || revision(v) <= 5), name);
     }
   });
 });

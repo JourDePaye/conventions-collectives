@@ -1,8 +1,8 @@
 # Travaux publics — ouvriers (IDCC 1702)
 
-## Version en vigueur : `2026.4`, commune aux trois conventions des travaux publics
+## Version en vigueur : `2026.5`, commune aux trois conventions des travaux publics
 
-La version `2026.4` est publiée à l'identique pour les IDCC 1702, 2614 et 3212, depuis le fichier
+Les versions `2026.4` et `2026.5` (qui ajoute les indemnités de petits déplacements) sont publiées à l'identique pour les IDCC 1702, 2614 et 3212, depuis le fichier
 commun [`rules/commun/travaux-publics/travaux-publics.2026.4.publicodes`](../commun/travaux-publics/travaux-publics.2026.4.publicodes)
 (voir son [README](../commun/travaux-publics/README.md)). Elle complète et corrige les règles du
 BTP de modele-social pour les travaux publics : cotisation congés payés de la CNETP, cotisation

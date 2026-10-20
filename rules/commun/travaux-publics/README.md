@@ -1,6 +1,6 @@
 # Travaux publics — fichier commun aux IDCC 1702, 2614 et 3212
 
-Le fichier [2026.4](travaux-publics.2026.4.publicodes) est publié à l'identique comme version `2026.4` des trois conventions des travaux publics : ouvriers ([1702](../../1702-travaux-publics-ouvriers/README.md)), ETAM ([2614](../../2614-travaux-publics-etam/README.md)) et cadres ([3212](../../3212-travaux-publics-cadres/README.md)). Ses métadonnées listent ces conventions (`agreements`) ; `versions.lock.json` a une entrée par convention, avec la même empreinte.
+Les fichiers [2026.4](travaux-publics.2026.4.publicodes) et [2026.5](travaux-publics.2026.5.publicodes) sont publiés à l'identique comme versions `2026.4` et `2026.5` (la `2026.5`, de même date d'effet, l'emporte : elle ajoute les indemnités de petits déplacements, voir plus bas) des trois conventions des travaux publics : ouvriers ([1702](../../1702-travaux-publics-ouvriers/README.md)), ETAM ([2614](../../2614-travaux-publics-etam/README.md)) et cadres ([3212](../../3212-travaux-publics-cadres/README.md)). Ses métadonnées listent ces conventions (`agreements`) ; `versions.lock.json` a une entrée par convention, avec la même empreinte.
 
 modele-social n'a pas de convention des travaux publics. Ses règles du bâtiment (`salarié . convention collective . BTP`, valeur `BTP`, catégories `ouvrier`, `etam` et `cadre`) portent les régimes communs au BTP : prévoyance PRO BTP (RNPO, RNPE, RNPC, les mêmes pour le bâtiment et les travaux publics d'après la notice PRO BTP 2026), répartition de la retraite complémentaire des ETAM, OPPBTP. La version les complète et les corrige pour les travaux publics, sans redéfinir de règle de modele-social. Elle partage les noms de règles de la version commune du bâtiment (`rules/commun/batiment`) : une entreprise relève de l'une ou de l'autre.
 
@@ -31,6 +31,31 @@ modele-social n'a pas de convention des travaux publics. Ses règles du bâtimen
 | Pays de la Loire | 4 septembre 2026 | 23 537 € à 34 619 € | 23 535 € à 42 412 € | 40 534 €, 45 330 €, 48 774 € |
 
 Les identifiants KALITEXT des accords et leurs arrêtés d'extension sont dans les sources de la version ; les montants de chaque coefficient et de chaque niveau dans la description de chaque règle `grille . …`.
+
+## Petits déplacements (version `2026.5`)
+
+La version `2026.5` ajoute le régime des petits déplacements des travaux publics (chapitre VIII-1 de la convention collective nationale des ouvriers du 15 décembre 1992) : pour chaque jour de chantier, une indemnité de trajet et une indemnité de transport selon la zone concentrique du chantier, et une indemnité de repas ; les ETAM non sédentaires perçoivent l'indemnité de repas et l'indemnité de transport (article 7.1.9 de la convention des ETAM). Mêmes entrées et même traitement social que pour le bâtiment (voir le README de `rules/commun/batiment`).
+
+Les accords fixent les barèmes pour 2026 : chacun s'applique de la publication de son arrêté d'extension au 31 décembre 2026. Aucun barème en Auvergne-Rhône-Alpes, en Provence-Alpes-Côte d'Azur et en Corse (derniers accords pour 2024), ni avant l'extension de l'accord de 2026 de chaque région.
+
+| Barème | Départements | Période | Repas | Zones |
+|---|---|---|---|---|
+| Île-de-France | 75, 77, 78, 91, 92, 93, 94, 95 | du 17/04/2026 au 01/01/2027 (exclu) | 14,00 € | 1, 2, 3, 4, 5, 6 |
+| Aquitaine | 24, 33, 40, 47, 64 | du 17/04/2026 au 01/01/2027 (exclu) | 14,20 € | 1, 2, 3, 4, 5 |
+| Limousin | 19, 23, 87 | du 17/04/2026 au 01/01/2027 (exclu) | 14,20 € | 1A, 1B, 2, 3, 4, 5, 6 |
+| Poitou-Charentes | 16, 17, 79, 86 | du 17/04/2026 au 01/01/2027 (exclu) | 14,20 € | 1A, 1B, 2, 3, 4, 5 |
+| Centre-Val de Loire | 18, 28, 36, 37, 41, 45 | du 20/03/2026 au 01/01/2027 (exclu) | 14,30 € | 1, 2, 3, 4, 5, 6, 7 |
+| Bretagne | 22, 29, 35, 56 | du 24/02/2026 au 01/01/2027 (exclu) | 14,50 € | 1, 2, 3, 4, 5 |
+| Bourgogne | 21, 58, 71, 89 | du 05/03/2026 au 01/01/2027 (exclu) | 13,50 € | 1, 2, 3, 4, 5 |
+| Franche-Comté | 25, 39, 70, 90 | du 05/03/2026 au 01/01/2027 (exclu) | 13,50 € | 1, 2, 3, 4, 5, 6 |
+| Occitanie | 09, 11, 12, 30, 31, 32, 34, 46, 48, 65, 66, 81, 82 | du 20/03/2026 au 01/01/2027 (exclu) | 14,10 € | 1, 2, 3, 4, 5 |
+| Hauts-de-France | 02, 59, 60, 62, 80 | du 20/03/2026 au 01/01/2027 (exclu) | 14,40 € | 1, 2, 3, 4, 5 |
+| Pays de la Loire | 44, 49, 53, 72, 85 | du 04/09/2026 au 01/01/2027 (exclu) | 14,50 € | 1, 2, 3, 4, 5 |
+| Grand Est (Alsace) | 67, 68 | du 20/03/2026 au 01/01/2027 (exclu) | 13,80 € | 1, 2, 3, 4, 5, 6 |
+| Grand Est (hors Alsace) | 08, 10, 51, 52, 54, 55, 57, 88 | du 20/03/2026 au 01/01/2027 (exclu) | 13,80 € | 1, 2, 3, 4, 5 |
+| Normandie | 14, 27, 50, 61, 76 | du 24/02/2026 au 01/01/2027 (exclu) | 14,50 € | 1, 2, 3, 4, 5 |
+
+Au Centre-Val de Loire, les zones 6 et 7 n'ont qu'une indemnité de trajet ; en Grand Est, la zone 6 (au-delà de 50 km) ne vaut que pour l'Alsace ; dans le Limousin, la zone 6 (de 50 à 60 km) fait l'objet d'un accord à part.
 
 ## Limites
 
