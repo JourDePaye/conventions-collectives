@@ -1,20 +1,21 @@
 # Bâtiment — cadres (IDCC 2420)
 
-## Version en vigueur : `2026.4`, commune aux quatre conventions du bâtiment
+## Version en vigueur : `2026.5`, commune aux quatre conventions du bâtiment
 
-La version `2026.4` est publiée à l'identique pour les IDCC 1596, 1597, 2609 et 2420, depuis le
-fichier commun [`rules/commun/batiment/batiment.2026.4.publicodes`](../commun/batiment/batiment.2026.4.publicodes)
-(voir son [README](../commun/batiment/README.md)). Elle complète et corrige la convention du bâtiment
+Les versions `2026.4` et `2026.5` sont publiées à l'identique pour les IDCC 1596, 1597, 2609 et
+2420, depuis les fichiers communs de [`rules/commun/batiment`](../commun/batiment/) (voir leur
+[README](../commun/batiment/README.md)) ; `2026.5`, de même date d'effet, l'emporte. Elle complète et corrige la convention du bâtiment
 de modele-social (`salarié . convention collective . BTP`), qui couvre à la fois les ouvriers, les
 ETAM et les cadres : taux de la cotisation congés payés CIBTP par caisse et par date, cotisation
 chômage intempéries, prévoyance des cadres (RNPC) comptée une seule fois, et grilles régionales des
-ouvriers et des ETAM à partir de la publication de leur arrêté d'extension.
+ouvriers et des ETAM à partir de la publication de leur arrêté d'extension : celles de toutes les
+régions dans `2026.5`, quatre seulement dans `2026.4`.
 
 **La version `2026.1` ci-dessous n'est plus utilisée** : elle calculait ses cotisations
 dans un espace de noms à part, sans remplacer celles de modele-social. Elle reste publiée pour
 l'historique ; un consommateur qui choisit la version par date doit partir de `2026.4`.
 
-La version `2026.4` n'a pas de grille des cadres : l'avenant n° 78 du 19 janvier 2026 n'est pas
+Les versions `2026.4` et `2026.5` n'ont pas de grille des cadres : l'avenant n° 78 du 19 janvier 2026 n'est pas
 étendu, et une version commune ne peut pas réserver une seule de ses grilles aux adhérents d'une
 organisation signataire. Seul le SMIC s'impose aux cadres jusqu'à son extension.
 
