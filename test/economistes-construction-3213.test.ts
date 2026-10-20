@@ -73,3 +73,47 @@ describe("IDCC 3213 — 2026.1 salary minimums and payroll audit", () => {
     assert.equal(typeof engine.evaluate("salarié . cotisations . prévoyances . santé . employeur").nodeValue, "number");
   });
 });
+
+const revised = COMPILED_VERSIONS[agreement]?.find((entry: { version: string }) => entry.version === "2026.2");
+assert.ok(revised);
+const revisedRules: Record<string, Rule> = { ...modeleSocial };
+revisedRules["salarié . convention collective"] = { ...choice, "une possibilité": [...choice["une possibilité"], value] } as Rule;
+Object.assign(revisedRules, await revised.loadRules());
+const revisedEngine = new Engine(revisedRules, { logger: { log() {}, warn() {}, error() {} } });
+
+describe("IDCC 3213 — 2026.2, the Île-de-France grid chosen by the region", () => {
+  const evaluate = (rule: string, level: string, region: string, date = "01/10/2026", quotité = "100%") => {
+    revisedEngine.setSituation({
+      date,
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . niveau`]: `'${level}'`,
+      [`${namespace} . région`]: `'${region}'`,
+      "salarié . contrat . temps de travail . quotité": quotité,
+    });
+    return revisedEngine.evaluate(`${namespace} . ${rule}`).nodeValue;
+  };
+  const grid: Record<string, [number, number]> = {
+    A1: [1883.47, 1964.42], A2: [2036.24, 2168.5], B: [2310.16, 2428.17], C: [2555.25, 2683.47], D: [2902.46, 3045.42],
+    E: [3157.75, 3325.68], F: [3497.02, 3691.04], G: [4005.13, 4077.4], H: [4014.3, 4280.74], I: [4738.91, 4999.77],
+  };
+
+  it("starts on 1 January 2026, with the grid from 11 July 2026", () => {
+    assert.equal(revised.validFrom, "2026-01-01");
+    assert.equal(evaluate("salaire minimum conventionnel", "I", "national", "10/07/2026"), 0);
+    assert.equal(evaluate("niveau hors grille", "Z", "national", "10/07/2026"), false);
+    assert.equal(evaluate("salaire minimum conventionnel", "I", "national", "11/07/2026"), 4738.91);
+  });
+
+  for (const [level, [national, idf]] of Object.entries(grid)) {
+    it(`level ${level}: ${national} € nationally, ${idf} € in Île-de-France`, () => {
+      assert.equal(evaluate("salaire minimum conventionnel", level, "national"), national);
+      assert.equal(evaluate("salaire minimum conventionnel", level, "IDF"), idf);
+      assert.equal(evaluate("niveau hors grille", level, "IDF"), false);
+    });
+  }
+
+  it("prorates by working time and detects a level absent from the grid", () => {
+    assert.equal(evaluate("salaire minimum conventionnel", "A1", "IDF", "01/10/2026", "50%"), 982.21);
+    assert.equal(evaluate("niveau hors grille", "J", "IDF"), true);
+  });
+});

@@ -1,0 +1,134 @@
+# Convention collective nationale des collaborateurs salariés des entreprises d'économistes
+# de la construction et des métreurs-vérificateurs du 16 décembre 2015 (IDCC 3213).
+# Révision 2026.2 de l'accord salarial du 8 avril 2026 : la grille d'Île-de-France est choisie
+# par `région` (dans la révision 2026.1, la grille comparait la règle booléenne `zone` à 'IDF' et
+# `région` restait sans effet) ; la version part du 1er janvier 2026 et la grille ne s'applique
+# qu'à partir du 11 juillet 2026, date d'effet de l'accord pour toutes les entreprises.
+validFrom: 2026-01-01
+extension: 2026-01-01
+sources:
+  - >-
+    Accord du 8 avril 2026 relatif aux salaires minimums conventionnels (articles 1er et 2 :
+    salaires minimaux mensuels des niveaux A1 à F des ETAM et G à I des cadres, national hors
+    Île-de-France et région Île-de-France ; article 3 : effet, pour toutes les entreprises, le
+    lendemain de la publication de l'arrêté d'extension au Journal officiel, ou le premier jour
+    du mois suivant si elle a lieu à compter du 16 du mois). KALITEXT000054872359.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054872359
+  - >-
+    Arrêté du 6 juillet 2026 portant extension, publié au Journal officiel du 10 juillet 2026
+    (NOR TRST2617121A, JORFTEXT000054408938) : l'accord prend effet le 11 juillet 2026.
+---
+salarié . convention collective . économistes de la construction et métreurs-vérificateurs:
+  titre: Économistes de la construction et métreurs-vérificateurs (IDCC 3213)
+  valeur: convention collective = 'économistes de la construction et métreurs-vérificateurs'
+
+salarié . convention collective . économistes de la construction et métreurs-vérificateurs . niveau:
+  titre: Niveau de classification
+  description: Niveaux A1 à F pour les ETAM et G à I pour les cadres.
+  applicable si: convention collective = 'économistes de la construction et métreurs-vérificateurs'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . économistes de la construction et métreurs-vérificateurs . région:
+  titre: Région du lieu d'emploi
+  description: IDF pour la grille de la région Île-de-France, national pour la grille nationale hors Île-de-France.
+  applicable si: convention collective = 'économistes de la construction et métreurs-vérificateurs'
+  une possibilité:
+    - national
+    - IDF
+  par défaut: "'national'"
+  avec:
+    national:
+      titre: National hors Île-de-France
+    IDF:
+      titre: Île-de-France
+
+salarié . convention collective . économistes de la construction et métreurs-vérificateurs . grille applicable:
+  titre: La grille de l'accord du 8 avril 2026 s'applique
+  applicable si: convention collective = 'économistes de la construction et métreurs-vérificateurs'
+  valeur: date >= 11/07/2026
+
+salarié . convention collective . économistes de la construction et métreurs-vérificateurs . grille:
+  titre: Grille mensuelle 2026
+  applicable si: convention collective = 'économistes de la construction et métreurs-vérificateurs'
+  unité: €/mois
+  variations:
+    - si: grille applicable = non
+      alors: 0 €/mois
+    - si: niveau = 'A1'
+      alors:
+        variations:
+          - si: région = 'IDF'
+            alors: 1964.42 €/mois
+          - sinon: 1883.47 €/mois
+    - si: niveau = 'A2'
+      alors:
+        variations:
+          - si: région = 'IDF'
+            alors: 2168.50 €/mois
+          - sinon: 2036.24 €/mois
+    - si: niveau = 'B'
+      alors:
+        variations:
+          - si: région = 'IDF'
+            alors: 2428.17 €/mois
+          - sinon: 2310.16 €/mois
+    - si: niveau = 'C'
+      alors:
+        variations:
+          - si: région = 'IDF'
+            alors: 2683.47 €/mois
+          - sinon: 2555.25 €/mois
+    - si: niveau = 'D'
+      alors:
+        variations:
+          - si: région = 'IDF'
+            alors: 3045.42 €/mois
+          - sinon: 2902.46 €/mois
+    - si: niveau = 'E'
+      alors:
+        variations:
+          - si: région = 'IDF'
+            alors: 3325.68 €/mois
+          - sinon: 3157.75 €/mois
+    - si: niveau = 'F'
+      alors:
+        variations:
+          - si: région = 'IDF'
+            alors: 3691.04 €/mois
+          - sinon: 3497.02 €/mois
+    - si: niveau = 'G'
+      alors:
+        variations:
+          - si: région = 'IDF'
+            alors: 4077.40 €/mois
+          - sinon: 4005.13 €/mois
+    - si: niveau = 'H'
+      alors:
+        variations:
+          - si: région = 'IDF'
+            alors: 4280.74 €/mois
+          - sinon: 4014.30 €/mois
+    - si: niveau = 'I'
+      alors:
+        variations:
+          - si: région = 'IDF'
+            alors: 4999.77 €/mois
+          - sinon: 4738.91 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . économistes de la construction et métreurs-vérificateurs . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein selon le niveau et la région, proratisé selon la quotité de travail ; 0 avant le 11 juillet 2026.
+  applicable si: convention collective = 'économistes de la construction et métreurs-vérificateurs'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . économistes de la construction et métreurs-vérificateurs . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: La grille s'applique, mais le niveau n'y figure pas.
+  applicable si: convention collective = 'économistes de la construction et métreurs-vérificateurs'
+  toutes ces conditions:
+    - grille applicable
+    - grille = 0 €/mois

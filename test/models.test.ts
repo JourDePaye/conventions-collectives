@@ -129,7 +129,7 @@ const models = [
   { name: "1611-logistique-communication-ecrite-directe", value: "logistique communication écrite directe", classification: "groupe", input: "'III-A'", minimums: { "2026.1": 2501.05 } },
   { name: "0493-vins-cidres-spiritueux", value: "vins cidres spiritueux", classification: "position", input: "'5A'", minimums: { "2026.1": 2233, "2026.2": 2233 } },
   { name: "1631-hotellerie-plein-air", value: "hôtellerie de plein air", classification: "coefficient", input: 300, minimums: { "2024.1": 2203.92, "2024.2": 2888.86, "2025.1": 2934.88, "2025.2": 2950.88, "2026.1": 2984.92 } },
-  { name: "3213-economistes-construction", value: "économistes de la construction et métreurs-vérificateurs", classification: "niveau", input: "'I'", minimums: { "2026.1": 4738.91 }, situation: { "salarié . convention collective . économistes de la construction et métreurs-vérificateurs . zone": "'national'" } },
+  { name: "3213-economistes-construction", value: "économistes de la construction et métreurs-vérificateurs", classification: "niveau", input: "'I'", minimums: { "2026.1": 4738.91, "2026.2": 4738.91 }, situation: { "salarié . convention collective . économistes de la construction et métreurs-vérificateurs . zone": "'national'", date: "11/10/2026" } },
   { name: "1480-journalistes", value: "journalistes", classification: "groupe", input: "'4'", minimums: { "2025.1": 2506.54 } },
   { name: "0275-transport-aerien-personnel-sol", value: "transport aérien personnel au sol", classification: "coefficient", input: 245, minimums: { "2025.2": 2086, "2025.3": 2096, "2025.4": 2105 } },
   { name: "2931-activites-marches-financiers", value: "activités de marchés financiers", classification: "catégorie", input: "'III.B'", minimums: { "2026.1": 3575 } },

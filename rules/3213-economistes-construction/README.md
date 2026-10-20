@@ -1,13 +1,16 @@
 # Économistes de la construction et métreurs-vérificateurs — IDCC 3213
 
-Le fichier [2026.1](3213-economistes-construction.2026.1.publicodes) est applicable à tous les employeurs et salariés du champ à compter du **11 juillet 2026**, lendemain de la publication au Journal officiel du 10 juillet 2026 de l'arrêté d'extension du 6 juillet 2026.
+L'accord du 8 avril 2026 s'applique à tous les employeurs et salariés du champ à compter du **11 juillet 2026**, lendemain de la publication au Journal officiel du 10 juillet 2026 de l'arrêté d'extension du 6 juillet 2026.
+
+- [2026.1](3213-economistes-construction.2026.1.publicodes), à compter du 11 juillet 2026 : la grille comparait la règle booléenne `zone` à `'IDF'`, si bien que la grille nationale s'appliquait toujours et que `région` restait sans effet. Ne plus l'utiliser.
+- [2026.2](3213-economistes-construction.2026.2.publicodes), à compter du 1er janvier 2026 : corrige ce défaut, la grille d'Île-de-France étant choisie par `région`. La version part du 1er janvier 2026 pour remplacer la 2026.1 dès sa date d'effet ; la grille ne s'applique qu'à partir du 11 juillet 2026 (`grille applicable`), le minimum valant `0` auparavant.
 
 ## Règles implémentées
 
 - `niveau` accepte A1, A2, B, C, D, E et F pour les ETAM, et G, H et I pour les cadres.
-- `région` distingue la grille Île-de-France de la grille nationale hors Île-de-France.
+- `région` (`national` par défaut, ou `IDF`) distingue la grille Île-de-France de la grille nationale hors Île-de-France.
 - `salaire minimum conventionnel` expose le minimum mensuel de l'accord du 8 avril 2026 et le prorata selon la quotité de travail.
-- `niveau hors grille` retourne vrai pour un niveau absent ; le minimum retourne alors `0`.
+- `niveau hors grille` retourne vrai pour un niveau absent de la grille applicable ; le minimum retourne alors `0`.
 
 ## Grille salariale 2026
 
