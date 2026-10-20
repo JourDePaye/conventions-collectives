@@ -1,0 +1,1285 @@
+# Travaux publics : ouvriers (IDCC 1702), ETAM (IDCC 2614) et cadres (IDCC 3212).
+#
+# Fichier commun : la même version est publiée pour les trois conventions (`agreements`).
+# modele-social n'a pas de convention des travaux publics ; ses règles du bâtiment
+# (`salarié . convention collective . BTP`, catégories ouvrier, ETAM et cadre) portent les
+# régimes communs au BTP : prévoyance PRO BTP (RNPO, RNPE, RNPC), répartition de la retraite
+# complémentaire des ETAM, OPPBTP. Ce modèle les complète et les corrige pour les travaux
+# publics, sans redéfinir de règle de modele-social (`remplace`).
+#
+# - Cotisation congés payés : celle de la caisse nationale des entreprises de travaux publics
+#   (CNETP), à la place des taux des caisses CIBTP du bâtiment.
+# - Cotisation chômage intempéries : 0,68 % (travaux publics), ajoutée aux cotisations employeur.
+# - Prévoyance des cadres (RNPC) : comme pour le bâtiment, les 1,50 % de la tranche A valent
+#   cotisation de prévoyance des cadres ; pas de tranche C optionnelle.
+# - Salaires minima hiérarchiques annuels de 2026, régionaux, des ouvriers et des ETAM (et des
+#   ETAM des niveaux F à H en forfait annuel en jours), à partir de la publication de l'arrêté
+#   d'extension et jusqu'au 31 décembre 2026. Ailleurs, aucun minimum conventionnel : seul le
+#   SMIC s'impose. Les cadres n'ont pas de grille : le dernier accord étendu fixe les minima
+#   pour 2024.
+#
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes.
+
+# Le taux de la CNETP n'est repris qu'à partir du 1er janvier 2026.
+validFrom: 2026-01-01
+# Chaque grille ne s'applique qu'à partir de la publication de son arrêté d'extension : la
+# version lie toutes les entreprises.
+extension: 2026-01-01
+agreements:
+  - 1702-travaux-publics-ouvriers
+  - 2614-travaux-publics-etam
+  - 3212-travaux-publics-cadres
+sources:
+  - >-
+    Cotisation congés payés de la CNETP : 21 % à compter du 1er janvier 2026 (cotisations
+    assises sur les salaires de janvier 2026), au lieu de 20,20 %, par décision du conseil
+    d'administration du 24 septembre 2025 (article D. 3141-29 du code du travail). Lettre de la
+    CNETP n° 40, janvier 2026.
+    https://www.cnetp.org/wp-content/uploads/2026/01/Lettre-de-la-CNETP-0126-WEB.pdf
+  - >-
+    Cotisation chômage intempéries : articles D. 5424-36 (assiette : salaires soumis aux
+    cotisations de sécurité sociale, après un abattement annuel de 8 000 fois le SMIC horaire) et
+    D. 5424-37 (taux des entreprises du gros œuvre et des travaux publics) du code du travail. Taux
+    en vigueur au 1er avril 2026 : 0,68 % pour le gros œuvre et les travaux publics ; abattement
+    de 96 168 € pour la campagne 2026-2027 (CNETP, « En bref : le régime du chômage intempéries »).
+    https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006072050/LEGISCTA000018496472
+    https://www.cnetp.org/wp-content/uploads/2024/11/En-bref_regime-intemperies.pdf
+  - >-
+    PRO BTP, notice « Chiffres, taux et assiettes 2026 » : les régimes de prévoyance des ouvriers
+    (RNPO, 2,59 % dont 1,72 % à la charge de l'employeur), des ETAM (RNPE, 1,85 % dont 1,25 %) et
+    des cadres (RNPC, 1,50 % de la tranche A à la charge de l'employeur, 2,40 % de la tranche B)
+    sont ceux du BTP, bâtiment et travaux publics. Les ETAM des travaux publics bénéficient des
+    garanties de l'accord national du 13 décembre 1990 (article 6.2 de la convention collective
+    nationale des ETAM des travaux publics, avenant n° 3 du 14 novembre 2023, étendu par arrêté
+    du 3 juillet 2024). KALITEXT000049605845.
+    https://www.probtp.com/files/live/sites/probtp/files/media/pdf/PRO/declarations/notice-entreprise-assiette-taux.pdf
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000049605845
+  - >-
+    Salaires minima hiérarchiques annuels pour 2026, sur la base de 35 heures par semaine ou en
+    moyenne sur l'année, lus sur Légifrance le 20 octobre 2026 (article 1er de chaque accord ;
+    pour les ETAM, article 2 pour le forfait annuel en jours des niveaux F à H) ; les montants de
+    chaque grille sont repris dans la description de sa règle. Pays de la Loire : le tableau des
+    accords du 4 décembre 2025 porte l'en-tête « Année 2025 », mais leur titre et leur article 1er
+    fixent les salaires pour 2026.
+  - >-
+    Bourgogne-Franche-Comté : accords des ouvriers (KALITEXT000053748293) et des ETAM (KALITEXT000053748366) pour 2026, étendus par
+    arrêtés du 24 février 2026 (JORF du 5 mars 2026).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053748293
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053748366
+  - >-
+    Bretagne : accords des ouvriers (KALITEXT000054033905) et des ETAM (KALITEXT000054034018) pour 2026, étendus par
+    arrêtés du 17 février 2026 (JORF du 24 février 2026).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054033905
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054034018
+  - >-
+    Centre-Val de Loire : accords des ouvriers (KALITEXT000054040344) et des ETAM (KALITEXT000054040652) pour 2026, étendus par
+    arrêtés du 12 mars 2026 (JORF du 20 mars 2026).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054040344
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054040652
+  - >-
+    Grand Est : accords des ouvriers (KALITEXT000053973328) et des ETAM (KALITEXT000053973475) pour 2026, étendus par
+    arrêtés du 17 mars 2026 (JORF du 20 mars 2026).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053973328
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053973475
+  - >-
+    Hauts-de-France : accords des ouvriers (KALITEXT000053914180) et des ETAM (KALITEXT000053914252) pour 2026, étendus par
+    arrêtés du 9 mars 2026 (JORF du 20 mars 2026).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053914180
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053914252
+  - >-
+    Île-de-France : accords des ouvriers (KALITEXT000054161979) et des ETAM (KALITEXT000054162121) pour 2026, étendus par
+    arrêtés du 2 avril 2026 (JORF du 17 avril 2026).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054161979
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054162121
+  - >-
+    Normandie : accords des ouvriers (KALITEXT000054033890) et des ETAM (KALITEXT000054034002) pour 2026, étendus par
+    arrêtés du 17 février 2026 (JORF du 24 février 2026).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054033890
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054034002
+  - >-
+    Nouvelle-Aquitaine : accords des ouvriers (KALITEXT000054092149) et des ETAM (KALITEXT000054092323) pour 2026, étendus par
+    arrêtés du 10 avril 2026 (JORF du 17 avril 2026).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054092149
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054092323
+  - >-
+    Occitanie : accords des ouvriers (KALITEXT000054040329) et des ETAM (KALITEXT000054040636) pour 2026, étendus par
+    arrêtés du 12 mars 2026 (JORF du 20 mars 2026).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054040329
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054040636
+  - >-
+    Pays de la Loire : accords des ouvriers (KALITEXT000054886381) et des ETAM (KALITEXT000054886424) pour 2026, étendus par
+    arrêtés du 24 août 2026 (JORF du 4 septembre 2026).
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054886381
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054886424
+  - >-
+    Auvergne-Rhône-Alpes et Provence-Alpes-Côte d'Azur : les derniers accords étendus fixent les
+    salaires minima hiérarchiques pour 2024 (accords du 15 décembre 2023 et du 11 décembre 2023) ;
+    aucune grille en 2026. Cadres (IDCC 3212) : le dernier accord étendu fixe les minima pour 2024
+    (accord du 14 novembre 2023, KALITEXT000049150748) ; aucune grille en 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000049271209
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000049150379
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000049150748
+---
+salarié . convention collective . BTP . région:
+  titre: Région de l'établissement
+  description: |
+    Région de l'établissement, qui choisit la grille régionale des ouvriers et des ETAM. Sans
+    région, ou hors des régions métropolitaines, aucune grille ne s'applique.
+  question: Dans quelle région l'établissement est-il situé ?
+  une possibilité:
+    - auvergne rhône alpes
+    - bourgogne franche comté
+    - bretagne
+    - centre val de loire
+    - corse
+    - grand est
+    - hauts de france
+    - île de france
+    - normandie
+    - nouvelle aquitaine
+    - occitanie
+    - pays de la loire
+    - PACA
+    - non renseignée
+  par défaut: "'non renseignée'"
+  avec:
+    auvergne rhône alpes:
+      titre: Auvergne-Rhône-Alpes
+    bourgogne franche comté:
+      titre: Bourgogne-Franche-Comté
+    bretagne:
+      titre: Bretagne
+    centre val de loire:
+      titre: Centre-Val de Loire
+    corse:
+      titre: Corse
+    grand est:
+      titre: Grand Est
+    hauts de france:
+      titre: Hauts-de-France
+    île de france:
+      titre: Île-de-France
+    normandie:
+      titre: Normandie
+    nouvelle aquitaine:
+      titre: Nouvelle-Aquitaine
+    occitanie:
+      titre: Occitanie
+    pays de la loire:
+      titre: Pays de la Loire
+    PACA:
+      titre: Provence-Alpes-Côte d'Azur
+    non renseignée:
+      titre: Non renseignée ou hors métropole
+
+salarié . convention collective . BTP . classification:
+  titre: Classification
+  description: |
+    Coefficient de l'ouvrier (100, 110, 125, 140, 150, 165 ou 180, soit les positions I-1 à IV)
+    ou niveau de l'ETAM (A à H).
+  par défaut: "'non renseignée'"
+
+salarié . convention collective . BTP . forfait jours:
+  titre: Forfait annuel en jours
+  description: |
+    Le salarié a une convention de forfait annuel en jours : les ETAM des niveaux F à H ont alors
+    des salaires minima hiérarchiques propres.
+  par défaut: non
+
+salarié . convention collective . BTP . niveau de forfait:
+  titre: Niveau des ETAM au forfait annuel en jours
+  une de ces conditions:
+    - classification = 'F'
+    - classification = 'G'
+    - classification = 'H'
+
+salarié . convention collective . BTP . grille . ouvriers Bourgogne-Franche-Comté:
+  titre: Ouvriers, Bourgogne-Franche-Comté
+  description: >-
+    Salaires minima hiérarchiques annuels des ouvriers pour 2026 (accords du 9 décembre 2025,
+    IDCC 1702), étendus par arrêté publié au JORF du 05/03 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = '100'
+      alors: 23287 €/an
+    - si: classification = '110'
+      alors: 23785 €/an
+    - si: classification = '125'
+      alors: 24764 €/an
+    - si: classification = '140'
+      alors: 27420 €/an
+    - si: classification = '150'
+      alors: 29345 €/an
+    - si: classification = '165'
+      alors: 31733 €/an
+    - si: classification = '180'
+      alors: 34182 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ouvriers Bourgogne-Franche-Comté . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - région = 'bourgogne franche comté'
+    - date >= 05/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Bourgogne-Franche-Comté:
+  titre: ETAM au forfait annuel en jours, Bourgogne-Franche-Comté
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM des niveaux F à H en forfait annuel en jours
+    pour 2026 (accords du 9 décembre 2025, IDCC 2614), étendus par arrêté publié au JORF du
+    05/03 2026.
+  unité: €/an
+  variations:
+    - si: classification = 'F'
+      alors: 40321 €/an
+    - si: classification = 'G'
+      alors: 44761 €/an
+    - si: classification = 'H'
+      alors: 45797 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Bourgogne-Franche-Comté . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - forfait jours
+    - niveau de forfait
+    - région = 'bourgogne franche comté'
+    - date >= 05/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM Bourgogne-Franche-Comté:
+  titre: ETAM, Bourgogne-Franche-Comté
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM pour 2026 (accords du 9 décembre 2025, IDCC
+    2614), étendus par arrêté publié au JORF du 05/03 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = 'A'
+      alors: 23287 €/an
+    - si: classification = 'B'
+      alors: 24054 €/an
+    - si: classification = 'C'
+      alors: 26607 €/an
+    - si: classification = 'D'
+      alors: 29066 €/an
+    - si: classification = 'E'
+      alors: 31634 €/an
+    - si: classification = 'F'
+      alors: 35061 €/an
+    - si: classification = 'G'
+      alors: 38922 €/an
+    - si: classification = 'H'
+      alors: 39824 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM Bourgogne-Franche-Comté . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - région = 'bourgogne franche comté'
+    - date >= 05/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ouvriers Bretagne:
+  titre: Ouvriers, Bretagne
+  description: >-
+    Salaires minima hiérarchiques annuels des ouvriers pour 2026 (accords du 9 décembre 2025,
+    IDCC 1702), étendus par arrêté publié au JORF du 24/02 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = '100'
+      alors: 23863 €/an
+    - si: classification = '110'
+      alors: 24133 €/an
+    - si: classification = '125'
+      alors: 24621 €/an
+    - si: classification = '140'
+      alors: 27126 €/an
+    - si: classification = '150'
+      alors: 29020 €/an
+    - si: classification = '165'
+      alors: 31711 €/an
+    - si: classification = '180'
+      alors: 34529 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ouvriers Bretagne . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - région = 'bretagne'
+    - date >= 24/02/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Bretagne:
+  titre: ETAM au forfait annuel en jours, Bretagne
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM des niveaux F à H en forfait annuel en jours
+    pour 2026 (accords du 9 décembre 2025, IDCC 2614), étendus par arrêté publié au JORF du
+    24/02 2026.
+  unité: €/an
+  variations:
+    - si: classification = 'F'
+      alors: 40883 €/an
+    - si: classification = 'G'
+      alors: 45673 €/an
+    - si: classification = 'H'
+      alors: 48226 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Bretagne . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - forfait jours
+    - niveau de forfait
+    - région = 'bretagne'
+    - date >= 24/02/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM Bretagne:
+  titre: ETAM, Bretagne
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM pour 2026 (accords du 9 décembre 2025, IDCC
+    2614), étendus par arrêté publié au JORF du 24/02 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = 'A'
+      alors: 23941 €/an
+    - si: classification = 'B'
+      alors: 25034 €/an
+    - si: classification = 'C'
+      alors: 26863 €/an
+    - si: classification = 'D'
+      alors: 29570 €/an
+    - si: classification = 'E'
+      alors: 32110 €/an
+    - si: classification = 'F'
+      alors: 35551 €/an
+    - si: classification = 'G'
+      alors: 39715 €/an
+    - si: classification = 'H'
+      alors: 41936 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM Bretagne . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - région = 'bretagne'
+    - date >= 24/02/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ouvriers Centre-Val de Loire:
+  titre: Ouvriers, Centre-Val de Loire
+  description: >-
+    Salaires minima hiérarchiques annuels des ouvriers pour 2026 (accords du 11 décembre 2025
+    (ouvriers) et du 23 décembre 2025 (ETAM), IDCC 1702), étendus par arrêté publié au JORF du
+    20/03 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = '100'
+      alors: 22893 €/an
+    - si: classification = '110'
+      alors: 23337 €/an
+    - si: classification = '125'
+      alors: 23931 €/an
+    - si: classification = '140'
+      alors: 26783 €/an
+    - si: classification = '150'
+      alors: 28683 €/an
+    - si: classification = '165'
+      alors: 29490 €/an
+    - si: classification = '180'
+      alors: 32166 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ouvriers Centre-Val de Loire . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - région = 'centre val de loire'
+    - date >= 20/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Centre-Val de Loire:
+  titre: ETAM au forfait annuel en jours, Centre-Val de Loire
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM des niveaux F à H en forfait annuel en jours
+    pour 2026 (accords du 11 décembre 2025 (ouvriers) et du 23 décembre 2025 (ETAM), IDCC 2614),
+    étendus par arrêté publié au JORF du 20/03 2026.
+  unité: €/an
+  variations:
+    - si: classification = 'F'
+      alors: 40340 €/an
+    - si: classification = 'G'
+      alors: 43118 €/an
+    - si: classification = 'H'
+      alors: 44833 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Centre-Val de Loire . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - forfait jours
+    - niveau de forfait
+    - région = 'centre val de loire'
+    - date >= 20/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM Centre-Val de Loire:
+  titre: ETAM, Centre-Val de Loire
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM pour 2026 (accords du 11 décembre 2025
+    (ouvriers) et du 23 décembre 2025 (ETAM), IDCC 2614), étendus par arrêté publié au JORF du
+    20/03 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = 'A'
+      alors: 22899 €/an
+    - si: classification = 'B'
+      alors: 23673 €/an
+    - si: classification = 'C'
+      alors: 25958 €/an
+    - si: classification = 'D'
+      alors: 28118 €/an
+    - si: classification = 'E'
+      alors: 31605 €/an
+    - si: classification = 'F'
+      alors: 35078 €/an
+    - si: classification = 'G'
+      alors: 37494 €/an
+    - si: classification = 'H'
+      alors: 38985 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM Centre-Val de Loire . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - région = 'centre val de loire'
+    - date >= 20/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ouvriers Grand Est:
+  titre: Ouvriers, Grand Est
+  description: >-
+    Salaires minima hiérarchiques annuels des ouvriers pour 2026 (accords du 28 novembre 2025,
+    IDCC 1702), étendus par arrêté publié au JORF du 20/03 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = '100'
+      alors: 23294 €/an
+    - si: classification = '110'
+      alors: 23597 €/an
+    - si: classification = '125'
+      alors: 24339 €/an
+    - si: classification = '140'
+      alors: 26978 €/an
+    - si: classification = '150'
+      alors: 28399 €/an
+    - si: classification = '165'
+      alors: 31054 €/an
+    - si: classification = '180'
+      alors: 33525 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ouvriers Grand Est . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - région = 'grand est'
+    - date >= 20/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Grand Est:
+  titre: ETAM au forfait annuel en jours, Grand Est
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM des niveaux F à H en forfait annuel en jours
+    pour 2026 (accords du 28 novembre 2025, IDCC 2614), étendus par arrêté publié au JORF du
+    20/03 2026.
+  unité: €/an
+  variations:
+    - si: classification = 'F'
+      alors: 39804 €/an
+    - si: classification = 'G'
+      alors: 44655 €/an
+    - si: classification = 'H'
+      alors: 46741 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Grand Est . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - forfait jours
+    - niveau de forfait
+    - région = 'grand est'
+    - date >= 20/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM Grand Est:
+  titre: ETAM, Grand Est
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM pour 2026 (accords du 28 novembre 2025, IDCC
+    2614), étendus par arrêté publié au JORF du 20/03 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = 'A'
+      alors: 23340 €/an
+    - si: classification = 'B'
+      alors: 24135 €/an
+    - si: classification = 'C'
+      alors: 26050 €/an
+    - si: classification = 'D'
+      alors: 28884 €/an
+    - si: classification = 'E'
+      alors: 31136 €/an
+    - si: classification = 'F'
+      alors: 34612 €/an
+    - si: classification = 'G'
+      alors: 38830 €/an
+    - si: classification = 'H'
+      alors: 40644 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM Grand Est . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - région = 'grand est'
+    - date >= 20/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ouvriers Hauts-de-France:
+  titre: Ouvriers, Hauts-de-France
+  description: >-
+    Salaires minima hiérarchiques annuels des ouvriers pour 2026 (accords du 5 décembre 2025,
+    IDCC 1702), étendus par arrêté publié au JORF du 20/03 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = '100'
+      alors: 23305 €/an
+    - si: classification = '110'
+      alors: 23607 €/an
+    - si: classification = '125'
+      alors: 24287 €/an
+    - si: classification = '140'
+      alors: 27148 €/an
+    - si: classification = '150'
+      alors: 29005 €/an
+    - si: classification = '165'
+      alors: 31697 €/an
+    - si: classification = '180'
+      alors: 34577 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ouvriers Hauts-de-France . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - région = 'hauts de france'
+    - date >= 20/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Hauts-de-France:
+  titre: ETAM au forfait annuel en jours, Hauts-de-France
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM des niveaux F à H en forfait annuel en jours
+    pour 2026 (accords du 5 décembre 2025, IDCC 2614), étendus par arrêté publié au JORF du
+    20/03 2026.
+  unité: €/an
+  variations:
+    - si: classification = 'F'
+      alors: 41444 €/an
+    - si: classification = 'G'
+      alors: 45275 €/an
+    - si: classification = 'H'
+      alors: 47383 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Hauts-de-France . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - forfait jours
+    - niveau de forfait
+    - région = 'hauts de france'
+    - date >= 20/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM Hauts-de-France:
+  titre: ETAM, Hauts-de-France
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM pour 2026 (accords du 5 décembre 2025, IDCC
+    2614), étendus par arrêté publié au JORF du 20/03 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = 'A'
+      alors: 23224 €/an
+    - si: classification = 'B'
+      alors: 24372 €/an
+    - si: classification = 'C'
+      alors: 26334 €/an
+    - si: classification = 'D'
+      alors: 28987 €/an
+    - si: classification = 'E'
+      alors: 32084 €/an
+    - si: classification = 'F'
+      alors: 36038 €/an
+    - si: classification = 'G'
+      alors: 39370 €/an
+    - si: classification = 'H'
+      alors: 41203 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM Hauts-de-France . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - région = 'hauts de france'
+    - date >= 20/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ouvriers Île-de-France:
+  titre: Ouvriers, Île-de-France
+  description: >-
+    Salaires minima hiérarchiques annuels des ouvriers pour 2026 (accords du 16 janvier 2026,
+    IDCC 1702), étendus par arrêté publié au JORF du 17/04 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = '100'
+      alors: 23709 €/an
+    - si: classification = '110'
+      alors: 23930 €/an
+    - si: classification = '125'
+      alors: 24826 €/an
+    - si: classification = '140'
+      alors: 27474 €/an
+    - si: classification = '150'
+      alors: 28954 €/an
+    - si: classification = '165'
+      alors: 31886 €/an
+    - si: classification = '180'
+      alors: 34569 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ouvriers Île-de-France . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - région = 'île de france'
+    - date >= 17/04/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Île-de-France:
+  titre: ETAM au forfait annuel en jours, Île-de-France
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM des niveaux F à H en forfait annuel en jours
+    pour 2026 (accords du 16 janvier 2026, IDCC 2614), étendus par arrêté publié au JORF du
+    17/04 2026.
+  unité: €/an
+  variations:
+    - si: classification = 'F'
+      alors: 42843 €/an
+    - si: classification = 'G'
+      alors: 45572 €/an
+    - si: classification = 'H'
+      alors: 46718 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Île-de-France . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - forfait jours
+    - niveau de forfait
+    - région = 'île de france'
+    - date >= 17/04/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM Île-de-France:
+  titre: ETAM, Île-de-France
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM pour 2026 (accords du 16 janvier 2026, IDCC
+    2614), étendus par arrêté publié au JORF du 17/04 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = 'A'
+      alors: 23545 €/an
+    - si: classification = 'B'
+      alors: 25372 €/an
+    - si: classification = 'C'
+      alors: 27185 €/an
+    - si: classification = 'D'
+      alors: 29847 €/an
+    - si: classification = 'E'
+      alors: 33260 €/an
+    - si: classification = 'F'
+      alors: 37255 €/an
+    - si: classification = 'G'
+      alors: 39628 €/an
+    - si: classification = 'H'
+      alors: 40624 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM Île-de-France . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - région = 'île de france'
+    - date >= 17/04/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ouvriers Normandie:
+  titre: Ouvriers, Normandie
+  description: >-
+    Salaires minima hiérarchiques annuels des ouvriers pour 2026 (accords du 26 novembre 2025,
+    IDCC 1702), étendus par arrêté publié au JORF du 24/02 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = '100'
+      alors: 23462 €/an
+    - si: classification = '110'
+      alors: 23552 €/an
+    - si: classification = '125'
+      alors: 24691 €/an
+    - si: classification = '140'
+      alors: 27202 €/an
+    - si: classification = '150'
+      alors: 29145 €/an
+    - si: classification = '165'
+      alors: 31746 €/an
+    - si: classification = '180'
+      alors: 34634 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ouvriers Normandie . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - région = 'normandie'
+    - date >= 24/02/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Normandie:
+  titre: ETAM au forfait annuel en jours, Normandie
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM des niveaux F à H en forfait annuel en jours
+    pour 2026 (accords du 26 novembre 2025, IDCC 2614), étendus par arrêté publié au JORF du
+    24/02 2026.
+  unité: €/an
+  variations:
+    - si: classification = 'F'
+      alors: 40226 €/an
+    - si: classification = 'G'
+      alors: 44665 €/an
+    - si: classification = 'H'
+      alors: 47050 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Normandie . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - forfait jours
+    - niveau de forfait
+    - région = 'normandie'
+    - date >= 24/02/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM Normandie:
+  titre: ETAM, Normandie
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM pour 2026 (accords du 26 novembre 2025, IDCC
+    2614), étendus par arrêté publié au JORF du 24/02 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = 'A'
+      alors: 23542 €/an
+    - si: classification = 'B'
+      alors: 23979 €/an
+    - si: classification = 'C'
+      alors: 25699 €/an
+    - si: classification = 'D'
+      alors: 29281 €/an
+    - si: classification = 'E'
+      alors: 31618 €/an
+    - si: classification = 'F'
+      alors: 34979 €/an
+    - si: classification = 'G'
+      alors: 38839 €/an
+    - si: classification = 'H'
+      alors: 40913 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM Normandie . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - région = 'normandie'
+    - date >= 24/02/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ouvriers Nouvelle-Aquitaine:
+  titre: Ouvriers, Nouvelle-Aquitaine
+  description: >-
+    Salaires minima hiérarchiques annuels des ouvriers pour 2026 (accords du 11 décembre 2025,
+    IDCC 1702), étendus par arrêté publié au JORF du 17/04 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = '100'
+      alors: 23242 €/an
+    - si: classification = '110'
+      alors: 23751 €/an
+    - si: classification = '125'
+      alors: 24210 €/an
+    - si: classification = '140'
+      alors: 26969 €/an
+    - si: classification = '150'
+      alors: 28883 €/an
+    - si: classification = '165'
+      alors: 31214 €/an
+    - si: classification = '180'
+      alors: 34040 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ouvriers Nouvelle-Aquitaine . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - région = 'nouvelle aquitaine'
+    - date >= 17/04/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Nouvelle-Aquitaine:
+  titre: ETAM au forfait annuel en jours, Nouvelle-Aquitaine
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM des niveaux F à H en forfait annuel en jours
+    pour 2026 (accords du 11 décembre 2025, IDCC 2614), étendus par arrêté publié au JORF du
+    17/04 2026.
+  unité: €/an
+  variations:
+    - si: classification = 'F'
+      alors: 40039 €/an
+    - si: classification = 'G'
+      alors: 44309 €/an
+    - si: classification = 'H'
+      alors: 46159 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Nouvelle-Aquitaine . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - forfait jours
+    - niveau de forfait
+    - région = 'nouvelle aquitaine'
+    - date >= 17/04/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM Nouvelle-Aquitaine:
+  titre: ETAM, Nouvelle-Aquitaine
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM pour 2026 (accords du 11 décembre 2025, IDCC
+    2614), étendus par arrêté publié au JORF du 17/04 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = 'A'
+      alors: 23106 €/an
+    - si: classification = 'B'
+      alors: 23874 €/an
+    - si: classification = 'C'
+      alors: 26234 €/an
+    - si: classification = 'D'
+      alors: 28113 €/an
+    - si: classification = 'E'
+      alors: 30745 €/an
+    - si: classification = 'F'
+      alors: 34817 €/an
+    - si: classification = 'G'
+      alors: 38529 €/an
+    - si: classification = 'H'
+      alors: 40138 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM Nouvelle-Aquitaine . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - région = 'nouvelle aquitaine'
+    - date >= 17/04/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ouvriers Occitanie:
+  titre: Ouvriers, Occitanie
+  description: >-
+    Salaires minima hiérarchiques annuels des ouvriers pour 2026 (accords du 8 décembre 2025,
+    IDCC 1702), étendus par arrêté publié au JORF du 20/03 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = '100'
+      alors: 23160 €/an
+    - si: classification = '110'
+      alors: 23518 €/an
+    - si: classification = '125'
+      alors: 24606 €/an
+    - si: classification = '140'
+      alors: 27301 €/an
+    - si: classification = '150'
+      alors: 29105 €/an
+    - si: classification = '165'
+      alors: 31550 €/an
+    - si: classification = '180'
+      alors: 33928 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ouvriers Occitanie . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - région = 'occitanie'
+    - date >= 20/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Occitanie:
+  titre: ETAM au forfait annuel en jours, Occitanie
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM des niveaux F à H en forfait annuel en jours
+    pour 2026 (accords du 8 décembre 2025, IDCC 2614), étendus par arrêté publié au JORF du
+    20/03 2026.
+  unité: €/an
+  variations:
+    - si: classification = 'F'
+      alors: 41365 €/an
+    - si: classification = 'G'
+      alors: 45317 €/an
+    - si: classification = 'H'
+      alors: 47616 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Occitanie . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - forfait jours
+    - niveau de forfait
+    - région = 'occitanie'
+    - date >= 20/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM Occitanie:
+  titre: ETAM, Occitanie
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM pour 2026 (accords du 8 décembre 2025, IDCC
+    2614), étendus par arrêté publié au JORF du 20/03 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = 'A'
+      alors: 23057 €/an
+    - si: classification = 'B'
+      alors: 24033 €/an
+    - si: classification = 'C'
+      alors: 26546 €/an
+    - si: classification = 'D'
+      alors: 28891 €/an
+    - si: classification = 'E'
+      alors: 32058 €/an
+    - si: classification = 'F'
+      alors: 35970 €/an
+    - si: classification = 'G'
+      alors: 39406 €/an
+    - si: classification = 'H'
+      alors: 41405 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM Occitanie . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - région = 'occitanie'
+    - date >= 20/03/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ouvriers Pays de la Loire:
+  titre: Ouvriers, Pays de la Loire
+  description: >-
+    Salaires minima hiérarchiques annuels des ouvriers pour 2026 (accords du 4 décembre 2025,
+    IDCC 1702), étendus par arrêté publié au JORF du 04/09 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = '100'
+      alors: 23537 €/an
+    - si: classification = '110'
+      alors: 23733 €/an
+    - si: classification = '125'
+      alors: 24749 €/an
+    - si: classification = '140'
+      alors: 27334 €/an
+    - si: classification = '150'
+      alors: 29301 €/an
+    - si: classification = '165'
+      alors: 31743 €/an
+    - si: classification = '180'
+      alors: 34619 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ouvriers Pays de la Loire . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'ouvrier'
+    - région = 'pays de la loire'
+    - date >= 04/09/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Pays de la Loire:
+  titre: ETAM au forfait annuel en jours, Pays de la Loire
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM des niveaux F à H en forfait annuel en jours
+    pour 2026 (accords du 4 décembre 2025, IDCC 2614), étendus par arrêté publié au JORF du
+    04/09 2026.
+  unité: €/an
+  variations:
+    - si: classification = 'F'
+      alors: 40534 €/an
+    - si: classification = 'G'
+      alors: 45330 €/an
+    - si: classification = 'H'
+      alors: 48774 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM forfait jours Pays de la Loire . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - forfait jours
+    - niveau de forfait
+    - région = 'pays de la loire'
+    - date >= 04/09/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille . ETAM Pays de la Loire:
+  titre: ETAM, Pays de la Loire
+  description: >-
+    Salaires minima hiérarchiques annuels des ETAM pour 2026 (accords du 4 décembre 2025, IDCC
+    2614), étendus par arrêté publié au JORF du 04/09 2026. Pour 35 heures par semaine.
+  unité: €/an
+  variations:
+    - si: classification = 'A'
+      alors: 23535 €/an
+    - si: classification = 'B'
+      alors: 24403 €/an
+    - si: classification = 'C'
+      alors: 26190 €/an
+    - si: classification = 'D'
+      alors: 29006 €/an
+    - si: classification = 'E'
+      alors: 31777 €/an
+    - si: classification = 'F'
+      alors: 35247 €/an
+    - si: classification = 'G'
+      alors: 39418 €/an
+    - si: classification = 'H'
+      alors: 42412 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . grille . ETAM Pays de la Loire . en vigueur:
+  toutes ces conditions:
+    - catégorie = 'etam'
+    - région = 'pays de la loire'
+    - date >= 04/09/2026
+    - date < 01/01/2027
+
+salarié . convention collective . BTP . grille applicable:
+  titre: Une grille régionale s'applique
+  description: |
+    Une grille de la catégorie et de la région lie l'entreprise à la date de la période. Sinon,
+    aucun minimum conventionnel : seul le SMIC s'impose, et la classification n'est pas contrôlée.
+  une de ces conditions:
+    - grille . ouvriers Bourgogne-Franche-Comté . en vigueur
+    - grille . ETAM forfait jours Bourgogne-Franche-Comté . en vigueur
+    - grille . ETAM Bourgogne-Franche-Comté . en vigueur
+    - grille . ouvriers Bretagne . en vigueur
+    - grille . ETAM forfait jours Bretagne . en vigueur
+    - grille . ETAM Bretagne . en vigueur
+    - grille . ouvriers Centre-Val de Loire . en vigueur
+    - grille . ETAM forfait jours Centre-Val de Loire . en vigueur
+    - grille . ETAM Centre-Val de Loire . en vigueur
+    - grille . ouvriers Grand Est . en vigueur
+    - grille . ETAM forfait jours Grand Est . en vigueur
+    - grille . ETAM Grand Est . en vigueur
+    - grille . ouvriers Hauts-de-France . en vigueur
+    - grille . ETAM forfait jours Hauts-de-France . en vigueur
+    - grille . ETAM Hauts-de-France . en vigueur
+    - grille . ouvriers Île-de-France . en vigueur
+    - grille . ETAM forfait jours Île-de-France . en vigueur
+    - grille . ETAM Île-de-France . en vigueur
+    - grille . ouvriers Normandie . en vigueur
+    - grille . ETAM forfait jours Normandie . en vigueur
+    - grille . ETAM Normandie . en vigueur
+    - grille . ouvriers Nouvelle-Aquitaine . en vigueur
+    - grille . ETAM forfait jours Nouvelle-Aquitaine . en vigueur
+    - grille . ETAM Nouvelle-Aquitaine . en vigueur
+    - grille . ouvriers Occitanie . en vigueur
+    - grille . ETAM forfait jours Occitanie . en vigueur
+    - grille . ETAM Occitanie . en vigueur
+    - grille . ouvriers Pays de la Loire . en vigueur
+    - grille . ETAM forfait jours Pays de la Loire . en vigueur
+    - grille . ETAM Pays de la Loire . en vigueur
+
+salarié . convention collective . BTP . grille:
+  titre: Salaire minimum annuel de la grille, à temps complet
+  description: Vaut 0 €/an sans grille applicable, ou pour une classification absente de la grille.
+  unité: €/an
+  variations:
+    - si: grille . ouvriers Bourgogne-Franche-Comté . en vigueur
+      alors: grille . ouvriers Bourgogne-Franche-Comté
+    - si: grille . ETAM forfait jours Bourgogne-Franche-Comté . en vigueur
+      alors: grille . ETAM forfait jours Bourgogne-Franche-Comté
+    - si: grille . ETAM Bourgogne-Franche-Comté . en vigueur
+      alors: grille . ETAM Bourgogne-Franche-Comté
+    - si: grille . ouvriers Bretagne . en vigueur
+      alors: grille . ouvriers Bretagne
+    - si: grille . ETAM forfait jours Bretagne . en vigueur
+      alors: grille . ETAM forfait jours Bretagne
+    - si: grille . ETAM Bretagne . en vigueur
+      alors: grille . ETAM Bretagne
+    - si: grille . ouvriers Centre-Val de Loire . en vigueur
+      alors: grille . ouvriers Centre-Val de Loire
+    - si: grille . ETAM forfait jours Centre-Val de Loire . en vigueur
+      alors: grille . ETAM forfait jours Centre-Val de Loire
+    - si: grille . ETAM Centre-Val de Loire . en vigueur
+      alors: grille . ETAM Centre-Val de Loire
+    - si: grille . ouvriers Grand Est . en vigueur
+      alors: grille . ouvriers Grand Est
+    - si: grille . ETAM forfait jours Grand Est . en vigueur
+      alors: grille . ETAM forfait jours Grand Est
+    - si: grille . ETAM Grand Est . en vigueur
+      alors: grille . ETAM Grand Est
+    - si: grille . ouvriers Hauts-de-France . en vigueur
+      alors: grille . ouvriers Hauts-de-France
+    - si: grille . ETAM forfait jours Hauts-de-France . en vigueur
+      alors: grille . ETAM forfait jours Hauts-de-France
+    - si: grille . ETAM Hauts-de-France . en vigueur
+      alors: grille . ETAM Hauts-de-France
+    - si: grille . ouvriers Île-de-France . en vigueur
+      alors: grille . ouvriers Île-de-France
+    - si: grille . ETAM forfait jours Île-de-France . en vigueur
+      alors: grille . ETAM forfait jours Île-de-France
+    - si: grille . ETAM Île-de-France . en vigueur
+      alors: grille . ETAM Île-de-France
+    - si: grille . ouvriers Normandie . en vigueur
+      alors: grille . ouvriers Normandie
+    - si: grille . ETAM forfait jours Normandie . en vigueur
+      alors: grille . ETAM forfait jours Normandie
+    - si: grille . ETAM Normandie . en vigueur
+      alors: grille . ETAM Normandie
+    - si: grille . ouvriers Nouvelle-Aquitaine . en vigueur
+      alors: grille . ouvriers Nouvelle-Aquitaine
+    - si: grille . ETAM forfait jours Nouvelle-Aquitaine . en vigueur
+      alors: grille . ETAM forfait jours Nouvelle-Aquitaine
+    - si: grille . ETAM Nouvelle-Aquitaine . en vigueur
+      alors: grille . ETAM Nouvelle-Aquitaine
+    - si: grille . ouvriers Occitanie . en vigueur
+      alors: grille . ouvriers Occitanie
+    - si: grille . ETAM forfait jours Occitanie . en vigueur
+      alors: grille . ETAM forfait jours Occitanie
+    - si: grille . ETAM Occitanie . en vigueur
+      alors: grille . ETAM Occitanie
+    - si: grille . ouvriers Pays de la Loire . en vigueur
+      alors: grille . ouvriers Pays de la Loire
+    - si: grille . ETAM forfait jours Pays de la Loire . en vigueur
+      alors: grille . ETAM forfait jours Pays de la Loire
+    - si: grille . ETAM Pays de la Loire . en vigueur
+      alors: grille . ETAM Pays de la Loire
+    - sinon: 0 €/an
+
+salarié . convention collective . BTP . salaire minimum conventionnel:
+  titre: Salaire minimum annuel conventionnel
+  description: |
+    Salaire minimum hiérarchique annuel de la grille régionale, proratisé selon la quotité de
+    travail. Vaut 0 €/an sans grille applicable (voir « grille applicable »).
+  unité: €/an
+  produit:
+    - grille
+    - salarié . contrat . temps de travail . quotité
+
+salarié . convention collective . BTP . classification hors grille:
+  titre: Classification absente de la grille
+  description: Une grille s'applique, mais la classification n'y figure pas.
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre d'évaluation :
+  # la grille vaut donc 0 €/an pour une classification inconnue.
+  toutes ces conditions:
+    - grille applicable
+    - grille = 0 €/an
+
+salarié . convention collective . BTP . cotisation congés payés:
+  titre: Cotisation congés payés CNETP
+  description: |
+    Remplace la règle « congés intempéries » de modele-social, qui applique les taux des caisses
+    CIBTP du bâtiment : les entreprises de travaux publics cotisent à la caisse nationale des
+    entreprises de travaux publics (CNETP).
+  remplace: salarié . convention collective . BTP . congés intempéries
+  unité: €/mois
+  produit:
+    - salarié . cotisations . assiette
+    - taux
+
+salarié . convention collective . BTP . cotisation congés payés . taux:
+  titre: Taux de la cotisation congés payés de la CNETP
+  unité: '%'
+  valeur: 21%
+
+salarié . convention collective . BTP . chômage intempéries:
+  titre: Cotisation chômage intempéries
+  description: |
+    Cotisation patronale versée à la CNETP, qui indemnise les salariés lorsque les intempéries
+    arrêtent les chantiers. Assise sur le salaire plafonné à la sécurité sociale, au taux des
+    entreprises du gros œuvre et des travaux publics. Elle n'est due qu'au-delà d'un abattement
+    annuel par entreprise, qu'une paie ne peut pas calculer : « sous l'abattement » l'annule.
+  unité: €/mois
+  produit:
+    - valeur: salarié . cotisations . assiette
+      plafond: salarié . temps de travail . plafond sécurité sociale
+    - taux
+
+salarié . convention collective . BTP . chômage intempéries . sous l'abattement:
+  titre: Masse salariale sous l'abattement annuel
+  description: |
+    Les salaires plafonnés de l'entreprise depuis le début de la campagne (1er avril) ne
+    dépassent pas l'abattement annuel : la cotisation n'est pas appelée.
+  par défaut: non
+
+salarié . convention collective . BTP . chômage intempéries . taux:
+  titre: Taux de la cotisation chômage intempéries
+  unité: '%'
+  variations:
+    - si: sous l'abattement
+      alors: 0%
+    - sinon: 0.68%
+
+salarié . convention collective . BTP . OPPBTP et chômage intempéries:
+  titre: OPPBTP et cotisation chômage intempéries
+  description: Ajoute la cotisation chômage intempéries aux cotisations employeur du BTP.
+  remplace:
+    références à: salarié . convention collective . BTP . OPPBTP
+    dans: salarié . convention collective . BTP . cotisations employeur
+  unité: €/mois
+  somme:
+    - salarié . convention collective . BTP . OPPBTP
+    - salarié . convention collective . BTP . chômage intempéries
+
+salarié . convention collective . BTP . catégorie . cadre . prévoyance RNPC:
+  titre: Prévoyance des cadres du BTP (RNPC)
+  description: |
+    La cotisation de 1,50 % sur la tranche A, à la charge de l'employeur, vaut cotisation
+    obligatoire de prévoyance des cadres : elle remplace celle du droit commun. La cotisation de
+    2,40 % sur la tranche B est répartie par l'entreprise (à parts égales ici). La tranche C est
+    une garantie optionnelle, non prise en compte.
+  rend non applicable: salarié . cotisations . prévoyances . employeur . cadres
+  somme:
+    - employeur
+    - salarié
+  avec:
+    employeur:
+      remplace:
+        références à: salarié . cotisations . prévoyances . conventionnelle . employeur
+        priorité: 1
+      barème:
+        assiette: salarié . contrat . salaire brut
+        multiplicateur: plafond sécurité sociale
+        tranches:
+          - taux: 1.50%
+            plafond: 1
+          - taux: 50% * 2.40%
+            plafond: 4
+    salarié:
+      remplace:
+        références à: salarié . cotisations . prévoyances . conventionnelle . salarié
+        priorité: 1
+      barème:
+        assiette: salarié . contrat . salaire brut
+        multiplicateur: plafond sécurité sociale
+        tranches:
+          - taux: 0%
+            plafond: 1
+          - taux: 50% * 2.40%
+            plafond: 4

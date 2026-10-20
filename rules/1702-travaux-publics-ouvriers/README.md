@@ -1,5 +1,21 @@
 # Travaux publics — ouvriers (IDCC 1702)
 
+## Version en vigueur : `2026.4`, commune aux trois conventions des travaux publics
+
+La version `2026.4` est publiée à l'identique pour les IDCC 1702, 2614 et 3212, depuis le fichier
+commun [`rules/commun/travaux-publics/travaux-publics.2026.4.publicodes`](../commun/travaux-publics/travaux-publics.2026.4.publicodes)
+(voir son [README](../commun/travaux-publics/README.md)). Elle complète et corrige les règles du
+BTP de modele-social pour les travaux publics : cotisation congés payés de la CNETP, cotisation
+chômage intempéries, prévoyance des cadres (RNPC) comptée une seule fois, et salaires minima
+hiérarchiques régionaux de 2026 des ouvriers et des ETAM (forfait jours compris).
+
+**Les versions antérieures ci-dessous ne sont plus utilisées** : elles calculaient leurs
+cotisations dans un espace de noms à part, sans remplacer celles de modele-social. Elles restent
+publiées pour l'historique ; un consommateur qui choisit la version par date doit partir de
+`2026.4`.
+
+## Versions antérieures, plus utilisées
+
 Modèle `1702-travaux-publics-ouvriers`, versions `2026.1` et `2026.3`, espace de noms
 `salarié . convention collective . travaux publics ouvriers`.
 
