@@ -25,6 +25,22 @@ La version 2026.2 couvre la **liste 1** des minima journaliers bruts pour une jo
 
 Le niveau `8` est rémunéré de gré à gré, avec un plancher automatique de 284,38 € (M1 du niveau 7-2). La liste 2 (fonctions artistiques et techniques) reste hors périmètre faute de paramètres métier dédiés pour distinguer ses fonctions et modalités de prestation.
 
+## Salariés permanents (versions 2026.3 et 2026.4)
+
+Les versions [2026.3](3241-telediffusion.2026.3.publicodes) et [2026.4](3241-telediffusion.2026.4.publicodes) ajoutent les minima mensuels bruts pour 35 heures des salariés permanents (CDI et CDD de droit commun), articles 21.2.2, 22.1 et 22.2 de la CCN :
+
+- `classification` : niveau I à V avec échelon A, B ou C (`'I-A'` à `'V-C'`), ou niveau `'VI'`, sans échelon ;
+- la grille de l'article 22.2 s'applique à partir de 50 salariés (`entreprise . salariés . effectif`), ou quand l'entreprise appartient à un groupe de plus de 50 salariés (`entreprise d'un groupe`, non par défaut) ; sinon celle de l'article 22.1 ;
+- `salaire minimum conventionnel` (€/mois) est proratisé selon la quotité de travail ; `classification hors grille` est vrai pour une classification absente ;
+- le minimum comprend tous les éléments de rémunération, y compris un éventuel 13e mois (article 22, note) : comparer le seul salaire de base le surestime pour un salarié qui en perçoit.
+
+| Version | Date d'effet | Source |
+|---|---|---|
+| `2026.3` | 1er janvier 2026, pour tous les employeurs | Accord du 15 décembre 2023 (KALITEXT000049271441), barème au 1er février 2024, étendu par arrêté du 16 mai 2024 (JORF du 31 mai 2024) |
+| `2026.4` | 1er juin 2026 pour les adhérents d'une organisation signataire ; pour les autres, à partir de la publication de l'extension (`extension: 2026-07-24`) | Accord du 11 mai 2026 (KALITEXT000054880861), annexe 1, étendu par arrêté du 15 juillet 2026 (JORF du 24 juillet 2026) ; elle reprend les minima journaliers CDDU de la 2026.2 |
+
+La 2026.3 ne modélise pas les minima journaliers CDDU d'avant le 1er juin 2026.
+
 ## Audit explicite du référentiel de paie
 
 Les accords audités portent sur des minima de rémunération, exprimés au jour pour 8 heures (CDDU, liste 1) et au mois/à l'année pour les salariés permanents. Cette version corrige uniquement le périmètre CDDU modélisé ; elle ne modifie pas l'assiette générale des cotisations, les taux salariés ou employeurs, plafonds et tranches, forfaits, exonérations, avantages en nature, prévoyance, santé, formation professionnelle ou AT.

@@ -37,7 +37,7 @@ const models = [
   { name: "3231-metallurgie-jura", value: "métallurgie jura", classification: "coefficient", input: 240, minimums: { "2023.1": 22970 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "2583-societes-autoroutes", value: "sociétés autoroutes", classification: "classe", input: "'I'", minimums: { "2024.1": 36321, "2025.1": 36974 }, minimumRule: "salaire minimum annuel conventionnel" },
   { name: "3239-particuliers-employeurs-emploi-domicile", value: "particuliers employeurs et emploi à domicile", classification: "niveau", input: "'I'", minimums: { "2026.2": 2206.32 }, minimumRule: "salaire minimum conventionnel" },
-  { name: "3241-telediffusion", value: "télédiffusion", classification: "niveau", input: "'5-1'", minimums: { "2026.1": 180.16 }, minimumRule: "salaire minimum journalier" },
+  { name: "3241-telediffusion", value: "télédiffusion", classification: "niveau", input: "'5-1'", minimums: { "2026.1": 180.16, "2026.4": 180.16 }, minimumRule: "salaire minimum journalier" },
   { name: "3216-negoce-materiaux-construction", value: "négoce des matériaux de construction", classification: "coefficient", input: 245, minimums: { "2025.1": 2105.74, "2025.2": 2105.74, "2026.1": 2129 } },
   { name: "3013-librairie", value: "librairie", classification: "niveau", input: "'8'", minimums: { "2026.1": 2426, "2026.2": 2426, "2026.3": 2426 } },
   { name: "2247-courtage-assurances", value: "courtage assurances", classification: "niveau", input: "'D'", minimums: { "2026.2": 2392 } },

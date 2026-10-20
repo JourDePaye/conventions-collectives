@@ -1,0 +1,140 @@
+# Convention collective nationale de la télédiffusion du 2 juillet 2021 (IDCC 3241).
+# Version 2026.3: the monthly minimums of the permanent employees (articles 22.1 and 22.2) from
+# 1 January 2026, those of the accord of 15 December 2023 in force since 1 February 2024, until the
+# accord of 11 May 2026 (version 2026.4). The daily minimums of the CDDU are not modelled before
+# 1 June 2026.
+validFrom: 2026-01-01
+extension: 2026-01-01
+sources:
+  - >-
+    Convention collective nationale de la télédiffusion du 2 juillet 2021, KALITEXT000044226308 :
+    article 21.2.2, niveaux I à V et échelons A, B et C, niveau VI sans échelon ; article 22.1, grille
+    des entreprises de moins de 50 salariés n'appartenant pas à un groupe de plus de 50 salariés ;
+    article 22.2, grille des entreprises de plus de 50 salariés ou appartenant à un tel groupe.
+  - >-
+    Accord du 15 décembre 2023 relatif aux salaires minima, KALITEXT000049271441, étendu par arrêté
+    du 16 mai 2024 (JORF du 31 mai 2024) : barème des salaires bruts minima au 1er février 2024.
+---
+salarié . convention collective . télédiffusion:
+  titre: Télédiffusion (IDCC 3241)
+  valeur: convention collective = 'télédiffusion'
+
+salarié . convention collective . télédiffusion . classification:
+  titre: Niveau et échelon des salariés permanents
+  description: >-
+    Niveau I à V et échelon A, B ou C (article 21.2.2 de la CCN), écrits « I-A » à « V-C », ou
+    niveau VI, sans échelon (postes de direction).
+  applicable si: convention collective = 'télédiffusion'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . télédiffusion . entreprise d'un groupe:
+  titre: Entreprise d'un groupe de plus de 50 salariés
+  description: >-
+    L'entreprise appartient à un groupe de sociétés au sens de l'article L. 233-1 du code de
+    commerce comprenant lui-même plus de 50 salariés (article 22.2 de la CCN).
+  applicable si: convention collective = 'télédiffusion'
+  par défaut: non
+
+salarié . convention collective . télédiffusion . grille des entreprises de 50 salariés et plus:
+  titre: Grille de l'article 22.2
+  description: >-
+    L'entreprise compte au moins 50 salariés ou appartient à un groupe de plus de 50 salariés
+    (article 22.2) ; sinon la grille de l'article 22.1 s'applique.
+  applicable si: convention collective = 'télédiffusion'
+  une de ces conditions:
+    - entreprise . salariés . effectif >= 50
+    - entreprise d'un groupe
+
+salarié . convention collective . télédiffusion . salaire minimum mensuel:
+  titre: Salaire minimum mensuel des salariés permanents, à temps plein
+  description: >-
+    Minimum conventionnel mensuel brut pour 35 heures du niveau et de l'échelon (articles 22.1 et
+    22.2) ; 0 pour une classification absente de la grille.
+  applicable si: convention collective = 'télédiffusion'
+  unité: €/mois
+  variations:
+    - si: grille des entreprises de 50 salariés et plus
+      alors:
+        variations:
+          - si: classification = 'I-A'
+            alors: 1802.50 €/mois
+          - si: classification = 'I-B'
+            alors: 1817.95 €/mois
+          - si: classification = 'I-C'
+            alors: 1874.60 €/mois
+          - si: classification = 'II-A'
+            alors: 1982.75 €/mois
+          - si: classification = 'II-B'
+            alors: 2096.05 €/mois
+          - si: classification = 'II-C'
+            alors: 2204.20 €/mois
+          - si: classification = 'III-A'
+            alors: 2250.55 €/mois
+          - si: classification = 'III-B'
+            alors: 2302.05 €/mois
+          - si: classification = 'III-C'
+            alors: 2358.70 €/mois
+          - si: classification = 'IV-A'
+            alors: 2441.10 €/mois
+          - si: classification = 'IV-B'
+            alors: 2549.25 €/mois
+          - si: classification = 'IV-C'
+            alors: 2652.25 €/mois
+          - si: classification = 'V-A'
+            alors: 3079.70 €/mois
+          - si: classification = 'V-B'
+            alors: 3393.85 €/mois
+          - si: classification = 'V-C'
+            alors: 3821.30 €/mois
+          - si: classification = 'VI'
+            alors: 4243.60 €/mois
+          - sinon: 0 €/mois
+    - sinon:
+        variations:
+          - si: classification = 'I-A'
+            alors: 1802.50 €/mois
+          - si: classification = 'I-B'
+            alors: 1812.80 €/mois
+          - si: classification = 'I-C'
+            alors: 1828.25 €/mois
+          - si: classification = 'II-A'
+            alors: 1843.70 €/mois
+          - si: classification = 'II-B'
+            alors: 1874.60 €/mois
+          - si: classification = 'II-C'
+            alors: 1895.20 €/mois
+          - si: classification = 'III-A'
+            alors: 1931.25 €/mois
+          - si: classification = 'III-B'
+            alors: 1982.75 €/mois
+          - si: classification = 'III-C'
+            alors: 2034.25 €/mois
+          - si: classification = 'IV-A'
+            alors: 2250.55 €/mois
+          - si: classification = 'IV-B'
+            alors: 2332.95 €/mois
+          - si: classification = 'IV-C'
+            alors: 2441.10 €/mois
+          - si: classification = 'V-A'
+            alors: 3023.05 €/mois
+          - si: classification = 'V-B'
+            alors: 3234.20 €/mois
+          - si: classification = 'V-C'
+            alors: 3450.50 €/mois
+          - si: classification = 'VI'
+            alors: 3713.15 €/mois
+          - sinon: 0 €/mois
+
+salarié . convention collective . télédiffusion . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel des salariés permanents
+  description: Minimum mensuel du niveau et de l'échelon, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'télédiffusion'
+  unité: €/mois
+  produit:
+    - salaire minimum mensuel
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . télédiffusion . classification hors grille:
+  titre: Classification absente de la grille des salariés permanents
+  applicable si: convention collective = 'télédiffusion'
+  valeur: salaire minimum mensuel = 0 €/mois

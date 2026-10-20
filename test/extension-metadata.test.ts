@@ -40,6 +40,9 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   // 2332: every territorial accord applies from the month after the publication of its own
   // extension order, in its rules.
   "2332-entreprises-architecture": { "2026.2": "2026-01-01" },
+  // 3241: the accord of 15 December 2023, extended in 2024, then the accord of 11 May 2026, from
+  // 1 June 2026 for a member and from its extension order (JORF of 24 July 2026) for the others.
+  "3241-telediffusion": { "2026.3": "2026-01-01", "2026.4": "2026-07-24" },
   // 3213: the version starts in 2026 and the grid applies from the effective date of its
   // extended accord (11 July 2026), in its rules.
   "3213-economistes-construction": { "2026.2": "2026-01-01" },
