@@ -8,7 +8,7 @@ const id = "3090-spectacle-vivant-prive";
 const ns = "salarié . convention collective . spectacle vivant privé";
 
 async function makeEngine() {
-  const version = COMPILED_VERSIONS[id]?.find((candidate) => candidate.version === "2025.2");
+  const version = COMPILED_VERSIONS[id]?.find((candidate) => candidate.version === "2025.3");
   assert.ok(version, "IDCC 3090 must be exported");
   assert.equal(version.validFrom, "2025-09-01");
   const extension = await version.loadRules();

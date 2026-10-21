@@ -39,9 +39,9 @@ const situation = (extra: Record<string, string>, quotité = "100%") => ({
 });
 
 describe("IDCC 3090 — 2025.3", () => {
-  it("supersedes 2025.2 for the same validFrom", () => {
+  it("shares its validFrom with 2025.4", () => {
     const versions = COMPILED_VERSIONS[id] ?? [];
-    const dates = new Set(versions.filter((v) => ["2025.1", "2025.2", "2025.3"].includes(v.version)).map((v) => v.validFrom));
+    const dates = new Set(versions.filter((v) => ["2025.3", "2025.4"].includes(v.version)).map((v) => v.validFrom));
     assert.deepEqual([...dates], ["2025-09-01"]);
   });
 

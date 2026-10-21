@@ -1,0 +1,218 @@
+# Version 2025.4 : mêmes grilles que 2025.3 (même validFrom), plus deux cotisations employeur de la
+# convention de base : la contribution au financement du paritarisme (FCAP-SVP, titre V) et la
+# prévoyance des salariés permanents non-cadres (titre XII). L'extension de l'avenant salarial est
+# déclarée, et la classification devient une filière, une catégorie et un échelon numérique.
+validFrom: '2025-09-01'
+extension: 2026-02-24
+sources:
+  - "Avenant du 21 juillet 2025 relatif aux salaires minimaux applicables au 1er septembre 2025 (IDCC 3090, étendu par arrêté du 17 février 2026, JORF du 24 février 2026, BO 2026-2; entrée en vigueur le 1er septembre 2025 par dérogation à l'article 16.2), clauses communes, grilles emplois techniques et administratifs: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053721738"
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000053721742
+  - "Convention collective nationale du 3 février 2012, étendue par arrêté du 29 mai 2013 (JORF du 7 juin 2013), titre V, article 5.1 : contribution au financement du paritarisme de 0,1 % de la tranche A, plancher de 80 € et plafond de 300 € par an et par entreprise: https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000028157274"
+  - "Titre XII, prévoyance des salariés permanents : article 12.3, adhésion des non-cadres à compter d'un an d'ancienneté dans une entreprise de la branche ; article 12.6, cotisation de 1,20 % de la tranche A, totalement à la charge de l'employeur, imputée pour les cadres sur leur obligation de 1,50 % de la tranche A: https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000028157281"
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000028157262
+---
+salarié . convention collective . spectacle vivant privé:
+  titre: Entreprises privées du spectacle vivant (IDCC 3090)
+  valeur: convention collective = 'spectacle vivant privé'
+
+salarié . convention collective . spectacle vivant privé . filière:
+  titre: Filière
+  description: Grille des emplois administratifs et commerciaux, ou des emplois techniques, de l'avenant salarial.
+  applicable si: convention collective = 'spectacle vivant privé'
+  par défaut: "'non renseignée'"
+
+salarié . convention collective . spectacle vivant privé . catégorie:
+  titre: Catégorie
+  description: Catégorie conventionnelle effectivement attribuée au salarié permanent dans sa filière (cadres groupe 1 à 3, agents de maîtrise, employés qualifiés groupe 1 ou 2, employés). Le modèle ne la déduit pas de l'intitulé du poste ; il ne couvre pas les artistes, les salariés intermittents ni les annexes spécifiques.
+  applicable si: convention collective = 'spectacle vivant privé'
+  par défaut: "'non renseignée'"
+
+salarié . convention collective . spectacle vivant privé . échelon:
+  titre: Échelon
+  description: Échelon de la grille administrative et commerciale, de 1 à 5 selon la présence dans l'entreprise et dans la fonction (moins de 5 ans, puis plus de 5, 10, 15 et 20 ans), sauf pour les cadres groupe 1, qui ont un minimum unique. La grille technique n'a pas d'échelon.
+  applicable si: convention collective = 'spectacle vivant privé'
+  par défaut: 0
+
+salarié . convention collective . spectacle vivant privé . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel mensuel
+  description: Minimum mensuel brut à temps plein pour les salariés permanents administratifs, commerciaux et techniques du périmètre couvert, proratisé selon la quotité de travail. Les primes, majorations, indemnités, treizième mois, santé et rémunérations des artistes ou intermittents ne sont pas calculés.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'spectacle vivant privé'
+      - grille mensuelle > 0 €/mois
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille mensuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . spectacle vivant privé . grille mensuelle:
+  titre: Grille mensuelle couverte
+  applicable si: convention collective = 'spectacle vivant privé'
+  unité: €/mois
+  variations:
+    - si: filière = 'administrative et commerciale'
+      alors:
+        variations:
+          # Cadres groupe 1: a single minimum, without échelon.
+          - si: catégorie = 'cadres groupe 1'
+            alors: 3578.18 €/mois
+          - si: catégorie = 'cadres groupe 2'
+            alors:
+              variations:
+                - si: échelon = 1
+                  alors: 2833.28 €/mois
+                - si: échelon = 2
+                  alors: 2950.14 €/mois
+                - si: échelon = 3
+                  alors: 3067.04 €/mois
+                - si: échelon = 4
+                  alors: 3183.92 €/mois
+                - si: échelon = 5
+                  alors: 3300.81 €/mois
+                - sinon: 0 €/mois
+          - si: catégorie = 'cadres groupe 3'
+            alors:
+              variations:
+                - si: échelon = 1
+                  alors: 2485.24 €/mois
+                - si: échelon = 2
+                  alors: 2602.15 €/mois
+                - si: échelon = 3
+                  alors: 2719.02 €/mois
+                - si: échelon = 4
+                  alors: 2835.90 €/mois
+                - si: échelon = 5
+                  alors: 2952.77 €/mois
+                - sinon: 0 €/mois
+          - si: catégorie = 'agents de maîtrise'
+            alors:
+              variations:
+                - si: échelon = 1
+                  alors: 2099.10 €/mois
+                - si: échelon = 2
+                  alors: 2175.07 €/mois
+                - si: échelon = 3
+                  alors: 2256.89 €/mois
+                - si: échelon = 4
+                  alors: 2323.53 €/mois
+                - si: échelon = 5
+                  alors: 2391.32 €/mois
+                - sinon: 0 €/mois
+          - si: catégorie = 'employés qualifiés groupe 1'
+            alors:
+              variations:
+                - si: échelon = 1
+                  alors: 1906.82 €/mois
+                - si: échelon = 2
+                  alors: 1954.08 €/mois
+                - si: échelon = 3
+                  alors: 2010.45 €/mois
+                - si: échelon = 4
+                  alors: 2059.12 €/mois
+                - si: échelon = 5
+                  alors: 2119.90 €/mois
+                - sinon: 0 €/mois
+          - si: catégorie = 'employés qualifiés groupe 2'
+            alors:
+              variations:
+                - si: échelon = 1
+                  alors: 1805.12 €/mois
+                - si: échelon = 2
+                  alors: 1834.57 €/mois
+                - si: échelon = 3
+                  alors: 1886.62 €/mois
+                - si: échelon = 4
+                  alors: 1888.86 €/mois
+                - si: échelon = 5
+                  alors: 1922.01 €/mois
+                - sinon: 0 €/mois
+          - si: catégorie = 'employés'
+            alors:
+              variations:
+                - si: échelon = 1
+                  alors: 1801.80 €/mois
+                - si: échelon = 2
+                  alors: 1805.14 €/mois
+                - si: échelon = 3
+                  alors: 1811.07 €/mois
+                - si: échelon = 4
+                  alors: 1816.99 €/mois
+                - si: échelon = 5
+                  alors: 1822.90 €/mois
+                - sinon: 0 €/mois
+          - sinon: 0 €/mois
+    - si: filière = 'technique'
+      alors:
+        variations:
+          - si: catégorie = 'cadres groupe 2'
+            alors: 2658.78 €/mois
+          - si: catégorie = 'cadres groupe 3'
+            alors: 2361.50 €/mois
+          - si: catégorie = 'agents de maîtrise'
+            alors: 2115.80 €/mois
+          - si: catégorie = 'employés qualifiés groupe 1'
+            alors: 1906.49 €/mois
+          - si: catégorie = 'employés qualifiés groupe 2'
+            alors: 1821.56 €/mois
+          - si: catégorie = 'employés'
+            alors: 1801.80 €/mois
+          - sinon: 0 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . spectacle vivant privé . classification hors grille:
+  titre: Classification hors grille
+  description: La filière, la catégorie ou l'échelon (filière administrative et commerciale) n'est pas dans la grille de cette version.
+  applicable si: convention collective = 'spectacle vivant privé'
+  valeur: grille mensuelle = 0 €/mois
+
+salarié . convention collective . spectacle vivant privé . FCAP:
+  titre: Contribution au financement du paritarisme (FCAP-SVP)
+  description: |
+    Contribution de l'employeur de 0,1 % de la tranche A (article 5.1), avec un plancher de 80 € et
+    un plafond de 300 € par an et par entreprise, collectée chaque année par le FCAP-SVP. Le
+    plancher et le plafond de l'entreprise sont répartis également entre ses salariés et sur les
+    mois de l'année : le montant mensuel est une provision, qui suppose des salaires comparables.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'spectacle vivant privé'
+      - entreprise . salariés . effectif > 0
+  unité: €/mois
+  valeur:
+    produit:
+      - valeur: cotisations . assiette
+        plafond: temps de travail . plafond sécurité sociale
+      - 0.1%
+    plancher: 80 €.employé/an / entreprise . salariés . effectif
+    plafond: 300 €.employé/an / entreprise . salariés . effectif
+
+salarié . convention collective . spectacle vivant privé . cotisations employeur avec FCAP:
+  applicable si: convention collective = 'spectacle vivant privé'
+  remplace: salarié . cotisations . employeur
+  somme:
+    - salarié . cotisations . employeur
+    - FCAP
+
+salarié . convention collective . spectacle vivant privé . ancienneté dans la branche:
+  titre: Ancienneté dans la branche
+  description: Ancienneté du salarié dans une entreprise de la branche, contrats antérieurs compris, qui ouvre l'adhésion des non-cadres au régime de prévoyance après un an (article 12.3).
+  applicable si: convention collective = 'spectacle vivant privé'
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . spectacle vivant privé . prévoyance:
+  titre: Prévoyance conventionnelle des salariés permanents non-cadres
+  description: |
+    Cotisation de 1,20 % de la tranche A, totalement à la charge de l'employeur (articles 12.6.2 et
+    12.6.3), pour les non-cadres comptant un an d'ancienneté dans la branche (article 12.3). Pour
+    les cadres, elle s'impute sur l'obligation de cotiser à 1,50 % de la tranche A, déjà calculée
+    par modele-social.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'spectacle vivant privé'
+      - contrat . statut cadre = non
+      - ancienneté dans la branche >= 1 an
+  remplace: salarié . cotisations . prévoyances . conventionnelle . employeur
+  unité: €/mois
+  produit:
+    - valeur: cotisations . assiette . sans prévoyance
+      plafond: temps de travail . plafond sécurité sociale
+    - 1.20%
