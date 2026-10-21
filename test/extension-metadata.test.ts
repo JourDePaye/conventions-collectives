@@ -32,6 +32,8 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   // accord du 13 mars 2025, arrêté du 27 mai 2025, JORF du 31 mai 2025; the accord of 3 April 2026 (2026.1) is not extended
   "1408-distribution-logistique-energies": { "2025.3": "2025-05-31" },
   "1555-produits-pharmaceutiques": { "2026.1": "2026-05-08" }, // JORF du 8 mai 2026
+  // avenant n° 33, arrêté du 5 novembre 2024, JORF du 9 novembre 2024 (applicable from 1 December 2024)
+  "1979-hotels-cafes-restaurants": { "2024.2": "2024-11-09" },
   // avenant du 21 juillet 2025, arrêté du 17 février 2026, JORF du 24 février 2026
   "3090-spectacle-vivant-prive": { "2025.4": "2026-02-24" },
   // The shared building version: each regional grid applies from the publication of its own
