@@ -93,6 +93,9 @@ const FIXED: {
   { model: "3016-ateliers-chantiers-insertion", version: "2026.2", rule: "coefficient hors grille", input: "coefficient", valid: 313, invalid: [0, 260, 300, 671] },
   { model: "3013-librairie", version: "2026.3", rule: "niveau hors grille", input: "niveau", valid: "'8'", invalid: ["'99'", "'non renseigné'"] },
   { model: "1558-industries-ceramiques", version: "2026.1", rule: "niveau hors grille", input: "classification", valid: "'J'", invalid: ["'ZZ-E9'", "'non renseigné'"] },
+  // The general grid starts at coefficient 170; 40 is the index of the members of the Ordre.
+  { model: "0787-experts-comptables", version: "2024.1", rule: "coefficient hors grille", input: "coefficient", valid: 170, invalid: [0, 39, 169] },
+  { model: "0787-experts-comptables", version: "2026.2", rule: "coefficient hors grille", input: "coefficient", valid: 40, invalid: [0, 41, 169] },
 ];
 
 describe("out-of-grid rules fixed by a new revision", () => {

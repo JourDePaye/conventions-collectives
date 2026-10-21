@@ -1,33 +1,42 @@
 # Cabinets d'experts-comptables et de commissaires aux comptes (IDCC 787)
 
-Version `2026.1`, applicable à compter du **1er mars 2026** après extension de l'accord salarial du 12 décembre 2024.
+| Version | Date d'effet | Texte |
+|---|---|---|
+| `2024.1` | 1er janvier 2024 | Accord n° 47 du 5 octobre 2023 ([KALITEXT000048638263](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000048638263)), étendu par arrêté du 11 décembre 2023 (JORF du 14 décembre 2023) |
+| `2026.2` | 1er mars 2026 | Accord n° 48 du 5 décembre 2025 ([KALITEXT000053576549](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053576549)), étendu par arrêté du 5 février 2026 (JORF du 10 février 2026), applicable le premier jour du mois civil suivant |
 
 ## Classification et salaires minima
 
 Le modèle demande le **coefficient ou indice réellement attribué** par l'employeur. Il n'infère jamais la classification depuis un intitulé de poste.
 
-Pour la grille générale, le minimum annuel brut à temps plein est calculé avec :
+- **Grille générale des emplois** (annexe A, avenant du 1er juillet 2016) : poste de référence de 170 (emplois généraux sans qualification) à 600 (cadre de direction), augmenté des points de la grille d'adaptation (mobilité, langues, encadrement, techniques connexes). Le minimum annuel brut à temps plein valorise les 164 premiers points à la valeur de base et les points au-delà à la valeur hiérarchique :
 
-- `131,54 €` par point jusqu'au 164e point ;
-- `79,85 €` par point au-delà du 164e point.
+  | Version | Valeur de base | Valeur hiérarchique | Indice 40 |
+  |---|---|---|---|
+  | `2024.1` | 127,83 € | 77,60 € | 46 454 € par an |
+  | `2026.2` | 131,54 € | 79,85 € | 47 801 € par an |
 
-L'indice 40 des experts-comptables inscrits à l'Ordre est une situation particulière : activer `indice 40 ordre validé` uniquement après validation de cette condition. Le modèle expose alors le minimum annuel distinct de `47 801 €`.
+- **Indice 40** (annexe B) : indice unique des salariés inscrits à l'Ordre des experts-comptables ou à la Compagnie des commissaires aux comptes, attribué dès l'inscription, avec son propre minimum annuel. Le coefficient 40 suffit.
+- `coefficient hors grille` : un coefficient inférieur à 170 autre que 40, ou non renseigné. Le minimum n'est alors pas calculé.
 
-Le modèle expose aussi un équivalent mensuel proratisé par la quotité de travail. Le contrôle juridique de la rémunération minimale reste annuel ; l'équivalent mensuel ne doit pas être utilisé pour conclure seul à la conformité d'une rémunération comprenant des éléments annuels.
+Le modèle expose aussi un équivalent mensuel (`salaire minimum conventionnel`), le douzième du minimum annuel proratisé par la quotité de travail. Le contrôle conventionnel reste annuel : un mois sous cet équivalent peut être couvert par des éléments de rémunération annuels.
+
+## Heures supplémentaires
+
+`majoration heures supplémentaires` remplace la majoration de droit commun de modele-social (article 8.2.3.2 de la convention, [KALIARTI000029786885](https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000029786885)) : 10 % de la 36e à la 39e heure, puis la majoration légale (article L. 3121-36 du code du travail), 25 % jusqu'à la 43e heure et 50 % au-delà. Comme dans modele-social, les heures supplémentaires du mois sont réparties uniformément sur ses semaines. La convention prévoit que ces heures donnent lieu par défaut à un repos compensateur de remplacement, sauf accord pour les payer : le modèle calcule la majoration des heures payées.
 
 ## Limites explicites
 
-- La classification, l'inscription à l'Ordre et l'applicabilité de l'indice 40 doivent être validées en amont.
-- Les minima annuels sont fournis pour un salarié à temps plein ; la quotité ne prorate que l'équivalent mensuel exposé par le modèle.
-- Les primes, treizième mois, avantages en nature, ancienneté, forfaits, temps de travail particuliers, apprentis et contrats de professionnalisation ne sont pas automatiquement inclus ou exclus : appliquer les textes correspondants et les règles légales de comparaison.
-- Le modèle ne modélise pas les dispositions de prévoyance, de santé, de formation ou les cotisations propres à la branche.
+- La classification et l'inscription à l'Ordre ou à la Compagnie doivent être validées en amont.
+- Les primes, treizième mois, avantages en nature, forfaits, temps de travail particuliers, apprentis et contrats de professionnalisation ne sont pas automatiquement inclus ou exclus : appliquer les textes correspondants et les règles légales de comparaison.
+- Le régime de prévoyance de l'article 7.4 ne fixe pas de taux (il renvoie au contrat de l'organisme assureur, cotisation partagée par moitié) : il n'est pas modélisé. Pas davantage la santé, la formation ou les autres cotisations propres à la branche.
 
 ## Relation avec l'IDCC 3160
 
-L'IDCC 3160 correspond à une autre convention collective. Il n'est pas traité comme une version, une extension ou un alias de l'IDCC 787 dans ce modèle ; le choix de la convention collective doit donc être confirmé séparément.
+Le champ d'application de la convention est fusionné avec celui des associations de gestion et de comptabilité (IDCC 3160) par arrêté du 27 juillet 2018. L'IDCC 3160 n'est pas traité comme une version, une extension ou un alias de l'IDCC 787 dans ce modèle ; le choix de la convention collective doit donc être confirmé séparément.
 
 ## Références officielles
 
-- Accord du 12 décembre 2024 relatif aux salaires minima : [KALITEXT000054497751](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054497751).
-- Dispositions conventionnelles de classification et de rémunération : [stock KALI de la DILA](https://echanges.dila.gouv.fr/OPENDATA/KALI/).
-- Dispositions de branche relatives au travail et à la rémunération : [KALITEXT000005678091](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005678091) et [KALITEXT000005678101](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005678101).
+- Convention collective nationale du 9 décembre 1974 : [KALICONT000005635826](https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635826).
+- Annexe A, grille générale des emplois : [KALIARTI000033925618](https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000033925618) ; annexe B, membres de l'Ordre et de la Compagnie : [KALIARTI000005839623](https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000005839623).
+- Accords salariaux n° 47 et n° 48 : voir le tableau des versions.

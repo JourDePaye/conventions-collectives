@@ -26,6 +26,8 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   // avenant n° 31, arrêté du 4 mai 2026, JORFTEXT000054048652 (JORF du 8 mai 2026); article 3: first day
   // of the following month
   "0493-vins-cidres-spiritueux": { "2026.2": "2026-06-01" },
+  // Arrêtés of 11 December 2023 (JORF 14 December 2023) and 5 February 2026 (JORF 10 February 2026).
+  "0787-experts-comptables": { "2024.1": "2023-12-14", "2026.2": "2026-02-10" },
   "1405-expedition-exportation-fruits-legumes": { "2026.2": "2026-05-29" }, // JORFTEXT000054149405
   // accord du 13 mars 2025, arrêté du 27 mai 2025, JORF du 31 mai 2025; the accord of 3 April 2026 (2026.1) is not extended
   "1408-distribution-logistique-energies": { "2025.3": "2025-05-31" },
