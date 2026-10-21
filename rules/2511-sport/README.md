@@ -21,6 +21,16 @@ Pour les groupes 1 à 6, le minimum mensuel est proratisé selon la quotité. Le
 
 La prime d'ancienneté des groupes 1 à 6 est égale à **1 % du minimum du groupe 3 par période complète de 24 mois**, proratisée selon la quotité. Les salariés actuellement classés dans le groupe 1 bénéficient de **5 % supplémentaires après trois ans dans l'entreprise**. Le taux total, supplément compris, est plafonné à **15 %**. Aucune prime n'est attribuée aux groupes 7 et 8, ni à une classification absente/inconnue. Le décompte du travail effectif, les reprises d'ancienneté et les dates sont à la charge du consommateur.
 
+## Version 2026.4
+
+`2026.4` (même date d'effet, remplace `2026.3`) reprend les grilles, la prime d'ancienneté, la prévoyance et la santé de `2026.3`, sous sa propre valeur de convention : `salarié . convention collective = 'branche du sport'`, espace de noms `salarié . convention collective . branche du sport`. Elle s'utilise à la place de la convention `sport` de modele-social, dont aucune règle ne s'applique alors (exonération AT, assiette forfaitaire, franchise, primes de manifestation : régimes de sécurité sociale propres à certaines structures et fonctions, pas des stipulations de la convention). Elle calcule les contributions de branche que `2026.3` laissait à saisir, ajoutées à `salarié . cotisations . employeur` :
+
+- **Financement du paritarisme** (`financement du paritarisme`, article 2.3.2 dans la rédaction de l'avenant n° 214 du 23 septembre 2025, [KALITEXT000053401858](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053401858), étendu le 12 février 2026) : 0,09 % de la masse salariale brute pour la masse salariale de 2026 (collecte de 2027), au lieu de 0,08 % (avenant n° 180) ; versement minimum de 3 € par entreprise.
+- **Formation professionnelle conventionnelle** (`formation professionnelle conventionnelle`, article 8.6.2, [KALISCTA000039432397](https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000039432397)) : en plus des contributions légales, 1,05 % de la masse salariale brute sous 10 salariés (versement minimum de 30 €), 0,20 % de 10 à moins de 50, 0,15 % de 50 à moins de 300, 0,10 % à partir de 300.
+- **Formation des dirigeants bénévoles** (`formation des dirigeants bénévoles`, même article) : 0,02 % de la masse salariale brute, minimum de 2 € sous 10 salariés et de 10 € au-delà, maximum de 5 000 €.
+
+L'assiette est celle de la contribution à la formation professionnelle continue (article 8.6.1), la base des cotisations de sécurité sociale (`masse salariale`). Ces contributions sont annuelles et par entreprise : le modèle en fait une provision mensuelle par salarié, les minimums et le maximum de l'entreprise étant répartis également entre ses salariés (`entreprise . salariés . effectif`) et les mois de l'année, ce qui suppose des salaires comparables.
+
 ## Entrées et sorties
 
 Préfixe : `salarié . convention collective . sport` ; choix de convention : `'sport'`.
