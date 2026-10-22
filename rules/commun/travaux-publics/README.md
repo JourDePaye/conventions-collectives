@@ -6,6 +6,21 @@ modele-social n'a pas de convention des travaux publics. Ses règles du bâtimen
 
 `validFrom` est le 1er janvier 2026, date du taux de la CNETP repris. Les versions antérieures de chaque convention ne sont plus utilisées : un consommateur qui choisit la version par date doit partir de `2026.4`.
 
+## Valeur de convention propre (2026.6)
+
+La version `2026.6` (même `validFrom`, elle l'emporte sur la `2026.5`, dont elle reprend les grilles, les taux et les petits déplacements) a sa propre valeur de convention, `salarié . convention collective = 'bâtiment et travaux publics'`, et ses règles sont sous `salarié . convention collective . bâtiment et travaux publics` : elle s'utilise à la place de la convention `BTP` de modele-social, dont aucune règle ne s'applique alors. Les règles ont les mêmes noms pour le bâtiment et les travaux publics (une entreprise relève de l'un ou de l'autre). Elle reprend les règles du BTP de modele-social, vérifiées sur Légifrance :
+
+- `catégorie` (`ouvrier`, `etam` ou `cadre`) ; un cadre a le statut cadre.
+- `catégorie . ouvrier . prévoyance RNPO` : 1,72 % pour l'employeur et 0,87 % pour l'ouvrier (taux de référence de 2,59 %, articles 5.1 et 5.3 de l'accord du 31 juillet 1968 dans la rédaction de l'avenant n° 59 du 20 mars 2018, [KALITEXT000037482425](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000037482425)).
+- `catégorie . etam . prévoyance RNPE` : 1,25 % pour l'employeur (1,20 % et une cotisation additionnelle temporaire de 0,05 %) et 0,60 % pour l'ETAM (articles 5.1 et 5.3 de l'accord du 13 décembre 1990 dans la rédaction de l'avenant n° 34 du 20 mars 2018, [KALITEXT000037482365](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000037482365)).
+- Ces deux cotisations sont assises sur la base des cotisations de sécurité sociale limitée à trois plafonds, primes comprises : modele-social prenait le seul salaire de base du contrat.
+- `catégorie . etam` : répartition de la retraite complémentaire des ETAM (tranche 1 : 4,47 % employeur et 3,40 % salarié ; tranche 2 : 12,70 % et 8,89 %), reprise de modele-social sans avoir pu être vérifiée sur Légifrance : l'article 5 de l'accord du 13 décembre 1990 sur la retraite des ETAM ([KALITEXT000005643281](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005643281)) ne fixe que l'ancien taux contractuel.
+- `OPPBTP` : 0,11 % des salaires versés, y compris les indemnités de congés payés versées par la caisse, estimées comme dans modele-social à 13,14 % du salaire (arrêté du 12 décembre 2025, [JORFTEXT000053096376](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053096376)).
+- Pas d'indemnité compensatrice de congés payés en fin de CDD : la caisse de congés payés verse les congés (code du travail, articles L. 1242-16 et L. 3141-32).
+- `cotisations employeur` ajoute aux cotisations employeur la cotisation congés payés, l'OPPBTP et la cotisation chômage intempéries.
+
+Non repris : le taux AT/MP des fonctions support propre au BTP (un taux de tarification des risques professionnels, pas une règle de la convention) ; c'est la règle générale de modele-social qui s'applique.
+
 ## Corrections de modele-social
 
 - `cotisation congés payés` remplace `congés intempéries`, qui applique les taux des caisses CIBTP du bâtiment : les entreprises de travaux publics cotisent à la CNETP, 21 % depuis le 1er janvier 2026 (20,20 % auparavant).

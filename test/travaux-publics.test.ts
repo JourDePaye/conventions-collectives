@@ -48,9 +48,9 @@ const amount = (rule: string, situation: Situation = {}) => {
 const percentOf = (base: number, rate: number) => Math.round(base * rate) / 100;
 
 describe("public works agreements — one shared version", () => {
-  it("publishes the same versions 2026.4 and 2026.5 for the three agreements, 2026.5 their newest", () => {
+  it("publishes the same versions 2026.4 to 2026.6 for the three agreements, 2026.6 their newest", () => {
     const revision = (v: { version: string }) => Number(v.version.split(".")[1]);
-    for (const shared of ["2026.4", "2026.5"]) {
+    for (const shared of ["2026.4", "2026.5", "2026.6"]) {
       const published = AGREEMENTS.map((name) => {
         const found = COMPILED_VERSIONS[name]!.find((v) => v.version === shared);
         assert.ok(found, `${name} ${shared}`);
@@ -62,7 +62,7 @@ describe("public works agreements — one shared version", () => {
       }
     }
     for (const name of AGREEMENTS) {
-      assert.ok(COMPILED_VERSIONS[name]!.every((v) => v.version.startsWith("2024.") || revision(v) <= 5), name);
+      assert.ok(COMPILED_VERSIONS[name]!.every((v) => v.version.startsWith("2024.") || revision(v) <= 6), name);
     }
   });
 });

@@ -64,11 +64,11 @@ const amount = (rule: string, situation: Situation = {}) => {
 const percentOf = (base: number, rate: number) => Math.round(base * rate) / 100;
 
 describe("building agreements — one shared version", () => {
-  it("publishes the same versions 2026.4 to 2026.6 for the four agreements, 2026.6 their newest", () => {
+  it("publishes the same versions 2026.4 to 2026.7 for the four agreements, 2026.7 their newest", () => {
     // Sorted by effective date, they come first (2020): a consumer selects 2026.4 as the first
     // version to use, and leaves the older revisions of each agreement aside.
     const revision = (v: { version: string }) => Number(v.version.split(".")[1]);
-    for (const shared of ["2026.4", "2026.5", "2026.6"]) {
+    for (const shared of ["2026.4", "2026.5", "2026.6", "2026.7"]) {
       const published = AGREEMENTS.map((name) => {
         const found = COMPILED_VERSIONS[name]!.find((v) => v.version === shared);
         assert.ok(found, `${name} ${shared}`);
@@ -81,7 +81,7 @@ describe("building agreements — one shared version", () => {
       }
     }
     for (const name of AGREEMENTS) {
-      assert.ok(COMPILED_VERSIONS[name]!.every((v) => revision(v) <= 6), name);
+      assert.ok(COMPILED_VERSIONS[name]!.every((v) => revision(v) <= 7), name);
     }
   });
 });

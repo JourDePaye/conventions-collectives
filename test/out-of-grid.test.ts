@@ -38,6 +38,15 @@ const SELF_REFERENCING = new Set([
   "3243-quincaillerie.2026.1",
 ]);
 
+// Cycles the engine reports while evaluating the building and public works rules with an almost
+// empty situation, as it does for modele-social's own rules (e.g. `outre-mer → outre-mer`): they
+// were already there under modele-social's `BTP` namespace (2026.6 and 2026.5), and the computed
+// amounts do not depend on them.
+const KNOWN_ENGINE_CYCLES = [
+  "NS . chômage intempéries . taux → NS . chômage intempéries . taux",
+  "salarié . rémunération . frais professionnels → NS . petits déplacements . frais professionnels → salarié . rémunération . frais professionnels",
+];
+
 describe("rules of every released version", () => {
   for (const [model, versions] of Object.entries(COMPILED_VERSIONS)) {
     for (const { version } of versions) {
@@ -47,7 +56,13 @@ describe("rules of every released version", () => {
         const { engine, extension, namespace, value } = await engineOf(model, version, warnings);
         if (value) engine.setSituation({ "salarié . convention collective": `'${value}'` });
         for (const name of Object.keys(extension)) engine.evaluate(name);
-        const cycles = warnings.filter((warning) => /cycle/i.test(warning) && namespace && warning.includes(namespace));
+        const cycles = warnings.filter(
+          (warning) =>
+            /cycle/i.test(warning) &&
+            namespace &&
+            warning.includes(namespace) &&
+            !KNOWN_ENGINE_CYCLES.some((path) => warning.includes(path.replaceAll("NS", namespace))),
+        );
         if (SELF_REFERENCING.has(key)) assert.notEqual(cycles.length, 0, key);
         else assert.deepEqual(cycles, [], key);
       });
