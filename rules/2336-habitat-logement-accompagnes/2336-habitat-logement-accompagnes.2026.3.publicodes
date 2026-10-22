@@ -1,0 +1,104 @@
+# Convention collective nationale de l'habitat et du logement accompagnés (IDCC 2336).
+# Version 2026.3: avenant n° 70 (HLA base 1 227.74 € and point 2.05 €, PACT ARIM values of 2026)
+# from 1 January 2026, with the former systems until the company applies the HLA one. It replaces
+# 2026.1 (PACT ARIM only, without extension).
+validFrom: 2026-01-01
+extension: 2026-07-10
+sources:
+  - >-
+    Avenant n° 70 du 30 septembre 2025 relatif à la négociation salariale annuelle obligatoire
+    (ancien champ FSJT, ancien champ PACT ARIM et champ HLA), KALITEXT000054872078 : article 5
+    (PACT ARIM : point 2,00 € et partie fixe 887,28 € pour 35 heures payées 35 heures, 2,24 € et
+    979,33 € pour 35 heures payées 39 heures), article 6 (HLA : base 1 227,74 €, point 2,05 €),
+    article 8 (entrée en vigueur le 1er janvier 2026) ; signé par HEXOPÉE, étendu sous réserve du
+    SMIC par arrêté du 6 juillet 2026, JORF du 10 juillet 2026 : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054872078
+  - >-
+    Avenant n° 70, article 4 : l'ancien système FSJT (point socle 1,202 €, point de tranche
+    supérieure 1,179 €) n'est pas calculé, faute des données de tranche du salarié.
+  - >-
+    Avenant n° 67 du 1er juillet 2025 relatif à la classification et au système de rémunération,
+    KALITEXT000052326768 : article 16.2 de la CCN (minimum = coefficient × valeur du point + base,
+    comparé à la rémunération contractuelle hors compléments conventionnels) ; article 7.2 (trois
+    systèmes parallèles jusqu'à la mise en application dans l'entreprise ; base 1 218,00 € et point
+    2,03 € au minimum) ; article 12 (entrée en vigueur le lendemain de la parution de l'extension,
+    mise en application au plus tard 9 mois calendaires après) ; étendu par arrêté du 10 décembre
+    2025, JORF du 20 décembre 2025.
+  - >-
+    Convention collective nationale de l'habitat et du logement accompagnés du 16 juillet 2003,
+    IDCC 2336 : https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635560
+---
+salarié . convention collective . habitat logement accompagnés:
+  titre: Habitat et logement accompagnés (IDCC 2336)
+  valeur: convention collective = 'habitat logement accompagnés'
+
+salarié . convention collective . habitat logement accompagnés . système de rémunération:
+  titre: Système de rémunération de l'entreprise
+  description: |
+    Système HLA de l'avenant n° 67, ou, jusqu'à sa mise en application dans l'entreprise, ancien
+    système PACT ARIM (35 heures payées 35 ou 39 heures) ou ancien système FSJT. Les anciens
+    systèmes sont abrogés au plus tard 9 mois après le lendemain de la parution de l'extension de
+    l'avenant n° 67, soit le 21 septembre 2026 (article 12).
+  applicable si: convention collective = 'habitat logement accompagnés'
+  une possibilité:
+    - "'HLA'"
+    - "'PACT ARIM 35 heures payées 35'"
+    - "'PACT ARIM 35 heures payées 39'"
+    - "'FSJT'"
+  par défaut: "'HLA'"
+
+salarié . convention collective . habitat logement accompagnés . anciens systèmes abrogés:
+  titre: Les anciens systèmes FSJT et PACT ARIM sont abrogés
+  applicable si: convention collective = 'habitat logement accompagnés'
+  valeur: date >= 21/09/2026
+
+salarié . convention collective . habitat logement accompagnés . grille applicable:
+  titre: Un minimum conventionnel est calculé
+  description: Le système HLA et l'ancien système PACT ARIM ; pas l'ancien système FSJT, non modélisé.
+  applicable si: convention collective = 'habitat logement accompagnés'
+  valeur: système de rémunération != 'FSJT'
+
+salarié . convention collective . habitat logement accompagnés . coefficient:
+  titre: Coefficient
+  description: |
+    Système HLA : somme des points des cinq critères classants de la pesée de l'emploi (article
+    16.2.1). Ancien système PACT ARIM : coefficient de sa classification.
+  unité: coefficient
+  applicable si: convention collective = 'habitat logement accompagnés'
+  par défaut: 0 coefficient
+
+salarié . convention collective . habitat logement accompagnés . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: |
+    Système HLA : coefficient × valeur du point + base (article 16.2.2) ; ancien système PACT
+    ARIM : partie fixe + coefficient × valeur du point. Proratisé selon la quotité de travail ;
+    0 pour l'ancien système FSJT.
+  applicable si: convention collective = 'habitat logement accompagnés'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . habitat logement accompagnés . salaire minimum conventionnel . grille:
+  titre: Minimum mensuel à temps plein
+  unité: €/mois
+  variations:
+    - si: système de rémunération = 'HLA'
+      alors: 1227.74 €/mois + coefficient * 2.05 €/coefficient/mois
+    - si: système de rémunération = 'PACT ARIM 35 heures payées 35'
+      alors: 887.28 €/mois + coefficient * 2.00 €/coefficient/mois
+    - si: système de rémunération = 'PACT ARIM 35 heures payées 39'
+      alors: 979.33 €/mois + coefficient * 2.24 €/coefficient/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . habitat logement accompagnés . classification hors grille:
+  titre: Classification absente
+  description: |
+    Un coefficient manquant pour un système qui calcule un minimum, ou un ancien système après
+    son abrogation.
+  applicable si: convention collective = 'habitat logement accompagnés'
+  valeur:
+    une de ces conditions:
+      - toutes ces conditions:
+          - grille applicable
+          - coefficient <= 0 coefficient
+      - toutes ces conditions:
+          - anciens systèmes abrogés
+          - système de rémunération != 'HLA'
