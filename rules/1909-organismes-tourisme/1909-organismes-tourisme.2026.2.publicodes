@@ -8,8 +8,8 @@ validFrom: 2026-01-01
 sources:
   - "Accord n° 48 du 26 janvier 2026 relatif à la valeur du point au 1er janvier 2026, articles 1, 2 et 6, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054066676"
   - "Arrêté du 8 avril 2026 portant extension de l'accord n° 48, publié au Journal officiel le 17 avril 2026, JORFTEXT000053907720."
-  - "Accord n° 41 du 22 novembre 2019 relatif au régime de prévoyance, notamment ses articles 4 et 5 : taux employeur de 0,86 % sur T1 et T2 pour les non-cadres, et de 1,74 % sur T1 et 2,87 % sur T2 pour les cadres ; financement patronal du régime de base, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000039351456"
-  - "Accord n° 42 du 3 décembre 2019 relatif au régime frais de santé, notamment son article 4 : cotisation de 1,40 % du PMSS, répartie à parts égales entre employeur et salarié, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000040542320"
+  - "Accord n° 41 du 30 août 2023 relatif au régime de prévoyance (tableaux de cotisations : non-cadres 0,86 % sur T1 et T2, cadres 1,74 % sur T1 et 2,87 % sur T2), étendu par arrêté du 12 décembre 2023 (JORF du 27 décembre 2023), texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000048558715"
+  - "Avenant n° 34 du 2 novembre 2021 à l'accord du 15 septembre 2015 relatif à la couverture santé (cotisation de base de 1,40 % du PMSS au 1er janvier 2022, hors Alsace-Moselle, part de l'employeur d'au moins 50 %), texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000045139544. L'accord n° 42 du 21 août 2023 (KALITEXT000048557957, étendu le 27 décembre 2023) remplace l'article 5.1 a de l'accord de 2015 : la cotisation de base y est répartie par moitiés entre l'entreprise et le salarié, sans taux ; le taux de 1,40 % du PMSS n'a pas été vérifié après 2023."
 ---
 salarié . convention collective . organismes de tourisme:
   titre: Organismes de tourisme (IDCC 1909)

@@ -38,8 +38,8 @@ describe("IDCC 1909 — 2026.2 payroll rubrics", () => {
   it("keeps the identity and salary source while adding the two convention regimes", () => {
     assert.equal(version.validFrom, "2026-01-01");
     assert.ok(version.sources.some((source) => source.includes("Accord n° 48 du 26 janvier 2026")));
-    assert.ok(version.sources.some((source) => source.includes("Accord n° 41 du 22 novembre 2019")));
-    assert.ok(version.sources.some((source) => source.includes("Accord n° 42 du 3 décembre 2019")));
+    assert.ok(version.sources.some((source) => source.includes("Accord n° 41 du 30 août 2023") && source.includes("KALITEXT000048558715")));
+    assert.ok(version.sources.some((source) => source.includes("Avenant n° 34 du 2 novembre 2021") && source.includes("KALITEXT000045139544")));
     setSituation();
     assert.equal(evaluate("salaire minimum conventionnel"), 4281.53);
   });

@@ -56,7 +56,7 @@ const outOfGrid = () => engine.evaluate(`${namespace} . coefficient hors grille`
 describe("IDCC 2149 — 2026.2 minimum salaries", () => {
   it("is in force from 1 January 2026 and cites the official point-value sources", () => {
     assert.equal(version.validFrom, "2026-01-01");
-    assert.ok(version.sources.some((source) => source.includes("KALITEXT000039313034")));
+    assert.ok(version.sources.some((source) => source.includes("KALITEXT000051537865")));
   });
 
   it("has 11 coefficients", () => {

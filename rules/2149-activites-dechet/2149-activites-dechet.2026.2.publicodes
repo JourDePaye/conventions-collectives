@@ -11,8 +11,10 @@
 # Date de contrôle de la valeur du point de 18,67 €.
 validFrom: 2026-01-01
 sources:
-  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000039313034
-  - https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000039313059
+  - >-
+    Avenant n° 79 du 14 novembre 2024 relatif aux salaires minima conventionnels (valeur du point fixée à
+    18,67 € à compter du 1er janvier 2025), étendu par arrêté du 9 avril 2025 (JORF du 26 avril 2025) :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051537865
   - Valeur du point de 18,67 € applicable au 1er janvier 2025, retenue faute de texte officiel
     publié établissant une valeur 2026 opposable à l'ensemble du champ.
 ---

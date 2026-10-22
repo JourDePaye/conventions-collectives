@@ -11,9 +11,9 @@
 # Version 2026.2 keeps the salary grid from amendment 51 and adds the seniority bonus.
 validFrom: 2026-03-01
 sources:
-  - "Avenant n° 51 du 3 décembre 2025 relatif aux salaires minima, article 1 (grilles mensuelles pour 151,67 heures), applicable à compter du 1er mars 2026 : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053354337"
+  - "Avenant n° 51 du 3 décembre 2025 relatif aux salaires minima, article 1 (grilles mensuelles pour 151,67 heures), applicable à compter du 1er mars 2026 : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053721692"
   - "Avenant n° 51 du 3 décembre 2025, article 3 (prime d'ancienneté : 36 €, 49 €, 64 €, 82 €, 99 € et 117 € selon l'ancienneté) : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053721692"
-  - "Arrêté du 17 février 2026 portant extension de l'avenant n° 51, NOR TSSD2604188A, publié au JORF du 24 février 2026 : https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053353972"
+  - "Arrêté du 17 février 2026 portant extension de l'avenant n° 51, NOR TRST2604090A, publié au JORF du 24 février 2026 : https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053555535"
 ---
 salarié . convention collective . coiffure:
   titre: Coiffure et professions connexes (IDCC 2596)

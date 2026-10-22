@@ -30,8 +30,7 @@ function setSituation(options: { salary?: string; cadre?: string } = {}) {
 describe("IDCC 1512 — 2026.2 payroll audit", () => {
   it("keeps the salary version and effective date", () => {
     assert.equal(version.validFrom, "2026-01-01");
-    assert.equal(version.sources.some((source) => source.includes("Accord du 23 novembre 2023")), true);
-    assert.equal(version.sources.some((source) => source.includes("Avenant n° 38")), true);
+    assert.equal(version.sources.some((source) => source.includes("Accord du 23 octobre 2024") && source.includes("KALITEXT000050792995")), true);
   });
 
   it("calculates health at 2.60% of PMSS split equally", () => {
