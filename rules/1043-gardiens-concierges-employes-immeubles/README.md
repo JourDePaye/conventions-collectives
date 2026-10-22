@@ -1,5 +1,20 @@
 # Convention collective nationale des gardiens, concierges et employés d'immeubles — IDCC 1043
 
+## Révision 2026.2
+
+- **Date d'effet :** 1er mai 2026, comme 2026.1, qu'elle remplace (mêmes valeurs de l'avenant n° 115).
+- **Prime de tri sélectif :** réservée aux gardiens de catégorie B ayant des lots principaux (avenant n° 100, article 3, KALITEXT000042111124) ; la règle de 2026.1 la versait à tous, et 28 € sans aucun lot.
+- **Logement :** la valeur minimale de 79,70 € s'applique comme plancher (`avantage en nature logement . valeur minimale`).
+- **Salaire en nature complémentaire** (article 23 de la convention, KALIARTI000036974495) : électricité 55 kWh, gaz 92 kWh, chauffage 120 kWh et eau chaude 98 kWh par mois, chacun s'il est fourni (`salaire en nature complémentaire . électricité fournie`, `gaz fourni`, `chauffage fourni`, `eau chaude fournie`), au prix conventionnel du kWh.
+- **`avantages en nature` :** somme du logement et du salaire en nature complémentaire, à déduire du salaire net à verser (article 23).
+
+## Révision 2026.0
+
+- **Date d'effet :** 1er janvier 2026, jusqu'à l'avenant n° 115 (1er mai 2026).
+- **Salaires :** valeurs de l'avenant n° 110 (point A 1,62, point B 1,76, valeur fixe 915 €, électricité 0,2516 € le kWh), toujours en vigueur.
+- **Logement :** prix au m² du 1er janvier 2026 (3,593 / 2,837 / 2,095 €), car l'article 23 de la convention et la formule de l'article 5 de l'avenant n° 110 révisent l'avantage dès la paie de janvier avec l'IRL du 4e trimestre 2025 ; valeur minimale 79,70 € (barème Urssaf du 1er janvier 2026). Les versions 2025.1 et 2026.1 appliquaient les prix de 2025 jusqu'au 30 avril 2026.
+- Mêmes règles que 2026.2.
+
 ## Modèle 2026.1
 
 - **Texte salarial :** avenant n° 115 du 20 janvier 2026 relatif aux salaires 2026 (KALITEXT000054091896, BO 2026-10), étendu par arrêté du 10 avril 2026 (JORF du 17 avril 2026).
