@@ -75,7 +75,7 @@ const models = [
   { name: "1702-travaux-publics-ouvriers", value: "travaux publics ouvriers", classification: "coefficient", input: 100, minimums: { "2026.3": 23863 }, minimumRule: "minimum annuel", situation: { "salarié . convention collective . travaux publics ouvriers . catégorie": "'ouvrier'", "salarié . convention collective . travaux publics ouvriers . région": "'Bretagne'", "salarié . convention collective . travaux publics ouvriers . date de calcul": "11/10/2026" } },
   { name: "1486-syntec", value: "syntec", classification: "coefficient", input: 355, minimums: { "2025.1": 2045, "2026.1": 2045, "2026.2": 2045 } },
   { name: "1979-hotels-cafes-restaurants", value: "HCR", classification: "niveau", input: "'II.3'", minimums: { "2024.1": 1997.45 } },
-  { name: "1979-hotels-cafes-restaurants", value: "hôtels cafés restaurants", classification: "niveau", input: "'II.3'", minimums: { "2024.2": 1997.45 } },
+  { name: "1979-hotels-cafes-restaurants", value: "hôtels cafés restaurants", classification: "niveau", input: "'II.3'", minimums: { "2024.2": 1997.45, "2026.1": 2036.88 } },
   { name: "2060-chaines-cafeterias", value: "chaînes de cafétérias et assimilés", classification: "niveau et échelon", input: "'III.2'", minimums: { "2024.1": 1880.67 } },
   { name: "3017-ports-manutention", value: "ports et manutention", classification: "classification", input: "'B'", minimums: { "2024.1": 1914, "2024.2": 1914, "2025.1": 1952, "2026.1": 1977 } },
   { name: "1978-fleuristes-animaux", value: "fleuristes animaux", classification: "niveau", input: "'V.2'", minimums: { "2026.1": 2274.30, "2026.2": 2274.30 } },

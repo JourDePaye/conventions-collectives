@@ -1,0 +1,139 @@
+# Version 2026.1 : grille de l'avenant n° 36 du 4 juin 2026, à partir du 1er novembre 2026 ; les
+# autres règles sont celles de 2024.2. GRILLE PROVISOIRE : l'avenant n'est publié ni au BOCC
+# (n° 2026/36, pas encore en ligne au 22 octobre 2026) ni dans KALI ; ses minima sont repris du
+# tableau publié par le GHR, organisation signataire, et doivent être recoupés avec le texte officiel
+# dès sa parution (champ d'application, DROM, date d'effet).
+validFrom: 2026-11-01
+extension: 2026-10-15
+sources:
+  - "Avenant n° 36 du 4 juin 2026 relatif aux salaires, étendu par arrêté du 12 octobre 2026 (JORF du 15 octobre 2026), applicable le premier jour du mois civil suivant l'extension, soit le 1er novembre 2026: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054983870 ; texte publié au BOCC n° 2026/36, non encore en ligne."
+  - "Minima horaires bruts NON VÉRIFIÉS sur le texte officiel, repris du tableau du GHR (signataire), « Salaires minimas dans la branche HCR : extension de l'avenant n° 36 », 15 octobre 2026 : niveau I 12,31 / 12,37 / 12,47 €, II 12,58 / 12,80 / 13,43 €, III 13,59 / 13,81 / 14,28 €, IV 14,69 / 15,07 / 15,71 €, V 18,80 / 22,22 / 28,68 €: https://www.ghr.fr/social/actualites/salaires-minimas-dans-la-branche-hcr-extension-de-l-avenant-no-36 ; bornes concordantes avec l'UMIH (signataire), 16 octobre 2026."
+  - "Avenant n° 2 du 5 février 2007 relatif à l'aménagement du temps de travail, article 4 (étendu par arrêté du 26 mars 2007, JORF du 29 mars 2007) : heures de la 36e à la 39e majorées de 10 %, de la 40e à la 43e de 20 %, à partir de la 44e de 50 %: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005670080"
+  - "Avenant n° 1 du 13 juillet 2004, article 18 (prévoyance) : article 18.1, ensemble du personnel ; article 18.3, salaire de référence limité à la tranche A: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005670064"
+  - "Avenant n° 2 du 10 mai 2021 à l'avenant n° 1 du 13 juillet 2004 relatif à la prévoyance (étendu), article 18.5 en vigueur depuis le 1er juillet 2021 : cotisation de 0,86 % du salaire de référence, financée à 50 % par l'employeur et à 50 % par le salarié ; la participation de l'employeur est prise en compte dans la cotisation de 1,50 % de la tranche A des cadres: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000044201741"
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635534
+---
+salarié . convention collective . hôtels cafés restaurants:
+  titre: Hôtels, cafés, restaurants (IDCC 1979)
+  valeur: convention collective = 'hôtels cafés restaurants'
+
+salarié . convention collective . hôtels cafés restaurants . niveau:
+  titre: Niveau et échelon de classification
+  description: |
+    Au format « <niveau>.<échelon> » : de I.1 à V.3. Niveaux I à III : employés, niveau
+    IV : agents de maîtrise, niveau V : cadres.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . hôtels cafés restaurants . taux horaire minimum:
+  titre: Taux horaire minimum conventionnel
+  description: |
+    Minimum horaire brut de l'avenant n° 36. Vaut 0 €/heure si le
+    niveau n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  unité: €/heure
+  variations:
+    - si: niveau = 'I.1'
+      alors: 12.31 €/heure
+    - si: niveau = 'I.2'
+      alors: 12.37 €/heure
+    - si: niveau = 'I.3'
+      alors: 12.47 €/heure
+    - si: niveau = 'II.1'
+      alors: 12.58 €/heure
+    - si: niveau = 'II.2'
+      alors: 12.80 €/heure
+    - si: niveau = 'II.3'
+      alors: 13.43 €/heure
+    - si: niveau = 'III.1'
+      alors: 13.59 €/heure
+    - si: niveau = 'III.2'
+      alors: 13.81 €/heure
+    - si: niveau = 'III.3'
+      alors: 14.28 €/heure
+    - si: niveau = 'IV.1'
+      alors: 14.69 €/heure
+    - si: niveau = 'IV.2'
+      alors: 15.07 €/heure
+    - si: niveau = 'IV.3'
+      alors: 15.71 €/heure
+    - si: niveau = 'V.1'
+      alors: 18.80 €/heure
+    - si: niveau = 'V.2'
+      alors: 22.22 €/heure
+    - si: niveau = 'V.3'
+      alors: 28.68 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . hôtels cafés restaurants . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: |
+    Taux horaire minimum appliqué aux heures du contrat hors heures supplémentaires
+    (151,67 h pour un temps plein), comme le SMIC.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  unité: €/mois
+  produit:
+    - taux horaire minimum
+    - contrat . temps de travail
+
+salarié . convention collective . hôtels cafés restaurants . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/heure pour un niveau inconnu.
+  valeur: taux horaire minimum = 0 €/heure
+
+salarié . convention collective . hôtels cafés restaurants . majoration heures supplémentaires:
+  titre: Majoration conventionnelle des heures supplémentaires
+  description: Heures de la 36e à la 39e majorées de 10 %, de la 40e à la 43e de 20 %, puis de 50 % (avenant n° 2 du 5 février 2007, article 4). Comme dans modele-social, les heures supplémentaires du mois sont réparties uniformément sur ses semaines.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  remplace: salarié . temps de travail . heures supplémentaires . majoration
+  unité: heure/mois
+  barème:
+    assiette: salarié . temps de travail . heures supplémentaires
+    multiplicateur: période . semaines par mois
+    tranches:
+      - taux: 10%
+        plafond: 4 heure/semaine
+      - taux: 20%
+        plafond: 8 heure/semaine
+      - taux: 50%
+
+salarié . convention collective . hôtels cafés restaurants . prévoyance:
+  titre: Prévoyance conventionnelle
+  description: |
+    Cotisation de 0,86 % du salaire limité à la tranche A, pour l'ensemble du personnel, financée par
+    moitié par l'employeur et le salarié (article 18.5 de l'avenant n° 1, dans sa rédaction de
+    l'avenant n° 2 du 10 mai 2021). Pour les cadres, la part de l'employeur est comprise dans sa
+    cotisation obligatoire de 1,50 % de la tranche A, déjà calculée par modele-social.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  somme:
+    - employeur
+    - salarié
+
+salarié . convention collective . hôtels cafés restaurants . prévoyance . tranche A:
+  titre: Salaire limité à la tranche A
+  unité: €/mois
+  valeur:
+    valeur: cotisations . assiette . sans prévoyance
+    plafond: temps de travail . plafond sécurité sociale
+
+salarié . convention collective . hôtels cafés restaurants . prévoyance . employeur:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'hôtels cafés restaurants'
+      - contrat . statut cadre = non
+  remplace: salarié . cotisations . prévoyances . conventionnelle . employeur
+  unité: €/mois
+  produit:
+    - tranche A
+    - 0.43%
+
+salarié . convention collective . hôtels cafés restaurants . prévoyance . salarié:
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  remplace: salarié . cotisations . prévoyances . conventionnelle . salarié
+  unité: €/mois
+  produit:
+    - tranche A
+    - 0.43%
