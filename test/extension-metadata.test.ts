@@ -32,6 +32,8 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   // accord du 13 mars 2025, arrêté du 27 mai 2025, JORF du 31 mai 2025; the accord of 3 April 2026 (2026.1) is not extended
   "1408-distribution-logistique-energies": { "2025.3": "2025-05-31" },
   "1555-produits-pharmaceutiques": { "2026.1": "2026-05-08" }, // JORF du 8 mai 2026
+  // avenant n° 4 (journalistes d'agences de presse), arrêté du 12 septembre 2025, JORFTEXT000052260481
+  "1480-journalistes": { "2025.2": "2025-09-19" },
   // avenant du 25 février 2026 (paritarisme), arrêté du 3 juillet 2026, JORF du 11 juillet 2026
   "1431-optique-lunetterie-detail": { "2026.1": "2026-07-11" },
   // avenant n° 33, arrêté du 5 novembre 2024, JORF du 9 novembre 2024 (applicable from 1 December 2024)

@@ -88,3 +88,39 @@ describe("IDCC 1480 — 2025.1 minimum salaries", () => {
     }
   });
 });
+
+describe("IDCC 1480 — 2025.2, form of press", async () => {
+  const revision = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2025.2");
+  assert.ok(revision);
+  const revisionRules: Record<string, Rule> = { ...rules };
+  Object.assign(revisionRules, await revision.loadRules());
+  const revisionEngine = new Engine(revisionRules, { logger: { log() {}, warn() {}, error() {} } });
+  const evaluate = (form: string, group: string, name: string) => {
+    revisionEngine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      [`${namespace} . forme de presse`]: `'${form}'`,
+      [`${namespace} . groupe`]: `'${group}'`,
+    });
+    return revisionEngine.evaluate(`${namespace} . ${name}`).nodeValue;
+  };
+
+  it("declares the extension published on 19 September 2025", () => {
+    assert.equal(revision.validFrom, "2025-09-01");
+    assert.equal(revision.extension, "2025-09-19");
+  });
+
+  it("applies the grid of avenant n° 4 to the press agencies", () => {
+    for (const [group, monthly] of Object.entries(MONTHLY)) {
+      assert.equal(evaluate("agences de presse", group, "salaire minimum conventionnel"), monthly, group);
+      assert.equal(evaluate("agences de presse", group, "groupe hors grille"), false, group);
+    }
+    assert.equal(evaluate("agences de presse", "9", "groupe hors grille"), true);
+    assert.equal(evaluate("agences de presse", "1", "grille applicable"), true);
+  });
+
+  it("has no minimum for the other forms of press, whose grids are not modelled", () => {
+    assert.equal(evaluate("autres formes de presse", "4", "salaire minimum conventionnel"), 0);
+    assert.equal(evaluate("autres formes de presse", "non renseigné", "groupe hors grille"), false);
+    assert.equal(evaluate("autres formes de presse", "4", "grille applicable"), false);
+  });
+});

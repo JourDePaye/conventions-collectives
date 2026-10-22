@@ -2,6 +2,15 @@
 
 Le fichier [2025.1](1480-journalistes.2025.1.publicodes) entre en vigueur le **1er septembre 2025** pour les entreprises signataires et à compter du **19 septembre 2025** pour les autres entreprises, conformément à l'avenant n° 4 du 4 juillet 2025 et à son extension publiée au Journal officiel le 19 septembre 2025. La valeur Publicodes est `journalistes` ; les règles sont sous `salarié . convention collective . journalistes`.
 
+## Versions
+
+| Version | Date d'effet | Contenu |
+|---|---|---|
+| `2025.1` | 1er septembre 2025 | Grille des agences de presse, appliquée à tous les journalistes |
+| `2025.2` | 1er septembre 2025 (adhérents), extension du 19 septembre 2025 (`extension`) | Même grille, réservée aux agences de presse par `forme de presse` (`agences de presse` ou `autres formes de presse`) ; `grille applicable` ; pas de minimum pour les autres formes de presse |
+
+Les autres formes de presse (presse quotidienne nationale et régionale, presse hebdomadaire régionale, presse magazine, presse d'information spécialisée, radiodiffusion, membres du Spiil…) ont leurs propres accords de salaires dans la convention ([KALICONT000005635444](https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635444)), non modélisés : `2025.2` ne leur donne aucun minimum plutôt que la grille des agences.
+
 ## Grille salariale implémentée
 
 | Groupe | Minimum mensuel brut |
