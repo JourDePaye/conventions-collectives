@@ -1,0 +1,190 @@
+# Révision 2025.2, au même effet que 2025.1, qu'elle remplace : ajoute la prime d'ancienneté de
+# l'article 24 de la convention, et la gratification de 13e mois de l'article 22.4.
+validFrom: 2025-05-01
+sources:
+  - "Avenant n° 110 du 17 janvier 2025 relatif aux salaires 2025, étendu par arrêté du 9 avril 2025 publié au JORF le 26 avril 2025, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000051447059"
+  - "Article 5 de l'avenant n° 110 du 17 janvier 2025, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051447068"
+  - "Convention collective nationale des gardiens, concierges et employés d'immeubles, IDCC 1043, brochure 3144, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635953"
+  - "Convention collective, article 22.4 (KALIARTI000036974495) : gratification de 13e mois égale au salaire global brut mensuel contractuel de l'article 22.2, versée avec la paie de décembre aux salariés présents toute l'année civile, une absence indemnisée à 90 % comptant comme présence, au prorata temporis pour moins de 12 mois de présence et au départ en cours d'année."
+  - "Convention collective, article 24 (texte de base réécrit par l'avenant n° 74, KALITEXT000021180979) : primes d'ancienneté calculées sur le salaire minimum brut mensuel conventionnel de l'article 22.2 a (minimum multiplié par le taux d'emploi), de 3 % après 3 ans de service chez le même employeur à 18 % après 18 ans, par paliers de 3 ans et de 3 points, https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000021180979"
+---
+salarié . convention collective . gardiens concierges et employés d'immeubles:
+  titre: Gardiens, concierges et employés d'immeubles (IDCC 1043)
+  valeur: convention collective = 'gardiens concierges et employés d'immeubles'
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . catégorie:
+  titre: Catégorie de classification
+  description: Catégorie A ou B prévue par l'article 22 de la convention collective.
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  une possibilité:
+    - "'A'"
+    - "'B'"
+  par défaut: "'A'"
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . coefficient hiérarchique:
+  titre: Coefficient hiérarchique
+  description: Coefficient hiérarchique contractuel utilisé par l'article 22 ; il doit être fourni par l'application selon la classification du poste.
+  unité: coefficient
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  par défaut: 0 coefficient
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . heures contractuelles:
+  titre: Heures contractuelles
+  description: Nombre mensuel d'heures contractuelles de la catégorie A.
+  unité: heure/mois
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  par défaut: 0 heure/mois
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . unités de valeur:
+  titre: Unités de valeur
+  description: Nombre d'unités de valeur de la catégorie B, fourni par l'application selon le contrat.
+  unité: unité
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  par défaut: 0 unité
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . lots principaux:
+  titre: Lots principaux affectés au tri sélectif
+  description: Nombre de lots principaux attribués au salarié pour la prime de tri sélectif.
+  unité: lot
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  par défaut: 0 lot
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . catégorie logement:
+  titre: Catégorie du logement de fonction
+  description: Catégorie 1, 2 ou 3 de l'avantage en nature logement prévue par l'avenant n° 110.
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  une possibilité:
+    - "'1'"
+    - "'2'"
+    - "'3'"
+  par défaut: "'1'"
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . surface logement:
+  titre: Surface du logement de fonction
+  description: Surface retenue pour l'avantage en nature logement, plafonnée à 60 m² par l'avenant n° 110.
+  unité: m²
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  par défaut: 0 m²
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: "Minimum brut calculé selon l'article 22 : catégorie A au prorata des heures contractuelles sur 151,67 heures ; catégorie B selon les unités de valeur sur 10 000."
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'gardiens concierges et employés d'immeubles'
+      - coefficient hiérarchique > 0 coefficient
+  unité: €/mois
+  variations:
+    - si: catégorie = 'A'
+      alors: ((coefficient hiérarchique * 1.62 €/coefficient + 915 €/mois) * heures contractuelles / 151.67 heure/mois)
+    - si: catégorie = 'B'
+      alors: ((coefficient hiérarchique * 1.76 €/coefficient + 915 €/mois) * unités de valeur / 10000 unité)
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . prime de tri sélectif:
+  titre: Prime de tri sélectif
+  description: Prime brute de 1,40 € par lot principal, avec un minimum de 28 € et un maximum de 224 €.
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  unité: €/mois
+  variations:
+    - si: lots principaux <= 20 lot
+      alors: 28 €/mois
+    - si: lots principaux >= 160 lot
+      alors: 224 €/mois
+    - sinon: lots principaux * 1.40 €/lot
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . valeur électricité:
+  titre: Prix conventionnel de l'électricité
+  description: Prix du kilowattheure retenu pour l'évaluation du salaire en nature complémentaire.
+  unité: €/kWh
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  valeur: 0.2516 €/kWh
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . avantage en nature logement par mètre carré:
+  titre: Avantage en nature logement par mètre carré
+  description: Valeur conventionnelle mensuelle par mètre carré à compter du 1er janvier 2025, selon la catégorie du logement.
+  unité: €/m²/mois
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  variations:
+    - si: catégorie logement = '1'
+      alors: 3.565 €/m²/mois
+    - si: catégorie logement = '2'
+      alors: 2.815 €/m²/mois
+    - si: catégorie logement = '3'
+      alors: 2.079 €/m²/mois
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . surface logement retenue:
+  titre: Surface du logement retenue
+  description: Surface retenue pour l'avantage en nature logement, plafonnée à 60 m².
+  unité: m²
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  variations:
+    - si: surface logement >= 60 m²
+      alors: 60 m²
+    - sinon: surface logement
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . avantage en nature logement:
+  titre: Avantage en nature logement
+  description: Évaluation mensuelle conventionnelle selon la surface, limitée à 60 m². La valeur minimale URSSAF n'est pas appliquée automatiquement car elle dépend de paramètres externes au modèle.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'gardiens concierges et employés d'immeubles'
+      - surface logement > 0 m²
+  unité: €/mois
+  produit:
+    - avantage en nature logement par mètre carré
+    - surface logement retenue
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . salaire minimum hors coefficient:
+  titre: Coefficient hiérarchique absent
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'gardiens concierges et employés d'immeubles'
+      - coefficient hiérarchique <= 0 coefficient
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . calcul bloqué:
+  titre: Calcul conventionnel bloqué
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  valeur: coefficient hiérarchique <= 0 coefficient
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . ancienneté employeur:
+  titre: Ancienneté chez le même employeur
+  description: Années complètes de service chez le même employeur (article 24).
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . taux d'ancienneté:
+  titre: Taux de la prime d'ancienneté
+  description: 3 % après 3 ans de service chez le même employeur, puis 3 points de plus tous les 3 ans, jusqu'à 18 % après 18 ans (article 24).
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  variations:
+    - si: ancienneté employeur >= 18 an
+      alors: 18%
+    - si: ancienneté employeur >= 15 an
+      alors: 15%
+    - si: ancienneté employeur >= 12 an
+      alors: 12%
+    - si: ancienneté employeur >= 9 an
+      alors: 9%
+    - si: ancienneté employeur >= 6 an
+      alors: 6%
+    - si: ancienneté employeur >= 3 an
+      alors: 3%
+    - sinon: 0%
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . prime d'ancienneté:
+  titre: Prime d'ancienneté
+  description: Article 24 - calculée sur le salaire minimum brut mensuel conventionnel multiplié par le taux d'emploi (article 22.2 a), soit les heures contractuelles sur 151,67 en catégorie A et les unités de valeur sur 10 000 en catégorie B ; elle s'y ajoute et figure explicitement sur le bulletin.
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  unité: €/mois
+  arrondi: 2 décimales
+  variations:
+    - si: calcul bloqué
+      alors: 0 €/mois
+    - sinon: salaire minimum conventionnel * taux d'ancienneté
+
+salarié . convention collective . gardiens concierges et employés d'immeubles . treizième mois:
+  titre: Gratification de 13e mois
+  description: Article 22.4 - les salariés présents toute l'année civile (une absence indemnisée à 90 % comptant comme présence) perçoivent avec la paie de décembre une gratification égale au salaire global brut mensuel contractuel de l'article 22.2 (minimum conventionnel multiplié par le taux d'emploi, prime d'ancienneté et salaire supplémentaire contractuel) ; prorata temporis pour moins de 12 mois de présence, versée au départ en cours d'année. Le montant est calculé par l'application, qui connaît le salaire contractuel et la présence.
+  applicable si: convention collective = 'gardiens concierges et employés d'immeubles'
+  valeur: oui

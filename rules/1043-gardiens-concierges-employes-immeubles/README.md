@@ -1,5 +1,11 @@
 # Convention collective nationale des gardiens, concierges et employés d'immeubles — IDCC 1043
 
+## Révisions 2025.2, 2026.3 et 2026.4 : prime d'ancienneté et 13e mois
+
+- **Dates d'effet :** celles des versions qu'elles remplacent, avec les mêmes règles : 2025.2 au 1er mai 2025 (2025.1), 2026.3 au 1er janvier 2026 (2026.0), 2026.4 au 1er mai 2026 (2026.2).
+- **Prime d'ancienneté** (article 24 de la convention, KALITEXT000021180979) : `prime d'ancienneté` = `salaire minimum conventionnel` (le minimum de l'article 22.2 a, déjà multiplié par le taux d'emploi : heures sur 151,67 ou unités de valeur sur 10 000) × `taux d'ancienneté`, soit 3 % après 3 ans de service chez le même employeur, puis 3 points de plus tous les 3 ans, jusqu'à 18 % après 18 ans. L'ancienneté est l'entrée `ancienneté employeur`, en années complètes. Nulle sans coefficient.
+- **13e mois** (article 22.4) : la règle `treizième mois` (oui) signale la gratification égale au salaire global brut mensuel contractuel, versée avec la paie de décembre, au prorata temporis pour moins de 12 mois de présence et au départ en cours d'année ; son montant dépend du salaire contractuel et de la présence, que l'application calcule.
+
 ## Révision 2026.2
 
 - **Date d'effet :** 1er mai 2026, comme 2026.1, qu'elle remplace (mêmes valeurs de l'avenant n° 115).
