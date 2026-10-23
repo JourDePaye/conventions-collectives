@@ -21,3 +21,7 @@ Les minima mensuels vont de 1 799,00 € (niveaux A à D hors ancienneté) à 4 
 - Les pages ne précisent pas si le minimum mensuel est le treizième du minimum annuel pour un salarié à temps plein sur 13 mois, ou calculé sur 12 mois ; la règle retient le treizième (le plus bas).
 - Le plancher de 36 000 € des cadres de plus de 50 ans, les primes, la prévoyance et les autres éléments de la convention ne sont pas modélisés.
 - Les grilles antérieures au 1er avril 2026 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
+
+## Congés payés
+
+À partir de la révision [2026.2](2120-banque.2026.2.publicodes), à la même date que 2026.1, `congés payés . jours supplémentaires` donne le 26e jour de congé de l'article 64 (1 jour ouvré pour une période de référence complète, quand l'application renseigne `congés payés . période de référence complète`). Il ne se cumule pas avec un avantage individuel acquis au titre des congés payés, que le fichier ne connaît pas.

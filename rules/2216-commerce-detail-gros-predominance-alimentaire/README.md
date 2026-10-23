@@ -12,3 +12,7 @@ Les fichiers [2025.1](2216-commerce-detail-gros-predominance-alimentaire.2025.1.
 - `niveau hors grille` signale une valeur absente des 12 positions. La grille retourne alors `0 €/mois` et l’application doit traiter l’anomalie.
 
 Les majorations, primes et autres éléments de la convention ne sont pas calculés ici. Les références juridiques détaillées, ainsi que les limites des sources consultées, figurent dans les métadonnées des fichiers Publicodes.
+
+## Congés payés
+
+Les révisions [2025.2](2216-commerce-detail-gros-predominance-alimentaire.2025.2.publicodes) et [2026.4](2216-commerce-detail-gros-predominance-alimentaire.2026.4.publicodes), aux mêmes dates que 2025.1 et 2026.3, ajoutent `congés payés . jours supplémentaires`, le congé supplémentaire d'ancienneté de l'article 7.1.2 : 1 jour après 10 ans d'ancienneté dans l'entreprise, 2 après 15 ans, 3 après 20 ans, d'après `congés payés . ancienneté` (l'ancienneté au 31 mai que l'application renseigne). Ces jours majorent les congés acquis au 31 mai, au prorata en cas de droits incomplets et avant l'arrondi de l'article L3141-7, ce que fait l'application. L'article ne précise pas l'unité : la durée légale de référence étant en jours ouvrables, ce sont des jours ouvrables.
