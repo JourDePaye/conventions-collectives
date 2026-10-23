@@ -23,7 +23,7 @@ La version ne redéfinit aucune règle de cotisation de `modele-social` : les te
 
 - Avenant n° 37 du 10 janvier 2024 relatif aux salaires, article 1er, Légifrance `KALIARTI000049271188` : revalorisation de 3,5 % au 1er janvier 2024.
 - Annexe salariale de l'avenant n° 37, publiée dans le texte officiel Légifrance `KALITEXT000005654162` / conteneur `KALICONT000005635927`.
-- Arrêté d'extension publié au Journal officiel le 17 juillet 2024, JORF n° 0164 du 11 juillet 2024 ; l'avenant salarial est étendu à tous les employeurs et salariés du champ IDCC 1659.
+- Arrêté du 11 juillet 2024 portant extension de l'avenant n° 37, publié au Journal officiel n° 0169 du 17 juillet 2024 (JORFTEXT000050002868) ; l'avenant salarial est étendu à tous les employeurs et salariés du champ IDCC 1659.
 - Convention collective nationale du rouissage-teillage de lin du 28 janvier 1992, IDCC 1659, conteneur Légifrance `KALICONT000005635927`.
 
 ## Tests

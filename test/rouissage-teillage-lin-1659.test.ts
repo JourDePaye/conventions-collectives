@@ -39,7 +39,8 @@ describe("IDCC 1659 — 2024.1 salaires et audit paie", () => {
     assert.equal(version.validFrom, "2024-01-01");
     assert.ok(version.sources.some((source) => source.includes("KALIARTI000049271188")));
     assert.ok(version.sources.some((source) => source.includes("KALITEXT000005654162")));
-    assert.ok(version.sources.some((source) => source.includes("JORF n° 0164")));
+    assert.ok(version.sources.some((source) => source.includes("JORFTEXT000050002868")));
+    assert.equal(version.extension, "2024-07-17");
   });
 
   for (const [coefficient, expected] of Object.entries(GRID)) {

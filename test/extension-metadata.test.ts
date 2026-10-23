@@ -4,8 +4,8 @@ import { COMPILED_VERSIONS } from "../src/index.ts";
 
 // Date from which each version also binds the employers outside a signatory organisation: the
 // publication in the Journal officiel of its extension order (effect from publication, unless
-// the note says otherwise). A version that is not listed has no extension order: it binds only
-// the employers of a signatory organisation.
+// the note says otherwise). A version that is not listed has no extension order published after
+// its effective date: its accord was extended by then, or is not extended at all.
 const EXTENSIONS: Record<string, Record<string, string>> = {
   "0018-industries-textiles": {
     // accord du 15 janvier 2026, JORFTEXT000053907664 (the accord of the artificial textiles
@@ -132,7 +132,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   "1607-jeux-jouets": { "2026.1": "2026-05-29", "2026.3": "2026-05-29" },
   "1619-cabinets-dentaires": { "2026.1": "2026-07-23" },
   "1621-repartition-pharmaceutique": { "2025.1": "2025-07-05", "2025.2": "2025-07-05" },
-  "1659-rouissage-teillage-lin": { "2025.1": "2025-07-16" },
+  "1659-rouissage-teillage-lin": { "2024.1": "2024-07-17", "2025.1": "2025-07-16" },
   "1790-espaces-loisirs": { "2026.1": "2026-07-10", "2026.2": "2026-07-10", "2026.3": "2026-07-10" },
   "1821-cristal-verre-vitrail": { "2026.1": "2026-06-27", "2026.2": "2026-06-27", "2026.3": "2026-06-27" },
   "1875-cabinets-cliniques-veterinaires": { "2026.1": "2026-04-17" },
@@ -166,9 +166,9 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   "3222-menuiseries-charpentes-portes-planes": { "2026.1": "2026-07-10" },
   "3223-personnels-navigants-officiers": { "2025.1": "2026-04-17" },
   "3224-distribution-commerce-gros-papiers-cartons": { "2025.1": "2025-08-01" },
-  "3228-groupement-armateurs-passages-eau": { "2022.1": "2022-08-03", "2022.2": "2022-08-03", "2025.1": "2025-12-18", "2026.1": "2026-10-13" },
+  "3228-groupement-armateurs-passages-eau": { "2022.1": "2022-08-03", "2022.2": "2022-08-03", "2024.1": "2025-04-16", "2025.1": "2025-12-18", "2026.1": "2026-10-13" },
   "3229-navigation-interieure": { "2026.1": "2026-05-29", "2026.2": "2026-05-29" },
-  "3230-presse-information-specialisee": { "2025.1": "2026-01-17" },
+  "3230-presse-information-specialisee": { "2024.1": "2024-01-24", "2025.1": "2026-01-17" },
   "3233-industrie-fabrication-ciments": { "2026.2": "2026-07-09" },
   "3236-industrie-services-nautiques": { "2025.1": "2025-07-02", "2025.2": "2025-07-02" },
   "3238-production-transformation-papiers-cartons": { "2026.1": "2026-05-08", "2026.2": "2026-05-08" },
