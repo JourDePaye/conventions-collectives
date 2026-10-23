@@ -64,3 +64,39 @@ describe("IDCC 1512 — 2026.2 payroll audit", () => {
     assert.equal(provident, 36.93275);
   });
 });
+
+// Accord du 23 octobre 2024 (KALITEXT000050792995), article 2.3.1: reduced call rates only from
+// 1 January to 31 December 2025; in 2026 the contractual rates of its tables apply, shared as in
+// article 2.3.2. PASS 2026: 4 005 €.
+describe("IDCC 1512 — 2026.4 contractual provident rates", async () => {
+  const revision = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.4");
+  assert.ok(revision);
+  const revisionEngine = new Engine({ ...rules, ...(await revision.loadRules()) }, { logger: { log() {}, warn() {}, error() {} } });
+  const provident = (salary: string, cadre: string, share: string) => {
+    revisionEngine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      "salarié . contrat . salaire brut": salary,
+      "salarié . contrat . statut cadre": cadre,
+    });
+    return Math.round((revisionEngine.evaluate(`${namespace} . prévoyance . ${share}`).nodeValue as number) * 100000) / 100000;
+  };
+
+  it("replaces 2026.3 from 1 January 2026", () => {
+    assert.equal(revision.validFrom, "2026-01-01");
+  });
+
+  it("applies 0.745 % on T1 and 1.125 % on T2, up to four ceilings, to each share of a non-cadre", () => {
+    // 4 005 × 0.745 % + 995 × 1.125 % = 29.83725 + 11.19375.
+    assert.equal(provident("5000 €/mois", "non", "employeur"), 41.031);
+    assert.equal(provident("5000 €/mois", "non", "salarié"), 41.031);
+    // T2 capped at 4 × 4 005 € : 29.83725 + 12 015 × 1.125 %.
+    assert.equal(provident("20000 €/mois", "non", "employeur"), 165.006);
+  });
+
+  it("applies 1.50 % on T1 to the employer and 1.13 % on T2 to each share of a cadre", () => {
+    // 4 005 × 1.50 % + 995 × 1.13 % = 60.075 + 11.2435.
+    assert.equal(provident("5000 €/mois", "oui", "employeur"), 71.3185);
+    assert.equal(provident("5000 €/mois", "oui", "salarié"), 11.2435);
+  });
+});
+

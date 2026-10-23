@@ -1,11 +1,13 @@
 # Promotion immobilière — IDCC 1512
 
-Modèle `1512-promotion-immobiliere`, version `2026.3`, espace de noms
+Modèle `1512-promotion-immobiliere`, version `2026.4`, espace de noms
 `salarié . convention collective . promotion immobilière`.
 
 ## Périmètre
 
 La version `2026.3` reprend la version `2026.2` à l'identique, à la même date, et corrige `coefficient hors grille` : l'expression `coefficient < 100 ou coefficient > 787` n'est pas une condition publicodes valide et ne valait jamais vrai. La règle vaut désormais vrai lorsque le coefficient n'est pas dans la grille (minimum mensuel nul).
+
+La version `2026.4` reprend `2026.3` à la même date et corrige les taux de prévoyance : `2026.2` et `2026.3` appliquaient les taux d'appel réduits que l'article 2.3.1 de l'accord du 23 octobre 2024 ([KALITEXT000050792995](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000050792995)) ne fixe que du 1er janvier au 31 décembre 2025 ; en 2026, ce sont les taux contractuels de ses tableaux, que l'avenant n° 1 du 20 octobre 2025 ne modifie pas.
 
 Cette version couvre la grille des salaires minima de l'avenant n° 51 du
 12 janvier 2026, ainsi que les régimes collectifs de frais de santé et de
@@ -25,8 +27,9 @@ minimum sans le convertir en garantie mensuelle.
 
 Le régime conventionnel de frais de santé est modélisé à **2,60 % du PMSS**,
 réparti à parts égales. La prévoyance est calculée sur le brut jusqu'à quatre
-PMSS : non-cadres à 0,67 % en T1 et 1,015 % en T2 pour chaque part ; cadres à
-1,50 % employeur et 0 % salarié en T1, puis 1,015 % pour chaque part en T2.
+PMSS : non-cadres à 0,745 % en T1 et 1,125 % en T2 pour chaque part ; cadres à
+1,50 % employeur et 0 % salarié en T1, puis 1,13 % pour chaque part en T2 (taux
+contractuels, depuis `2026.4`).
 
 ## Sources officielles
 
