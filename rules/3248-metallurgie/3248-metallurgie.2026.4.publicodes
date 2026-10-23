@@ -1,0 +1,429 @@
+# Convention collective nationale de la métallurgie du 7 février 2022 (IDCC 3248).
+#
+# Version 2026.4, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Même date d'effet que 2026.1 et 2026.2, qu'elle remplace : elle ajoute le barème des salariés
+# débutants du groupe F (second tableau de l'annexe 6.1) et reprend les montants majorés de 15 %
+# et 30 % du texte (arrondis à l'euro) au lieu de les recalculer.
+# Révision 2026.4 : ajoute à la version 2026.3, à date d'effet identique, les congés payés
+# supplémentaires des articles 89.1 et 89.2 (en jours ouvrables).
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+
+validFrom: 2026-01-01
+extension: 2026-06-05
+sources:
+  - Convention collective nationale de la métallurgie du 7 février 2022 (IDCC 3248), conteneur
+    KALICONT000046993250, étendue par arrêté du 14 décembre 2022 (JORF du 22 décembre 2022).
+  - >-
+    Avenant du 20 février 2026 relatif aux salaires minima hiérarchiques, texte KALITEXT000054254725
+    (fait à Paris, signé UIMM, FGMM CFDT, FCM FO, FCMTM CFE-CGC ; BO 2026-11 ; étendu par arrêté du
+    20 mai 2026, JORF du 5 juin 2026). Article 1er : création de l'annexe 6.1 « Barème unique des
+    salaires minima hiérarchiques à partir de l'année 2026 » (base 35 heures, 151,66 heures par
+    mois) : premier tableau, 18 classes A1 à I18 avec colonnes base, majoration de 15 % et de 30 % ;
+    second tableau, salariés débutants du groupe d'emplois F pendant leurs six premières années
+    (F11 28 430 / 29 852 / 32 240 €, F12 29 940 / 31 437 / 33 952 € par an, avec leurs colonnes
+    majorées). Article 2.1 : entrée en vigueur le lendemain du dépôt (date de dépôt non lue) ;
+    le texte ne contient ni article 13 ni date rétroactive. Date d'effet retenue : 1er janvier 2026,
+    début de l'année 2026 du barème « à partir de l'année 2026 ».
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054254725
+  - >-
+    Article 139 de la convention, issu de l'avenant du 11 juillet 2023 : majoration de 15 % (forfait
+    annuel en heures jusqu'à 10 % au-dessus de 35 heures) ou de 30 % (plus de 10 % et au plus 20 %,
+    ou forfait annuel en jours) ; barème des débutants du groupe F durant six ans, majoré de 5 % après
+    deux ans et de 8 % après quatre ans d'expérience professionnelle.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000048487963
+  - >-
+    Arrêté du 20 mai 2026 portant extension, publié au JORF du 5 juin 2026, texte n° 78,
+    NOR TRST2612724A : extension à tous les employeurs et salariés compris dans le champ de la
+    convention, sous les réserves de l'arrêté (non relu pour cette version).
+  - >-
+    Articles 89 à 89.3 de la convention du 7 février 2022 (KALITEXT000046314281, étendue par arrêté
+    du 14 décembre 2022, JORF du 22 décembre 2022), lus sur Légifrance le 23 octobre 2026 :
+    article 89.1 (KALIARTI000046314586) « Pour tout salarié justifiant de 2 ans d'ancienneté, le
+    congé payé légal est augmenté d'un congé payé supplémentaire d'un jour ouvrable », « porté à
+    2 jours ouvrables pour le salarié âgé d'au moins 45 ans », « porté à 3 jours ouvrables pour le
+    salarié âgé de plus de 55 ans et justifiant d'au moins 20 ans d'ancienneté » ; article 89.2
+    (KALIARTI000046314587) un jour ouvrable « sans préjudice de l'application de l'article 89.1 »
+    pour le cadre dirigeant ou le salarié en forfait annuel justifiant d'un an d'ancienneté ;
+    article 89.3 (KALIARTI000046314588) droit apprécié à l'expiration de la période de référence ou
+    à la rupture, proportionnel au congé légal acquis, total arrondi au nombre entier supérieur ;
+    article 89 (KALIARTI000046314584) non applicable lorsqu'un accord d'entreprise attribue des
+    jours supplémentaires (L3141-10) ; articles 89.4.1 à 89.4.3 maintien sans cumul de droits
+    supérieurs antérieurs. L'âge « de plus de 55 ans » est pris en années révolues (55 ans et plus).
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000046314586
+---
+salarié . convention collective . métallurgie:
+  titre: Métallurgie (IDCC 3248)
+  valeur: convention collective = 'métallurgie'
+
+salarié . convention collective . métallurgie . niveau:
+  titre: Classe d'emplois
+  description: |
+    Classe d'emplois de A1 à I18 : la lettre est le groupe (A à I) et le nombre la classe (1 à
+    18), soit A1, A2, B3, B4, C5, C6, D7, D8, E9, E10, F11, F12, G13, G14, H15, H16, I17, I18.
+  applicable si: convention collective = 'métallurgie'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . métallurgie . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Douzième du salaire minimum hiérarchique annuel de la classe pour 35 heures par semaine,
+    proratisé pour un temps partiel. Le minimum annuel s'apprécie sur l'année, primes comprises :
+    la règle n'en donne que l'équivalent mensuel. Vaut 0 €/mois si la classe n'existe pas dans
+    le barème (voir « niveau hors grille »).
+  applicable si: convention collective = 'métallurgie'
+  unité: €/mois
+  produit:
+    - salaire minimum hiérarchique annuel
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . métallurgie . salaire minimum hiérarchique annuel:
+  titre: Salaire minimum hiérarchique annuel à temps plein
+  description: |
+    Annexe 6.1 créée par l'avenant du 20 février 2026, de 21 980 € (A1) à 68 450 € (I18), pour
+    35 heures par semaine. Pour les classes F11 et F12, le barème des salariés débutants du groupe
+    F (28 430 € à 33 952 €) s'applique durant les six premières années d'expérience professionnelle,
+    selon « expérience professionnelle groupe F ». Vaut 0 €/an si la classe n'existe pas dans le
+    barème.
+  applicable si: convention collective = 'métallurgie'
+  unité: €/an
+  variations:
+    - si:
+        toutes ces conditions:
+          - niveau = 'F11'
+          - expérience professionnelle groupe F = 'moins de 2 ans'
+      alors: 28430 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F11'
+          - expérience professionnelle groupe F = 'de 2 ans à moins de 4 ans'
+      alors: 29852 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F11'
+          - expérience professionnelle groupe F = 'de 4 ans à 6 ans'
+      alors: 32240 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F12'
+          - expérience professionnelle groupe F = 'moins de 2 ans'
+      alors: 29940 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F12'
+          - expérience professionnelle groupe F = 'de 2 ans à moins de 4 ans'
+      alors: 31437 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F12'
+          - expérience professionnelle groupe F = 'de 4 ans à 6 ans'
+      alors: 33952 €/an
+    - si: niveau = 'A1'
+      alors: 21980 €/an
+    - si: niveau = 'A2'
+      alors: 22100 €/an
+    - si: niveau = 'B3'
+      alors: 22710 €/an
+    - si: niveau = 'B4'
+      alors: 23620 €/an
+    - si: niveau = 'C5'
+      alors: 24510 €/an
+    - si: niveau = 'C6'
+      alors: 25780 €/an
+    - si: niveau = 'D7'
+      alors: 26680 €/an
+    - si: niveau = 'D8'
+      alors: 28700 €/an
+    - si: niveau = 'E9'
+      alors: 30760 €/an
+    - si: niveau = 'E10'
+      alors: 33970 €/an
+    - si: niveau = 'F11'
+      alors: 35200 €/an
+    - si: niveau = 'F12'
+      alors: 37000 €/an
+    - si: niveau = 'G13'
+      alors: 40350 €/an
+    - si: niveau = 'G14'
+      alors: 44250 €/an
+    - si: niveau = 'H15'
+      alors: 47380 €/an
+    - si: niveau = 'H16'
+      alors: 52370 €/an
+    - si: niveau = 'I17'
+      alors: 59720 €/an
+    - si: niveau = 'I18'
+      alors: 68450 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . métallurgie . forfait annuel:
+  titre: Convention de forfait annuel
+  description: |
+    Type de convention de forfait annuel conclu avec le salarié. Les minima hiérarchiques sont
+    majorés de 15 % pour un forfait annuel en heures jusqu'à 10 % au-dessus de 35 heures,
+    de 30 % pour un forfait annuel en heures jusqu'à 20 % au-dessus de 35 heures, et de 30 %
+    pour un forfait annuel en jours. La valeur par défaut désactive la majoration.
+  applicable si: convention collective = 'métallurgie'
+  par défaut: "'aucun'"
+
+salarié . convention collective . métallurgie . expérience professionnelle groupe F:
+  titre: Expérience professionnelle du salarié débutant du groupe F
+  description: |
+    Expérience professionnelle du salarié débutant occupant un poste du groupe d'emplois F (classes
+    F11 et F12). Durant les six premières années, l'annexe 6.1 applique un barème spécifique
+    (article 139 : majoration de 5 % après deux ans, de 8 % après quatre ans). Après six ans, ou
+    pour un salarié qui n'est pas débutant, le barème unique s'applique : c'est la valeur par défaut
+    « plus de 6 ans ». Sans effet pour les classes des autres groupes.
+  applicable si: convention collective = 'métallurgie'
+  une possibilité:
+    - "'moins de 2 ans'"
+    - "'de 2 ans à moins de 4 ans'"
+    - "'de 4 ans à 6 ans'"
+    - "'plus de 6 ans'"
+  par défaut: "'plus de 6 ans'"
+
+salarié . convention collective . métallurgie . salaire minimum hiérarchique annuel majoré de 15 %:
+  titre: Salaire minimum hiérarchique annuel majoré de 15 %
+  description: |
+    Colonne « Majoration de 15 % » de l'annexe 6.1 (forfait annuel en heures jusqu'à 10 % au-dessus
+    de 35 heures), arrondie à l'euro comme dans le texte. Vaut 0 €/an si la classe n'existe pas.
+  applicable si: convention collective = 'métallurgie'
+  unité: €/an
+  variations:
+    - si:
+        toutes ces conditions:
+          - niveau = 'F11'
+          - expérience professionnelle groupe F = 'moins de 2 ans'
+      alors: 32695 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F11'
+          - expérience professionnelle groupe F = 'de 2 ans à moins de 4 ans'
+      alors: 34329 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F11'
+          - expérience professionnelle groupe F = 'de 4 ans à 6 ans'
+      alors: 37076 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F12'
+          - expérience professionnelle groupe F = 'moins de 2 ans'
+      alors: 34431 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F12'
+          - expérience professionnelle groupe F = 'de 2 ans à moins de 4 ans'
+      alors: 36153 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F12'
+          - expérience professionnelle groupe F = 'de 4 ans à 6 ans'
+      alors: 39045 €/an
+    - si: niveau = 'A1'
+      alors: 25277 €/an
+    - si: niveau = 'A2'
+      alors: 25415 €/an
+    - si: niveau = 'B3'
+      alors: 26117 €/an
+    - si: niveau = 'B4'
+      alors: 27163 €/an
+    - si: niveau = 'C5'
+      alors: 28187 €/an
+    - si: niveau = 'C6'
+      alors: 29647 €/an
+    - si: niveau = 'D7'
+      alors: 30682 €/an
+    - si: niveau = 'D8'
+      alors: 33005 €/an
+    - si: niveau = 'E9'
+      alors: 35374 €/an
+    - si: niveau = 'E10'
+      alors: 39066 €/an
+    - si: niveau = 'F11'
+      alors: 40480 €/an
+    - si: niveau = 'F12'
+      alors: 42550 €/an
+    - si: niveau = 'G13'
+      alors: 46403 €/an
+    - si: niveau = 'G14'
+      alors: 50888 €/an
+    - si: niveau = 'H15'
+      alors: 54487 €/an
+    - si: niveau = 'H16'
+      alors: 60226 €/an
+    - si: niveau = 'I17'
+      alors: 68678 €/an
+    - si: niveau = 'I18'
+      alors: 78718 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . métallurgie . salaire minimum hiérarchique annuel majoré de 30 %:
+  titre: Salaire minimum hiérarchique annuel majoré de 30 %
+  description: |
+    Colonne « Majoration de 30 % » de l'annexe 6.1 (forfait annuel en heures de plus de 10 % et au
+    plus 20 % au-dessus de 35 heures, ou forfait annuel en jours), arrondie à l'euro comme dans le
+    texte. Vaut 0 €/an si la classe n'existe pas.
+  applicable si: convention collective = 'métallurgie'
+  unité: €/an
+  variations:
+    - si:
+        toutes ces conditions:
+          - niveau = 'F11'
+          - expérience professionnelle groupe F = 'moins de 2 ans'
+      alors: 36959 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F11'
+          - expérience professionnelle groupe F = 'de 2 ans à moins de 4 ans'
+      alors: 38807 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F11'
+          - expérience professionnelle groupe F = 'de 4 ans à 6 ans'
+      alors: 41912 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F12'
+          - expérience professionnelle groupe F = 'moins de 2 ans'
+      alors: 38922 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F12'
+          - expérience professionnelle groupe F = 'de 2 ans à moins de 4 ans'
+      alors: 40868 €/an
+    - si:
+        toutes ces conditions:
+          - niveau = 'F12'
+          - expérience professionnelle groupe F = 'de 4 ans à 6 ans'
+      alors: 44138 €/an
+    - si: niveau = 'A1'
+      alors: 28574 €/an
+    - si: niveau = 'A2'
+      alors: 28730 €/an
+    - si: niveau = 'B3'
+      alors: 29523 €/an
+    - si: niveau = 'B4'
+      alors: 30706 €/an
+    - si: niveau = 'C5'
+      alors: 31863 €/an
+    - si: niveau = 'C6'
+      alors: 33514 €/an
+    - si: niveau = 'D7'
+      alors: 34684 €/an
+    - si: niveau = 'D8'
+      alors: 37310 €/an
+    - si: niveau = 'E9'
+      alors: 39988 €/an
+    - si: niveau = 'E10'
+      alors: 44161 €/an
+    - si: niveau = 'F11'
+      alors: 45760 €/an
+    - si: niveau = 'F12'
+      alors: 48100 €/an
+    - si: niveau = 'G13'
+      alors: 52455 €/an
+    - si: niveau = 'G14'
+      alors: 57525 €/an
+    - si: niveau = 'H15'
+      alors: 61594 €/an
+    - si: niveau = 'H16'
+      alors: 68081 €/an
+    - si: niveau = 'I17'
+      alors: 77636 €/an
+    - si: niveau = 'I18'
+      alors: 88985 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . métallurgie . salaire minimum hiérarchique annuel au forfait:
+  titre: Salaire minimum hiérarchique annuel au forfait
+  description: |
+    Minimum annuel de la classe selon la convention de forfait annuel : montants des colonnes de
+    majoration de 15 % ou de 30 % de l'annexe 6.1 (article 139 de la convention). Sans forfait,
+    c'est le minimum à temps plein. Vaut 0 €/an si la classe n'existe pas dans le barème.
+  applicable si: convention collective = 'métallurgie'
+  unité: €/an
+  variations:
+    - si: forfait annuel = 'heures 15 %'
+      alors: salaire minimum hiérarchique annuel majoré de 15 %
+    - si: forfait annuel = 'heures 30 %'
+      alors: salaire minimum hiérarchique annuel majoré de 30 %
+    - si: forfait annuel = 'jours'
+      alors: salaire minimum hiérarchique annuel majoré de 30 %
+    - sinon: salaire minimum hiérarchique annuel
+
+salarié . convention collective . métallurgie . niveau hors grille:
+  titre: Classe absente du barème
+  description: La classe n'existe pas dans le barème des salaires minima hiérarchiques.
+  applicable si: convention collective = 'métallurgie'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : le barème vaut donc 0 €/an pour une classe inconnue.
+  valeur: salaire minimum hiérarchique annuel = 0 €/an
+
+salarié . convention collective . métallurgie . congés payés:
+  titre: Congés payés de la métallurgie
+  applicable si: convention collective = 'métallurgie'
+
+salarié . convention collective . métallurgie . congés payés . ancienneté:
+  titre: Ancienneté à la fin de la période de référence
+  description: |
+    Ancienneté dans l'entreprise (article 3) appréciée à la date d'expiration de la période de
+    référence, ou à la date de rupture du contrat si elle est antérieure (article 89.3).
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . métallurgie . congés payés . âge:
+  titre: Âge à la fin de la période de référence
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . métallurgie . congés payés . cadre dirigeant ou forfait annuel:
+  titre: Cadre dirigeant ou salarié en forfait annuel en heures ou en jours
+  description: Articles 102 à 104, auxquels renvoie l'article 89.2.
+  par défaut: non
+
+salarié . convention collective . métallurgie . congés payés . jours supplémentaires:
+  titre: Congés payés supplémentaires
+  description: |
+    Articles 89.1 et 89.2, en jours ouvrables, proportionnels au congé légal acquis (article 89.3).
+  unité: jour
+  somme:
+    - ancienneté et âge
+    - cadres dirigeants et forfaits
+
+salarié . convention collective . métallurgie . congés payés . jours supplémentaires . ancienneté et âge:
+  titre: Congé supplémentaire selon l'ancienneté et l'âge
+  description: |
+    Article 89.1 : un jour ouvrable pour 2 ans d'ancienneté, porté à 2 jours ouvrables pour le
+    salarié âgé d'au moins 45 ans, et à 3 jours ouvrables pour le salarié âgé de plus de 55 ans
+    justifiant d'au moins 20 ans d'ancienneté. Les paliers d'âge augmentent le même congé : ils
+    supposent aussi les 2 ans d'ancienneté.
+  unité: jour
+  variations:
+    - si:
+        toutes ces conditions:
+          - âge >= 55 an
+          - ancienneté >= 20 an
+      alors: 3 jour
+    - si:
+        toutes ces conditions:
+          - âge >= 45 an
+          - ancienneté >= 2 an
+      alors: 2 jour
+    - si: ancienneté >= 2 an
+      alors: 1 jour
+    - sinon: 0 jour
+
+salarié . convention collective . métallurgie . congés payés . jours supplémentaires . cadres dirigeants et forfaits:
+  titre: Congé supplémentaire des cadres dirigeants et des forfaits annuels
+  description: |
+    Article 89.2 : un jour ouvrable de congé supplémentaire, sans préjudice de l'article 89.1, pour
+    le salarié justifiant d'un an d'ancienneté qui est cadre dirigeant ou en forfait annuel.
+  unité: jour
+  variations:
+    - si:
+        toutes ces conditions:
+          - cadre dirigeant ou forfait annuel
+          - ancienneté >= 1 an
+      alors: 1 jour
+    - sinon: 0 jour

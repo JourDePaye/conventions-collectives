@@ -1,0 +1,176 @@
+# Révision 2024.3 : ajoute à la version 2024.2, à date d'effet identique, les congés payés
+# conventionnels de l'article 11 de l'avenant n° 1 (adhérents d'une organisation signataire).
+# Version 2024.2 : même grille que 2024.1 (même validFrom), sous sa propre valeur de convention,
+# « hôtels cafés restaurants », à utiliser à la place de la convention « HCR » de modele-social. Elle
+# reprend la majoration des heures supplémentaires et corrige la prévoyance conventionnelle :
+# 0,86 % de la tranche A partagés par moitié (modele-social : 0,90 % employeur et 0,47 % salarié),
+# la part employeur des cadres étant comprise dans leur 1,50 % obligatoire. L'avantage en nature
+# repas, évalué au minimum garanti par la réglementation de sécurité sociale et non par la
+# convention, n'est pas repris.
+validFrom: 2024-12-01
+extension: 2024-11-09
+sources:
+  - "Avenant n° 33 du 19 juin 2024 relatif aux salaires, article 2 (minima horaires bruts en métropole et dans les DROM), étendu par arrêté du 5 novembre 2024 (JORF du 9 novembre 2024), applicable le 1er jour du mois suivant la publication de l'arrêté, soit le 1er décembre 2024: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000050394790"
+  - "Avenant n° 2 du 5 février 2007 relatif à l'aménagement du temps de travail, article 4 (étendu par arrêté du 26 mars 2007, JORF du 29 mars 2007) : heures de la 36e à la 39e majorées de 10 %, de la 40e à la 43e de 20 %, à partir de la 44e de 50 %: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005670080"
+  - "Avenant n° 1 du 13 juillet 2004, article 18 (prévoyance) : article 18.1, ensemble du personnel ; article 18.3, salaire de référence limité à la tranche A: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005670064"
+  - "Avenant n° 2 du 10 mai 2021 à l'avenant n° 1 du 13 juillet 2004 relatif à la prévoyance (étendu), article 18.5 en vigueur depuis le 1er juillet 2021 : cotisation de 0,86 % du salaire de référence, financée à 50 % par l'employeur et à 50 % par le salarié ; la participation de l'employeur est prise en compte dans la cotisation de 1,50 % de la tranche A des cadres: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000044201741"
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635534
+  - >-
+    Avenant n° 1 du 13 juillet 2004 relatif à l'aménagement du temps de travail et aux congés payés
+    (KALITEXT000005670064), article 11 (KALIARTI000005826353), lu sur Légifrance le 23 octobre
+    2026 : « En sus des congés légaux, tout salarié qui justifiera avoir été occupé pendant un temps
+    équivalent à un minimum de 1 mois de travail effectif aura droit à 0,5 jour ouvrable de congé
+    conventionnel par mois (soit 6 jours ouvrables ou 5 jours ouvrés par année de référence) »,
+    « ils ne donnent pas lieu aux jours de congés supplémentaires pour fractionnement », « À
+    l'issue de la période susvisée, les congés payés conventionnels non pris seront rémunérés. »
+    L'arrêté d'extension du 30 décembre 2004 a été annulé par le Conseil d'État le 18 octobre 2006
+    (avenant n° 2 du 5 février 2007, préambule) sauf pour les titres IV, VII et VIII : l'article 11
+    (titre III) ne lie que les adhérents d'une organisation signataire, ce que l'application vérifie.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005826353
+---
+salarié . convention collective . hôtels cafés restaurants:
+  titre: Hôtels, cafés, restaurants (IDCC 1979)
+  valeur: convention collective = 'hôtels cafés restaurants'
+
+salarié . convention collective . hôtels cafés restaurants . niveau:
+  titre: Niveau et échelon de classification
+  description: |
+    Au format « <niveau>.<échelon> » : de I.1 à V.3. Niveaux I à III : employés, niveau
+    IV : agents de maîtrise, niveau V : cadres.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . hôtels cafés restaurants . taux horaire minimum:
+  titre: Taux horaire minimum conventionnel
+  description: |
+    Minimum horaire brut applicable en métropole et dans les DROM. Vaut 0 €/heure si le
+    niveau n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  unité: €/heure
+  variations:
+    - si: niveau = 'I.1'
+      alors: 12.00 €/heure
+    - si: niveau = 'I.2'
+      alors: 12.08 €/heure
+    - si: niveau = 'I.3'
+      alors: 12.18 €/heure
+    - si: niveau = 'II.1'
+      alors: 12.28 €/heure
+    - si: niveau = 'II.2'
+      alors: 12.55 €/heure
+    - si: niveau = 'II.3'
+      alors: 13.17 €/heure
+    - si: niveau = 'III.1'
+      alors: 13.32 €/heure
+    - si: niveau = 'III.2'
+      alors: 13.54 €/heure
+    - si: niveau = 'III.3'
+      alors: 14.00 €/heure
+    - si: niveau = 'IV.1'
+      alors: 14.40 €/heure
+    - si: niveau = 'IV.2'
+      alors: 14.77 €/heure
+    - si: niveau = 'IV.3'
+      alors: 15.40 €/heure
+    - si: niveau = 'V.1'
+      alors: 18.43 €/heure
+    - si: niveau = 'V.2'
+      alors: 21.78 €/heure
+    - si: niveau = 'V.3'
+      alors: 28.12 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . hôtels cafés restaurants . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: |
+    Taux horaire minimum appliqué aux heures du contrat hors heures supplémentaires
+    (151,67 h pour un temps plein), comme le SMIC.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  unité: €/mois
+  produit:
+    - taux horaire minimum
+    - contrat . temps de travail
+
+salarié . convention collective . hôtels cafés restaurants . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/heure pour un niveau inconnu.
+  valeur: taux horaire minimum = 0 €/heure
+
+salarié . convention collective . hôtels cafés restaurants . majoration heures supplémentaires:
+  titre: Majoration conventionnelle des heures supplémentaires
+  description: Heures de la 36e à la 39e majorées de 10 %, de la 40e à la 43e de 20 %, puis de 50 % (avenant n° 2 du 5 février 2007, article 4). Comme dans modele-social, les heures supplémentaires du mois sont réparties uniformément sur ses semaines.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  remplace: salarié . temps de travail . heures supplémentaires . majoration
+  unité: heure/mois
+  barème:
+    assiette: salarié . temps de travail . heures supplémentaires
+    multiplicateur: période . semaines par mois
+    tranches:
+      - taux: 10%
+        plafond: 4 heure/semaine
+      - taux: 20%
+        plafond: 8 heure/semaine
+      - taux: 50%
+
+salarié . convention collective . hôtels cafés restaurants . prévoyance:
+  titre: Prévoyance conventionnelle
+  description: |
+    Cotisation de 0,86 % du salaire limité à la tranche A, pour l'ensemble du personnel, financée par
+    moitié par l'employeur et le salarié (article 18.5 de l'avenant n° 1, dans sa rédaction de
+    l'avenant n° 2 du 10 mai 2021). Pour les cadres, la part de l'employeur est comprise dans sa
+    cotisation obligatoire de 1,50 % de la tranche A, déjà calculée par modele-social.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  somme:
+    - employeur
+    - salarié
+
+salarié . convention collective . hôtels cafés restaurants . prévoyance . tranche A:
+  titre: Salaire limité à la tranche A
+  unité: €/mois
+  valeur:
+    valeur: cotisations . assiette . sans prévoyance
+    plafond: temps de travail . plafond sécurité sociale
+
+salarié . convention collective . hôtels cafés restaurants . prévoyance . employeur:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'hôtels cafés restaurants'
+      - contrat . statut cadre = non
+  remplace: salarié . cotisations . prévoyances . conventionnelle . employeur
+  unité: €/mois
+  produit:
+    - tranche A
+    - 0.43%
+
+salarié . convention collective . hôtels cafés restaurants . prévoyance . salarié:
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  remplace: salarié . cotisations . prévoyances . conventionnelle . salarié
+  unité: €/mois
+  produit:
+    - tranche A
+    - 0.43%
+
+salarié . convention collective . hôtels cafés restaurants . congés payés:
+  titre: Congés payés des hôtels, cafés et restaurants
+  applicable si: convention collective = 'hôtels cafés restaurants'
+
+salarié . convention collective . hôtels cafés restaurants . congés payés . congé légal:
+  titre: Congé légal acquis sur la période de référence
+  unité: jour
+  par défaut: 0 jour
+
+salarié . convention collective . hôtels cafés restaurants . congés payés . jours supplémentaires:
+  titre: Congés payés conventionnels
+  description: |
+    Avenant n° 1 du 13 juillet 2004, article 11 : en sus des congés légaux, 0,5 jour ouvrable de
+    congé conventionnel par mois pour le salarié occupé au moins un mois de travail effectif, soit
+    6 jours ouvrables par année de référence, proportionnels aux mois de travail (l'application les
+    proratise par le congé légal acquis). Non pris à l'issue de la période, ils sont rémunérés.
+  unité: jour
+  variations:
+    - si: congé légal >= 2.5 jour
+      alors: 6 jour
+    - sinon: 0 jour

@@ -41,7 +41,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   // avenant du 25 février 2026 (paritarisme), arrêté du 3 juillet 2026, JORF du 11 juillet 2026
   "1431-optique-lunetterie-detail": { "2026.1": "2026-07-11" },
   // avenant n° 33, arrêté du 5 novembre 2024, JORF du 9 novembre 2024 (applicable from 1 December 2024)
-  "1979-hotels-cafes-restaurants": { "2024.2": "2024-11-09", "2026.1": "2026-10-15" },
+  "1979-hotels-cafes-restaurants": { "2024.2": "2024-11-09", "2024.3": "2024-11-09", "2026.1": "2026-10-15", "2026.2": "2026-10-15" },
   // avenant du 21 juillet 2025, arrêté du 17 février 2026, JORF du 24 février 2026
   "3090-spectacle-vivant-prive": { "2025.3": "2026-02-24", "2025.4": "2026-02-24" },
   // The shared building version: each regional grid applies from the publication of its own
@@ -175,7 +175,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   "3236-industrie-services-nautiques": { "2025.1": "2025-07-02", "2025.2": "2025-07-02" },
   "3238-production-transformation-papiers-cartons": { "2026.1": "2026-05-08", "2026.2": "2026-05-08" },
   "3245-operateurs-voyages-guides": { "2025.1": "2025-04-24" },
-  "3248-metallurgie": { "2026.1": "2026-06-05", "2026.2": "2026-06-05", "2026.3": "2026-06-05" },
+  "3248-metallurgie": { "2026.1": "2026-06-05", "2026.2": "2026-06-05", "2026.3": "2026-06-05", "2026.4": "2026-06-05" },
   "3251-bijouterie-joaillerie-horlogerie": { "2025.1": "2025-09-19" },
   "3255-boulangerie-industrielle": { "2026.1": "2026-04-17" },
   "3256-etablissements-soins-veterinaires": { "2026.1": "2026-04-17" },
