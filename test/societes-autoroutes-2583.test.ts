@@ -66,4 +66,16 @@ describe("IDCC 2583 — RAG 2025", () => {
     assert.equal(evaluate(engine, "A"), 22280);
     assert.equal(evaluate(engine, "P"), 74608);
   });
+
+  // Accord of 19 June 2024 (KALITEXT000050298689), article 6: retroactive to 1 January 2024;
+  // extended by the order of 4 September 2024 (JORF of 12 September 2024).
+  it("applies the 2024 grid from 1 January 2024 for a member (revision 2024.2)", async () => {
+    const version = COMPILED_VERSIONS[id]?.find((v) => v.version === "2024.2");
+    assert.equal(version?.validFrom, "2024-01-01");
+    assert.equal(version?.extension, "2024-09-12");
+    const engine = await makeEngine("2024.2");
+    assert.equal(evaluate(engine, "A"), 22280);
+    assert.equal(evaluate(engine, "I"), 36321);
+    assert.equal(evaluate(engine, "P"), 74608);
+  });
 });

@@ -1,0 +1,83 @@
+# Convention collective nationale des sociétés concessionnaires ou exploitantes
+# d'autoroutes ou d'ouvrages routiers du 27 juin 2006 (IDCC 2583, brochure 3336).
+# Version 2024.2 : accord collectif national de branche du 19 juin 2024 relatif
+# aux rémunérations annuelles garanties pour l'année 2024, applicable rétroactivement au
+# 1er janvier 2024 (article 6), étendu par arrêté du 4 septembre 2024 publié au JORF du
+# 12 septembre 2024. Même barème que la 2024.1, datée de l'extension : la 2024.2 lie les
+# adhérents d'une organisation signataire dès le 1er janvier 2024.
+validFrom: 2024-01-01
+extension: 2024-09-12
+sources:
+  - >-
+    Accord collectif national de branche du 19 juin 2024 relatif aux montants des
+    rémunérations annuelles garanties pour l'année 2024 (barème 2023 revalorisé de 3,8 %,
+    article 3 et annexe ; effet rétroactif au 1er janvier 2024, article 6), KALITEXT000050298689.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000050298689
+  - >-
+    Arrêté du 4 septembre 2024 portant extension de l'accord conclu dans le cadre
+    de la convention collective nationale des sociétés concessionnaires ou exploitantes
+    d'autoroutes ou d'ouvrages routiers (n° 2583), JORF du 12 septembre 2024.
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000050203153
+---
+salarié . convention collective . sociétés autoroutes:
+  titre: Sociétés concessionnaires ou exploitantes d'autoroutes ou d'ouvrages routiers (IDCC 2583)
+  valeur: convention collective = 'sociétés autoroutes'
+
+salarié . convention collective . sociétés autoroutes . classe:
+  titre: Classe de classification
+  description: "Classe de rémunération annuelle garantie : A à P."
+  applicable si: convention collective = 'sociétés autoroutes'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . sociétés autoroutes . rémunération annuelle garantie:
+  titre: Rémunération annuelle garantie conventionnelle
+  description: Minimum annuel brut de l'accord 2024, pour un salarié à temps plein. La comparaison reste annuelle.
+  applicable si: convention collective = 'sociétés autoroutes'
+  unité: €/an
+  variations:
+    - si: classe = 'A'
+      alors: 22280 €/an
+    - si: classe = 'B'
+      alors: 22722 €/an
+    - si: classe = 'C'
+      alors: 23649 €/an
+    - si: classe = 'D'
+      alors: 24925 €/an
+    - si: classe = 'E'
+      alors: 26451 €/an
+    - si: classe = 'F'
+      alors: 28270 €/an
+    - si: classe = 'G'
+      alors: 30438 €/an
+    - si: classe = 'H'
+      alors: 33104 €/an
+    - si: classe = 'I'
+      alors: 36321 €/an
+    - si: classe = 'J'
+      alors: 40242 €/an
+    - si: classe = 'K'
+      alors: 44850 €/an
+    - si: classe = 'L'
+      alors: 50997 €/an
+    - si: classe = 'M'
+      alors: 55616 €/an
+    - si: classe = 'N'
+      alors: 61849 €/an
+    - si: classe = 'O'
+      alors: 68230 €/an
+    - si: classe = 'P'
+      alors: 74608 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . sociétés autoroutes . salaire minimum annuel conventionnel:
+  titre: Salaire minimum annuel conventionnel
+  description: Rémunération annuelle garantie proratisée selon la quotité de travail ; aucune conversion mensuelle n'est inventée.
+  applicable si: convention collective = 'sociétés autoroutes'
+  unité: €/an
+  valeur: rémunération annuelle garantie * contrat . temps de travail . quotité
+
+salarié . convention collective . sociétés autoroutes . classe hors grille:
+  titre: Classe absente de la grille
+  description: La classe fournie ne figure pas dans le barème 2024 modélisé.
+  applicable si: convention collective = 'sociétés autoroutes'
+  valeur: rémunération annuelle garantie = 0 €/an

@@ -156,7 +156,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   "2264-hospitalisation-privee": { "2023.1": "2023-02-21", "2023.3": "2023-02-21" },
   "2272-assainissement-maintenance-industrielle": { "2026.1": "2026-05-16", "2026.2": "2026-05-16" },
   "2528-maroquinerie": { "2026.1": "2026-05-08" },
-  "2583-societes-autoroutes": { "2025.1": "2026-01-17" },
+  "2583-societes-autoroutes": { "2024.2": "2024-09-12", "2025.1": "2026-01-17" },
   "2941-aide-soins-domicile": { "2026.1": "2026-07-23" },
   "2972-navigation-personnel-sedentaire": { "2026.1": "2026-07-23" },
   "3017-ports-manutention": { "2024.1": "2024-05-31", "2024.2": "2024-05-31", "2025.1": "2025-10-30", "2026.1": "2026-03-05" },
