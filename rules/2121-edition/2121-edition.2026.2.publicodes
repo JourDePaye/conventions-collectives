@@ -5,6 +5,7 @@
 # Version 2026.1 (validFrom 2026-07-01) is kept unchanged; the grid is identical, so the
 # result is the same after 1 July 2026. Rule names and classification keys are unchanged.
 validFrom: 2026-06-01
+extension: 2026-09-19
 sources:
   - >-
     Avenant n° 18 du 26 juin 2026 relatif aux salaires minima conventionnels au 1er juin 2026,

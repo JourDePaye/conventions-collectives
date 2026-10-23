@@ -7,6 +7,7 @@
 # Version 2026.2 : révision de 2026.1 ; `classe hors grille` utilisait `ou`, qui n'est pas un opérateur
 # publicodes, et déclarait toutes les classes hors grille. Elle teste désormais la grille.
 validFrom: 2026-01-01
+extension: 2026-05-10
 sources:
   - >-
     Accord du 19 février 2026 relatif aux rémunérations minimales annuelles garanties au 1er janvier

@@ -2,6 +2,7 @@
 # Version 2025.2 : même accord du 26 mars 2025 et même date d'effet que 2025.1 ; corrige la prime de panier de nuit
 # (montant par poste fondé sur le SMP horaire, et non 2 882,77 €/mois) et réserve la prime d'ancienneté aux coefficients 140 à 330.
 validFrom: 2025-05-01
+extension: 2025-06-19
 sources:
   - >-
     Accord du 26 mars 2025 relatif aux salaires minima professionnels (SMP) au 1er mai 2025,

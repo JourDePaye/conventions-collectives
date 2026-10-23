@@ -11,6 +11,7 @@
 # Correction de la proratisation de la rémunération minimale annuelle pour les salariés à temps
 # partiel ; la grille reste celle de l'avenant du 17 avril 2024.
 validFrom: 2024-06-01
+extension: 2024-07-06
 sources:
   - >-
     Avenant du 17 avril 2024 relatif aux rémunérations minimales garanties, applicable à compter

@@ -2,6 +2,7 @@
 # Version 2025.1 : accord du 22 mai 2025 relatif aux mesures salariales,
 # valeur du point de 11,88 € à compter du 1er mai 2025.
 validFrom: 2025-05-01
+extension: 2025-10-15
 sources:
   - >-
     Accord du 22 mai 2025 relatif aux mesures salariales, IDCC 1182,

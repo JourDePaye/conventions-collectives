@@ -74,3 +74,39 @@ describe("IDCC 1909 — 2026.2 payroll rubrics", () => {
     assert.equal(evaluate("prévoyance . employeur"), null);
   });
 });
+
+// Accord n° 42 du 21 août 2023 (KALITEXT000048557957), article 11: the base health contribution is
+// shared equally, with no rate; revision 2026.3 no longer sets the 1,40 % of avenant n° 34 (2021).
+describe("IDCC 1909 — 2026.3 without a conventional health rate", async () => {
+  const revision = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.3");
+  assert.ok(revision);
+  // From modele-social alone: `rules` already holds revision 2026.2.
+  const revisionEngine = new Engine(
+    { ...modeleSocial, "salarié . convention collective": rules["salarié . convention collective"], ...(await revision.loadRules()) } as Record<string, Rule>,
+    { logger: { log() {}, warn() {}, error() {} } },
+  );
+  const situation = {
+    "salarié . convention collective": `'${value}'`,
+    [`${namespace} . niveau`]: "'3.3'",
+    [`${namespace} . date de calcul`]: "11/10/2026",
+    "salarié . contrat . temps de travail . quotité": "100%",
+    "salarié . contrat . salaire brut": "5000 €/mois",
+    "salarié . contrat . statut cadre": "non",
+  };
+
+  it("leaves the health contribution to the company's insurance", () => {
+    revisionEngine.setSituation(situation);
+    const withAgreement = revisionEngine.evaluate("salarié . cotisations . prévoyances . santé . employeur").nodeValue;
+    revisionEngine.setSituation({ ...situation, "salarié . convention collective": "'droit commun'" });
+    assert.equal(withAgreement, revisionEngine.evaluate("salarié . cotisations . prévoyances . santé . employeur").nodeValue);
+    assert.equal(Object.keys(revisionEngine.getParsedRules()).some((name) => name.startsWith(`${namespace} . santé`)), false);
+  });
+
+  it("keeps the employer-funded provident scheme of accord n° 41", () => {
+    revisionEngine.setSituation(situation);
+    // Non-cadre: 0,86 % of the salary (tranches 1 and 2), all on the employer.
+    assert.equal(Math.round((revisionEngine.evaluate(`${namespace} . prévoyance . employeur`).nodeValue as number) * 100) / 100, 43);
+    assert.equal(revisionEngine.evaluate(`${namespace} . prévoyance . salarié`).nodeValue, 0);
+  });
+});
+

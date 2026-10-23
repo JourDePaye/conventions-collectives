@@ -3,6 +3,7 @@
 # applicable au 1er juin 2025 et étendu par arrêté du 9 octobre 2025.
 # Replaces 2025.1 (same validFrom), which modelled only one of the eleven lines of the accord.
 validFrom: 2025-06-01
+extension: 2025-10-15
 sources:
   - >-
     Accord du 20 juin 2025 relatif aux rémunérations minimales des personnels (BO 2025-36),

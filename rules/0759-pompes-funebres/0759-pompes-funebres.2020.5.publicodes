@@ -1,6 +1,7 @@
 # Version 2020.5 : révision de 2020.4 ; le niveau I (position 1) a les paliers d'ancienneté du texte
 # (1 550 à l'embauche, 1 800 à 25 ans) au lieu d'un montant fixe. Même date d'effet : remplace 2020.4.
 validFrom: '2020-01-01'
+extension: 2021-02-03
 sources:
   - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635490
   - >-

@@ -1,5 +1,6 @@
 # Version 2025.1 : avenant du 14 janvier 2025, barèmes au 1er janvier 2025 ; mêmes clés.
 validFrom: '2025-01-01'
+extension: 2025-03-29
 sources:
   - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635490
   - >-

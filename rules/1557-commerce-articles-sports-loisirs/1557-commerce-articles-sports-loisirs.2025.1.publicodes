@@ -3,6 +3,7 @@
 # Version 2025.1 : accords du 4 mars 2025 relatifs aux salaires minima,
 # étendus par arrêté du 13 mai 2025, publié au JORF du 24 mai 2025.
 validFrom: 2025-03-01
+extension: 2025-05-24
 sources:
   - >-
     Accord du 4 mars 2025 relatif aux salaires minima conventionnels (grille

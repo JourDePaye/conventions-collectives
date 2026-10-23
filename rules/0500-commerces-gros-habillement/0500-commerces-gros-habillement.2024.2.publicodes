@@ -5,6 +5,7 @@
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 validFrom: 2024-12-01
+extension: 2025-02-14
 sources:
   - >-
     Avenant n° 56 A du 26 novembre 2024 relatif aux salaires minima mensuels, texte KALI

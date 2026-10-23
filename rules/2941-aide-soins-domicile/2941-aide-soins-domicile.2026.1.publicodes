@@ -1,6 +1,7 @@
 # IDCC 2941 — Branche de l'aide, de l'accompagnement, des soins et des services à domicile.
 # Salary grid and common remuneration supplements; see README for coverage.
 validFrom: 2026-06-01
+extension: 2026-07-23
 sources:
   - >-
     Avenant 75/2026 du 24 mars 2026, article 1 (coefficients des deux filières)

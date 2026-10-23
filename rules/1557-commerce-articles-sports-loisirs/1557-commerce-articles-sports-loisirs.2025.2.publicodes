@@ -4,6 +4,7 @@
 # 13 mai 2025 (JORF du 24 mai 2025). Remplace 2025.1, dont la grille générale reprenait par
 # erreur celle de l'accord du 9 février 2024 ; la grille ouvriers est inchangée.
 validFrom: 2025-03-01
+extension: 2025-05-24
 sources:
   - >-
     Accord du 4 mars 2025 relatif aux salaires minima conventionnels (grille

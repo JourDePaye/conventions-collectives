@@ -3,6 +3,7 @@
 #
 # Version 2026.2 (corrige la date d'effet de la version 2026.1), fusionnée avec modele-social par @jourdepaye/payroll-core.
 validFrom: 2026-01-01
+extension: 2026-07-09
 sources:
   - "Avenant du 16 avril 2026 relatif aux salaires minima garantis 2026 (article 4.2 : « Il prend effet rétroactivement à compter du 1er janvier 2026 »), texte KALI KALITEXT000054872436 https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054872436 : les sous-titres II.D et III.B remplacent les anciens à compter du 1er janvier 2026. Les montants sont identiques à ceux de la version 2026.1, dont seule la date d'effet (9 juillet 2026, date du JORF de l'extension) était erronée."
   - "Avenant du 16 avril 2026 relatif aux salaires minima garantis 2026, sous-titres II.D et III.B, texte KALI KALITEXT000054872436, publié sur Légifrance."

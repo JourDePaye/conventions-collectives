@@ -2,6 +2,7 @@
 # Version 2026.3 : avenant n° 76 du 13 mars 2026 relatif aux rémunérations conventionnelles, au 1er avril 2026.
 # Same grid as 2026.2 : this revision only supersedes 2026.1, whose validFrom (2026-07-06) is later than 2026.2's.
 validFrom: 2026-07-06
+extension: 2026-07-10
 sources:
   - >-
     Avenant n° 76 du 13 mars 2026 relatif aux rémunérations conventionnelles,

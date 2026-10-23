@@ -2,6 +2,7 @@
 # Version 2026.2 : accord du 13 novembre 2025 (articles 1 et 3), minima au 1er janvier 2026.
 # Replaces 2026.1 (same validFrom): adds the article 3 grid for employees with at least 18 months of seniority in groups 1A to 2B.
 validFrom: 2026-01-01
+extension: 2026-02-24
 sources:
   - "Accord du 13 novembre 2025 relatif aux salaires minima conventionnels au 1er janvier 2026, KALITEXT000053721378, étendu par arrêté du 16 février 2026 (JORF du 24 février 2026), entrée en vigueur le 1er janvier 2026 (article 7) : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053721378"
   - "Article 1 (grille de base y = 1 762,45 + 9,36 x points, 20 groupes), KALIARTI000053721382 : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000053721382"

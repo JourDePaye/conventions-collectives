@@ -1,6 +1,7 @@
 # Convention collective nationale de la répartition pharmaceutique (IDCC 1621).
 # Version 2025.1 : grille des rémunérations mensuelles brutes minimales garanties.
 validFrom: 2025-01-01
+extension: 2025-07-05
 sources:
   - >-
     Accord du 22 avril 2025 relatif aux salaires pour l'année 2025, annexe

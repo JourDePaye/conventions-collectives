@@ -11,6 +11,7 @@
 # français comme dans modele-social.
 
 validFrom: 2026-05-01
+extension: 2026-07-10
 sources:
   - "Accord du 16 avril 2026 relatif aux salaires mensuels minima garantis, IDCC 675 (CCN des maisons à succursales de vente au détail d'habillement du 30 juin 1972, KALICONT000005635617), texte KALITEXT000054871910, BO 2026-21 : article 1er (A.1 et B.1 minima mensuels pour un temps complet, A.2 et B.2 primes d'ancienneté par catégorie et tranche de 3, 6, 9, 12, 15 et 20 ans, majoration d'au moins 15 % du forfait jours calculée hors prime d'ancienneté), article 4 (application au 1er mai 2026). https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054871910"
   - "Arrêté du 6 juillet 2026 portant extension de l'accord, JORF du 10 juillet 2026, NOR TRST2616915A : extension sous réserve de l'application des dispositions réglementaires sur le SMIC ; l'article 4 ne s'applique aux employeurs non adhérents qu'au lendemain de la publication (11 juillet 2026) : réserve non modélisée."

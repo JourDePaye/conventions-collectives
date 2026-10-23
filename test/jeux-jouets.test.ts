@@ -49,7 +49,7 @@ describe("IDCC 1607 — 2026.1 minimum salaries", () => {
     assert.equal(version.validFrom, "2026-04-01");
     assert.ok(version.sources.some((source) => source.includes("Avenant n° 100 du 3 mars 2026")));
     assert.ok(version.sources.some((source) => source.includes("Arrêté du 20 mai 2026")));
-    assert.ok(version.sources.some((source) => source.includes("TRST2612716A")));
+    assert.ok(version.sources.some((source) => source.includes("TRST2612672A")));
   });
 
   for (const [coefficient, expected] of Object.entries(GRID)) {

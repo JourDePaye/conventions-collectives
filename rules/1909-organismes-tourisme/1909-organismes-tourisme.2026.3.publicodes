@@ -1,0 +1,155 @@
+# Convention collective nationale des organismes de tourisme du 5 février 1996
+# (IDCC 1909, brochure 3175).
+# Version 2026.3 : remplace 2026.2 (même date d'effet) sans cotisation conventionnelle de frais de
+# santé, dont aucun texte en vigueur ne fixe le taux : la mutuelle de l'entreprise s'applique.
+# Accord n° 48 du 26 janvier 2026 relatif à la valeur du point et régime de prévoyance.
+# L'accord est applicable et prend effet au 1er janvier 2026 ; son extension a été publiée
+# le 17 avril 2026 et le texte est d'application directe à toutes les structures de la branche.
+validFrom: 2026-01-01
+extension: 2026-04-17
+sources:
+  - "Accord n° 48 du 26 janvier 2026 relatif à la valeur du point au 1er janvier 2026, articles 1, 2 et 6, texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054066676"
+  - "Arrêté du 8 avril 2026 portant extension de l'accord n° 48, publié au Journal officiel le 17 avril 2026, JORFTEXT000053907720."
+  - "Accord n° 41 du 30 août 2023 relatif au régime de prévoyance (tableaux de cotisations : non-cadres 0,86 % sur T1 et T2, cadres 1,74 % sur T1 et 2,87 % sur T2 ; article 17, régime financé intégralement par l'employeur), étendu par arrêté du 12 décembre 2023 (JORF du 27 décembre 2023), texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000048558715"
+  - "Avenant n° 34 du 2 novembre 2021 à l'accord du 15 septembre 2015 relatif à la couverture santé (cotisation de base de 1,40 % du PMSS au 1er janvier 2022, hors Alsace-Moselle, part de l'employeur d'au moins 50 %), texte officiel Légifrance : https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000045139544. L'accord n° 42 du 21 août 2023 (KALITEXT000048557957, étendu le 27 décembre 2023) remplace l'article 5.1 a de l'accord de 2015 : la cotisation de base y est répartie par moitiés entre l'entreprise et le salarié, sans taux ; aucun taux n'est donc fixé par un texte en vigueur, et cette version ne modélise plus de cotisation conventionnelle de frais de santé."
+---
+salarié . convention collective . organismes de tourisme:
+  titre: Organismes de tourisme (IDCC 1909)
+  valeur: convention collective = 'organismes de tourisme'
+
+salarié . convention collective . organismes de tourisme . niveau:
+  titre: Niveau de classification
+  description: Niveau 1.1/1.2 à 3.3 de la grille de l'accord n° 48 relatif à la valeur du point.
+  applicable si: convention collective = 'organismes de tourisme'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . organismes de tourisme . date de calcul:
+  titre: Date de calcul
+  description: Date à laquelle le salaire minimum conventionnel est vérifié.
+  applicable si: convention collective = 'organismes de tourisme'
+  par défaut: 01/01/1900
+
+salarié . convention collective . organismes de tourisme . accord applicable:
+  applicable si: convention collective = 'organismes de tourisme'
+  valeur: date de calcul >= 01/01/2026
+
+salarié . convention collective . organismes de tourisme . grille:
+  titre: Salaire minimum mensuel à temps plein
+  description: Salaire minimum mensuel correspondant à l'indice plancher du niveau, pour la valeur du point applicable.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'organismes de tourisme'
+      - accord applicable = oui
+  unité: €/mois
+  variations:
+    - si: niveau = '1.1/1.2'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 1896 €/mois
+          - sinon: 1900.65 €/mois
+    - si: niveau = '1.3'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 1959.20 €/mois
+          - sinon: 1964.01 €/mois
+    - si: niveau = '2.1'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 2085.60 €/mois
+          - sinon: 2090.72 €/mois
+    - si: niveau = '2.2'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 2186.72 €/mois
+          - sinon: 2192.08 €/mois
+    - si: niveau = '2.3'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 2325.76 €/mois
+          - sinon: 2331.46 €/mois
+    - si: niveau = '2.4'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 2741.62 €/mois
+          - sinon: 2748.34 €/mois
+    - si: niveau = '3.1'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 3070.26 €/mois
+          - sinon: 3077.79 €/mois
+    - si: niveau = '3.2'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 3575.86 €/mois
+          - sinon: 3584.63 €/mois
+    - si: niveau = '3.3'
+      alors:
+        variations:
+          - si: date de calcul < 01/07/2026
+            alors: 4271.06 €/mois
+          - sinon: 4281.53 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . organismes de tourisme . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Salaire minimum mensuel du niveau, proratisé selon la quotité de travail.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'organismes de tourisme'
+      - accord applicable = oui
+      - grille > 0 €/mois
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . organismes de tourisme . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima de l'accord n° 48.
+  applicable si: convention collective = 'organismes de tourisme'
+  valeur: grille = 0 €/mois
+
+salarié . convention collective . organismes de tourisme . prévoyance:
+  titre: Prévoyance conventionnelle
+  description: Cotisations du régime de prévoyance conventionnel de base. Pour les non-cadres, le taux employeur est de 0,86 % sur les tranches 1 et 2. Pour les cadres, il est de 1,74 % sur la tranche 1 et 2,87 % sur la tranche 2. Le régime de base est financé par l'employeur ; les garanties et cotisations complémentaires restent contractuelles.
+  applicable si: convention collective = 'organismes de tourisme'
+  somme:
+    - employeur
+    - salarié
+
+salarié . convention collective . organismes de tourisme . prévoyance . employeur:
+  applicable si: convention collective = 'organismes de tourisme'
+  remplace: salarié . cotisations . prévoyances . conventionnelle . employeur
+  variations:
+    - si: contrat . statut cadre = oui
+      alors:
+        barème:
+          assiette: contrat . salaire brut
+          multiplicateur: plafond sécurité sociale
+          tranches:
+            - taux: 1.74%
+              plafond: 1
+            - taux: 2.87%
+              plafond: 4
+    - sinon:
+        barème:
+          assiette: contrat . salaire brut
+          multiplicateur: plafond sécurité sociale
+          tranches:
+            - taux: 0.86%
+              plafond: 1
+            - taux: 0.86%
+              plafond: 4
+
+salarié . convention collective . organismes de tourisme . prévoyance . salarié:
+  applicable si: convention collective = 'organismes de tourisme'
+  remplace: salarié . cotisations . prévoyances . conventionnelle . salarié
+  valeur: 0 €/mois

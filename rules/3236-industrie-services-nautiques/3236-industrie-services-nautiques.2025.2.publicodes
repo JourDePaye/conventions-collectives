@@ -4,6 +4,7 @@
 # applicable au 1er avril 2025. Replaces 2025.1 (same validFrom), which
 # lacked level II.3 and so shifted III.1 to III.3 down by one row.
 validFrom: 2025-04-01
+extension: 2025-07-02
 sources:
   - >-
     Avenant du 16 avril 2025 relatif aux salaires minima mensuels au 1er avril 2025,

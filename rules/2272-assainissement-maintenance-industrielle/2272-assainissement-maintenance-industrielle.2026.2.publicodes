@@ -6,6 +6,7 @@
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 validFrom: 2026-04-01
+extension: 2026-05-16
 sources:
   - Avenant n° 45 du 20 février 2026 relatif à la réévaluation des salaires minima
     conventionnels au 1er avril 2026, article 1 (valeur du point de 4,632 €, partie fixe

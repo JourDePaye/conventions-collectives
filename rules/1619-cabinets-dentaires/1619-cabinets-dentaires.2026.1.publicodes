@@ -12,6 +12,7 @@
 # autres, l'extension ne le rend applicable qu'au lendemain de la publication de l'arrêté
 # d'extension (24 juillet 2026) : cette réserve n'est pas modélisée.
 validFrom: 2026-01-01
+extension: 2026-07-23
 sources:
   - Accord du 12 février 2026 relatif aux salaires minima conventionnels (taux horaires minima
     des emplois qualifiés revalorisés de 1,5 %, pour 35 heures par semaine soit 151,67 heures
