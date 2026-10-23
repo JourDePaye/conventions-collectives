@@ -100,3 +100,46 @@ describe("IDCC 1512 — 2026.4 contractual provident rates", async () => {
   });
 });
 
+
+// Accord du 23 octobre 2024, article 2.3.1: the base is the gross salary subject to social security
+// contributions, variable pay and bonuses included, limited to four ceilings for the non-cadres
+// only; the cadres' T2 is taken up to eight ceilings. PASS 2026: 4 005 €.
+describe("IDCC 1512 — 2026.5 provident base", async () => {
+  const revision = COMPILED_VERSIONS[agreement]?.find((entry) => entry.version === "2026.5");
+  assert.ok(revision);
+  const revisionEngine = new Engine({ ...rules, ...(await revision.loadRules()) }, { logger: { log() {}, warn() {}, error() {} } });
+  const provident = (salary: string, bonus: string, cadre: string, share: string) => {
+    revisionEngine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      "salarié . contrat . salaire brut": salary,
+      "salarié . rémunération . primes . activité . base": bonus,
+      "salarié . contrat . statut cadre": cadre,
+    });
+    return Math.round((revisionEngine.evaluate(`${namespace} . prévoyance . ${share}`).nodeValue as number) * 100000) / 100000;
+  };
+
+  it("replaces 2026.4 from 1 January 2026, extended from 9 June 2026", () => {
+    assert.equal(revision.validFrom, "2026-01-01");
+    assert.equal(revision.extension, "2026-06-09");
+    assert.ok(revision.sources.some((source) => source.includes("JORFTEXT000054219138")));
+  });
+
+  it("includes the bonuses in the base", () => {
+    // 4 000 € and a bonus of 1 000 €: 4 005 × 0.745 % + 995 × 1.125 % = 29.83725 + 11.19375.
+    assert.equal(provident("4000 €/mois", "1000 €/mois", "non", "employeur"), 41.031);
+    assert.equal(provident("4000 €/mois", "1000 €/mois", "non", "salarié"), 41.031);
+  });
+
+  it("limits the non-cadres' base to four ceilings", () => {
+    // 29.83725 + 12 015 × 1.125 %.
+    assert.equal(provident("20000 €/mois", "0 €/mois", "non", "employeur"), 165.006);
+  });
+
+  it("takes the cadres' T2 beyond four ceilings, up to eight", () => {
+    // 4 005 × 1.50 % + 15 995 × 1.13 % = 60.075 + 180.7435.
+    assert.equal(provident("20000 €/mois", "0 €/mois", "oui", "employeur"), 240.8185);
+    assert.equal(provident("20000 €/mois", "0 €/mois", "oui", "salarié"), 180.7435);
+    // 60.075 + 28 035 × 1.13 %: capped at 8 × 4 005 €.
+    assert.equal(provident("40000 €/mois", "0 €/mois", "oui", "employeur"), 376.8705);
+  });
+});
