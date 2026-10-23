@@ -18,7 +18,7 @@ Le coefficient 489 est le premier dont le salaire indiciaire dépasse le SMIC me
 
 ## Limites
 
-- Les textes n’ont pas pu être lus : le PDF de l’avenant n° 361 était inexploitable. La date de l’avenant, la valeur de 3,82 €, la recommandation patronale à 3,93 € et leur statut d’agrément viennent de pages de synthèse concordantes ; l’arrêté d’agrément ou d’extension n’a pas été vérifié, ni l’absence de revalorisation en 2026. À recouper sur Légifrance.
+- L’avenant n° 361 (point à 3,82 € au 1er février 2021) a été lu sur Légifrance (KALITEXT000044201828, agréé par arrêté du 3 août 2021, JORF du 18 août 2021). La recommandation patronale de Nexem du 23 novembre 2022 est agréée par l’arrêté du 21 décembre 2022 (JORF du 24 décembre 2022, JORFTEXT000046794222), qui n’en reproduit pas le contenu : la valeur de 3,93 € et l’indice de base viennent de pages de synthèse de Nexem, sans texte officiel. L’absence de revalorisation en 2026 n’est pas vérifiée.
 - **Valeur du point par défaut.** L’application n’a pas de réglage « adhérent à Nexem » : sauf réglage du package, le minimum est calculé avec 3,82 €, la valeur la plus basse. Un adhérent à Nexem peut donc être contrôlé avec un minimum trop faible.
 - **Indemnité de sujétion spéciale.** La version 2026.1 la modélise à 9,21 % pour les non-cadres ; les périmètres particuliers non identifiables par `modele-social` restent hors modèle.
 - **Planchers Nexem.** La version 2026.1 modélise le plancher de salaire minimum garanti aux indices 403 (sans sujétion d’internat) et 413 (avec).
