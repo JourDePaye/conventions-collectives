@@ -1,6 +1,6 @@
 # Fabrication de l’ameublement — IDCC 1411
 
-Le fichier [2026.1](1411-fabrication-ameublement.2026.1.publicodes) entre en vigueur le 1er juillet 2026. Le fichier [2026.2](1411-fabrication-ameublement.2026.2.publicodes) entre en vigueur le 11 juillet 2026 et ajoute la contribution conventionnelle de formation professionnelle de 0,50 % pour les entreprises d’au moins 10 salariés. La valeur Publicodes est `fabrication ameublement` ; les règles sont sous `salarié . convention collective . fabrication ameublement`.
+Le fichier [2026.1](1411-fabrication-ameublement.2026.1.publicodes) entre en vigueur le 1er juillet 2026. Le fichier [2026.2](1411-fabrication-ameublement.2026.2.publicodes) entre en vigueur le 11 juillet 2026, date de publication de l’arrêté d’extension de l’accord du 30 janvier 2026, et ajoute sa contribution conventionnelle de formation professionnelle de 0,50 % pour les entreprises d’au moins 10 salariés. La valeur Publicodes est `fabrication ameublement` ; les règles sont sous `salarié . convention collective . fabrication ameublement`.
 
 La convention collective nationale de la fabrication de l’ameublement du 14 janvier 1986 (brochure 3155) classe les salariés en agents de production (AP), agents fonctionnels (AF), agents d’encadrement (AE) et cadres (C).
 
@@ -16,14 +16,13 @@ Aucun montant de la grille n’est inférieur au SMIC mensuel de 1 867,02 € en
 
 ## Limites
 
-- Le texte de l’accord n’a pas été lu : les montants viennent de deux pages de synthèse concordantes (juristique.org et convention.fr), les références de l’arrêté de Légifrance. À recouper avec l’accord.
-- Les échelons `AP11`, `AF1` et `AE1` figurent à 1 867,02 €, soit le SMIC de juin 2026 : le texte de l’accord peut donner un montant inférieur, auquel cas le SMIC s’applique de toute façon. Le résultat de l’application est le même tant que le SMIC ne baisse pas.
+- Les 36 montants ont été vérifiés le 22 octobre 2026 sur le texte officiel de l’accord du 28 mai 2026 ([KALITEXT000054887544](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054887544)), qui fixe bien les échelons `AP11`, `AF1` et `AE1` à 1 867,02 €.
+- La contribution de formation est due sur la masse salariale brute de l’année précédente et versée en une fois avant le 28 février : `2026.2` la provisionne chaque mois à 0,50 % de l’assiette des cotisations.
 - L’accord s’applique à compter du 1er juillet 2026 aux employeurs adhérents aux organisations signataires ; pour les autres, l’arrêté ne le rend applicable qu’à compter de sa publication (4 septembre 2026). Cette distinction n’est pas modélisée.
 - Les primes d’ancienneté, majorations, la prévoyance et les autres éléments de la convention ne sont pas modélisés.
 - Les grilles antérieures au 1er juillet 2026 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
 
 ## Références officielles complémentaires
 
-- Article relatif à la contribution conventionnelle de formation professionnelle : [KALIARTI000053768212](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000053768212).
-- Arrêté d’extension publié au Journal officiel le 11 juillet 2026 : [JORFTEXT000051861531](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051861531).
-- Les grilles antérieures au 1er juillet 2026 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
+- Accord du 28 mai 2026 relatif aux salaires minima, étendu par arrêté du 24 août 2026 (JORF du 4 septembre 2026) : [KALITEXT000054887544](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054887544), [JORFTEXT000054794539](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054794539).
+- Accord du 30 janvier 2026 relatif à la contribution additionnelle à la formation professionnelle, étendu par arrêté du 3 juillet 2026 (JORF du 11 juillet 2026) : [KALITEXT000054177285](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054177285), [JORFTEXT000054415773](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054415773).
