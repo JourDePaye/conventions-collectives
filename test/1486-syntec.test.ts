@@ -113,6 +113,7 @@ describe("IDCC 1486 — 2026.4, salary maintenance", async () => {
       base: "salaire de base",
       netCap: true,
       seniorityDuringAbsence: true,
+      separateWorkAccidents: false,
     });
     // ETAM beyond 5 years: 60 days at 100 % then 30 at 80 %.
     assert.deepEqual(maintenance("maladie", 61).periods, [[60, 100], [30, 80]]);

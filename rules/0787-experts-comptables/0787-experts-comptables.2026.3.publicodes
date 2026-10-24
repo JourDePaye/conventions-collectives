@@ -1,0 +1,172 @@
+# Version 2026.2 : la version 2026.1 (mêmes montants, mais une source citant un autre texte, une
+# validation séparée de l'indice 40 et pas de majoration conventionnelle des heures
+# supplémentaires) a été supprimée pendant la beta ; l'indice 40 se déduit du coefficient
+# (annexe B : il est attribué dès l'inscription à l'Ordre ou à la Compagnie) et un coefficient
+# inférieur à 170 autre que 40 est hors grille.
+# Révision 2026.3 : ajoute à la version 2026.2, à date d'effet identique, la garantie de ressources
+# de l'article 7.3 (maladie et accident).
+validFrom: '2026-03-01'
+extension: 2026-02-10
+sources:
+  - "Accord n° 48 du 5 décembre 2025 relatif aux salaires (IDCC 787, étendu par arrêté du 5 février 2026, JORF du 10 février 2026, BO 2025-52), applicable le premier jour du mois civil suivant la publication de l'arrêté d'extension: valeur de base 131,54 € (164 premiers points), valeur hiérarchique 79,85 €, indice 40 : 47 801 € par an: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053576549"
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000053576552
+  - "Annexe A, grille générale des emplois (avenant du 1er juillet 2016), postes de référence des coefficients 170 à 600, auxquels s'ajoutent les points de la grille d'adaptation: https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000033925618"
+  - "Annexe B, classification des membres de l'Ordre et de la Compagnie : indice unique, attribué dès l'inscription: https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000005839623"
+  - "Article 8.2.3.2 de la convention : majoration conventionnelle de 10 % des heures excédant 35 heures, majoration légale (article L. 3121-36 du code du travail) au-delà de 39 heures: https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000029786885"
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635826
+  - >-
+    Article 7.3 de la convention, lu sur Légifrance le 24 octobre 2026 (KALIARTI000005839454) : après un
+    an d'ancienneté dans le cabinet, les indemnités journalières sont complétées à partir du quatrième
+    jour calendaire d'absence jusqu'au salaire net qu'aurait perçu le salarié ; durée des arrêts
+    indemnisés, délais de carence compris, de 30 jours calendaires par maladie ou accident du travail et
+    30 jours au plus sur une année civile (prise ici comme 27 jours indemnisés par année civile) :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005839454
+---
+salarié . convention collective . experts-comptables:
+  titre: Cabinets d'experts-comptables et de commissaires aux comptes (IDCC 787)
+  valeur: convention collective = 'experts-comptables'
+
+salarié . convention collective . experts-comptables . coefficient:
+  titre: Coefficient ou indice de classification
+  description: |
+    Coefficient de la grille générale des emplois (annexe A : poste de référence de 170 à 600,
+    augmenté des points de la grille d'adaptation), ou indice 40 des salariés inscrits à l'Ordre des
+    experts-comptables ou à la Compagnie des commissaires aux comptes (annexe B). Saisir la valeur
+    réellement attribuée par l'employeur ; le modèle ne déduit pas la classification de l'intitulé
+    du poste.
+  applicable si: convention collective = 'experts-comptables'
+  par défaut: 0
+  plancher: 0
+
+salarié . convention collective . experts-comptables . coefficient hors grille:
+  titre: Coefficient hors grille
+  description: Ni l'indice 40, ni un coefficient de la grille générale (170 et plus).
+  applicable si: convention collective = 'experts-comptables'
+  toutes ces conditions:
+    - coefficient != 40
+    - coefficient < 170
+
+salarié . convention collective . experts-comptables . valeur du point:
+  applicable si: convention collective = 'experts-comptables'
+  unité: €/point
+  valeur: 131.54 €/point
+
+salarié . convention collective . experts-comptables . valeur du point au-delà de 164:
+  applicable si: convention collective = 'experts-comptables'
+  unité: €/point
+  valeur: 79.85 €/point
+
+salarié . convention collective . experts-comptables . minimum annuel:
+  titre: Salaire minimum conventionnel annuel
+  description: |
+    Minimum annuel brut à temps plein : les 164 premiers points valorisés à la valeur de base, les
+    points au-delà à la valeur hiérarchique ; l'indice 40 a son propre minimum annuel.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'experts-comptables'
+      - coefficient hors grille = non
+  unité: €/an
+  variations:
+    - si: coefficient = 40
+      alors: 47801 €/an
+    - si: coefficient <= 164
+      alors: coefficient * valeur du point
+    - sinon: 164 * valeur du point + (coefficient - 164) * valeur du point au-delà de 164
+
+salarié . convention collective . experts-comptables . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel mensuel équivalent
+  description: Équivalent mensuel du minimum annuel, proratisé selon la quotité de travail ; le contrôle conventionnel demeure annuel.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'experts-comptables'
+      - coefficient hors grille = non
+  unité: €/mois
+  valeur: minimum annuel * contrat . temps de travail . quotité
+
+salarié . convention collective . experts-comptables . majoration heures supplémentaires:
+  titre: Majoration des heures supplémentaires
+  description: |
+    10 % pour les heures de la 36e à la 39e, puis la majoration légale : 25 % jusqu'à la 43e
+    heure, 50 % au-delà (article 8.2.3.2 de la convention, article L. 3121-36 du code du travail).
+  applicable si: convention collective = 'experts-comptables'
+  remplace: salarié . temps de travail . heures supplémentaires . majoration
+  unité: heure/mois
+  barème:
+    assiette: salarié . temps de travail . heures supplémentaires
+    multiplicateur: période . semaines par mois
+    tranches:
+      - taux: 10%
+        plafond: 4 heure/semaine
+      - taux: 25%
+        plafond: 8 heure/semaine
+      - taux: 50%
+
+salarié . convention collective . experts-comptables . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (article 7.3). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'experts-comptables'
+
+salarié . convention collective . experts-comptables . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . experts-comptables . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . experts-comptables . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . experts-comptables . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . experts-comptables . maintien de salaire . éligible:
+  titre: Droit au maintien
+  valeur:
+    toutes ces conditions:
+      - ancienneté >= 12 mois
+      - une de ces conditions:
+            - motif = 'maladie'
+            - motif = 'accident du travail'
+            - motif = 'accident de trajet'
+
+salarié . convention collective . experts-comptables . maintien de salaire . ancienneté en cours d'absence:
+  valeur: non
+
+salarié . convention collective . experts-comptables . maintien de salaire . carence:
+  unité: jour
+  valeur: 3 jour
+
+salarié . convention collective . experts-comptables . maintien de salaire . première période . durée:
+  description: 30 jours calendaires, les 3 jours de carence compris.
+  unité: jour
+  valeur: 27 jour
+
+salarié . convention collective . experts-comptables . maintien de salaire . première période . taux:
+  unité: '%'
+  valeur: 100%
+
+salarié . convention collective . experts-comptables . maintien de salaire . seconde période . durée:
+  unité: jour
+  valeur: 0 jour
+
+salarié . convention collective . experts-comptables . maintien de salaire . seconde période . taux:
+  unité: '%'
+  valeur: 0%
+
+salarié . convention collective . experts-comptables . maintien de salaire . fenêtre:
+  valeur: "'année civile'"
+
+salarié . convention collective . experts-comptables . maintien de salaire . base:
+  valeur: "'net'"
+
+salarié . convention collective . experts-comptables . maintien de salaire . plafond net:
+  valeur: non

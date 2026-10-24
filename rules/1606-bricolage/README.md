@@ -34,3 +34,7 @@ Les primes, indemnités, ancienneté, intéressement, épargne salariale et disp
 
 - Accord du 31 mars 2025 relatif aux salaires minima conventionnels, Légifrance, KALITEXT000051909640 (application conventionnelle au 1er mai 2025).
 - Arrêté d’extension du 2 juin 2025, Journal officiel du 10 juin 2025, Légifrance.
+
+## Maintien de salaire
+
+La révision 2025.3 ajoute le maintien de salaire conventionnel (articles 7.1 et 7.2, annexes agents de maîtrise et cadres) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. La reconduction des droits après 3 mois de reprise n’est pas reprise ; la catégorie se déduit du coefficient (accord du 31 mars 2025).

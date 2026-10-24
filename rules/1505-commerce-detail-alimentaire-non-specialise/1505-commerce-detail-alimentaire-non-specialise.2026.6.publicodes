@@ -1,0 +1,382 @@
+# Convention collective nationale du commerce de détail alimentaire non spécialisé
+# (IDCC 1505, brochure 3244), anciennement commerce de détail de fruits et légumes, épicerie
+# et produits laitiers.
+#
+# Version 2026.5, audit paie du 12 octobre 2026 ; fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Révision 2026.6 : ajoute à la version 2026.5, à date d'effet identique, l'indemnisation de la
+# maladie et de l'accident des articles 40.1 et 40.2.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2026-08-01
+sources:
+  - Accord du 10 février 2026 relatif à la grille des minima salariaux (article 1, salaires
+    horaires et mensuels des niveaux E1 à E7, AM1, AM2, C1 et C2, et article 2, salaires
+    annuels minima des cadres pour 217 jours de travail par an), applicable le premier jour du
+    mois qui suit la publication de l'arrêté d'extension (article 6), soit le 1er août 2026,
+    étendu par arrêté du 6 juillet 2026 (JORF n° 0160 du 10 juillet 2026, texte n° 118, NOR
+    TRST2616917A) sous réserve de l'application des dispositions légales relatives au SMIC.
+    Texte de l'accord consulté directement (exemplaire publié par juristique.org). Il se
+    substitue à l'accord du 12 février 2025.
+  - >-
+    Avenant n° 125 du 5 juillet 2017 au régime de frais de soins de santé : régime de base
+    obligatoire à 1,51 % du plafond mensuel de sécurité sociale, financé à parts égales. Texte
+    officiel KALITEXT000035993653.
+  - >-
+    Accord du 19 mai 2021 relatif au régime complémentaire de prévoyance, avenant n° 1 du
+    11 décembre 2022 (taux depuis le 1er janvier 2023) et avenant n° 2 du 25 juin 2024 :
+    non-cadres 1,03 % employeur et 0,33 % salarié, cadres 2,25 % employeur et 0,10 % salarié
+    sur T1 puis 0,62 % employeur et 1,03 % salarié sur T2, jusqu'à quatre PMSS. Textes officiels
+    KALIARTI000044085557, KALIARTI000047582986 et KALIARTI000050329344.
+  - >-
+    Articles 40.1 (maladie) et 40.2 (accidents du travail et de trajet) de la convention du 12 janvier
+    2021, lus sur Légifrance le 24 octobre 2026 (KALIARTI000043562827, KALIARTI000043562828) : maladie
+    après un an, 90 % puis 66,66 %, 30 et 30 jours à partir du 8e jour (1 an), 40 et 30 à partir du 8e
+    (3 ans), 50 et 40 à partir du 6e (5 ans), 60 et 50 à partir du 3e (10 ans), 70 et 60 (15 ans), 80 et
+    70 (20 ans), 90 et 90 (25 ans) à partir du 3e jour (la levée en cas d'hospitalisation n'est pas
+    reprise) ; accidents dès le premier jour, sans ancienneté, 90 % puis 66 %, 40 et 30 jours (0 à 3
+    ans), 50 et 40 (plus de 3), 60 et 50 (plus de 5), 70 et 60 (plus de 10), 80 et 70 (plus de 15), 90 et
+    80 (plus de 20), 100 et 90 (plus de 25) ; 12 mois précédents décomptés ; rémunération brute moyenne
+    des 3 derniers mois (prise comme le brut qu'aurait perçu le salarié) ; sous déduction des allocations
+    brutes ; au plus le net : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000043562827
+---
+salarié . convention collective . commerce de détail alimentaire non spécialisé:
+  titre: Commerce de détail alimentaire non spécialisé (IDCC 1505)
+  valeur: convention collective = 'commerce de détail alimentaire non spécialisé'
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . niveau:
+  titre: Niveau de classification
+  description: |
+    E1 à E7 pour les employés, AM1 et AM2 pour les agents de maîtrise, C1 et C2 pour les
+    cadres.
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire mensuel minimum du niveau pour 35 heures par semaine (151,67 heures par mois),
+    proratisé pour un temps partiel. Vaut 0 €/mois si le niveau n'existe pas dans la grille
+    (voir « niveau hors grille »). Pour les cadres au forfait jours, le minimum annuel est
+    donné par « salaire minimum annuel forfait jours ».
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Colonne « salaire mensuel » de l'article 1 de l'accord. Elle diffère d'au plus 0,11 € du
+    taux horaire de l'accord multiplié par 151,67 heures : le salaire mensuel est retenu.
+  unité: €/mois
+  variations:
+    - si: niveau = 'E1'
+      alors: 1851.55 €/mois
+    - si: niveau = 'E2'
+      alors: 1862.45 €/mois
+    - si: niveau = 'E3'
+      alors: 1864.44 €/mois
+    - si: niveau = 'E4'
+      alors: 1903.28 €/mois
+    - si: niveau = 'E5'
+      alors: 1916.48 €/mois
+    - si: niveau = 'E6'
+      alors: 1962.37 €/mois
+    - si: niveau = 'E7'
+      alors: 1977.26 €/mois
+    - si: niveau = 'AM1'
+      alors: 2459.37 €/mois
+    - si: niveau = 'AM2'
+      alors: 2501.27 €/mois
+    - si: niveau = 'C1'
+      alors: 3058.90 €/mois
+    - si: niveau = 'C2'
+      alors: 3388.60 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un niveau inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . mois dans le niveau:
+  titre: Ancienneté dans le niveau, en mois
+  description: |
+    Nombre de mois passés dans le niveau, pour le minimum annuel des cadres au forfait jours.
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . salaire minimum annuel forfait jours:
+  titre: Salaire minimum annuel garanti des cadres au forfait jours
+  description: |
+    Salaire annuel minimum garanti des niveaux C1 et C2 pour 217 jours de travail par an,
+    journée de solidarité incluse (article 2 de l'accord). Le montant des 36 premiers mois en
+    forfait jours dans le niveau s'applique jusqu'à 36 mois, celui d'après 36 mois dans le
+    niveau au-delà. Vaut 0 €/an pour les autres niveaux.
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  unité: €/an
+  variations:
+    - si: niveau = 'C1'
+      alors:
+        variations:
+          - si: mois dans le niveau > 36 mois
+            alors: 39320 €/an
+          - sinon: 38176 €/an
+    - si: niveau = 'C2'
+      alors:
+        variations:
+          - si: mois dans le niveau > 36 mois
+            alors: 43348 €/an
+          - sinon: 42085 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . santé:
+  titre: Complémentaire santé conventionnelle
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  somme:
+    - employeur
+    - salarié
+  avec:
+    employeur:
+      remplace: salarié . cotisations . prévoyances . santé . employeur
+      valeur: plafond sécurité sociale * 1.51% * 50%
+    salarié:
+      remplace: salarié . cotisations . prévoyances . santé . salarié
+      valeur: plafond sécurité sociale * 1.51% * 50%
+  description: >-
+    Régime de base obligatoire de frais de soins de santé : cotisation de 1,51 % du plafond
+    mensuel de la sécurité sociale, répartie à parts égales entre employeur et salarié. Les
+    options, ayants droit, dispenses, portabilité et gratuités liées aux situations particulières
+    restent gérés par le contrat et les entrées de paie.
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . prévoyance:
+  titre: Prévoyance conventionnelle
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  somme:
+    - employeur
+    - salarié
+  description: >-
+    Cotisations du régime conventionnel de prévoyance sur le salaire brut, limité aux tranches
+    T1 et T2 jusqu'à quatre plafonds de sécurité sociale. Les garanties, dispenses, maintien et
+    portabilité restent gérés par le contrat et les entrées de paie.
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . prévoyance . employeur:
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  remplace: salarié . cotisations . prévoyances . conventionnelle . employeur
+  variations:
+    - si: contrat . statut cadre = oui
+      alors: prévoyance cadre . employeur
+    - sinon: prévoyance non cadre . employeur
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . prévoyance . salarié:
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  remplace: salarié . cotisations . prévoyances . conventionnelle . salarié
+  variations:
+    - si: contrat . statut cadre = oui
+      alors: prévoyance cadre . salarié
+    - sinon: prévoyance non cadre . salarié
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . prévoyance non cadre:
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  somme:
+    - employeur
+    - salarié
+  avec:
+    employeur:
+      barème:
+        assiette: contrat . salaire brut
+        multiplicateur: plafond sécurité sociale
+        tranches:
+          - taux: 1.03%
+            plafond: 4
+    salarié:
+      barème:
+        assiette: contrat . salaire brut
+        multiplicateur: plafond sécurité sociale
+        tranches:
+          - taux: 0.33%
+            plafond: 4
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . prévoyance cadre:
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+  somme:
+    - employeur
+    - salarié
+  avec:
+    employeur:
+      barème:
+        assiette: contrat . salaire brut
+        multiplicateur: plafond sécurité sociale
+        tranches:
+          - taux: 2.25%
+            plafond: 1
+          - taux: 0.62%
+            plafond: 4
+    salarié:
+      barème:
+        assiette: contrat . salaire brut
+        multiplicateur: plafond sécurité sociale
+        tranches:
+          - taux: 0.10%
+            plafond: 1
+          - taux: 1.03%
+            plafond: 4
+
+# Sources : accord du 19 mai 2021 relatif à la prévoyance complémentaire, avenant n° 1
+# du 11 décembre 2022 (taux applicables depuis le 1er janvier 2023), et avenant n° 2 du
+# 25 juin 2024 (catégories objectives). Le régime santé est issu de l'avenant n° 125 du
+# 5 juillet 2017 au régime de frais de soins de santé.
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (articles 40.1 et 40.2). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'commerce de détail alimentaire non spécialisé'
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . accident:
+  valeur:
+    une de ces conditions:
+      - motif = 'accident du travail'
+      - motif = 'accident de trajet'
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . éligible:
+  titre: Droit au maintien
+  variations:
+    - si: accident
+      alors: oui
+    - si: motif = 'maladie'
+      alors: ancienneté >= 12 mois
+    - sinon: non
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . ancienneté en cours d'absence:
+  valeur: non
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . carence:
+  unité: jour
+  variations:
+    - si: accident
+      alors: 0 jour
+    - si: ancienneté >= 120 mois
+      alors: 2 jour
+    - si: ancienneté >= 60 mois
+      alors: 5 jour
+    - sinon: 7 jour
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . première période . durée:
+  unité: jour
+  variations:
+    - si: accident
+      alors:
+        variations:
+          - si: ancienneté > 300 mois
+            alors: 100 jour
+          - si: ancienneté > 240 mois
+            alors: 90 jour
+          - si: ancienneté > 180 mois
+            alors: 80 jour
+          - si: ancienneté > 120 mois
+            alors: 70 jour
+          - si: ancienneté > 60 mois
+            alors: 60 jour
+          - si: ancienneté > 36 mois
+            alors: 50 jour
+          - sinon: 40 jour
+    - sinon:
+        variations:
+          - si: ancienneté >= 300 mois
+            alors: 90 jour
+          - si: ancienneté >= 240 mois
+            alors: 80 jour
+          - si: ancienneté >= 180 mois
+            alors: 70 jour
+          - si: ancienneté >= 120 mois
+            alors: 60 jour
+          - si: ancienneté >= 60 mois
+            alors: 50 jour
+          - si: ancienneté >= 36 mois
+            alors: 40 jour
+          - sinon: 30 jour
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . première période . taux:
+  unité: '%'
+  valeur: 90%
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . seconde période . durée:
+  unité: jour
+  variations:
+    - si: accident
+      alors:
+        variations:
+          - si: ancienneté > 300 mois
+            alors: 90 jour
+          - si: ancienneté > 240 mois
+            alors: 80 jour
+          - si: ancienneté > 180 mois
+            alors: 70 jour
+          - si: ancienneté > 120 mois
+            alors: 60 jour
+          - si: ancienneté > 60 mois
+            alors: 50 jour
+          - si: ancienneté > 36 mois
+            alors: 40 jour
+          - sinon: 30 jour
+    - sinon:
+        variations:
+          - si: ancienneté >= 300 mois
+            alors: 90 jour
+          - si: ancienneté >= 240 mois
+            alors: 70 jour
+          - si: ancienneté >= 180 mois
+            alors: 60 jour
+          - si: ancienneté >= 120 mois
+            alors: 50 jour
+          - si: ancienneté >= 60 mois
+            alors: 40 jour
+          - sinon: 30 jour
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . seconde période . taux:
+  unité: '%'
+  variations:
+    - si: accident
+      alors: 66%
+    - sinon: 66.66%
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . fenêtre:
+  valeur: "'douze mois'"
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . base:
+  valeur: "'brut'"
+
+salarié . convention collective . commerce de détail alimentaire non spécialisé . maintien de salaire . plafond net:
+  valeur: oui

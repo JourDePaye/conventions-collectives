@@ -1,0 +1,397 @@
+# Version 2026.4 : remplace 2026.3 (même validFrom) sous sa propre valeur de convention,
+# « branche du sport », à utiliser à la place de la convention « sport » de modele-social. Mêmes
+# grilles, prime d'ancienneté, prévoyance et santé ; la contribution au financement du paritarisme
+# et les contributions conventionnelles à la formation professionnelle sont calculées au lieu
+# d'être saisies.
+# Révision 2026.5 : ajoute à la version 2026.4, à date d'effet identique, le maintien de salaire de
+# l'article 4.3 (maladie et accident du travail).
+validFrom: 2026-01-01
+sources:
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051927561
+  - https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000051832714
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000047394518
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000017577826
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000050332501
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000050828767
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051947639
+  - https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052001622
+  - https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000039432383
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053401858
+  - https://code.travail.gouv.fr/contribution/2511-quand-le-salarie-a-t-il-droit-a-une-prime-danciennete-quel-est-son-montant
+  - https://www.urssaf.fr/accueil/employeur/cotisations/base-forfaitaire-franchise-cotis/association-sportive.html
+  - >-
+    Article 9.2.3 de la convention (KALIARTI000047394518) : prime de 1 % du SMC du groupe 3 par
+    période de 24 mois de travail effectif depuis l'extension de la convention (arrêté du
+    21 novembre 2006) ou depuis l'embauche si elle est postérieure, plus 5 % pour le groupe 1 après
+    3 ans d'ancienneté dans l'entreprise, dans la limite de 15 % ; versée au prorata du temps de
+    travail, sur une ligne séparée du bulletin. Version 2026.2 : remplace 2026.1 (même validFrom),
+    qui demandait de saisir les périodes de 24 mois ; elles se déduisent ici de l'ancienneté dans
+    l'entreprise en années complètes, sans décompter les absences qui ne sont pas du travail
+    effectif. Version 2026.3 : remplace 2026.2 (même validFrom), avec les mêmes montants ; les
+    règles de modele-social propres au sport (prévoyance, exonération AT, assiette forfaitaire,
+    formation professionnelle) ne sont plus redéfinies mais remplacées ou rendues non applicables.
+  - "Chapitre II, article 2.3.2 (financement du FADP) dans la rédaction de l'avenant n° 214 du 23 septembre 2025 (étendu par arrêté du 6 février 2026, JORF du 12 février 2026) : cotisation annuelle des employeurs de 0,09 % de la masse salariale brute, versement minimum de 3 €, appliquée à la collecte de 2027 sur la masse salariale de 2026 ; 0,08 % auparavant (avenant n° 180 du 14 avril 2023): https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053401858"
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000017577660
+  - "Chapitre VIII, article 8.6.2 : contribution supplémentaire conventionnelle à la formation professionnelle, 1,05 % de la masse salariale brute sous 10 salariés (versement minimum de 30 €), 0,20 % de 10 à moins de 50, 0,15 % de 50 à moins de 300, 0,10 % à partir de 300 ; contribution de 0,02 % pour la formation des dirigeants bénévoles, minimum de 2 € sous 10 salariés et de 10 € au-delà, maximum de 5 000 €: https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000039432397"
+  - >-
+    Article 4.3 de la convention, dans sa rédaction issue de l'avenant n° 44 du 7 juillet 2010, lu sur
+    Légifrance le 24 octobre 2026 (KALIARTI000023446884) : maladie après un an d'ancienneté, maintien du
+    salaire net (avantages en nature exclus) à compter du 4e jour d'arrêt et jusqu'au 90e jour, 87 jours
+    au total sur les 12 mois précédant le premier jour de l'arrêt, les absences pour maladie et accident
+    du travail étant cumulées ; accident du travail et maladie professionnelle, sans condition
+    d'ancienneté, 180 jours ; l'accident de trajet suit la maladie : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000023446884
+---
+salarié . convention collective . branche du sport:
+  titre: Sport (IDCC 2511)
+  valeur: convention collective = 'branche du sport'
+
+salarié . convention collective . branche du sport . groupe:
+  applicable si: convention collective = 'branche du sport'
+  par défaut: "'non renseigné'"
+salarié . convention collective . branche du sport . minimum mensuel:
+  applicable si: convention collective = 'branche du sport'
+  unité: €/mois
+  variations:
+    - si: groupe = '1'
+      alors: 1848.42 €/mois
+    - si: groupe = '2'
+      alors: 1885.14 €/mois
+    - si: groupe = '3'
+      alors: 1997.87 €/mois
+    - si: groupe = '4'
+      alors: 2099.37 €/mois
+    - si: groupe = '5'
+      alors: 2333.99 €/mois
+    - si: groupe = '6'
+      alors: 2865.97 €/mois
+    - sinon: 0 €/mois
+salarié . convention collective . branche du sport . salaire minimum conventionnel:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'branche du sport'
+      - salarié relevant du chapitre XII = non
+      - groupe != '7'
+      - groupe != '8'
+  unité: €/mois
+  valeur: minimum mensuel * contrat . temps de travail . quotité * multiplicateur temps partiel
+salarié . convention collective . branche du sport . ancienneté dans l'entreprise:
+  titre: Ancienneté dans l'entreprise
+  description: Années complètes de présence dans l'entreprise.
+  applicable si: convention collective = 'branche du sport'
+  unité: an
+  par défaut: 0 an
+salarié . convention collective . branche du sport . années complètes depuis l'extension:
+  titre: Années complètes depuis l'extension de la convention
+  description: |
+    Les périodes de 24 mois se comptent depuis l'extension de la convention (arrêté du 21 novembre
+    2006), ou depuis l'embauche lorsqu'elle est postérieure (article 9.2.3.1).
+  applicable si: convention collective = 'branche du sport'
+  unité: an
+  arrondi: 0 décimales
+  valeur:
+    durée:
+      depuis: 21/11/2006
+      jusqu'à: date
+  abattement: 0.5 an
+salarié . convention collective . branche du sport . périodes de 24 mois d'ancienneté:
+  titre: Périodes complètes de 24 mois
+  description: Nombre de périodes complètes de 24 mois depuis l'embauche ou l'extension de la convention.
+  applicable si: convention collective = 'branche du sport'
+  arrondi: 0 décimales
+  valeur: (ancienneté retenue / 1 an - 1) / 2
+  plancher: 0
+salarié . convention collective . branche du sport . ancienneté retenue:
+  titre: Ancienneté retenue pour la prime
+  applicable si: convention collective = 'branche du sport'
+  unité: an
+  valeur: ancienneté dans l'entreprise
+  plafond: années complètes depuis l'extension
+salarié . convention collective . branche du sport . ancienneté groupe 1 au moins 3 ans:
+  titre: Au moins 3 ans d'ancienneté dans l'entreprise
+  applicable si: convention collective = 'branche du sport'
+  valeur: ancienneté dans l'entreprise >= 3 an
+salarié . convention collective . branche du sport . taux supplémentaire groupe 1:
+  applicable si: convention collective = 'branche du sport'
+  variations:
+    - si:
+        toutes ces conditions:
+          - groupe = '1'
+          - ancienneté groupe 1 au moins 3 ans
+      alors: 5%
+    - sinon: 0%
+salarié . convention collective . branche du sport . prime d'ancienneté:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'branche du sport'
+      - salarié relevant du chapitre XII = non
+  unité: €/mois
+  valeur: taux d'ancienneté * 1997.87 €/mois * contrat . temps de travail . quotité
+
+salarié . convention collective . branche du sport . salaire minimum annuel conventionnel:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'branche du sport'
+      - salarié relevant du chapitre XII = non
+      - une de ces conditions:
+          - groupe = '7'
+          - groupe = '8'
+  unité: €/an
+  produit:
+    - variations:
+        - si: groupe = '7'
+          alors: 40597.94 €/an
+        - sinon: 46833.81 €/an
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . branche du sport . multiplicateur temps partiel:
+  applicable si: convention collective = 'branche du sport'
+  variations:
+    - si:
+        toutes ces conditions:
+          - contrat . temps de travail . temps partiel
+          - contrat . temps de travail . temps partiel . heures par semaine <= 10 heure/semaine
+      alors: 1.05
+    - si:
+        toutes ces conditions:
+          - contrat . temps de travail . temps partiel
+          - contrat . temps de travail . temps partiel . heures par semaine < 24 heure/semaine
+      alors: 1.02
+    - sinon: 1
+salarié . convention collective . branche du sport . taux d'ancienneté:
+  applicable si: convention collective = 'branche du sport'
+  variations:
+    - si:
+        une de ces conditions:
+          - groupe = '7'
+          - groupe = '8'
+          - groupe hors grille
+      alors: 0
+    - sinon:
+        valeur: périodes de 24 mois d'ancienneté * 0.01 + taux supplémentaire groupe 1 / 100%
+        plafond: 0.15
+        plancher: 0
+
+salarié . convention collective . branche du sport . prévoyance 2025:
+  applicable si: convention collective = 'branche du sport'
+  valeur: oui
+salarié . convention collective . branche du sport . prévoyance 2025 . part:
+  variations:
+    - si:
+        une de ces conditions:
+          - contrat . statut cadre
+          - salarié relevant du chapitre XII
+      alors: 0 €/mois
+    - sinon:
+        produit:
+          - valeur: cotisations . assiette
+            plafond: 4 * temps de travail . plafond sécurité sociale
+          - 0.485%
+salarié . convention collective . branche du sport . prévoyance 2025 . part employeur:
+  remplace: salarié . cotisations . prévoyances . conventionnelle . employeur
+  valeur: part
+salarié . convention collective . branche du sport . prévoyance 2025 . part salarié:
+  remplace: salarié . cotisations . prévoyances . conventionnelle . salarié
+  valeur: part
+salarié . convention collective . branche du sport . santé 2025:
+  applicable si: convention collective = 'branche du sport'
+  valeur: oui
+salarié . convention collective . branche du sport . santé 2025 . montant:
+  remplace: salarié . cotisations . prévoyances . santé . montant
+  produit:
+    - plafond sécurité sociale
+    - taux
+salarié . convention collective . branche du sport . santé 2025 . taux:
+  valeur: montant contractuel / plafond sécurité sociale * 100%
+salarié . convention collective . branche du sport . santé 2025 . montant contractuel:
+  description: Montant total du contrat frais de santé. Saisir zéro uniquement en cas de dispense validée. Les tarifs conventionnels sont indicatifs.
+  par défaut: plafond sécurité sociale * taux conventionnel
+  plancher: 0 €/mois
+salarié . convention collective . branche du sport . santé 2025 . taux conventionnel:
+  variations:
+    - si: régimes spécifiques . alsace moselle
+      alors: 0.61%
+    - sinon: 0.96%
+salarié . convention collective . branche du sport . santé 2025 . salarié:
+  remplace: salarié . cotisations . prévoyances . santé . salarié
+  valeur: cotisations . prévoyances . santé . montant * (1 - cotisations . prévoyances . santé . taux employeur / 100%)
+
+salarié . convention collective . branche du sport . salarié relevant du chapitre XII:
+  applicable si: convention collective = 'branche du sport'
+  description: Sportif ou entraîneur professionnel relevant du chapitre XII. Les minima et protections propres à ce chapitre ne sont pas couverts.
+  par défaut: non
+salarié . convention collective . branche du sport . groupe hors grille:
+  applicable si: convention collective = 'branche du sport'
+  toutes ces conditions:
+    - groupe != '1'
+    - groupe != '2'
+    - groupe != '3'
+    - groupe != '4'
+    - groupe != '5'
+    - groupe != '6'
+    - groupe != '7'
+    - groupe != '8'
+
+salarié . convention collective . branche du sport . masse salariale:
+  titre: Masse salariale brute du salarié
+  description: "Assiette des contributions de la branche, celle de la contribution à la formation professionnelle continue (article 8.6.1) : la base des cotisations de sécurité sociale."
+  applicable si: convention collective = 'branche du sport'
+  unité: €/mois
+  valeur: cotisations . assiette
+
+salarié . convention collective . branche du sport . financement du paritarisme:
+  titre: Contribution au financement du paritarisme (FADP)
+  description: |
+    Cotisation annuelle de l'employeur de 0,09 % de la masse salariale brute, avec un versement
+    minimum de 3 € par entreprise (article 2.3.2, avenant n° 214 : masse salariale de 2026). Le
+    minimum est réparti également entre les salariés et les mois de l'année : le montant mensuel
+    est une provision.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'branche du sport'
+      - entreprise . salariés . effectif > 0
+  unité: €/mois
+  valeur:
+    produit:
+      - masse salariale
+      - 0.09%
+    plancher: 3 €.employé/an / entreprise . salariés . effectif
+
+salarié . convention collective . branche du sport . formation professionnelle conventionnelle:
+  titre: Contribution conventionnelle à la formation professionnelle
+  description: |
+    Contribution supplémentaire de l'employeur selon l'effectif (article 8.6.2) : 1,05 % de la
+    masse salariale brute sous 10 salariés, avec un versement minimum de 30 € par entreprise
+    réparti entre ses salariés et les mois de l'année, 0,20 % de 10 à moins de 50 salariés,
+    0,15 % de 50 à moins de 300 et 0,10 % à partir de 300.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'branche du sport'
+      - entreprise . salariés . effectif > 0
+  unité: €/mois
+  variations:
+    - si: entreprise . salariés . effectif < 10
+      alors:
+        valeur:
+          produit:
+            - masse salariale
+            - 1.05%
+        plancher: 30 €.employé/an / entreprise . salariés . effectif
+    - si: entreprise . salariés . effectif < 50
+      alors:
+        produit:
+          - masse salariale
+          - 0.20%
+    - si: entreprise . salariés . effectif < 300
+      alors:
+        produit:
+          - masse salariale
+          - 0.15%
+    - sinon:
+        produit:
+          - masse salariale
+          - 0.10%
+
+salarié . convention collective . branche du sport . formation des dirigeants bénévoles:
+  titre: Contribution à la formation des dirigeants bénévoles
+  description: |
+    Contribution de l'employeur de 0,02 % de la masse salariale brute (article 8.6.2), avec un
+    minimum de 2 € sous 10 salariés et de 10 € au-delà, et un maximum de 5 000 € par entreprise,
+    répartis entre ses salariés et les mois de l'année.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'branche du sport'
+      - entreprise . salariés . effectif > 0
+  unité: €/mois
+  valeur:
+    produit:
+      - masse salariale
+      - 0.02%
+    plancher:
+      variations:
+        - si: entreprise . salariés . effectif < 10
+          alors: 2 €.employé/an / entreprise . salariés . effectif
+        - sinon: 10 €.employé/an / entreprise . salariés . effectif
+    plafond: 5000 €.employé/an / entreprise . salariés . effectif
+
+salarié . convention collective . branche du sport . cotisations employeur de branche:
+  applicable si: convention collective = 'branche du sport'
+  remplace: salarié . cotisations . employeur
+  somme:
+    - salarié . cotisations . employeur
+    - financement du paritarisme
+    - formation professionnelle conventionnelle
+    - formation des dirigeants bénévoles
+
+salarié . convention collective . branche du sport . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (article 4.3). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'branche du sport'
+
+salarié . convention collective . branche du sport . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . branche du sport . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . branche du sport . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . branche du sport . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . branche du sport . maintien de salaire . éligible:
+  titre: Droit au maintien
+  variations:
+    - si: motif = 'accident du travail'
+      alors: oui
+    - si:
+        une de ces conditions:
+          - motif = 'maladie'
+          - motif = 'accident de trajet'
+      alors: ancienneté >= 12 mois
+    - sinon: non
+
+salarié . convention collective . branche du sport . maintien de salaire . ancienneté en cours d'absence:
+  valeur: non
+
+salarié . convention collective . branche du sport . maintien de salaire . carence:
+  unité: jour
+  valeur: 3 jour
+
+salarié . convention collective . branche du sport . maintien de salaire . première période . durée:
+  unité: jour
+  variations:
+    - si: motif = 'accident du travail'
+      alors: 180 jour
+    - sinon: 87 jour
+
+salarié . convention collective . branche du sport . maintien de salaire . première période . taux:
+  unité: '%'
+  valeur: 100%
+
+salarié . convention collective . branche du sport . maintien de salaire . seconde période . durée:
+  unité: jour
+  valeur: 0 jour
+
+salarié . convention collective . branche du sport . maintien de salaire . seconde période . taux:
+  unité: '%'
+  valeur: 0%
+
+salarié . convention collective . branche du sport . maintien de salaire . fenêtre:
+  valeur: "'douze mois'"
+
+salarié . convention collective . branche du sport . maintien de salaire . base:
+  valeur: "'net'"
+
+salarié . convention collective . branche du sport . maintien de salaire . plafond net:
+  valeur: non

@@ -1,0 +1,177 @@
+# Révision 2026.3 : ajoute à la version 2026.2, à date d'effet identique, le maintien de la
+# rémunération de l'article 24.2 (maladie et accident).
+validFrom: 2026-06-01
+extension: 2026-09-19
+sources:
+  - >-
+    Avenant n° 111 du 24 juin 2026 relatif aux salaires, étendu par arrêté publié au JORF le
+    19 septembre 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054951900
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054860891
+    Grille annuelle brute sur 13 mois, hors prime d'ancienneté (article 1er) : E1 24 272, E2 24 428,
+    E3 25 080, AM1 25 569, AM2 26 415, C1 28 333, C2 36 932, C3 44 221, C4 49 800 euros.
+    Les montants mensuels du modèle sont le minimum annuel divisé par 13, arrondi au centime.
+  - >-
+    Article 36 (version en vigueur depuis le 1er juillet 2024, avenant n° 103) : le salaire est majoré de
+    32 euros tous les 3 ans, au 1er janvier suivant la date d'anniversaire ; premier versement le 1er janvier
+    suivant le terme de la première période de 3 ans depuis l'embauche. Le modèle compte les périodes de 3 ans
+    entières ; le décalage au 1er janvier est à porter par l'application qui fournit l'ancienneté. Le texte ne
+    prévoit pas de proratisation de la prime pour le temps partiel : le modèle n'en applique pas.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000049954870
+  - >-
+    Article 24.2 de la convention, dans sa rédaction issue de l'avenant n° 83 du 2 décembre 2019, lu sur
+    Légifrance le 24 octobre 2026 (KALIARTI000042096671) : 90 % du salaire brut mensuel contractuel dès
+    le premier jour, pendant 30 jours après 1 an de présence, 90 après 3 ans, 110 après 8, 120 après 13,
+    130 après 18, 170 après 23 et 190 après 33 ans ; jours indemnisés dans les 12 mois antérieurs décomptés,
+    sauf ceux d'une maladie ou d'un accident d'origine professionnelle ; accident du travail sans
+    condition d'ancienneté ; non cumulable avec le maintien légal, le plus favorable s'appliquant ; sous
+    déduction des indemnités journalières et des prestations de prévoyance patronales :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000042096671
+---
+salarié . convention collective . immobilier:
+  titre: Immobilier (IDCC 1527)
+  valeur: convention collective = 'immobilier'
+salarié . convention collective . immobilier . niveau:
+  applicable si: convention collective = 'immobilier'
+  par défaut: "'non renseigné'"
+salarié . convention collective . immobilier . minimum mensuel:
+  titre: Minimum mensuel à temps plein
+  description: Minimum annuel de l'avenant n° 111 divisé par 13 mensualités. Vaut 0 €/mois si le niveau est absent de la grille.
+  applicable si: convention collective = 'immobilier'
+  unité: €/mois
+  variations:
+    - si: niveau = 'E1'
+      alors: 1867.08 €/mois
+    - si: niveau = 'E2'
+      alors: 1879.08 €/mois
+    - si: niveau = 'E3'
+      alors: 1929.23 €/mois
+    - si: niveau = 'AM1'
+      alors: 1966.85 €/mois
+    - si: niveau = 'AM2'
+      alors: 2031.92 €/mois
+    - si: niveau = 'C1'
+      alors: 2179.46 €/mois
+    - si: niveau = 'C2'
+      alors: 2840.92 €/mois
+    - si: niveau = 'C3'
+      alors: 3401.62 €/mois
+    - si: niveau = 'C4'
+      alors: 3830.77 €/mois
+    - sinon: 0 €/mois
+salarié . convention collective . immobilier . salaire minimum conventionnel:
+  applicable si: convention collective = 'immobilier'
+  titre: Salaire minimum mensuel garanti
+  description: Minimum mensuel à temps plein proratisé par la quotité de travail.
+  unité: €/mois
+  produit:
+    - minimum mensuel
+    - contrat . temps de travail . quotité
+salarié . convention collective . immobilier . niveau hors grille:
+  titre: Niveau absent de la grille
+  applicable si: convention collective = 'immobilier'
+  valeur: minimum mensuel = 0 €/mois
+salarié . convention collective . immobilier . années complètes d'ancienneté:
+  applicable si: convention collective = 'immobilier'
+  par défaut: 0
+salarié . convention collective . immobilier . périodes de 3 ans d'ancienneté:
+  titre: Périodes de 3 ans d'ancienneté révolues
+  description: Nombre entier de périodes de 3 ans complètes (arrondi à l'inférieur).
+  applicable si: convention collective = 'immobilier'
+  arrondi: 0 décimales
+  valeur: (années complètes d'ancienneté - 1.5) / 3
+  plancher: 0
+salarié . convention collective . immobilier . prime d'ancienneté:
+  titre: Prime d'ancienneté
+  description: 32 € par mois pour chaque période de 3 ans complète (article 36).
+  applicable si: convention collective = 'immobilier'
+  unité: €/mois
+  valeur: périodes de 3 ans d'ancienneté * 32 €/mois
+
+salarié . convention collective . immobilier . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (article 24.2). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'immobilier'
+
+salarié . convention collective . immobilier . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . immobilier . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . immobilier . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . immobilier . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . immobilier . maintien de salaire . éligible:
+  titre: Droit au maintien
+  variations:
+    - si: motif = 'accident du travail'
+      alors: oui
+    - si:
+        une de ces conditions:
+          - motif = 'maladie'
+          - motif = 'accident de trajet'
+      alors: ancienneté >= 12 mois
+    - sinon: non
+
+salarié . convention collective . immobilier . maintien de salaire . ancienneté en cours d'absence:
+  valeur: non
+
+salarié . convention collective . immobilier . maintien de salaire . accidents du travail à part:
+  titre: Jours d'accident du travail décomptés à part
+  valeur: oui
+
+salarié . convention collective . immobilier . maintien de salaire . carence:
+  unité: jour
+  valeur: 0 jour
+
+salarié . convention collective . immobilier . maintien de salaire . première période . durée:
+  unité: jour
+  variations:
+    - si: ancienneté >= 396 mois
+      alors: 190 jour
+    - si: ancienneté >= 276 mois
+      alors: 170 jour
+    - si: ancienneté >= 216 mois
+      alors: 130 jour
+    - si: ancienneté >= 156 mois
+      alors: 120 jour
+    - si: ancienneté >= 96 mois
+      alors: 110 jour
+    - si: ancienneté >= 36 mois
+      alors: 90 jour
+    - sinon: 30 jour
+
+salarié . convention collective . immobilier . maintien de salaire . première période . taux:
+  unité: '%'
+  valeur: 90%
+
+salarié . convention collective . immobilier . maintien de salaire . seconde période . durée:
+  unité: jour
+  valeur: 0 jour
+
+salarié . convention collective . immobilier . maintien de salaire . seconde période . taux:
+  unité: '%'
+  valeur: 0%
+
+salarié . convention collective . immobilier . maintien de salaire . fenêtre:
+  valeur: "'douze mois'"
+
+salarié . convention collective . immobilier . maintien de salaire . base:
+  valeur: "'brut'"
+
+salarié . convention collective . immobilier . maintien de salaire . plafond net:
+  valeur: non

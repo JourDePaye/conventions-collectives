@@ -109,3 +109,7 @@ npm run typecheck
 npm run build
 git diff --check
 ```
+
+## Maintien de salaire
+
+La révision 2026.5 ajoute le maintien de salaire conventionnel (article 4.3) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. L’accident de trajet suit la maladie.

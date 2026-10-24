@@ -34,3 +34,7 @@ Tous les taux horaires sont supérieurs au SMIC horaire de 12,31 € en vigueur 
 - Les autres accords départementaux ou régionaux de salaires ne sont pas modélisés : la grille nationale s’applique partout ailleurs.
 - Les primes, majorations, la prévoyance et les autres éléments de la convention ne sont pas modélisés.
 - Les grilles antérieures au 1er février 2026 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
+
+## Maintien de salaire
+
+La révision 2026.3 ajoute le maintien de salaire conventionnel (article 37.1) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. L’ancienneté dans la profession est prise dans l’entreprise (reprise d’ancienneté comprise) ; le point de départ au 4e jour d’une affection de longue durée ou d’un accident de la vie privée de plus de 45 jours n’est pas repris.

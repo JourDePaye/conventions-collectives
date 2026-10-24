@@ -52,3 +52,7 @@
 La revue des textes officiels a porté au-delà des minima sur les bases de comparaison, taux et plafonds de cotisations, forfaits, avantages en nature, santé, prévoyance, formation professionnelle et AT/MP. L'avenant n° 110 fixe des valeurs calculables pour le salaire, la prime de tri sélectif et les avantages en nature logement/électricité ; elles sont isolées dans l'espace de noms de l'accord. Les taux et plafonds de cotisations, la santé, la prévoyance, la formation professionnelle et l'AT/MP ne sont pas chiffrés par ce texte salarial et ne sont pas inventés dans le modèle.
 
 Le modèle ne déduit pas le coefficient, les heures contractuelles, les unités de valeur, les lots ou la surface du contrat : l'application consommatrice doit fournir ces paramètres. La valeur minimale URSSAF de l'avantage en nature logement n'est pas appliquée automatiquement, car elle dépend de paramètres de rémunération externes au modèle. Les dispositions de treizième mois, astreintes, repos et autres éléments conditionnels de la convention restent hors périmètre lorsqu'ils nécessitent des informations contractuelles ou de classification non disponibles ici.
+
+## Maintien de salaire
+
+La révision 2026.5 ajoute le maintien de salaire conventionnel (article 30.1) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package.

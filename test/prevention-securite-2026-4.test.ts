@@ -63,12 +63,12 @@ function inForce(date: string) {
 }
 
 describe("IDCC 1351 — 2026.4, January to June 2026", () => {
-  it("is selected from 1 January to 30 June 2026 and replaced by 2026.3 on 1 July", () => {
+  it("is selected from 1 January to 30 June 2026 and replaced by 2026.3 (2026.5 with the salary maintenance) on 1 July", () => {
     assert.equal(version.validFrom, "2026-01-01");
     assert.equal(inForce("2025-12-31"), undefined);
     assert.equal(inForce("2026-01-01"), "2026.4");
     assert.equal(inForce("2026-06-30"), "2026.4");
-    assert.equal(inForce("2026-07-01"), "2026.3");
+    assert.equal(inForce("2026-07-01"), "2026.5");
   });
 
   for (const [category, entries] of Object.entries(salaryGrid)) {

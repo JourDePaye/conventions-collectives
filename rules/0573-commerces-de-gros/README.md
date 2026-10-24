@@ -24,3 +24,7 @@ Les positions `I.1` (1 839,81 €), `I.2` (1 850,85 €) et `I.3` (1 861,96 €)
 - Un accord du 20 juillet 2026 revalorise de 1,70 % les niveaux I à VI au 1er septembre 2026. D’après les synthèses consultées (juristique.org, LégiSocial), il n’est pas étendu à ce jour et ne lie que les adhérents des organisations signataires (CGF, COEDSI, GAF) : il n’est pas modélisé, et son texte n’a pas été lu.
 - L’accord s’applique à tous les employeurs du champ depuis l’extension (27 juin 2026) ; pour les employeurs non adhérents, les périodes de mars à juin 2026 sont donc incertaines. La version retient le 1er mars 2026.
 - Les primes, majorations, la prévoyance et les autres éléments de la convention ne sont pas modélisés. Les grilles antérieures au 1er mars 2026 non plus.
+
+## Maintien de salaire
+
+La révision 2026.3 ajoute le maintien de salaire conventionnel (article 53) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. La levée de la carence en cas d’hospitalisation n’est pas reprise.

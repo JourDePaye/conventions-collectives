@@ -22,3 +22,7 @@ Les niveaux `E1`, `E2` et `E3` (de 1 851,55 € à 1 864,44 €) sont inférieur
 - Le minimum mensuel des cadres est celui d’un contrat de 35 heures. Pour un cadre au forfait jours, le minimum applicable est le minimum annuel, dont un douzième est supérieur au mensuel : ce minimum annuel n’est pas calculé par l’application de paie.
 - Les primes, majorations, garanties détaillées, dispenses, portabilité, maintien et autres éléments de la convention ne sont pas modélisés.
 - L’accord du 12 février 2025, que celui-ci remplace, n’est pas modélisé : la première version couvre les périodes à partir du 1er août 2026.
+
+## Maintien de salaire
+
+La révision 2026.6 ajoute le maintien de salaire conventionnel (articles 40.1 et 40.2) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. La levée de la carence en cas d’hospitalisation n’est pas reprise ; la moyenne des 3 derniers mois est prise comme le brut qu’aurait perçu le salarié.

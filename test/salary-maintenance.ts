@@ -3,7 +3,10 @@
  * and a seniority in months, the eligibility, waiting days, the two periods, the window, the base
  * and the net cap.
  */
-import type Engine from "publicodes";
+import assert from "node:assert/strict";
+import Engine, { type Rule } from "publicodes";
+import modeleSocial from "modele-social";
+import { COMPILED_VERSIONS } from "../src/index.ts";
 
 export type Motive = "maladie" | "accident du travail" | "accident de trajet" | "maternité" | "paternité" | "adoption";
 
@@ -24,6 +27,7 @@ export type Maintenance = {
   base: string;
   netCap: boolean;
   seniorityDuringAbsence: boolean;
+  separateWorkAccidents: boolean;
 };
 
 /**
@@ -47,8 +51,10 @@ export function maintenanceOf(
     ...Object.fromEntries(Object.entries(inputs).map(([name, value]) => [`${rule} . ${name}`, value])),
   });
   const value = (name: string) => engine.evaluate(`${rule} . ${name}`).nodeValue;
+  const defines = (name: string) => `${rule} . ${name}` in engine.getParsedRules();
   const days = (name: string) => value(name) as number;
-  const periods: [number, number][] = (["première période", "seconde période"] as const)
+  const periods: [number, number][] = (["première période", "seconde période", "troisième période"] as const)
+    .filter((name) => defines(`${name} . durée`))
     .map((name): [number, number] => [days(`${name} . durée`), value(`${name} . taux`) as number])
     .filter(([duration]) => duration > 0);
   return {
@@ -59,5 +65,32 @@ export function maintenanceOf(
     base: value("base") as string,
     netCap: value("plafond net") === true,
     seniorityDuringAbsence: value("ancienneté en cours d'absence") === true,
+    separateWorkAccidents: defines("accidents du travail à part") && value("accidents du travail à part") === true,
   };
+}
+
+/** An engine of modele-social with an agreement version, and the maintenance for a motive and a seniority. */
+export async function maintenanceEngine(model: string, revision: string, value: string, classification: Record<string, string | number>) {
+  const version = COMPILED_VERSIONS[model]?.find((entry) => entry.version === revision);
+  assert.ok(version, `${model} ${revision}`);
+  const rules: Record<string, Rule> = { ...modeleSocial };
+  const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
+  rules["salarié . convention collective"] = {
+    ...choice,
+    "une possibilité": [...new Set([...choice["une possibilité"], value])],
+  } as Rule;
+  Object.assign(rules, await version.loadRules());
+  const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
+  const namespace = `salarié . convention collective . ${value}`;
+  const setSituation = (context: Record<string, string | number> = {}) =>
+    engine.setSituation({
+      "salarié . convention collective": `'${value}'`,
+      "salarié . contrat . statut cadre": "non",
+      "salarié . contrat . salaire brut": "3000 €/mois",
+      ...Object.fromEntries(Object.entries(classification).map(([name, v]) => [`${namespace} . ${name}`, v])),
+      ...context,
+    });
+  const of = (motive: Motive, months: number, inputs: Record<string, string | number> = {}, context: Record<string, string | number> = {}) =>
+    maintenanceOf(engine, setSituation, namespace, motive, months, inputs, context);
+  return { namespace, of };
 }

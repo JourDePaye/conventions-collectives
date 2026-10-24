@@ -81,3 +81,7 @@ git diff --check
 [16] https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005767282
 [17] https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000052288887
 [18] https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054454102
+
+## Maintien de salaire
+
+La révision 2025.2 ajoute le maintien de salaire conventionnel (articles 25 B et 26 B) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. Les trois périodes de la maladie entre 1 et 2 ans d’ancienneté utilisent la sortie facultative `troisième période`.

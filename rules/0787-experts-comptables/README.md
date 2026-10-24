@@ -40,3 +40,7 @@ Le champ d'application de la convention est fusionné avec celui des association
 - Convention collective nationale du 9 décembre 1974 : [KALICONT000005635826](https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635826).
 - Annexe A, grille générale des emplois : [KALIARTI000033925618](https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000033925618) ; annexe B, membres de l'Ordre et de la Compagnie : [KALIARTI000005839623](https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000005839623).
 - Accords salariaux n° 47 et n° 48 : voir le tableau des versions.
+
+## Maintien de salaire
+
+La révision 2026.3 ajoute le maintien de salaire conventionnel (article 7.3) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. Les 30 jours par arrêt et par année civile, carence comprise, sont pris comme 27 jours indemnisés par année civile.

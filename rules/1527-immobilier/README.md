@@ -43,3 +43,7 @@ elle n'est pas appliquée. Le statut de négociateur (annexe IV) a sa propre pri
 - [Avenant n° 111 du 24 juin 2026](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054951900)
 - [Arrêté d'extension](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054860891)
 - [Article 36 — ancienneté](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000049954870)
+
+## Maintien de salaire
+
+La révision 2026.3 ajoute le maintien de salaire conventionnel (article 24.2) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package.

@@ -1,0 +1,249 @@
+# Convention collective nationale du personnel des prestataires de services dans le domaine du secteur tertiaire
+# (IDCC 2098).
+# Révision 2026.3 : ajoute à la version 2026.2, à date d'effet identique, le complément de salaire
+# en cas de maladie, d'accident ou de maternité de l'article 18.1 B.
+validFrom: 2026-08-01
+sources:
+  - >-
+    Accord du 27 mai 2026 relatif aux salaires et à la valeur de point, étendu par
+    arrêté du 28 juillet 2026 publié au JORF du 31 juillet 2026 ; applicable le 1er août 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054936719
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054936744
+    https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054570646
+  - >-
+    Accord national du 24 novembre 1998 relatif à la classification des emplois, article 6.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000024922383
+  - >-
+    Accord du 5 juillet 2007 relatif au travail de nuit.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005680405
+  - >-
+    Article 18.1 B de la convention, lu sur Légifrance le 24 octobre 2026 (KALIARTI000005850355) : un
+    an d'ancienneté au premier jour de l'absence ; dès le premier jour pour un accident du travail ou une
+    maladie professionnelle (pas l'accident de trajet), à partir du 8e jour pour la maladie et l'accident
+    de trajet (la levée en cas d'hospitalisation n'est pas reprise) ; de 1 à 3 ans, 90 % de la
+    rémunération brute pendant 30 jours puis 75 % pendant 30 jours ; après 3 ans, 100 % pendant 30 jours
+    puis 80 % pendant 30 jours, chacun augmenté de 10 jours par période entière de 5 ans au-delà des 3
+    ans, 90 jours au plus ; jours indemnisés dans les 12 mois antérieurs décomptés ; sous déduction des
+    prestations ; au plus le net ; la maternité reçoit le même complément dans la limite du salaire (pris
+    ici avec les mêmes durées, sans carence, pour chaque congé) : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005850355
+---
+salarié . convention collective . prestataires tertiaires:
+  titre: Prestataires de services dans le domaine du secteur tertiaire (IDCC 2098)
+  valeur: convention collective = 'prestataires tertiaires'
+
+salarié . convention collective . prestataires tertiaires . coefficient:
+  titre: Coefficient de classification
+  description: >-
+    Coefficient conventionnel inscrit au contrat ou déterminé par la classification de l'emploi.
+    Les libellés A1 à B4 et C1 à C4 ne sont pas convertis automatiquement en coefficient :
+    l'application appelante doit fournir le coefficient applicable.
+  applicable si: convention collective = 'prestataires tertiaires'
+  par défaut: 0
+
+salarié . convention collective . prestataires tertiaires . minimum mensuel de la grille:
+  titre: Minimum mensuel à temps plein
+  applicable si: convention collective = 'prestataires tertiaires'
+  unité: €/mois
+  variations:
+    - si: coefficient = 120
+      alors: 1867.02 €/mois
+    - si: coefficient = 130
+      alors: 1867.02 €/mois
+    - si: coefficient = 140
+      alors: 1867.02 €/mois
+    - si: coefficient = 150
+      alors: 1870.00 €/mois
+    - si: coefficient = 160
+      alors: 1873.97 €/mois
+    - si: coefficient = 170
+      alors: 1881.88 €/mois
+    - si: coefficient = 190
+      alors: 1905.60 €/mois
+    - si: coefficient = 200
+      alors: 1972.87 €/mois
+    - si: coefficient = 220
+      alors: 2038.12 €/mois
+    - si: coefficient = 230
+      alors: 2080.34 €/mois
+    - si: coefficient = 240
+      alors: 2141.75 €/mois
+    - si: coefficient = 250
+      alors: 2195.48 €/mois
+    - si: coefficient = 260
+      alors: 2268.41 €/mois
+    - si: coefficient = 280
+      alors: 2553.54 €/mois
+    - si: coefficient = 290
+      alors: 2734.06 €/mois
+    - si: coefficient = 300
+      alors: 3204.15 €/mois
+    - si: coefficient = 330
+      alors: 3249.28 €/mois
+    - si: coefficient = 360
+      alors: 3474.92 €/mois
+    - si: coefficient = 390
+      alors: 3756.98 €/mois
+    - si: coefficient = 420
+      alors: 4039.03 €/mois
+    - si: coefficient = 450
+      alors: 4934.09 €/mois
+    - si: coefficient = 500
+      alors: 5836.67 €/mois
+    - si: coefficient = 550
+      alors: 6427.10 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . prestataires tertiaires . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: >-
+    Salaire mensuel contractuel minimal pour la durée de travail applicable, proratisé une seule fois
+    par la quotité. Les majorations d'heures supplémentaires, de nuit, dimanche ou jour férié, et
+    les primes annuelles ou exceptionnelles ne doivent pas servir à atteindre ce minimum.
+  applicable si: convention collective = 'prestataires tertiaires'
+  unité: €/mois
+  produit:
+    - minimum mensuel de la grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . prestataires tertiaires . coefficient hors grille:
+  applicable si: convention collective = 'prestataires tertiaires'
+  valeur: minimum mensuel de la grille = 0 €/mois
+
+salarié . convention collective . prestataires tertiaires . heures de nuit:
+  description: >-
+    Heures réellement effectuées dans la plage conventionnelle 22 h à 7 h au cours du mois ; une
+    entreprise peut retenir 21 h à 6 h par accord collectif d'entreprise ou d'établissement.
+  applicable si: convention collective = 'prestataires tertiaires'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . prestataires tertiaires . travailleur de nuit:
+  description: Le salarié remplit les conditions conventionnelles de travailleur de nuit.
+  applicable si: convention collective = 'prestataires tertiaires'
+  par défaut: non
+
+salarié . convention collective . prestataires tertiaires . taux de repos compensateur de nuit:
+  description: Repos compensateur égal à 4 % des heures de nuit pour les travailleurs de nuit de l'accord étendu du 4 février 2003.
+  applicable si: convention collective = 'prestataires tertiaires'
+  unité: '%'
+  par défaut: 4%
+
+salarié . convention collective . prestataires tertiaires . repos compensateur de nuit:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'prestataires tertiaires'
+      - travailleur de nuit
+  unité: heure/mois
+  valeur: heures de nuit * taux de repos compensateur de nuit
+
+salarié . convention collective . prestataires tertiaires . taux de majoration de nuit occasionnelle:
+  description: Majoration salariale de 25 % applicable aux heures de nuit occasionnelles hors statut de travailleur de nuit.
+  applicable si: convention collective = 'prestataires tertiaires'
+  unité: '%'
+  valeur: 25%
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (article 18.1 B). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'prestataires tertiaires'
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . maternité:
+  valeur: motif = 'maternité'
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . éligible:
+  titre: Droit au maintien
+  variations:
+    - si:
+        une de ces conditions:
+          - motif = 'paternité'
+          - motif = 'adoption'
+      alors: non
+    - sinon: ancienneté >= 12 mois
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . ancienneté en cours d'absence:
+  valeur: non
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . carence:
+  unité: jour
+  variations:
+    - si:
+        une de ces conditions:
+          - motif = 'accident du travail'
+          - maternité
+      alors: 0 jour
+    - sinon: 7 jour
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . durée:
+  titre: Durée de chaque période selon l'ancienneté
+  unité: jour
+  variations:
+    - si: ancienneté >= 396 mois
+      alors: 90 jour
+    - si: ancienneté >= 336 mois
+      alors: 80 jour
+    - si: ancienneté >= 276 mois
+      alors: 70 jour
+    - si: ancienneté >= 216 mois
+      alors: 60 jour
+    - si: ancienneté >= 156 mois
+      alors: 50 jour
+    - si: ancienneté >= 96 mois
+      alors: 40 jour
+    - sinon: 30 jour
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . première période . durée:
+  unité: jour
+  valeur: durée
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . première période . taux:
+  unité: '%'
+  variations:
+    - si: ancienneté >= 36 mois
+      alors: 100%
+    - sinon: 90%
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . seconde période . durée:
+  unité: jour
+  valeur: durée
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . seconde période . taux:
+  unité: '%'
+  variations:
+    - si: ancienneté >= 36 mois
+      alors: 80%
+    - sinon: 75%
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . fenêtre:
+  valeur:
+    variations:
+      - si: maternité
+        alors: "'arrêt'"
+      - sinon: "'douze mois'"
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . base:
+  valeur: "'brut'"
+
+salarié . convention collective . prestataires tertiaires . maintien de salaire . plafond net:
+  valeur: oui

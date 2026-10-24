@@ -53,3 +53,7 @@ Les classifications de 1 843 € à 1 855 € (niveau 1 technique, esthétique-c
 - Le code `A330P` désigne la ligne « 330+ » de l’article 1 de l’avenant (2 806 €), interprétée ici comme un coefficient supérieur à 330.
 - Les autres primes, la prévoyance et le contrat d’apprentissage ne sont pas modélisés.
 - Les grilles antérieures au 1er mars 2026 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
+
+## Maintien de salaire
+
+L’article 17 de la convention ne règle que les formalités ; l’incapacité de travail relève du régime de prévoyance (avenant n° 8) : le maintien légal s’applique.

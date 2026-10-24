@@ -1,0 +1,220 @@
+# Convention collective nationale du bricolage du 30 septembre 1993 (IDCC 1606).
+#
+# Version 2025.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Révision 2025.3 : ajoute à la version 2025.2, à date d'effet identique, le complément de salaire
+# en cas de maladie ou d'accident des articles 7.1 et 7.2 et des annexes agents de maîtrise et cadres.
+# Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
+
+validFrom: 2025-07-01
+sources:
+  - >-
+    Accord du 31 mars 2025 relatif aux salaires minima conventionnels dans la convention
+    collective nationale du bricolage, publié sur Légifrance sous l'identifiant
+    KALITEXT000051909640.
+  - >-
+    Arrêté d'extension du 2 juin 2025, publié au Journal officiel du 10 juin 2025,
+    rendant l'accord applicable à l'ensemble des employeurs et salariés du champ.
+  - >-
+    Grille des minima mensuels bruts à temps plein : coefficients 120 à 600,
+    de 1 810 € à 3 560 €.
+  - >-
+    Articles 7.1.2 et 7.2 de la convention, lus sur Légifrance le 24 octobre 2026 (KALIARTI000005870715,
+    KALIARTI000005870716) : employés, rien avant 2 ans, 90 % puis 70 % pendant 30 et 30 jours (2 à 6 ans),
+    40 et 30 (plus de 6 à 11), 60 et 30 (plus de 11 à 15), 90 et 30 (plus de 15) ; sur 12 mois consécutifs ;
+    à partir du 4e jour pour le premier arrêt, du 6e pour le deuxième, du 8e pour les suivants ; accident
+    du travail sans délai de carence ni condition de présence, ses jours n'étant pas comptés pour la
+    maladie ; l'accident de trajet suit la maladie ; au plus ce qu'aurait perçu le salarié (la reconduction
+    des droits après 3 mois de reprise n'est pas reprise) : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005870715
+  - >-
+    Article 7 des annexes agents de maîtrise et cadres, identiques, lus sur Légifrance le 24 octobre
+    2026 (KALIARTI000005870770, KALIARTI000005870785) : sans délai de carence, rien avant 2 ans, 100 % puis
+    90 % pendant 30 et 30 jours (2 à 6 ans inclus), 40 et 30 (plus de 6 à 11), 60 et 40 (plus de 11 à 15),
+    90 et 40 (plus de 15 à 28), puis 90 jours à 100 % et 70 (plus de 28 à 33) ou 90 jours (plus de 33) à
+    70 %. Catégories selon l'accord du 31 mars 2025 (KALITEXT000051909640) : employés jusqu'au coefficient
+    200, agents de maîtrise de 220 à 280, cadres à partir de 320 : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005870785
+---
+salarié . convention collective . bricolage:
+  titre: Bricolage (IDCC 1606)
+  valeur: convention collective = 'bricolage'
+
+salarié . convention collective . bricolage . coefficient:
+  titre: Coefficient de classification
+  description: Coefficient de la grille des salaires minima conventionnels du bricolage.
+  applicable si: convention collective = 'bricolage'
+  par défaut: 0
+
+salarié . convention collective . bricolage . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps plein, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'bricolage'
+  unité: €/mois
+  valeur: grille * contrat . temps de travail . quotité
+
+salarié . convention collective . bricolage . salaire minimum conventionnel . grille:
+  titre: Grille mensuelle à temps plein
+  unité: €/mois
+  variations:
+    - si: coefficient = 120
+      alors: 1810 €/mois
+    - si: coefficient = 140
+      alors: 1825 €/mois
+    - si: coefficient = 150
+      alors: 1837 €/mois
+    - si: coefficient = 160
+      alors: 1855 €/mois
+    - si: coefficient = 190
+      alors: 1885 €/mois
+    - si: coefficient = 200
+      alors: 1945 €/mois
+    - si: coefficient = 220
+      alors: 2045 €/mois
+    - si: coefficient = 250
+      alors: 2111 €/mois
+    - si: coefficient = 280
+      alors: 2250 €/mois
+    - si: coefficient = 320
+      alors: 2818 €/mois
+    - si: coefficient = 400
+      alors: 2950 €/mois
+    - si: coefficient = 500
+      alors: 3305 €/mois
+    - si: coefficient = 600
+      alors: 3560 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . bricolage . coefficient hors grille:
+  titre: Coefficient absent de la grille
+  description: Le coefficient n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'bricolage'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . bricolage . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (articles 7.1 et 7.2, annexes agents de maîtrise et cadres). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'bricolage'
+
+salarié . convention collective . bricolage . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . bricolage . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . bricolage . maintien de salaire . rang de l'arrêt:
+  titre: Rang de l'arrêt maladie sur 12 mois
+  description: 1 pour le premier arrêt des 12 mois glissants, 2 pour le deuxième, etc.
+  par défaut: 1
+
+salarié . convention collective . bricolage . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . bricolage . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . bricolage . maintien de salaire . encadrement:
+  titre: Agents de maîtrise et cadres
+  valeur: coefficient >= 220
+
+salarié . convention collective . bricolage . maintien de salaire . accident du travail:
+  valeur: motif = 'accident du travail'
+
+salarié . convention collective . bricolage . maintien de salaire . éligible:
+  titre: Droit au maintien
+  variations:
+    - si: accident du travail
+      alors: oui
+    - si:
+        une de ces conditions:
+          - motif = 'maladie'
+          - motif = 'accident de trajet'
+      alors: ancienneté >= 24 mois
+    - sinon: non
+
+salarié . convention collective . bricolage . maintien de salaire . ancienneté en cours d'absence:
+  valeur: non
+
+salarié . convention collective . bricolage . maintien de salaire . accidents du travail à part:
+  titre: Jours d'accident du travail décomptés à part
+  valeur: oui
+
+salarié . convention collective . bricolage . maintien de salaire . carence:
+  titre: Délai de carence
+  description: |
+    Employés, selon le rang de l'arrêt sur 12 mois : à partir du 4e jour pour le premier, du 6e
+    pour le deuxième, du 8e pour les suivants ; aucun pour un accident du travail, les agents de
+    maîtrise et les cadres.
+  unité: jour
+  variations:
+    - si:
+        une de ces conditions:
+          - accident du travail
+          - encadrement
+      alors: 0 jour
+    - si: rang de l'arrêt >= 3
+      alors: 7 jour
+    - si: rang de l'arrêt = 2
+      alors: 5 jour
+    - sinon: 3 jour
+
+salarié . convention collective . bricolage . maintien de salaire . première période . durée:
+  unité: jour
+  variations:
+    - si: ancienneté > 180 mois
+      alors: 90 jour
+    - si: ancienneté > 132 mois
+      alors: 60 jour
+    - si: ancienneté > 72 mois
+      alors: 40 jour
+    - sinon: 30 jour
+
+salarié . convention collective . bricolage . maintien de salaire . première période . taux:
+  unité: '%'
+  variations:
+    - si: encadrement
+      alors: 100%
+    - sinon: 90%
+
+salarié . convention collective . bricolage . maintien de salaire . seconde période . durée:
+  unité: jour
+  variations:
+    - si: encadrement
+      alors:
+        variations:
+          - si: ancienneté > 396 mois
+            alors: 90 jour
+          - si: ancienneté > 336 mois
+            alors: 70 jour
+          - si: ancienneté > 132 mois
+            alors: 40 jour
+          - sinon: 30 jour
+    - sinon: 30 jour
+
+salarié . convention collective . bricolage . maintien de salaire . seconde période . taux:
+  unité: '%'
+  variations:
+    - si:
+        toutes ces conditions:
+          - encadrement
+          - ancienneté > 336 mois
+      alors: 70%
+    - si: encadrement
+      alors: 90%
+    - sinon: 70%
+
+salarié . convention collective . bricolage . maintien de salaire . fenêtre:
+  valeur: "'douze mois'"
+
+salarié . convention collective . bricolage . maintien de salaire . base:
+  valeur: "'brut'"
+
+salarié . convention collective . bricolage . maintien de salaire . plafond net:
+  valeur: non

@@ -5,10 +5,7 @@
  */
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import Engine, { type Rule } from "publicodes";
-import modeleSocial from "modele-social";
-import { COMPILED_VERSIONS } from "../src/index.ts";
-import { MOTIVES, type Motive, maintenanceOf } from "./salary-maintenance.ts";
+import { maintenanceEngine, MOTIVES } from "./salary-maintenance.ts";
 
 /** The versions with the rules: model, revision, value of `convention collective`, classification. */
 const VERSIONS = [
@@ -24,32 +21,23 @@ const VERSIONS = [
   { model: "1090-services-automobile", revision: "2026.2", value: "services automobile", classification: { niveau: "'5'" } },
   { model: "0044-industries-chimiques", revision: "2026.5", value: "industries chimiques", classification: { coefficient: 190 } },
   { model: "2120-banque", revision: "2026.3", value: "banque", classification: { niveau: "'D'" } },
+  { model: "0016-transports-routiers", revision: "2026.4", value: "transports routiers", classification: { niveau: "'M-O-128'" } },
+  { model: "0573-commerces-de-gros", revision: "2026.3", value: "commerces de gros", classification: {} },
+  { model: "0787-experts-comptables", revision: "2026.3", value: "experts-comptables", classification: {} },
+  { model: "0843-boulangerie-patisserie-artisanale", revision: "2026.3", value: "boulangerie-pâtisserie artisanale", classification: {} },
+  { model: "1043-gardiens-concierges-employes-immeubles", revision: "2026.5", value: "gardiens concierges et employés d'immeubles", classification: {} },
+  { model: "1266-restauration-collective", revision: "2025.2", value: "restauration collective", classification: {} },
+  { model: "1351-prevention-securite", revision: "2026.5", value: "prévention et sécurité", classification: {} },
+  { model: "1413-travail-temporaire", revision: "2026.2", value: "travail temporaire", classification: {} },
+  { model: "1483-commerce-detail-habillement-textiles", revision: "2026.6", value: "commerce de détail habillement", classification: { niveau: "'3'" } },
+  { model: "1505-commerce-detail-alimentaire-non-specialise", revision: "2026.6", value: "commerce de détail alimentaire non spécialisé", classification: {} },
+  { model: "1527-immobilier", revision: "2026.3", value: "immobilier", classification: {} },
+  { model: "1606-bricolage", revision: "2025.3", value: "bricolage", classification: { coefficient: 190 } },
+  { model: "1672-societes-assurances", revision: "2026.5", value: "sociétés assurances", classification: {} },
+  { model: "2098-prestataires-tertiaire", revision: "2026.3", value: "prestataires tertiaires", classification: {} },
+  { model: "2511-sport", revision: "2026.5", value: "branche du sport", classification: {} },
+  { model: "2941-aide-soins-domicile", revision: "2026.2", value: "aide et soins à domicile", classification: {} },
 ] as const;
-
-async function maintenanceEngine(model: string, revision: string, value: string, classification: Record<string, string | number>) {
-  const version = COMPILED_VERSIONS[model]?.find((entry) => entry.version === revision);
-  assert.ok(version, `${model} ${revision}`);
-  const rules: Record<string, Rule> = { ...modeleSocial };
-  const choice = rules["salarié . convention collective"] as Rule & { "une possibilité": string[] };
-  rules["salarié . convention collective"] = {
-    ...choice,
-    "une possibilité": [...new Set([...choice["une possibilité"], value])],
-  } as Rule;
-  Object.assign(rules, await version.loadRules());
-  const engine = new Engine(rules, { logger: { log() {}, warn() {}, error() {} } });
-  const namespace = `salarié . convention collective . ${value}`;
-  const setSituation = (context: Record<string, string | number> = {}) =>
-    engine.setSituation({
-      "salarié . convention collective": `'${value}'`,
-      "salarié . contrat . statut cadre": "non",
-      "salarié . contrat . salaire brut": "3000 €/mois",
-      ...Object.fromEntries(Object.entries(classification).map(([name, v]) => [`${namespace} . ${name}`, v])),
-      ...context,
-    });
-  const of = (motive: Motive, months: number, inputs: Record<string, string | number> = {}, context: Record<string, string | number> = {}) =>
-    maintenanceOf(engine, setSituation, namespace, motive, months, inputs, context);
-  return { namespace, of };
-}
 
 describe("salary maintenance rules", () => {
   for (const { model, revision, value, classification } of VERSIONS) {
@@ -63,7 +51,7 @@ describe("salary maintenance rules", () => {
           for (const [days, rate] of maintenance.periods) {
             assert.ok(days > 0 && rate > 0 && rate <= 100, `${motive} ${months}: ${days} ${rate}`);
           }
-          assert.ok(["douze mois", "année civile", "arrêt"].includes(maintenance.window), maintenance.window);
+          assert.ok(["douze mois", "année civile", "anniversaire", "arrêt"].includes(maintenance.window), maintenance.window);
           assert.ok(["brut", "salaire de base", "net"].includes(maintenance.base), maintenance.base);
         }
       }

@@ -43,3 +43,7 @@ Cette version ne modélise pas l'annualisation du temps de travail, la présence
 - [Prime d'ancienneté et indemnité kilométrique](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000046100203)
 - [Travail du dimanche et jours fériés](https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000027029040)
 - [Travail de nuit](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000045430100)
+
+## Maintien de salaire
+
+L’incapacité de travail relève du régime de prévoyance assuré de la partie VI (avenant n° 1 du 25 avril 2013) : le maintien légal s’applique.

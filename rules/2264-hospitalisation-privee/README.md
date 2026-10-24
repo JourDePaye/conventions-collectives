@@ -23,3 +23,7 @@ Les coefficients de 243 à 256 (de 1 764,18 € à 1 858,56 €) donnent un sala
 - L’avenant n° 33 de 2023, qui prépare une nouvelle classification et un nouveau système de rémunération pour la branche, n’est pas modélisé.
 - Les coefficients 176 à 242 absents de la grille, notamment 177 et 179, sont signalés hors grille ; tout coefficient à partir de 243 est accepté pour l’application de la valeur du point.
 - Les valeurs du point antérieures au 1er janvier 2023, les primes et les compléments Ségur ne sont pas modélisés.
+
+## Maintien de salaire
+
+L’article 84 de la convention institue un régime de prévoyance collective obligatoire (incapacité de travail) géré par un organisme assureur : ce n’est pas un maintien de salaire par l’employeur, il n’est pas décrit ; le maintien légal s’applique.

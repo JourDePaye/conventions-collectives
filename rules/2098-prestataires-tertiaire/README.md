@@ -32,3 +32,7 @@ Cette version ne modélise pas les compléments dépendant d'annexes sectorielle
 - [Arrêté d'extension du 28 juillet 2026](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054570646)
 - [Classification des emplois](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000024922383)
 - [Accord relatif au travail de nuit](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005680405)
+
+## Maintien de salaire
+
+La révision 2026.3 ajoute le maintien de salaire conventionnel (article 18.1 B) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. La levée de la carence en cas d’hospitalisation n’est pas reprise ; la maternité reçoit les mêmes durées, sans carence.

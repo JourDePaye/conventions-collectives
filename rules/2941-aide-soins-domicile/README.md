@@ -17,3 +17,7 @@ Paramètres complémentaires sous `salarié . convention collective . aide et so
 - `heures astreinte ordinaire`, `heures astreinte majorée`, `heures astreinte fractionnée ordinaire`, `heures astreinte fractionnée majorée` : quatre compteurs disjoints en `heure/mois`. Les périodes majorées concernent les dimanches, jours fériés ou nuits ; les temps d’intervention sont exclus. Les indemnités sont calculées sur les heures réellement déclarées, sans prorata supplémentaire du contrat.
 
 Les ECR de tutorat, apprentissage et astreinte sont exposés séparément, avec leur somme dans `compléments ponctuels calculés`. L’application doit les ajouter à la rémunération pour les mois concernés ; ils ne sont pas incorporés au minimum récurrent pour éviter un ajout en double. Les majorations de travail de nuit, dimanche et jours fériés, les repos compensateurs, les heures supplémentaires, les frais de déplacement, les absences et les autres dispositions de la convention restent à modéliser. Les évolutions non étendues de l’avenant 74/2026 sont exclues de ce modèle général.
+
+## Maintien de salaire
+
+La révision 2026.2 ajoute le maintien de salaire conventionnel (titre VIII, A, article 1er) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package.

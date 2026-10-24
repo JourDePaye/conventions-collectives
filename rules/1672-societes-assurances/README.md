@@ -26,3 +26,7 @@ Les classes 1 (1 852,50 € par mois en équivalent indicatif) est inférieure a
 - La RMA est un minimum annuel ; l’équivalent mensuel / 12 est informatif et ne remplace pas la comparaison annuelle, qui dépend notamment des éléments de rémunération retenus par le protocole.
 - Le personnel commercial et les inspecteurs d’assurance, les primes, la prévoyance et les autres éléments de la convention ne sont pas modélisés.
 - Les grilles antérieures au 1er janvier 2026 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
+
+## Maintien de salaire
+
+La révision 2026.5 ajoute le maintien de salaire conventionnel (articles 82 c et 86 c) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. Les arrêts d’une même maladie ne pouvant être identifiés, les arrêts de l’année civile sont cumulés ; l’adoption relève de la loi ; la réduction de la condition de présence à 3 mois n’est pas reprise.

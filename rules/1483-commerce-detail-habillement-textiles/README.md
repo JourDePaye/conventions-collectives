@@ -27,3 +27,7 @@ Les catégories 1 à 4 (de 1 828 € à 1 857 €), sans prime d’ancienneté, 
 - Les rémunérations minima de l’avenant s’entendent pour 151,67 heures par mois et sont proratisées selon la quotité. Les cadres au forfait jours n’ont pas de minimum distinct.
 - Les primes autres que la prime d’ancienneté, les majorations, la prévoyance et les autres éléments de la convention ne sont pas modélisés.
 - Les grilles antérieures au 1er avril 2026, notamment celle de l’avenant n° 28 du 23 novembre 2023, ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
+
+## Maintien de salaire
+
+La révision 2026.6 ajoute le maintien de salaire conventionnel (articles 27 et 13) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. Le personnel d’encadrement est celui des niveaux A1, A2, B, C et D.
