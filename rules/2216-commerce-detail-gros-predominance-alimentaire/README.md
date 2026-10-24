@@ -16,3 +16,7 @@ Les majorations, primes et autres éléments de la convention ne sont pas calcul
 ## Congés payés
 
 Les révisions [2025.2](2216-commerce-detail-gros-predominance-alimentaire.2025.2.publicodes) et [2026.4](2216-commerce-detail-gros-predominance-alimentaire.2026.4.publicodes), aux mêmes dates que 2025.1 et 2026.3, ajoutent `congés payés . jours supplémentaires`, le congé supplémentaire d'ancienneté de l'article 7.1.2 : 1 jour après 10 ans d'ancienneté dans l'entreprise, 2 après 15 ans, 3 après 20 ans, d'après `congés payés . ancienneté` (l'ancienneté au 31 mai que l'application renseigne). Ces jours majorent les congés acquis au 31 mai, au prorata en cas de droits incomplets et avant l'arrondi de l'article L3141-7, ce que fait l'application. L'article ne précise pas l'unité : la durée légale de référence étant en jours ouvrables, ce sont des jours ouvrables.
+
+## Maintien de salaire
+
+La révision 2026.5 ajoute le maintien de salaire conventionnel (articles 7.4 et 7.6.6, annexes I à III) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package. La levée de la carence en cas d’hospitalisation ou d’arrêt de plus de 2 mois et les 2 semaines de plus pour des naissances multiples ne sont pas reprises ; l’ancienneté de la maternité est appréciée au début du congé plutôt qu’à la déclaration de grossesse.

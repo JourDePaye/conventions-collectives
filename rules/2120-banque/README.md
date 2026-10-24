@@ -25,3 +25,7 @@ Les minima mensuels vont de 1 799,00 € (niveaux A à D hors ancienneté) à 4 
 ## Congés payés
 
 À partir de la révision [2026.2](2120-banque.2026.2.publicodes), à la même date que 2026.1, `congés payés . jours supplémentaires` donne le 26e jour de congé de l'article 64 (1 jour ouvré pour une période de référence complète, quand l'application renseigne `congés payés . période de référence complète`). Il ne se cumule pas avec un avantage individuel acquis au titre des congés payés, que le fichier ne connaît pas.
+
+## Maintien de salaire
+
+La révision 2026.3 ajoute le maintien de salaire conventionnel (articles 51, 52 et 54) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package. L’ancienneté bancaire chez les précédents employeurs et le congé supplémentaire de maternité ou d’adoption ne sont pas repris.

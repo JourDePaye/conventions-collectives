@@ -27,3 +27,7 @@ Les classes `A1` et `A2` (21 980 € et 22 100 € par an, soit 1 831,67 € et 
 ## Congés payés
 
 La révision [2026.4](3248-metallurgie.2026.4.publicodes), à la même date que 2026.3, ajoute `congés payés . jours supplémentaires`, les congés supplémentaires des articles 89.1 et 89.2, en jours ouvrables : 1 jour pour 2 ans d'ancienneté, 2 jours à partir de 45 ans et 3 jours à partir de 55 ans avec 20 ans d'ancienneté (les paliers d'âge supposent les 2 ans d'ancienneté), et 1 jour de plus pour le cadre dirigeant ou le salarié en forfait annuel ayant 1 an d'ancienneté. L'application renseigne `congés payés . ancienneté`, `congés payés . âge` (à la fin de la période de référence) et `congés payés . cadre dirigeant ou forfait annuel`, et proratise ces jours par le congé légal acquis avant l'arrondi (article 89.3). Les droits supérieurs maintenus (articles 89.4) et l'éviction par un accord d'entreprise (article 89) restent à la charge de l'application.
+
+## Maintien de salaire
+
+La révision 2026.5 ajoute le maintien de salaire conventionnel (articles 91.1 et 92) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package. Les règles d’un arrêt à cheval sur deux années civiles (article 91.1.3) ne sont pas reprises : les jours sont décomptés par année civile.

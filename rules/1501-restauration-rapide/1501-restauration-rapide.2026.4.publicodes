@@ -1,0 +1,280 @@
+# Convention collective nationale de la restauration rapide du 18 mars 1988 (IDCC 1501,
+# brochure 3245), étendue à la restauration livrée par l'avenant n° 29.
+#
+# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Révision 2026.4 : ajoute à la version 2026.1, à date d'effet identique, le maintien de salaire
+# des articles 19 B et 20 (maladie et accident).
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2026-06-04
+sources:
+  - "Avenant n° 72 du 5 juin 2025 relatif aux minima conventionnels (article 2, nouvel article 44 « Salaires minima par niveau »), étendu par arrêté du 31 juillet 2025 (JORF n° 0182 du 7 août 2025, NOR TSST2520699A)."
+  - "Avenant n° 10 du 5 décembre 2025 à l'avenant n° 42 du 11 mai 2010 relatif au régime de prévoyance complémentaire et à la garantie incapacité de travail, intégré à l'article 54 et en vigueur étendu à compter du 1er janvier 2026 : taux de 0,25 % employeur et 0,25 % salarié sur T1 et T2, avec les dispositions spécifiques de l'ANI prévoyance pour les cadres. https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000054176836"
+  - >-
+    Article 19 B de la convention (indemnisation de la maladie), lu sur Légifrance le 24 octobre 2026
+    (KALISCTA000005749454) : après 3 ans d'ancienneté ; 90 % de la rémunération brute pendant 30 jours,
+    puis 70 % pendant 30 jours, chaque durée augmentée de 10 jours par période entière de 5 ans au-delà
+    des 3 ans, 90 jours au plus ; à compter du 11e jour d'absence ; jours indemnisés dans les 12 mois
+    antérieurs décomptés ; sous déduction des indemnités journalières :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000005749454
+  - >-
+    Article 20 de la convention, lu sur Légifrance le 24 octobre 2026 (KALISCTA000005749455) : en cas
+    d'accident du travail, l'indemnisation légale à partir de 6 mois de présence continue (un an pour un
+    accident de trajet ou une maladie professionnelle, cette dernière étant ici confondue avec
+    l'accident du travail) : https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000005749455
+---
+salarié . convention collective . restauration rapide:
+  titre: Restauration rapide (IDCC 1501)
+  valeur: convention collective = 'restauration rapide'
+
+salarié . convention collective . restauration rapide . niveau:
+  titre: Niveau et échelon de classification
+  description: |
+    Au format « <niveau>.<échelon> » : I.A et I.B, II.A et II.B, III.A à III.C, IV.A à IV.D,
+    puis V.A à V.C. Les niveaux I à III concernent les employés, le niveau IV les agents de
+    maîtrise et le niveau V les cadres.
+  applicable si: convention collective = 'restauration rapide'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . restauration rapide . taux horaire minimum:
+  titre: Taux horaire minimum brut des niveaux I à IV
+  description: |
+    Taux horaire minimum garanti de l'échelon. Vaut 0 €/heure pour le niveau V, dont le
+    minimum est annuel (voir « rémunération minimale annuelle »), et pour un niveau absent
+    de la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'restauration rapide'
+  unité: €/heure
+  variations:
+    - si: niveau = 'I.A'
+      alors: 11.88 €/heure
+    - si: niveau = 'I.B'
+      alors: 11.90 €/heure
+    - si: niveau = 'II.A'
+      alors: 12.22 €/heure
+    - si: niveau = 'II.B'
+      alors: 12.45 €/heure
+    - si: niveau = 'III.A'
+      alors: 12.82 €/heure
+    - si: niveau = 'III.B'
+      alors: 12.93 €/heure
+    - si: niveau = 'III.C'
+      alors: 13.98 €/heure
+    - si: niveau = 'IV.A'
+      alors: 15.01 €/heure
+    - si: niveau = 'IV.B'
+      alors: 15.43 €/heure
+    - si: niveau = 'IV.C'
+      alors: 16.05 €/heure
+    - si: niveau = 'IV.D'
+      alors: 17.34 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . restauration rapide . rémunération minimale annuelle:
+  titre: Rémunération minimale annuelle brute du niveau V
+  description: |
+    Rémunération minimale annuelle brute des cadres, tous éléments de salaire confondus, à
+    temps complet. Vaut 0 €/an pour les niveaux I à IV, dont le minimum est horaire, et pour
+    un niveau absent de la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'restauration rapide'
+  unité: €/an
+  variations:
+    - si: niveau = 'V.A'
+      alors: 44645.78 €/an
+    - si: niveau = 'V.B'
+      alors: 46032.71 €/an
+    - si: niveau = 'V.C'
+      alors: 72408.11 €/an
+    - sinon: 0 €/an
+
+salarié . convention collective . restauration rapide . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel mensuel
+  description: |
+    Pour les niveaux I à IV, le taux horaire minimum appliqué aux heures du contrat hors
+    heures supplémentaires (151,67 heures pour un temps plein), comme le SMIC. Pour le
+    niveau V, un douzième de la rémunération minimale annuelle, proratisé pour un temps
+    partiel. Le minimum annuel s'apprécie sur l'ensemble des éléments de salaire : la règle
+    n'en donne que l'équivalent mensuel. Vaut 0 €/mois pour un niveau absent de la grille.
+  applicable si: convention collective = 'restauration rapide'
+  unité: €/mois
+  somme:
+    - produit:
+        - taux horaire minimum
+        - contrat . temps de travail
+    - produit:
+        - rémunération minimale annuelle
+        - contrat . temps de travail . quotité
+
+salarié . convention collective . restauration rapide . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau ou l'échelon n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'restauration rapide'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : les deux grilles valent 0 pour un niveau inconnu.
+  valeur:
+    toutes ces conditions:
+      - taux horaire minimum = 0 €/heure
+      - rémunération minimale annuelle = 0 €/an
+
+salarié . convention collective . restauration rapide . prévoyance:
+  titre: Prévoyance conventionnelle restauration rapide
+  description: |
+    Cotisation conventionnelle du régime de prévoyance de la branche, calculée sur les tranches T1
+    et T2 du salaire brut, dans la limite de quatre plafonds mensuels de sécurité sociale. Chaque
+    tranche est financée à parts égales : 0,25 % employeur et 0,25 % salarié (0,50 % au total).
+    Les dispositions spécifiques de l'ANI prévoyance pour les cadres restent portées par le modèle
+    standard et ne sont pas remplacées ici.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'restauration rapide'
+      - contrat . statut cadre = non
+  somme:
+    - employeur
+    - salarié
+  avec:
+    employeur:
+      remplace: cotisations . prévoyances . conventionnelle . employeur
+      barème:
+        assiette: contrat . salaire brut
+        multiplicateur: plafond sécurité sociale
+        tranches:
+          - taux: 0.25%
+            plafond: 1
+          - taux: 0.25%
+            plafond: 4
+    salarié:
+      remplace: cotisations . prévoyances . conventionnelle . salarié
+      barème:
+        assiette: contrat . salaire brut
+        multiplicateur: plafond sécurité sociale
+        tranches:
+          - taux: 0.25%
+            plafond: 1
+          - taux: 0.25%
+            plafond: 4
+  références:
+    Avenant n° 10 du 5 décembre 2025, article 54: https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000054176836
+    Arrêté d'extension du 27 mai 2026: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052849346
+
+salarié . convention collective . restauration rapide . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (articles 19 B et 20). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'restauration rapide'
+
+salarié . convention collective . restauration rapide . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . restauration rapide . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . restauration rapide . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . restauration rapide . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . restauration rapide . maintien de salaire . éligible:
+  titre: Droit au maintien
+  description: |
+    Maladie après 3 ans d'ancienneté ; accident du travail, au taux légal, après 6 mois ; l'accident
+    de trajet relève du maintien légal.
+  variations:
+    - si: motif = 'maladie'
+      alors: ancienneté >= 36 mois
+    - si: motif = 'accident du travail'
+      alors: ancienneté >= 6 mois
+    - sinon: non
+
+salarié . convention collective . restauration rapide . maintien de salaire . ancienneté en cours d'absence:
+  valeur: non
+
+salarié . convention collective . restauration rapide . maintien de salaire . carence:
+  unité: jour
+  variations:
+    - si: motif = 'accident du travail'
+      alors: 0 jour
+    - sinon: 10 jour
+
+salarié . convention collective . restauration rapide . maintien de salaire . durée maladie:
+  titre: Durée de chaque période de la maladie
+  unité: jour
+  variations:
+    - si: ancienneté >= 396 mois
+      alors: 90 jour
+    - si: ancienneté >= 336 mois
+      alors: 80 jour
+    - si: ancienneté >= 276 mois
+      alors: 70 jour
+    - si: ancienneté >= 216 mois
+      alors: 60 jour
+    - si: ancienneté >= 156 mois
+      alors: 50 jour
+    - si: ancienneté >= 96 mois
+      alors: 40 jour
+    - sinon: 30 jour
+
+salarié . convention collective . restauration rapide . maintien de salaire . durée accident du travail:
+  titre: Durée de chaque période de l'accident du travail (maintien légal, D1226-2)
+  unité: jour
+  variations:
+    - si: ancienneté >= 372 mois
+      alors: 90 jour
+    - si: ancienneté >= 312 mois
+      alors: 80 jour
+    - si: ancienneté >= 252 mois
+      alors: 70 jour
+    - si: ancienneté >= 192 mois
+      alors: 60 jour
+    - si: ancienneté >= 132 mois
+      alors: 50 jour
+    - si: ancienneté >= 72 mois
+      alors: 40 jour
+    - sinon: 30 jour
+
+salarié . convention collective . restauration rapide . maintien de salaire . première période . durée:
+  unité: jour
+  variations:
+    - si: motif = 'accident du travail'
+      alors: durée accident du travail
+    - sinon: durée maladie
+
+salarié . convention collective . restauration rapide . maintien de salaire . première période . taux:
+  unité: '%'
+  valeur: 90%
+
+salarié . convention collective . restauration rapide . maintien de salaire . seconde période . durée:
+  unité: jour
+  variations:
+    - si: motif = 'accident du travail'
+      alors: durée accident du travail
+    - sinon: durée maladie
+
+salarié . convention collective . restauration rapide . maintien de salaire . seconde période . taux:
+  unité: '%'
+  variations:
+    - si: motif = 'accident du travail'
+      alors: 200% / 3
+    - sinon: 70%
+
+salarié . convention collective . restauration rapide . maintien de salaire . fenêtre:
+  valeur: "'douze mois'"
+
+salarié . convention collective . restauration rapide . maintien de salaire . base:
+  valeur: "'brut'"
+
+salarié . convention collective . restauration rapide . maintien de salaire . plafond net:
+  valeur: non

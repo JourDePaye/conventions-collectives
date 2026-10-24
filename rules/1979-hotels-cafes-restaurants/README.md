@@ -34,3 +34,7 @@ L'avenant n° 36 du 4 juin 2026 relatif aux salaires est étendu par arrêté du
 ## Congés payés
 
 Les révisions [2024.3](1979-hotels-cafes-restaurants.2024.3.publicodes) et [2026.2](1979-hotels-cafes-restaurants.2026.2.publicodes), aux mêmes dates que 2024.2 et 2026.1, ajoutent `congés payés . jours supplémentaires`, les 6 jours ouvrables de congés conventionnels par année de référence de l'article 11 de l'avenant n° 1 du 13 juillet 2004, quand le `congé légal` acquis atteint un mois de travail (2,5 jours). L'application les proratise par le congé légal, les réserve aux adhérents d'une organisation signataire (l'arrêté d'extension du 30 décembre 2004 a été annulé sur ce point par le Conseil d'État le 18 octobre 2006) et paie ceux qui ne sont pas pris à l'issue de leur période ; ils n'ouvrent pas droit au fractionnement.
+
+## Maintien de salaire
+
+La révision 2024.4 et 2026.3 ajoute le maintien de salaire conventionnel (article 29.2) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package. La maternité relève de la loi (article 28).

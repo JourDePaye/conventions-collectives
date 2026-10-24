@@ -44,3 +44,7 @@ La convention contient d'autres dispositions qui demandent des données ou une d
 - [Avenant n° 21 du 5 mars 2025 — prime d'expérience](https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051694378)
 - [Avenant n° 23 du 18 décembre 2025 — dimanche et jours fériés](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053748405)
 - [Accord relatif à l'indemnité de transport](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005665494)
+
+## Maintien de salaire
+
+La révision 2026.2 ajoute le maintien de salaire conventionnel (article 4.9.1 a) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package.

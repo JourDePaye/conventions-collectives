@@ -20,3 +20,7 @@ L’échelon 1 (1 853 €) est inférieur au SMIC mensuel de 1 867,02 € en vig
 
 - La valeur du point de formation-qualification (3,47 €, article 2 de l’avenant) et le montant de l’indemnité de panier (6,09 €, article 3) sont fixés par l’avenant, mais ne sont pas calculés ici. Les autres primes, majorations et éléments de la convention ne sont pas non plus modélisés.
 - Les minima de l’avenant n° 109 du 3 juillet 2025, étendu par arrêté du 27 août 2025 (JORF du 2 septembre 2025), en vigueur avant le 1er mai 2026, ne sont pas modélisés : la première version couvre les périodes à partir du 1er mai 2026.
+
+## Maintien de salaire
+
+La révision 2026.2 ajoute le maintien de salaire conventionnel (articles 2.10 et 4.08) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package.

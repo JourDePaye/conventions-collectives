@@ -71,9 +71,10 @@ describe("IDCC 1501 — 2026.2 minimum salaries", () => {
     };
     assert.equal(inForce("2025-06-01"), "2025.1");
     assert.equal(inForce("2025-12-31"), "2025.1");
-    assert.equal(inForce("2026-01-01"), "2026.2");
-    assert.equal(inForce("2026-06-03"), "2026.2");
-    assert.equal(inForce("2026-06-04"), "2026.1");
+    // 2026.3 and 2026.4 add the salary maintenance to 2026.2 and 2026.1, at the same dates.
+    assert.equal(inForce("2026-01-01"), "2026.3");
+    assert.equal(inForce("2026-06-03"), "2026.3");
+    assert.equal(inForce("2026-06-04"), "2026.4");
   });
 
   it("carries the prévoyance rules from 1 January 2026", () => {

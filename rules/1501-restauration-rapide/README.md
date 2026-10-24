@@ -29,3 +29,7 @@ Les échelons `I.A`, `I.B` et `II.A` (de 11,88 € à 12,22 € de l’heure) so
 - Les primes, majorations, la santé, la formation et les autres éléments de la convention ne sont pas modélisés.
 - Les grilles antérieures à l’avenant n° 72, notamment celle de l’avenant n° 67 du 30 avril 2024, ne sont pas modélisées : la première version couvre les périodes à partir du 1er juin 2025.
 - L’avenant s’applique de plein droit aux adhérents des organisations patronales signataires, et à tous les employeurs du champ depuis son extension (publication de l’arrêté du 7 août 2025).
+
+## Maintien de salaire
+
+La révision 2026.3 et 2026.4 ajoute le maintien de salaire conventionnel (articles 19 B et 20) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package. La maladie professionnelle, confondue avec l’accident du travail, est indemnisée après 6 mois au lieu d’un an.

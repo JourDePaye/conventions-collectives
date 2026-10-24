@@ -308,6 +308,14 @@ Ces modèles complètent `modele-social`. Le package ne crée pas de moteur Publ
 
 L’application qui l’utilise choisit la version applicable à la date souhaitée, ajoute si nécessaire la convention aux choix de `salarié . convention collective`, puis fusionne ses règles avec celles de `modele-social`. Elle doit refuser les définitions de règles en double, sauf les quatre exceptions structurelles Sport `2026.1` et `2026.2` (la `2026.3` n’en a plus) détaillées dans [son README](rules/2511-sport/README.md) et autorisées par clé/version exactes dans les tests. Pour modifier une règle de base, les modèles utilisent les mécanismes publicodes `remplace` ou `rend non applicable`.
 
+### Maintien de salaire
+
+Certaines versions décrivent le maintien de salaire conventionnel en cas de maladie, d’accident, de maternité, de paternité ou d’adoption, sous `<convention> . maintien de salaire` : 1486 (`2026.4`), 3248 (`2026.5`), 1979 (`2024.4`, `2026.3`), 2216 (`2026.5`), 1517 (`2026.2`), 1501 (`2026.3`, `2026.4`), 3043 (`2026.2`), 1090 (`2026.2`), 44 (`2026.5`) et 2120 (`2026.3`). Le package ne calcule pas l’indemnité : il donne, pour un motif et une ancienneté, les paramètres que l’application applique jour par jour.
+
+- Entrées : `motif` (`'maladie'`, `'accident du travail'`, maladie professionnelle comprise, `'accident de trajet'`, `'maternité'`, `'paternité'` ou `'adoption'`), `ancienneté` (en mois) et, pour la banque, `rang de l'arrêt` (rang de l’arrêt maladie sur 12 mois glissants) et `enfant à charge`. La catégorie (cadres, maîtrise, groupe d’emplois…) se déduit de la classification de la convention et du statut cadre.
+- Sorties : `éligible`, `carence` (jours non indemnisés au début de chaque arrêt), `première période . durée` et `. taux`, `seconde période . durée` et `. taux` (une durée nulle quand il n’y en a pas), `fenêtre` (`'douze mois'` : jours déjà indemnisés dans les 12 mois précédents ; `'année civile'` ; `'arrêt'` : chaque arrêt ouvre ses droits), `base` (`'brut'` : la rémunération brute qu’aurait perçue le salarié ; `'salaire de base'` : hors primes ; `'net'` : la rémunération nette qu’il aurait perçue), `plafond net` (le total, indemnités journalières comprises, ne dépasse pas le net qu’il aurait perçu) et `ancienneté en cours d'absence` (une ancienneté atteinte pendant l’absence ouvre ses droits pour les jours restants).
+- Les durées en mois des textes sont comptées pour 30 jours. Les indemnités journalières sont déduites par l’application ; la déduction des prestations de prévoyance financées par l’employeur n’est pas modélisée. Les limites propres à chaque convention sont dans son README.
+
 Dans JourDePaye, `payroll-core` conserve le catalogue métier, la sélection de la version au premier jour de la période, la correspondance avec les données du salarié et le calcul de paie. Ces choix de période ne sont pas imposés par ce package.
 
 ## Utiliser le package

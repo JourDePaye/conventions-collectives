@@ -1,0 +1,312 @@
+# Convention collective nationale des bureaux d'études techniques, des cabinets
+# d'ingénieurs-conseils et des sociétés de conseils (Syntec, IDCC 1486).
+#
+# Version 2026.4, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Révision 2026.4 : ajoute à la version 2026.3, à date d'effet identique, le maintien de salaire
+# des articles 9.2 et 9.3 (maladie, accident, maternité, adoption, paternité), décrit par les
+# règles `maintien de salaire` que JourDePaye évalue pour chaque absence.
+# Révision 2026.3 : ajoute à la version 2026.2, à date d'effet identique, les congés d'ancienneté
+# de l'article 5.1 (en jours ouvrés).
+# Une version publiée ne se modifie plus : toute évolution ou correction passe par une nouvelle version.
+
+validFrom: 2026-01-01
+sources:
+  - "Accord du 26 juin 2024 sur les salaires minimaux, étendu par arrêté du 8 novembre 2024 (JORF du 27 novembre 2024), applicable au 1er janvier 2025."
+  - "Accord du 31 octobre 2019 relatif à la formation professionnelle, modifié par avenant n° 3 du 27 octobre 2022 et étendu par arrêté du 31 mars 2023 (JORF du 13 avril 2023) : contribution conventionnelle de 0,05 % pour les entreprises de moins de 50 salariés et de 0,10 % à partir de 50 salariés, avec un minimum annuel de 25 € par entreprise."
+  - "Avenant n° 8 du 16 décembre 2025 relatif au régime de prévoyance lourde, étendu par arrêté du 21 mai 2026 (JORF du 5 juin 2026) : taux globaux du régime de branche applicables aux entreprises adhérentes à compter du 1er juillet 2026. La répartition employeur/salarié et l'adhésion au contrat ne sont pas modélisées."
+  - >-
+    Accord du 26 juin 2024 relatif aux salaires minimaux (annexe III), étendu par arrêté du 8 novembre 2024 (JORF du 27 novembre 2024). Texte officiel lu sur Légifrance le 22 octobre 2026, montants des règles vérifiés sur ce texte :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000050228699
+  - >-
+    Article 5.1 de la convention (congés payés et congés d'ancienneté), dans sa rédaction issue de
+    l'avenant n° 2 du 27 octobre 2022 à l'avenant n° 46 (article 18, KALITEXT000047006904), étendu par
+    arrêté du 5 avril 2023, en vigueur au 1er mai 2023 : « En fonction de l'ancienneté acquise à la date
+    d'ouverture de la période de prise des congés payés applicable dans l'entreprise, soit le 1er mai à
+    défaut de stipulation différente, il est accordé : après une période de 5 années d'ancienneté :
+    1 jour ouvré supplémentaire ; 10 : 2 ; 15 : 3 ; 20 : 4 jours ouvrés supplémentaires ». Texte lu sur
+    Légifrance le 23 octobre 2026 (KALIARTI000047513845) :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000047513845
+  - >-
+    Article 9.2 de la convention (incapacité temporaire de travail), dans sa rédaction issue de
+    l'avenant n° 2 du 27 octobre 2022 à l'avenant n° 46, étendu sous réserve des articles L1226-1,
+    D1226-1 et D1226-2 du code du travail par arrêté du 5 avril 2023 : allocation due dès le premier
+    jour d'absence, après un an d'ancienneté sauf accident du travail ou maladie professionnelle ;
+    90 jours au plus sur 12 mois consécutifs ; ETAM de 1 à 5 ans d'ancienneté : 30 jours à 100 % du
+    salaire brut puis 60 jours à 80 %, de plus de 5 ans : 60 jours à 100 % puis 30 jours à 80 % ;
+    ingénieurs et cadres : 90 jours à 100 % ; jusqu'à concurrence du net qu'aurait perçu le
+    salarié, non compris les primes et gratifications ; une ancienneté atteinte pendant la maladie
+    s'applique pour les jours restant à courir. Texte lu sur Légifrance le 24 octobre 2026
+    (KALIARTI000047513889) :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000047513889
+  - >-
+    Article 9.3 de la convention (parentalité), lu sur Légifrance le 24 octobre 2026
+    (KALIARTI000053769476) : maintien intégral du salaire mensuel pendant le congé légal de
+    maternité ou d'adoption, sous déduction des indemnités de la sécurité sociale, après un an
+    d'ancienneté au début du congé (ou à partir du jour où elle est atteinte) ; congé de paternité
+    et d'accueil de l'enfant complété à 100 % du salaire de base hors primes, après un an
+    d'ancienneté, le cumul étant limité au salaire net journalier de base (la limite du complément
+    à la valeur journalière du plafond de la sécurité sociale n'est pas reprise) :
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000053769476
+---
+salarié . convention collective . syntec:
+  titre: Bureaux d'études techniques (Syntec, IDCC 1486)
+  valeur: convention collective = 'syntec'
+
+salarié . convention collective . syntec . coefficient:
+  titre: Coefficient de classification Syntec
+  description: |
+    ETAM : 240 (1.1), 250 (1.2), 275 (2.1), 310 (2.2), 355 (2.3), 400 (3.1), 450 (3.2),
+    500 (3.3). Ingénieurs et cadres : 95 (1.1), 100 (1.2), 105 (2.1, moins de 26 ans),
+    115 (2.1, 26 ans et plus), 130 (2.2), 150 (2.3), 170 (3.1), 210 (3.2), 270 (3.3).
+  applicable si: convention collective = 'syntec'
+  par défaut: 0
+
+salarié . convention collective . syntec . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel Syntec
+  description: Salaire mensuel brut minimum pour un temps plein, selon la catégorie et le coefficient.
+  applicable si: convention collective = 'syntec'
+  unité: €/mois
+  variations:
+    - si: contrat . statut cadre
+      alors: grille ingénieurs et cadres
+    - sinon: grille ETAM
+
+salarié . convention collective . syntec . salaire minimum conventionnel . grille ETAM:
+  unité: €/mois
+  variations:
+    - si: coefficient = 240
+      alors: 1815 €/mois
+    - si: coefficient = 250
+      alors: 1845 €/mois
+    - si: coefficient = 275
+      alors: 1875 €/mois
+    - si: coefficient = 310
+      alors: 1905 €/mois
+    - si: coefficient = 355
+      alors: 2045 €/mois
+    - si: coefficient = 400
+      alors: 2185 €/mois
+    - si: coefficient = 450
+      alors: 2340 €/mois
+    - si: coefficient = 500
+      alors: 2490 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . syntec . salaire minimum conventionnel . grille ingénieurs et cadres:
+  unité: €/mois
+  variations:
+    - si: coefficient = 95
+      alors: 2135 €/mois
+    - si: coefficient = 100
+      alors: 2240 €/mois
+    - si: coefficient = 105
+      alors: 2315 €/mois
+    - si: coefficient = 115
+      alors: 2530 €/mois
+    - si: coefficient = 130
+      alors: 2850 €/mois
+    - si: coefficient = 150
+      alors: 3275 €/mois
+    - si: coefficient = 170
+      alors: 3650 €/mois
+    - si: coefficient = 210
+      alors: 4495 €/mois
+    - si: coefficient = 270
+      alors: 5755 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . syntec . coefficient hors grille:
+  titre: Coefficient absent de la grille Syntec
+  description: Le coefficient n'existe pas dans la grille de la catégorie du salarié.
+  applicable si: convention collective = 'syntec'
+  valeur: salaire minimum conventionnel = 0 €/mois
+
+salarié . convention collective . syntec . cotisations:
+  applicable si: convention collective = 'syntec'
+  valeur: oui
+
+salarié . convention collective . syntec . cotisations . formation professionnelle:
+  applicable si: convention collective = 'syntec'
+  remplace: salarié . cotisations . formation professionnelle
+  somme:
+    - salarié . cotisations . formation professionnelle
+    - contribution conventionnelle
+
+salarié . convention collective . syntec . cotisations . formation professionnelle . contribution conventionnelle:
+  applicable si: convention collective = 'syntec'
+  description: Contribution conventionnelle Syntec additionnelle à la contribution légale de formation professionnelle.
+  produit:
+    - salarié . cotisations . assiette
+    - variations:
+        - si: entreprise . salariés . effectif >= 50
+          alors: 0.10%
+        - sinon: 0.05%
+  références:
+    Accord du 31 octobre 2019 et avenant n° 3 du 27 octobre 2022 relatifs à la formation professionnelle: https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000047441163
+    Arrêté du 31 mars 2023 portant extension: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000047434427
+
+salarié . convention collective . syntec . congés payés:
+  titre: Congés payés Syntec
+  applicable si: convention collective = 'syntec'
+
+salarié . convention collective . syntec . congés payés . ancienneté:
+  titre: Ancienneté à l'ouverture de la période de prise des congés
+  description: |
+    Ancienneté acquise à la date d'ouverture de la période de prise des congés payés applicable
+    dans l'entreprise, soit le 1er mai à défaut de stipulation différente (article 5.1).
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . syntec . congés payés . jours supplémentaires:
+  titre: Congés d'ancienneté
+  description: |
+    Article 5.1 : 1 jour ouvré supplémentaire après 5 années d'ancienneté, 2 après 10 ans,
+    3 après 15 ans, 4 après 20 ans.
+  unité: jour
+  variations:
+    - si: ancienneté >= 20 an
+      alors: 4 jour
+    - si: ancienneté >= 15 an
+      alors: 3 jour
+    - si: ancienneté >= 10 an
+      alors: 2 jour
+    - si: ancienneté >= 5 an
+      alors: 1 jour
+    - sinon: 0 jour
+
+salarié . convention collective . syntec . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence pour maladie, accident,
+    maternité, adoption ou paternité (articles 9.2 et 9.3). JourDePaye renseigne le motif et
+    l'ancienneté de chaque absence, lit les durées, taux et modalités ci-dessous, et retient pour
+    chaque arrêt le plus favorable du maintien légal et du maintien conventionnel.
+  applicable si: convention collective = 'syntec'
+
+salarié . convention collective . syntec . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . syntec . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . syntec . maintien de salaire . cadre:
+  titre: Ingénieurs et cadres
+  valeur: contrat . statut cadre
+
+salarié . convention collective . syntec . maintien de salaire . éligible:
+  titre: Droit au maintien
+  description: |
+    Dès l'embauche en cas d'accident du travail ou de maladie professionnelle, après un an
+    d'ancienneté dans les autres cas.
+  valeur:
+    une de ces conditions:
+      - motif = 'accident du travail'
+      - ancienneté >= 12 mois
+
+salarié . convention collective . syntec . maintien de salaire . ancienneté en cours d'absence:
+  titre: Ancienneté atteinte pendant l'absence
+  description: L'ancienneté atteinte pendant l'absence s'applique aux jours restant à courir.
+  valeur: oui
+
+salarié . convention collective . syntec . maintien de salaire . carence:
+  titre: Délai de carence
+  description: L'allocation est due dès le premier jour d'absence.
+  unité: jour
+  valeur: 0 jour
+
+salarié . convention collective . syntec . maintien de salaire . parentalité:
+  valeur:
+    une de ces conditions:
+      - motif = 'maternité'
+      - motif = 'adoption'
+      - motif = 'paternité'
+
+salarié . convention collective . syntec . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . syntec . maintien de salaire . première période . durée:
+  titre: Durée de la première période
+  description: |
+    Congé légal de maternité, d'adoption ou de paternité en entier ; en cas de maladie ou
+    d'accident, 90 jours pour les ingénieurs et cadres, 60 jours pour les ETAM de plus de 5 ans
+    d'ancienneté, 30 jours sinon.
+  unité: jour
+  variations:
+    - si: parentalité
+      alors: 365 jour
+    - si: cadre
+      alors: 90 jour
+    - si: ancienneté > 60 mois
+      alors: 60 jour
+    - sinon: 30 jour
+
+salarié . convention collective . syntec . maintien de salaire . première période . taux:
+  titre: Taux de la première période
+  unité: '%'
+  valeur: 100%
+
+salarié . convention collective . syntec . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . syntec . maintien de salaire . seconde période . durée:
+  titre: Durée de la seconde période
+  description: ETAM, en cas de maladie ou d'accident, 30 jours après 5 ans d'ancienneté, 60 jours sinon.
+  unité: jour
+  variations:
+    - si:
+        une de ces conditions:
+          - parentalité
+          - cadre
+      alors: 0 jour
+    - si: ancienneté > 60 mois
+      alors: 30 jour
+    - sinon: 60 jour
+
+salarié . convention collective . syntec . maintien de salaire . seconde période . taux:
+  titre: Taux de la seconde période
+  unité: '%'
+  valeur: 80%
+
+salarié . convention collective . syntec . maintien de salaire . fenêtre:
+  titre: Période de décompte des jours indemnisés
+  description: |
+    douze mois : les jours déjà indemnisés dans les 12 mois consécutifs précédents s'imputent sur
+    les durées ; arrêt : chaque congé de maternité, d'adoption ou de paternité est indemnisé en
+    entier.
+  valeur:
+    variations:
+      - si: parentalité
+        alors: "'arrêt'"
+      - sinon: "'douze mois'"
+
+salarié . convention collective . syntec . maintien de salaire . base:
+  titre: Rémunération maintenue
+  description: |
+    salaire de base : le salaire de base, hors primes et gratifications (maladie, accident,
+    paternité) ; brut : le salaire mensuel (maternité et adoption).
+  valeur:
+    variations:
+      - si:
+          une de ces conditions:
+            - motif = 'maternité'
+            - motif = 'adoption'
+        alors: "'brut'"
+      - sinon: "'salaire de base'"
+
+salarié . convention collective . syntec . maintien de salaire . plafond net:
+  titre: Limite du net qu'aurait perçu le salarié
+  description: |
+    Le salarié ne perçoit pas plus que le net qu'il aurait perçu en travaillant (maladie,
+    accident, paternité) ; le texte ne prévoit pas cette limite pour la maternité et l'adoption.
+  valeur:
+    une de ces conditions:
+      - motif = 'maladie'
+      - motif = 'accident du travail'
+      - motif = 'accident de trajet'
+      - motif = 'paternité'

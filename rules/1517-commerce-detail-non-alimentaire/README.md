@@ -20,3 +20,7 @@ Les niveaux 1 à 3 (de 1 829 € à 1 843 €) et le niveau 4 (1 867 €) sont i
 - Une page de synthèse du CDNA donne 1 836 € pour le niveau 2, alors que le texte de l’avenant, dans ses deux exemplaires consultés, donne 1 838 € : le texte est retenu.
 - Les primes, majorations, la prévoyance et les autres éléments de la convention ne sont pas modélisés.
 - Les grilles antérieures au 1er juin 2026, notamment celle de l’avenant n° 14 du 27 novembre 2024, ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
+
+## Maintien de salaire
+
+La révision 2026.2 ajoute le maintien de salaire conventionnel (articles 1er et 2 du chapitre VII) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package.

@@ -38,3 +38,7 @@ Sources officielles examinées : [avenant santé](https://www.legifrance.gouv.fr
 - Le barème vaut pour 35 heures par semaine. Les barèmes pour d’autres durées du travail, en particulier celui des 38 heures évoqué par les pages consultées, ne sont pas modélisés.
 - La prime d’ancienneté (3 % après 3 ans, puis 3 % tous les 3 ans jusqu’à 15 %), les primes de poste et les autres éléments de la convention ne sont pas modélisés. Le minimum retenu est le barème, hors prime d’ancienneté.
 - Les grilles antérieures au 1er janvier 2025 ne sont pas modélisées : la première version couvre les périodes à partir de cette date.
+
+## Maintien de salaire
+
+La révision 2026.5 ajoute le maintien de salaire conventionnel (avenants n° 1 (article 23), n° 2 (article 7) et n° 3 (article 7)) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package. La catégorie se déduit du coefficient (groupe IV de l’accord du 10 août 1978 : coefficients 225 à 360, sauf 350, cadres) ; les emplois de maîtrise « à astérisque » (3 mois à plein tarif) ne sont pas repris ; l’article 23 de l’avenant n° 1 est pris dans sa rédaction étendue.
