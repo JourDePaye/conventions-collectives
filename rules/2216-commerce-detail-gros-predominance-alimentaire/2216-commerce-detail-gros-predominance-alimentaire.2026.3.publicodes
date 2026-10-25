@@ -2,7 +2,7 @@
 # alimentaire du 12 juillet 2001 (IDCC 2216, brochure 3305).
 #
 # Version 2026.3 : corrige les minima du forfait jours (article 3 de l'avenant n° 99) de la
-# version 2026.2, à date d'effet identique ; grilles mensuelle et annuelle inchangées. Fusionnée avec modele-social par @jourdepaye/payroll-core.
+# version 2026.2, à date d'effet identique ; grilles mensuelle et annuelle inchangées. Fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 #

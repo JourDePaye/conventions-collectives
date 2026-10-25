@@ -3,7 +3,7 @@
 # motocycle, activités connexes, contrôle technique automobile et formation des conducteurs
 # (écoles de conduite).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Révision 2026.2 : ajoute à la version 2026.1, à date d'effet identique, le maintien de salaire
 # des articles 2.10 et 4.08 (maladie et accident).
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou

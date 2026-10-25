@@ -1,7 +1,7 @@
 # Convention collective nationale des entreprises de maintenance, de distribution et de location de matériels agricoles, de travaux publics, de bâtiment, de manutention, de motoculture de plaisance et activités connexes du 23 avril 2012
 # (IDCC 1404, brochure 3131).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 validFrom: 2026-03-01

@@ -1,7 +1,7 @@
 # Convention collective nationale des services de prévention et de santé au travail interentreprises du 20 juillet 1976
 # (IDCC 897).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus : toute évolution ou correction passe par une nouvelle version.
 
 # Version 2026.2 : révision de 2026.1 ; `classe hors grille` utilisait `ou`, qui n'est pas un opérateur

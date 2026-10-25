@@ -1,7 +1,7 @@
 # Convention collective nationale des maisons à succursales de vente au détail d'habillement
 # du 30 juin 1972 (IDCC 675, brochure 3065).
 #
-# Version 2026.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.2, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 #

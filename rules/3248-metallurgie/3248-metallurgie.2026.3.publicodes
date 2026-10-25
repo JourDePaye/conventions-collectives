@@ -1,6 +1,6 @@
 # Convention collective nationale de la métallurgie du 7 février 2022 (IDCC 3248).
 #
-# Version 2026.3, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.3, fusionnée avec modele-social.
 # Même date d'effet que 2026.1 et 2026.2, qu'elle remplace : elle ajoute le barème des salariés
 # débutants du groupe F (second tableau de l'annexe 6.1) et reprend les montants majorés de 15 %
 # et 30 % du texte (arrondis à l'euro) au lieu de les recalculer.

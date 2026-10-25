@@ -1,7 +1,7 @@
 # Convention collective nationale des commerces de gros du 23 juin 1970 (IDCC 573,
 # brochure 3044).
 #
-# Version 2026.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.2, fusionnée avec modele-social.
 # Révision 2026.3 : ajoute à la version 2026.2, à date d'effet identique, l'indemnisation de la
 # maladie et de l'accident de l'article 53.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou

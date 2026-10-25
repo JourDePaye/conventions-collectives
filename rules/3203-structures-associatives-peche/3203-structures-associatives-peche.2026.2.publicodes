@@ -2,7 +2,7 @@
 # JourDePaye ne charge cette version que pour un employeur adhérent (pas de métadonnée `extension`).
 # Convention collective nationale des structures associatives de pêche de loisir et de protection du milieu aquatique du 22 juin 2013 (IDCC 3203).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
 
 validFrom: 2026-01-01

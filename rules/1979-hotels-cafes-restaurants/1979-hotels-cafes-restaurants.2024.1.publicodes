@@ -1,7 +1,7 @@
 # Convention collective nationale des hôtels, cafés, restaurants du 30 avril 1997
 # (HCR, IDCC 1979).
 #
-# Version 2024.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2024.1, fusionnée avec modele-social.
 # modele-social définit déjà « salarié . convention collective . HCR » (avantage en nature
 # repas, majoration des heures supplémentaires, prévoyance) : cette version y ajoute la
 # grille des salaires minima.

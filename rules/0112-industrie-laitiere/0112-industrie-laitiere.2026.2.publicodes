@@ -1,7 +1,7 @@
 # Convention collective nationale de l'industrie laitière du 20 mai 1955
 # (IDCC 0112, brochure 3124).
 #
-# Version 2026.2, merged with modele-social by @jourdepaye/payroll-core.
+# Version 2026.2, merged with modele-social.
 # A released version is immutable (see versions.lock.json): every amendment or correction
 # must use a new version.
 

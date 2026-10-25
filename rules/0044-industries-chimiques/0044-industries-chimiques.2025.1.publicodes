@@ -1,7 +1,7 @@
 # Convention collective nationale des industries chimiques et connexes du 30 décembre 1952
 # (IDCC 44, brochure 3108).
 #
-# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2025.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 #

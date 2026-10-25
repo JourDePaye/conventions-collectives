@@ -1,7 +1,7 @@
 # Convention collective nationale des cabinets et cliniques vétérinaires du 5 juillet 1995
 # (IDCC 1875, brochure 3282).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 

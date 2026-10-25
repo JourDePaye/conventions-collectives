@@ -1,6 +1,6 @@
 # Convention collective nationale des entreprises d'installation sans fabrication de matériel aéraulique, thermique et frigorifique (IDCC 1412).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 validFrom: 2026-01-01
 extension: 2026-06-27
 sources:

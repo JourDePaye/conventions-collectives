@@ -42,7 +42,7 @@ function minimum(engine: Engine, coefficient: number | undefined, quota = "100%"
   return Math.round((result as number) * 100) / 100;
 }
 
-/** Version in force on a date, as payroll-core selects it: latest validFrom <= date, then highest revision. */
+/** Version in force on a date, as an application selects it: latest validFrom <= date, then highest revision. */
 function inForce(date: string) {
   const list = COMPILED_VERSIONS[agreement]!.filter((entry) => entry.validFrom <= date);
   return list[list.length - 1]!.version;

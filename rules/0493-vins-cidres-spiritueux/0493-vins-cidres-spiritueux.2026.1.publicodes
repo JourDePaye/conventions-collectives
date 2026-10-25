@@ -1,6 +1,6 @@
 # Convention collective nationale des vins, cidres, jus de fruits, sirops, spiritueux et liqueurs de France du 13 février 1969 (IDCC 493, brochure 3029).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
 
 validFrom: 2026-02-01

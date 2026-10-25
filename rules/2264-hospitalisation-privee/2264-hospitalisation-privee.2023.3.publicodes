@@ -1,7 +1,7 @@
 # Convention collective nationale de l'hospitalisation privée du 18 avril 2002 (IDCC 2264,
 # brochure 3307, FHP).
 #
-# Version 2023.3, correction d'audit paie ; fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2023.3, correction d'audit paie ; fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 validFrom: 2023-01-01

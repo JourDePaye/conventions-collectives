@@ -1,7 +1,7 @@
 # Convention collective nationale des maisons à succursales de vente au détail d'habillement
 # du 30 juin 1972 (IDCC 675, brochure 3065).
 #
-# Version 2026.3, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.3, fusionnée avec modele-social.
 # Elle remplace la 2026.2 (même date d'effet) : primes d'ancienneté en montants fixes de l'article 1er,
 # A.2 et B.2, tranche de 20 ans, forfait jours calculé sur le minimum hors prime.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou

@@ -1,7 +1,7 @@
 # Convention collective nationale des commerces de gros de l'habillement, de la mercerie, de la chaussure et du jouet du 13 mars 1969
 # (IDCC 500, brochure 3148).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 validFrom: 2026-09-20

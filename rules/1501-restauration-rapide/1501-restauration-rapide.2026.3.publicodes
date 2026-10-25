@@ -1,7 +1,7 @@
 # Convention collective nationale de la restauration rapide du 18 mars 1988 (IDCC 1501,
 # brochure 3245), étendue à la restauration livrée par l'avenant n° 29.
 #
-# Version 2026.2 (corrige la date d'effet de la version 2026.1), fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.2 (corrige la date d'effet de la version 2026.1), fusionnée avec modele-social.
 # Révision 2026.3 : ajoute à la version 2026.2, à date d'effet identique, le maintien de salaire
 # des articles 19 B et 20 (maladie et accident).
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou

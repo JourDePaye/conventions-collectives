@@ -1,7 +1,7 @@
 # Convention collective nationale de la boulangerie-pâtisserie (entreprises artisanales)
 # du 19 mars 1976 (IDCC 843, brochure 3117).
 #
-# Version 2026.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.2, fusionnée avec modele-social.
 # Révision 2026.3 : ajoute à la version 2026.2, à date d'effet identique, la garantie maintien de
 # salaire de l'article 37.1.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou

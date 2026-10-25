@@ -1,7 +1,7 @@
 # Convention collective nationale de la pharmacie d'officine du 3 décembre 1997
 # (IDCC 1996, brochure 3052).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version. Une revalorisation annuelle ne change en
 # principe que la valeur du point et le salaire garanti au coefficient 100.

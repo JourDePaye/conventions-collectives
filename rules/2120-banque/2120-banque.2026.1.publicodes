@@ -1,6 +1,6 @@
 # Convention collective nationale de la banque du 10 janvier 2000 (IDCC 2120, brochure 3161).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 #

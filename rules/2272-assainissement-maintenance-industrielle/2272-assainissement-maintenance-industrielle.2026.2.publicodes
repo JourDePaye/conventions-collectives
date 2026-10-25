@@ -2,7 +2,7 @@
 # (IDCC 2272, brochure 3309).
 #
 # Version 2026.2 (remplace 2026.1 : montants du tableau publié repris tels quels),
-# fusionnée avec modele-social par @jourdepaye/payroll-core.
+# fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 validFrom: 2026-04-01

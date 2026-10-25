@@ -10,6 +10,6 @@ Versioned publicodes extensions to modele-social, consumed by JourDePaye.
 - Released versions in `rules/versions.lock.json` are immutable and must never be removed. Add a new version for any rule correction. Exception while JDP is in beta (see the workspace `AGENTS.md`): with the user's explicit go, published revisions may be renamed or rewritten in place, and their lock entries regenerated.
 - Preserve the historical hash algorithm: SHA-256 of `JSON.stringify({ validFrom, rules })`, truncated to 16 hex characters.
 - Never redefine a modele-social rule: use `remplace` or `rend non applicable`. Keep agreement rules under their French namespace and guard them with `applicable si`.
-- No dependency on payroll-core. Keep payroll period selection, CaseValue mapping, and payroll calculation in JourDePaye.
+- No dependency on an application that uses the package: the selection of the version for a payroll period, the mapping of an employee's data and the payroll calculation stay in the application.
 - Generated JSON and the version index live in `src/compiled/` and are not committed. Build before packing; consumers install the compiled package.
 - A Git tag `v*` publishes the package to npm (`.github/workflows/publish.yml`). While in beta, tag `vYYYY.MM.N-beta`: `YYYY.MM` is the year and month of the release date (a tag of 19 October 2026 is `v2026.10.N-beta`), `N` the next increment within that month. The workflow publishes `-beta` versions under the npm dist-tag `latest`, any other prerelease under `next`. Drop the suffix once out of beta.

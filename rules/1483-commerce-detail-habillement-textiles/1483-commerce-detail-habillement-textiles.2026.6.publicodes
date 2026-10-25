@@ -1,7 +1,7 @@
 # Convention collective nationale du commerce de détail de l'habillement et des articles
 # textiles du 25 novembre 1987 (IDCC 1483, brochure 3241).
 #
-# Version 2026.5, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.5, fusionnée avec modele-social.
 # Révision 2026.6 : ajoute à la version 2026.5, à date d'effet identique, l'indemnisation de la
 # maladie des articles 27 (employés) et 13 (encadrement).
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou

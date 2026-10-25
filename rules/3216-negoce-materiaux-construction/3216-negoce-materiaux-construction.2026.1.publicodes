@@ -1,7 +1,7 @@
 # Convention collective nationale des salariés du négoce des matériaux de construction du 8 décembre 2015
 # (IDCC 3216, brochure 3154).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
 # Avenant du 12 février 2026, date d'effet propre du texte (1er mars 2026), étendu le 10 mai 2026.
 validFrom: 2026-03-01

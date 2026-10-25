@@ -1,7 +1,7 @@
 # Convention collective nationale du commerce de détail et de gros à prédominance
 # alimentaire du 12 juillet 2001 (IDCC 2216, brochure 3305).
 #
-# Version 2025.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2025.2, fusionnée avec modele-social.
 # Révision 2025.2 : ajoute à la version 2025.1, à date d'effet identique, le congé supplémentaire
 # d'ancienneté de l'article 7.1.2.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou

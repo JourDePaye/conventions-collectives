@@ -1,7 +1,7 @@
 # Convention collective nationale des métiers de la transformation des grains du 9 novembre 2016
 # (IDCC 1930, brochure 3060).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 validFrom: 2026-02-01

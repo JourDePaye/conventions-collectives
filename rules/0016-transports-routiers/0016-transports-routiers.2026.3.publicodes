@@ -5,7 +5,7 @@
 # marchandises corrigés (taux horaire à 4 décimales multiplié par 151,67 puis arrondi, et non
 # arrondi au centime avant), valorisation « compagnon déménageur » ajoutée, sources mises à jour.
 # Les clés de classification, l'unité et les noms de règles de 2026.2 sont conservés.
-# Fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 

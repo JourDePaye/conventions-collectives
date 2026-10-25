@@ -1,7 +1,7 @@
 # Convention collective nationale des bureaux d'études techniques, des cabinets
 # d'ingénieurs-conseils et des sociétés de conseils (Syntec, IDCC 1486).
 #
-# Version 2026.4, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.4, fusionnée avec modele-social.
 # Révision 2026.4 : ajoute à la version 2026.3, à date d'effet identique, le maintien de salaire
 # des articles 9.2 et 9.3 (maladie, accident, maternité, adoption, paternité), décrit par les
 # règles `maintien de salaire` que JourDePaye évalue pour chaque absence.

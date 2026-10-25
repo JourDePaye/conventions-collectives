@@ -2,7 +2,7 @@
 # (IDCC 1505, brochure 3244), anciennement commerce de détail de fruits et légumes, épicerie
 # et produits laitiers.
 #
-# Version 2026.5, audit paie du 12 octobre 2026 ; fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.5, audit paie du 12 octobre 2026 ; fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 #

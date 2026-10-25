@@ -1,7 +1,7 @@
 # Convention collective nationale du personnel des cabinets médicaux du 14 octobre 1981
 # (IDCC 1147, brochure 3168).
 #
-# Version 2024.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2024.2, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 #

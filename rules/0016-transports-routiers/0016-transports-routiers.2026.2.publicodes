@@ -1,7 +1,7 @@
 # Convention collective nationale des transports routiers et activités auxiliaires du
 # transport du 21 décembre 1950 (IDCC 16, brochure 3085), y compris les prestations logistiques.
 #
-# Version 2026.2, audit paie du 12 octobre 2026 ; fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.2, audit paie du 12 octobre 2026 ; fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 #

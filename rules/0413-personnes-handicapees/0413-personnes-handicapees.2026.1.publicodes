@@ -1,7 +1,7 @@
 # Convention collective nationale de travail des établissements et services pour personnes
 # inadaptées et handicapées du 15 mars 1966 (CCN 66, IDCC 413, brochure 3116).
 #
-# Version 2026.1, merged with modele-social by @jourdepaye/payroll-core.
+# Version 2026.1, merged with modele-social.
 # A released version is immutable (see versions.lock.json): every evolution or correction
 # uses a new version.
 #

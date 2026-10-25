@@ -1,7 +1,7 @@
 # Convention collective nationale du négoce de matériel médico-technique du 9 avril 1998
 # (IDCC 1982, brochure 3286).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 validFrom: 2026-06-01

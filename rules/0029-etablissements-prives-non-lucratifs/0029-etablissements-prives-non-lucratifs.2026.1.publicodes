@@ -2,7 +2,7 @@
 # soins, de cure et de garde à but non lucratif du 31 octobre 1951 (CCN 51, IDCC 29, brochure
 # 3116 bis selon les éditions, FEHAP).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 #

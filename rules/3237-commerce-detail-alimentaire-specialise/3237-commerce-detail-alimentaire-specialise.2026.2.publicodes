@@ -1,7 +1,7 @@
 # Convention collective nationale des métiers du commerce de détail alimentaire spécialisé du 12 janvier 2021
 # (IDCC 3237, brochure 3387).
 #
-# Version 2026.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.2, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 validFrom: 2026-10-01

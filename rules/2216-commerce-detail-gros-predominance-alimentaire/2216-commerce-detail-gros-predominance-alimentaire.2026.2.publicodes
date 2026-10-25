@@ -1,7 +1,7 @@
 # Convention collective nationale du commerce de détail et de gros à prédominance
 # alimentaire du 12 juillet 2001 (IDCC 2216, brochure 3305).
 #
-# Version 2026.2, audit paie du 13 octobre 2026 ; fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.2, audit paie du 13 octobre 2026 ; fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 #

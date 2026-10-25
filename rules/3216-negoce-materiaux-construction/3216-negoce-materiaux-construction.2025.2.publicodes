@@ -1,7 +1,7 @@
 # Convention collective nationale des salariés du négoce des matériaux de construction du 8 décembre 2015
 # (IDCC 3216, brochure 3154).
 #
-# Version 2025.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2025.2, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
 # Remplace 2025.1 pour la même date d'effet (26 avril 2025) : même grille mensuelle, plus les minima annuels des cadres.
 validFrom: 2025-04-26

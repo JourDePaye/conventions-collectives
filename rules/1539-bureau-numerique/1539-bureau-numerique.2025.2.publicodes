@@ -2,7 +2,7 @@
 # services (IDCC 1539, brochure 3252), anciennement commerce de détail de papeterie, fournitures
 # de bureau, de bureautique et informatique et de librairie (convention du 15 décembre 1988).
 #
-# Version 2025.2, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2025.2, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 #

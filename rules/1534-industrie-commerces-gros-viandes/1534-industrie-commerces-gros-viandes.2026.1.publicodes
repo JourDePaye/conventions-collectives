@@ -1,7 +1,7 @@
 # Convention collective nationale des entreprises de l'industrie et des commerces en gros
 # des viandes du 20 février 1969 (IDCC 1534, brochure 3179).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 #

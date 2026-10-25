@@ -1,6 +1,6 @@
 # Convention collective nationale des cabinets ou entreprises d'expertises en automobile du 20 novembre 1996 (IDCC 1951, brochure 3295).
 #
-# Version 2025.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2025.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus : toute évolution passe par une nouvelle version.
 
 validFrom: 2025-01-01

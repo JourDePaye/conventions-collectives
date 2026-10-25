@@ -1,7 +1,7 @@
 # Convention collective nationale des cabinets dentaires du 17 janvier 1992 (IDCC 1619,
 # brochure 3255).
 #
-# Version 2026.1, fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Version 2026.1, fusionnée avec modele-social.
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
 # correction passe par une nouvelle version.
 #

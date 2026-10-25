@@ -5,7 +5,7 @@
 # marchandises corrigés (taux horaire à 4 décimales multiplié par 151,67 puis arrondi, et non
 # arrondi au centime avant), valorisation « compagnon déménageur » ajoutée, sources mises à jour.
 # Les clés de classification, l'unité et les noms de règles de 2026.2 sont conservés.
-# Fusionnée avec modele-social par @jourdepaye/payroll-core.
+# Fusionnée avec modele-social.
 # Révision 2026.4 : ajoute à la version 2026.3, à date d'effet identique, la garantie de ressources
 # en cas de maladie ou d'accident du travail des annexes I à IV (accord du 2 octobre 2023).
 # Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
