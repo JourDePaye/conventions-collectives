@@ -41,7 +41,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   // avenant du 25 février 2026 (paritarisme), arrêté du 3 juillet 2026, JORF du 11 juillet 2026
   "1431-optique-lunetterie-detail": { "2026.1": "2026-07-11" },
   // avenant n° 33, arrêté du 5 novembre 2024, JORF du 9 novembre 2024 (applicable from 1 December 2024)
-  "1979-hotels-cafes-restaurants": { "2024.2": "2024-11-09", "2024.3": "2024-11-09", "2024.4": "2024-11-09", "2026.1": "2026-10-15", "2026.2": "2026-10-15", "2026.3": "2026-10-15" },
+  "1979-hotels-cafes-restaurants": { "2024.2": "2024-11-09", "2024.3": "2024-11-09", "2024.4": "2024-11-09", "2024.5": "2024-11-09", "2026.1": "2026-10-15", "2026.2": "2026-10-15", "2026.3": "2026-10-15", "2026.4": "2026-10-15" },
   // avenant du 21 juillet 2025, arrêté du 17 février 2026, JORF du 24 février 2026
   "3090-spectacle-vivant-prive": { "2025.3": "2026-02-24", "2025.4": "2026-02-24" },
   // The shared building version: each regional grid applies from the publication of its own
@@ -88,7 +88,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   // extension order (the text holding their grid, cited in their sources), which bind the
   // employers outside a signatory organisation from that publication only.
   "0043-import-export": { "2026.1": "2026-05-10" },
-  "0044-industries-chimiques": { "2025.1": "2025-03-18", "2026.1": "2026-02-24", "2026.2": "2026-02-24", "2026.4": "2026-02-24", "2026.5": "2026-02-24" },
+  "0044-industries-chimiques": { "2025.1": "2025-03-18", "2026.1": "2026-02-24", "2026.2": "2026-02-24", "2026.4": "2026-02-24", "2026.5": "2026-02-24", "2026.6": "2026-02-24" },
   "0112-industrie-laitiere": { "2026.1": "2026-05-10", "2026.2": "2026-05-10" },
   "0176-industrie-pharmaceutique": { "2026.1": "2026-02-24", "2026.2": "2026-02-24" },
   "0200-exploitations-frigorifiques": { "2026.1": "2026-07-09" },
@@ -118,7 +118,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   "1413-travail-temporaire": { "2026.1": "2026-05-10", "2026.2": "2026-05-10" },
   "1487-commerce-detail-horlogerie-bijouterie": { "2026.1": "2026-02-24" },
   "1499-miroiterie": { "2025.1": "2025-06-19", "2025.2": "2025-06-19", "2026.1": "2026-05-29" },
-  "1501-restauration-rapide": { "2025.1": "2025-08-07", "2026.2": "2026-06-03", "2026.3": "2026-06-03" },
+  "1501-restauration-rapide": { "2025.1": "2025-08-07", "2026.2": "2026-06-03", "2026.3": "2026-06-03", "2026.5": "2026-06-03" },
   "1513-eaux-embouteillees-boissons-bieres": { "2026.1": "2026-04-17" },
   "1527-immobilier": { "2026.1": "2026-09-19", "2026.2": "2026-09-19", "2026.3": "2026-09-19" },
   "1534-industrie-commerces-gros-viandes": { "2026.1": "2026-06-06" },
@@ -145,7 +145,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   "1951-expertises-automobile": { "2025.1": "2025-09-10" },
   "2002-blanchisserie-teinturerie": { "2025.1": "2025-05-24", "2026.1": "2026-05-10" },
   "2021-golf": { "2026.1": "2026-04-17", "2026.2": "2026-04-17" },
-  "2120-banque": { "2026.1": "2026-06-27", "2026.2": "2026-06-27", "2026.3": "2026-06-27" },
+  "2120-banque": { "2026.1": "2026-06-27", "2026.2": "2026-06-27", "2026.3": "2026-06-27", "2026.4": "2026-06-27" },
   "2121-edition": { "2026.1": "2026-09-19", "2026.2": "2026-09-19" },
   "2147-services-eau-assainissement": { "2025.1": "2025-09-10" },
   "2150-personnels-hlm": { "2026.1": "2026-04-17" },
@@ -175,7 +175,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   "3236-industrie-services-nautiques": { "2025.1": "2025-07-02", "2025.2": "2025-07-02" },
   "3238-production-transformation-papiers-cartons": { "2026.1": "2026-05-08", "2026.2": "2026-05-08" },
   "3245-operateurs-voyages-guides": { "2025.1": "2025-04-24" },
-  "3248-metallurgie": { "2026.1": "2026-06-05", "2026.2": "2026-06-05", "2026.3": "2026-06-05", "2026.4": "2026-06-05", "2026.5": "2026-06-05" },
+  "3248-metallurgie": { "2026.1": "2026-06-05", "2026.2": "2026-06-05", "2026.3": "2026-06-05", "2026.4": "2026-06-05", "2026.5": "2026-06-05", "2026.6": "2026-06-05" },
   "3251-bijouterie-joaillerie-horlogerie": { "2025.1": "2025-09-19" },
   "3255-boulangerie-industrielle": { "2026.1": "2026-04-17" },
   "3256-etablissements-soins-veterinaires": { "2026.1": "2026-04-17" },

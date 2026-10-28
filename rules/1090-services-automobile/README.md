@@ -24,3 +24,5 @@ L’échelon 1 (1 853 €) est inférieur au SMIC mensuel de 1 867,02 € en vig
 ## Maintien de salaire
 
 La révision 2026.2 ajoute le maintien de salaire conventionnel (articles 2.10 et 4.08) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package.
+
+La révision 2026.3 ajoute l'indemnité de licenciement (articles 2.13 et 4.11), qui reprend le barème légal, sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. Aucune indemnité de départ ou de mise à la retraite à la charge de l'employeur : le capital de fin de carrière relève de la prévoyance.

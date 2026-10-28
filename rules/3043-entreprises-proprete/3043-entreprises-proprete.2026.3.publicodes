@@ -1,0 +1,544 @@
+# Convention collective nationale des entreprises de propreté et services associés du 26 juillet 2011
+# (IDCC 3043, brochure 3173).
+#
+# Version 2026.1 : grille de rémunération minimale hiérarchique applicable le 1er avril 2026,
+# avec la prime d'expérience et les majorations de nuit, dimanche et jours fériés en vigueur.
+# Révision 2026.2 : ajoute à la version 2026.1, à date d'effet identique, le maintien de salaire
+# de l'article 4.9.1 a (maladie et accident).
+# Révision 2026.3 : ajoute à la version 2026.2, à date d'effet identique, les indemnités de
+# licenciement et de départ ou de mise à la retraite des articles 4.11.3 et 4.12, décrites par les
+# règles `indemnité de rupture`.
+validFrom: 2026-04-01
+sources:
+  - >-
+    Convention collective nationale des entreprises de propreté et services associés du 26 juillet
+    2011 (IDCC 3043, brochure 3173), étendue par arrêté du 23 juillet 2012, JORF du 28 juillet 2012.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000027172335
+  - >-
+    Avenant n° 27 du 18 décembre 2025 à l'accord du 25 juin 2002 relatif aux classifications et
+    salaires, article 3 : rémunérations minimales hiérarchiques, applicable le 1er avril 2026.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000053748401
+  - >-
+    Avenant n° 21 du 5 mars 2025 relatif à la prime d'expérience, étendu par arrêté du 29 avril
+    2025, JORF du 3 mai 2025, applicable le 1er juin 2025.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000051694378
+  - >-
+    Avenant n° 23 du 18 décembre 2025 relatif au travail du dimanche et des jours fériés, étendu
+    par arrêté du 5 juin 2026, JORF du 10 juin 2026, applicable le 1er juillet 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000053748405
+  - >-
+    Avenant n° 25 du 1er avril 2026 rectifiant le régime des jours fériés.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054454320
+  - >-
+    Accord du 25 juin 2002 relatif au travail de nuit et accord relatif à l'indemnité de transport.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000027172340
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005665494
+  - >-
+    Article 4.9.1 a de la convention, lu sur Légifrance le 24 octobre 2026 (KALIARTI000027172420) :
+    12 mois d'ancienneté ; 90 % de la rémunération brute pendant 30 jours puis les 2/3 pendant 30
+    jours, portés à 40, 50, 60, 80, 90 et 100 jours chacun après 6, 10, 15, 20, 25 et 30 ans
+    d'ancienneté ; à partir du 8e jour d'absence (4e pour les ETAM : employés administratifs, techniciens
+    et agents de maîtrise), dès le premier pour un accident du travail ou une maladie professionnelle ;
+    cadres : maintien du salaire pendant 70 jours (1 à 10 ans) ou 90 jours (plus de 10 ans) dès le
+    premier jour ; jours indemnisés dans les 12 mois précédents décomptés ; évolution de l'ancienneté
+    pendant l'absence prise en compte ; sous déduction des indemnités journalières, au plus le net
+    qu'aurait perçu le salarié : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000027172420
+  - >-
+    Articles 4.11 (rupture du contrat de travail, indemnité de licenciement au 4.11.3,
+    KALIARTI000027172424) et 4.12 (départ en retraite, KALIARTI000027172426) de la convention
+    (KALICONT000027172335), étendus : indemnité conventionnelle de licenciement, hors faute grave ou
+    lourde, de 2 ans d'ancienneté, de 1/10 de mois par année pour les 5 premières années, 1/6 de 6 à
+    10 ans et 1/5 au-delà de 10 ans ; indemnité de départ volontaire à la retraite de 1/2 mois après
+    10 ans à 2 mois et demi après 30 ans ; mise à la retraite : l'indemnité de licenciement. Textes
+    lus sur Légifrance le 28 octobre 2026 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALIARTI000027172421
+---
+salarié . convention collective . propreté:
+  titre: Entreprises de propreté et services associés (IDCC 3043)
+  valeur: convention collective = 'propreté'
+
+salarié . convention collective . propreté . niveau:
+  titre: Classification
+  description: >-
+    Classification prévue par l'accord du 25 juin 2002 : agents de service ASP, ASC et ASCS,
+    agents qualifiés AQS, agents très qualifiés ATQS, chefs d'équipe CE, maîtrise MP,
+    employés administratifs EA, maîtrise administrative MA et cadres CA. Les niveaux AS, AQS
+    et ATQS comportent les colonnes A et B.
+  applicable si: convention collective = 'propreté'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . propreté . taux horaire de la grille:
+  applicable si: convention collective = 'propreté'
+  unité: €/heure
+  variations:
+    - si: niveau = 'MP5'
+      alors: 21.90 €/heure
+    - si: niveau = 'MP4'
+      alors: 20.25 €/heure
+    - si: niveau = 'MP3'
+      alors: 18.18 €/heure
+    - si: niveau = 'MP2'
+      alors: 16.39 €/heure
+    - si: niveau = 'MP1'
+      alors: 15.52 €/heure
+    - si: niveau = 'CE3'
+      alors: 15.44 €/heure
+    - si: niveau = 'CE2'
+      alors: 15.27 €/heure
+    - si: niveau = 'CE1'
+      alors: 14.43 €/heure
+    - si: niveau = 'ATQS3-A'
+      alors: 14.95 €/heure
+    - si: niveau = 'ATQS3-B'
+      alors: 15.27 €/heure
+    - si: niveau = 'ATQS2-A'
+      alors: 13.91 €/heure
+    - si: niveau = 'ATQS2-B'
+      alors: 14.16 €/heure
+    - si: niveau = 'ATQS1-A'
+      alors: 13.17 €/heure
+    - si: niveau = 'ATQS1-B'
+      alors: 13.39 €/heure
+    - si: niveau = 'AQS3-A'
+      alors: 12.92 €/heure
+    - si: niveau = 'AQS3-B'
+      alors: 13.16 €/heure
+    - si: niveau = 'AQS2-A'
+      alors: 12.81 €/heure
+    - si: niveau = 'AQS2-B'
+      alors: 13.05 €/heure
+    - si: niveau = 'AQS1-A'
+      alors: 12.70 €/heure
+    - si: niveau = 'AQS1-B'
+      alors: 12.91 €/heure
+    - si: niveau = 'ASCS-A'
+      alors: 12.64 €/heure
+    - si: niveau = 'ASCS-B'
+      alors: 12.86 €/heure
+    - si: niveau = 'ASC-A'
+      alors: 12.57 €/heure
+    - si: niveau = 'ASC-B'
+      alors: 12.79 €/heure
+    - si: niveau = 'ASP-A'
+      alors: 12.52 €/heure
+    - si: niveau = 'ASP-B'
+      alors: 12.71 €/heure
+    - si: niveau = 'MA3'
+      alors: 21.68 €/heure
+    - si: niveau = 'MA2'
+      alors: 20.56 €/heure
+    - si: niveau = 'MA1'
+      alors: 18.11 €/heure
+    - si: niveau = 'EA4'
+      alors: 16.29 €/heure
+    - si: niveau = 'EA3'
+      alors: 14.89 €/heure
+    - si: niveau = 'EA2'
+      alors: 13.54 €/heure
+    - si: niveau = 'EA1'
+      alors: 12.63 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . propreté . minimum mensuel cadre de la grille:
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  variations:
+    - si: niveau = 'CA1'
+      alors: 3279.71 €/mois
+    - si: niveau = 'CA2'
+      alors: 3868.89 €/mois
+    - si: niveau = 'CA3'
+      alors: 4323.69 €/mois
+    - si: niveau = 'CA4'
+      alors: 4998.10 €/mois
+    - si: niveau = 'CA5'
+      alors: 5304.54 €/mois
+    - si: niveau = 'CA6'
+      alors: 5795.71 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . propreté . salaire minimum conventionnel . grille:
+  titre: Rémunération minimale hiérarchique à temps plein
+  description: >-
+    Rémunération minimale hiérarchique de la classification. Les catégories rémunérées à l'heure
+    sont converties sur 151,67 heures par mois ; les cadres ont un minimum mensuel publié.
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  variations:
+    - si: minimum mensuel cadre de la grille > 0 €/mois
+      alors: minimum mensuel cadre de la grille
+    - sinon: taux horaire de la grille * 151.67 heure/mois
+
+salarié . convention collective . propreté . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: >-
+    Rémunération minimale hiérarchique à temps plein, proratisée une seule fois par la quotité
+    de travail. Elle exclut notamment la prime d'expérience, les majorations et les remboursements
+    de frais.
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . propreté . taux horaire minimum conventionnel:
+  applicable si: convention collective = 'propreté'
+  unité: €/heure
+  variations:
+    - si: taux horaire de la grille > 0 €/heure
+      alors: taux horaire de la grille
+    - sinon: minimum mensuel cadre de la grille / 151.67 heure/mois
+
+salarié . convention collective . propreté . niveau hors grille:
+  titre: Classification absente de la grille
+  applicable si: convention collective = 'propreté'
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . propreté . expérience professionnelle reconnue:
+  titre: Expérience professionnelle reconnue
+  description: >-
+    Expérience reconnue dans la branche, justifiée le cas échéant. Elle peut être conservée lors
+    d'un changement d'employeur si l'interruption entre deux contrats de la profession n'excède pas
+    douze mois.
+  applicable si: convention collective = 'propreté'
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . propreté . taux de la prime d'expérience:
+  applicable si: convention collective = 'propreté'
+  unité: '%'
+  variations:
+    - si: expérience professionnelle reconnue >= 25 an
+      alors: 7%
+    - si: expérience professionnelle reconnue >= 20 an
+      alors: 6%
+    - si: expérience professionnelle reconnue >= 15 an
+      alors: 5%
+    - si: expérience professionnelle reconnue >= 10 an
+      alors: 4%
+    - si: expérience professionnelle reconnue >= 7 an
+      alors: 3%
+    - si: expérience professionnelle reconnue >= 4 an
+      alors: 2%
+    - sinon: 0%
+
+salarié . convention collective . propreté . prime d'expérience:
+  description: >-
+    Prime distincte de la rémunération minimale hiérarchique, inscrite séparément sur le bulletin.
+    Son assiette est la rémunération minimale hiérarchique du salarié et elle est proratisée pour
+    le temps partiel.
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  valeur: salaire minimum conventionnel * taux de la prime d'expérience
+
+salarié . convention collective . propreté . taux horaire contractuel:
+  description: >-
+    Taux horaire de base du salarié, à utiliser pour les majorations de travail effectif. À défaut,
+    le taux horaire minimum conventionnel est retenu.
+  applicable si: convention collective = 'propreté'
+  unité: €/heure
+  par défaut: taux horaire minimum conventionnel
+
+salarié . convention collective . propreté . heures de nuit régulières:
+  description: Heures entre 21 h et 5 h, ou entre 21 h et 6 h pour un salarié de nuit, effectuées selon l'horaire normal.
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . heures de nuit exceptionnelles:
+  description: Heures de nuit qui ne figurent ni au planning ni au contrat de travail.
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . salarié de nuit:
+  description: >-
+    Oui lorsque le salarié accomplit habituellement au moins trois heures de nuit deux fois par
+    semaine ou 270 heures de nuit sur douze mois glissants.
+  applicable si: convention collective = 'propreté'
+  par défaut: non
+
+salarié . convention collective . propreté . majoration de nuit:
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  valeur: taux horaire contractuel * (heures de nuit régulières * 20% + heures de nuit exceptionnelles)
+
+salarié . convention collective . propreté . repos compensateur de nuit:
+  description: Repos compensateur mensuel de 2 % des heures entre 21 h et 6 h pour les salariés de nuit.
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  variations:
+    - si: salarié de nuit
+      alors: (heures de nuit régulières + heures de nuit exceptionnelles) * 2%
+    - sinon: 0 heure/mois
+
+salarié . convention collective . propreté . heures du dimanche prévues:
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . heures du dimanche exceptionnelles:
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . majoration du dimanche:
+  description: Travail le dimanche majoré de 25 % lorsqu'il est prévu et de 100 % lorsqu'il est exceptionnel.
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  valeur: taux horaire contractuel * (heures du dimanche prévues * 25% + heures du dimanche exceptionnelles)
+
+salarié . convention collective . propreté . heures fériées prévues:
+  description: Heures de travail un jour férié prévu au planning, hors 1er janvier, 1er mai, 14 juillet et 25 décembre.
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . heures fériées exceptionnelles:
+  description: Heures de travail un jour férié non prévu au planning ni au contrat, hors les quatre jours fériés à majoration spécifique.
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . heures des quatre jours fériés majorés:
+  description: Heures travaillées les 1er janvier, 1er mai, 14 juillet ou 25 décembre.
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . majoration des jours fériés:
+  description: >-
+    Travail un jour férié majoré de 50 % lorsqu'il est prévu, de 100 % lorsqu'il est exceptionnel,
+    et de 100 % les 1er janvier, 1er mai, 14 juillet et 25 décembre.
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  valeur: taux horaire contractuel * (heures fériées prévues * 50% + heures fériées exceptionnelles + heures des quatre jours fériés majorés)
+
+salarié . convention collective . propreté . heures mensuelles ouvrant droit au transport:
+  description: >-
+    Heures mensuelles travaillées ouvrant droit à l'indemnité conventionnelle de transport. Cette
+    indemnité ne se cumule pas avec un avantage de même objet ; l'éligibilité doit être vérifiée
+    par l'application (non-cadre, transport collectif ou véhicule personnel en l'absence de
+    transport collectif).
+  applicable si: convention collective = 'propreté'
+  unité: heure/mois
+  par défaut: 0 heure/mois
+
+salarié . convention collective . propreté . minimum garanti en vigueur:
+  description: Montant légal mensuellement applicable du minimum garanti, fourni par l'application.
+  applicable si: convention collective = 'propreté'
+  unité: €
+  par défaut: 0 €
+
+salarié . convention collective . propreté . indemnité de transport conventionnelle:
+  description: >-
+    Sept fois le minimum garanti au-delà de 104 heures mensuelles ; sinon un montant proratisé
+    aux heures ouvrant droit au transport. Ne pas calculer ce montant si un avantage de même objet
+    est déjà dû.
+  applicable si: convention collective = 'propreté'
+  unité: €/mois
+  variations:
+    - si: heures mensuelles ouvrant droit au transport > 104 heure/mois
+      alors: minimum garanti en vigueur * 7
+    - sinon: minimum garanti en vigueur * 7 * heures mensuelles ouvrant droit au transport / 151.67 heure/mois
+
+salarié . convention collective . propreté . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (article 4.9.1 a). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'propreté'
+
+salarié . convention collective . propreté . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . propreté . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . propreté . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . propreté . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . propreté . maintien de salaire . cadre:
+  titre: Cadres
+  valeur:
+    une de ces conditions:
+      - niveau = 'CA1'
+      - niveau = 'CA2'
+      - niveau = 'CA3'
+      - niveau = 'CA4'
+      - niveau = 'CA5'
+      - niveau = 'CA6'
+
+salarié . convention collective . propreté . maintien de salaire . ETAM:
+  titre: Employés administratifs, techniciens et agents de maîtrise
+  valeur:
+    une de ces conditions:
+      - niveau = 'EA1'
+      - niveau = 'EA2'
+      - niveau = 'EA3'
+      - niveau = 'EA4'
+      - niveau = 'MA1'
+      - niveau = 'MA2'
+      - niveau = 'MA3'
+      - niveau = 'MP1'
+      - niveau = 'MP2'
+      - niveau = 'MP3'
+      - niveau = 'MP4'
+      - niveau = 'MP5'
+
+salarié . convention collective . propreté . maintien de salaire . éligible:
+  titre: Droit au maintien
+  description: 12 mois d'ancienneté, en cas de maladie ou d'accident.
+  valeur:
+    toutes ces conditions:
+      - ancienneté >= 12 mois
+      - une de ces conditions:
+            - motif = 'maladie'
+            - motif = 'accident du travail'
+            - motif = 'accident de trajet'
+
+salarié . convention collective . propreté . maintien de salaire . ancienneté en cours d'absence:
+  valeur: oui
+
+salarié . convention collective . propreté . maintien de salaire . carence:
+  unité: jour
+  variations:
+    - si:
+        une de ces conditions:
+          - cadre
+          - motif = 'accident du travail'
+      alors: 0 jour
+    - si: ETAM
+      alors: 3 jour
+    - sinon: 7 jour
+
+salarié . convention collective . propreté . maintien de salaire . durée:
+  titre: Durée de chaque période selon l'ancienneté (hors cadres)
+  unité: jour
+  variations:
+    - si: ancienneté >= 360 mois
+      alors: 100 jour
+    - si: ancienneté >= 300 mois
+      alors: 90 jour
+    - si: ancienneté >= 240 mois
+      alors: 80 jour
+    - si: ancienneté >= 180 mois
+      alors: 60 jour
+    - si: ancienneté >= 120 mois
+      alors: 50 jour
+    - si: ancienneté >= 72 mois
+      alors: 40 jour
+    - sinon: 30 jour
+
+salarié . convention collective . propreté . maintien de salaire . première période . durée:
+  unité: jour
+  variations:
+    - si: cadre
+      alors:
+        variations:
+          - si: ancienneté > 120 mois
+            alors: 90 jour
+          - sinon: 70 jour
+    - sinon: durée
+
+salarié . convention collective . propreté . maintien de salaire . première période . taux:
+  unité: '%'
+  variations:
+    - si: cadre
+      alors: 100%
+    - sinon: 90%
+
+salarié . convention collective . propreté . maintien de salaire . seconde période . durée:
+  unité: jour
+  variations:
+    - si: cadre
+      alors: 0 jour
+    - sinon: durée
+
+salarié . convention collective . propreté . maintien de salaire . seconde période . taux:
+  unité: '%'
+  valeur: 200% / 3
+
+salarié . convention collective . propreté . maintien de salaire . fenêtre:
+  valeur: "'douze mois'"
+
+salarié . convention collective . propreté . maintien de salaire . base:
+  valeur: "'brut'"
+
+salarié . convention collective . propreté . maintien de salaire . plafond net:
+  valeur: oui
+
+salarié . convention collective . propreté . indemnité de rupture:
+  titre: Indemnités de rupture du contrat de travail
+  description: |
+    Indemnité de licenciement (article 4.11.3), de départ volontaire à la retraite et de mise à la
+    retraite (article 4.12), en mois de rémunération (1/12 de la rémunération des 12 derniers
+    mois ou, si c'est plus favorable, 1/3 de celle des 3 derniers mois, les primes annuelles au
+    prorata). L'application renseigne l'ancienneté à la fin du contrat, lit les mois ci-dessous,
+    les multiplie par cette rémunération et retient le plus élevé de ce montant et de
+    l'indemnité légale.
+  applicable si: convention collective = 'propreté'
+
+salarié . convention collective . propreté . indemnité de rupture . ancienneté:
+  titre: Ancienneté à la fin du contrat
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . propreté . indemnité de rupture . années:
+  titre: Ancienneté en années
+  valeur: ancienneté / 12 mois
+
+salarié . convention collective . propreté . indemnité de rupture . licenciement:
+  titre: Indemnité de licenciement
+  description: |
+    De 2 ans d'ancienneté, hors faute grave ou lourde (article 4.11.3) : 1/10 de mois par année
+    pour les 5 premières années, 1/6 de mois par année de 6 à 10 ans, 1/5 de mois par année au-delà
+    de 10 ans.
+  variations:
+    - si: ancienneté < 24 mois
+      alors: 0
+    - sinon:
+        barème:
+          assiette: années
+          tranches:
+            - taux: 10%
+              plafond: 5
+            - taux: 16.666666666666668%
+              plafond: 10
+            - taux: 20%
+
+salarié . convention collective . propreté . indemnité de rupture . rupture conventionnelle:
+  titre: Indemnité de rupture conventionnelle
+  description: >-
+    La convention ne fixe pas de montant propre, l'indemnité légale s'applique.
+  valeur: 0
+
+salarié . convention collective . propreté . indemnité de rupture . mise à la retraite:
+  titre: Indemnité de mise à la retraite
+  description: Égale à l'indemnité de licenciement (article 4.12.2).
+  valeur: licenciement
+
+salarié . convention collective . propreté . indemnité de rupture . départ volontaire:
+  titre: Indemnité de départ volontaire à la retraite
+  description: 1/2 mois après 10 ans, 1 mois après 15 ans, 1 mois et demi après 20 ans, 2 mois et demi après 30 ans (article 4.12.1).
+  variations:
+    - si: ancienneté >= 30 an
+      alors: 2.5
+    - si: ancienneté >= 20 an
+      alors: 1.5
+    - si: ancienneté >= 15 an
+      alors: 1
+    - si: ancienneté >= 10 an
+      alors: 0.5
+    - sinon: 0

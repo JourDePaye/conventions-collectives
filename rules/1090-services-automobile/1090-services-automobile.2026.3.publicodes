@@ -1,0 +1,298 @@
+# Convention collective nationale des services de l'automobile du 15 janvier 1981
+# (IDCC 1090, brochure 3034) : commerce et réparation de l'automobile, du cycle et du
+# motocycle, activités connexes, contrôle technique automobile et formation des conducteurs
+# (écoles de conduite).
+#
+# Version 2026.1, fusionnée avec modele-social.
+# Révision 2026.2 : ajoute à la version 2026.1, à date d'effet identique, le maintien de salaire
+# des articles 2.10 et 4.08 (maladie et accident).
+# Révision 2026.3 : ajoute à la version 2026.2, à date d'effet identique, l'indemnité de
+# licenciement des articles 2.13 et 4.11, décrite par les règles `indemnité de rupture`.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version.
+validFrom: 2026-05-01
+sources:
+  - Avenant n° 110 du 22 janvier 2026 relatif aux salaires minima (article 1er, minima
+    garantis pour 35 heures des ouvriers et employés, de la maîtrise et des cadres), étendu
+    par arrêté du 2 avril 2026 (JORF n° 0090 du 16 avril 2026, texte n° 77, NOR
+    TRST2609049A), applicable le 1er mai 2026, premier jour du mois suivant la publication
+    de l'arrêté d'extension (article 7 de l'avenant).
+  - Texte de l'avenant consulté directement (exemplaire signé publié par la CFDT-FGMM sur
+    cfdt-fgmm.fr). Grille concordante avec celle publiée par PayFit pour 2026.
+  - >-
+    Avenant n° 110 du 22 janvier 2026 relatif aux salaires minima, étendu par arrêté du 2 avril 2026 (JORF du 16 avril 2026). Texte officiel lu sur Légifrance le 22 octobre 2026, montants des règles vérifiés sur ce texte :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054161858
+  - >-
+    Articles 2.10 a (ouvriers, employés et maîtrise) et 4.08 b (cadres) de la convention, dans leur
+    rédaction issue de l'avenant n° 87 du 19 décembre 2018, lus sur Légifrance le 24 octobre 2026
+    (KALIARTI000038569482, KALIARTI000038569480) : un an d'ancienneté au premier jour de l'arrêt ; au
+    cours d'une même année civile, dans la limite de 45 jours calendaires d'indisponibilité (90 pour les
+    cadres), maintien de la rémunération nette qu'aurait perçue le salarié sous déduction du montant
+    brut des indemnités journalières : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000038569482
+  - >-
+    Articles 2.13 (ouvriers et employés, KALIARTI000037964084) et 4.11 (agents de maîtrise, techniciens
+    et cadres, KALIARTI000037964082) de la convention (KALICONT000005635191), étendus sous réserve de
+    l'article R1234-2 : indemnité de licenciement après 8 mois d'ancienneté, hors faute grave ou lourde,
+    de 1/4 de mois par année jusqu'à 10 ans et 1/3 de mois par année à partir de 11 ans, soit le barème
+    légal. Aucun montant propre pour le départ ou la mise à la retraite, ni pour la rupture
+    conventionnelle. Textes lus sur Légifrance le 28 octobre 2026 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000005755382
+---
+salarié . convention collective . services automobile:
+  titre: Services de l'automobile (IDCC 1090)
+  valeur: convention collective = 'services automobile'
+
+salarié . convention collective . services automobile . niveau:
+  titre: Échelon ou niveau de classification
+  description: |
+    Ouvriers et employés : échelons 1 à 12. Maîtrise : échelons 17 à 25. Cadres : niveau et
+    degré au format « <niveau>.<degré> », de I.A à IV.C (niveaux I à IV, degrés A à C), et V
+    sans degré. Les échelons 13 à 16 n'existent pas dans la grille.
+  applicable si: convention collective = 'services automobile'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . services automobile . salaire minimum conventionnel:
+  titre: Minimum mensuel garanti
+  description: |
+    Minimum garanti de l'échelon ou du niveau pour 35 heures par semaine, proratisé pour un
+    temps partiel. Vaut 0 €/mois si l'échelon ou le niveau n'existe pas dans la grille (voir
+    « niveau hors grille »).
+  applicable si: convention collective = 'services automobile'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . services automobile . salaire minimum conventionnel . grille:
+  titre: Minimum garanti à temps plein
+  unité: €/mois
+  variations:
+    # Ouvriers et employés
+    - si: niveau = '1'
+      alors: 1853 €/mois
+    - si: niveau = '2'
+      alors: 1870 €/mois
+    - si: niveau = '3'
+      alors: 1888 €/mois
+    - si: niveau = '4'
+      alors: 1912 €/mois
+    - si: niveau = '5'
+      alors: 1929 €/mois
+    - si: niveau = '6'
+      alors: 1965 €/mois
+    - si: niveau = '7'
+      alors: 1999 €/mois
+    - si: niveau = '8'
+      alors: 2045 €/mois
+    - si: niveau = '9'
+      alors: 2106 €/mois
+    - si: niveau = '10'
+      alors: 2153 €/mois
+    - si: niveau = '11'
+      alors: 2205 €/mois
+    - si: niveau = '12'
+      alors: 2259 €/mois
+    # Maîtrise
+    - si: niveau = '17'
+      alors: 2241 €/mois
+    - si: niveau = '18'
+      alors: 2249 €/mois
+    - si: niveau = '19'
+      alors: 2255 €/mois
+    - si: niveau = '20'
+      alors: 2259 €/mois
+    - si: niveau = '21'
+      alors: 2324 €/mois
+    - si: niveau = '22'
+      alors: 2400 €/mois
+    - si: niveau = '23'
+      alors: 2541 €/mois
+    - si: niveau = '24'
+      alors: 2685 €/mois
+    - si: niveau = '25'
+      alors: 2831 €/mois
+    # Cadres
+    - si: niveau = 'I.A'
+      alors: 2541 €/mois
+    - si: niveau = 'I.B'
+      alors: 2685 €/mois
+    - si: niveau = 'I.C'
+      alors: 2831 €/mois
+    - si: niveau = 'II.A'
+      alors: 2978 €/mois
+    - si: niveau = 'II.B'
+      alors: 3267 €/mois
+    - si: niveau = 'II.C'
+      alors: 3560 €/mois
+    - si: niveau = 'III.A'
+      alors: 3852 €/mois
+    - si: niveau = 'III.B'
+      alors: 4144 €/mois
+    - si: niveau = 'III.C'
+      alors: 4438 €/mois
+    - si: niveau = 'IV.A'
+      alors: 4731 €/mois
+    - si: niveau = 'IV.B'
+      alors: 5022 €/mois
+    - si: niveau = 'IV.C'
+      alors: 5316 €/mois
+    - si: niveau = 'V'
+      alors: 5904 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . services automobile . niveau hors grille:
+  titre: Échelon ou niveau absent de la grille
+  description: L'échelon ou le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'services automobile'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un échelon ou un niveau inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . services automobile . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (articles 2.10 et 4.08). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'services automobile'
+
+salarié . convention collective . services automobile . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . services automobile . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . services automobile . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . services automobile . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . services automobile . maintien de salaire . cadre:
+  titre: Cadres
+  valeur:
+    une de ces conditions:
+      - niveau = 'I.A'
+      - niveau = 'I.B'
+      - niveau = 'I.C'
+      - niveau = 'II.A'
+      - niveau = 'II.B'
+      - niveau = 'II.C'
+      - niveau = 'III.A'
+      - niveau = 'III.B'
+      - niveau = 'III.C'
+      - niveau = 'IV.A'
+      - niveau = 'IV.B'
+      - niveau = 'IV.C'
+      - niveau = 'V'
+
+salarié . convention collective . services automobile . maintien de salaire . éligible:
+  titre: Droit au maintien
+  description: Un an d'ancienneté, en cas de maladie ou d'accident.
+  valeur:
+    toutes ces conditions:
+      - ancienneté >= 12 mois
+      - une de ces conditions:
+            - motif = 'maladie'
+            - motif = 'accident du travail'
+            - motif = 'accident de trajet'
+
+salarié . convention collective . services automobile . maintien de salaire . ancienneté en cours d'absence:
+  valeur: non
+
+salarié . convention collective . services automobile . maintien de salaire . carence:
+  unité: jour
+  valeur: 0 jour
+
+salarié . convention collective . services automobile . maintien de salaire . première période . durée:
+  unité: jour
+  variations:
+    - si: cadre
+      alors: 90 jour
+    - sinon: 45 jour
+
+salarié . convention collective . services automobile . maintien de salaire . première période . taux:
+  unité: '%'
+  valeur: 100%
+
+salarié . convention collective . services automobile . maintien de salaire . seconde période . durée:
+  unité: jour
+  valeur: 0 jour
+
+salarié . convention collective . services automobile . maintien de salaire . seconde période . taux:
+  unité: '%'
+  valeur: 0%
+
+salarié . convention collective . services automobile . maintien de salaire . fenêtre:
+  valeur: "'année civile'"
+
+salarié . convention collective . services automobile . maintien de salaire . base:
+  valeur: "'net'"
+
+salarié . convention collective . services automobile . maintien de salaire . plafond net:
+  valeur: non
+
+salarié . convention collective . services automobile . indemnité de rupture:
+  titre: Indemnités de rupture du contrat de travail
+  description: |
+    Indemnité de licenciement des ouvriers et employés (article 2.13) et des agents de maîtrise,
+    techniciens et cadres (article 4.11), en mois de salaire (1/12 de la rémunération brute des
+    12 derniers mois ou, si c'est plus favorable, 1/3 de celle des 3 derniers mois, les primes
+    annuelles ou exceptionnelles au prorata). Elle reprend le barème légal : l'application la
+    compare à l'indemnité légale. La convention ne prévoit pas d'indemnité de départ ou de mise à
+    la retraite à la charge de l'employeur (le capital de fin de carrière relève du régime de
+    prévoyance).
+  applicable si: convention collective = 'services automobile'
+
+salarié . convention collective . services automobile . indemnité de rupture . ancienneté:
+  titre: Ancienneté à la fin du contrat
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . services automobile . indemnité de rupture . années:
+  titre: Ancienneté en années
+  valeur: ancienneté / 12 mois
+
+salarié . convention collective . services automobile . indemnité de rupture . licenciement:
+  titre: Indemnité de licenciement
+  description: Après 8 mois d'ancienneté, hors faute grave ou lourde, 1/4 de mois par année jusqu'à 10 ans et 1/3 à partir de 11 ans.
+  variations:
+    - si: ancienneté < 8 mois
+      alors: 0
+    - sinon:
+        barème:
+          assiette: années
+          tranches:
+            - taux: 25%
+              plafond: 10
+            - taux: 33.33333333333333%
+
+salarié . convention collective . services automobile . indemnité de rupture . rupture conventionnelle:
+  titre: Indemnité de rupture conventionnelle
+  description: >-
+    La convention ne fixe pas de montant propre, l'indemnité légale s'applique.
+  valeur: 0
+
+salarié . convention collective . services automobile . indemnité de rupture . mise à la retraite:
+  titre: Indemnité de mise à la retraite
+  description: >-
+    La convention ne fixe pas de montant propre, l'indemnité légale s'applique.
+  valeur: 0
+
+salarié . convention collective . services automobile . indemnité de rupture . départ volontaire:
+  titre: Indemnité de départ volontaire à la retraite
+  description: >-
+    La convention ne fixe pas de montant propre, l'indemnité légale s'applique.
+  valeur: 0

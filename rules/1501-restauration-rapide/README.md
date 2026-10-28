@@ -33,3 +33,5 @@ Les échelons `I.A`, `I.B` et `II.A` (de 11,88 € à 12,22 € de l’heure) so
 ## Maintien de salaire
 
 La révision 2026.3 et 2026.4 ajoute le maintien de salaire conventionnel (articles 19 B et 20) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package. La maladie professionnelle, confondue avec l’accident du travail, est indemnisée après 6 mois au lieu d’un an.
+
+Les révisions 2026.5 et 2026.6 ajoute les indemnités de licenciement (article 13) et de départ à la retraite (article 28), sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. Les tranches du barème sont lues comme progressives ; la majoration de 15 % du licenciement économique et la condition d'âge de 60 ans du départ en retraite ne sont pas reprises.

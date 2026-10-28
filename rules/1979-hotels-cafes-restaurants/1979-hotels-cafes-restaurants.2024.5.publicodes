@@ -1,0 +1,396 @@
+# Révision 2024.3 : ajoute à la version 2024.2, à date d'effet identique, les congés payés
+# conventionnels de l'article 11 de l'avenant n° 1 (adhérents d'une organisation signataire).
+# Version 2024.2 : même grille que 2024.1 (même validFrom), sous sa propre valeur de convention,
+# « hôtels cafés restaurants », à utiliser à la place de la convention « HCR » de modele-social. Elle
+# reprend la majoration des heures supplémentaires et corrige la prévoyance conventionnelle :
+# 0,86 % de la tranche A partagés par moitié (modele-social : 0,90 % employeur et 0,47 % salarié),
+# la part employeur des cadres étant comprise dans leur 1,50 % obligatoire. L'avantage en nature
+# repas, évalué au minimum garanti par la réglementation de sécurité sociale et non par la
+# convention, n'est pas repris.
+# Révision 2024.4 : ajoute à la version 2024.3, à date d'effet identique, le maintien de salaire de
+# l'article 29.2 (maladie et accident).
+# Révision 2024.5 : ajoute à la version 2024.4, à date d'effet identique, les indemnités de licenciement et
+# de départ ou de mise à la retraite des articles 32 et 33 et de l'article 14 de l'avenant n° 1,
+# décrites par les règles `indemnité de rupture`.
+validFrom: 2024-12-01
+extension: 2024-11-09
+sources:
+  - "Avenant n° 33 du 19 juin 2024 relatif aux salaires, article 2 (minima horaires bruts en métropole et dans les DROM), étendu par arrêté du 5 novembre 2024 (JORF du 9 novembre 2024), applicable le 1er jour du mois suivant la publication de l'arrêté, soit le 1er décembre 2024: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000050394790"
+  - "Avenant n° 2 du 5 février 2007 relatif à l'aménagement du temps de travail, article 4 (étendu par arrêté du 26 mars 2007, JORF du 29 mars 2007) : heures de la 36e à la 39e majorées de 10 %, de la 40e à la 43e de 20 %, à partir de la 44e de 50 %: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005670080"
+  - "Avenant n° 1 du 13 juillet 2004, article 18 (prévoyance) : article 18.1, ensemble du personnel ; article 18.3, salaire de référence limité à la tranche A: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000005670064"
+  - "Avenant n° 2 du 10 mai 2021 à l'avenant n° 1 du 13 juillet 2004 relatif à la prévoyance (étendu), article 18.5 en vigueur depuis le 1er juillet 2021 : cotisation de 0,86 % du salaire de référence, financée à 50 % par l'employeur et à 50 % par le salarié ; la participation de l'employeur est prise en compte dans la cotisation de 1,50 % de la tranche A des cadres: https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000044201741"
+  - https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635534
+  - >-
+    Avenant n° 1 du 13 juillet 2004 relatif à l'aménagement du temps de travail et aux congés payés
+    (KALITEXT000005670064), article 11 (KALIARTI000005826353), lu sur Légifrance le 23 octobre
+    2026 : « En sus des congés légaux, tout salarié qui justifiera avoir été occupé pendant un temps
+    équivalent à un minimum de 1 mois de travail effectif aura droit à 0,5 jour ouvrable de congé
+    conventionnel par mois (soit 6 jours ouvrables ou 5 jours ouvrés par année de référence) »,
+    « ils ne donnent pas lieu aux jours de congés supplémentaires pour fractionnement », « À
+    l'issue de la période susvisée, les congés payés conventionnels non pris seront rémunérés. »
+    L'arrêté d'extension du 30 décembre 2004 a été annulé par le Conseil d'État le 18 octobre 2006
+    (avenant n° 2 du 5 février 2007, préambule) sauf pour les titres IV, VII et VIII : l'article 11
+    (titre III) ne lie que les adhérents d'une organisation signataire, ce que l'application vérifie.
+    https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005826353
+  - >-
+    Article 29.2 de la convention (indemnisation de la maladie et de l'accident), lu sur Légifrance
+    le 24 octobre 2026 (KALISCTA000005747398) : après 3 ans d'ancienneté ; à compter du premier jour
+    d'absence en cas d'accident du travail ou de maladie professionnelle, du onzième jour dans les autres
+    cas, accident de trajet compris ; 90 % de la rémunération brute pendant 30 jours puis les 2/3
+    pendant 30 jours, chaque durée augmentée de 10 jours par période entière de 5 ans d'ancienneté au-delà
+    des 3 ans, sans dépasser 90 jours ; jours indemnisés dans les 12 mois précédents décomptés ; sous
+    déduction des indemnités journalières, au plus le net qu'aurait perçu le salarié. L'article 28
+    renvoie la maternité à la loi : https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000005747398
+  - >-
+    Articles 32 (indemnité de licenciement, KALIARTI000005826298) et 33 (départ à la retraite,
+    KALIARTI000005826299) de la convention, titre VIII (KALISCTA000005713636), et article 14 de
+    l'avenant n° 1 du 13 juillet 2004 (KALIARTI000005826356, KALITEXT000005670064), étendus :
+    indemnité de licenciement après 2 ans d'ancienneté ininterrompue, hors faute grave ou lourde, de
+    1/10 de mois par année plus 1/15 de mois par année au-delà de 10 ans ; indemnité de départ
+    volontaire à la retraite de 1/2 mois à 10 ans à 2 mois à 30 ans d'ancienneté (de 1 mois à 5 ans à
+    4 mois et demi à 30 ans pour les cadres) ; mise à la retraite : l'indemnité légale ou, si elle est
+    plus favorable, l'indemnité de licenciement. Textes lus sur Légifrance le 28 octobre 2026 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000005713636
+---
+salarié . convention collective . hôtels cafés restaurants:
+  titre: Hôtels, cafés, restaurants (IDCC 1979)
+  valeur: convention collective = 'hôtels cafés restaurants'
+
+salarié . convention collective . hôtels cafés restaurants . niveau:
+  titre: Niveau et échelon de classification
+  description: |
+    Au format « <niveau>.<échelon> » : de I.1 à V.3. Niveaux I à III : employés, niveau
+    IV : agents de maîtrise, niveau V : cadres.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . hôtels cafés restaurants . taux horaire minimum:
+  titre: Taux horaire minimum conventionnel
+  description: |
+    Minimum horaire brut applicable en métropole et dans les DROM. Vaut 0 €/heure si le
+    niveau n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  unité: €/heure
+  variations:
+    - si: niveau = 'I.1'
+      alors: 12.00 €/heure
+    - si: niveau = 'I.2'
+      alors: 12.08 €/heure
+    - si: niveau = 'I.3'
+      alors: 12.18 €/heure
+    - si: niveau = 'II.1'
+      alors: 12.28 €/heure
+    - si: niveau = 'II.2'
+      alors: 12.55 €/heure
+    - si: niveau = 'II.3'
+      alors: 13.17 €/heure
+    - si: niveau = 'III.1'
+      alors: 13.32 €/heure
+    - si: niveau = 'III.2'
+      alors: 13.54 €/heure
+    - si: niveau = 'III.3'
+      alors: 14.00 €/heure
+    - si: niveau = 'IV.1'
+      alors: 14.40 €/heure
+    - si: niveau = 'IV.2'
+      alors: 14.77 €/heure
+    - si: niveau = 'IV.3'
+      alors: 15.40 €/heure
+    - si: niveau = 'V.1'
+      alors: 18.43 €/heure
+    - si: niveau = 'V.2'
+      alors: 21.78 €/heure
+    - si: niveau = 'V.3'
+      alors: 28.12 €/heure
+    - sinon: 0 €/heure
+
+salarié . convention collective . hôtels cafés restaurants . salaire minimum conventionnel:
+  titre: Salaire minimum conventionnel
+  description: |
+    Taux horaire minimum appliqué aux heures du contrat hors heures supplémentaires
+    (151,67 h pour un temps plein), comme le SMIC.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  unité: €/mois
+  produit:
+    - taux horaire minimum
+    - contrat . temps de travail
+
+salarié . convention collective . hôtels cafés restaurants . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/heure pour un niveau inconnu.
+  valeur: taux horaire minimum = 0 €/heure
+
+salarié . convention collective . hôtels cafés restaurants . majoration heures supplémentaires:
+  titre: Majoration conventionnelle des heures supplémentaires
+  description: Heures de la 36e à la 39e majorées de 10 %, de la 40e à la 43e de 20 %, puis de 50 % (avenant n° 2 du 5 février 2007, article 4). Comme dans modele-social, les heures supplémentaires du mois sont réparties uniformément sur ses semaines.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  remplace: salarié . temps de travail . heures supplémentaires . majoration
+  unité: heure/mois
+  barème:
+    assiette: salarié . temps de travail . heures supplémentaires
+    multiplicateur: période . semaines par mois
+    tranches:
+      - taux: 10%
+        plafond: 4 heure/semaine
+      - taux: 20%
+        plafond: 8 heure/semaine
+      - taux: 50%
+
+salarié . convention collective . hôtels cafés restaurants . prévoyance:
+  titre: Prévoyance conventionnelle
+  description: |
+    Cotisation de 0,86 % du salaire limité à la tranche A, pour l'ensemble du personnel, financée par
+    moitié par l'employeur et le salarié (article 18.5 de l'avenant n° 1, dans sa rédaction de
+    l'avenant n° 2 du 10 mai 2021). Pour les cadres, la part de l'employeur est comprise dans sa
+    cotisation obligatoire de 1,50 % de la tranche A, déjà calculée par modele-social.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  somme:
+    - employeur
+    - salarié
+
+salarié . convention collective . hôtels cafés restaurants . prévoyance . tranche A:
+  titre: Salaire limité à la tranche A
+  unité: €/mois
+  valeur:
+    valeur: cotisations . assiette . sans prévoyance
+    plafond: temps de travail . plafond sécurité sociale
+
+salarié . convention collective . hôtels cafés restaurants . prévoyance . employeur:
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'hôtels cafés restaurants'
+      - contrat . statut cadre = non
+  remplace: salarié . cotisations . prévoyances . conventionnelle . employeur
+  unité: €/mois
+  produit:
+    - tranche A
+    - 0.43%
+
+salarié . convention collective . hôtels cafés restaurants . prévoyance . salarié:
+  applicable si: convention collective = 'hôtels cafés restaurants'
+  remplace: salarié . cotisations . prévoyances . conventionnelle . salarié
+  unité: €/mois
+  produit:
+    - tranche A
+    - 0.43%
+
+salarié . convention collective . hôtels cafés restaurants . congés payés:
+  titre: Congés payés des hôtels, cafés et restaurants
+  applicable si: convention collective = 'hôtels cafés restaurants'
+
+salarié . convention collective . hôtels cafés restaurants . congés payés . congé légal:
+  titre: Congé légal acquis sur la période de référence
+  unité: jour
+  par défaut: 0 jour
+
+salarié . convention collective . hôtels cafés restaurants . congés payés . jours supplémentaires:
+  titre: Congés payés conventionnels
+  description: |
+    Avenant n° 1 du 13 juillet 2004, article 11 : en sus des congés légaux, 0,5 jour ouvrable de
+    congé conventionnel par mois pour le salarié occupé au moins un mois de travail effectif, soit
+    6 jours ouvrables par année de référence, proportionnels aux mois de travail (l'application les
+    proratise par le congé légal acquis). Non pris à l'issue de la période, ils sont rémunérés.
+  unité: jour
+  variations:
+    - si: congé légal >= 2.5 jour
+      alors: 6 jour
+    - sinon: 0 jour
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (article 29.2). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . éligible:
+  titre: Droit au maintien
+  description: Après 3 ans d'ancienneté, en cas de maladie ou d'accident.
+  valeur:
+    toutes ces conditions:
+      - ancienneté >= 36 mois
+      - une de ces conditions:
+            - motif = 'maladie'
+            - motif = 'accident du travail'
+            - motif = 'accident de trajet'
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . ancienneté en cours d'absence:
+  valeur: non
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . carence:
+  titre: Délai de carence
+  description: Dès le premier jour pour un accident du travail ou une maladie professionnelle, à partir du onzième jour sinon.
+  unité: jour
+  variations:
+    - si: motif = 'accident du travail'
+      alors: 0 jour
+    - sinon: 10 jour
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . durée:
+  titre: Durée de chaque période selon l'ancienneté
+  description: 30 jours, plus 10 jours par période entière de 5 ans au-delà des 3 ans, 90 jours au plus.
+  unité: jour
+  variations:
+    - si: ancienneté >= 396 mois
+      alors: 90 jour
+    - si: ancienneté >= 336 mois
+      alors: 80 jour
+    - si: ancienneté >= 276 mois
+      alors: 70 jour
+    - si: ancienneté >= 216 mois
+      alors: 60 jour
+    - si: ancienneté >= 156 mois
+      alors: 50 jour
+    - si: ancienneté >= 96 mois
+      alors: 40 jour
+    - sinon: 30 jour
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . première période . durée:
+  unité: jour
+  valeur: durée
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . première période . taux:
+  unité: '%'
+  valeur: 90%
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . seconde période . durée:
+  unité: jour
+  valeur: durée
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . seconde période . taux:
+  unité: '%'
+  valeur: 200% / 3
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . fenêtre:
+  valeur: "'douze mois'"
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . base:
+  valeur: "'brut'"
+
+salarié . convention collective . hôtels cafés restaurants . maintien de salaire . plafond net:
+  valeur: oui
+
+salarié . convention collective . hôtels cafés restaurants . indemnité de rupture:
+  titre: Indemnités de rupture du contrat de travail
+  description: |
+    Indemnité de licenciement (article 32), de départ volontaire à la retraite (article 33 et
+    article 14 de l'avenant n° 1 pour les cadres) et de mise à la retraite (article 33), en mois
+    de salaire. L'application renseigne l'ancienneté à la fin du contrat, lit les mois
+    ci-dessous, les multiplie par le salaire du texte (le plus favorable de 1/12 de la
+    rémunération brute des 12 derniers mois et de 1/3 de celle des 3 derniers mois, les primes
+    annuelles ou exceptionnelles au prorata) et retient le plus élevé de ce montant et de
+    l'indemnité légale.
+  applicable si: convention collective = 'hôtels cafés restaurants'
+
+salarié . convention collective . hôtels cafés restaurants . indemnité de rupture . ancienneté:
+  titre: Ancienneté à la fin du contrat
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . hôtels cafés restaurants . indemnité de rupture . années:
+  titre: Ancienneté en années
+  valeur: ancienneté / 12 mois
+
+salarié . convention collective . hôtels cafés restaurants . indemnité de rupture . cadre:
+  titre: Cadres
+  valeur: contrat . statut cadre
+
+salarié . convention collective . hôtels cafés restaurants . indemnité de rupture . licenciement:
+  titre: Indemnité de licenciement
+  description: |
+    Après 2 ans d'ancienneté ininterrompue, hors faute grave ou lourde (article 32) : 1/10 de
+    mois par année, plus 1/15 de mois par année au-delà de 10 ans.
+  variations:
+    - si: ancienneté < 24 mois
+      alors: 0
+    - sinon:
+        barème:
+          assiette: années
+          tranches:
+            - taux: 10%
+              plafond: 10
+            - taux: 16.666666666666668%
+
+salarié . convention collective . hôtels cafés restaurants . indemnité de rupture . rupture conventionnelle:
+  titre: Indemnité de rupture conventionnelle
+  description: >-
+    La convention ne fixe pas de montant propre, l'indemnité légale s'applique.
+  valeur: 0
+
+salarié . convention collective . hôtels cafés restaurants . indemnité de rupture . mise à la retraite:
+  titre: Indemnité de mise à la retraite
+  description: |
+    L'indemnité légale ou, si elle est plus favorable, l'indemnité de licenciement de l'article 32
+    (article 33, 2).
+  valeur: licenciement
+
+salarié . convention collective . hôtels cafés restaurants . indemnité de rupture . départ volontaire:
+  titre: Indemnité de départ volontaire à la retraite
+  description: |
+    Article 33, 1 : 10 ans d'ancienneté, 1/2 mois ; 15 ans, 1 mois ; 20 ans, 1 mois et demi ;
+    30 ans, 2 mois. Cadres (avenant n° 1 du 13 juillet 2004, article 14) : 5 ans, 1 mois ;
+    10 ans, 2 mois ; 15 ans, 2 mois et demi ; 20 ans, 3 mois ; 25 ans, 3 mois et demi ;
+    30 ans, 4 mois et demi.
+  variations:
+    - si:
+        toutes ces conditions:
+          - cadre
+          - ancienneté >= 30 an
+      alors: 4.5
+    - si:
+        toutes ces conditions:
+          - cadre
+          - ancienneté >= 25 an
+      alors: 3.5
+    - si:
+        toutes ces conditions:
+          - cadre
+          - ancienneté >= 20 an
+      alors: 3
+    - si:
+        toutes ces conditions:
+          - cadre
+          - ancienneté >= 15 an
+      alors: 2.5
+    - si:
+        toutes ces conditions:
+          - cadre
+          - ancienneté >= 10 an
+      alors: 2
+    - si:
+        toutes ces conditions:
+          - cadre
+          - ancienneté >= 5 an
+      alors: 1
+    - si: ancienneté >= 30 an
+      alors: 2
+    - si: ancienneté >= 20 an
+      alors: 1.5
+    - si: ancienneté >= 15 an
+      alors: 1
+    - si: ancienneté >= 10 an
+      alors: 0.5
+    - sinon: 0

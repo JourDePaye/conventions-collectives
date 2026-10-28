@@ -29,3 +29,5 @@ Les minima mensuels vont de 1 799,00 € (niveaux A à D hors ancienneté) à 4 
 ## Maintien de salaire
 
 La révision 2026.3 ajoute le maintien de salaire conventionnel (articles 51, 52 et 54) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package. L’ancienneté bancaire chez les précédents employeurs et le congé supplémentaire de maternité ou d’adoption ne sont pas repris.
+
+La révision 2026.4 ajoute les indemnités de licenciement (article 26.2), de départ volontaire à la retraite (article 31) et la majoration de l'indemnité de mise à la retraite avant 65 ans (article 32), sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. Les montants sont en mensualités (1/13 du salaire de base annuel des 12 derniers mois civils).

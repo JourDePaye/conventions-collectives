@@ -54,8 +54,8 @@ describe("IDCC 44 — periods: 2025 grid, then 2025 grid with health, then 2026 
     assert.equal(inForce("2025-08-31"), "2025.1");
     assert.equal(inForce("2025-09-01"), "2026.3");
     assert.equal(inForce("2025-12-31"), "2026.3");
-    assert.equal(inForce("2026-01-01"), "2026.5");
-    assert.equal(inForce("2026-10-16"), "2026.5");
+    assert.equal(inForce("2026-01-01"), "2026.6");
+    assert.equal(inForce("2026-10-16"), "2026.6");
   });
 
   for (const [revision, step] of Object.entries(VERSIONS)) {

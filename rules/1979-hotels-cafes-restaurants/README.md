@@ -38,3 +38,5 @@ Les révisions [2024.3](1979-hotels-cafes-restaurants.2024.3.publicodes) et [202
 ## Maintien de salaire
 
 La révision 2024.4 et 2026.3 ajoute le maintien de salaire conventionnel (article 29.2) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance.test.ts`. L’interface est décrite dans le README du package. La maternité relève de la loi (article 28).
+
+Les révisions 2024.5 et 2026.4 ajoute les indemnités de licenciement (article 32) et de départ volontaire à la retraite (article 33 et article 14 de l'avenant n° 1 pour les cadres), sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. Aucun montant propre pour la rupture conventionnelle ; la mise à la retraite reprend l'indemnité de licenciement.

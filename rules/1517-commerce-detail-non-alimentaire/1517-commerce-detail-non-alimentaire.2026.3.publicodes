@@ -1,0 +1,262 @@
+# Convention collective nationale des commerces de détail non alimentaires du 14 juin 1988
+# (IDCC 1517, brochure 3251).
+#
+# Version 2026.1, fusionnée avec modele-social.
+# Révision 2026.2 : ajoute à la version 2026.1, à date d'effet identique, le maintien de salaire
+# des articles 1er et 2 du chapitre VII (maladie et accident).
+# Révision 2026.3 : ajoute à la version 2026.2, à date d'effet identique, les indemnités de
+# licenciement et de départ ou de mise à la retraite des articles 4, 6 et 8 du chapitre VI,
+# décrites par les règles `indemnité de rupture`.
+# Une version publiée ne se modifie plus (voir versions.lock.json) : toute évolution ou
+# correction passe par une nouvelle version.
+#
+# Premier document : métadonnées de la version. Second document : règles publicodes, en
+# français comme dans modele-social.
+
+# Date d'entrée en vigueur de cette version : le premier jour du mois qui suit la publication
+# de l'arrêté d'extension (10 mai 2026).
+validFrom: 2026-06-01
+sources:
+  - Avenant n° 15 du 6 février 2026 portant revalorisation de la rémunération minimale (grille
+    des salaires minima mensuels des niveaux 1 à 9 pour 151,67 heures), applicable à compter du
+    premier jour du mois qui suit la publication de l'arrêté d'extension, étendu par arrêté du
+    4 mai 2026 (JORF n° 0109 du 10 mai 2026, texte n° 80, NOR TRST2610662A), soit à compter du
+    1er juin 2026. Texte de l'avenant consulté directement (exemplaires publiés par le CDNA
+    et par juristique.org). Le tableau du niveau 2 y est de 1 838 €, et non 1 836 € comme sur
+    une page de synthèse du CDNA.
+  - >-
+    Avenant n° 15 du 6 février 2026 relatif à la revalorisation de la rémunération minimale, étendu par arrêté du 4 mai 2026 (JORF du 10 mai 2026). Texte officiel lu sur Légifrance le 22 octobre 2026, montants des règles vérifiés sur ce texte :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054303837
+  - >-
+    Articles 1er et 2 du chapitre VII de la convention, dans leur rédaction issue de l'avenant n° 6
+    du 3 mai 2022, lus sur Légifrance le 24 octobre 2026 (KALIARTI000046522198, KALIARTI000046522200) :
+    un an d'ancienneté au premier jour de l'absence, six mois pour un accident du travail ou une maladie
+    professionnelle ; à partir du 8e jour d'absence calendaire, dès le premier jour pour un accident du
+    travail ou une maladie professionnelle ; 90 % de la rémunération brute pendant 30 jours puis 70 %
+    pendant 30 jours, chaque durée majorée de 10 jours par période entière de 5 ans au-delà de la
+    première année, 90 jours au plus ; sous déduction des indemnités journalières ; durée totale sur 12
+    mois consécutifs : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000046522198
+  - >-
+    Articles 4 (indemnisation conventionnelle du licenciement, KALIARTI000046093607), 6 (départ à la
+    retraite, KALIARTI000046093611) et 8 (mise à la retraite, KALIARTI000046093615) du chapitre VI
+    (KALISCTA000046093589), étendus : indemnité de licenciement, personnel ou économique, après 8 mois
+    d'ancienneté, de 1/4 de mois par année jusqu'à 10 ans et 1/3 à partir de 10 ans, auxquels s'ajoute
+    1/15 de mois par année à partir de 10 ans ; indemnité de départ volontaire à la retraite de 1 mois à
+    10 ans à 3 mois à 30 ans d'ancienneté ; mise à la retraite au moins égale à l'indemnité de
+    licenciement ou à l'indemnité légale. Textes lus sur Légifrance le 28 octobre 2026 :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000046093589
+---
+salarié . convention collective . commerce de détail non alimentaire:
+  titre: Commerce de détail non alimentaire (IDCC 1517)
+  valeur: convention collective = 'commerce de détail non alimentaire'
+
+salarié . convention collective . commerce de détail non alimentaire . niveau:
+  titre: Niveau de classification
+  description: |
+    Niveau de 1 à 9 de la classification du chapitre XII de la convention collective.
+  applicable si: convention collective = 'commerce de détail non alimentaire'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . commerce de détail non alimentaire . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel garanti
+  description: |
+    Salaire minimum mensuel du niveau pour 151,67 heures, proratisé pour un temps partiel. Vaut
+    0 €/mois si le niveau n'existe pas dans la grille (voir « niveau hors grille »).
+  applicable si: convention collective = 'commerce de détail non alimentaire'
+  unité: €/mois
+  produit:
+    - grille
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . commerce de détail non alimentaire . salaire minimum conventionnel . grille:
+  titre: Salaire mensuel minimum à temps plein
+  description: |
+    Grille de l'avenant n° 15, de 1 829 € (niveau 1) à 4 034 € (niveau 9), pour 151,67 heures.
+  unité: €/mois
+  variations:
+    - si: niveau = '1'
+      alors: 1829.00 €/mois
+    - si: niveau = '2'
+      alors: 1838.00 €/mois
+    - si: niveau = '3'
+      alors: 1843.00 €/mois
+    - si: niveau = '4'
+      alors: 1867.00 €/mois
+    - si: niveau = '5'
+      alors: 1967.00 €/mois
+    - si: niveau = '6'
+      alors: 2146.00 €/mois
+    - si: niveau = '7'
+      alors: 2741.00 €/mois
+    - si: niveau = '8'
+      alors: 3583.00 €/mois
+    - si: niveau = '9'
+      alors: 4034.00 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . commerce de détail non alimentaire . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n'existe pas dans la grille des salaires minima.
+  applicable si: convention collective = 'commerce de détail non alimentaire'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 €/mois pour un niveau inconnu.
+  valeur: salaire minimum conventionnel . grille = 0 €/mois
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (articles 1er et 2 du chapitre VII). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'commerce de détail non alimentaire'
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . éligible:
+  titre: Droit au maintien
+  description: Un an d'ancienneté, six mois pour un accident du travail, en cas de maladie ou d'accident.
+  variations:
+    - si: motif = 'accident du travail'
+      alors: ancienneté >= 6 mois
+    - si:
+        une de ces conditions:
+          - motif = 'maladie'
+          - motif = 'accident de trajet'
+      alors: ancienneté >= 12 mois
+    - sinon: non
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . ancienneté en cours d'absence:
+  valeur: non
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . carence:
+  unité: jour
+  variations:
+    - si: motif = 'accident du travail'
+      alors: 0 jour
+    - sinon: 7 jour
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . durée:
+  titre: Durée de chaque période selon l'ancienneté
+  unité: jour
+  variations:
+    - si: ancienneté >= 372 mois
+      alors: 90 jour
+    - si: ancienneté >= 312 mois
+      alors: 80 jour
+    - si: ancienneté >= 252 mois
+      alors: 70 jour
+    - si: ancienneté >= 192 mois
+      alors: 60 jour
+    - si: ancienneté >= 132 mois
+      alors: 50 jour
+    - si: ancienneté >= 72 mois
+      alors: 40 jour
+    - sinon: 30 jour
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . première période . durée:
+  unité: jour
+  valeur: durée
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . première période . taux:
+  unité: '%'
+  valeur: 90%
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . seconde période . durée:
+  unité: jour
+  valeur: durée
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . seconde période . taux:
+  unité: '%'
+  valeur: 70%
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . fenêtre:
+  valeur: "'douze mois'"
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . base:
+  valeur: "'brut'"
+
+salarié . convention collective . commerce de détail non alimentaire . maintien de salaire . plafond net:
+  valeur: non
+
+salarié . convention collective . commerce de détail non alimentaire . indemnité de rupture:
+  titre: Indemnités de rupture du contrat de travail
+  description: |
+    Indemnité de licenciement (article 4), de départ volontaire à la retraite (article 6) et de
+    mise à la retraite (article 8), en mois de salaire (le plus favorable de 1/12 de la
+    rémunération brute des 12 mois précédant la notification et de 1/3 de celle des 3 derniers
+    mois, les primes au prorata). L'application renseigne l'ancienneté à la fin du contrat, lit
+    les mois ci-dessous, les multiplie par ce salaire et retient le plus élevé de ce montant et
+    de l'indemnité légale.
+  applicable si: convention collective = 'commerce de détail non alimentaire'
+
+salarié . convention collective . commerce de détail non alimentaire . indemnité de rupture . ancienneté:
+  titre: Ancienneté à la fin du contrat
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . commerce de détail non alimentaire . indemnité de rupture . années:
+  titre: Ancienneté en années
+  valeur: ancienneté / 12 mois
+
+salarié . convention collective . commerce de détail non alimentaire . indemnité de rupture . licenciement:
+  titre: Indemnité de licenciement
+  description: |
+    Après 8 mois d'ancienneté, hors faute grave ou lourde, personnel ou économique (article 4) :
+    1/4 de mois par année jusqu'à 10 ans, 1/3 de mois par année à partir de 10 ans, auxquels
+    s'ajoute 1/15 de mois par année d'ancienneté à partir de 10 ans.
+  variations:
+    - si: ancienneté < 8 mois
+      alors: 0
+    - sinon:
+        barème:
+          assiette: années
+          tranches:
+            - taux: 25%
+              plafond: 10
+            - taux: 40%
+
+salarié . convention collective . commerce de détail non alimentaire . indemnité de rupture . rupture conventionnelle:
+  titre: Indemnité de rupture conventionnelle
+  description: >-
+    La convention ne fixe pas de montant propre, l'indemnité légale s'applique.
+  valeur: 0
+
+salarié . convention collective . commerce de détail non alimentaire . indemnité de rupture . mise à la retraite:
+  titre: Indemnité de mise à la retraite
+  description: Au moins égale à l'indemnité de licenciement ou à l'indemnité légale si elle est plus favorable (article 8).
+  valeur: licenciement
+
+salarié . convention collective . commerce de détail non alimentaire . indemnité de rupture . départ volontaire:
+  titre: Indemnité de départ volontaire à la retraite
+  description: |
+    10 ans d'ancienneté, 1 mois ; 15 ans, 1 mois et demi ; 20 ans, 2 mois ; 25 ans, 2 mois et
+    demi ; 30 ans, 3 mois (article 6).
+  variations:
+    - si: ancienneté >= 30 an
+      alors: 3
+    - si: ancienneté >= 25 an
+      alors: 2.5
+    - si: ancienneté >= 20 an
+      alors: 2
+    - si: ancienneté >= 15 an
+      alors: 1.5
+    - si: ancienneté >= 10 an
+      alors: 1
+    - sinon: 0
