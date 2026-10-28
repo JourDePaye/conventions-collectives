@@ -85,3 +85,5 @@ git diff --check
 ## Maintien de salaire
 
 La révision 2025.2 ajoute le maintien de salaire conventionnel (articles 25 B et 26 B) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. Les trois périodes de la maladie entre 1 et 2 ans d’ancienneté utilisent la sortie facultative `troisième période`.
+
+La révision 2025.3 ajoute l'indemnité de licenciement (article 14) et l'indemnité de départ à la retraite (article 35), sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. La condition d'âge de 60 ans du départ à la retraite n'est pas reprise.

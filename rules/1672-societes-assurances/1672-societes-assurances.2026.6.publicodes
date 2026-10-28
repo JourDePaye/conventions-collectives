@@ -1,0 +1,278 @@
+# Convention collective nationale des sociétés d'assurances du 27 mai 1992 (IDCC 1672,
+# brochure 3265).
+#
+# Version 2026.4 : protocole d'accord du 10 juin 2026 relatif aux rémunérations minimales
+# pour l'année 2026 (KALITEXT000054887698), avec le barème RMA 2026 réellement lu dans
+# l'annexe (22 680 € à 60 940 €). Elle remplace les versions 2026.1 et 2026.3, qui portaient
+# par erreur le barème 2025 (22 230 € à 60 690 €) : même validFrom, révision supérieure.
+#
+# Le protocole est « en vigueur non étendu » : il lie les employeurs signataires (FFA) ou
+# adhérents, pas les autres : JourDePaye ne charge cette version que pour un employeur adhérent
+# (pas de métadonnée `extension`).
+
+# Date d'application du protocole : « à effet du 1er janvier 2026 » (article 1er).
+# Révision 2026.5 : ajoute à la version 2026.4, à date d'effet identique, l'allocation
+# complémentaire des articles 82 c (maladie et accident) et 86 c (maternité).
+# Révision 2026.6 : ajoute à la version 2026.5, à date d'effet identique, les indemnités de licenciement de l'article 92 et de départ ou de mise à la retraite de l'article 93, décrites par
+# les règles `indemnité de rupture`.
+validFrom: 2026-01-01
+sources:
+  - |
+    Protocole d'accord du 10 juin 2026 relatif aux rémunérations minimales pour l'année 2026
+    (article 1er : barème des rémunérations minimales annuelles de l'annexe II, à effet du
+    1er janvier 2026 ; annexe : classes 1 à 7 = 22 680, 24 120, 25 580, 30 140, 35 430,
+    45 030, 60 940 €), signé par la FFA et la CFTC, la CFDT, l'UNSA, la CFE-CGC.
+    Statut Légifrance « en vigueur non étendu », aucun arrêté d'extension.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054887698
+  - |
+    Convention collective nationale des sociétés d'assurances du 27 mai 1992, brochure 3265,
+    fiche officielle : https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635918
+  - >-
+    Articles 75 et 82 c de la convention, lus sur Légifrance le 24 octobre 2026 (KALIARTI000005792078,
+    KALIARTI000005792088) : après 12 mois de présence effective (3 mois pour un salarié ayant 12 mois
+    chez un autre employeur de la branche, non repris), pendant les trois premiers mois de l'arrêt,
+    allocation complétant jusqu'au salaire net mensuel les indemnités journalières et les prestations de
+    prévoyance patronales ; plusieurs arrêts pour la même maladie dans une année civile, 3 mois au total
+    (l'identité de la maladie n'étant pas connue, les arrêts de l'année civile sont cumulés) ; au-delà,
+    le régime professionnel de prévoyance verse les indemnités (hors bulletin). Un mois compte pour 30
+    jours : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000005792088
+  - >-
+    Article 86 c de la convention, cité par l'accord du 18 février 2026 relatif à la mixité
+    (KALIARTI000054303696) : maternité, avec 12 mois de présence au début du congé, allocation complétant
+    jusqu'au salaire net mensuel les indemnités journalières pendant tout le congé (20 semaines ou la
+    durée légale plus longue) ; l'adoption (86 d) n'est pas reprise : https://www.legifrance.gouv.fr/conv_coll/article/KALIARTI000054303696
+  - >-
+    Articles 92 (indemnité de licenciement, KALISCTA000005765067, KALIARTI000005792104) et 93 (départ ou mise à la retraite, KALISCTA000005765068, KALIARTI000005792106) de la convention, étendus sous réserve
+    de la loi n° 78-49 : indemnité de licenciement après plus de 3 ans de présence effective, hors faute grave ou lourde, de 2,5 %, 3 %, 3,5 % ou 4 % de la rémunération annuelle par année de présence selon l'ancienneté, plus 0,5 % à
+    partir de 50 ans ; départ en retraite avec 10 ans de présence, 10 % du douzième des salaires des 12 derniers mois par année ; mise à la retraite avec 2 ans d'ancienneté, le même taux majoré de 1/15 de mois par année au-delà de 10 ans. Textes lus sur Légifrance le 28 octobre 2026 : https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000005765067
+---
+salarié . convention collective . sociétés assurances:
+  titre: Sociétés d'assurances (IDCC 1672)
+  valeur: convention collective = 'sociétés assurances'
+
+salarié . convention collective . sociétés assurances . niveau:
+  titre: Classe de classification
+  description: |
+    Classe de 1 à 4 pour le personnel non cadre, de 5 à 7 pour les cadres.
+  applicable si: convention collective = 'sociétés assurances'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . sociétés assurances . salaire minimum conventionnel:
+  titre: Équivalent mensuel indicatif de la rémunération minimale annuelle
+  description: |
+    Douzième indicatif de la rémunération minimale annuelle de la classe, proratisé pour un
+    temps partiel et arrondi au centime. La comparaison juridiquement pertinente reste annuelle
+    via « salaire minimum annuel conventionnel » ; ce montant ne modélise ni treizième mois ni
+    les éléments inclus dans l'appréciation annuelle. Vaut 0 €/mois si la classe n'existe pas
+    dans la grille (voir « niveau hors grille »).
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'sociétés assurances'
+  unité: €/mois
+  arrondi: 2 décimales
+  valeur: grille annuelle / 12 * contrat . temps de travail . quotité
+
+salarié . convention collective . sociétés assurances . salaire minimum annuel conventionnel:
+  titre: Rémunération minimale annuelle conventionnelle
+  description: RMA annuelle à temps plein, proratisée selon la quotité de travail. La comparaison
+    doit tenir compte des éléments de rémunération et des modalités prévues par le protocole.
+  applicable si:
+    toutes ces conditions:
+      - convention collective = 'sociétés assurances'
+  unité: €/an
+  arrondi: 2 décimales
+  valeur: salaire minimum conventionnel . grille annuelle * contrat . temps de travail . quotité
+
+salarié . convention collective . sociétés assurances . salaire minimum conventionnel . grille annuelle:
+  titre: Rémunération minimale annuelle à temps plein, en euros
+  description: |
+    RMA du protocole du 10 juin 2026, de 22 680 € (classe 1) à 60 940 € (classe 7). Nombre sans
+    unité, en euros par an.
+  variations:
+    - si: niveau = '1'
+      alors: 22680
+    - si: niveau = '2'
+      alors: 24120
+    - si: niveau = '3'
+      alors: 25580
+    - si: niveau = '4'
+      alors: 30140
+    - si: niveau = '5'
+      alors: 35430
+    - si: niveau = '6'
+      alors: 45030
+    - si: niveau = '7'
+      alors: 60940
+    - sinon: 0
+
+salarié . convention collective . sociétés assurances . niveau hors grille:
+  titre: Classe absente de la grille
+  description: La classe n'existe pas dans la grille des rémunérations minimales.
+  applicable si: convention collective = 'sociétés assurances'
+  # « est non applicable » ne teste pas l'absence de valeur et dépend de l'ordre
+  # d'évaluation : la grille vaut donc 0 pour une classe inconnue.
+  valeur: salaire minimum conventionnel . grille annuelle = 0
+
+salarié . convention collective . sociétés assurances . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (articles 82 c et 86 c). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'sociétés assurances'
+
+salarié . convention collective . sociétés assurances . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . sociétés assurances . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . sociétés assurances . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . sociétés assurances . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . sociétés assurances . maintien de salaire . éligible:
+  titre: Droit au maintien
+  variations:
+    - si:
+        une de ces conditions:
+          - motif = 'paternité'
+          - motif = 'adoption'
+      alors: non
+    - sinon: ancienneté >= 12 mois
+
+salarié . convention collective . sociétés assurances . maintien de salaire . ancienneté en cours d'absence:
+  valeur: non
+
+salarié . convention collective . sociétés assurances . maintien de salaire . carence:
+  unité: jour
+  valeur: 0 jour
+
+salarié . convention collective . sociétés assurances . maintien de salaire . première période . durée:
+  unité: jour
+  variations:
+    - si: motif = 'maternité'
+      alors: 365 jour
+    - sinon: 90 jour
+
+salarié . convention collective . sociétés assurances . maintien de salaire . première période . taux:
+  unité: '%'
+  valeur: 100%
+
+salarié . convention collective . sociétés assurances . maintien de salaire . seconde période . durée:
+  unité: jour
+  valeur: 0 jour
+
+salarié . convention collective . sociétés assurances . maintien de salaire . seconde période . taux:
+  unité: '%'
+  valeur: 0%
+
+salarié . convention collective . sociétés assurances . maintien de salaire . fenêtre:
+  valeur:
+    variations:
+      - si: motif = 'maternité'
+        alors: "'arrêt'"
+      - sinon: "'année civile'"
+
+salarié . convention collective . sociétés assurances . maintien de salaire . base:
+  valeur: "'net'"
+
+salarié . convention collective . sociétés assurances . maintien de salaire . plafond net:
+  valeur: non
+
+salarié . convention collective . sociétés assurances . indemnité de rupture:
+  titre: Indemnités de rupture du contrat de travail
+  description: >-
+    Indemnité de licenciement (article 92) et indemnités de départ et de mise à la retraite (article 93), en mois du salaire mensuel de référence (le douzième du total des salaires bruts des 12 derniers mois d'activité, ou la moyenne des 3 derniers mois pour la mise à la retraite si elle est plus favorable) : les pourcentages de la rémunération annuelle du texte sont multipliés par 12. L'application renseigne l'ancienneté et l'âge à la fin du contrat, lit les mois ci-dessous, les multiplie par ce salaire et retient le plus élevé de ce montant et de l'indemnité légale. Les mises à la retraite dans la période d'anticipation, dont l'indemnité dépend de l'âge et de la durée d'assurance, ne sont pas reprises.
+  applicable si: convention collective = 'sociétés assurances'
+
+salarié . convention collective . sociétés assurances . indemnité de rupture . ancienneté:
+  titre: Ancienneté à la fin du contrat
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . sociétés assurances . indemnité de rupture . âge:
+  titre: Âge à la fin du contrat
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . sociétés assurances . indemnité de rupture . années:
+  titre: Ancienneté en années
+  description: >-
+    Les mois complets au-delà des années entières comptent pour 1/12 d'année.
+  valeur: ancienneté / 12 mois
+
+salarié . convention collective . sociétés assurances . indemnité de rupture . années complètes:
+  titre: Années complètes d'ancienneté
+  valeur: années - 0.5
+  arrondi: oui
+
+salarié . convention collective . sociétés assurances . indemnité de rupture . taux de licenciement:
+  titre: Taux annuel de licenciement
+  description: >-
+    2,5 % de la rémunération annuelle par année de présence sous 10 ans, 3 % de 10 à moins de 20 ans, 3,5 % de 20 à moins de 30 ans, 4 % au-delà (le taux de l'ancienneté totale s'applique à toutes les années), plus 0,5 % à partir de 50 ans.
+  variations:
+    - si: ancienneté >= 30 an
+      alors: 0.04 + majoration d'âge
+    - si: ancienneté >= 20 an
+      alors: 0.035 + majoration d'âge
+    - si: ancienneté >= 10 an
+      alors: 0.03 + majoration d'âge
+    - sinon: 0.025 + majoration d'âge
+
+salarié . convention collective . sociétés assurances . indemnité de rupture . majoration d'âge:
+  titre: Majoration d'âge
+  description: >-
+    0,5 % de la rémunération annuelle par année de présence pour un licenciement à 50 ans révolus ou plus.
+  variations:
+    - si: âge >= 50 an
+      alors: 0.005
+    - sinon: 0
+
+salarié . convention collective . sociétés assurances . indemnité de rupture . licenciement:
+  titre: Indemnité de licenciement
+  description: >-
+    Au-delà de 3 ans de présence effective, hors faute grave ou lourde (article 92), en mois : le taux annuel multiplié par 12 et par les années de présence.
+  variations:
+    - si: ancienneté <= 36 mois
+      alors: 0
+    - sinon: années * 12 * taux de licenciement
+
+salarié . convention collective . sociétés assurances . indemnité de rupture . rupture conventionnelle:
+  titre: Indemnité de rupture conventionnelle
+  description: >-
+    La convention ne fixe pas de montant propre, l'indemnité légale s'applique.
+  valeur: 0
+
+salarié . convention collective . sociétés assurances . indemnité de rupture . départ volontaire:
+  titre: Indemnité de départ en retraite
+  description: >-
+    Avec au moins 10 ans de présence : 10 % du douzième du total des salaires bruts des 12 derniers mois par année de présence (article 93, a).
+  variations:
+    - si: ancienneté < 120 mois
+      alors: 0
+    - sinon: années / 10
+
+salarié . convention collective . sociétés assurances . indemnité de rupture . mise à la retraite:
+  titre: Indemnité de mise à la retraite
+  description: >-
+    À l'âge normal de la retraite, avec au moins 2 ans d'ancienneté : le taux du départ en retraite, majoré de 1/15 de mois par année au-delà de 10 ans (article 93, b).
+  variations:
+    - si: ancienneté < 24 mois
+      alors: 0
+    - sinon:
+        barème:
+          assiette: années
+          tranches:
+            - taux: 10%
+              plafond: 10
+            - taux: 16.6666666667%

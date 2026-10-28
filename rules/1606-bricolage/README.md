@@ -38,3 +38,5 @@ Les primes, indemnités, ancienneté, intéressement, épargne salariale et disp
 ## Maintien de salaire
 
 La révision 2025.3 ajoute le maintien de salaire conventionnel (articles 7.1 et 7.2, annexes agents de maîtrise et cadres) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. La reconduction des droits après 3 mois de reprise n’est pas reprise ; la catégorie se déduit du coefficient (accord du 31 mars 2025).
+
+La révision 2025.4 ajoute l'indemnité de licenciement (article 9.2.4), l'indemnité de fin de carrière (article 9.3.4) et les majorations des cadres, sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. La mise à la retraite de l'employeur relève de la loi.

@@ -30,3 +30,5 @@ Les classes 1 (1 852,50 € par mois en équivalent indicatif) est inférieure a
 ## Maintien de salaire
 
 La révision 2026.5 ajoute le maintien de salaire conventionnel (articles 82 c et 86 c) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. Les arrêts d’une même maladie ne pouvant être identifiés, les arrêts de l’année civile sont cumulés ; l’adoption relève de la loi ; la réduction de la condition de présence à 3 mois n’est pas reprise.
+
+La révision 2026.6 ajoute l'indemnité de licenciement (article 92) et les indemnités de départ et de mise à la retraite (article 93), sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. Les mises à la retraite dans la période d'anticipation ne sont pas reprises.

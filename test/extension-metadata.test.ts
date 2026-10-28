@@ -27,7 +27,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   // of the following month
   "0493-vins-cidres-spiritueux": { "2026.2": "2026-06-01" },
   // Arrêtés of 11 December 2023 (JORF 14 December 2023) and 5 February 2026 (JORF 10 February 2026).
-  "0787-experts-comptables": { "2024.1": "2023-12-14", "2026.2": "2026-02-10", "2026.3": "2026-02-10" },
+  "0787-experts-comptables": { "2024.1": "2023-12-14", "2026.2": "2026-02-10", "2026.3": "2026-02-10", "2026.4": "2026-02-10" },
   "1405-expedition-exportation-fruits-legumes": { "2026.2": "2026-05-29" }, // JORFTEXT000054149405
   // accord du 13 mars 2025, arrêté du 27 mai 2025, JORF du 31 mai 2025; the accord of 3 April 2026 (2026.1) is not extended
   "1408-distribution-logistique-energies": { "2025.3": "2025-05-31" },
@@ -115,12 +115,12 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   "1404-maintenance-distribution-location": { "2026.1": "2026-05-29" },
   "1411-fabrication-ameublement": { "2026.1": "2026-09-04", "2026.2": "2026-09-04" },
   "1412-installation-aeraulique-thermique-frigorifique": { "2026.1": "2026-06-27", "2026.2": "2026-06-27" },
-  "1413-travail-temporaire": { "2026.1": "2026-05-10", "2026.2": "2026-05-10" },
+  "1413-travail-temporaire": { "2026.1": "2026-05-10", "2026.2": "2026-05-10", "2026.3": "2026-05-10" },
   "1487-commerce-detail-horlogerie-bijouterie": { "2026.1": "2026-02-24" },
   "1499-miroiterie": { "2025.1": "2025-06-19", "2025.2": "2025-06-19", "2026.1": "2026-05-29" },
   "1501-restauration-rapide": { "2025.1": "2025-08-07", "2026.2": "2026-06-03", "2026.3": "2026-06-03", "2026.5": "2026-06-03" },
   "1513-eaux-embouteillees-boissons-bieres": { "2026.1": "2026-04-17" },
-  "1527-immobilier": { "2026.1": "2026-09-19", "2026.2": "2026-09-19", "2026.3": "2026-09-19" },
+  "1527-immobilier": { "2026.1": "2026-09-19", "2026.2": "2026-09-19", "2026.3": "2026-09-19", "2026.4": "2026-09-19" },
   "1534-industrie-commerces-gros-viandes": { "2026.1": "2026-06-06" },
   "1536-distributeurs-conseils-hors-domicile": { "2026.1": "2026-05-29" },
   "1543-boyauderie": { "2026.1": "2026-04-17" },
@@ -157,7 +157,7 @@ const EXTENSIONS: Record<string, Record<string, string>> = {
   "2272-assainissement-maintenance-industrielle": { "2026.1": "2026-05-16", "2026.2": "2026-05-16" },
   "2528-maroquinerie": { "2026.1": "2026-05-08" },
   "2583-societes-autoroutes": { "2024.2": "2024-09-12", "2025.1": "2026-01-17" },
-  "2941-aide-soins-domicile": { "2026.1": "2026-07-23", "2026.2": "2026-07-23" },
+  "2941-aide-soins-domicile": { "2026.1": "2026-07-23", "2026.2": "2026-07-23", "2026.3": "2026-07-23" },
   "2972-navigation-personnel-sedentaire": { "2026.1": "2026-07-23" },
   "3017-ports-manutention": { "2024.1": "2024-05-31", "2024.2": "2024-05-31", "2025.1": "2025-10-30", "2026.1": "2026-03-05" },
   "3109-industries-alimentaires-diverses": { "2026.1": "2026-04-17" },

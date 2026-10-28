@@ -244,3 +244,192 @@ describe("2120 banque", async () => {
     }
   });
 });
+
+describe("second lot of agreements", async () => {
+  const lot = (model: string, revision: string, value: string, classification: Record<string, string | number> = {}) =>
+    terminationEngine(model, revision, value, classification);
+
+  it("0016 transports routiers: congédiement and retirement of the annexes I to IV", async () => {
+    const workers = await lot("0016-transports-routiers", "2026.5", "transports routiers", { niveau: "'M-O-128'" });
+    const technicians = await lot("0016-transports-routiers", "2026.5", "transports routiers", { niveau: "'M-T-175'" });
+    const managers = await lot("0016-transports-routiers", "2026.5", "transports routiers", { niveau: "'M-C-113'" });
+    near(workers.of(23).dismissal, 0, "under 2 years");
+    near(workers.of(24).dismissal, 0.2, "2 years");
+    near(workers.of(35).dismissal, 35 / 12 / 10, "under 3 years");
+    near(workers.of(years(3)).dismissal, 0.6, "3 years");
+    near(workers.of(years(10)).dismissal, 2, "10 years");
+    near(technicians.of(years(3)).dismissal, 0.9, "technician, 3 years");
+    near(technicians.of(years(10)).dismissal, 3, "technician, 10 years");
+    near(managers.of(35).dismissal, 0, "manager, under 3 years");
+    near(managers.of(years(10), { cadre: true }).dismissal, 4, "manager, 10 years");
+    for (const [seniority, months] of [[9, 0], [10, 0.5], [15, 1], [20, 1.5], [25, 2], [30, 2.5]] as const) {
+      near(workers.of(years(seniority)).voluntaryRetirement, months, `${seniority} years`);
+      near(workers.of(years(seniority)).forcedRetirement, months, `${seniority} years, forced`);
+    }
+    near(managers.of(years(10), { cadre: true }).voluntaryRetirement, 0.54, "manager, 10 years");
+    near(managers.of(years(30), { cadre: true }).voluntaryRetirement, 3, "manager, 30 years");
+  });
+
+  it("0573 commerces de gros and 0787 experts-comptables", async () => {
+    const wholesale = await lot("0573-commerces-de-gros", "2026.4", "commerces de gros");
+    near(wholesale.of(11).dismissal, 0, "under a year");
+    near(wholesale.of(12).dismissal, 0.2, "1 year");
+    near(wholesale.of(years(12)).dismissal, 2 + 2 / 3, "12 years");
+    near(wholesale.of(23).voluntaryRetirement, 0, "under 2 years");
+    near(wholesale.of(24).voluntaryRetirement, 0.2, "2 years");
+    near(wholesale.of(years(40)).voluntaryRetirement, 3, "capped at 3 months");
+    near(wholesale.of(years(10)).forcedRetirement, 1, "forced retirement");
+    const accountants = await lot("0787-experts-comptables", "2026.4", "experts-comptables");
+    near(accountants.of(59).voluntaryRetirement, 0, "under 5 years");
+    near(accountants.of(years(5)).voluntaryRetirement, 0.5, "5 years");
+    near(accountants.of(years(8)).voluntaryRetirement, 0.8, "8 years");
+    near(accountants.of(years(8)).dismissal, 0, "the law");
+  });
+
+  it("0843 boulangerie-pâtisserie artisanale: retirement by seniority", async () => {
+    const { of } = await lot("0843-boulangerie-patisserie-artisanale", "2026.4", "boulangerie-pâtisserie artisanale");
+    for (const [seniority, months] of [[9, 0], [10, 2], [15, 2.5], [20, 3], [25, 3.5], [30, 4], [39, 4.9], [40, 6]] as const) {
+      near(of(years(seniority)).voluntaryRetirement, months, `${seniority} years`);
+      near(of(years(seniority)).forcedRetirement, months, `${seniority} years, forced`);
+    }
+  });
+
+  it("1043 gardiens: the scale of article 16 and the categories A and B of article 17", async () => {
+    const b = await lot("1043-gardiens-concierges-employes-immeubles", "2026.6", "gardiens concierges et employés d'immeubles", { "catégorie": "'B'" });
+    const a = await lot("1043-gardiens-concierges-employes-immeubles", "2026.6", "gardiens concierges et employés d'immeubles", { "catégorie": "'A'" });
+    near(b.of(11).dismissal, 0, "under a year");
+    near(b.of(12).dismissal, 0.2, "1 year");
+    near(b.of(years(7)).dismissal, 1.4, "7 years");
+    near(b.of(years(19)).dismissal, 1.4 + 12 * (1 / 5 + 2 / 15), "19 years");
+    near(b.of(years(25)).dismissal, 1.4 + 12 * (1 / 5 + 2 / 15) + 6 * (1 / 5 + 2 / 15 + 1 / 10), "25 years");
+    near(b.of(years(7)).voluntaryRetirement, 1.4, "category B, voluntary retirement");
+    near(b.of(years(7)).forcedRetirement, 1.4, "category B, forced retirement");
+    near(a.of(years(10)).voluntaryRetirement, 0.5, "category A, 10 years");
+    near(a.of(years(30)).voluntaryRetirement, 2, "category A, 30 years");
+    near(a.of(years(7)).forcedRetirement, 1.4, "category A, forced retirement as the scale");
+  });
+
+  it("1266 restauration collective: scales of the employees and the managers", async () => {
+    const { of } = await lot("1266-restauration-collective", "2025.3", "restauration collective");
+    near(of(11).dismissal, 0, "under a year");
+    near(of(years(12)).dismissal, 2 + 2 / 3, "12 years");
+    near(of(years(12), { cadre: true }).dismissal, 1 + 4 / 3 + 2 / 3, "cadre, 12 years");
+    near(of(years(20), { cadre: true }).dismissal, 1 + 4 / 3 + 5 / 3 + 2, "cadre, 20 years");
+    for (const [seniority, months] of [[4, 0], [5, 0.5], [10, 1], [15, 1.5], [20, 2], [25, 2.5]] as const) {
+      near(of(years(seniority)).voluntaryRetirement, months, `${seniority} years`);
+      near(of(years(seniority)).forcedRetirement, months, `${seniority} years, forced`);
+    }
+    for (const [seniority, months] of [[5, 0.5], [10, 1], [15, 2], [20, 2.5], [25, 3]] as const) {
+      near(of(years(seniority), { cadre: true }).voluntaryRetirement, months, `cadre, ${seniority} years`);
+    }
+  });
+
+  it("1351 prévention et sécurité: retirement by category", async () => {
+    const operators = await lot("1351-prevention-securite", "2026.6", "prévention et sécurité", { "catégorie": "'exploitation'", coefficient: 120 });
+    const supervisors = await lot("1351-prevention-securite", "2026.6", "prévention et sécurité", { "catégorie": "'maîtrise'", coefficient: 175 });
+    const managers = await lot("1351-prevention-securite", "2026.6", "prévention et sécurité", { "catégorie": "'cadre'", coefficient: 270 });
+    near(operators.of(years(4)).voluntaryRetirement, 0, "under 5 years");
+    near(operators.of(years(5)).voluntaryRetirement, 0.5, "operator, 5 years");
+    near(operators.of(years(20)).voluntaryRetirement, 3, "operator, 20 years");
+    near(supervisors.of(years(10)).voluntaryRetirement, 1.5, "supervisor, 10 years");
+    near(supervisors.of(years(20)).voluntaryRetirement, 4, "supervisor, 20 years");
+    near(managers.of(years(5)).voluntaryRetirement, 1, "manager, 5 years");
+    near(managers.of(years(15)).voluntaryRetirement, 3, "manager, 15 years");
+    near(managers.of(years(15)).forcedRetirement, 3, "manager, forced");
+    near(operators.of(years(15)).dismissal, 0, "the law");
+  });
+
+  it("1413 travail temporaire: dismissal with the majoration at 50, and the end-of-career indemnity", async () => {
+    const { of } = await lot("1413-travail-temporaire", "2026.3", "travail temporaire");
+    near(of(23).dismissal, 0, "under 2 years");
+    near(of(24).dismissal, 0.2, "2 years");
+    near(of(years(4)).dismissal, 0.4, "4 years");
+    near(of(years(5)).dismissal, 1, "5 years");
+    near(of(years(12)).dismissal, 2.4, "12 years");
+    near(of(years(20)).dismissal, 4.5, "20 years");
+    near(of(years(12), { age: 50 }).dismissal, 2.88, "12 years, aged 50");
+    for (const [seniority, months] of [[4, 0], [5, 1], [10, 1.5], [15, 2], [20, 3], [30, 4]] as const) {
+      near(of(years(seniority)).voluntaryRetirement, months, `${seniority} years`);
+      near(of(years(seniority)).forcedRetirement, months, `${seniority} years, forced`);
+    }
+  });
+
+  it("1483 habillement: employees and managers", async () => {
+    const employees = await lot("1483-commerce-detail-habillement-textiles", "2026.7", "commerce de détail habillement", { niveau: "'3'" });
+    const managers = await lot("1483-commerce-detail-habillement-textiles", "2026.7", "commerce de détail habillement", { niveau: "'B'" });
+    near(employees.of(11).dismissal, 0, "under a year");
+    near(employees.of(years(12)).dismissal, 2 + 2 / 3, "employee, 12 years");
+    near(managers.of(years(4)).dismissal, 0.8, "manager, 4 years");
+    near(managers.of(years(5)).dismissal, 1, "manager, 5 years");
+    near(managers.of(years(6)).dismissal, 1.5, "manager, 6 years");
+    near(managers.of(years(20)).dismissal, 4 + 4 / 3, "manager, 20 years");
+    near(managers.of(years(20), { age: 51 }).dismissal, (4 + 4 / 3) * 1.25, "manager, aged 51 with 20 years");
+    near(managers.of(years(10), { age: 51 }).dismissal, 2.5, "manager, aged 51 with under 15 years");
+    for (const [seniority, months] of [[9, 0], [10, 1], [15, 1.5], [20, 2], [25, 2.5], [30, 3]] as const) {
+      near(employees.of(years(seniority)).voluntaryRetirement, months, `employee, ${seniority} years`);
+    }
+    for (const [seniority, months] of [[7, 0], [8, 1], [10, 1.5], [15, 2.5], [20, 3.5], [25, 5]] as const) {
+      near(managers.of(years(seniority)).voluntaryRetirement, months, `manager, ${seniority} years`);
+    }
+    near(managers.of(years(10)).forcedRetirement, 1.5, "manager, forced");
+  });
+
+  it("1505, 1527, 1606: retirement and dismissal indemnities", async () => {
+    const food = await lot("1505-commerce-detail-alimentaire-non-specialise", "2026.7", "commerce de détail alimentaire non spécialisé");
+    near(food.of(23).voluntaryRetirement, 0, "under 2 years");
+    near(food.of(years(10)).voluntaryRetirement, 1, "10 years");
+    near(food.of(years(40)).voluntaryRetirement, 3, "capped at 3 months");
+    const realEstate = await lot("1527-immobilier", "2026.4", "immobilier");
+    for (const [seniority, months] of [[4, 0], [5, 0.6], [6, 0.6], [7, 0.8], [9, 1], [17, 1.8], [19, 2.1], [34, 4.2], [35, 4.5], [40, 4.5]] as const) {
+      near(realEstate.of(years(seniority)).voluntaryRetirement, months, `${seniority} years`);
+    }
+    const diy = await lot("1606-bricolage", "2025.4", "bricolage");
+    near(diy.of(11).dismissal, 0, "under a year");
+    near(diy.of(12).dismissal, 0.24, "1 year");
+    near(diy.of(years(10)).dismissal, 2.4, "10 years");
+    near(diy.of(years(10), { cadre: true, age: 50 }).dismissal, 3.6, "manager aged 50, +50 %");
+    near(diy.of(years(10), { cadre: true, age: 49 }).dismissal, 2.4, "manager aged 49");
+    near(diy.of(years(10)).voluntaryRetirement, 1.2, "10 years");
+    near(diy.of(years(10), { cadre: true }).voluntaryRetirement, 1.8, "manager, +50 %");
+  });
+
+  it("1672 assurances, 2098 prestataires tertiaires, 2511 sport, 2941 aide et soins à domicile", async () => {
+    const insurance = await lot("1672-societes-assurances", "2026.6", "sociétés assurances");
+    near(insurance.of(36).dismissal, 0, "3 years or less");
+    near(insurance.of(37).dismissal, (37 / 12) * 12 * 0.025, "37 months");
+    near(insurance.of(years(10)).dismissal, 10 * 12 * 0.03, "10 years");
+    near(insurance.of(years(10), { age: 50 }).dismissal, 10 * 12 * 0.035, "10 years, aged 50");
+    near(insurance.of(years(25)).dismissal, 25 * 12 * 0.035, "25 years");
+    near(insurance.of(years(30)).dismissal, 30 * 12 * 0.04, "30 years");
+    near(insurance.of(years(9)).voluntaryRetirement, 0, "under 10 years");
+    near(insurance.of(years(20)).voluntaryRetirement, 2, "20 years");
+    near(insurance.of(23).forcedRetirement, 0, "under 2 years");
+    near(insurance.of(years(12)).forcedRetirement, 1 + 2 / 3 * 0.5, "12 years");
+    const services = await lot("2098-prestataires-tertiaire", "2026.4", "prestataires tertiaires");
+    near(services.of(23).dismissal, 0, "under 2 years");
+    near(services.of(24).dismissal, 0.2, "2 years");
+    near(services.of(years(10)).dismissal, 0.5 + 5 / 7, "10 years");
+    near(services.of(years(20)).dismissal, 0.5 + 5 / 7 + 2, "20 years");
+    near(services.of(years(30)).dismissal, 0.5 + 5 / 7 + 2 + 2.5, "30 years");
+    near(services.of(years(50)).dismissal, 12, "capped at a year of salary");
+    near(services.of(years(20)).voluntaryRetirement, (0.5 + 5 / 7 + 2) / 2, "20 years, 50 % abatement");
+    near(services.of(years(20)).forcedRetirement, (0.5 + 5 / 7 + 2) / 2, "forced retirement");
+    const sport = await lot("2511-sport", "2026.6", "branche du sport");
+    near(sport.of(7).dismissal, 0, "under 8 months");
+    near(sport.of(years(12)).dismissal, 10 / 4 + 2 / 3, "12 years");
+    for (const [seniority, months] of [[9, 0], [10, 1.5], [15, 2], [20, 4], [30, 5]] as const) {
+      near(sport.of(years(seniority)).voluntaryRetirement, months, `${seniority} years`);
+    }
+    near(sport.of(years(5)).forcedRetirement, 1.25, "forced retirement: the dismissal indemnity");
+    near(sport.of(years(10)).forcedRetirement, 2.5, "forced retirement: the dismissal indemnity");
+    const homeCare = await lot("2941-aide-soins-domicile", "2026.3", "aide et soins à domicile");
+    near(homeCare.of(7).dismissal, 0, "under 8 months");
+    near(homeCare.of(years(12)).dismissal, 10 / 4 + 2 / 3, "12 years");
+    near(homeCare.of(years(12)).conventionalTermination, 10 / 4 + 2 / 3, "conventional termination (article 28)");
+    near(homeCare.of(23).forcedRetirement, 0, "under 2 years");
+    near(homeCare.of(years(12)).forcedRetirement, 2 + 2 * (1 / 5 + 2 / 15) , "12 years");
+    for (const [seniority, months] of [[4, 0], [5, 0.5], [10, 1], [15, 1.5], [20, 2], [25, 2.5], [30, 3]] as const) {
+      near(homeCare.of(years(seniority)).voluntaryRetirement, months, `${seniority} years`);
+    }
+  });
+});

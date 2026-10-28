@@ -36,3 +36,5 @@ Cette version ne modélise pas les compléments dépendant d'annexes sectorielle
 ## Maintien de salaire
 
 La révision 2026.3 ajoute le maintien de salaire conventionnel (article 18.1 B) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. La levée de la carence en cas d’hospitalisation n’est pas reprise ; la maternité reçoit les mêmes durées, sans carence.
+
+La révision 2026.4 ajoute l'indemnité de licenciement (article 19.2) et les indemnités de départ et de mise à la retraite (article 19.3), sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. Aucun montant propre pour la rupture conventionnelle.

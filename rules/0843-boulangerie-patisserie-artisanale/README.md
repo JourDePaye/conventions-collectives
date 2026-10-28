@@ -38,3 +38,5 @@ Tous les taux horaires sont supérieurs au SMIC horaire de 12,31 € en vigueur 
 ## Maintien de salaire
 
 La révision 2026.3 ajoute le maintien de salaire conventionnel (article 37.1) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. L’ancienneté dans la profession est prise dans l’entreprise (reprise d’ancienneté comprise) ; le point de départ au 4e jour d’une affection de longue durée ou d’un accident de la vie privée de plus de 45 jours n’est pas repris.
+
+La révision 2026.4 ajoute l'indemnité de départ ou de mise à la retraite (article 34), sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. Le texte compte l'ancienneté dans la profession : l'ancienneté dans l'entreprise, seule connue, peut être inférieure. L'indemnité de licenciement relève de la loi.

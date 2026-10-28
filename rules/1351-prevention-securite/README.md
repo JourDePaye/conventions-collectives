@@ -29,3 +29,5 @@ Les congés, absences, jours fériés, autres primes propres à certains métier
 ## Maintien de salaire
 
 La révision 2026.5 ajoute le maintien de salaire conventionnel (annexes IV, V et VI) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. Le cycle de 12 mois est pris comme 12 mois glissants ; la catégorie est l’entrée `catégorie`.
+
+La révision 2026.6 ajoute l'indemnité de départ à la retraite des annexes IV, V et VI, sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. Aucune indemnité de licenciement conventionnelle propre n'a été trouvée.

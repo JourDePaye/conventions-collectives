@@ -21,3 +21,5 @@ Les ECR de tutorat, apprentissage et astreinte sont exposés séparément, avec 
 ## Maintien de salaire
 
 La révision 2026.2 ajoute le maintien de salaire conventionnel (titre VIII, A, article 1er) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package.
+
+La révision 2026.3 ajoute les indemnités de licenciement, de rupture conventionnelle et de départ ou de mise à la retraite (articles 26, 28 et 29), sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence.

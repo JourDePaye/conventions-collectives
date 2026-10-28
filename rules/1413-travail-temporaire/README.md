@@ -19,3 +19,5 @@ La version [2026.1](1413-travail-temporaire.2026.1.publicodes) prend effet le **
 ## Maintien de salaire
 
 La révision 2026.2 ajoute le maintien de salaire conventionnel (articles 13 et 14) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. La seconde période (3/4 de la rémunération brute déduction faite des cotisations) est prise comme 75 % du net ; la neutralisation de la franchise pour les arrêts de 60 jours et plus n’est pas reprise.
+
+La révision 2026.3 ajoute l'indemnité de licenciement (article 7.2) et l'indemnité de fin de carrière (article 7.3) du personnel permanent, sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. La condition liée au droit à pension du licenciement n'est pas reprise.

@@ -31,3 +31,5 @@ Les catégories 1 à 4 (de 1 828 € à 1 857 €), sans prime d’ancienneté, 
 ## Maintien de salaire
 
 La révision 2026.6 ajoute le maintien de salaire conventionnel (articles 27 et 13) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. Le personnel d’encadrement est celui des niveaux A1, A2, B, C et D.
+
+La révision 2026.7 ajoute les indemnités de licenciement (articles 17 et 11) et l'allocation de fin de carrière (articles 19 et 12), sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. L'âge de 60 ans du départ volontaire à la retraite n'est pas repris.

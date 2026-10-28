@@ -26,3 +26,5 @@ Les niveaux `E1`, `E2` et `E3` (de 1 851,55 € à 1 864,44 €) sont inférieur
 ## Maintien de salaire
 
 La révision 2026.6 ajoute le maintien de salaire conventionnel (articles 40.1 et 40.2) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. La levée de la carence en cas d’hospitalisation n’est pas reprise ; la moyenne des 3 derniers mois est prise comme le brut qu’aurait perçu le salarié.
+
+La révision 2026.7 ajoute l'indemnité de départ à la retraite (article 23.4.1), sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. Les indemnités de licenciement et de mise à la retraite reprennent le barème légal.

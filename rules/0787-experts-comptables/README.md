@@ -44,3 +44,5 @@ Le champ d'application de la convention est fusionné avec celui des association
 ## Maintien de salaire
 
 La révision 2026.3 ajoute le maintien de salaire conventionnel (article 7.3) sous `maintien de salaire`, lu sur Légifrance le 24 octobre 2026 : les durées, taux, carences et modalités sont dans les sources de la version et dans `test/salary-maintenance-2.test.ts`. L’interface est décrite dans le README du package. Les 30 jours par arrêt et par année civile, carence comprise, sont pris comme 27 jours indemnisés par année civile.
+
+La révision 2026.4 ajoute l'indemnité de fin de carrière du départ volontaire (article 6.2.4.1), sous `indemnité de rupture`, lus sur Légifrance le 28 octobre 2026 : les barèmes, seuils d'ancienneté et plafonds sont dans les sources de la version et dans `test/termination-indemnity.test.ts`, en mois de salaire de référence. L'indemnité de licenciement et la mise à la retraite renvoient à la loi ; la majoration de 1/10 de mois est lue par année complète au-delà de la cinquième.

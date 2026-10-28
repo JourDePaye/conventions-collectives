@@ -1,0 +1,306 @@
+# Convention collective nationale des salariés permanents des entreprises de travail temporaire (IDCC 1413, brochure 3212).
+# Version 2026.1, minima mensuels de l’accord du 20 février 2026.
+# Révision 2026.2 : ajoute à la version 2026.1, à date d'effet identique, l'indemnisation des
+# absences pour maladie ou accident (article 13) et de la maternité et de l'adoption (article 14).
+# Révision 2026.3 : ajoute à la version 2026.2, à date d'effet identique, l'indemnité de licenciement de l'article 7.2 et l'indemnité de fin de carrière de l'article 7.3, décrites par
+# les règles `indemnité de rupture`.
+validFrom: 2026-02-01
+extension: 2026-05-10
+sources:
+  - >-
+    Accord du 20 février 2026 relatif aux salaires minima conventionnels des salariés permanents
+    des entreprises de travail temporaire : montants mensuels des niveaux A à M et minimum majoré
+    du niveau F en forfait jours, applicables aux périodes d’emploi courant à compter du 1er février 2026.
+    https://www.legifrance.gouv.fr/conv_coll/id/KALICONT000005635905
+  - >-
+    Arrêté du 4 mai 2026 portant extension de l’accord du 20 février 2026, publié au Journal
+    officiel du 10 mai 2026 : extension à tous les employeurs et salariés compris dans le champ
+    propre de l’accord. https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000054051082
+  - >-
+    Accord du 20 février 2026 relatif aux salaires minima conventionnels des salariés permanents, étendu par arrêté du 4 mai 2026 (JORF du 10 mai 2026). Texte officiel lu sur Légifrance le 22 octobre 2026, montants des règles vérifiés sur ce texte :
+    https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000054262470
+  - >-
+    Accord national du 23 janvier 1986 relatif aux salariés permanents, articles 13.1 et 14, lus sur
+    Légifrance le 24 octobre 2026 (KALISCTA000005692351, KALISCTA000005692352) : après 1 an d'ancienneté au
+    jour de l'arrêt, 6 mois pour un accident du travail ou une maladie professionnelle ; 30 jours
+    calendaires de la rémunération qu'aurait perçue le salarié, puis 30 jours aux 3/4 de la rémunération
+    brute déduction faite des cotisations (pris ici comme 100 % puis 75 % du net), le premier temps
+    augmenté de 15 jours et le second de 10 jours par période entière de 5 ans, 90 jours au plus chacun ;
+    sur l'année civile ; franchise de 6 jours pour la maladie (sa neutralisation pour les arrêts de 60
+    jours et plus n'est pas reprise), aucune pour l'accident du travail ou la maladie professionnelle ;
+    au plus le net ; maternité et adoption, salaire net maintenu pendant la période légale sous
+    déduction des indemnités journalières : https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000005692351
+  - >-
+    Article 7 de l'accord du 23 janvier 1986 relatif aux salariés permanents des entreprises de travail temporaire (KALISCTA000005692345, KALIARTI000005772001), étendu : indemnité de licenciement
+    de 1/10 de mois par année de 2 à 5 ans d'ancienneté puis 1/5 de mois par année entière, plus 1/10 au-delà de 15 ans, majorée de 20 % à 50 ans ; indemnité de fin de carrière de 1 mois à 5 ans à 4 mois à 30 ans,
+    jamais inférieure à l'indemnité légale de licenciement. Textes lus sur Légifrance le 28 octobre 2026 : https://www.legifrance.gouv.fr/conv_coll/id/KALISCTA000005692345
+---
+salarié . convention collective . travail temporaire:
+  titre: Salariés permanents des entreprises de travail temporaire (IDCC 1413)
+  valeur: convention collective = 'travail temporaire'
+
+salarié . convention collective . travail temporaire . niveau:
+  titre: Niveau de classification
+  description: Niveau de classification de A à M prévu par l’accord du 19 juillet 2024.
+  applicable si: convention collective = 'travail temporaire'
+  par défaut: "'non renseigné'"
+
+salarié . convention collective . travail temporaire . forfait jours:
+  titre: Forfait en jours sur l’année
+  description: Active le minimum majoré applicable au niveau F lorsqu’une convention de forfait en jours est conclue.
+  applicable si: convention collective = 'travail temporaire'
+  par défaut: non
+
+salarié . convention collective . travail temporaire . salaire minimum conventionnel:
+  titre: Salaire minimum mensuel conventionnel
+  description: Minimum mensuel brut à temps complet sur la base de la durée mensuelle légale du travail, proratisé selon la quotité de travail.
+  applicable si: convention collective = 'travail temporaire'
+  unité: €/mois
+  produit:
+    - grille mensuelle
+    - contrat . temps de travail . quotité
+
+salarié . convention collective . travail temporaire . grille mensuelle:
+  titre: Grille mensuelle à temps complet
+  description: Minima conventionnels applicables à compter du 1er février 2026. Le niveau F en forfait jours bénéficie du minimum majoré de 2 517 €.
+  applicable si: convention collective = 'travail temporaire'
+  unité: €/mois
+  variations:
+    - si: niveau = 'A'
+      alors: 1836 €/mois
+    - si: niveau = 'B'
+      alors: 1859 €/mois
+    - si: niveau = 'C'
+      alors: 1896 €/mois
+    - si: niveau = 'D'
+      alors: 1967 €/mois
+    - si: niveau = 'E'
+      alors: 2013 €/mois
+    - si:
+        toutes ces conditions:
+          - niveau = 'F'
+          - forfait jours
+      alors: 2517 €/mois
+    - si: niveau = 'F'
+      alors: 2288 €/mois
+    - si: niveau = 'G'
+      alors: 2547 €/mois
+    - si: niveau = 'H'
+      alors: 2948 €/mois
+    - si: niveau = 'I'
+      alors: 3358 €/mois
+    - si: niveau = 'J'
+      alors: 3759 €/mois
+    - si: niveau = 'K'
+      alors: 4418 €/mois
+    - si: niveau = 'L'
+      alors: 5077 €/mois
+    - si: niveau = 'M'
+      alors: 5666 €/mois
+    - sinon: 0 €/mois
+
+salarié . convention collective . travail temporaire . niveau hors grille:
+  titre: Niveau absent de la grille
+  description: Le niveau n’est pas compris entre A et M.
+  applicable si: convention collective = 'travail temporaire'
+  valeur:
+    toutes ces conditions:
+      - grille mensuelle = 0 €/mois
+
+salarié . convention collective . travail temporaire . maintien de salaire:
+  titre: Maintien de salaire conventionnel
+  description: |
+    Indemnisation complémentaire de l'employeur pendant une absence (articles 13 et 14). JourDePaye
+    renseigne le motif et l'ancienneté de chaque absence, lit les durées, taux et modalités
+    ci-dessous, et retient pour chaque arrêt le plus favorable du maintien légal et du maintien
+    conventionnel.
+  applicable si: convention collective = 'travail temporaire'
+
+salarié . convention collective . travail temporaire . maintien de salaire . motif:
+  titre: Motif de l'absence
+  description: |
+    maladie, accident du travail (y compris la maladie professionnelle), accident de trajet,
+    maternité, paternité ou adoption.
+  par défaut: "'maladie'"
+
+salarié . convention collective . travail temporaire . maintien de salaire . ancienneté:
+  titre: Ancienneté dans l'entreprise
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . travail temporaire . maintien de salaire . première période:
+  titre: Première période d'indemnisation
+
+salarié . convention collective . travail temporaire . maintien de salaire . seconde période:
+  titre: Seconde période d'indemnisation
+
+salarié . convention collective . travail temporaire . maintien de salaire . parentalité:
+  valeur:
+    une de ces conditions:
+        - motif = 'maternité'
+        - motif = 'adoption'
+
+salarié . convention collective . travail temporaire . maintien de salaire . éligible:
+  titre: Droit au maintien
+  variations:
+    - si: parentalité
+      alors: oui
+    - si: motif = 'paternité'
+      alors: non
+    - si: motif = 'accident du travail'
+      alors: ancienneté >= 6 mois
+    - sinon: ancienneté >= 12 mois
+
+salarié . convention collective . travail temporaire . maintien de salaire . ancienneté en cours d'absence:
+  valeur: non
+
+salarié . convention collective . travail temporaire . maintien de salaire . carence:
+  unité: jour
+  variations:
+    - si:
+        une de ces conditions:
+          - parentalité
+          - motif = 'accident du travail'
+      alors: 0 jour
+    - sinon: 6 jour
+
+salarié . convention collective . travail temporaire . maintien de salaire . première période . durée:
+  unité: jour
+  variations:
+    - si: parentalité
+      alors: 365 jour
+    - sinon:
+        variations:
+          - si: ancienneté >= 240 mois
+            alors: 90 jour
+          - si: ancienneté >= 180 mois
+            alors: 75 jour
+          - si: ancienneté >= 120 mois
+            alors: 60 jour
+          - si: ancienneté >= 60 mois
+            alors: 45 jour
+          - sinon: 30 jour
+
+salarié . convention collective . travail temporaire . maintien de salaire . première période . taux:
+  unité: '%'
+  valeur: 100%
+
+salarié . convention collective . travail temporaire . maintien de salaire . seconde période . durée:
+  unité: jour
+  variations:
+    - si: parentalité
+      alors: 0 jour
+    - sinon:
+        variations:
+          - si: ancienneté >= 360 mois
+            alors: 90 jour
+          - si: ancienneté >= 300 mois
+            alors: 80 jour
+          - si: ancienneté >= 240 mois
+            alors: 70 jour
+          - si: ancienneté >= 180 mois
+            alors: 60 jour
+          - si: ancienneté >= 120 mois
+            alors: 50 jour
+          - si: ancienneté >= 60 mois
+            alors: 40 jour
+          - sinon: 30 jour
+
+salarié . convention collective . travail temporaire . maintien de salaire . seconde période . taux:
+  unité: '%'
+  valeur: 75%
+
+salarié . convention collective . travail temporaire . maintien de salaire . fenêtre:
+  valeur:
+    variations:
+      - si: parentalité
+        alors: "'arrêt'"
+      - sinon: "'année civile'"
+
+salarié . convention collective . travail temporaire . maintien de salaire . base:
+  valeur: "'net'"
+
+salarié . convention collective . travail temporaire . maintien de salaire . plafond net:
+  valeur: non
+
+salarié . convention collective . travail temporaire . indemnité de rupture:
+  titre: Indemnités de rupture du contrat de travail
+  description: >-
+    Indemnité de licenciement (article 7.2) et indemnité de fin de carrière (article 7.3) du personnel permanent des entreprises de travail temporaire, en mois de salaire (1/12 de la rémunération des 12 derniers mois ou 1/3 de celle des 3 derniers mois, la plus favorable, les primes annuelles ou exceptionnelles au prorata). L'application renseigne l'ancienneté et l'âge à la fin du contrat, lit les mois ci-dessous, les multiplie par ce salaire et retient le plus élevé de ce montant et de l'indemnité légale. La condition d'âge liée au droit à pension du licenciement n'est pas reprise.
+  applicable si: convention collective = 'travail temporaire'
+
+salarié . convention collective . travail temporaire . indemnité de rupture . ancienneté:
+  titre: Ancienneté à la fin du contrat
+  unité: mois
+  par défaut: 0 mois
+
+salarié . convention collective . travail temporaire . indemnité de rupture . âge:
+  titre: Âge à la fin du contrat
+  unité: an
+  par défaut: 0 an
+
+salarié . convention collective . travail temporaire . indemnité de rupture . années:
+  titre: Ancienneté en années
+  description: >-
+    Les mois complets au-delà des années entières comptent pour 1/12 d'année.
+  valeur: ancienneté / 12 mois
+
+salarié . convention collective . travail temporaire . indemnité de rupture . années complètes:
+  titre: Années complètes d'ancienneté
+  valeur: années - 0.5
+  arrondi: oui
+
+salarié . convention collective . travail temporaire . indemnité de rupture . barème:
+  titre: Barème de l'article 7.2
+  description: >-
+    De 2 ans révolus à 5 ans d'ancienneté, 1/10 de mois par année ; à partir de 5 ans révolus, 1/5 de mois par année entière, plus 1/10 de mois par année entière au-delà de 15 ans.
+  variations:
+    - si: ancienneté < 60 mois
+      alors: années / 10
+    - sinon:
+        barème:
+          assiette: années complètes
+          tranches:
+            - taux: 20%
+              plafond: 15
+            - taux: 30%
+
+salarié . convention collective . travail temporaire . indemnité de rupture . licenciement:
+  titre: Indemnité de licenciement
+  description: >-
+    À partir de 2 ans d'ancienneté, hors faute grave ou lourde, majorée de 20 % pour un salarié de 50 ans à la fin du préavis (article 7.2).
+  variations:
+    - si: ancienneté < 24 mois
+      alors: 0
+    - si: âge >= 50 an
+      alors: barème * 1.2
+    - sinon: barème
+
+salarié . convention collective . travail temporaire . indemnité de rupture . rupture conventionnelle:
+  titre: Indemnité de rupture conventionnelle
+  description: >-
+    La convention ne fixe pas de montant propre, l'indemnité légale s'applique.
+  valeur: 0
+
+salarié . convention collective . travail temporaire . indemnité de rupture . départ volontaire:
+  titre: Indemnité de fin de carrière
+  description: >-
+    1 mois après 5 ans d'ancienneté, 1 mois et demi après 10 ans, 2 mois après 15 ans, 3 mois après 20 ans, 4 mois après 30 ans, jamais moins que l'indemnité légale (article 7.3).
+  variations:
+    - si: ancienneté >= 30 an
+      alors: 4
+    - si: ancienneté >= 20 an
+      alors: 3
+    - si: ancienneté >= 15 an
+      alors: 2
+    - si: ancienneté >= 10 an
+      alors: 1.5
+    - si: ancienneté >= 5 an
+      alors: 1
+    - sinon: 0
+
+salarié . convention collective . travail temporaire . indemnité de rupture . mise à la retraite:
+  titre: Indemnité de mise à la retraite
+  description: >-
+    La même indemnité de fin de carrière (article 7.3, A).
+  valeur: départ volontaire
