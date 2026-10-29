@@ -1,6 +1,6 @@
 # Promotion immobilière — IDCC 1512
 
-Modèle `1512-promotion-immobiliere`, version `2026.5`, espace de noms
+Modèle `1512-promotion-immobiliere`, version `2026.6`, espace de noms
 `salarié . convention collective . promotion immobilière`.
 
 ## Périmètre
@@ -10,6 +10,8 @@ La version `2026.3` reprend la version `2026.2` à l'identique, à la même date
 La version `2026.4` reprend `2026.3` à la même date et corrige les taux de prévoyance : `2026.2` et `2026.3` appliquaient les taux d'appel réduits que l'article 2.3.1 de l'accord du 23 octobre 2024 ([KALITEXT000050792995](https://www.legifrance.gouv.fr/conv_coll/id/KALITEXT000050792995)) ne fixe que du 1er janvier au 31 décembre 2025 ; en 2026, ce sont les taux contractuels de ses tableaux, que l'avenant n° 1 du 20 octobre 2025 ne modifie pas.
 
 La version `2026.5` reprend `2026.4` à la même date et corrige l'assiette de la prévoyance (article 2.3.1 de l'accord) : le salaire de base brut soumis aux cotisations de sécurité sociale, rémunération variable et primes brutes comprises (le modèle prend l'assiette des cotisations, sans retirer les avantages en nature que l'accord exclut), et non plus le seul salaire de base du contrat ; la limite de quatre plafonds ne vaut que pour les non-cadres, la tranche 2 des cadres allant jusqu'à huit plafonds (tranche 2 de l'Agirc-Arrco, l'accord n'en donnant pas la borne). Les plafonds sont proratisés selon le temps de travail.
+
+La version `2026.6` reprend `2026.5` à la même date et aux mêmes taux, et change la forme de la complémentaire santé : ses règles `santé . montant` et `santé . taux employeur` remplacent le montant et la part employeur de modele-social (`santé . montant` et `santé . taux employeur`) plutôt que ses parts employeur et salarié : une application peut y saisir le montant ou la part de l'entreprise (`test/health-insurance-scheme.test.ts`).
 
 Toutes les versions déclarent l'extension de l'avenant n° 51, publiée le 9 juin 2026 : avant, elles ne lient que les adhérents d'une organisation signataire, le package n'ayant pas l'avenant n° 50 de 2025.
 
